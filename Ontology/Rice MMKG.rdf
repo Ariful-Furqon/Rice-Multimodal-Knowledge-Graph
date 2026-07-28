@@ -1,0 +1,697 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8/"
+     xml:base="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:untitled-ontology-8="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#captures -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#captures">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#causes -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#causes">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#controlledBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#controlledBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#detects -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#detects">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#increaseRiskOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#increaseRiskOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#indicatedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#indicatedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#occursIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#occursIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#preventedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#preventedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#recommends -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#recommends">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#requires -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#requires">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#vulnerableTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#vulnerableTo">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#confidenceScore -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#confidenceScore">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#humidityValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#humidityValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#interventionThreshold -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#interventionThreshold">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#observationDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#observationDate">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#rainfallValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#rainfallValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#severityScore -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#severityScore">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#soilMoistureValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#soilMoistureValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#temperatureValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#temperatureValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Disease -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Disease"/>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#EnvironmentalFactor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#EnvironmentalFactor"/>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#GrowthStage -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#GrowthStage"/>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#ManagementAction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#ManagementAction"/>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Observation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Observation"/>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Pathogen -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Pathogen"/>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Pest -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Pest"/>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Plant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Plant"/>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#SeverityLevel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#SeverityLevel"/>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Symptom -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Symptom"/>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Treatment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Treatment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Armyworm -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Armyworm">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Pest"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Bacterial_Leaf_Blight -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Bacterial_Leaf_Blight">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Disease"/>
+        <untitled-ontology-8:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Crop_Rotation"/>
+        <untitled-ontology-8:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Water_Management"/>
+        <untitled-ontology-8:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Dry_Leaf_Tip"/>
+        <untitled-ontology-8:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Yellow_Leaf"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Biological_Control -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Biological_Control">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Treatment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Brown_Lesion -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Brown_Lesion">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Symptom"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Brown_Planthopper -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Brown_Planthopper">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Pest"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Brown_Spot -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Brown_Spot">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Disease"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Critical_Severity -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Critical_Severity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#SeverityLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Crop_Rotation -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Crop_Rotation">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Treatment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Disease_Report -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Disease_Report">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Observation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Dry_Leaf_Tip -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Dry_Leaf_Tip">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Symptom"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Excessive_Nitrogen -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Excessive_Nitrogen">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#EnvironmentalFactor"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Farmer_Report -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Farmer_Report">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Observation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Field_Inspection -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Field_Inspection">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#ManagementAction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Field_Observation -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Field_Observation">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Observation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Flowering_Stage -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Flowering_Stage">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#GrowthStage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Fungicide_Application -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Fungicide_Application">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Treatment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Harvest_Stage -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Harvest_Stage">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#GrowthStage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#High_Humidity -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#High_Humidity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#EnvironmentalFactor"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#High_Severity -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#High_Severity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#SeverityLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#High_Temperature -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#High_Temperature">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#EnvironmentalFactor"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Immediate_Intervention -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Immediate_Intervention">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#ManagementAction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Leaf_Folder -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Leaf_Folder">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Pest"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Leaf_Image -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Leaf_Image">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Observation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Leaf_Spot -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Leaf_Spot">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Symptom"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Low_Rainfall -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Low_Rainfall">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#EnvironmentalFactor"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Low_Severity -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Low_Severity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#SeverityLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Magnaporthe_Oryzae -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Magnaporthe_Oryzae">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Pathogen"/>
+        <untitled-ontology-8:causes rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Rice_Blast_Disease"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Maturity_Stage -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Maturity_Stage">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#GrowthStage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Medium_Severity -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Medium_Severity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#SeverityLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Monitoring -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Monitoring">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#ManagementAction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#No_Action_Needed -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#No_Action_Needed">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#ManagementAction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Poor_Soil_Drainage -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Poor_Soil_Drainage">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#EnvironmentalFactor"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Preventive_Action -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Preventive_Action">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#ManagementAction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Resistant_Variety -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Resistant_Variety">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Treatment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Rice -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Rice">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Plant"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Rice_Blast_Disease -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Rice_Blast_Disease">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Disease"/>
+        <untitled-ontology-8:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Biological_Control"/>
+        <untitled-ontology-8:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Water_Management"/>
+        <untitled-ontology-8:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Brown_Lesion"/>
+        <untitled-ontology-8:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Brown_Spot"/>
+        <untitled-ontology-8:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Leaf_Spot"/>
+        <untitled-ontology-8:preventedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Resistant_Variety"/>
+        <untitled-ontology-8:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Fungicide_Application"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Rice_Bug -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Rice_Bug">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Pest"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Seedling_Stage -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Seedling_Stage">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#GrowthStage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Sensor_Reading -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Sensor_Reading">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Observation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Sheath_Blight -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Sheath_Blight">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Disease"/>
+        <untitled-ontology-8:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Fungicide_Application"/>
+        <untitled-ontology-8:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Stem_Rot_Symptom"/>
+        <untitled-ontology-8:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Wilting"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Stem_Borer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Stem_Borer">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Pest"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Stem_Rot_Symptom -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Stem_Rot_Symptom">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Symptom"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Vegetative_Stage -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Vegetative_Stage">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#GrowthStage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Water_Management -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Water_Management">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Treatment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Wilting -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Wilting">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Symptom"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Xanthomonas_Oryzae -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Xanthomonas_Oryzae">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Pathogen"/>
+        <untitled-ontology-8:causes rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Bacterial_Leaf_Blight"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Yellow_Leaf -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Yellow_Leaf">
+        <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Symptom"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Disease"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#EnvironmentalFactor"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#GrowthStage"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#ManagementAction"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Observation"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Pathogen"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Pest"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Plant"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#SeverityLevel"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Symptom"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/untitled-ontology-8#Treatment"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
