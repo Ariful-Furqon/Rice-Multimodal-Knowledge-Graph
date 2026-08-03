@@ -14,7 +14,7 @@ Rice MMKG links agronomic and entomological knowledge about rice cultivation int
 
 ## Ontology structure
 
-### Classes (11)
+### Classes (12)
 
 | Class | Description |
 |---|---|
@@ -25,6 +25,7 @@ Rice MMKG links agronomic and entomological knowledge about rice cultivation int
 | `Symptom` | Observable signs, e.g. Leaf Spot, Leaf Rolling, Deadheart, Hopper Burn |
 | `EnvironmentalFactor` | Conditions, e.g. High Humidity, High Temperature, Low Rainfall, Excessive Nitrogen |
 | `GrowthStage` | Crop stages, e.g. Seedling, Vegetative, Flowering, Maturity, Harvest |
+| `HealthStatus` | Non-disease condition, e.g. Normal / Healthy |
 | `SeverityLevel` | Low, Medium, High, Critical |
 | `Treatment` | Interventions, e.g. Fungicide/Insecticide Application, Biological Control, Resistant Variety |
 | `ManagementAction` | Recommended actions, e.g. Field Inspection, Monitoring, Immediate Intervention |
@@ -36,13 +37,32 @@ Relations connect the classes above, each with a defined inverse:
 
 `causes`/`causedBy`, `threatens`, `indicates`/`indicatedBy`, `controls`/`controlledBy`, `prevents`/`preventedBy`, `recommends`/`recommendedFor`, `requires`/`requiredFor`, `captures`/`capturedBy`, `detects`/`detectedBy`, `occursIn`, `hasOccurrenceOf`, `increaseRiskOf`/`riskIncreasedBy`, `vulnerableTo`
 
-### Data properties (8)
+### Data properties (9)
 
-`confidenceScore`, `severityScore`, `interventionThreshold`, `observationDate`, `temperatureValue`, `humidityValue`, `rainfallValue`, `soilMoistureValue`
+`confidenceScore`, `severityScore`, `interventionThreshold`, `observationDate`, `temperatureValue`, `humidityValue`, `rainfallValue`, `soilMoistureValue`, `sourceDatasetLabel`
 
 ### Individuals
 
-54 named individuals populate the schema across diseases, pests, pathogens, symptoms, environmental factors, treatments, and observations. Relations for `captures`, `detects`, `increaseRiskOf`, `occursIn`, `requires`, and `vulnerableTo` are illustrative examples based on general rice agronomy/entomology knowledge and should be verified against domain literature before being used for reasoning or publication.
+60 named individuals populate the schema across diseases, pests, pathogens, symptoms, environmental factors, treatments, and observations. Relations for `captures`, `detects`, `increaseRiskOf`, `occursIn`, `requires`, and `vulnerableTo` are illustrative examples based on general rice agronomy/entomology knowledge and should be verified against domain literature before being used for reasoning or publication.
+
+### Paddy Doctor alignment
+
+The local Paddy Doctor image dataset is deliberately excluded from Git (`/Data/`). Its folder labels are preserved in the ontology through `sourceDatasetLabel`, so data ingestion can create traceable KG assertions without relying on folder names as ontology identifiers.
+
+| Paddy Doctor label | Rice MMKG entity | Semantic type |
+|---|---|---|
+| `bacterial_leaf_blight` | `Bacterial_Leaf_Blight` | Disease |
+| `bacterial_leaf_streak` | `Bacterial_Leaf_Streak` | Disease |
+| `bacterial_panicle_blight` | `Bacterial_Panicle_Blight` | Disease |
+| `blast` | `Rice_Blast_Disease` | Disease |
+| `brown_spot` | `Brown_Spot` | Disease |
+| `downy_mildew` | `Downy_Mildew` | Disease |
+| `tungro` | `Rice_Tungro_Disease` | Disease |
+| `hispa` | `Hispa` | Pest |
+| `dead_heart` | `Deadheart` | Symptom |
+| `normal` | `Normal_Health` | HealthStatus |
+
+Dataset labels support class alignment only. Causal, symptom, treatment, and risk relations for new entities should be added only after verification against agricultural literature.
 
 ## Repository contents
 
