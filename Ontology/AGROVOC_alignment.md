@@ -27,22 +27,22 @@ to improve shared agricultural terminology and interoperability.
 
 | Paddy Doctor label | Rice MMKG entity | Type | AGROVOC candidate | Proposed relation | Status | Decision note |
 |---|---|---|---|---|---|---|
-| — | `Rice` | Plant | [`rice`](http://aims.fao.org/aos/agrovoc/c_6599) | `skos:exactMatch` | Candidate verified | Same English concept label; approve after one final ontology review. |
+| — | `Rice` | Plant | [`rice`](http://aims.fao.org/aos/agrovoc/c_6599) | `skos:exactMatch` | Implemented in v2.2 | Same English concept label. |
 | `bacterial_leaf_blight` | `Bacterial_Leaf_Blight` | Disease | No exact English concept found | — | Local-only / gap | Do not substitute the pathogen `Xanthomonas oryzae`; disease and pathogen are distinct entities. |
 | `bacterial_leaf_streak` | `Bacterial_Leaf_Streak` | Disease | No exact English concept found | — | Local-only / gap | Retain local disease entity. |
 | `bacterial_panicle_blight` | `Bacterial_Panicle_Blight` | Disease | No exact English concept found | — | Local-only / gap | Retain local disease entity. |
-| `blast` | `Rice_Blast_Disease` | Disease | [`rice blast disease`](http://aims.fao.org/aos/agrovoc/c_152ac092) | `skos:exactMatch` | Candidate verified | Direct terminology match. |
+| `blast` | `Rice_Blast_Disease` | Disease | [`rice blast disease`](http://aims.fao.org/aos/agrovoc/c_152ac092) | `skos:exactMatch` | Implemented in v2.2 | Direct terminology match. |
 | `brown_spot` | `Brown_Spot` | Disease | No exact English concept found | — | Local-only / gap | A generic phrase match must not be used as a rice-disease match. |
 | `downy_mildew` | `Downy_Mildew` | Disease | [`downy mildews`](http://aims.fao.org/aos/agrovoc/c_10450) | `skos:closeMatch` | Needs domain review | Plural/generic AGROVOC concept may be broader than the local rice image class. |
-| `tungro` | `Rice_Tungro_Disease` | Disease | [`tungro disease`](http://aims.fao.org/aos/agrovoc/c_34137) | `skos:exactMatch` | Candidate verified | Terminology match; verify the AGROVOC concept definition before approval. |
+| `tungro` | `Rice_Tungro_Disease` | Disease | [`tungro disease`](http://aims.fao.org/aos/agrovoc/c_34137) | `skos:exactMatch` | Implemented in v2.2 | Terminology match; retain the mapping register for future review. |
 | `hispa` | `Hispa` | Pest | No relevant English concept found | — | Local-only / gap | Search hits for *hispanica* are not valid matches. |
 | `dead_heart` | `Deadheart` | Symptom | No exact English concept found | — | Local-only / gap | Remains a symptom, not a disease. |
 | `normal` | `Normal_Health` | HealthStatus | No concept selected | — | Local-only by design | Dataset-specific non-disease class. |
 
-## Implementation after approval
+## Implemented mapping pattern
 
-Only rows marked **Candidate verified** should be added to the ontology in the
-first integration pass. Keep the mapping triple separate from the dataset label:
+The three rows marked **Implemented in v2.2** are now present in
+`Rice MMKG.rdf`. Keep the mapping triple separate from the dataset label:
 
 ```turtle
 @prefix riceMMKG: <http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#> .
@@ -58,9 +58,8 @@ literature evidence and provenance.
 
 ## Next review actions
 
-1. Manually inspect the candidate definitions and hierarchy for `Rice`, `rice
-   blast disease`, `tungro disease`, and `downy mildews`.
-2. Approve, downgrade, or reject each proposed mapping in this register.
-3. Add approved SKOS mapping triples to `Rice MMKG.rdf` in a dedicated
-   AGROVOC-alignment version update.
-4. Record source and reviewer/date for each approved mapping.
+1. Review the implemented mappings for `Rice`, `rice blast disease`, and
+   `tungro disease`, and retain or revise them if a scope issue is discovered.
+2. Manually inspect the hierarchy for `downy mildews` before selecting a
+   `skos:closeMatch` or leaving the local entity unmapped.
+3. Record source, reviewer, and date for every new mapping decision.

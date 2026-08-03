@@ -6,10 +6,11 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:riceMMKG="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#">
     <owl:Ontology rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG">
         <rdfs:comment>Rice Multimodal Knowledge Graph (Rice MMKG): a domain schema linking rice diseases, pests, pathogens, symptoms, environmental factors, growth stages, treatments and management actions, populated from multimodal observations (images, sensor readings, field/farmer reports). Newly populated relations for previously-unused properties (captures, detects, increaseRiskOf, occursIn, requires, vulnerableTo) are illustrative examples based on general rice agronomy/entomology knowledge and should be verified against domain literature before being relied on for reasoning or publication.</rdfs:comment>
-        <owl:versionInfo>2.1 - aligned disease entities with the locally available Paddy Doctor image labels</owl:versionInfo>
+        <owl:versionInfo>2.2 - aligned selected Rice MMKG entities with verified AGROVOC concepts</owl:versionInfo>
     </owl:Ontology>
 
 
@@ -1183,7 +1184,9 @@
 
 <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Plant"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:label xml:lang="en">Rice</rdfs:label>
+        <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_6599"/>
         <riceMMKG:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Blast_Disease"/>
         <riceMMKG:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Blight"/>
         <riceMMKG:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Sheath_Blight"/>
@@ -1201,8 +1204,10 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Blast_Disease">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Disease"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:label xml:lang="en">Rice Blast</rdfs:label>
         <riceMMKG:sourceDatasetLabel>blast</riceMMKG:sourceDatasetLabel>
+        <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_152ac092"/>
         <riceMMKG:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Biological_Control"/>
         <riceMMKG:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Water_Management"/>
         <riceMMKG:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Brown_Lesion"/>
@@ -1220,8 +1225,10 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Disease">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Disease"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:label xml:lang="en">Rice Tungro Disease</rdfs:label>
         <riceMMKG:sourceDatasetLabel>tungro</riceMMKG:sourceDatasetLabel>
+        <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_34137"/>
         <rdfs:comment>Disease entity introduced from the Paddy Doctor dataset label. No causal, symptom, or treatment assertions are added until they are supported by a cited domain source.</rdfs:comment>
     </owl:NamedIndividual>
 

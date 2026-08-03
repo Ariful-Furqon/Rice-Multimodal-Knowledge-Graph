@@ -70,6 +70,7 @@ Dataset labels support class alignment only. Causal, symptom, treatment, and ris
 Ontology/
   Rice MMKG.rdf          # the ontology (OWL/XML)
   AGROVOC_alignment.md   # reviewed candidates for AGROVOC vocabulary alignment
+  PaddyDoctor_Dataset_Analysis.md # local dataset profile and KG population plan
   Rice MMKG.properties    # Protégé project settings
 RiceMMKG.png / .jpg       # ontology diagram
 ```
