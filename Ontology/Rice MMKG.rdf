@@ -731,6 +731,7 @@
 <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Biological_Control">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Treatment"/>
         <rdfs:label xml:lang="en">Biological Control</rdfs:label>
+        <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_918"/>
     </owl:NamedIndividual>
 
 
@@ -759,6 +760,7 @@
 <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Brown_Planthopper">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Pest"/>
         <rdfs:label xml:lang="en">Brown Planthopper</rdfs:label>
+        <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_25204"/>
         <riceMMKG:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Biological_Control"/>
         <riceMMKG:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Insecticide_Application"/>
         <riceMMKG:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Hopper_Burn"/>
@@ -824,6 +826,7 @@
 <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Crop_Rotation">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Treatment"/>
         <rdfs:label xml:lang="en">Crop Rotation</rdfs:label>
+        <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_6662"/>
     </owl:NamedIndividual>
 
 
@@ -920,6 +923,7 @@
 <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Flowering_Stage">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#GrowthStage"/>
         <rdfs:label xml:lang="en">Flowering Stage</rdfs:label>
+        <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_330768"/>
         <riceMMKG:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Blast_Disease"/>
         <riceMMKG:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Sheath_Blight"/>
         <riceMMKG:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Bug"/>
@@ -932,6 +936,7 @@
 <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Fungicide_Application">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Treatment"/>
         <rdfs:label xml:lang="en">Fungicide Application</rdfs:label>
+        <skos:closeMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_27879"/>
         <riceMMKG:requires rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Flowering_Stage"/>
     </owl:NamedIndividual>
 
@@ -1014,6 +1019,7 @@
 <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Insecticide_Application">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Treatment"/>
         <rdfs:label xml:lang="en">Insecticide Application</rdfs:label>
+        <skos:closeMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_27879"/>
     </owl:NamedIndividual>
 
 
@@ -1064,6 +1070,7 @@
 <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Leaf_Spot">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
         <rdfs:label xml:lang="en">Leaf Spot</rdfs:label>
+        <skos:closeMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_12119"/>
     </owl:NamedIndividual>
 
 
@@ -1093,7 +1100,9 @@
 <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Magnaporthe_Oryzae">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Pathogen"/>
         <rdfs:label xml:lang="en">Magnaporthe Oryzae</rdfs:label>
+        <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_16025"/>
         <riceMMKG:causes rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Blast_Disease"/>
+        <rdfs:comment>AGROVOC prefLabel for c_16025 is &quot;Pyricularia oryzae&quot; (the anamorph name); &quot;Magnaporthe oryzae&quot; (teleomorph name) is listed as a skos:altLabel on the same concept, so this is the same fungal species under AGROVOC&apos;s dual nomenclature.</rdfs:comment>
     </owl:NamedIndividual>
 
 
@@ -1127,6 +1136,7 @@
 <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Monitoring">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#ManagementAction"/>
         <rdfs:label xml:lang="en">Monitoring</rdfs:label>
+        <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_4911"/>
     </owl:NamedIndividual>
 
 
@@ -1254,6 +1264,7 @@
 <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Seedling_Stage">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#GrowthStage"/>
         <rdfs:label xml:lang="en">Seedling Stage</rdfs:label>
+        <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_330777"/>
         <riceMMKG:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Armyworm"/>
         <riceMMKG:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Brown_Spot"/>
     </owl:NamedIndividual>
@@ -1291,6 +1302,7 @@
 <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Stem_Borer">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Pest"/>
         <rdfs:label xml:lang="en">Stem Borer</rdfs:label>
+        <skos:closeMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_7389"/>
         <riceMMKG:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Insecticide_Application"/>
         <riceMMKG:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Biological_Control"/>
         <riceMMKG:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Deadheart"/>
@@ -1315,6 +1327,7 @@
 <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Vegetative_Stage">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#GrowthStage"/>
         <rdfs:label xml:lang="en">Vegetative Stage</rdfs:label>
+        <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_330636"/>
         <riceMMKG:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Blast_Disease"/>
         <riceMMKG:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Blight"/>
         <riceMMKG:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Brown_Planthopper"/>
@@ -1329,6 +1342,7 @@
 <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Water_Management">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Treatment"/>
         <rdfs:label xml:lang="en">Water Management</rdfs:label>
+        <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_8320"/>
         <riceMMKG:requires rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Vegetative_Stage"/>
         <riceMMKG:requires rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Flowering_Stage"/>
     </owl:NamedIndividual>
@@ -1340,6 +1354,7 @@
 <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Wilting">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
         <rdfs:label xml:lang="en">Wilting</rdfs:label>
+        <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_8390"/>
     </owl:NamedIndividual>
 
 
@@ -1349,6 +1364,7 @@
 <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Xanthomonas_Oryzae">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Pathogen"/>
         <rdfs:label xml:lang="en">Xanthomonas Oryzae</rdfs:label>
+        <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_24383"/>
         <riceMMKG:causes rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Blight"/>
     </owl:NamedIndividual>
 
