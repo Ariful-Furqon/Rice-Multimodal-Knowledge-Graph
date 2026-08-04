@@ -33,7 +33,7 @@ to improve shared agricultural terminology and interoperability.
 | `bacterial_panicle_blight` | `Bacterial_Panicle_Blight` | Disease | No exact English concept found | — | Local-only / gap | Retain local disease entity. |
 | `blast` | `Rice_Blast_Disease` | Disease | [`rice blast disease`](http://aims.fao.org/aos/agrovoc/c_152ac092) | `skos:exactMatch` | Implemented in v2.2 | Direct terminology match. |
 | `brown_spot` | `Brown_Spot` | Disease | No exact English concept found | — | Local-only / gap | A generic phrase match must not be used as a rice-disease match. |
-| `downy_mildew` | `Downy_Mildew` | Disease | [`downy mildews`](http://aims.fao.org/aos/agrovoc/c_10450) | `skos:closeMatch` | Needs domain review | Plural/generic AGROVOC concept may be broader than the local rice image class. |
+| `downy_mildew` | `Downy_Mildew` | Disease | [`downy mildews`](http://aims.fao.org/aos/agrovoc/c_10450) | `skos:closeMatch` | Implemented in v2.3 | Reviewed hierarchy: `skos:broader` is `c_4825` ("mildews"), no `skos:narrower` exists under `c_10450`, and no `skos:scopeNote` restricts it to a host plant. AGROVOC has no rice-specific downy mildew concept, so `closeMatch` (not `exactMatch`) is the ceiling given the local entity's rice-only scope. |
 | `tungro` | `Rice_Tungro_Disease` | Disease | [`tungro disease`](http://aims.fao.org/aos/agrovoc/c_34137) | `skos:exactMatch` | Implemented in v2.2 | Terminology match; retain the mapping register for future review. |
 | `hispa` | `Hispa` | Pest | No relevant English concept found | — | Local-only / gap | Search hits for *hispanica* are not valid matches. |
 | `dead_heart` | `Deadheart` | Symptom | No exact English concept found | — | Local-only / gap | Remains a symptom, not a disease. |
@@ -52,14 +52,40 @@ riceMMKG:Rice_Blast_Disease
     skos:exactMatch <http://aims.fao.org/aos/agrovoc/c_152ac092> .
 ```
 
+The **Implemented in v2.3** row uses `skos:closeMatch` instead, because the
+AGROVOC candidate is broader in scope than the local entity:
+
+```turtle
+riceMMKG:Downy_Mildew
+    skos:closeMatch <http://aims.fao.org/aos/agrovoc/c_10450> .
+```
+
 Do **not** infer disease-to-pathogen, disease-to-symptom, or treatment relations
 from these vocabulary mappings. Those assertions require their own agricultural
 literature evidence and provenance.
 
+## Mapping decision log
+
+| Entity | Relation | Reviewer | Source | Date |
+|---|---|---|---|---|
+| `Rice` | `skos:exactMatch` | Muhammad Ariful Furqon | AGROVOC SPARQL endpoint | 2026-08-03 |
+| `Rice_Blast_Disease` | `skos:exactMatch` | Muhammad Ariful Furqon | AGROVOC SPARQL endpoint | 2026-08-03 |
+| `Rice_Tungro_Disease` | `skos:exactMatch` | Muhammad Ariful Furqon | AGROVOC SPARQL endpoint | 2026-08-03 |
+| `Downy_Mildew` | `skos:closeMatch` | Muhammad Ariful Furqon | AGROVOC SPARQL endpoint (`skos:broader`/`skos:narrower` check on `c_10450`) | 2026-08-04 |
+
 ## Next review actions
 
-1. Review the implemented mappings for `Rice`, `rice blast disease`, and
-   `tungro disease`, and retain or revise them if a scope issue is discovered.
-2. Manually inspect the hierarchy for `downy mildews` before selecting a
-   `skos:closeMatch` or leaving the local entity unmapped.
-3. Record source, reviewer, and date for every new mapping decision.
+1. ~~Review the implemented mappings for `Rice`, `rice blast disease`, and
+   `tungro disease`.~~ Done at initial mapping (2026-08-03); revisit only if a
+   scope issue is discovered later.
+2. ~~Manually inspect the hierarchy for `downy mildews` before selecting a
+   `skos:closeMatch` or leaving the local entity unmapped.~~ Done 2026-08-04 —
+   see decision log and updated table row above.
+3. Continue recording source, reviewer, and date in the decision log above for
+   every new mapping decision.
+4. The seven remaining `Local-only / gap` entities
+   (`Bacterial_Leaf_Blight`, `Bacterial_Leaf_Streak`,
+   `Bacterial_Panicle_Blight`, `Brown_Spot`, `Hispa`, `Deadheart`,
+   `Normal_Health`) have no AGROVOC candidate on record. Re-attempt only if a
+   new search strategy (alternate labels, broader terms) is worth trying;
+   otherwise they remain local-only by design.

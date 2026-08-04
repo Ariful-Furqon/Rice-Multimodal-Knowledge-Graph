@@ -38,7 +38,7 @@ is a separate quality-control task before model training or full KG ingestion.
 | `blast` | 1,738 | 16.70% | `Rice_Blast_Disease` | Disease | `skos:exactMatch` candidate added |
 | `brown_spot` | 965 | 9.27% | `Brown_Spot` | Disease | Local-only / gap |
 | `dead_heart` | 1,442 | 13.86% | `Deadheart` | Symptom | Local-only / gap |
-| `downy_mildew` | 620 | 5.96% | `Downy_Mildew` | Disease | `skos:closeMatch` candidate; review |
+| `downy_mildew` | 620 | 5.96% | `Downy_Mildew` | Disease | `skos:closeMatch` implemented (v2.3) |
 | `hispa` | 1,594 | 15.32% | `Hispa` | Pest | Local-only / gap |
 | `normal` | 1,764 | 16.95% | `Normal_Health` | HealthStatus | Local-only by design |
 | `tungro` | 1,088 | 10.45% | `Rice_Tungro_Disease` | Disease | `skos:exactMatch` candidate added |

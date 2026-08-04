@@ -794,7 +794,8 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Disease"/>
         <rdfs:label xml:lang="en">Downy Mildew</rdfs:label>
         <riceMMKG:sourceDatasetLabel>downy_mildew</riceMMKG:sourceDatasetLabel>
-        <rdfs:comment>Disease entity introduced from the Paddy Doctor dataset label. No causal, symptom, or treatment assertions are added until they are supported by a cited domain source.</rdfs:comment>
+        <skos:closeMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_10450"/>
+        <rdfs:comment>Disease entity introduced from the Paddy Doctor dataset label. AGROVOC c_10450 (&quot;downy mildews&quot;) is a genus-spanning plant-pathology concept with no host-specific narrower term and no scope note restricting it to rice; mapped as skos:closeMatch, not exactMatch, because the local entity is scoped to the rice disease observed in Paddy Doctor images while the AGROVOC concept covers downy mildew across all host plants. No causal, symptom, or treatment assertions are added until they are supported by a cited domain source.</rdfs:comment>
     </owl:NamedIndividual>
 
 
