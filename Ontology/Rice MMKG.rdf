@@ -57,6 +57,28 @@
 
 
 
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#classifiedAs -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#classifiedAs">
+        <rdfs:label xml:lang="en">classified as</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Observation"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Disease"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Pest"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#HealthStatus"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#classifies"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:comment>Records the raw source-dataset label assigned to an Observation (e.g. a Paddy Doctor image), independent of the detects/detectedBy relation used for confirmed field or literature-backed detections.</rdfs:comment>
+    </owl:ObjectProperty>
+
+
+
     <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#controlledBy -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#controlledBy">
@@ -265,6 +287,26 @@
         <rdfs:label xml:lang="en">caused by</rdfs:label>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Disease"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Pathogen"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#classifies -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#classifies">
+        <rdfs:label xml:lang="en">classifies</rdfs:label>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Disease"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Pest"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#HealthStatus"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Observation"/>
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
     </owl:ObjectProperty>
 
@@ -1195,7 +1237,6 @@
 
 <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Plant"/>
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:label xml:lang="en">Rice</rdfs:label>
         <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_6599"/>
         <riceMMKG:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Blast_Disease"/>
@@ -1215,7 +1256,6 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Blast_Disease">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Disease"/>
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:label xml:lang="en">Rice Blast</rdfs:label>
         <riceMMKG:sourceDatasetLabel>blast</riceMMKG:sourceDatasetLabel>
         <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_152ac092"/>
@@ -1236,7 +1276,6 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Disease">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Disease"/>
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:label xml:lang="en">Rice Tungro Disease</rdfs:label>
         <riceMMKG:sourceDatasetLabel>tungro</riceMMKG:sourceDatasetLabel>
         <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_34137"/>

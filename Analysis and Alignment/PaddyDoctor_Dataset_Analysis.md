@@ -79,11 +79,18 @@ riceMMKG:PaddyDoctor_blast_100023
     riceMMKG:classifiedAs riceMMKG:Rice_Blast_Disease .
 ```
 
-`classifiedAs` is intentionally shown as a proposed property. The current
-`detects` property only ranges over `Disease` and `Pest`, so it cannot represent
-the `dead_heart` and `normal` classes correctly. Before full population, add a
-dataset-classification property whose range includes `Disease`, `Pest`,
-`Symptom`, and `HealthStatus`.
+**Implemented 2026-08-04.** `classifiedAs` (domain `Observation`, range union
+`Disease`/`Pest`/`Symptom`/`HealthStatus`, inverse `classifies`) is now
+declared in `Rice MMKG.rdf`. Correction to the original gap note below: at
+review time the `detects` property's range had already been extended to
+`Disease`/`Pest`/`Symptom` (not just `Disease`/`Pest` as first assumed), so
+`dead_heart` alone was not actually blocked — `normal` (`HealthStatus`) was
+the only class `detects` could not represent. `classifiedAs` was still added
+as a separate property rather than folding `HealthStatus` into `detects`,
+because it carries different semantics: `classifiedAs` records the raw,
+unverified source-dataset label, while `detects`/`detectedBy` is reserved for
+confirmed detections. Population can now proceed using `classifiedAs` for
+all ten dataset labels.
 
 ## Expected first population
 
@@ -110,6 +117,7 @@ property is later approved.
 
 ## Recommended next implementation task
 
-Add the `classifiedAs` object property and then generate RDF image instances in
-batches. Start with a 10-image pilot, validate the resulting triples in
-Protégé/SPARQL, and only then populate all 10,407 images.
+1. ~~Add the `classifiedAs` object property.~~ Done 2026-08-04.
+2. Generate RDF image instances in batches. Start with a 10-image pilot,
+   validate the resulting triples in Protégé/SPARQL, and only then populate
+   all 10,407 images.
