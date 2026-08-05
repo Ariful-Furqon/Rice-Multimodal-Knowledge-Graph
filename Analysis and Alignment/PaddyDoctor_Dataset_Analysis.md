@@ -142,6 +142,44 @@ against the DL Query results already obtained in Protégé for CQ1/CQ2).
    a data-science pipeline decision to make at model-training time, not a
    graph query.
 
+### Querying note — updated after the Observation subclass restructure (2026-08-05)
+
+`Observation` was split into five subclasses (`DiseaseReport`, `FarmerReport`,
+`FieldObservation`, `LeafImage`, `SensorReading`); all 10,407 Paddy Doctor
+images are now typed `LeafImage`, not `Observation` directly. A raw SPARQL
+query with `?obs a rice:Observation` (no reasoner) **no longer matches them**
+— only `rdfs:subClassOf*` traversal or an active reasoner resolves that. The
+CQ1–CQ3 queries above were re-run and give identical counts either way,
+because they were rewritten to avoid depending on the direct type:
+
+```sparql
+# CQ1 — no "a Observation" needed; classifiedAs already implies it via domain
+PREFIX rice: <http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#>
+SELECT (COUNT(?obs) AS ?n) WHERE {
+  ?obs rice:classifiedAs rice:Rice_Blast_Disease .
+}
+
+# CQ2 — same idea, grouped by the classification's own type
+SELECT ?type (COUNT(?obs) AS ?n) WHERE {
+  ?obs rice:classifiedAs ?cls . ?cls a ?type .
+  FILTER(?type IN (rice:Disease, rice:Pest, rice:Symptom, rice:HealthStatus))
+} GROUP BY ?type
+
+# CQ3 — must now exclude NamedIndividual explicitly AND walk subclasses of
+# Observation, since Disease/Pest/Symptom/HealthStatus entities carry
+# sourceDatasetLabel too but so do the (excluded) per-image LeafImage instances
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?entity ?type WHERE {
+  ?entity rice:sourceDatasetLabel ?label ; a ?type .
+  FILTER(?type != owl:NamedIndividual)
+  FILTER NOT EXISTS { ?type rdfs:subClassOf* rice:Observation }
+  FILTER NOT EXISTS { ?entity skos:exactMatch ?x }
+  FILTER NOT EXISTS { ?entity skos:closeMatch ?x }
+}
+```
+
 ## Recommended next implementation task
 
 1. ~~Add the `classifiedAs` object property.~~ Done 2026-08-04.
@@ -155,5 +193,13 @@ against the DL Query results already obtained in Protégé for CQ1/CQ2).
    `Rice_Blast_Disease` → `Disease`). Total `Observation` individuals in the
    graph: 15 (5 pre-existing + 10 pilot).
 3. ~~Populate the remaining 10,397 images using the same pattern, in
-   batches.~~ Done 2026-08-05 — see "First population" above. Not yet
-   committed to Git as of this writing.
+   batches.~~ Done 2026-08-05 — see "First population" above.
+4. ~~Split `Observation` into channel subclasses (`DiseaseReport`,
+   `FarmerReport`, `FieldObservation`, `LeafImage`, `SensorReading`) instead
+   of leaving generic example individuals of that shape, and retype all
+   10,407 Paddy Doctor images to `LeafImage`.~~ Done 2026-08-05. Added an
+   `AllDisjointClasses` axiom over the five new subclasses. Re-validated:
+   XML well-formed, no disjointness violations (old 12-class axiom or the new
+   5-class one), 10,407/10,407 images confirmed `LeafImage`, CQ1–CQ3 give
+   identical results under the corrected queries above. Not yet committed to
+   Git as of this writing.
