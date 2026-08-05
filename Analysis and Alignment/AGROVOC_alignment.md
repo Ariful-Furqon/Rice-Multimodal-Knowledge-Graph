@@ -9,8 +9,75 @@ causal relations, symptoms, treatments, and dataset provenance; AGROVOC is used
 to improve shared agricultural terminology and interoperability.
 
 **Source queried:** AGROVOC official SPARQL endpoint, `https://agrovoc.fao.org/sparql`  
-**Query method:** English `skos:prefLabel` candidate search  
-**Checked:** 2026-08-03
+**Query method:** English `skos:prefLabel` candidate search (see below)  
+**Checked:** 2026-08-03 (initial round), 2026-08-04 (rounds 2–4)
+
+## Query method
+
+Four reusable SPARQL templates against `https://agrovoc.fao.org/sparql`,
+used in this order for every candidate lookup in this register.
+
+**1. Find candidate concepts by label** — the first step for every entity.
+Swap the term in `regex(...)` for the local entity's label or a plausible
+synonym.
+
+```sparql
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?s ?label WHERE {
+  ?s skos:prefLabel ?label .
+  FILTER(lang(?label) = "en")
+  FILTER(regex(?label, "downy mildew", "i"))
+}
+LIMIT 20
+```
+
+**2. Inspect a candidate concept's full detail** — prefLabel, altLabel,
+`skos:broader`, external `skos:exactMatch` (e.g. to NALT). This is what
+decides `exactMatch` vs. `closeMatch`: an altLabel matching the local term
+supports `exactMatch`; a broader/generic concept with no matching altLabel
+supports `closeMatch` or local-only.
+
+```sparql
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?p ?o WHERE {
+  <http://aims.fao.org/aos/agrovoc/c_10450> ?p ?o
+  FILTER(lang(?o) = "en" || lang(?o) = "")
+}
+```
+
+**3. Check for a narrower (more specific) term** — used to confirm whether
+a generic-looking candidate is really the most specific concept available,
+before accepting it as `closeMatch` (e.g. `downy_mildew`, `stem_borer`).
+
+```sparql
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?s ?label WHERE {
+  ?s skos:broader <http://aims.fao.org/aos/agrovoc/c_10450> ;
+     skos:prefLabel ?label .
+  FILTER(lang(?label) = "en")
+}
+```
+
+**4. Batch-check altLabels across several candidates at once** — a
+shortcut once multiple candidates are shortlisted from step 1, to avoid
+repeating step 2 one-by-one.
+
+```sparql
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?s ?p ?o WHERE {
+  VALUES ?s { <http://aims.fao.org/aos/agrovoc/c_25204> <http://aims.fao.org/aos/agrovoc/c_7389> }
+  ?s ?p ?o .
+  FILTER(?p IN (skos:altLabel, skos:prefLabel))
+  FILTER(lang(?o) = "en")
+}
+```
+
+**Decision rule applied consistently across all rounds:**
+`exactMatch` requires an identical prefLabel or altLabel with matching
+scope; `closeMatch` is used when the candidate is correct in meaning but
+broader, narrower, or a different grammatical form (singular/plural,
+common name/scientific name); a missing or category-mismatched candidate
+is recorded as local-only rather than guessed.
 
 ## Mapping policy
 
