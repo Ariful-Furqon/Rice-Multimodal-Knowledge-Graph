@@ -1262,7 +1262,6 @@
         <riceMMKG:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Biological_Control"/>
         <riceMMKG:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Water_Management"/>
         <riceMMKG:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Brown_Lesion"/>
-        <riceMMKG:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Brown_Spot"/>
         <riceMMKG:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Leaf_Spot"/>
         <riceMMKG:preventedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Resistant_Variety"/>
         <riceMMKG:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Fungicide_Application"/>
