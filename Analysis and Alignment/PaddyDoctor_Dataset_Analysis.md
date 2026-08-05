@@ -114,13 +114,33 @@ relative dataset label and filename stem, per the identifier rule above.
 
 ## Competency questions for validation
 
-1. Which Paddy Doctor images are classified as `Rice_Blast_Disease`, and what
-   AGROVOC concept is aligned to that disease?
-2. How many images support each `Disease`, `Pest`, `Symptom`, and
-   `HealthStatus` entity?
-3. Which ontology entities have dataset evidence but no AGROVOC alignment?
-4. Does a proposed train/validation/test split preserve the distribution of all
-   ten labels?
+Answered 2026-08-05 by running SPARQL against the populated graph (Protégé's
+SPARQL Query tab failed to render on this ontology's size — 10,412
+individuals — so queries were run externally with `rdflib` and cross-checked
+against the DL Query results already obtained in Protégé for CQ1/CQ2).
+
+1. **Which Paddy Doctor images are classified as `Rice_Blast_Disease`, and
+   what AGROVOC concept is aligned to that disease?**
+   1,738 images (`?obs rice:classifiedAs rice:Rice_Blast_Disease`), matching
+   the `blast` class count exactly. Aligned AGROVOC concept:
+   [`rice blast disease`](http://aims.fao.org/aos/agrovoc/c_152ac092) via
+   `skos:exactMatch`.
+2. **How many images support each `Disease`, `Pest`, `Symptom`, and
+   `HealthStatus` entity?**
+   `Disease`: 5,607 · `Pest`: 1,594 · `Symptom`: 1,442 · `HealthStatus`: 1,764
+   — matches the "KG population readiness" table above exactly.
+3. **Which ontology entities have dataset evidence but no AGROVOC
+   alignment?**
+   7 entities: `Bacterial_Leaf_Blight`, `Bacterial_Leaf_Streak`,
+   `Bacterial_Panicle_Blight`, `Brown_Spot` (Disease), `Deadheart` (Symptom),
+   `Hispa` (Pest), `Normal_Health` (HealthStatus) — matches the "Local-only /
+   gap" rows already recorded in `AGROVOC_alignment.md`, confirming that
+   register is accurate against the populated data.
+4. **Does a proposed train/validation/test split preserve the distribution
+   of all ten labels?**
+   Out of scope for the KG — no split is represented in the ontology. This is
+   a data-science pipeline decision to make at model-training time, not a
+   graph query.
 
 ## Recommended next implementation task
 
