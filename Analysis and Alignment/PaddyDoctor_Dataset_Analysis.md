@@ -92,18 +92,25 @@ unverified source-dataset label, while `detects`/`detectedBy` is reserved for
 confirmed detections. Population can now proceed using `classifiedAs` for
 all ten dataset labels.
 
-## Expected first population
+## First population — completed 2026-08-05
 
-| Graph component | Expected count |
-|---|---:|
-| New image observation individuals | 10,407 |
-| Image-to-classification assertions | 10,407 |
-| Image-to-dataset-label assertions | 10,407 |
-| Canonical labelled entities reused | 10 |
+| Graph component | Expected count | Actual count |
+|---|---:|---:|
+| New image observation individuals | 10,407 | 10,407 |
+| Image-to-classification assertions (`classifiedAs`) | 10,407 | 10,407 |
+| Image-to-dataset-label assertions (`sourceDatasetLabel`) | 10,407 | 10,407 |
+| Canonical labelled entities reused | 10 | 10 |
 
-No image bytes or absolute local paths should be inserted into the RDF or Git
-repository. Store only a relative filename/identifier if a source-location
-property is later approved.
+Per-class counts matched the class-distribution table above exactly (verified
+with an `rdflib` SPARQL query grouping by `sourceDatasetLabel`). Population
+ran in 10 batches, one per dataset label, each validated (XML well-formedness
++ SPARQL count check) before moving to the next. Total `Observation`
+individuals in the graph: 10,412 (10,407 Paddy Doctor + 5 pre-existing
+example observations).
+
+`Rice MMKG.rdf` grew from ~80 KB to ~6.9 MB as a result. No image bytes or
+absolute local paths were inserted into the RDF or Git repository — only the
+relative dataset label and filename stem, per the identifier rule above.
 
 ## Competency questions for validation
 
@@ -118,6 +125,15 @@ property is later approved.
 ## Recommended next implementation task
 
 1. ~~Add the `classifiedAs` object property.~~ Done 2026-08-04.
-2. Generate RDF image instances in batches. Start with a 10-image pilot,
-   validate the resulting triples in Protégé/SPARQL, and only then populate
-   all 10,407 images.
+2. ~~Generate a 10-image pilot and validate the resulting triples.~~ Done
+   2026-08-04 — one `Observation` individual per dataset label (first file in
+   each class folder), IRIs following `PaddyDoctor_<label>_<filename>`.
+   Validated with `rdflib`: the full graph parses cleanly (783 triples), a
+   SPARQL query returns all 10 `classifiedAs` triples, and each target
+   entity's `rdf:type` matches the property's range union (`Normal_Health` →
+   `HealthStatus`, `Deadheart` → `Symptom`, `Hispa` → `Pest`,
+   `Rice_Blast_Disease` → `Disease`). Total `Observation` individuals in the
+   graph: 15 (5 pre-existing + 10 pilot).
+3. ~~Populate the remaining 10,397 images using the same pattern, in
+   batches.~~ Done 2026-08-05 — see "First population" above. Not yet
+   committed to Git as of this writing.
