@@ -73,11 +73,15 @@ riceMMKG:PaddyDoctor_blast_100023
 
 ```turtle
 riceMMKG:PaddyDoctor_blast_100023
-    a riceMMKG:Observation ;
+    a riceMMKG:LeafImage ;
     rdfs:label "Paddy Doctor image: blast/100023.jpg"@en ;
     riceMMKG:sourceDatasetLabel "blast" ;
     riceMMKG:classifiedAs riceMMKG:Rice_Blast_Disease .
 ```
+
+`LeafImage` (not `Observation` directly) since the 2026-08-05 restructure —
+see the "Querying note" under Competency questions, and checklist item 4
+under Recommended next implementation task, below.
 
 **Implemented 2026-08-04.** `classifiedAs` (domain `Observation`, range union
 `Disease`/`Pest`/`Symptom`/`HealthStatus`, inverse `classifies`) is now
