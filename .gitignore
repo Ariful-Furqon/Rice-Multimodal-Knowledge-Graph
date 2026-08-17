@@ -1,2 +1,5 @@
 # Local datasets (not versioned)
 /Data/
+
+# Multimodal fusion PoC (local experimentation, not versioned)
+/Multimodal Fusion PoC/
