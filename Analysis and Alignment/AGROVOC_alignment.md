@@ -8,6 +8,15 @@ copy of AGROVOC. Rice MMKG remains responsible for multimodal observations,
 causal relations, symptoms, treatments, and dataset provenance; AGROVOC is used
 to improve shared agricultural terminology and interoperability.
 
+A small number of organism-level entities (Pathogen/Pest species) also carry
+a citation from **NCBI Taxonomy**, used when AGROVOC alone lacked enough
+evidence (no matching altLabel) to justify `skos:exactMatch` on its own —
+those cross-checks, their query method, and their decision log are kept in
+the separate [`NCBI_Taxonomy_alignment.md`](NCBI_Taxonomy_alignment.md)
+register, not duplicated here, to keep each source's method and provenance
+self-contained. The table rows below note where an NCBI citation applies
+and link out to it.
+
 **Source queried:** AGROVOC official SPARQL endpoint, `https://agrovoc.fao.org/sparql`  
 **Query method:** English `skos:prefLabel` candidate search (see below)  
 **Checked:** 2026-08-03 (initial round), 2026-08-04 (rounds 2–4)
@@ -115,11 +124,11 @@ individuals already in `Rice MMKG.rdf`. Checked 2026-08-04.
 |---|---|---|---|---|---|
 | `Magnaporthe_Oryzae` | Pathogen | [`Pyricularia oryzae`](http://aims.fao.org/aos/agrovoc/c_16025) | `skos:exactMatch` | Implemented in v2.4 | AGROVOC prefLabel is the anamorph name; `Magnaporthe oryzae` is a `skos:altLabel` on the same concept. |
 | `Xanthomonas_Oryzae` | Pathogen | [`Xanthomonas oryzae`](http://aims.fao.org/aos/agrovoc/c_24383) | `skos:exactMatch` | Implemented in v2.4 | Direct label match. |
-| `Bipolaris_Oryzae` | Pathogen | [`Cochliobolus miyabeanus`](http://aims.fao.org/aos/agrovoc/c_34512) | Not applied | Needs domain review | Same fungus under dual mycological nomenclature, but AGROVOC's `skos:altLabel` list for this concept only has `Helminthosporium oryzae` and `Drechslera oryzae` — `Bipolaris oryzae` itself is not present as any label. Do not assert `exactMatch` without a cited taxonomic source confirming the synonymy. |
+| `Bipolaris_Oryzae` | Pathogen | [`Cochliobolus miyabeanus`](http://aims.fao.org/aos/agrovoc/c_34512) | `skos:exactMatch` | Implemented in v2.7 | AGROVOC's own altLabel list could not confirm this synonymy; resolved 2026-08-07 using a citation from NCBI Taxonomy — see [`NCBI_Taxonomy_alignment.md`](NCBI_Taxonomy_alignment.md). |
 | `Brown_Planthopper` | Pest | [`Nilaparvata lugens`](http://aims.fao.org/aos/agrovoc/c_25204) | `skos:exactMatch` | Implemented in v2.4 | AGROVOC prefLabel is the scientific name; `brown planthopper` is a `skos:altLabel` on the same concept — direct common-name confirmation. |
 | `Stem_Borer` | Pest | [`stem eating insects`](http://aims.fao.org/aos/agrovoc/c_7389) | `skos:closeMatch` | Implemented in v2.4 | Generic pest-group concept (`skos:altLabel` "stem borers"); AGROVOC also has narrower species terms (e.g. `Scirpophaga incertulas`, yellow stem borer) but the local entity is generic, so the generic group is the better-scoped match — same pattern as the `Downy_Mildew` review. |
-| `Leaf_Folder` | Pest | [`Cnaphalocrocis medinalis`](http://aims.fao.org/aos/agrovoc/c_30305) | Not applied | Needs domain review | This species is the internationally recognized "rice leaf folder," but AGROVOC has no `skos:altLabel` confirming the common name on this concept — matching requires an external taxonomic citation before asserting equivalence. |
-| `Rice_Bug` | Pest | [`Leptocorisa oratorius`](http://aims.fao.org/aos/agrovoc/c_30653) or genus [`Leptocorisa`](http://aims.fao.org/aos/agrovoc/c_4277) | Not applied | Needs domain review | Local entity is generic; AGROVOC only has species-level terms (`Leptocorisa acuta` is also a common rice bug elsewhere), no common-name `altLabel` on either candidate. Decide species vs. genus scope before mapping. |
+| `Leaf_Folder` | Pest | [`Cnaphalocrocis medinalis`](http://aims.fao.org/aos/agrovoc/c_30305) | `skos:exactMatch` | Implemented in v2.7 | AGROVOC had no altLabel confirming the common name; resolved 2026-08-07 using a citation from NCBI Taxonomy — see [`NCBI_Taxonomy_alignment.md`](NCBI_Taxonomy_alignment.md). |
+| `Rice_Bug` | Pest | [`Leptocorisa oratorius`](http://aims.fao.org/aos/agrovoc/c_30653) or genus [`Leptocorisa`](http://aims.fao.org/aos/agrovoc/c_4277) | Not applied | Needs domain review | Still open. A 2026-08-07 NCBI Taxonomy cross-check did not resolve this one and surfaced a spelling discrepancy (AGROVOC's `oratorius` vs. NCBI's `oratoria`) — see [`NCBI_Taxonomy_alignment.md`](NCBI_Taxonomy_alignment.md) for detail. |
 | `Armyworm` | Pest | No suitable candidate found | — | Local-only / gap | AGROVOC's `fall armyworms` (`Spodoptera frugiperda`, c_e6b223d7) is a maize pest, not a rice pest — a false-positive risk, not a match. `Mythimna separata`/`Mythimna unipuncta` (common rice armyworm species) carry no `armyworm` altLabel in AGROVOC. Do not guess; keep local-only. |
 
 ## GrowthStage, Treatment, and ManagementAction alignment (round 3)
@@ -216,6 +225,8 @@ literature evidence and provenance.
 | `Monitoring` | `skos:exactMatch` | Muhammad Ariful Furqon | AGROVOC SPARQL endpoint | 2026-08-04 |
 | `Leaf_Spot` | `skos:closeMatch` | Muhammad Ariful Furqon | AGROVOC SPARQL endpoint (singular/plural grammatical-form check) | 2026-08-04 |
 | `Wilting` | `skos:exactMatch` | Muhammad Ariful Furqon | AGROVOC SPARQL endpoint | 2026-08-04 |
+| `Bipolaris_Oryzae` | `skos:exactMatch` | Muhammad Ariful Furqon | NCBI Taxonomy citation — see `NCBI_Taxonomy_alignment.md` | 2026-08-07 |
+| `Leaf_Folder` | `skos:exactMatch` | Muhammad Ariful Furqon | NCBI Taxonomy citation — see `NCBI_Taxonomy_alignment.md` | 2026-08-07 |
 
 ## Next review actions
 
@@ -233,12 +244,13 @@ literature evidence and provenance.
    `Normal_Health`) have no AGROVOC candidate on record. Re-attempt only if a
    new search strategy (alternate labels, broader terms) is worth trying;
    otherwise they remain local-only by design.
-5. Three Pest/Pathogen candidates need a literature citation before they can
-   move from "Needs domain review" to "Implemented": `Bipolaris_Oryzae`
-   (confirm `Bipolaris oryzae` = `Cochliobolus miyabeanus` synonymy),
-   `Leaf_Folder` (confirm `Cnaphalocrocis medinalis` = "rice leaf folder"),
-   and `Rice_Bug` (decide species-level `Leptocorisa oratorius` vs.
-   genus-level `Leptocorisa` scope).
+5. ~~Three Pest/Pathogen candidates need a literature citation before they
+   can move from "Needs domain review" to "Implemented".~~ Two resolved
+   2026-08-07 via a citation from NCBI Taxonomy: `Bipolaris_Oryzae` and
+   `Leaf_Folder` (detail and query method in
+   [`NCBI_Taxonomy_alignment.md`](NCBI_Taxonomy_alignment.md)). `Rice_Bug`
+   remains open — see that register's "Next review actions" for the
+   species-vs-genus and spelling questions still unresolved.
 6. `Armyworm` remains local-only; no rice-relevant AGROVOC candidate was
    found. Do not map it to `fall armyworms` (a maize pest).
 7. Two GrowthStage/Treatment candidates need a citation before moving from
