@@ -1069,6 +1069,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#High_Humidity">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#EnvironmentalFactor"/>
+        <skos:closeMatch rdf:resource="http://purl.obolibrary.org/obo/PECO_0007197"/>
         <riceMMKG:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Blight"/>
         <riceMMKG:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Blast_Disease"/>
         <riceMMKG:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Sheath_Blight"/>
@@ -1092,6 +1093,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#High_Temperature">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#EnvironmentalFactor"/>
+        <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/PECO_0007173"/>
         <riceMMKG:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Brown_Planthopper"/>
         <riceMMKG:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Stem_Borer"/>
         <rdfs:label xml:lang="en">High Temperature</rdfs:label>
@@ -1195,6 +1197,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Low_Rainfall">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#EnvironmentalFactor"/>
+        <skos:closeMatch rdf:resource="http://purl.obolibrary.org/obo/PECO_0007404"/>
         <riceMMKG:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Armyworm"/>
         <rdfs:label xml:lang="en">Low Rainfall</rdfs:label>
     </owl:NamedIndividual>
@@ -115758,6 +115761,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Poor_Soil_Drainage">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#EnvironmentalFactor"/>
+        <skos:closeMatch rdf:resource="http://purl.obolibrary.org/obo/PECO_0007172"/>
         <riceMMKG:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Blight"/>
         <riceMMKG:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Sheath_Blight"/>
         <rdfs:label xml:lang="en">Poor Soil Drainage</rdfs:label>
