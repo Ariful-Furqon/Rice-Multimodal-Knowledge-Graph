@@ -10,12 +10,16 @@ to improve shared agricultural terminology and interoperability.
 
 A small number of organism-level entities (Pathogen/Pest species) also carry
 a citation from **NCBI Taxonomy**, used when AGROVOC alone lacked enough
-evidence (no matching altLabel) to justify `skos:exactMatch` on its own —
-those cross-checks, their query method, and their decision log are kept in
-the separate [`NCBI_Taxonomy_alignment.md`](NCBI_Taxonomy_alignment.md)
-register, not duplicated here, to keep each source's method and provenance
-self-contained. The table rows below note where an NCBI citation applies
-and link out to it.
+evidence (no matching altLabel) to justify `skos:exactMatch` on its own.
+Four `EnvironmentalFactor` entities that AGROVOC could only match with a
+category mismatch (state-vs-quantity, condition-vs-response, cause-vs-effect)
+were re-matched against **Planteome** (PO/TO/PECO/PSO) instead, which models
+environmental conditions more precisely than AGROVOC does. Both cross-checks
+— their query method and decision log — are kept in their own registers,
+[`NCBI_Taxonomy_alignment.md`](NCBI_Taxonomy_alignment.md) and
+[`Planteome_alignment.md`](Planteome_alignment.md), not duplicated here, to
+keep each source's method and provenance self-contained. The table rows
+below note where an external citation applies and link out to it.
 
 **Source queried:** AGROVOC official SPARQL endpoint, `https://agrovoc.fao.org/sparql`  
 **Query method:** English `skos:prefLabel` candidate search (see below)  
@@ -172,10 +176,10 @@ phrases with no single-concept AGROVOC equivalent.
 | `Stem_Rot_Symptom` | Symptom | No candidate found | — | Local-only / gap | — |
 | `Yellow_Leaf` | Symptom | No candidate found | — | Local-only / gap | Searched "leaf yellowing" and "yellowing"; no match. |
 | `Excessive_Nitrogen` | EnvironmentalFactor | No candidate found | — | Local-only / gap | — |
-| `High_Humidity` | EnvironmentalFactor | [`relative humidity`](http://aims.fao.org/aos/agrovoc/c_6496) | Not applied | Needs domain review | AGROVOC concept is the measured climate quantity (altLabels "air moisture," "atmospheric moisture"); the local entity is a qualitative state ("high"). Mapping a state to a quantity is a category mismatch — decide whether to keep local-only or accept the mismatch explicitly. |
-| `High_Temperature` | EnvironmentalFactor | [`heat stress`](http://aims.fao.org/aos/agrovoc/c_11488) | Not applied | Needs domain review | AGROVOC concept is the plant's physiological stress response to heat, not the environmental condition itself — same category mismatch as `High_Humidity`. |
-| `Low_Rainfall` | EnvironmentalFactor | [`drought`](http://aims.fao.org/aos/agrovoc/c_2391) | Not applied | Needs domain review | "Drought" typically implies more severity/duration than "low rainfall"; confirm the local entity's intended scope before mapping. |
-| `Poor_Soil_Drainage` | EnvironmentalFactor | [`waterlogging`](http://aims.fao.org/aos/agrovoc/c_8333) | Not applied | Needs domain review | Waterlogging is the effect of poor drainage, not the drainage condition itself (cause vs. effect) — plausible in a rice-paddy context but should be a deliberate choice, not an automatic one. |
+| `High_Humidity` | EnvironmentalFactor | [`relative humidity`](http://aims.fao.org/aos/agrovoc/c_6496) — rejected, state-vs-quantity mismatch | Not applied (AGROVOC) | Resolved via Planteome | AGROVOC concept is the measured climate quantity, not the qualitative state — category mismatch. Matched instead to Planteome's `humidity exposure` (PECO:0007197) as `skos:closeMatch`; see [`Planteome_alignment.md`](Planteome_alignment.md). |
+| `High_Temperature` | EnvironmentalFactor | [`heat stress`](http://aims.fao.org/aos/agrovoc/c_11488) — rejected, condition-vs-response mismatch | Not applied (AGROVOC) | Resolved via Planteome | AGROVOC concept is the plant's physiological stress response, not the environmental condition — category mismatch. Matched instead to Planteome's `high temperature exposure` (PECO:0007173) as `skos:exactMatch`; see [`Planteome_alignment.md`](Planteome_alignment.md). |
+| `Low_Rainfall` | EnvironmentalFactor | [`drought`](http://aims.fao.org/aos/agrovoc/c_2391) — rejected, severity mismatch | Not applied (AGROVOC) | Resolved via Planteome | "Drought" implies more severity/duration than "low rainfall." Matched instead to Planteome's `drought exposure` (PECO:0007404) as `skos:closeMatch` (same severity caveat still applies, but category now correct); see [`Planteome_alignment.md`](Planteome_alignment.md). |
+| `Poor_Soil_Drainage` | EnvironmentalFactor | [`waterlogging`](http://aims.fao.org/aos/agrovoc/c_8333) — rejected, cause-vs-effect mismatch | Not applied (AGROVOC) | Resolved via Planteome | Waterlogging is the effect of poor drainage, not the drainage condition itself. Matched instead to Planteome's `flood water exposure` (PECO:0007172) as `skos:closeMatch` (same cause-vs-effect caveat still applies); see [`Planteome_alignment.md`](Planteome_alignment.md). |
 
 ## Implemented mapping pattern
 
@@ -263,16 +267,21 @@ literature evidence and provenance.
    the right category was found for any of them.
 9. ~~Remaining unreviewed individuals in `Symptom` and `EnvironmentalFactor`.~~
    Checked 2026-08-04 — see round 4 table above.
-10. Five candidates from round 4 need a scope decision before implementing:
-    `Brown_Lesion` (`lesions`, generic-vs-specific), `High_Humidity`
-    (`relative humidity`, state-vs-quantity), `High_Temperature`
-    (`heat stress`, condition-vs-response), `Low_Rainfall` (`drought`,
-    severity mismatch), and `Poor_Soil_Drainage` (`waterlogging`,
-    cause-vs-effect).
+10. ~~Five candidates from round 4 need a scope decision before
+    implementing.~~ Four resolved 2026-08-17 by matching to Planteome
+    instead of AGROVOC: `High_Humidity`, `High_Temperature`, `Low_Rainfall`,
+    `Poor_Soil_Drainage` — see
+    [`Planteome_alignment.md`](Planteome_alignment.md). `Brown_Lesion`
+    (`lesions`, generic-vs-specific) remains open against AGROVOC and has
+    not yet been checked against Planteome.
 11. Seven Symptom individuals have no AGROVOC candidate at all and stay
-    local-only: `Chewed_Leaf`, `Dry_Leaf_Tip`, `Empty_Grain`, `Hopper_Burn`,
-    `Leaf_Rolling`, `Stem_Rot_Symptom`, `Yellow_Leaf`. `Excessive_Nitrogen`
-    (EnvironmentalFactor) is also local-only.
+    local-only against AGROVOC: `Chewed_Leaf`, `Dry_Leaf_Tip`, `Empty_Grain`,
+    `Hopper_Burn`, `Leaf_Rolling`, `Stem_Rot_Symptom`, `Yellow_Leaf`.
+    `Excessive_Nitrogen` (EnvironmentalFactor) is also local-only against
+    AGROVOC. One lead against a different source: a 2026-08-17 Planteome
+    probe surfaced `TO:0000085` "leaf rolling response" as a promising
+    candidate for `Leaf_Rolling` — not yet formally reviewed or implemented;
+    see `Planteome_alignment.md` next actions.
 12. All individuals in `Disease`, `EnvironmentalFactor`, `GrowthStage`,
     `ManagementAction`, `Pathogen`, `Pest`, `Plant`, `Symptom`, and
     `Treatment` have now been checked at least once. Remaining classes
