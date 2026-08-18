@@ -1,0 +1,126 @@
+Rice MMKG verification report — Rice_MMKG_v2.3.rdf
+======================================================================
+Total triples:            63234
+Named classes:            17
+Object properties:        24 (12 owl:inverseOf pairs)
+Datatype properties:      9
+Annotation properties:    2
+Individuals (total):      10468
+owl:Restriction axioms:   0
+subClassOf blank-node ax: 0
+skos:exactMatch:          19
+skos:closeMatch:          8
+Domain individuals w/o alignment (30):
+  - Armyworm
+  - Bacterial_Leaf_Blight
+  - Bacterial_Leaf_Streak
+  - Bacterial_Panicle_Blight
+  - Brown_Lesion
+  - Brown_Spot
+  - Chewed_Leaf
+  - Critical_Severity
+  - Deadheart
+  - Dry_Leaf_Tip
+  - Empty_Grain
+  - Excessive_Nitrogen
+  - Field_Inspection
+  - Harvest_Stage
+  - High_Severity
+  - Hispa
+  - Hopper_Burn
+  - Immediate_Intervention
+  - Leaf_Rolling
+  - Low_Severity
+  - Maturity_Stage
+  - Medium_Severity
+  - No_Action_Needed
+  - Normal_Health
+  - Preventive_Action
+  - Resistant_Variety
+  - Rice_Bug
+  - Sheath_Blight
+  - Stem_Rot_Symptom
+  - Yellow_Leaf
+Prototype individuals (owl:NamedIndividual only) (5):
+  - Disease_Report
+  - Farmer_Report
+  - Field_Observation
+  - Leaf_Image
+  - Sensor_Reading
+OWL profile/expressivity: None
+
+Per-class individual counts:
+  LeafImage                      10407
+  Symptom                        11
+  Disease                        8
+  Pest                           6
+  Treatment                      6
+  EnvironmentalFactor            5
+  GrowthStage                    5
+  ManagementAction               5
+  SeverityLevel                  4
+  Pathogen                       3
+  HealthStatus                   1
+  Plant                          1
+  DiseaseReport                  0
+  FarmerReport                   0
+  FieldObservation               0
+  Observation                    0
+  SensorReading                  0
+
+Per-property assertion counts:
+  sourceDatasetLabel             10417
+  annotatedAs                    10407
+  vulnerableTo                   23
+  controlledBy                   16
+  occursIn                       16
+  indicatedBy                    14
+  recommends                     13
+  captures                       12
+  detects                        11
+  increaseRiskOf                 10
+  requires                       4
+  causes                         3
+  preventedBy                    2
+  annotationOf                   0
+  capturedBy                     0
+  causedBy                       0
+  confidenceScore                0
+  controls                       0
+  detectedBy                     0
+  hasOccurrenceOf                0
+  humidityValue                  0
+  indicates                      0
+  interventionThreshold          0
+  observationDate                0
+  prevents                       0
+  rainfallValue                  0
+  recommendedFor                 0
+  requiredFor                    0
+  riskIncreasedBy                0
+  severityScore                  0
+  soilMoistureValue              0
+  temperatureValue               0
+  threatens                      0
+
+Declared but never-asserted properties:
+  - annotationOf
+  - capturedBy
+  - causedBy
+  - confidenceScore
+  - controls
+  - detectedBy
+  - hasOccurrenceOf
+  - humidityValue
+  - indicates
+  - interventionThreshold
+  - observationDate
+  - prevents
+  - rainfallValue
+  - recommendedFor
+  - requiredFor
+  - riskIncreasedBy
+  - severityScore
+  - soilMoistureValue
+  - temperatureValue
+  - threatens
