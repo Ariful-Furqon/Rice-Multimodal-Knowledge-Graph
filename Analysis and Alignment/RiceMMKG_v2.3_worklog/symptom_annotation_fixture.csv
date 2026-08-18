@@ -1,0 +1,3 @@
+individual_iri,image_path,ground_truth_label,symptom_iris
+http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_bacterial_leaf_blight_102617,Data/PaddyDoctor/bacterial_leaf_blight/102617.jpg,bacterial_leaf_blight,http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Brown_Lesion;http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Yellow_Leaf
+http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_bacterial_leaf_blight_109669,Data/PaddyDoctor/bacterial_leaf_blight/109669.jpg,bacterial_leaf_blight,
