@@ -50302,14 +50302,14 @@
   </owl:NamedIndividual>
   <owl:Ontology rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG">
     <rdfs:comment>Rice Multimodal Knowledge Graph (Rice MMKG): a domain schema linking rice diseases, pests, pathogens, symptoms, environmental factors, growth stages, treatments and management actions, populated from multimodal observations (images, sensor readings, field/farmer reports). Newly populated relations for previously-unused properties (captures, detects, increaseRiskOf, occursIn, requires, vulnerableTo) are illustrative examples based on general rice agronomy/entomology knowledge and should be verified against domain literature before being relied on for reasoning or publication.</rdfs:comment>
-    <owl:versionInfo>2.3</owl:versionInfo>
+    <owl:versionInfo>0.3</owl:versionInfo>
     <owl:imports rdf:resource="http://www.w3.org/ns/prov-o#"/>
     <owl:imports rdf:resource="http://purl.org/dc/terms/"/>
     <dcterms:title>Rice MMKG — Rice Multimodal Knowledge Graph</dcterms:title>
     <dcterms:creator>TODO (ORCID: https://orcid.org/TODO)</dcterms:creator>
     <dcterms:license>TODO</dcterms:license>
     <dcterms:issued>TODO</dcterms:issued>
-    <owl:versionIRI rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG/2.3"/>
+    <owl:versionIRI rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG/0.3"/>
     <vann:preferredNamespacePrefix>riceMMKG</vann:preferredNamespacePrefix>
   </owl:Ontology>
   <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_blast_106134">
