@@ -1,9 +1,9 @@
 # Rice MMKG — description, statistics, and changelog
 
-Status snapshot as of **2026-08-19**, commit `e8ab8ec` (`v0.4-minimal`).
+Status snapshot as of **2026-08-19**, commit `c37dcf8` (post-cleanup).
 Covers `Ontology/Rice MMKG.rdf` from its first commit through the current
 state. Numbers below were measured with rdflib 7.6.0 via
-`Worklog/RiceMMKG_v0.4-minimal_worklog/scripts/verify.py`.
+`Worklog/RiceMMKG_cleanup_worklog/scripts/verify.py`.
 
 ---
 
@@ -28,14 +28,19 @@ and keeps two things deliberately separate:
 (prefix `rice:`) — not yet dereferenceable; a `w3id.org` permanent
 identifier is planned but not registered.
 
-**Design philosophy (current, `v0.4-minimal`):** every class holds
-individuals and every asserted property holds assertions. Classes and
-properties that would be justified by data the ontology doesn't have yet
-(a second annotation dataset, sensor readings, textual reports, pest
-damage modelled separately from the pest organism, geolocation) are
-deliberately deferred rather than built ahead of time — see
-`Worklog/RiceMMKG_v0.4-minimal_worklog/deferred_design.md` for the full
-list and what would trigger building each one.
+**Design philosophy (current, post-cleanup):** every class holds
+individuals and every asserted property holds assertions, with one
+deliberate exception — `SensorObservation` is kept empty as declared
+scaffolding, matching a conceptual-schema diagram, ahead of sensor data
+ever being ingested. Beyond that, classes and properties that would be
+justified by data the ontology doesn't have yet (a second annotation
+dataset, textual reports, pest damage modelled separately from the pest
+organism, geolocation) are deliberately deferred rather than built ahead
+of time — see `Worklog/RiceMMKG_v0.4-minimal_worklog/deferred_design.md`
+for the full list and what would trigger building each one. The image
+modality class is named `ImageObservation` (not `LeafImage`) since the
+2026-08-19 cleanup round — the old name was factually wrong for the part
+of the corpus that isn't a leaf (panicle blight, deadheart).
 
 **License:** CC BY 4.0. **Creator:** Muhammad Ariful Furqon (ORCID
 0000-0002-1031-3567). **Version:** `0.3` (see the open versioning
@@ -47,22 +52,25 @@ checkpoint below — `0.4` is proposed but not yet applied).
 
 | Quantity | Value |
 |---|---|
-| Total triples | 85,465 |
-| Named classes | 14 (13 primitive + 1 defined) |
-| Object properties | 24 (12 `owl:inverseOf` pairs) |
+| Total triples | 64,662 |
+| Named classes | 16 (13 primitive + 1 empty-by-design + 1 dcat:Dataset + 1 defined) |
+| Object properties | 24 |
 | Datatype properties | 5 |
-| Annotation properties | 11 |
+| Annotation properties | 13 |
 | Individuals | 10,463 |
-| `owl:Restriction` axioms | 5 (all `someValuesFrom`) |
+| `owl:Restriction` axioms | 1 (inside the one defined class) |
+| `AllDisjointClasses` axioms | 2 |
 | `skos:exactMatch` / `closeMatch` | 19 / 8 |
 | Domain individuals with no AGROVOC alignment | 30 |
 | `TODO` literals remaining | 9 |
+| Individuals typed only `owl:NamedIndividual` | 0 |
+| Properties with no declared domain/range | 0 / 0 |
 
 ### Per-class individual counts
 
 | Class | Individuals |
 |---|---|
-| `LeafImage` | 10,407 |
+| `ImageObservation` | 10,407 |
 | `Symptom` | 11 |
 | `Disease` | 8 |
 | `Pest` | 6 |
@@ -72,16 +80,17 @@ checkpoint below — `0.4` is proposed but not yet applied).
 | `ManagementAction` | 5 |
 | `SeverityLevel` | 4 |
 | `Pathogen` | 3 |
+| `Dataset` (`dcat:Dataset`) | 1 |
 | `HealthStatus` | 1 |
 | `Plant` | 1 |
-| `Observation` (abstract superclass of `LeafImage`) | 0 direct |
+| `Observation` (abstract superclass) | 0 direct |
+| `SensorObservation` (empty by design, scaffolding) | 0 |
 | `SymptomaticObservation` (defined class) | 0 direct — 1,442 by query/reasoner |
 
 ### Per-property assertion counts (populated only)
 
 | Property | Assertions |
 |---|---|
-| `sourceDatasetLabel` | 10,417 |
 | `annotatedAs` | 10,407 |
 | `captures` | 1,442 |
 | `vulnerableTo` | 23 |
@@ -90,9 +99,17 @@ checkpoint below — `0.4` is proposed but not yet applied).
 | `indicatedBy` | 14 |
 | `recommends` | 13 |
 | `increaseRiskOf` | 10 |
+| `sourceDatasetLabel` | 10 |
 | `requires` | 4 |
 | `causes` | 3 |
 | `preventedBy` | 2 |
+
+`sourceDatasetLabel` moved from 10,417 (10,407 redundant image-side copies
++ 10 on domain entities) down to just the 10 in the 2026-08-19 cleanup —
+the raw label string is reachable from an image via `annotatedAs` already,
+so repeating it per-image was redundant. `dcterms:source` was similarly
+removed from all 10,407 images (redundant with `prov:wasDerivedFrom`,
+kept).
 
 All twelve inverse directions (`indicates`, `detectedBy`, `causedBy`, etc.)
 and `detects` are declared but intentionally unasserted — only one
@@ -108,12 +125,15 @@ explicitly, so this isn't missing data.
 | v0.2 (post-AGROVOC alignment) | 2026-08-17 | 52,806–52,816 | 17 | 24 | 10,467 |
 | v0.3 (post-provenance/EPPO/rename) | 2026-08-18 | 84,064 | 18 | 24 | 10,463 |
 | v0.4-expanded (superseded same day) | 2026-08-19 | 75,309 | 22 | 32 | 10,482 |
-| **v0.4-minimal (current)** | **2026-08-19** | **85,465** | **14** | **24** | **10,463** |
+| v0.4-minimal | 2026-08-19 | 85,465 | 14 | 24 | 10,463 |
+| + `SensorObservation` added | 2026-08-19 | 85,459 | 15 | 24 | 10,463 |
+| **post-cleanup (current)** | **2026-08-19** | **64,662** | **16** | **24** | **10,463** |
 
 The v0.4-expanded row is included for the record but was reverted the same
 day — see §3 below. The "v2.0" row is from `README.md`'s own version label
 at the time, not a `verify.py` measurement — no triple count is available
-for it.
+for it. The drop from 85,459 to 64,662 in the cleanup round is redundancy
+removal (20,814 triples), not data loss — see §3.
 
 ---
 
@@ -151,6 +171,8 @@ for it.
 - `6ff9d51` **Fix StemBorerCandidate: use owl:hasValue instead of someValuesFrom** — corrected an invalid restriction (an individual filler in a class-position slot) that was causing `Stem_Borer_Damage` to be punned into the class hierarchy in Protégé.
 - `8feba7e` **Remove StemBorerCandidate defined class** — removed per request; `SymptomaticObservation` kept.
 - `e8ab8ec` **Rice MMKG v0.4-minimal: shrink schema to what the data actually supports** — reverted the expansion. Rebuilt from the true v0.3 baseline instead: deleted the four empty `Observation` subclasses and the orphan `prov:Entity` declaration (18→13 classes); kept `captures`/`detects` declared but unasserted; deleted the four unused sensor datatype properties (9→5); converted the 1,442 `Deadheart`-annotated images into `captures` evidence; added the single `SymptomaticObservation` defined class; wrote `deferred_design.md` recording what was deliberately not built and why.
+- `a968b62` **Add SensorObservation as an Observation subclass, matching the conceptual schema** — empty on arrival (0 individuals), scaffolding for future sensor data, per a conceptual-schema diagram. Incidentally picked up a Protégé auto-save that dropped 4 `owl:Restriction` blank nodes orphaned by a bug in the v0.4-minimal Task 1.1 script, and removed `PaddyDoctorDataset`'s legacy `prov:Entity` type.
+- `c37dcf8` **Rice MMKG cleanup: dataset typing, provenance/label redundancy, naming, detects range** — the largest single-commit triple-count drop in the project's history (85,459 → 64,662). `PaddyDoctorDataset` typed `dcat:Dataset` (was the last individual typed only `owl:NamedIndividual`); deleted 10,407 redundant `dcterms:source` triples on images (kept `prov:wasDerivedFrom`); deleted 10,407 redundant `sourceDatasetLabel` triples on images and gave the property a declared domain (was the only property in the ontology without one); renamed `LeafImage`→`ImageObservation` (10,407 individuals retyped); restored `AllDisjointClasses {ImageObservation, SensorObservation}`; narrowed `detects`' range to `Pest ⊔ Pathogen` (removing `Disease`, closing an evidence/conclusion conflation the `annotatedAs` rename had left open in the property's still-unused declaration). Three checkpoints emitted as CSVs/reports, none resolved: Paddy Doctor dataset metadata, `contentUrl` base URL, and two AGROVOC alignment defects plus 30 unaligned entities (regrouped from a stale worklog count).
 
 ### Recurring pattern across sessions
 
@@ -170,15 +192,20 @@ and `v0.4-minimal`'s worklogs alike).
 
 - **AGROVOC:** 2 conflicting/suspicious matches (`Fungicide_Application`/
   `Insecticide_Application` sharing one concept IRI; `Rice_Blast_Disease`'s
-  oddly-shaped identifier) + 30 unaligned domain individuals. See
-  `Worklog/RiceMMKG_v0.4-minimal_worklog/alignment_check.csv` and
-  `unaligned_entities.csv`.
+  oddly-shaped identifier) + 30 unaligned domain individuals, grouped
+  8 disease/pest · 9 symptom · 13 management/severity/stage. See
+  `Worklog/RiceMMKG_cleanup_worklog/alignment_check.csv` and
+  `agrovoc_todo.csv`.
+- **Paddy Doctor dataset metadata:** `dcterms:title`/`license`/`source` on
+  `PaddyDoctorDataset` still `TODO`. See
+  `Worklog/RiceMMKG_cleanup_worklog/dataset_metadata.csv`.
+- **Image URL resolvability:** `schema:contentUrl` holds relative paths
+  that don't dereference. Three options written up, none chosen. See
+  `Worklog/RiceMMKG_cleanup_worklog/contenturl_base.md`.
 - **Permanent identifier:** `w3id.org` path segment not yet chosen; base
   IRI not yet rewritten.
 - **Version number:** `0.3` still live; `0.4` proposed, not applied.
 - **EPPO codes:** 3 of 9 organisms verified; 6 still `TODO`.
-- **`PaddyDoctorDataset` metadata:** `dcterms:title`/`source`/`license`
-  still `TODO`.
 - **No reasoner available** in the working environment (no Java) — several
   acceptance checks across sessions (consistency, DL-classified defined-
   class membership) were substituted with direct graph queries, exact for
