@@ -1,0 +1,35 @@
+{
+  "_comment": "Task 3.4 -- Zenodo deposit manifest template (.zenodo.json shape). TODO fields need human input before actual deposit.",
+  "title": "Rice MMKG: a Rice Multimodal Knowledge Graph",
+  "description": "Rice MMKG is a knowledge graph for rice disease and pest diagnosis that separates an annotation layer (what a source dataset asserts), an observation layer (multimodal evidence: images, sensor readings, textual reports), and a domain layer (diseases, pathogens, pests, symptoms, and management knowledge). The evidence layer (captures/indicates) and the annotation layer (annotatedAs/denotes) are kept independent so the two can be compared rather than conflated.",
+  "creators": [
+    {
+      "name": "Furqon, Muhammad Ariful",
+      "orcid": "0000-0002-1031-3567"
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "upload_type": "dataset",
+  "access_right": "open",
+  "keywords": [
+    "ontology",
+    "knowledge graph",
+    "OWL",
+    "rice",
+    "plant disease",
+    "plant pest",
+    "agriculture",
+    "multimodal"
+  ],
+  "related_identifiers": [
+    {
+      "_comment": "TODO: fill in once the w3id.org permanent identifier (Checkpoint C1) and/or GitHub repository URL are confirmed.",
+      "relation": "isSupplementTo",
+      "identifier": "TODO",
+      "resource_type": "software"
+    }
+  ],
+  "version": "TODO -- pending Checkpoint C2 (see reports/versioning.md)",
+  "publication_date": "TODO",
+  "notes": "TODO: this manifest is a starting template only. Before an actual Zenodo deposit: confirm the file(s) to upload (the .rdf plus a README?), confirm version/date, and confirm the related_identifiers block once C1/C2 are resolved."
+}

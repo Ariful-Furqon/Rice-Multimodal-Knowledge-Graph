@@ -1,0 +1,227 @@
+{
+  "source": "Rice_MMKG_v0.3.rdf",
+  "total_triples": 84064,
+  "named_classes": 18,
+  "object_properties": 24,
+  "datatype_properties": 9,
+  "annotation_properties": 10,
+  "inverse_pairs": [
+    [
+      "annotatedAs",
+      "annotationOf"
+    ],
+    [
+      "capturedBy",
+      "captures"
+    ],
+    [
+      "causedBy",
+      "causes"
+    ],
+    [
+      "controlledBy",
+      "controls"
+    ],
+    [
+      "detectedBy",
+      "detects"
+    ],
+    [
+      "hasOccurrenceOf",
+      "occursIn"
+    ],
+    [
+      "increaseRiskOf",
+      "riskIncreasedBy"
+    ],
+    [
+      "indicatedBy",
+      "indicates"
+    ],
+    [
+      "preventedBy",
+      "prevents"
+    ],
+    [
+      "recommendedFor",
+      "recommends"
+    ],
+    [
+      "requiredFor",
+      "requires"
+    ],
+    [
+      "threatens",
+      "vulnerableTo"
+    ]
+  ],
+  "inverse_pair_count": 12,
+  "individuals_total": 10463,
+  "owl_restriction_someValuesFrom": 4,
+  "owl_restriction_allValuesFrom": 0,
+  "per_class_individual_counts": {
+    "LeafImage": 10407,
+    "Symptom": 11,
+    "Disease": 8,
+    "Pest": 6,
+    "Treatment": 6,
+    "EnvironmentalFactor": 5,
+    "GrowthStage": 5,
+    "ManagementAction": 5,
+    "SeverityLevel": 4,
+    "Pathogen": 3,
+    "Entity": 1,
+    "HealthStatus": 1,
+    "Plant": 1,
+    "DiseaseReport": 0,
+    "FarmerReport": 0,
+    "FieldObservation": 0,
+    "Observation": 0,
+    "SensorReading": 0
+  },
+  "per_property_assertion_counts": {
+    "sourceDatasetLabel": 10417,
+    "annotatedAs": 10407,
+    "vulnerableTo": 23,
+    "controlledBy": 16,
+    "occursIn": 16,
+    "indicatedBy": 14,
+    "recommends": 13,
+    "increaseRiskOf": 10,
+    "requires": 4,
+    "causes": 3,
+    "preventedBy": 2,
+    "annotationOf": 0,
+    "capturedBy": 0,
+    "captures": 0,
+    "causedBy": 0,
+    "confidenceScore": 0,
+    "controls": 0,
+    "detectedBy": 0,
+    "detects": 0,
+    "hasOccurrenceOf": 0,
+    "humidityValue": 0,
+    "indicates": 0,
+    "interventionThreshold": 0,
+    "observationDate": 0,
+    "prevents": 0,
+    "rainfallValue": 0,
+    "recommendedFor": 0,
+    "requiredFor": 0,
+    "riskIncreasedBy": 0,
+    "severityScore": 0,
+    "soilMoistureValue": 0,
+    "temperatureValue": 0,
+    "threatens": 0
+  },
+  "declared_but_never_asserted_properties": [
+    "annotationOf",
+    "capturedBy",
+    "captures",
+    "causedBy",
+    "confidenceScore",
+    "controls",
+    "detectedBy",
+    "detects",
+    "hasOccurrenceOf",
+    "humidityValue",
+    "indicates",
+    "interventionThreshold",
+    "observationDate",
+    "prevents",
+    "rainfallValue",
+    "recommendedFor",
+    "requiredFor",
+    "riskIncreasedBy",
+    "severityScore",
+    "soilMoistureValue",
+    "temperatureValue",
+    "threatens"
+  ],
+  "skos_exactMatch_count": 19,
+  "skos_closeMatch_count": 8,
+  "domain_individuals_no_alignment": [
+    "Armyworm",
+    "Bacterial_Leaf_Blight",
+    "Bacterial_Leaf_Streak",
+    "Bacterial_Panicle_Blight",
+    "Brown_Lesion",
+    "Brown_Spot",
+    "Chewed_Leaf",
+    "Critical_Severity",
+    "Deadheart",
+    "Dry_Leaf_Tip",
+    "Empty_Grain",
+    "Excessive_Nitrogen",
+    "Field_Inspection",
+    "Harvest_Stage",
+    "High_Severity",
+    "Hispa",
+    "Hopper_Burn",
+    "Immediate_Intervention",
+    "Leaf_Rolling",
+    "Low_Severity",
+    "Maturity_Stage",
+    "Medium_Severity",
+    "No_Action_Needed",
+    "Normal_Health",
+    "Preventive_Action",
+    "Resistant_Variety",
+    "Rice_Bug",
+    "Sheath_Blight",
+    "Stem_Rot_Symptom",
+    "Yellow_Leaf"
+  ],
+  "domain_individuals_no_alignment_count": 30,
+  "prototype_individuals_named_individual_only": [],
+  "prototype_individuals_count": 0,
+  "eppoCode_assertion_count": 3,
+  "todo_literals": [
+    [
+      "http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Armyworm",
+      "http://www.w3.org/2000/01/rdf-schema#comment",
+      "TODO: verify EPPO code at gd.eppo.int"
+    ],
+    [
+      "http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bipolaris_Oryzae",
+      "http://www.w3.org/2000/01/rdf-schema#comment",
+      "TODO: verify EPPO code at gd.eppo.int"
+    ],
+    [
+      "http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Hispa",
+      "http://www.w3.org/2000/01/rdf-schema#comment",
+      "TODO: verify EPPO code at gd.eppo.int"
+    ],
+    [
+      "http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Leaf_Folder",
+      "http://www.w3.org/2000/01/rdf-schema#comment",
+      "TODO: verify EPPO code at gd.eppo.int"
+    ],
+    [
+      "http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset",
+      "http://purl.org/dc/terms/license",
+      "TODO"
+    ],
+    [
+      "http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset",
+      "http://purl.org/dc/terms/source",
+      "TODO"
+    ],
+    [
+      "http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset",
+      "http://purl.org/dc/terms/title",
+      "TODO"
+    ],
+    [
+      "http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Bug",
+      "http://www.w3.org/2000/01/rdf-schema#comment",
+      "TODO: verify EPPO code at gd.eppo.int"
+    ],
+    [
+      "http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Stem_Borer",
+      "http://www.w3.org/2000/01/rdf-schema#comment",
+      "TODO: verify EPPO code at gd.eppo.int"
+    ]
+  ],
+  "todo_literal_count": 9
+}
