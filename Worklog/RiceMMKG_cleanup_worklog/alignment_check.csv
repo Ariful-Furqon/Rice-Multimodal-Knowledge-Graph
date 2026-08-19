@@ -1,0 +1,4 @@
+individual,current_iri,verified_iri,match_type,resolves
+Fungicide_Application,http://aims.fao.org/aos/agrovoc/c_27879,,,
+Insecticide_Application,http://aims.fao.org/aos/agrovoc/c_27879,,,
+Rice_Blast_Disease,http://aims.fao.org/aos/agrovoc/c_152ac092,,,
