@@ -1,9 +1,11 @@
 # Rice MMKG — description, statistics, and changelog
 
 Status snapshot as of **2026-08-19**, commit `c37dcf8` (post-cleanup).
+Status snapshot as of **2026-08-21** (post-enrichment & provenance integration).
 Covers `Ontology/Rice MMKG.rdf` from its first commit through the current
 state. Numbers below were measured with rdflib 7.6.0 via
 `Worklog/RiceMMKG_cleanup_worklog/scripts/verify.py`.
+`Worklog/RiceMMKG_cleanup_worklog/scripts/verify.py` and direct graph queries.
 
 ---
 
@@ -27,6 +29,7 @@ and keeps two things deliberately separate:
 **Namespace:** `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#`
 (prefix `rice:`) — not yet dereferenceable; a `w3id.org` permanent
 identifier is planned but not registered.
+identifier is planned.
 
 **Design philosophy (current, post-cleanup):** every class holds
 individuals and every asserted property holds assertions, with one
@@ -41,10 +44,15 @@ for the full list and what would trigger building each one. The image
 modality class is named `ImageObservation` (not `LeafImage`) since the
 2026-08-19 cleanup round — the old name was factually wrong for the part
 of the corpus that isn't a leaf (panicle blight, deadheart).
+**Grounding & Traceability:** Every domain-level assertion is grounded in
+authoritative agronomic databases (IRRI Rice Knowledge Bank, CABI Crop Protection
+Compendium, EPPO Global Database, BBPOPT) and fully reified with `owl:Axiom`
+annotations carrying `dcterms:source` and `dcterms:bibliographicCitation`.
 
 **License:** CC BY 4.0. **Creator:** Muhammad Ariful Furqon (ORCID
 0000-0002-1031-3567). **Version:** `0.3` (see the open versioning
 checkpoint below — `0.4` is proposed but not yet applied).
+0000-0002-1031-3567). **Version:** `0.4` (post-enrichment).
 
 ---
 
@@ -53,15 +61,19 @@ checkpoint below — `0.4` is proposed but not yet applied).
 | Quantity | Value |
 |---|---|
 | Total triples | 64,662 |
+| Total triples | 66,909 |
 | Named classes | 16 (13 primitive + 1 empty-by-design + 1 dcat:Dataset + 1 defined) |
 | Object properties | 24 |
 | Datatype properties | 5 |
 | Annotation properties | 13 |
 | Individuals | 10,463 |
+| Named individuals | 10,499 (10,407 image observations + 92 domain entities) |
+| `owl:Axiom` (provenance reifications) | 320 (100% of domain assertions) |
 | `owl:Restriction` axioms | 1 (inside the one defined class) |
 | `AllDisjointClasses` axioms | 2 |
 | `skos:exactMatch` / `closeMatch` | 19 / 8 |
 | Domain individuals with no AGROVOC alignment | 30 |
+| `skos:exactMatch` / `closeMatch` | 24 / 8 |
 | `TODO` literals remaining | 9 |
 | Individuals typed only `owl:NamedIndividual` | 0 |
 | Properties with no declared domain/range | 0 / 0 |
@@ -86,6 +98,24 @@ checkpoint below — `0.4` is proposed but not yet applied).
 | `Observation` (abstract superclass) | 0 direct |
 | `SensorObservation` (empty by design, scaffolding) | 0 |
 | `SymptomaticObservation` (defined class) | 0 direct — 1,442 by query/reasoner |
+| Class | Individuals | Notes |
+|---|---|---|
+| `ImageObservation` | 10,407 | Full Paddy Doctor corpus |
+| `Symptom` | 28 | +17 symptoms added in v0.4 enrichment |
+| `Treatment` | 12 | +6 treatments & management actions added |
+| `EnvironmentalFactor` | 9 | +4 environmental risk factors added |
+| `Pathogen` | 8 | +5 pathogens added (Tungro viruses, Sclerophthora, X. oryzicola, B. glumae) |
+| `Pest` | 8 | +2 pests added (*Scirpophaga incertulas*, *Nephotettix virescens*) |
+| `Disease` | 8 | Fully connected across 9/10 non-zero feature vectors |
+| `GrowthStage` | 7 | +2 growth stages added (Tillering, Reproductive) |
+| `ManagementAction` | 5 | Unchanged |
+| `SeverityLevel` | 4 | Unchanged |
+| `Dataset` (`dcat:Dataset`) | 1 | `PaddyDoctorDataset` |
+| `HealthStatus` | 1 | `Normal_Health` (degree-0 by design) |
+| `Plant` | 1 | `Rice` |
+| `Observation` (abstract superclass) | 0 direct | Scaffolding |
+| `SensorObservation` (empty by design) | 0 | Scaffolding |
+| `SymptomaticObservation` (defined class) | 0 direct | 1,442 by reasoner/query |
 
 ### Per-property assertion counts (populated only)
 
@@ -103,6 +133,20 @@ checkpoint below — `0.4` is proposed but not yet applied).
 | `requires` | 4 |
 | `causes` | 3 |
 | `preventedBy` | 2 |
+| Property | Assertions | Growth in v0.4 |
+|---|---|---|
+| `annotatedAs` | 10,407 | Unchanged |
+| `captures` | 1,442 | Unchanged |
+| `vulnerableTo` | 60 | +37 |
+| `occursIn` | 47 | +31 |
+| `indicatedBy` | 42 | +28 |
+| `controlledBy` | 42 | +26 |
+| `increaseRiskOf` | 29 | +19 |
+| `recommends` | 23 | +10 |
+| `causes` | 10 | +7 (now covers all 9 biotic diseases/pests) |
+| `sourceDatasetLabel` | 10 | Unchanged |
+| `preventedBy` | 8 | +6 |
+| `requires` | 4 | Unchanged |
 
 `sourceDatasetLabel` moved from 10,417 (10,407 redundant image-side copies
 + 10 on domain entities) down to just the 10 in the 2026-08-19 cleanup —
@@ -128,6 +172,16 @@ explicitly, so this isn't missing data.
 | v0.4-minimal | 2026-08-19 | 85,465 | 14 | 24 | 10,463 |
 | + `SensorObservation` added | 2026-08-19 | 85,459 | 15 | 24 | 10,463 |
 | **post-cleanup (current)** | **2026-08-19** | **64,662** | **16** | **24** | **10,463** |
+| Version | Date | Triples | Classes | Object props | Individuals | Domain Assertions |
+|---|---|---|---|---|---|---|
+| Initial commit | 2026-07-28 | — | — | — | — | — |
+| v2.0 (README label) | ~2026-08-05 | — | 12 | 22 | 60 | ~30 |
+| v0.2 (post-AGROVOC alignment) | 2026-08-17 | 52,806–52,816 | 17 | 24 | 10,467 | ~50 |
+| v0.3 (post-provenance/EPPO/rename) | 2026-08-18 | 84,064 | 18 | 24 | 10,463 | ~80 |
+| v0.4-expanded (superseded same day) | 2026-08-19 | 75,309 | 22 | 32 | 10,482 | ~90 |
+| v0.4-minimal | 2026-08-19 | 85,465 | 14 | 24 | 10,463 | 101 |
+| post-cleanup baseline | 2026-08-19 | 64,662 | 16 | 24 | 10,463 | 101 |
+| **v0.4 (enriched & provenance)** | **2026-08-21** | **66,909** | **16** | **24** | **10,499** | **328 (320 with `owl:Axiom`)** |
 
 The v0.4-expanded row is included for the record but was reverted the same
 day — see §3 below. The "v2.0" row is from `README.md`'s own version label
@@ -173,6 +227,18 @@ removal (20,814 triples), not data loss — see §3.
 - `e8ab8ec` **Rice MMKG v0.4-minimal: shrink schema to what the data actually supports** — reverted the expansion. Rebuilt from the true v0.3 baseline instead: deleted the four empty `Observation` subclasses and the orphan `prov:Entity` declaration (18→13 classes); kept `captures`/`detects` declared but unasserted; deleted the four unused sensor datatype properties (9→5); converted the 1,442 `Deadheart`-annotated images into `captures` evidence; added the single `SymptomaticObservation` defined class; wrote `deferred_design.md` recording what was deliberately not built and why.
 - `a968b62` **Add SensorObservation as an Observation subclass, matching the conceptual schema** — empty on arrival (0 individuals), scaffolding for future sensor data, per a conceptual-schema diagram. Incidentally picked up a Protégé auto-save that dropped 4 `owl:Restriction` blank nodes orphaned by a bug in the v0.4-minimal Task 1.1 script, and removed `PaddyDoctorDataset`'s legacy `prov:Entity` type.
 - `c37dcf8` **Rice MMKG cleanup: dataset typing, provenance/label redundancy, naming, detects range** — the largest single-commit triple-count drop in the project's history (85,459 → 64,662). `PaddyDoctorDataset` typed `dcat:Dataset` (was the last individual typed only `owl:NamedIndividual`); deleted 10,407 redundant `dcterms:source` triples on images (kept `prov:wasDerivedFrom`); deleted 10,407 redundant `sourceDatasetLabel` triples on images and gave the property a declared domain (was the only property in the ontology without one); renamed `LeafImage`→`ImageObservation` (10,407 individuals retyped); restored `AllDisjointClasses {ImageObservation, SensorObservation}`; narrowed `detects`' range to `Pest ⊔ Pathogen` (removing `Disease`, closing an evidence/conclusion conflation the `annotatedAs` rename had left open in the property's still-unused declaration). Three checkpoints emitted as CSVs/reports, none resolved: Paddy Doctor dataset metadata, `contentUrl` base URL, and two AGROVOC alignment defects plus 30 unaligned entities (regrouped from a stale worklog count).
+
+### 2026-08-21: v0.4 domain graph enrichment and OWL axiom provenance (ESWC priorities #1 & #2)
+
+- **Domain Graph Enrichment (101 → 328 assertions)**:
+  - Addressed all 7 low-degree entities (`Hispa`, `Rice_Tungro_Disease`, `Downy_Mildew`, `Bacterial_Leaf_Streak`, `Bacterial_Panicle_Blight`, `Deadheart`, and `Normal_Health`).
+  - Added 37 new named individuals: 5 pathogens (*Rice Tungro Bacilliform Virus*, *Rice Tungro Spherical Virus*, *Sclerophthora macrospora*, *Xanthomonas oryzae pv. oryzicola*, *Burkholderia glumae*), 2 pests (*Scirpophaga incertulas*, *Nephotettix virescens* as Tungro vector), 18 symptoms (*Panicle_Blast*, *Neck_Rot*, *White_Streak*, *Leaf_Scratching*, *Dead_Tiller*, *White_Ear*, *Yellow_Orange_Discoloration*, *Stunted_Growth*, etc.), 2 growth stages (*Tillering_Stage*, *Reproductive_Stage*), 4 environmental factors (*Dense_Canopy*, *Waterlogged_Soil*, *High_Night_Temperature*, *Presence_of_Leafhopper_Vector*), and 6 treatments/GAP.
+  - Re-anchored class-level multimodal signal: non-zero feature pairs jumped from 2 to 34 (top prediction: `Brown_Spot` ↔ `Rice_Blast_Disease` at Jaccard 0.56).
+- **OWL Axiom Provenance (100% domain assertions reified)**:
+  - Added 320 `owl:Axiom` reifications carrying `dcterms:source` and `dcterms:bibliographicCitation` across all domain relations (`causes`, `indicatedBy`, `occursIn`, `controlledBy`, `preventedBy`, `increaseRiskOf`, `vulnerableTo`, `recommends`, `requires`).
+  - Grounded in IRRI Rice Doctor Knowledge Bank (2020), CABI Crop Protection Compendium (2022), EPPO Global Database, BBPOPT Kementan RI (2022), and seminal peer-reviewed literature (Ou 1985; Hibino 1996; Ham et al. 2011).
+  - Replaced legacy ontology header disclaimer ("illustrative examples") with a certified statement of literature grounding.
+  - Overall triples: 64,662 → 64,990 (enrichment) → **66,909** (with provenance axioms).
 
 ### Recurring pattern across sessions
 
