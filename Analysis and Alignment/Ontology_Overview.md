@@ -50,21 +50,6 @@ checkpoint below — `0.4` is proposed but not yet applied).
 
 ## 2. Statistics (current state)
 
-| Quantity | Value |
-|---|---|
-| Total triples | 64,662 |
-| Named classes | 16 (13 primitive + 1 empty-by-design + 1 dcat:Dataset + 1 defined) |
-| Object properties | 24 |
-| Datatype properties | 5 |
-| Annotation properties | 13 |
-| Individuals | 10,463 |
-| `owl:Restriction` axioms | 1 (inside the one defined class) |
-| `AllDisjointClasses` axioms | 2 |
-| `skos:exactMatch` / `closeMatch` | 19 / 8 |
-| Domain individuals with no AGROVOC alignment | 30 |
-| `TODO` literals remaining | 9 |
-| Individuals typed only `owl:NamedIndividual` | 0 |
-| Properties with no declared domain/range | 0 / 0 |
 | Quantity | Value | Notes |
 |---|---|---|
 | **Total triples** | **66,909** | Up from 64,662 (+2,247 via enrichment & provenance) |
@@ -84,24 +69,6 @@ checkpoint below — `0.4` is proposed but not yet applied).
 
 ### Per-class individual counts
 
-| Class | Individuals |
-|---|---|
-| `ImageObservation` | 10,407 |
-| `Symptom` | 11 |
-| `Disease` | 8 |
-| `Pest` | 6 |
-| `Treatment` | 6 |
-| `EnvironmentalFactor` | 5 |
-| `GrowthStage` | 5 |
-| `ManagementAction` | 5 |
-| `SeverityLevel` | 4 |
-| `Pathogen` | 3 |
-| `Dataset` (`dcat:Dataset`) | 1 |
-| `HealthStatus` | 1 |
-| `Plant` | 1 |
-| `Observation` (abstract superclass) | 0 direct |
-| `SensorObservation` (empty by design, scaffolding) | 0 |
-| `SymptomaticObservation` (defined class) | 0 direct — 1,442 by query/reasoner |
 The 10,499 individuals in the knowledge graph are categorized by domain layer:
 
 | Domain Category | Class Name | Count | Type / Description |
@@ -128,28 +95,8 @@ The 10,499 individuals in the knowledge graph are categorized by domain layer:
 
 ### Per-property assertion counts (populated only)
 
-| Property | Assertions |
-|---|---|
-| `annotatedAs` | 10,407 |
-| `captures` | 1,442 |
-| `vulnerableTo` | 23 |
-| `controlledBy` | 16 |
-| `occursIn` | 16 |
-| `indicatedBy` | 14 |
-| `recommends` | 13 |
-| `increaseRiskOf` | 10 |
-| `sourceDatasetLabel` | 10 |
-| `requires` | 4 |
-| `causes` | 3 |
-| `preventedBy` | 2 |
 All domain assertions are formally backed by `owl:Axiom` provenance records (`dcterms:source` and `dcterms:bibliographicCitation`):
 
-`sourceDatasetLabel` moved from 10,417 (10,407 redundant image-side copies
-+ 10 on domain entities) down to just the 10 in the 2026-08-19 cleanup —
-the raw label string is reachable from an image via `annotatedAs` already,
-so repeating it per-image was redundant. `dcterms:source` was similarly
-removed from all 10,407 images (redundant with `prov:wasDerivedFrom`,
-kept).
 | Category | Property | Assertions | Domain → Range | Provenance Backing |
 |---|---|---:|---|---|
 | **Dataset & Observation Layer** | `annotatedAs` | 10,407 | `ImageObservation` → `Disease ⊔ Pest ⊔ HealthStatus` | Raw dataset labels |
@@ -166,26 +113,12 @@ kept).
 | | `requires` | 4 | `Treatment` → `GrowthStage` | BBPOPT / IRRI GAP |
 | **Total Populated Triples** | | **12,124** | *(11,859 image/dataset + 265 direct domain relations)* | **100% domain triples reified** |
 
-All twelve inverse directions (`indicates`, `detectedBy`, `causedBy`, etc.)
-and `detects` are declared but intentionally unasserted — only one
-direction of each pair is populated; the ontology comment says so
-explicitly, so this isn't missing data.
 > *Note on inverse properties:* All twelve inverse directions (`indicates`, `detectedBy`, `causedBy`, `prevents`, `controls`, `threatens`, etc.) and `detects` are declared in the schema for reasoning/querying symmetry, but only the canonical forward direction is asserted in the graph.
 
 ---
 
 ### Trajectory across major versions
 
-| Version | Date | Triples | Classes | Object props | Individuals |
-|---|---|---|---|---|---|
-| Initial commit | 2026-07-28 | — | — | — | — |
-| v2.0 (README label) | ~2026-08-05 | — | 12 | 22 | 60 |
-| v0.2 (post-AGROVOC alignment) | 2026-08-17 | 52,806–52,816 | 17 | 24 | 10,467 |
-| v0.3 (post-provenance/EPPO/rename) | 2026-08-18 | 84,064 | 18 | 24 | 10,463 |
-| v0.4-expanded (superseded same day) | 2026-08-19 | 75,309 | 22 | 32 | 10,482 |
-| v0.4-minimal | 2026-08-19 | 85,465 | 14 | 24 | 10,463 |
-| + `SensorObservation` added | 2026-08-19 | 85,459 | 15 | 24 | 10,463 |
-| **post-cleanup (current)** | **2026-08-19** | **64,662** | **16** | **24** | **10,463** |
 | Version | Milestone Date | Triples | Named Classes | Object Props | Individuals | Domain Assertions |
 |---|---|---|---|---|---|---|
 | Initial commit | 2026-07-28 | — | — | — | — | — |
