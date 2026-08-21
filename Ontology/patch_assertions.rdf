@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:rice="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#"
+>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Disease">
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Yellow_Orange_Discoloration"/>
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Stunted_Growth"/>
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Reduced_Tillering"/>
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Yellow_Leaf"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Seedling_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Tillering_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Vegetative_Stage"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Resistant_Variety"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Vector_Control"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Insecticide_Application"/>
+    <rice:preventedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Resistant_Variety"/>
+    <rice:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Monitoring"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Vegetative_Stage">
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Hispa"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Disease"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Downy_Mildew"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Streak"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Deadheart"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Brown_Spot"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#High_Humidity">
+    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Hispa"/>
+    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Downy_Mildew"/>
+    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Streak"/>
+    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Panicle_Blight"/>
+    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Deadheart"/>
+    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Blast_Disease"/>
+    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Brown_Spot"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Deadheart">
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Dead_Tiller"/>
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#White_Ear"/>
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Reduced_Tillering"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Vegetative_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Tillering_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Reproductive_Stage"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Insecticide_Application"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Neem_Based_Pesticide"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Biological_Control"/>
+    <rice:preventedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Resistant_Variety"/>
+    <rice:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Immediate_Intervention"/>
+    <rice:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Monitoring"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Nephotettix_Virescens">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Pest"/>
+    <rdfs:label xml:lang="en">Nephotettix virescens</rdfs:label>
+    <rdfs:comment xml:lang="en">Green leafhopper; primary vector for Rice Tungro Bacilliform Virus and Rice Tungro Spherical Virus.</rdfs:comment>
+    <rice:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_5160"/>
+    <rice:eppoCode>NEPHVI</rice:eppoCode>
+    <rice:causes rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Disease"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Blight">
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Wilting"/>
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Leaf_Rolling"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Tillering_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Reproductive_Stage"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Resistant_Variety"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Crop_Rotation"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Crop_Sanitation"/>
+    <rice:preventedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Resistant_Variety"/>
+    <rice:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Monitoring"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Brown_Spot">
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Grain_Discoloration"/>
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Wilting"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Tillering_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Vegetative_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Reproductive_Stage"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Resistant_Variety"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Crop_Sanitation"/>
+    <rice:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Monitoring"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Hispa">
+    <rdfs:comment xml:lang="en">Damage caused by the hispa beetle Dicladispa armigera. Adults scrape the upper leaf surface; larvae mine the leaf tissue, causing white streaks and browning tips.</rdfs:comment>
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#White_Streak"/>
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Leaf_Scratching"/>
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Brown_Leaf_Tip"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Vegetative_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Tillering_Stage"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Insecticide_Application"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Neem_Based_Pesticide"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Biological_Control"/>
+    <rice:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Monitoring"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Xanthomonas_Oryzicola">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Pathogen"/>
+    <rdfs:label xml:lang="en">Xanthomonas oryzae pv. oryzicola</rdfs:label>
+    <rdfs:comment xml:lang="en">Bacterial pathogen causing bacterial leaf streak (BLS) of rice. Distinct from X. oryzae pv. oryzae (BLB).</rdfs:comment>
+    <rice:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_37992"/>
+    <rice:eppoCode>XANTOX</rice:eppoCode>
+    <rice:causes rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Streak"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Sclerophthora_Macrospora">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Pathogen"/>
+    <rdfs:label xml:lang="en">Sclerophthora macrospora</rdfs:label>
+    <rdfs:comment xml:lang="en">Oomycete pathogen causing downy mildew (crazy top) of rice. Favoured by waterlogged, cool conditions.</rdfs:comment>
+    <rice:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_6907"/>
+    <rice:eppoCode>SCLPMA</rice:eppoCode>
+    <rice:causes rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Downy_Mildew"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Water_Soaked_Streak">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
+    <rdfs:label xml:lang="en">water-soaked streak</rdfs:label>
+    <rdfs:comment xml:lang="en">Initial water-soaked, translucent streaks on leaves between veins; early symptom of bacterial leaf streak.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice">
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Hispa"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Disease"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Downy_Mildew"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Streak"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Panicle_Blight"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Deadheart"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Bacilliform_Virus"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Sclerophthora_Macrospora"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Xanthomonas_Oryzicola"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Burkholderia_Glumae"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Scirpophaga_Incertulas"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Nephotettix_Virescens"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Tillering_Stage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#GrowthStage"/>
+    <rdfs:label xml:lang="en">tillering stage</rdfs:label>
+    <rdfs:comment xml:lang="en">Vegetative growth stage (approx. 21–60 days after transplanting) during which rice produces lateral shoots (tillers).</rdfs:comment>
+    <rice:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_7808"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Hispa"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Disease"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Downy_Mildew"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Streak"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Deadheart"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Blight"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Blast_Disease"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Brown_Spot"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Blast_Disease">
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Panicle_Blast"/>
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Neck_Rot"/>
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Wilting"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Tillering_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Reproductive_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Maturity_Stage"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Crop_Rotation"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Crop_Sanitation"/>
+    <rice:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Immediate_Intervention"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Brown_Leaf_Tip">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
+    <rdfs:label xml:lang="en">brown leaf tip</rdfs:label>
+    <rdfs:comment xml:lang="en">Browning confined to leaf tips; occurs in hispa damage where larvae mine leaf tissue.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#White_Streak">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
+    <rdfs:label xml:lang="en">white streak</rdfs:label>
+    <rdfs:comment xml:lang="en">White or silvery linear marks on leaf surface caused by hispa beetle scraping the leaf epidermis.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Waterlogged_Soil">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#EnvironmentalFactor"/>
+    <rdfs:label xml:lang="en">waterlogged soil</rdfs:label>
+    <rdfs:comment xml:lang="en">Prolonged soil saturation; creates conditions favourable to oomycete pathogens such as Sclerophthora macrospora.</rdfs:comment>
+    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Downy_Mildew"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#High_Night_Temperature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#EnvironmentalFactor"/>
+    <rdfs:label xml:lang="en">high night temperature</rdfs:label>
+    <rdfs:comment xml:lang="en">Night temperatures above 25°C; strongly associated with increased severity of bacterial panicle blight (Burkholderia glumae).</rdfs:comment>
+    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Panicle_Blight"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Streak">
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Water_Soaked_Streak"/>
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Translucent_Stripe"/>
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Yellow_Leaf"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Vegetative_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Tillering_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Flowering_Stage"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Resistant_Variety"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Crop_Rotation"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Crop_Sanitation"/>
+    <rice:preventedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Resistant_Variety"/>
+    <rice:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Monitoring"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#White_Ear">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
+    <rdfs:label xml:lang="en">white ear</rdfs:label>
+    <rdfs:comment xml:lang="en">Panicle that emerges white and sterile because stem borer larva has cut the stem internally at reproductive stage.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Grain_Discoloration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
+    <rdfs:label xml:lang="en">grain discoloration</rdfs:label>
+    <rdfs:comment xml:lang="en">Brown to black discoloration of individual grains; associated with bacterial panicle blight and fungal diseases.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Low_Rainfall">
+    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Blast_Disease"/>
+    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Brown_Spot"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Good_Agricultural_Practice">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Treatment"/>
+    <rdfs:label xml:lang="en">good agricultural practice</rdfs:label>
+    <rdfs:comment xml:lang="en">Combination of balanced fertilisation, appropriate plant spacing, timely planting, and field sanitation to maintain plant health.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Panicle_Blight">
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Discolored_Panicle"/>
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Empty_Grain"/>
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Grain_Discoloration"/>
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Wilting"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Flowering_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Maturity_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Reproductive_Stage"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Seed_Treatment"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Crop_Rotation"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Crop_Sanitation"/>
+    <rice:preventedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Resistant_Variety"/>
+    <rice:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Monitoring"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Dense_Canopy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#EnvironmentalFactor"/>
+    <rdfs:label xml:lang="en">dense canopy</rdfs:label>
+    <rdfs:comment xml:lang="en">Thick leaf canopy creating humid micro-environment that favours pest and pathogen development.</rdfs:comment>
+    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Hispa"/>
+    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Deadheart"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Leaf_Scratching">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
+    <rdfs:label xml:lang="en">leaf scratching</rdfs:label>
+    <rdfs:comment xml:lang="en">Irregular scratching damage on upper leaf surface; characteristic of hispa (Dicladispa armigera) adult feeding.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Sterile_Panicle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
+    <rdfs:label xml:lang="en">sterile panicle</rdfs:label>
+    <rdfs:comment xml:lang="en">Panicles that fail to set grain; result of downy mildew infection at reproductive stage.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Normal_Health">
+    <rdfs:comment xml:lang="en">Represents a rice plant with no observable disease, pest, or nutritional disorder. By design, no symptom or pathogen is asserted for this entity — its absence of assertions is semantically meaningful, not an omission.</rdfs:comment>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Seedling_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Tillering_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Vegetative_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Reproductive_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Flowering_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Maturity_Stage"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Good_Agricultural_Practice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Translucent_Stripe">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
+    <rdfs:label xml:lang="en">translucent stripe</rdfs:label>
+    <rdfs:comment xml:lang="en">Narrow translucent stripes on leaves, later turning yellow-brown with wavy margins; diagnostic for bacterial leaf streak.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Downy_Mildew">
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Yellow_Stripe"/>
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Excessive_Tillering"/>
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Stunted_Growth"/>
+    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Sterile_Panicle"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Seedling_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Tillering_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Vegetative_Stage"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Fungicide_Application"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Water_Management"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Crop_Rotation"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Trichoderma_Application"/>
+    <rice:preventedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Seed_Treatment"/>
+    <rice:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Monitoring"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Neem_Based_Pesticide">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Treatment"/>
+    <rdfs:label xml:lang="en">neem-based pesticide</rdfs:label>
+    <rdfs:comment xml:lang="en">Botanical insecticide derived from Azadirachta indica; used as a low-residue option for stem borer and leafhopper management.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Crop_Sanitation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Treatment"/>
+    <rdfs:label xml:lang="en">crop sanitation</rdfs:label>
+    <rdfs:comment xml:lang="en">Removal and destruction of infected plant debris to reduce inoculum carry-over between seasons.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Reproductive_Stage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#GrowthStage"/>
+    <rdfs:label xml:lang="en">reproductive stage</rdfs:label>
+    <rdfs:comment xml:lang="en">Growth phase from panicle initiation to heading; includes booting, heading, and early grain filling.</rdfs:comment>
+    <rice:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_6562"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Panicle_Blight"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Deadheart"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Blight"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Blast_Disease"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Brown_Spot"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Empty_Grain">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
+    <rdfs:label xml:lang="en">empty grain</rdfs:label>
+    <rdfs:comment xml:lang="en">Grain that fails to fill (chaffy grain); a primary yield loss symptom in bacterial panicle blight.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Maturity_Stage">
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Panicle_Blight"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Blast_Disease"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Yellow_Stripe">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
+    <rdfs:label xml:lang="en">yellow stripe</rdfs:label>
+    <rdfs:comment xml:lang="en">Yellow to pale-green stripes running parallel to leaf veins; characteristic of downy mildew (crazy top).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Discolored_Panicle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
+    <rdfs:label xml:lang="en">discolored panicle</rdfs:label>
+    <rdfs:comment xml:lang="en">Browning or blackening of panicle rachis and grains; caused by Burkholderia glumae in bacterial panicle blight.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Panicle_Blast">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
+    <rdfs:label xml:lang="en">panicle blast</rdfs:label>
+    <rdfs:comment xml:lang="en">Brown to grayish lesion at the base of panicle (neck), causing partial or complete panicle death; a severe form of rice blast.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Vector_Control">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Treatment"/>
+    <rdfs:label xml:lang="en">vector control</rdfs:label>
+    <rdfs:comment xml:lang="en">Management of insect vectors (particularly leafhoppers) to reduce disease transmission; includes insecticides and resistant varieties.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Seedling_Stage">
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Disease"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Downy_Mildew"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Stunted_Growth">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
+    <rdfs:label xml:lang="en">stunted growth</rdfs:label>
+    <rdfs:comment xml:lang="en">Reduction in plant height; a hallmark of tungro infection in early growth stages.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Spherical_Virus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Pathogen"/>
+    <rdfs:label xml:lang="en">Rice Tungro Spherical Virus</rdfs:label>
+    <rdfs:comment xml:lang="en">Single-stranded RNA virus; required for efficient transmission of RTBV by Nephotettix virescens.</rdfs:comment>
+    <rice:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_25920"/>
+    <rice:eppoCode>RTSV00</rice:eppoCode>
+    <rice:causes rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Disease"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Burkholderia_Glumae">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Pathogen"/>
+    <rdfs:label xml:lang="en">Burkholderia glumae</rdfs:label>
+    <rdfs:comment xml:lang="en">Bacterial pathogen causing bacterial panicle blight. Produces toxoflavin; favoured by high night temperatures.</rdfs:comment>
+    <rice:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_36808"/>
+    <rice:eppoCode>BURBGL</rice:eppoCode>
+    <rice:causes rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Panicle_Blight"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Bacilliform_Virus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Pathogen"/>
+    <rdfs:label xml:lang="en">Rice Tungro Bacilliform Virus</rdfs:label>
+    <rdfs:comment xml:lang="en">Double-stranded DNA virus; one of two agents of Rice Tungro Disease. Transmitted by green leafhopper Nephotettix virescens.</rdfs:comment>
+    <rice:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_25919"/>
+    <rice:eppoCode>RTBV00</rice:eppoCode>
+    <rice:causes rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Disease"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Reduced_Tillering">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
+    <rdfs:label xml:lang="en">reduced tillering</rdfs:label>
+    <rdfs:comment xml:lang="en">Fewer tillers produced than in healthy plants; associated with tungro and stem borer damage.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Yellow_Orange_Discoloration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
+    <rdfs:label xml:lang="en">yellow-orange leaf discoloration</rdfs:label>
+    <rdfs:comment xml:lang="en">Characteristic yellowing-to-orange discoloration of leaves in rice tungro disease.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Neck_Rot">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
+    <rdfs:label xml:lang="en">neck rot</rdfs:label>
+    <rdfs:comment xml:lang="en">Rotting of the panicle neck caused by Magnaporthe oryzae; leads to empty or partially filled grain.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#High_Temperature">
+    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Hispa"/>
+    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Disease"/>
+    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Streak"/>
+    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Panicle_Blight"/>
+    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Deadheart"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Scirpophaga_Incertulas">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Pest"/>
+    <rdfs:label xml:lang="en">Scirpophaga incertulas</rdfs:label>
+    <rdfs:comment xml:lang="en">Yellow stem borer; larvae bore into rice tillers causing 'dead heart' at vegetative stage and 'white ear' at reproductive stage.</rdfs:comment>
+    <rice:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_6911"/>
+    <rice:eppoCode>SCPIIN</rice:eppoCode>
+    <rice:causes rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Deadheart"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Excessive_Tillering">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
+    <rdfs:label xml:lang="en">excessive tillering</rdfs:label>
+    <rdfs:comment xml:lang="en">Abnormally high number of thin, erect tillers; 'crazy top' appearance caused by Sclerophthora macrospora.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Presence_of_Leafhopper_Vector">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#EnvironmentalFactor"/>
+    <rdfs:label xml:lang="en">presence of leafhopper vector</rdfs:label>
+    <rdfs:comment xml:lang="en">Presence of Nephotettix virescens populations in the field; a prerequisite for tungro disease spread.</rdfs:comment>
+    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Disease"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Trichoderma_Application">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Treatment"/>
+    <rdfs:label xml:lang="en">Trichoderma application</rdfs:label>
+    <rdfs:comment xml:lang="en">Application of Trichoderma spp. as a biocontrol agent against soil-borne fungal and oomycete pathogens.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Poor_Soil_Drainage">
+    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Brown_Spot"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Seed_Treatment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Treatment"/>
+    <rdfs:label xml:lang="en">seed treatment</rdfs:label>
+    <rdfs:comment xml:lang="en">Application of fungicides or bactericides to seed before sowing to suppress seed-borne pathogens.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Dead_Tiller">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
+    <rdfs:label xml:lang="en">dead heart</rdfs:label>
+    <rdfs:comment xml:lang="en">Central tiller dies and turns brown while surrounding tillers remain green; caused by stem borer larva cutting internal stem tissue at vegetative stage.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Flowering_Stage">
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Streak"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Panicle_Blight"/>
+  </rdf:Description>
+</rdf:RDF>
