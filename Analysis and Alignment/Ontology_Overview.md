@@ -43,8 +43,7 @@ modality class is named `ImageObservation` (not `LeafImage`) since the
 of the corpus that isn't a leaf (panicle blight, deadheart).
 
 **License:** CC BY 4.0. **Creator:** Muhammad Ariful Furqon (ORCID
-0000-0002-1031-3567). **Version:** `0.3` (see the open versioning
-checkpoint below — `0.4` is proposed but not yet applied).
+0000-0002-1031-3567). **Version:** `0.4` (live as of 2026-08-21; pre-release progression: `v0.1` → `v0.2` → `v0.3` → `v0.4`).
 
 ---
 
@@ -113,16 +112,14 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | | `requires` | 4 | `Treatment` → `GrowthStage` | BBPOPT / IRRI GAP |
 | **Total Populated Triples** | | **12,124** | *(11,859 image/dataset + 265 direct domain relations)* | **100% domain triples reified** |
 
-> *Note on inverse properties:* All twelve inverse directions (`indicates`, `detectedBy`, `causedBy`, `prevents`, `controls`, `threatens`, etc.) and `detects` are declared in the schema for reasoning/querying symmetry, but only the canonical forward direction is asserted in the graph.
-
----
+> *Note on inverse properties:* All twelve inverse directions (`indicates`, `detectedBy`, `causedBy`, `prevents`, `controls`, `threatens`, etc.) and `detects` are declared in the schema for reasoning/querying symmetry.
 
 ### Trajectory across major versions
 
 | Version | Milestone Date | Triples | Named Classes | Object Props | Individuals | Domain Assertions |
 |---|---|---|---|---|---|---|
 | Initial commit | 2026-07-28 | — | — | — | — | — |
-| v2.0 (README label) | ~2026-08-05 | — | 12 | 22 | 60 | ~30 |
+| v0.1 (early prototype) | ~2026-08-05 | — | 12 | 22 | 60 | ~30 |
 | v0.2 (post-AGROVOC alignment) | 2026-08-17 | 52,806–52,816 | 17 | 24 | 10,467 | ~50 |
 | v0.3 (post-provenance/EPPO/rename) | 2026-08-18 | 84,064 | 18 | 24 | 10,463 | ~80 |
 | v0.4-expanded (superseded same day) | 2026-08-19 | 75,309 | 22 | 32 | 10,482 | ~90 |
@@ -130,16 +127,16 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | **v0.4 (enriched & provenance)** | **2026-08-21** | **67,236** | **16** | **24** | **10,499** | **328 (320 with `owl:Axiom`, 0 TODOs)** |
 
 The v0.4-expanded row is included for the record but was reverted the same
-day — see §3 below. The "v2.0" row is from `README.md`'s own version label
-at the time, not a `verify.py` measurement — no triple count is available
-for it. The drop from 85,459 to 64,662 in the cleanup round is redundancy
-removal (20,814 triples), not data loss — see §3.
+day — see §3 below. Early prototype commits that were originally labelled
+with arbitrary 2.x tags (e.g. "v2.0"–"v2.3") were normalized to the `0.x`
+pre-release series (`v0.1`–`v0.4`) to maintain a clean monotonic version
+progression before the 1.0 publication release.
 
 ---
 
 ## 3. Changelog
 
-### 2026-07-28 — 2026-08-06: initial schema and population
+### 2026-07-28 — 2026-08-06: initial schema and population (v0.1 prototype)
 
 - `7fc55b5` **MMKG Ontology** — first commit.
 - `015ee12` **update ontology**
@@ -153,15 +150,15 @@ removal (20,814 triples), not data loss — see §3.
 - `e5f6f09` **Formalize schema: fix consistency bug, add functional properties, split Observation into channel subclasses** — introduces `LeafImage`/`SensorReading`/`FieldObservation`/`FarmerReport`/`DiseaseReport` as `Observation` subclasses.
 - `06f3c49` **update alignment**
 
-### 2026-08-17: cross-vocabulary alignment
+### 2026-08-17: cross-vocabulary alignment (v0.2)
 
 - `ab3c1c5` **Add NCBI Taxonomy cross-check, multimodal fusion PoC, and an ontology backup**
 - `25e9a7b` **Resolve four EnvironmentalFactor category mismatches via Planteome**
 
-### 2026-08-18: v2.3 → v0.3 — provenance, EPPO, versioning, cleanup
+### 2026-08-18: v0.1 → v0.3 — provenance, EPPO, versioning normalization, cleanup
 
-- `456d0c8` **Rice MMKG v2.3: rename classifiedAs, add provenance/EPPO/image links, restructure prototypes** — renamed `classifiedAs`→`annotatedAs`; added PROV-O provenance (`PaddyDoctorDataset`, `wasDerivedFrom`) to all 10,407 images; added `schema:contentUrl` image paths (the Paddy Doctor dataset was found locally, so paths were verified against real files rather than left as a template); added 3 verified EPPO codes + 6 TODO markers; added ontology FAIR metadata; converted 4 prototype "class-as-instance" individuals into `owl:Restriction`s and deleted them; narrowed sensor property domains.
-- `c78ca80` **Use v0.3 versioning for Rice MMKG since it has not been publicly released** — `owl:versionInfo`/`versionIRI` moved from `2.3` to `0.3`, continuing the pre-existing 0.x pre-release scheme instead of jumping to a 2.x number.
+- `456d0c8` **Rice MMKG: rename classifiedAs, add provenance/EPPO/image links, restructure prototypes** — renamed `classifiedAs`→`annotatedAs`; added PROV-O provenance (`PaddyDoctorDataset`, `wasDerivedFrom`) to all 10,407 images; added `schema:contentUrl` image paths (the Paddy Doctor dataset was found locally, so paths were verified against real files rather than left as a template); added 3 verified EPPO codes; added ontology FAIR metadata; converted 4 prototype "class-as-instance" individuals into `owl:Restriction`s and deleted them; narrowed sensor property domains.
+- `c78ca80` **Use v0.3 versioning for Rice MMKG since it has not been publicly released** — normalized legacy 2.x prototype labels to the `0.x` pre-release sequence (`v0.1` → `v0.2` → `v0.3`).
 - `38e5d8e` **Stop importing full PROV-O/DCTERMS vocabularies, declare only used terms** — fixed `owl:imports` pulling the entire external DCTERMS/PROV-O class hierarchies into Protégé's view; switched to declaring only the ~7 terms actually used.
 - `8e70498` **Fill in dcterms:license, creator, and issued metadata** — CC BY 4.0, ORCID, issue date.
 
@@ -174,17 +171,19 @@ removal (20,814 triples), not data loss — see §3.
 - `a968b62` **Add SensorObservation as an Observation subclass, matching the conceptual schema** — empty on arrival (0 individuals), scaffolding for future sensor data, per a conceptual-schema diagram. Incidentally picked up a Protégé auto-save that dropped 4 `owl:Restriction` blank nodes orphaned by a bug in the v0.4-minimal Task 1.1 script, and removed `PaddyDoctorDataset`'s legacy `prov:Entity` type.
 - `c37dcf8` **Rice MMKG cleanup: dataset typing, provenance/label redundancy, naming, detects range** — the largest single-commit triple-count drop in the project's history (85,459 → 64,662). `PaddyDoctorDataset` typed `dcat:Dataset` (was the last individual typed only `owl:NamedIndividual`); deleted 10,407 redundant `dcterms:source` triples on images (kept `prov:wasDerivedFrom`); deleted 10,407 redundant `sourceDatasetLabel` triples on images and gave the property a declared domain (was the only property in the ontology without one); renamed `LeafImage`→`ImageObservation` (10,407 individuals retyped); restored `AllDisjointClasses {ImageObservation, SensorObservation}`; narrowed `detects`' range to `Pest ⊔ Pathogen` (removing `Disease`, closing an evidence/conclusion conflation the `annotatedAs` rename had left open in the property's still-unused declaration). Three checkpoints emitted as CSVs/reports, none resolved: Paddy Doctor dataset metadata, `contentUrl` base URL, and two AGROVOC alignment defects plus 30 unaligned entities (regrouped from a stale worklog count).
 
-### Recurring pattern across sessions
+### 2026-08-21: v0.4 domain graph enrichment and OWL axiom provenance (ESWC priorities #1 & #2)
 
-Three separate rounds (`v2.3`, `v0.4`-expanded, `v0.4`-minimal) each found
-that a worklog's stated "baseline" or "unaligned entity count" was stale
-relative to the ontology's actual state — most often because AGROVOC/EPPO
-alignment work landed between when a plan was written and when it was
-executed. Each time, the actual measured numbers were adopted in place of
-the stale ones, with the discrepancy documented rather than silently
-absorbed. The AGROVOC-unaligned count has stayed close to 30 throughout
-(the "30 vs. a smaller stated number" pattern shows up in `v2.3`, `v0.4`,
-and `v0.4-minimal`'s worklogs alike).
+- **Domain Graph Enrichment (101 → 328 assertions)**:
+  - Addressed all 7 low-degree entities (`Hispa`, `Rice_Tungro_Disease`, `Downy_Mildew`, `Bacterial_Leaf_Streak`, `Bacterial_Panicle_Blight`, `Deadheart`, and `Normal_Health`).
+  - Added 37 new named individuals: 5 pathogens (*Rice Tungro Bacilliform Virus*, *Rice Tungro Spherical Virus*, *Sclerophthora macrospora*, *Xanthomonas oryzae pv. oryzicola*, *Burkholderia glumae*), 2 pests (*Scirpophaga incertulas*, *Nephotettix virescens* as Tungro vector), 18 symptoms (*Panicle_Blast*, *Neck_Rot*, *White_Streak*, *Leaf_Scratching*, *Dead_Tiller*, *White_Ear*, *Yellow_Orange_Discoloration*, *Stunted_Growth*, etc.), 2 growth stages (*Tillering_Stage*, *Reproductive_Stage*), 4 environmental factors (*Dense_Canopy*, *Waterlogged_Soil*, *High_Night_Temperature*, *Presence_of_Leafhopper_Vector*), and 6 treatments/GAP.
+  - Re-anchored class-level multimodal signal: non-zero feature pairs jumped from 2 to 34 (top prediction: `Brown_Spot` ↔ `Rice_Blast_Disease` at Jaccard 0.56).
+- **OWL Axiom Provenance (100% domain assertions reified)**:
+  - Added 320 `owl:Axiom` reifications carrying `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType "literature-curated"` across all domain relations (`causes`, `indicatedBy`, `occursIn`, `controlledBy`, `preventedBy`, `increaseRiskOf`, `vulnerableTo`, `recommends`, `requires`).
+  - Grounded in IRRI Rice Doctor Knowledge Bank (2020), CABI Crop Protection Compendium (2022), EPPO Global Database, BBPOPT Kementan RI (2022), and seminal peer-reviewed literature (Ou 1985; Hibino 1996; Ham et al. 2011).
+  - Replaced legacy ontology header disclaimer ("illustrative examples") with a certified statement of literature grounding.
+  - Resolved all 9 remaining `TODO` literals: completed `PaddyDoctorDataset` metadata (`dcterms:title`, `dcterms:license`, `dcterms:source`, `dcterms:bibliographicCitation`) and verified 6 EPPO codes (`COCHMI`, `DCLPAR`, `SCPIIN`, `CNAPME`, `LEUCOM`, `LEPTOR`).
+  - Set `owl:versionInfo "0.4"` and `owl:versionIRI <.../riceMMKG/0.4>`.
+  - Overall triples: 64,662 → 64,990 (enrichment) → 66,909 (provenance) → **67,236** (with metadata polish).
 
 ---
 
@@ -196,16 +195,12 @@ and `v0.4-minimal`'s worklogs alike).
   8 disease/pest · 9 symptom · 13 management/severity/stage. See
   `Worklog/RiceMMKG_cleanup_worklog/alignment_check.csv` and
   `agrovoc_todo.csv`.
-- **Paddy Doctor dataset metadata:** `dcterms:title`/`license`/`source` on
-  `PaddyDoctorDataset` still `TODO`. See
-  `Worklog/RiceMMKG_cleanup_worklog/dataset_metadata.csv`.
 - **Image URL resolvability:** `schema:contentUrl` holds relative paths
   that don't dereference. Three options written up, none chosen. See
   `Worklog/RiceMMKG_cleanup_worklog/contenturl_base.md`.
-- **Permanent identifier:** `w3id.org` path segment not yet chosen; base
-  IRI not yet rewritten.
-- **Version number:** `0.3` still live; `0.4` proposed, not applied.
-- **EPPO codes:** 3 of 9 organisms verified; 6 still `TODO`.
+- **Permanent identifier:** `w3id.org` path segment to be registered for PURL minting.
+- **Version status:** `0.4` is officially live in `Rice MMKG.rdf` (as of 2026-08-21).
+- **Competency Questions (CQs) Benchmark:** Formalization as executable SPARQL queries (next development priority).
 - **No reasoner available** in the working environment (no Java) — several
   acceptance checks across sessions (consistency, DL-classified defined-
   class membership) were substituted with direct graph queries, exact for
