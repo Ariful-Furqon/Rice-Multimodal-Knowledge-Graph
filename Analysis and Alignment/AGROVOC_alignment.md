@@ -181,6 +181,55 @@ phrases with no single-concept AGROVOC equivalent.
 | `Low_Rainfall` | EnvironmentalFactor | [`drought`](http://aims.fao.org/aos/agrovoc/c_2391) — rejected, severity mismatch | Not applied (AGROVOC) | Resolved via Planteome | "Drought" implies more severity/duration than "low rainfall." Matched instead to Planteome's `drought exposure` (PECO:0007404) as `skos:closeMatch` (same severity caveat still applies, but category now correct); see [`Planteome_alignment.md`](Planteome_alignment.md). |
 | `Poor_Soil_Drainage` | EnvironmentalFactor | [`waterlogging`](http://aims.fao.org/aos/agrovoc/c_8333) — rejected, cause-vs-effect mismatch | Not applied (AGROVOC) | Resolved via Planteome | Waterlogging is the effect of poor drainage, not the drainage condition itself. Matched instead to Planteome's `flood water exposure` (PECO:0007172) as `skos:closeMatch` (same cause-vs-effect caveat still applies); see [`Planteome_alignment.md`](Planteome_alignment.md). |
 
+## New-entity alignment (round 5)
+
+Checked 2026-08-22, via the AGROVOC REST search API (`agrovoc.fao.org/browse/rest/v1/search`)
+rather than the SPARQL endpoint used in rounds 1–4, against the individuals
+added in the 2026-08-21 domain-graph enrichment plus a handful of pre-existing
+individuals rounds 1–4 had not yet reached. None of these entities appear
+in rounds 1–4 above, so there is no prior decision to reconcile — except
+where noted, this round also re-confirmed several rounds 1–4 "Needs domain
+review" / "Local-only" items should **stay** that way (see the note at the
+end of this section).
+
+| Rice MMKG entity | Type | AGROVOC candidate | Proposed relation | Status | Decision note |
+|---|---|---|---|---|---|
+| `Reproductive_Stage` | GrowthStage | [`reproductive stage`](http://aims.fao.org/aos/agrovoc/c_330645) | `skos:exactMatch` | Implemented | Direct label match; fills the gap round 3 left in the `c_3307xx` phenological-stage series. |
+| `Tillering_Stage` | GrowthStage | [`tillering`](http://aims.fao.org/aos/agrovoc/c_7773) | `skos:closeMatch` | Implemented | AGROVOC labels the process "tillering," not "tillering stage" — same generic-process concept also used for `Excessive_Tillering`/`Reduced_Tillering` below, the same shared-concept pattern already accepted for `Fungicide_Application`/`Insecticide_Application` → `pesticide application`. |
+| `Excessive_Tillering` | Symptom | [`tillering`](http://aims.fao.org/aos/agrovoc/c_7773) | `skos:closeMatch` | Implemented | No "excessive tillering" concept exists; closeMatch to the general process. |
+| `Reduced_Tillering` | Symptom | [`tillering`](http://aims.fao.org/aos/agrovoc/c_7773) | `skos:closeMatch` | Implemented | Same as `Excessive_Tillering`. |
+| `Stunted_Growth` | Symptom | [`stunting`](http://aims.fao.org/aos/agrovoc/c_4426a431) | `skos:exactMatch` | Implemented | Direct semantic match. |
+| `Grain_Discoloration` | Symptom | [`discolouration`](http://aims.fao.org/aos/agrovoc/c_26771) | `skos:closeMatch` | Implemented | No grain-specific discoloration concept; closeMatch to the general one. |
+| `Waterlogged_Soil` | EnvironmentalFactor | [`waterlogging`](http://aims.fao.org/aos/agrovoc/c_8333), altLabel "waterlogged soils" | `skos:exactMatch` | Implemented | Direct literal altLabel match — distinct from `Poor_Soil_Drainage` (round 4), which was correctly rejected for the same c_8333 candidate on cause-vs-effect grounds; this entity's own label *is* the waterlogged state, so no such mismatch applies here. |
+| `Dense_Canopy` | EnvironmentalFactor | [`canopy`](http://aims.fao.org/aos/agrovoc/c_1262) | `skos:closeMatch` | Implemented | No "dense canopy" concept; closeMatch to the broader canopy concept. |
+| `Presence_of_Leafhopper_Vector` | EnvironmentalFactor | [`Cicadellidae`](http://aims.fao.org/aos/agrovoc/c_4041), altLabel "leafhoppers" | `skos:closeMatch` | Implemented | Individual describes vector presence as an epidemiological factor; AGROVOC concept is the insect taxon itself — a condition-vs-organism mismatch in the same family as the category mismatches round 4 sent to Planteome instead. Kept as AGROVOC closeMatch rather than left unmapped since PECO returned no usable candidate for this term (checked); worth a second Planteome look if a more specific "vector exposure" term appears in a future release. |
+| `Crop_Sanitation` | Treatment | [`hygiene`](http://aims.fao.org/aos/agrovoc/c_3739), altLabel "sanitation" | `skos:closeMatch` | Implemented | General hygiene/sanitation concept, not specifically "crop sanitation" as an agronomic practice. |
+| `Neem_Based_Pesticide` | Treatment | [`neem extracts`](http://aims.fao.org/aos/agrovoc/c_34060) | `skos:closeMatch` | Implemented | Closest pesticide-preparation concept; "neem-based pesticide" as a category isn't separately labeled. |
+| `Seed_Treatment` | Treatment | [`seed treatment`](http://aims.fao.org/aos/agrovoc/c_6940) | `skos:exactMatch` | Implemented | Direct label match. |
+| `Trichoderma_Application` | Treatment | [`Trichoderma`](http://aims.fao.org/aos/agrovoc/c_15814) | `skos:closeMatch` | Implemented | AGROVOC concept is the fungal genus (the biocontrol organism), not the application action — same organism-vs-action pattern as `Biological_Control` in spirit but at genus level. |
+| `Good_Agricultural_Practice` | Treatment | [`good agricultural practices`](http://aims.fao.org/aos/agrovoc/c_9088686a) | `skos:exactMatch` | Implemented | Singular/plural only difference. |
+| `Field_Inspection` | ManagementAction | [`monitoring`](http://aims.fao.org/aos/agrovoc/c_4911) | `skos:closeMatch` | Implemented | No "field inspection"/"scouting" concept in AGROVOC; reuses the same concept already `exactMatch`-assigned to the `Monitoring` individual (round 3) — same shared-concept pattern as the tillering trio above. Worth a domain decision later on whether `Field_Inspection` and `Monitoring` should actually be the same local individual. |
+
+**Reconfirmed as correctly left `Needs domain review` / `Local-only`** (an
+AI-assisted lookup pass on 2026-08-22 proposed candidates for these, but
+each was checked against this register's own prior reasoning and rejected
+for reasons already on record here — recorded so a future pass doesn't
+repeat the same mistake): `Armyworm` (round 2's `fall armyworms`
+false-positive concern still applies), `Bacterial_Leaf_Blight` and
+`Bacterial_Leaf_Streak` (would substitute the pathogen concept for the
+disease, the exact conflation this register's mapping policy forbids —
+`Bacterial_Leaf_Streak`'s pathogen is already correctly aligned via the
+`Xanthomonas_Oryzicola` individual), `Brown_Spot` and `Sheath_Blight` (same
+disease-vs-pathogen conflation; `Brown_Spot`'s candidate concept is also
+already assigned to `Bipolaris_Oryzae`), `Brown_Lesion`, `Maturity_Stage`,
+and `Resistant_Variety` (round 3/4's open category/synonymy questions were
+not resolved by the new pass), `Rice_Bug` (species/spelling ambiguity
+still open — see `NCBI_Taxonomy_alignment.md`), `Excessive_Nitrogen`
+(round 4's explicit "no candidate found" still holds), and `Panicle_Blast`
+(a new Symptom individual — reusing `Rice_Blast_Disease`'s own concept
+would conflate a symptom with the disease itself, the same category error
+as the disease-vs-pathogen cases).
+
 ## Implemented mapping pattern
 
 The three rows marked **Implemented in v2.2** are now present in
@@ -231,6 +280,21 @@ literature evidence and provenance.
 | `Wilting` | `skos:exactMatch` | Muhammad Ariful Furqon | AGROVOC SPARQL endpoint | 2026-08-04 |
 | `Bipolaris_Oryzae` | `skos:exactMatch` | Muhammad Ariful Furqon | NCBI Taxonomy citation — see `NCBI_Taxonomy_alignment.md` | 2026-08-07 |
 | `Leaf_Folder` | `skos:exactMatch` | Muhammad Ariful Furqon | NCBI Taxonomy citation — see `NCBI_Taxonomy_alignment.md` | 2026-08-07 |
+| `Reproductive_Stage` | `skos:exactMatch` | Muhammad Ariful Furqon | AGROVOC REST search API | 2026-08-22 |
+| `Tillering_Stage` | `skos:closeMatch` | Muhammad Ariful Furqon | AGROVOC REST search API | 2026-08-22 |
+| `Excessive_Tillering` | `skos:closeMatch` | Muhammad Ariful Furqon | AGROVOC REST search API | 2026-08-22 |
+| `Reduced_Tillering` | `skos:closeMatch` | Muhammad Ariful Furqon | AGROVOC REST search API | 2026-08-22 |
+| `Stunted_Growth` | `skos:exactMatch` | Muhammad Ariful Furqon | AGROVOC REST search API | 2026-08-22 |
+| `Grain_Discoloration` | `skos:closeMatch` | Muhammad Ariful Furqon | AGROVOC REST search API | 2026-08-22 |
+| `Waterlogged_Soil` | `skos:exactMatch` | Muhammad Ariful Furqon | AGROVOC REST search API | 2026-08-22 |
+| `Dense_Canopy` | `skos:closeMatch` | Muhammad Ariful Furqon | AGROVOC REST search API | 2026-08-22 |
+| `Presence_of_Leafhopper_Vector` | `skos:closeMatch` | Muhammad Ariful Furqon | AGROVOC REST search API | 2026-08-22 |
+| `Crop_Sanitation` | `skos:closeMatch` | Muhammad Ariful Furqon | AGROVOC REST search API | 2026-08-22 |
+| `Neem_Based_Pesticide` | `skos:closeMatch` | Muhammad Ariful Furqon | AGROVOC REST search API | 2026-08-22 |
+| `Seed_Treatment` | `skos:exactMatch` | Muhammad Ariful Furqon | AGROVOC REST search API | 2026-08-22 |
+| `Trichoderma_Application` | `skos:closeMatch` | Muhammad Ariful Furqon | AGROVOC REST search API | 2026-08-22 |
+| `Good_Agricultural_Practice` | `skos:exactMatch` | Muhammad Ariful Furqon | AGROVOC REST search API | 2026-08-22 |
+| `Field_Inspection` | `skos:closeMatch` | Muhammad Ariful Furqon | AGROVOC REST search API | 2026-08-22 |
 
 ## Next review actions
 
