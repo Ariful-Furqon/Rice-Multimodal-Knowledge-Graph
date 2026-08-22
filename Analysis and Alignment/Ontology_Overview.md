@@ -51,13 +51,13 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **67,236** | Up from 64,662 (+2,574 via enrichment, provenance & metadata polish) |
+| **Total triples** | **66,851** | Up from 64,662 (+2,189 net, after removing 55 misapplied axiom reifications) |
 | **Named classes** | 16 | 13 primitive + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class |
 | **Object properties** | 24 | All declared with explicit domain and range |
 | **Datatype properties** | 5 | All declared with explicit domain and range |
 | **Annotation properties** | 14 | + `rice:evidenceType`, PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
 | **Named individuals** | **10,499** | 10,407 image individuals + 92 domain entities |
-| **`owl:Axiom` (provenance)** | **320** | **100% of domain assertions reified with sources & evidenceType** |
+| **`owl:Axiom` (provenance)** | **265** | **100% of domain assertions reified with sources & evidenceType — 1:1, no duplicates, no orphans** |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & entity types |
 | **`skos:exactMatch` / `closeMatch`** | 24 / 8 | Mapped to AGROVOC concept URIs |
@@ -124,7 +124,8 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | v0.3 (post-provenance/EPPO/rename) | 2026-08-18 | 84,064 | 18 | 24 | 10,463 | ~80 |
 | v0.4-expanded (superseded same day) | 2026-08-19 | 75,309 | 22 | 32 | 10,482 | ~90 |
 | v0.4-minimal (post-cleanup baseline)| 2026-08-19 | 64,662 | 16 | 24 | 10,463 | 101 |
-| **v0.4 (enriched & provenance)** | **2026-08-21** | **67,236** | **16** | **24** | **10,499** | **328 (320 with `owl:Axiom`, 0 TODOs)** |
+| v0.4 (enriched & provenance, before cleanup) | 2026-08-21 | 67,236 | 16 | 24 | 10,499 | 328 (320 with `owl:Axiom`, 0 TODOs) |
+| **v0.4 (provenance scope fix)** | **2026-08-22** | **66,851** | **16** | **24** | **10,499** | **328 (265 with `owl:Axiom`, 0 TODOs)** |
 
 The v0.4-expanded row is included for the record but was reverted the same
 day — see §3 below. Early prototype commits that were originally labelled
@@ -184,6 +185,25 @@ progression before the 1.0 publication release.
   - Resolved all 9 remaining `TODO` literals: completed `PaddyDoctorDataset` metadata (`dcterms:title`, `dcterms:license`, `dcterms:source`, `dcterms:bibliographicCitation`) and verified 6 EPPO codes (`COCHMI`, `DCLPAR`, `SCPIIN`, `CNAPME`, `LEUCOM`, `LEPTOR`).
   - Set `owl:versionInfo "0.4"` and `owl:versionIRI <.../riceMMKG/0.4>`.
   - Overall triples: 64,662 → 64,990 (enrichment) → 66,909 (provenance) → **67,236** (with metadata polish).
+
+### 2026-08-22: provenance scope fix
+
+Verification of the 2026-08-21 provenance enrichment found that the
+reification pass had not been scoped to the 9 intended domain relations —
+it also reified all 28 `rdfs:subPropertyOf` schema declarations and all
+27 `skos:exactMatch`/`closeMatch` AGROVOC/PECO/NCBITaxon alignment triples,
+attaching the same agronomy-literature citations (e.g. "IRRI (2020) Rice
+Doctor Fact Sheets") to axioms like `causes rdfs:subPropertyOf
+owl:topObjectProperty` — a citation that makes no sense for a property-
+hierarchy declaration or a vocabulary alignment. Removed all 55 spurious
+`owl:Axiom` reifications (385 triples: the axiom node plus its
+`owl:annotatedSource/Property/Target`, `dcterms:source`,
+`dcterms:bibliographicCitation`, `rice:evidenceType`). The underlying
+`rdfs:subPropertyOf` and `skos:exactMatch`/`closeMatch` triples themselves
+are untouched — only their incorrect literature-citation annotations were
+removed. `owl:Axiom` count: 320 → 265, now exactly 1:1 with the 265 domain
+assertions, verified with no duplicates and no orphans. Triples: 67,236 →
+66,851.
 
 ---
 
