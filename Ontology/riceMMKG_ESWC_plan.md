@@ -2,6 +2,8 @@
 
 Construction-focused plan for the resource paper. Assumes an abstract deadline around December; check the CFP when it appears.
 
+*Updated 2026-08-22 — see "Progress since the original plan" below for what changed and why.*
+
 ---
 
 ## Where the resource stands
@@ -9,42 +11,101 @@ Construction-focused plan for the resource paper. Assumes an abstract deadline a
 | | Current | Comparator |
 |---|---|---|
 | Image individuals | 10,407 | none in any comparator |
-| Domain-level assertions | **101** | RiceDO: 18 diseases fully axiomatised |
-| Assertions with a cited source | **0** | — |
+| Domain-level assertions | **266** (up from 101) | RiceDO: 18 diseases fully axiomatised |
+| Assertions with a cited source | **266 / 266 (100%)** | — |
+| SKOS alignment (AGROVOC/NCBI Taxonomy) | 32 exactMatch + 18 closeMatch, each individually verified | — |
 | Evaluation reported | **none** | RiceDO: 95.2%, 5 ontology experts |
 | Dereferenceable IRI | **no** | RiceDO: `purl.org/ricedo` |
 | Registry presence | **none** | RiceDO: IEEE DataPort |
 | Competency questions published | not yet | RiceDO: CQ-driven throughout |
 
-The image layer is the differentiator and it is genuinely strong. Everything else in this table is a gap a reviewer can see in five minutes.
+The image layer is the differentiator and it is genuinely strong. Provenance and domain-graph density have moved from "gap" to "in progress, on the right trajectory" since this plan was drafted — see the progress note below. Evaluation, availability, and documentation remain the visible gaps a reviewer would find in five minutes.
+
+---
+
+## Progress since the original plan (as of 2026-08-22)
+
+**Improvement 1 (provenance) is functionally done.** All 266 domain-relation
+assertions (`causes`, `indicatedBy`, `occursIn`, `controlledBy`,
+`preventedBy`, `increaseRiskOf`, `vulnerableTo`, `recommends`, `requires`)
+carry an `owl:Axiom` reification with `dcterms:source`,
+`dcterms:bibliographicCitation`, and `rice:evidenceType` — 1:1, verified
+with no duplicates or orphans. Sources trace to IRRI Rice Doctor/Knowledge
+Bank, CABI Crop Protection Compendium, BBPOPT, and peer-reviewed
+literature (Ou 1985, Hibino 1996, Ham et al. 2011), matching the source
+list this plan specified. The "illustrative examples... to be verified"
+disclaimer this plan flagged as the thing that would become a silent
+overclaim if provenance wasn't actually done — provenance was actually
+done, so removing it is now honest. One real defect surfaced and was
+fixed along the way: an early pass over-applied the reification, stamping
+55 schema-level triples (property-hierarchy declarations, SKOS
+alignments) with the same literature citations, which would have read as
+sloppy/automated to a reviewer inspecting axioms in Protégé. That's
+cleaned up; only the 266 genuine domain assertions carry a citation now.
+
+**Improvement 2 (grow the domain graph) is partially done.** All seven
+originally degree-0/1 entities (`Normal_Health`, `Hispa`,
+`Rice_Tungro_Disease`, `Downy_Mildew`, `Bacterial_Leaf_Streak`,
+`Bacterial_Panicle_Blight`, `Deadheart`) are now well-connected
+(degree 7–21 each), including the tungro leafhopper vector chain this
+plan called out as missing (`Nephotettix_Virescens` now exists and
+`causes`/`increaseRiskOf` are populated for it). `Normal_Health` did *not*
+stay degree-zero as this plan suggested it should — it picked up
+`occursIn` assertions across all growth stages plus a GAP `controlledBy`
+link, which isn't wrong, just a different call than the plan recommended.
+One more degree-0 individual turned up during verification and was fixed
+the same way: `Harvest_Stage` (a `GrowthStage` with zero assertions) now
+has `Crop_Sanitation requires Harvest_Stage`, cited. **Current count is
+266 — past the halfway point of the 400–600 target but not there yet.**
+The five diseases still lacking a pathogen and the broader
+treatment/management extension this plan describes as "then extend" are
+the remaining work here.
+
+**A related, previously-undocumented body of work also advanced this
+week**, relevant to the "externally aligned domain model" framing claim
+below: AGROVOC/NCBI Taxonomy SKOS alignment grew from 27 to 50 mappings
+(32 `exactMatch` + 18 `closeMatch`), each checked against a live API
+response rather than guessed. This surfaced a process risk worth flagging
+for future sessions — a first pass added 34 candidate mappings without
+first checking this project's own pre-existing alignment registers
+(`Ontology/AGROVOC_alignment.md`, `NCBI_Taxonomy_alignment.md`, mostly
+written 2026-08-03–08-17), which had already reviewed several of the same
+entities and explicitly rejected some of the same candidates (e.g.
+substituting a pathogen's AGROVOC concept for the disease itself). 11 of
+the 34 were reverted on cross-check; 23 were genuinely new and are now
+written up in those registers following their established format. The
+registers remain the source of truth for any future alignment work.
+
+**Improvements 3, 4, and 5 (evaluation, availability, documentation) have
+not been started.** These are now the plan's critical path — see the
+workflow section below, which is otherwise unchanged from the original
+plan.
+
+---
 
 ---
 
 ## Five improvements, in priority order
 
-### 1. Provenance per assertion — the one that changes the paper's category
+### 1. Provenance per assertion — the one that changes the paper's category — **done**
 
-The ontology comment currently states that the populated relations are illustrative examples based on general agronomy knowledge, to be verified before use. Left in place, that sentence tells a reviewer the assertions are unvalidated. Removed without doing the work, it becomes a silent overclaim.
+The ontology comment used to state that the populated relations were illustrative examples based on general agronomy knowledge, to be verified before use. That's now replaced with a certified statement of literature grounding, because the grounding work described below actually happened.
 
-What distinguishes a *resource* from a knowledge graph is that its assertions are traceable. Every domain assertion should carry a citation.
+What distinguishes a *resource* from a knowledge graph is that its assertions are traceable. Every domain assertion now carries a citation — 266/266, verified.
 
-**Mechanism.** Use OWL axiom annotation — reify the axiom with `owl:Axiom` and attach `dcterms:source` (a DOI or IRI), `dcterms:bibliographicCitation`, and optionally a confidence or evidence-type note. This survives round-tripping through Protégé and reasoners, and does not disturb the logical content. RDF-star is more elegant but tooling support in the OWL ecosystem is still uneven.
+**Mechanism (as implemented).** OWL axiom annotation — every domain relation triple is reified with `owl:Axiom` carrying `dcterms:source` (a URI), `dcterms:bibliographicCitation`, and `rice:evidenceType "literature-curated"`. Confirmed to survive round-tripping (rdflib parse/serialize, matching the pattern Protégé itself would produce) and to not disturb the logical content.
 
-**Scope.** All 101 existing assertions plus whatever is added in improvement 2. Sources: IRRI Rice Knowledge Bank, CABI Crop Protection Compendium, EPPO datasheets, and Indonesian sources such as BBPOPT for locally specific practice.
+**Scope (as implemented).** All 266 current domain-relation assertions. Sources actually used: IRRI Rice Doctor/Knowledge Bank, CABI Crop Protection Compendium, BBPOPT (2022), and peer-reviewed literature (Ou 1985; Hibino 1996; Ham et al. 2011) — the source list this plan specified, minus EPPO datasheets (EPPO codes are recorded elsewhere in the ontology as identifiers, not used as a citation source for domain relations).
 
-**Why this first.** It is the difference between "we built an ontology" and "we built a resource others can trust". It also converts your existing honesty about unverified relations from a liability into a documented method.
+**What's left here:** nothing structural — this scales automatically as improvement 2 adds more assertions, since citation-at-creation is now the established pattern (see the workflow note below, which is still correct advice: cite each new assertion as it's written, don't batch it later).
 
-### 2. Grow the domain graph from 101 to 400–600 assertions
+### 2. Grow the domain graph from 101 to 400–600 assertions — **in progress: 266/400–600**
 
-Ten thousand images resting on 101 triples is the structural imbalance running through everything — it is why the fusion PoC collapsed to ten points, why IKRL is blocked, and why reasoning cannot be demonstrated.
+Ten thousand images resting on 101 triples was the structural imbalance running through everything — it is why the fusion PoC collapsed to ten points, why IKRL is blocked, and why reasoning cannot be demonstrated. That imbalance is smaller now but not resolved.
 
-**Immediate target: the seven entities with degree 0 or 1.** `Normal_Health`, `Hispa`, `Rice_Tungro_Disease`, `Downy_Mildew`, `Bacterial_Leaf_Streak`, `Bacterial_Panicle_Blight` appear in no assertion at all; `Deadheart` appears in one. Six of these are among the classes with the most images.
+**Immediate target: the seven entities with degree 0 or 1 — done.** `Normal_Health`, `Hispa`, `Rice_Tungro_Disease`, `Downy_Mildew`, `Bacterial_Leaf_Streak`, `Bacterial_Panicle_Blight`, and `Deadheart` are all now degree 7–21, each with symptoms (`indicatedBy`), causal agent (`causes`), susceptible growth stages (`occursIn`/`vulnerableTo`), control measures (`controlledBy`/`preventedBy`), and environmental risk factors (`increaseRiskOf`) populated. The tungro vector chain is in: `Nephotettix_Virescens` exists as an individual with `causes`/`increaseRiskOf` populated. `Normal_Health` did not stay degree-zero as originally suggested — it picked up `occursIn` (all growth stages) and a GAP `controlledBy` link instead; not wrong, just a different call than this plan recommended, worth a sentence in the paper either way.
 
-For each of the ten annotation targets, assert: symptoms (`indicatedBy`), causal agent (`causes`), susceptible growth stages (`occursIn`), control measures (`controlledBy`), and environmental risk factors (`increaseRiskOf`). That is 40–60 triples and roughly doubles the domain graph on its own.
-
-**Then extend.** Complete the five diseases still lacking a pathogen. Add the vector chain — tungro needs its leafhopper vector, which is not yet an individual. Broaden treatments and management actions. 400–600 well-sourced assertions is a defensible size for a single-crop resource.
-
-`Normal_Health` will remain degree-zero and that is correct — a healthy plant has no symptoms or pathogens. Say so explicitly rather than leaving it looking incomplete.
+**Then extend — not yet done.** Complete the five diseases still lacking a pathogen. Broaden treatments and management actions further. 266 is past the halfway point toward 400–600 but the remaining ~150–350 assertions are the bulk of what's left before this improvement is complete.
 
 ### 3. Evaluation — currently the largest single gap
 
@@ -80,9 +141,11 @@ Generate HTML documentation with pyLODE or Widoco and host it at the PURL. Publi
 
 Twelve weeks, ordered so that nothing waits on anything unnecessarily.
 
-### Weeks 1–2 — Domain graph and provenance
+### Weeks 1–2 — Domain graph and provenance — **partially complete**
 
 Close the seven low-degree entities, then extend outward. Every new assertion gets its citation at the moment it is made; retrofitting provenance later costs several times more. Retrofit the existing 101 in parallel.
+
+The seven low-degree entities are closed and the existing assertions are retrofitted — 266/266 sourced, 0 gaps. What's left: the domain graph is at 266, not yet the 400+ deliverable this block targets. Continuing to extend it (remaining pathogens, broader treatments/management) is the immediate next step, and the citation-at-creation habit is already established so it shouldn't slow down.
 
 Deliverable: 400+ assertions, all sourced. This unblocks weeks 5–8.
 
