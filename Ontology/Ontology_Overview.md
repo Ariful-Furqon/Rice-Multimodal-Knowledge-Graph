@@ -51,7 +51,7 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **66,893** | Up from 64,662 (+2,231 net, after removing 55 misapplied axiom reifications and adding Harvest_Stage + 34 verified SKOS alignments) |
+| **Total triples** | **66,882** | Up from 64,662 (+2,220 net, after removing 55 misapplied axiom reifications, adding Harvest_Stage, and adding 23 verified SKOS alignments net of 11 reverted for conflicting with the AGROVOC/NCBI alignment registers) |
 | **Named classes** | 16 | 13 primitive + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class |
 | **Object properties** | 24 | All declared with explicit domain and range |
 | **Datatype properties** | 5 | All declared with explicit domain and range |
@@ -60,7 +60,7 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 | **`owl:Axiom` (provenance)** | **266** | **100% of domain assertions reified with sources & evidenceType — 1:1, no duplicates, no orphans** |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & entity types |
-| **`skos:exactMatch` / `closeMatch`** | 35 / 26 | Mapped to AGROVOC / NCBI Taxonomy concept URIs, each verified against a live API response (see §3, 2026-08-22) |
+| **`skos:exactMatch` / `closeMatch`** | 32 / 18 | Mapped to AGROVOC / NCBI Taxonomy concept URIs, each verified against a live API response and cross-checked against the project's own alignment registers (see §3, 2026-08-22) |
 | **`TODO` literals remaining** | **0** | **100% resolved (dataset metadata & EPPO codes verified)** |
 | **Properties with no declared domain/range** | 0 / 0 | 100% coverage |
 
@@ -126,7 +126,8 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | v0.4-minimal (post-cleanup baseline)| 2026-08-19 | 64,662 | 16 | 24 | 10,463 | 101 |
 | v0.4 (enriched & provenance, before cleanup) | 2026-08-21 | 67,236 | 16 | 24 | 10,499 | 328 (320 with `owl:Axiom`, 0 TODOs) |
 | v0.4 (provenance scope fix) | 2026-08-22 | 66,851 | 16 | 24 | 10,499 | 328 (265 with `owl:Axiom`, 0 TODOs) |
-| **v0.4 (Harvest_Stage + verified SKOS alignments)** | **2026-08-22** | **66,893** | **16** | **24** | **10,499** | **329 (266 with `owl:Axiom`, 0 TODOs)** |
+| v0.4 (Harvest_Stage + SKOS alignments, before register cross-check) | 2026-08-22 | 66,893 | 16 | 24 | 10,499 | 329 (266 with `owl:Axiom`, 0 TODOs) |
+| **v0.4 (SKOS alignments reconciled with alignment registers)** | **2026-08-22** | **66,882** | **16** | **24** | **10,499** | **329 (266 with `owl:Axiom`, 0 TODOs)** |
 
 The v0.4-expanded row is included for the record but was reverted the same
 day — see §3 below. Early prototype commits that were originally labelled
@@ -235,14 +236,58 @@ scoping fix above:
   `Worklog/RiceMMKG_provenance_fix_worklog/agrovoc_alignment_verified.csv`.
   `skos:exactMatch`: 19 → 35. `skos:closeMatch`: 8 → 26.
 
-Two AGROVOC matches carry a documented spelling/precision caveat worth a
-second look before the paper cites them: `Rice_Bug` → AGROVOC
-`Leptocorisa oratorius` (c_30653), where NCBI Taxonomy instead returns
-the spelling variant "Leptocorisa oratoria"; and `Sheath_Blight` /
-`Brown_Spot`, which are matched to their causal-pathogen concepts
-(`Rhizoctonia solani`, `Cochliobolus miyabeanus`) rather than a
-disease-name concept, since AGROVOC has no distinct "sheath blight" or
-"brown spot" label.
+### 2026-08-22 (continued): reconciled against the AGROVOC/NCBI alignment registers
+
+The 34 SKOS matches above were added by an AI-assisted lookup pass working
+directly against live AGROVOC/OLS4 API responses, without first checking
+this project's own pre-existing alignment registers
+(`AGROVOC_alignment.md`, `NCBI_Taxonomy_alignment.md`, both largely
+written 2026-08-03–08-17, well before this session). Those registers had
+already reviewed several of the same entities and explicitly recorded
+*why* a plausible-looking candidate should not be used. Cross-checking
+the 34 against both registers found **11 conflicts**, all reverted:
+
+- `Armyworm` — the register already rejected this exact AGROVOC candidate
+  (`fall armyworms` = *Spodoptera frugiperda*, a maize pest, not a rice
+  one — a false-positive risk, not a match).
+- `Bacterial_Leaf_Blight`, `Bacterial_Leaf_Streak`, `Brown_Spot`,
+  `Sheath_Blight` — each substitutes the *pathogen's* AGROVOC concept for
+  a *disease* individual, exactly the conflation the register's mapping
+  policy forbids ("Do not substitute the pathogen ...; disease and
+  pathogen are distinct entities"). `Brown_Spot`'s candidate concept
+  (`Cochliobolus miyabeanus`, c_34512) and `Bacterial_Leaf_Streak`'s
+  (`Xanthomonas oryzae pv. oryzicola`, c_330601) are also each already
+  correctly assigned to their respective `Pathogen` individual
+  (`Bipolaris_Oryzae`, `Xanthomonas_Oryzicola`) — reusing them for the
+  disease would have made two differently-typed local entities point to
+  the same external concept.
+- `Panicle_Blast` — same conflation, but Symptom-vs-Disease: its
+  candidate concept (`rice blast disease`, c_152ac092) is already
+  assigned to `Rice_Blast_Disease`.
+- `Brown_Lesion`, `Maturity_Stage`, `Resistant_Variety` — each already
+  marked "Needs domain review" in the register for a specific unresolved
+  reason (generic-vs-specific scope; no confirmed synonymy; trait-vs-
+  practice category mismatch) that the new pass did not actually resolve.
+- `Excessive_Nitrogen` — the register already recorded "no candidate
+  found" for this exact entity after a dedicated search round.
+- `Rice_Bug` — both registers already leave this open pending an
+  unresolved species-vs-genus scope question and an AGROVOC/NCBI spelling
+  discrepancy (`oratorius` vs. `oratoria`); the new pass applied
+  `exactMatch` without resolving either.
+
+The remaining **23 of 34** were genuinely new — mostly organisms and
+domain entities added in the 2026-08-21 enrichment that predate every
+existing register — and have been written up properly in
+`AGROVOC_alignment.md` (round 5) and `NCBI_Taxonomy_alignment.md`
+(round 2), including decision-log entries, following this project's
+established format. `skos:exactMatch`: 19 → 32. `skos:closeMatch`: 8 → 18.
+Total triples: 66,893 → 66,882.
+
+**Process note for future sessions:** before adding any AGROVOC/NCBI/
+Planteome alignment, check the three registers in `Analysis and
+Alignment/` (now `Ontology/`) first — they hold prior review decisions,
+including explicit rejections, that a fresh API lookup will not
+reproduce on its own.
 
 ---
 
@@ -252,14 +297,15 @@ disease-name concept, since AGROVOC has no distinct "sheath blight" or
   `Insecticide_Application` sharing one concept IRI; `Rice_Blast_Disease`'s
   oddly-shaped identifier) — still unresolved, predates the 2026-08-22
   alignment round. See `Worklog/RiceMMKG_cleanup_worklog/alignment_check.csv`.
-  32 domain individuals remain without any SKOS alignment after the
-  2026-08-22 verification pass — each has a documented reason (no matching
-  concept found in AGROVOC/NCBITaxon/PECO after multiple query variants),
-  see `Worklog/RiceMMKG_provenance_fix_worklog/agrovoc_alignment_verified.csv`.
-  Two accepted matches carry a precision caveat worth a second look:
-  `Rice_Bug` (AGROVOC's "Leptocorisa oratorius" vs. NCBI's spelling variant
-  "Leptocorisa oratoria") and `Sheath_Blight`/`Brown_Spot` (matched to
-  their causal pathogen, not a disease-name concept).
+  43 domain individuals remain without any SKOS alignment after the
+  2026-08-22 verification pass — 32 with no matching concept found in
+  AGROVOC/NCBITaxon/PECO after multiple query variants, plus 11 where a
+  candidate exists but was reverted for conflicting with this project's
+  own alignment registers (disease-vs-pathogen conflation, category
+  mismatches, or an already-open "needs domain review" item — see
+  `AGROVOC_alignment.md` round 5 and `NCBI_Taxonomy_alignment.md` round 2
+  for the reasoning on each). Full record in
+  `Worklog/RiceMMKG_provenance_fix_worklog/agrovoc_alignment_verified.csv`.
 - **Image URL resolvability:** `schema:contentUrl` holds relative paths
   that don't dereference. Three options written up, none chosen. See
   `Worklog/RiceMMKG_cleanup_worklog/contenturl_base.md`.
