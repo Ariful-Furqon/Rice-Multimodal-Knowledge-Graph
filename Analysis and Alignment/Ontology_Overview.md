@@ -51,16 +51,16 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **66,851** | Up from 64,662 (+2,189 net, after removing 55 misapplied axiom reifications) |
+| **Total triples** | **66,893** | Up from 64,662 (+2,231 net, after removing 55 misapplied axiom reifications and adding Harvest_Stage + 34 verified SKOS alignments) |
 | **Named classes** | 16 | 13 primitive + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class |
 | **Object properties** | 24 | All declared with explicit domain and range |
 | **Datatype properties** | 5 | All declared with explicit domain and range |
 | **Annotation properties** | 14 | + `rice:evidenceType`, PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
 | **Named individuals** | **10,499** | 10,407 image individuals + 92 domain entities |
-| **`owl:Axiom` (provenance)** | **265** | **100% of domain assertions reified with sources & evidenceType — 1:1, no duplicates, no orphans** |
+| **`owl:Axiom` (provenance)** | **266** | **100% of domain assertions reified with sources & evidenceType — 1:1, no duplicates, no orphans** |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & entity types |
-| **`skos:exactMatch` / `closeMatch`** | 24 / 8 | Mapped to AGROVOC concept URIs |
+| **`skos:exactMatch` / `closeMatch`** | 35 / 26 | Mapped to AGROVOC / NCBI Taxonomy concept URIs, each verified against a live API response (see §3, 2026-08-22) |
 | **`TODO` literals remaining** | **0** | **100% resolved (dataset metadata & EPPO codes verified)** |
 | **Properties with no declared domain/range** | 0 / 0 | 100% coverage |
 
@@ -109,8 +109,8 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | **Control & Management** | `controlledBy` | 42 | `Disease ⊔ Pest` → `Treatment` | CABI / BBPOPT (2022) |
 | | `recommends` | 23 | `Disease ⊔ Pest ⊔ SeverityLevel` → `ManagementAction` | BBPOPT / IRRI |
 | | `preventedBy` | 8 | `Disease ⊔ Pest` → `Treatment` | IRRI RKB / CABI |
-| | `requires` | 4 | `Treatment` → `GrowthStage` | BBPOPT / IRRI GAP |
-| **Total Populated Triples** | | **12,124** | *(11,859 image/dataset + 265 direct domain relations)* | **100% domain triples reified** |
+| | `requires` | 5 | `Treatment` → `GrowthStage` | BBPOPT / IRRI GAP |
+| **Total Populated Triples** | | **12,125** | *(11,859 image/dataset + 266 direct domain relations)* | **100% domain triples reified** |
 
 > *Note on inverse properties:* All twelve inverse directions (`indicates`, `detectedBy`, `causedBy`, `prevents`, `controls`, `threatens`, etc.) and `detects` are declared in the schema for reasoning/querying symmetry.
 
@@ -125,7 +125,8 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | v0.4-expanded (superseded same day) | 2026-08-19 | 75,309 | 22 | 32 | 10,482 | ~90 |
 | v0.4-minimal (post-cleanup baseline)| 2026-08-19 | 64,662 | 16 | 24 | 10,463 | 101 |
 | v0.4 (enriched & provenance, before cleanup) | 2026-08-21 | 67,236 | 16 | 24 | 10,499 | 328 (320 with `owl:Axiom`, 0 TODOs) |
-| **v0.4 (provenance scope fix)** | **2026-08-22** | **66,851** | **16** | **24** | **10,499** | **328 (265 with `owl:Axiom`, 0 TODOs)** |
+| v0.4 (provenance scope fix) | 2026-08-22 | 66,851 | 16 | 24 | 10,499 | 328 (265 with `owl:Axiom`, 0 TODOs) |
+| **v0.4 (Harvest_Stage + verified SKOS alignments)** | **2026-08-22** | **66,893** | **16** | **24** | **10,499** | **329 (266 with `owl:Axiom`, 0 TODOs)** |
 
 The v0.4-expanded row is included for the record but was reverted the same
 day — see §3 below. Early prototype commits that were originally labelled
@@ -205,16 +206,60 @@ removed. `owl:Axiom` count: 320 → 265, now exactly 1:1 with the 265 domain
 assertions, verified with no duplicates and no orphans. Triples: 67,236 →
 66,851.
 
+### 2026-08-22 (continued): Harvest_Stage assertion and verified SKOS alignments
+
+Checking for remaining bare individuals found two gaps beyond the axiom
+scoping fix above:
+
+- **`Harvest_Stage`** (`GrowthStage`) had zero property assertions of any
+  kind — a leftover from the growth-stage schema that was never populated.
+  Added `Crop_Sanitation rice:requires Harvest_Stage`, reified with the
+  same BBPOPT (2022) citation already backing `Crop_Sanitation`'s
+  `rdfs:comment` ("removal and destruction of infected plant debris to
+  reduce inoculum carry-over between seasons"). Domain-relation count:
+  265 → 266.
+- **66 of 91 domain individuals** (mostly the pathogens, pests, symptoms,
+  and environmental factors added in the 2026-08-21 enrichment) had no
+  `skos:exactMatch`/`closeMatch` alignment at all. Each was checked
+  against AGROVOC (REST search), NCBI Taxonomy (via OLS4), and PECO (via
+  OLS4) with a live API call per candidate — no URI was accepted without
+  seeing the vocabulary's own returned label. 34 got a confident match:
+  8 `NCBITaxon` exactMatch for pathogen/pest binomials, 8 AGROVOC
+  exactMatch, 18 AGROVOC closeMatch. 32 were deliberately left
+  unaligned — mostly specific colloquial symptom phrasing (dead heart,
+  hopperburn, whitehead, leaf tip, streak/stripe symptoms), severity
+  levels, and generic management actions with no equivalent concept in
+  any of the three vocabularies. Full per-individual record, including
+  the exact query and returned label used to justify or reject each
+  candidate, is in
+  `Worklog/RiceMMKG_provenance_fix_worklog/agrovoc_alignment_verified.csv`.
+  `skos:exactMatch`: 19 → 35. `skos:closeMatch`: 8 → 26.
+
+Two AGROVOC matches carry a documented spelling/precision caveat worth a
+second look before the paper cites them: `Rice_Bug` → AGROVOC
+`Leptocorisa oratorius` (c_30653), where NCBI Taxonomy instead returns
+the spelling variant "Leptocorisa oratoria"; and `Sheath_Blight` /
+`Brown_Spot`, which are matched to their causal-pathogen concepts
+(`Rhizoctonia solani`, `Cochliobolus miyabeanus`) rather than a
+disease-name concept, since AGROVOC has no distinct "sheath blight" or
+"brown spot" label.
+
 ---
 
 ## 4. Open items
 
 - **AGROVOC:** 2 conflicting/suspicious matches (`Fungicide_Application`/
   `Insecticide_Application` sharing one concept IRI; `Rice_Blast_Disease`'s
-  oddly-shaped identifier) + 30 unaligned domain individuals, grouped
-  8 disease/pest · 9 symptom · 13 management/severity/stage. See
-  `Worklog/RiceMMKG_cleanup_worklog/alignment_check.csv` and
-  `agrovoc_todo.csv`.
+  oddly-shaped identifier) — still unresolved, predates the 2026-08-22
+  alignment round. See `Worklog/RiceMMKG_cleanup_worklog/alignment_check.csv`.
+  32 domain individuals remain without any SKOS alignment after the
+  2026-08-22 verification pass — each has a documented reason (no matching
+  concept found in AGROVOC/NCBITaxon/PECO after multiple query variants),
+  see `Worklog/RiceMMKG_provenance_fix_worklog/agrovoc_alignment_verified.csv`.
+  Two accepted matches carry a precision caveat worth a second look:
+  `Rice_Bug` (AGROVOC's "Leptocorisa oratorius" vs. NCBI's spelling variant
+  "Leptocorisa oratoria") and `Sheath_Blight`/`Brown_Spot` (matched to
+  their causal pathogen, not a disease-name concept).
 - **Image URL resolvability:** `schema:contentUrl` holds relative paths
   that don't dereference. Three options written up, none chosen. See
   `Worklog/RiceMMKG_cleanup_worklog/contenturl_base.md`.
