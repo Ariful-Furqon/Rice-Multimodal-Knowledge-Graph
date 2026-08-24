@@ -1,0 +1,7 @@
+individual,current_iri,current_match,proposed_match,verified,note
+Fungicide_Application,http://aims.fao.org/aos/agrovoc/c_27879,closeMatch,,,"pesticide application - generic activity concept shared with Insecticide_Application; broader than either specific application type"
+Insecticide_Application,http://aims.fao.org/aos/agrovoc/c_27879,closeMatch,,,"pesticide application - generic activity concept shared with Fungicide_Application; broader than either specific application type"
+Field_Inspection,http://aims.fao.org/aos/agrovoc/c_4911,closeMatch,,,"monitoring - no AGROVOC concept specific to field inspection/scouting; reuses Monitoring's exactMatch target (Monitoring itself is not listed here, its exactMatch is correct as-is) at closeMatch strength"
+Tillering_Stage,http://aims.fao.org/aos/agrovoc/c_7773,closeMatch,,,"tillering - task author's suggestion: this GrowthStage individual most naturally holds the match; the two Symptom individuals below might instead be modelled as qualities of this stage rather than independently aligned to the same process concept"
+Reduced_Tillering,http://aims.fao.org/aos/agrovoc/c_7773,closeMatch,,,"tillering - see Tillering_Stage note; candidate for broadMatch or for remodelling as a quality of Tillering_Stage instead"
+Excessive_Tillering,http://aims.fao.org/aos/agrovoc/c_7773,closeMatch,,,"tillering - see Tillering_Stage note; candidate for broadMatch or for remodelling as a quality of Tillering_Stage instead"
