@@ -140,7 +140,7 @@ progression before the 1.0 publication release.
 
 ## 3. Changelog
 
-Newest first.
+<!-- Newest first. -->
 
 ### 2026-08-22: v0.4 → v0.5, a six-task correction worklog
 
