@@ -51,16 +51,16 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **66,882** | Up from 64,662 (+2,220 net, after removing 55 misapplied axiom reifications, adding Harvest_Stage, and adding 23 verified SKOS alignments net of 11 reverted for conflicting with the AGROVOC/NCBI alignment registers) |
+| **Total triples** | **66,873** | v0.5. Down 9 from v0.4's 66,882 — see §3, 2026-08-22 (v0.5 worklog) for the merge/retarget that caused the net decrease despite two new properties being added |
 | **Named classes** | 16 | 13 primitive + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class |
-| **Object properties** | 24 | All declared with explicit domain and range |
+| **Object properties** | 26 | All declared with explicit domain and range; `transmits`/`transmittedBy` added in v0.5 |
 | **Datatype properties** | 5 | All declared with explicit domain and range |
 | **Annotation properties** | 14 | + `rice:evidenceType`, PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
-| **Named individuals** | **10,499** | 10,407 image individuals + 92 domain entities |
-| **`owl:Axiom` (provenance)** | **266** | **100% of domain assertions reified with sources & evidenceType — 1:1, no duplicates, no orphans** |
+| **Named individuals** | **10,498** | 10,407 image individuals + 91 domain entities (`Scirpophaga_Incertulas` merged into `Stem_Borer` in v0.5) |
+| **`owl:Axiom` (provenance)** | **265** | **100% of domain assertions reified with sources & evidenceType — 1:1, no duplicates, no orphans** |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & entity types |
-| **`skos:exactMatch` / `closeMatch`** | 32 / 18 | Mapped to AGROVOC / NCBI Taxonomy concept URIs, each verified against a live API response and cross-checked against the project's own alignment registers (see §3, 2026-08-22) |
+| **`skos:exactMatch` / `closeMatch` / `broadMatch`** | 33 / 17 / 1 | Mapped to AGROVOC / NCBI Taxonomy concept URIs, each verified against a live API response and cross-checked against the project's own alignment registers (see §3, 2026-08-22) |
 | **`TODO` literals remaining** | **0** | **100% resolved (dataset metadata & EPPO codes verified)** |
 | **Properties with no declared domain/range** | 0 / 0 | 100% coverage |
 
@@ -127,7 +127,8 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | v0.4 (enriched & provenance, before cleanup) | 2026-08-21 | 67,236 | 16 | 24 | 10,499 | 328 (320 with `owl:Axiom`, 0 TODOs) |
 | v0.4 (provenance scope fix) | 2026-08-22 | 66,851 | 16 | 24 | 10,499 | 328 (265 with `owl:Axiom`, 0 TODOs) |
 | v0.4 (Harvest_Stage + SKOS alignments, before register cross-check) | 2026-08-22 | 66,893 | 16 | 24 | 10,499 | 329 (266 with `owl:Axiom`, 0 TODOs) |
-| **v0.4 (SKOS alignments reconciled with alignment registers)** | **2026-08-22** | **66,882** | **16** | **24** | **10,499** | **329 (266 with `owl:Axiom`, 0 TODOs)** |
+| v0.4 (SKOS alignments reconciled with alignment registers) | 2026-08-22 | 66,882 | 16 | 24 | 10,499 | 329 (266 with `owl:Axiom`, 0 TODOs) |
+| **v0.5 (verified-defect + modelling corrections)** | **2026-08-22** | **66,873** | **16** | **26** | **10,498** | **328 (265 with `owl:Axiom`, 0 TODOs)** |
 
 The v0.4-expanded row is included for the record but was reverted the same
 day — see §3 below. Early prototype commits that were originally labelled
@@ -288,6 +289,63 @@ Planteome alignment, check the three registers in `Analysis and
 Alignment/` (now `Ontology/`) first — they hold prior review decisions,
 including explicit rejections, that a fresh API lookup will not
 reproduce on its own.
+
+### 2026-08-22: v0.4 → v0.5, a six-task correction worklog
+
+Full detail, all scripts, and the complete before/after data are in
+`Worklog/RiceMMKG_v0.5_worklog/` (task spec, `reports/v0.5_summary.md`).
+Summary here:
+
+- **Fixed**: `Xanthomonas_Oryzicola`'s EPPO code (`XANTOX` → the correct
+  `XANTTO`). `Stem_Borer`/`Scirpophaga_Incertulas` — a duplicated
+  individual for the same organism, diverged in different directions —
+  merged into `Stem_Borer`, carrying over its NCBITaxon alignment,
+  redirecting its one non-duplicate incoming assertion, and dropping the
+  `causes Deadheart` triple it was left with in favour of the correct
+  `Stem_Borer indicatedBy Deadheart`.
+- **Found beyond the task list, and fixed**: 9 more fabricated/
+  hallucinated AGROVOC identifiers, asserted via an undeclared
+  `rice:exactMatch` property (not `skos:exactMatch`) in the 2026-08-21
+  "Provenance per Assertion" commit — none resolved to anything related
+  to the individual they were on (one was "Tonga," another
+  "rhizobitoxine," several 404s). This is the **second** time in this
+  project's history that unverified external identifiers were asserted
+  as if checked (the first was the same-day SKOS-alignment episode
+  earlier in this section) — every external identifier needs a live
+  lookup before assertion, no exceptions.
+- **Modelling fix**: `Nephotettix_Virescens causes Rice_Tungro_Disease`
+  was wrong — a leafhopper vector doesn't *cause* tungro, it
+  *transmits* the two viruses that do. New `rice:transmits`/
+  `transmittedBy` properties (domain `Pest`, range `Pathogen`) replace
+  it with two cited assertions (CABI 2022 + Hibino 1996, independently
+  corroborated). `rice:causes` is now exclusively `Pathogen → Disease`
+  across all 8 remaining assertions. No comparator ontology models
+  vector-borne transmission explicitly — worth stating as a
+  contribution in the paper, not just leaving in the file.
+- **Prepared, not yet applied** (each needs a human decision the
+  worklog deliberately didn't make): `alignment_refine.csv` (6 rows,
+  whether 3 AGROVOC-IRI-sharing groups should get more precise
+  `broadMatch` typing); a 250-image stratified sample plus a 28-term
+  symptom vocabulary for expert annotation of `captures` (currently
+  1,442 assertions, all pointing at one symptom); a w3id.org PURL
+  registration package (namespace segment not yet chosen) and a tested
+  `rewrite_namespace.py` that must not run until that's decided; Zenodo/
+  AgroPortal submission drafts and a maintenance plan (two fields —
+  institutional affiliation, release cadence — flagged as needing a
+  human answer rather than guessed).
+- **Actually run**: OOPS! and FOOPS! against a schema-only extract (the
+  10,407 image instances excluded — both tools evaluate modelling
+  pitfalls, not instance volume). OOPS!: 2 Minor pitfalls, nothing
+  IMPORTANT/CRITICAL. FOOPS!: overall score **0.7275**, with one
+  structural blocker (`PURL1`, no persistent URL — exactly what the w3id
+  registration above would fix) accounting for most of the gap to
+  gUFO's 92% comparator score. "After" measurement is correctly blocked
+  on that same unresolved registration.
+- **Net effect**: 266 → 265 domain assertions (one dropped as a
+  duplicate during the merge, one retargeted from `causes` to
+  `transmits` — both still land inside the 265, not a loss of coverage),
+  provenance held at 100% through every intermediate step, not just
+  checked at the end. `owl:versionInfo`/`versionIRI` bumped to `0.5`.
 
 ---
 
