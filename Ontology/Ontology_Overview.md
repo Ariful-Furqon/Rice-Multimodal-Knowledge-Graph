@@ -118,23 +118,28 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 
 | Version | Milestone Date | Triples | Named Classes | Object Props | Individuals | Domain Assertions |
 |---|---|---|---|---|---|---|
-| Initial commit | 2026-07-28 | — | — | — | — | — |
+| v0.0 (initial commit) | 2026-07-28 | — | — | — | — | — |
 | v0.1 (early prototype) | ~2026-08-05 | — | 12 | 22 | 60 | ~30 |
 | v0.2 (post-AGROVOC alignment) | 2026-08-17 | 52,806–52,816 | 17 | 24 | 10,467 | ~50 |
 | v0.3 (post-provenance/EPPO/rename) | 2026-08-18 | 84,064 | 18 | 24 | 10,463 | ~80 |
-| v0.4-expanded (superseded same day) | 2026-08-19 | 75,309 | 22 | 32 | 10,482 | ~90 |
-| v0.4-minimal (post-cleanup baseline)| 2026-08-19 | 64,662 | 16 | 24 | 10,463 | 101 |
-| v0.4 (enriched & provenance, before cleanup) | 2026-08-21 | 67,236 | 16 | 24 | 10,499 | 328 (320 with `owl:Axiom`, 0 TODOs) |
-| v0.4 (provenance scope fix) | 2026-08-22 | 66,851 | 16 | 24 | 10,499 | 328 (265 with `owl:Axiom`, 0 TODOs) |
-| v0.4 (Harvest_Stage + SKOS alignments, before register cross-check) | 2026-08-22 | 66,893 | 16 | 24 | 10,499 | 329 (266 with `owl:Axiom`, 0 TODOs) |
-| v0.4 (SKOS alignments reconciled with alignment registers) | 2026-08-22 | 66,882 | 16 | 24 | 10,499 | 329 (266 with `owl:Axiom`, 0 TODOs) |
+| v0.4-rc (three-layer expansion, reverted same day) | 2026-08-19 | 75,309 | 22 | 32 | 10,482 | ~90 |
+| v0.4.0 (post-cleanup baseline) | 2026-08-19 | 64,662 | 16 | 24 | 10,463 | 101 |
+| v0.4.1 (domain enrichment + provenance) | 2026-08-21 | 67,236 | 16 | 24 | 10,499 | 328 (320 with `owl:Axiom`, 0 TODOs) |
+| v0.4.2 (provenance scope fix) | 2026-08-22 | 66,851 | 16 | 24 | 10,499 | 328 (265 with `owl:Axiom`, 0 TODOs) |
+| v0.4.3 (Harvest_Stage + SKOS alignments, before register cross-check) | 2026-08-22 | 66,893 | 16 | 24 | 10,499 | 329 (266 with `owl:Axiom`, 0 TODOs) |
+| v0.4.4 (SKOS alignments reconciled with alignment registers) | 2026-08-22 | 66,882 | 16 | 24 | 10,499 | 329 (266 with `owl:Axiom`, 0 TODOs) |
 | **v0.5 (verified-defect + modelling corrections)** | **2026-08-22** | **66,873** | **16** | **26** | **10,498** | **328 (265 with `owl:Axiom`, 0 TODOs)** |
 
-The v0.4-expanded row is included for the record but was reverted the same
-day — see §3 below. Early prototype commits that were originally labelled
-with arbitrary 2.x tags (e.g. "v2.0"–"v2.3") were normalized to the `0.x`
-pre-release series (`v0.1`–`v0.4`) to maintain a clean monotonic version
-progression before the 1.0 publication release.
+`v0.4-rc` is included for the record but was reverted the same day — see
+§3 below. `v0.4.0`–`v0.4.4` are same-day intermediate states within the
+`0.4` line (only `v0.4.0` and the final `v0.4.4` state were ever asserted
+as `owl:versionInfo "0.4"` in the file itself — the `.1`–`.4` suffixes
+here are this document's own bookkeeping for what changed same-day
+between them, not a versioning scheme the ontology file uses). Early
+prototype commits that were originally labelled with arbitrary 2.x tags
+(e.g. "v2.0"–"v2.3") were normalized to the `0.x` pre-release series
+(`v0.1`–`v0.5`) to maintain a clean monotonic version progression before
+the 1.0 publication release.
 
 ---
 
