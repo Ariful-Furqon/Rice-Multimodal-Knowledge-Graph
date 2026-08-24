@@ -119,16 +119,11 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | Version | Milestone Date | Triples | Named Classes | Object Props | Individuals | Domain Assertions |
 |---|---|---|---|---|---|---|
 | v0.0 (initial commit) | 2026-07-28 | — | — | — | — | — |
-| v0.1 (early prototype) | ~2026-08-05 | — | 12 | 22 | 60 | ~30 |
-| v0.2 (post-AGROVOC alignment) | 2026-08-17 | 52,806–52,816 | 17 | 24 | 10,467 | ~50 |
-| v0.3 (post-provenance/EPPO/rename) | 2026-08-18 | 84,064 | 18 | 24 | 10,463 | ~80 |
-| v0.4-rc (three-layer expansion, reverted same day) | 2026-08-19 | 75,309 | 22 | 32 | 10,482 | ~90 |
-| v0.4.0 (post-cleanup baseline) | 2026-08-19 | 64,662 | 16 | 24 | 10,463 | 101 |
-| v0.4.1 (domain enrichment + provenance) | 2026-08-21 | 67,236 | 16 | 24 | 10,499 | 328 (320 with `owl:Axiom`, 0 TODOs) |
-| v0.4.2 (provenance scope fix) | 2026-08-22 | 66,851 | 16 | 24 | 10,499 | 328 (265 with `owl:Axiom`, 0 TODOs) |
-| v0.4.3 (Harvest_Stage + SKOS alignments, before register cross-check) | 2026-08-22 | 66,893 | 16 | 24 | 10,499 | 329 (266 with `owl:Axiom`, 0 TODOs) |
-| v0.4.4 (SKOS alignments reconciled with alignment registers) | 2026-08-22 | 66,882 | 16 | 24 | 10,499 | 329 (266 with `owl:Axiom`, 0 TODOs) |
-| **v0.5 (verified-defect + modelling corrections)** | **2026-08-22** | **66,873** | **16** | **26** | **10,498** | **328 (265 with `owl:Axiom`, 0 TODOs)** |
+| v0.1 (early prototype) | 2026-07-28 | — | 12 | 22 | 60 | ~30 |
+| v0.2 (AGROVOC alignment) | 2026-08-06 | 52,806–52,816 | 17 | 24 | 10,467 | ~50 |
+| v0.3 (EPPO/Planteome Enrichment) | 2026-08-13 | 84,064 | 18 | 24 | 10,463 | ~80 |
+| v0.4 (domain enrichment + provenance) | 2026-08-20 | 66,882 | 16 | 24 | 10,499 | 329 |
+| **v0.5 (verified-defect + modelling corrections)** | **2026-08-22** | **66,873** | **16** | **26** | **10,498** | **328** |
 
 `v0.4-rc` is included for the record but was reverted the same day — see
 §3 below. `v0.4.0`–`v0.4.4` are same-day intermediate states within the
