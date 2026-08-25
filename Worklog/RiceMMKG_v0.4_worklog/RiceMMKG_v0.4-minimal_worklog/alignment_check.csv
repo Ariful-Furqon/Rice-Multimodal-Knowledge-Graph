@@ -1,4 +1,0 @@
-entity,current_agrovoc_iri,match_type,issue,resolution_agrovoc_iri,resolution_match_type,notes
-Fungicide_Application,http://aims.fao.org/aos/agrovoc/c_27879,closeMatch,"Shares c_27879 with Insecticide_Application -- two distinct management actions cannot share one concept IRI; at least one is wrong.",,,
-Insecticide_Application,http://aims.fao.org/aos/agrovoc/c_27879,closeMatch,"Shares c_27879 with Fungicide_Application -- see above.",,,
-Rice_Blast_Disease,http://aims.fao.org/aos/agrovoc/c_152ac092,exactMatch,"Identifier shape (c_152ac092) differs from every other AGROVOC link in the file (all others are c_NNNNNN). AGROVOC does mint identifiers of this form, so it may be correct, but needs confirmation.",,,
