@@ -1,6 +1,6 @@
 # Plain CNN vs. IKRL-style KG fusion — results
 
-Requested comparison (sensei, week of 2026-08-18): plain ResNet CNN vs. an
+Requested comparison (week of 2026-08-18): plain ResNet CNN vs. an
 IKRL (Image-embodied Knowledge Representation Learning, Xie et al. 2017)
 fusion result, on the Paddy Doctor 10-class disease/pest/health
 classification task.
