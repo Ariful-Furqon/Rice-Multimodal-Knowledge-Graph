@@ -29,7 +29,7 @@
         <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#White_Streak"/>
         <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Leaf_Scratching"/>
         <rice:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Monitoring"/>
-        <rice:eppoCode>DCLPAR</rice:eppoCode>
+        <rice:eppoCode>HISPAR</rice:eppoCode>
         <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_111238"/>
       </owl:NamedIndividual>
     </rice:annotatedAs>
@@ -39,10 +39,10 @@
       <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset">
         <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
-        <dcterms:source rdf:resource="https://www.kaggle.com/datasets/petmod/riceleafs"/>
+        <dcterms:source rdf:resource="https://www.kaggle.com/competitions/paddy-disease-classification"/>
         <dcterms:title xml:lang="en">Paddy Doctor: A Visual Dataset for Rice Disease and Pest Identification</dcterms:title>
         <rdfs:label>Paddy Doctor Dataset</rdfs:label>
-        <dcterms:bibliographicCitation xml:lang="en">P. Selvaraj, et al. (2022). Paddy Doctor: A visual dataset for rice disease and pest identification. Kaggle Dataset &amp; Workshop on Agricultural Computer Vision.</dcterms:bibliographicCitation>
+        <dcterms:bibliographicCitation xml:lang="en">Petchiammal, A., Briskline Kiruba, S., Murugan, D., &amp; Pandarasamy, A. (2022). Paddy Doctor: A visual image dataset for automated paddy disease classification and benchmarking. arXiv:2205.11108.</dcterms:bibliographicCitation>
       </owl:NamedIndividual>
     </prov:wasDerivedFrom>
   </owl:NamedIndividual>
@@ -1116,7 +1116,7 @@
         <rice:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Insecticide_Application"/>
         <rdfs:comment xml:lang="en">Mythimna separata (oriental armyworm / true armyworm). Larvae voraciously consume rice leaf blades and panicles.</rdfs:comment>
         <rdfs:label xml:lang="en">Armyworm</rdfs:label>
-        <rice:eppoCode>LEUCOM</rice:eppoCode>
+        <rice:eppoCode>PSEDSE</rice:eppoCode>
       </owl:NamedIndividual>
     </owl:annotatedSource>
     <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/45093"/>
@@ -1857,7 +1857,7 @@
     <owl:annotatedTarget>
       <rice:Pest rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Nephotettix_Virescens">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rice:eppoCode>NEPHVI</rice:eppoCode>
+        <rice:eppoCode>NEPHIM</rice:eppoCode>
         <rdfs:comment xml:lang="en">Green leafhopper; primary vector for Rice Tungro Bacilliform Virus and Rice Tungro Spherical Virus.</rdfs:comment>
         <rdfs:label xml:lang="en">Nephotettix virescens</rdfs:label>
         <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_1032906"/>
@@ -3101,7 +3101,7 @@
         <rice:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Insecticide_Application"/>
         <rdfs:comment xml:lang="en">Scirpophaga incertulas (yellow stem borer). Larvae bore into stems causing deadheart at vegetative stage and white ear at flowering stage.</rdfs:comment>
         <rdfs:label xml:lang="en">Stem Borer</rdfs:label>
-        <rice:eppoCode>SCPIIN</rice:eppoCode>
+        <rice:eppoCode>SCHOBI</rice:eppoCode>
         <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_72366"/>
         <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_30329"/>
         <skos:broadMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_7389"/>
@@ -10330,7 +10330,7 @@
         <rice:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Insecticide_Application"/>
         <rdfs:comment xml:lang="en">Leptocorisa oratorius (slender rice bug / paddy bug). Nymphs and adults feed on developing grains causing empty grains and discoloration.</rdfs:comment>
         <rdfs:label xml:lang="en">Rice Bug</rdfs:label>
-        <rice:eppoCode>LEPTOR</rice:eppoCode>
+        <rice:eppoCode>LEPROR</rice:eppoCode>
       </owl:NamedIndividual>
     </owl:annotatedSource>
     <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Flowering_Stage"/>
@@ -21587,7 +21587,7 @@
       <owl:NamedIndividual rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Burkholderia_Glumae">
         <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Pathogen"/>
         <rdfs:comment xml:lang="en">Bacterial pathogen causing bacterial panicle blight. Produces toxoflavin; favoured by high night temperatures.</rdfs:comment>
-        <rice:eppoCode>BURBGL</rice:eppoCode>
+        <rice:eppoCode>PSDMGM</rice:eppoCode>
         <rice:causes rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Panicle_Blight"/>
         <rdfs:label xml:lang="en">Burkholderia glumae</rdfs:label>
         <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_337"/>
@@ -52068,7 +52068,7 @@
         <rice:causes rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Downy_Mildew"/>
         <rdfs:comment xml:lang="en">Oomycete pathogen causing downy mildew (crazy top) of rice. Favoured by waterlogged, cool conditions.</rdfs:comment>
         <rdfs:label xml:lang="en">Sclerophthora macrospora</rdfs:label>
-        <rice:eppoCode>SCLPMA</rice:eppoCode>
+        <rice:eppoCode>SCPHMA</rice:eppoCode>
         <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_467176"/>
       </owl:NamedIndividual>
     </owl:annotatedSource>

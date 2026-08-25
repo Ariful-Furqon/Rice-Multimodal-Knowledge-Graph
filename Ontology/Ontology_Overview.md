@@ -10,7 +10,7 @@ state. Numbers below were measured with rdflib 7.6.0 via
 ## 1. Description
 
 Rice MMKG is an OWL 2 knowledge graph for rice disease and pest diagnosis,
-built around the [Paddy Doctor](https://www.kaggle.com/datasets/petmod/riceleafs)
+built around the [Paddy Doctor](https://www.kaggle.com/competitions/paddy-disease-classification)
 image dataset. It links rice diseases, pests, pathogens, symptoms,
 environmental factors, growth stages, treatments, and management actions,
 and keeps two things deliberately separate:
@@ -130,6 +130,53 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-08-25: full external-identifier audit — EPPO codes and dataset citation fixed
+
+Follow-up to the CABI provenance fix below: every external identifier
+asserted anywhere in `Rice MMKG.rdf` was independently re-verified
+(live lookup, not re-trusted) — all 33 `skos:exactMatch`/`closeMatch`/
+`broadMatch` AGROVOC concepts, all 10 `NCBITaxon` IDs, all 4 `PECO`
+terms, all 15 `rice:eppoCode` literals, and the dataset-level
+`dcterms:source`/`bibliographicCitation` on `PaddyDoctorDataset`. AGROVOC,
+NCBITaxon, and PECO all checked out (33/33, 10/10, 4/4) — the live-API
+verification process from the 2026-08-22 alignment round held up. Two
+new problems found and fixed:
+
+- **7 of 15 EPPO codes were wrong** (`Rice MMKG.rdf` only —
+  `provenance_axioms.rdf` doesn't carry this property), the same
+  fabrication pattern as the CABI IDs — a plausible 6-letter code, never
+  looked up. One (`Rice_Bug`'s `LEPTOR`) didn't just fail to resolve, it
+  silently resolved to the *wrong organism*: `LEPTOR` is EPPO's code for
+  a fungus, *Leptosphaeria orthrosanthi*, not for `Leptocorisa oratorius`
+  (the rice bug this individual actually represents) — a case where a
+  fabricated ID happened to collide with a real, unrelated EPPO record,
+  the same failure shape as the CABI→*Quercus brantii* collision.
+  Corrected: `Hispa` `DCLPAR`→`HISPAR`, `Armyworm` `LEUCOM`→`PSEDSE`,
+  `Stem_Borer` `SCPIIN`→`SCHOBI`, `Rice_Bug` `LEPTOR`→`LEPROR`,
+  `Burkholderia_Glumae` `BURBGL`→`PSDMGM`, `Sclerophthora_Macrospora`
+  `SCLPMA`→`SCPHMA`, `Nephotettix_Virescens` `NEPHVI`→`NEPHIM`. The
+  other 8 (`CNAPME`, `NILALU`, `PYRIOR`, `XANTTO`, `XANTOR`, `COCHMI`,
+  `RTBV00`, `RTSV00`) were already correct.
+- **`PaddyDoctorDataset`'s own source citation was wrong on both fields.**
+  `dcterms:source` pointed to `kaggle.com/datasets/petmod/riceleafs`,
+  which 404s — no such dataset/user exists. `dcterms:bibliographicCitation`
+  credited "P. Selvaraj, et al. (2022)," but the dataset's real authors
+  (arXiv:2205.11108) are Petchiammal A., Briskline Kiruba S., D. Murugan,
+  and Pandarasamy A. — "Selvaraj" appears nowhere on the paper. The
+  10,407-image train split cited in that paper matches this ontology's
+  own `ImageObservation` count exactly, confirming it's the right source
+  once correctly identified. Fixed to the live Kaggle competition URL
+  (`kaggle.com/competitions/paddy-disease-classification`) and the
+  correct author list, in both `Rice MMKG.rdf` and this document's §1.
+- **Noted, not changed:** `Ontology/patch_assertions.rdf` (451 lines,
+  never merged into `Rice MMKG.rdf` — confirmed none of its triples are
+  present in the live file) turns out to be the *rejected* version of
+  the "9 more fabricated AGROVOC identifiers" episode from the
+  2026-08-22 entry below — one of its concepts resolves to "Tonga,"
+  matching that entry's own example verbatim. It's correctly inert, but
+  worth deleting or clearly labelling as a rejected draft so a future
+  session doesn't mistake it for a pending patch to apply.
 
 ### 2026-08-25: false CABI datasheet IDs in `dcterms:source`, fixed
 
