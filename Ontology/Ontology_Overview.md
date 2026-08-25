@@ -125,22 +125,37 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | v0.4 (domain enrichment + provenance) | 2026-08-20 | 66,882 | 16 | 24 | 10,499 | 329 |
 | **v0.5 (verified-defect + modelling corrections)** | **2026-08-22** | **66,873** | **16** | **26** | **10,498** | **328** |
 
-`v0.4-rc` is included for the record but was reverted the same day — see
-§3 below. `v0.4.0`–`v0.4.4` are same-day intermediate states within the
-`0.4` line (only `v0.4.0` and the final `v0.4.4` state were ever asserted
-as `owl:versionInfo "0.4"` in the file itself — the `.1`–`.4` suffixes
-here are this document's own bookkeeping for what changed same-day
-between them, not a versioning scheme the ontology file uses). Early
-prototype commits that were originally labelled with arbitrary 2.x tags
-(e.g. "v2.0"–"v2.3") were normalized to the `0.x` pre-release series
-(`v0.1`–`v0.5`) to maintain a clean monotonic version progression before
-the 1.0 publication release.
-
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-08-25: false CABI datasheet IDs in `dcterms:source`, fixed
+
+A provenance audit of `provenance_axioms.rdf` found that all 14 distinct
+CABI Compendium `dcterms:source` URLs used across the file's 320 reified
+axioms (259 of the 320 assertions) pointed to the wrong datasheet — the
+numeric ID redirected to an unrelated species (e.g. `Magnaporthe_oryzae`'s
+citation resolved to *Quercus brantii*, an oak tree; `Nilaparvata_lugens`'s
+to *Podisus nigrispinus*, an unrelated predatory bug). The
+`dcterms:bibliographicCitation` text (species name, disease name, "CABI
+2022") was correct in every case — only the numeric ID in the URL was
+wrong, a pattern consistent with the ID having been fabricated rather than
+looked up, the same failure mode already seen twice with AGROVOC
+identifiers (see the two 2026-08-22 entries below). Each of the 14 was
+independently re-verified by web search against the CABI Digital Library
+and corrected. Also fixed: the BBPOPT source URL
+(`bbpopt.ditlin.pertanian.go.id`, 7 assertions) pointed to a subdomain
+that no longer resolves — corrected to the site's current domain
+(`bbpopt.tanamanpangan.pertanian.go.id`). The two IRRI Rice Knowledge Bank
+URLs (55 assertions) were checked and are still correct, unchanged.
+Applied identically to both `provenance_axioms.rdf` and `Rice MMKG.rdf`
+(the merged ontology carries its own copy of the same reified axioms).
+No triples added or removed, no assertion structure changed — `dcterms:
+source` object values only. **Process note:** external identifiers in
+this project's provenance layer still need a live lookup before
+assertion — a plausible-looking ID number is not evidence of one.
 
 ### 2026-08-22: v0.4 → v0.5, a six-task correction worklog
 
