@@ -1,8 +1,0 @@
-\
-# PLACEHOLDER -- path segment and redirect target are not confirmed.
-# Do not submit to perma-id/w3id.org until Checkpoint C4 is answered.
-RewriteEngine On
-RewriteCond %{HTTP_ACCEPT} !text/html.*
-RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
-RewriteRule ^$ https://raw.githubusercontent.com/<owner>/<repo>/main/Ontology/Rice%20MMKG.rdf [R=303,L]
-RewriteRule ^$ https://github.com/<owner>/<repo> [R=303,L]
