@@ -82,21 +82,21 @@ The local Paddy Doctor image dataset is deliberately excluded from Git (`/Data/`
 ```
 Ontology/
   Rice MMKG.rdf              # the ontology (OWL/XML), v0.5
+  Rice MMKG.properties       # Protégé project metadata
   Ontology_Overview.md       # structure, statistics, and a dated changelog of every revision
   riceMMKG_ESWC_plan.md      # construction plan toward an ESWC resource-track submission
-  Backup/                    # dated snapshots of the ontology file
+  patch_assertions.rdf       # staged relation-assertion patches
+  provenance_axioms.rdf      # staged owl:Axiom provenance reifications
+  Backup/                    # dated snapshots of the ontology file (v0.2-v0.4)
 Analysis and Alignment/
   AGROVOC_alignment.md       # reviewed AGROVOC vocabulary alignment, with full query/decision trail
   NCBI_Taxonomy_alignment.md # organism-level alignment to NCBI Taxonomy
   Planteome_alignment.md     # environmental-factor alignment to PO/TO/PECO/PSO
   PaddyDoctor_Dataset_Analysis.md # local dataset profile and KG population plan
-Worklog/
-  RiceMMKG_v0.3_worklog/     # dated task specs, scripts, and reports for each ontology revision
-  RiceMMKG_v0.4_worklog/
-  RiceMMKG_v0.5_worklog/
-Data/                        # local dataset (gitignored, not versioned)
-Multimodal Fusion PoC/       # local experimentation (gitignored, not versioned)
 RiceMMKG.png / .jpg          # ontology diagram
+Data/                        # local dataset (gitignored, not versioned)
+Worklog/                     # dated task specs, scripts, and reports per revision (gitignored, not versioned)
+Multimodal Fusion PoC/       # local experimentation (gitignored, not versioned)
 ```
 
 ## Usage
