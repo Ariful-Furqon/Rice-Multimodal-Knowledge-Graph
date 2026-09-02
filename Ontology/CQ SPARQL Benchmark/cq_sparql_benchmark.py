@@ -1,27 +1,3 @@
-"""
-Rice MMKG v0.5 — Competency Question (CQ) SPARQL Benchmark
-===========================================================
-Executes 16 formal Competency Questions as SPARQL queries against
-Rice MMKG.rdf and produces a structured benchmark report.
-
-Methodology references:
-  - Gruninger & Fox (1995). Methodology for the Design and Evaluation of Ontologies.
-  - Suárez-Figueroa et al. (2012). The NeOn Methodology for Ontology Engineering.
-  - Poveda-Villalón et al. (2022). LOT: An industrial oriented ontology engineering
-    framework. Engineering Applications of Artificial Intelligence, 111, 104755.
-
-CQ Levels:
-  L1 — Factual / Single-hop retrieval (pattern over all entities)
-  L2 — Contextual / Multi-criteria (growth stage + environmental factor)
-  L3 — Causal / Multi-hop epidemiological chain (vector tracing)
-  L4 — Inference / Defined class and provenance retrieval
-
-Usage:
-  python cq_sparql_benchmark.py
-Output:
-  reports/CQ_SPARQL_Benchmark_Report.md
-"""
-
 import time
 import datetime
 from pathlib import Path
