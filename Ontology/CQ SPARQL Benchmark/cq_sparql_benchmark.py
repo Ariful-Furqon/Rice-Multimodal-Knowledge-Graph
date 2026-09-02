@@ -175,6 +175,9 @@ CQS = [
                      "is the set of pests asserted to transmit something (not all "
                      "pests), so the measure is chain completeness, not vector "
                      "prevalence.",
+                    "is the set of pests asserted to transmit something (not all "
+                    "pests), so the measure is chain completeness, not vector "
+                    "prevalence.",
         "num": PREFIX + """SELECT DISTINCT ?v WHERE {
   ?v rice:transmits ?p . ?p rice:causes ?d . ?d a rice:Disease }""",
         "den": PREFIX + "SELECT DISTINCT ?v WHERE { ?v rice:transmits ?p }",
@@ -184,21 +187,26 @@ CQS = [
     },
     {
         "id": "CQ-09b", "level": "L3", "dim": "D1", "mode": "negative",
+        "id": "CQ-10", "level": "L3", "dim": "D1", "mode": "negative",
         "question": "Are there insect vectors for which no control treatment is "
                     "recorded, leaving the transmission chain unbreakable?",
         "rationale": "A vector chain that cannot be interrupted has no advisory "
                      "value. Splitting this from CQ-09 separates 'the chain exists' "
                      "from 'the chain is actionable'.",
+                    "value. Splitting this from CQ-09 separates 'the chain exists' "
+                    "from 'the chain is actionable'.",
         "num": PREFIX + """SELECT DISTINCT ?v WHERE {
   ?v rice:transmits ?p .
   FILTER NOT EXISTS { ?v rice:controlledBy ?t } }""",
     },
     {
         "id": "CQ-10", "level": "L3", "dim": "D1", "mode": "coverage",
+        "id": "CQ-11", "level": "L3", "dim": "D1", "mode": "coverage",
         "question": "For which diseases is the full risk-to-remedy chain traversable: "
                     "environmental factor -> disease -> symptom -> treatment?",
         "rationale": "End-to-end decision-support path. This is the query an "
                      "advisory application actually needs to answer.",
+                    "advisory application actually needs to answer.",
         "num": PREFIX + """SELECT DISTINCT ?d WHERE {
   ?d a rice:Disease .
   ?f rice:increaseRiskOf ?d . ?f a rice:EnvironmentalFactor .
@@ -214,11 +222,14 @@ CQS = [
     },
     {
         "id": "CQ-11", "level": "L3", "dim": "D1", "mode": "coverage",
+        "id": "CQ-12", "level": "L3", "dim": "D1", "mode": "coverage",
         "question": "For which diseases and pests does the KG reach the management "
                     "layer, i.e. recommend a concrete ManagementAction?",
         "rationale": "Tests that diagnosis terminates in an operational decision. "
                      "Note the direction of rice:recommends in this KG is "
                      "entity -> action, not action -> treatment.",
+                    "Note the direction of rice:recommends in this KG is "
+                    "entity -> action, not action -> treatment.",
         "num": PREFIX + """SELECT DISTINCT ?e WHERE {
   { ?e a rice:Disease } UNION { ?e a rice:Pest }
   ?e rice:recommends ?m . ?m a rice:ManagementAction }""",
@@ -227,10 +238,12 @@ CQS = [
     },
     {
         "id": "CQ-11b", "level": "L2", "dim": "D1", "mode": "coverage",
+        "id": "CQ-13", "level": "L2", "dim": "D1", "mode": "coverage",
         "question": "Does every severity level map to a recommended management "
                     "action, so that triage advice is total?",
         "rationale": "Severity-driven triage is the decision layer of the KG. A "
                      "severity level with no action is a hole in the advisory logic.",
+                    "severity level with no action is a hole in the advisory logic.",
         "num": PREFIX + """SELECT DISTINCT ?sev WHERE {
   ?sev a rice:SeverityLevel . ?sev rice:recommends ?m }""",
         "den": PREFIX + "SELECT DISTINCT ?sev WHERE { ?sev a rice:SeverityLevel }",
@@ -242,20 +255,25 @@ CQS = [
     # ============================ L4 x D1 =====================================
     {
         "id": "CQ-12", "level": "L4", "dim": "D1", "mode": "entailment",
+        "id": "CQ-14", "level": "L4", "dim": "D1", "mode": "entailment",
         "question": "Which observations are SymptomaticObservations, i.e. members "
                     "of the defined class 'Observation that captures some Symptom'?",
         "rationale": "The one genuine defined class in the ontology. Asserted "
                      "membership is zero by construction; a non-zero entailed count "
                      "proves the OWL axiomatisation does work SPARQL alone cannot.",
+                    "membership is zero by construction; a non-zero entailed count "
+                    "proves the OWL axiomatisation does work SPARQL alone cannot.",
         "num": PREFIX + "SELECT DISTINCT ?o WHERE { ?o a rice:SymptomaticObservation }",
         "expect": {"min_entailed": 1},
     },
     {
         "id": "CQ-13", "level": "L4", "dim": "D1", "mode": "entailment",
+        "id": "CQ-15", "level": "L4", "dim": "D1", "mode": "entailment",
         "question": "Can the KG be queried in the inverse direction, e.g. "
                     "disease -> causedBy -> pathogen and symptom -> indicates -> disease?",
         "rationale": "14 of 26 object properties are declared as owl:inverseOf but "
                      "never asserted. Query robustness depends on materialising them.",
+                    "never asserted. Query robustness depends on materialising them.",
         "num": PREFIX + """SELECT ?x ?y WHERE {
   { ?x rice:causedBy ?y } UNION { ?x rice:indicates ?y } UNION
   { ?x rice:hasOccurrenceOf ?y } UNION { ?x rice:controls ?y } }""",
@@ -265,6 +283,7 @@ CQS = [
     # ============================ D2 - cross-modal ============================
     {
         "id": "CQ-14", "level": "L3", "dim": "D2", "mode": "coverage",
+        "id": "CQ-16", "level": "L3", "dim": "D2", "mode": "coverage",
         "question": "Which image observations can be grounded all the way to an "
                     "agronomic recommendation: image -> annotated class -> symptom "
                     "and treatment?",
@@ -273,6 +292,10 @@ CQS = [
                      "labelled with a HealthStatus (healthy plants) correctly have "
                      "no symptom or treatment, and including them would understate "
                      "grounding by a fixed 17%.",
+                    "restricted to images annotated with a Disease or Pest: images "
+                    "labelled with a HealthStatus (healthy plants) correctly have "
+                    "no symptom or treatment, and including them would understate "
+                    "grounding by a fixed 17%.",
         "num": PREFIX + """SELECT DISTINCT ?img WHERE {
   ?img a rice:ImageObservation . ?img rice:annotatedAs ?e .
   ?e rice:indicatedBy ?s . ?e rice:controlledBy ?t }""",
@@ -283,10 +306,12 @@ CQS = [
     },
     {
         "id": "CQ-15", "level": "L2", "dim": "D2", "mode": "coverage",
+        "id": "CQ-17", "level": "L2", "dim": "D2", "mode": "coverage",
         "question": "Which annotated classes of the image corpus are typed as a "
                     "domain entity (Disease, Pest or HealthStatus)?",
         "rationale": "Checks that dataset labels were reconciled with the ontology "
                      "rather than left as free-floating individuals.",
+                    "rather than left as free-floating individuals.",
         "num": PREFIX + """SELECT DISTINCT ?e WHERE {
   ?img rice:annotatedAs ?e .
   { ?e a rice:Disease } UNION { ?e a rice:Pest } UNION { ?e a rice:HealthStatus } }""",
@@ -295,21 +320,26 @@ CQS = [
     },
     {
         "id": "CQ-16", "level": "L1", "dim": "D2", "mode": "coverage",
+        "id": "CQ-18", "level": "L1", "dim": "D2", "mode": "coverage",
         "question": "Which symptoms are grounded in visual evidence, i.e. captured "
                     "by at least one image observation?",
         "rationale": "Symptom-level visual grounding is what distinguishes an MMKG "
                      "from a text ontology with images bolted on. Expected to expose "
                      "the sharpest gap in the current release.",
+                    "from a text ontology with images bolted on. Expected to expose "
+                    "the sharpest gap in the current release.",
         "num": PREFIX + "SELECT DISTINCT ?s WHERE { ?s a rice:Symptom . ?o rice:captures ?s }",
         "den": PREFIX + "SELECT DISTINCT ?s WHERE { ?s a rice:Symptom }",
         "unit": "symptom",
     },
     {
         "id": "CQ-17", "level": "L1", "dim": "D2", "mode": "negative",
+        "id": "CQ-19", "level": "L1", "dim": "D2", "mode": "negative",
         "question": "Are there image observations lacking a content URL or a source "
                     "dataset provenance link?",
         "rationale": "Integrity constraint on the media layer. Any row means an "
                      "image cannot be retrieved or attributed.",
+                    "image cannot be retrieved or attributed.",
         "num": PREFIX + """SELECT ?img WHERE {
   ?img a rice:ImageObservation .
   FILTER ( NOT EXISTS { ?img schema:contentUrl ?u } ||
@@ -317,20 +347,25 @@ CQS = [
     },
     {
         "id": "CQ-18", "level": "L1", "dim": "D2", "mode": "documented",
+        "id": "CQ-20", "level": "L1", "dim": "D2", "mode": "documented",
         "question": "How many sensor observations does the KG contain?",
         "rationale": "Declared extension point. Recorded as a measurement, not "
                      "scored, so the roadmap gap stays visible without inflating "
                      "or deflating the pass rate.",
+                    "scored, so the roadmap gap stays visible without inflating "
+                    "or deflating the pass rate.",
         "num": PREFIX + "SELECT DISTINCT ?o WHERE { ?o a rice:SensorObservation }",
     },
 
     # ============================ D3 - provenance and alignment ===============
     {
         "id": "CQ-19", "level": "L4", "dim": "D3", "mode": "coverage",
+        "id": "CQ-21", "level": "L4", "dim": "D3", "mode": "coverage",
         "question": "Which reified domain assertions carry both an authoritative "
                     "source URI and a bibliographic citation?",
         "rationale": "Provenance completeness - the scientific-defensibility claim "
                      "of the KG.",
+                    "of the KG.",
         "num": PREFIX + """SELECT DISTINCT ?ax WHERE {
   ?ax a owl:Axiom ; dcterms:source ?src ; dcterms:bibliographicCitation ?cit }""",
         "den": PREFIX + "SELECT DISTINCT ?ax WHERE { ?ax a owl:Axiom }",
@@ -338,6 +373,7 @@ CQS = [
     },
     {
         "id": "CQ-20", "level": "L4", "dim": "D3", "mode": "negative",
+        "id": "CQ-22", "level": "L4", "dim": "D3", "mode": "negative",
         "question": "Are there reified axioms with incomplete provenance "
                     "(missing source, citation or evidence type)?",
         "rationale": "Integrity constraint complementing CQ-19.",
@@ -349,11 +385,14 @@ CQS = [
     },
     {
         "id": "CQ-21", "level": "L4", "dim": "D3", "mode": "coverage",
+        "id": "CQ-23", "level": "L4", "dim": "D3", "mode": "coverage",
         "question": "Which biological entities (disease, pathogen, pest) are aligned "
                     "to an external vocabulary (EPPO, AGROVOC or NCBI Taxonomy)?",
         "rationale": "Interoperability. Written as a coverage measure rather than an "
                      "OPTIONAL projection, which would report success even when "
                      "every alignment column is null.",
+                    "OPTIONAL projection, which would report success even when "
+                    "every alignment column is null.",
         "num": PREFIX + """SELECT DISTINCT ?e WHERE {
   { ?e a rice:Disease } UNION { ?e a rice:Pathogen } UNION { ?e a rice:Pest }
   { ?e rice:eppoCode ?c } UNION { ?e skos:exactMatch ?m } UNION { ?e skos:closeMatch ?m2 } }""",
@@ -363,15 +402,18 @@ CQS = [
     },
     {
         "id": "CQ-22", "level": "L4", "dim": "D3", "mode": "negative",
+        "id": "CQ-24", "level": "L4", "dim": "D3", "mode": "negative",
         "question": "Are annotation literals lexically consistent, i.e. is "
                     "rice:evidenceType uniformly language-tagged?",
         "rationale": "Literal-hygiene constraint. An untagged duplicate of a tagged "
                      "value silently splits GROUP BY and breaks lang() filters.",
+                    "value silently splits GROUP BY and breaks lang() filters.",
         "num": PREFIX + """SELECT ?ax ?v WHERE {
   ?ax rice:evidenceType ?v . FILTER ( lang(?v) = "" ) }""",
     },
     {
         "id": "CQ-23", "level": "L4", "dim": "D1", "mode": "negative",
+        "id": "CQ-25", "level": "L4", "dim": "D1", "mode": "negative",
         "question": "Under entailment, is any individual typed as both a Symptom "
                     "and a Disease?",
         "rationale": "Category discipline. Symptom and Disease are intended to be "
@@ -379,6 +421,10 @@ CQS = [
                      "property domain that is declared too narrowly. This constraint "
                      "is checked on the materialised graph, because the conflict is "
                      "produced by inference and is invisible in the asserted triples.",
+                    "disjoint; an overlap means either a mistyped individual or a "
+                    "property domain that is declared too narrowly. This constraint "
+                    "is checked on the materialised graph, because the conflict is "
+                    "produced by inference and is invisible in the asserted triples.",
         "num": PREFIX + """SELECT DISTINCT ?x WHERE {
   ?x a rice:Symptom . ?x a rice:Disease }""",
         "on_entailed": True,
