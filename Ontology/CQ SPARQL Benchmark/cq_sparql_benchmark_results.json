@@ -1,0 +1,630 @@
+{
+  "meta": {
+    "generated": "2026-09-02 11:42",
+    "ontology": "Rice MMKG.rdf",
+    "asserted_triples": 66873,
+    "entailed_triples": 158685,
+    "reasoning_seconds": 23.6,
+    "coverage_threshold": 0.5
+  },
+  "results": [
+    {
+      "id": "CQ-01",
+      "level": "L1",
+      "dim": "D1",
+      "mode": "coverage",
+      "question": "Which rice diseases have an identified causal pathogen?",
+      "rationale": "Aetiological completeness. A disease without a causal agent cannot support any downstream causal query.",
+      "covered": 7,
+      "total": 9,
+      "ratio": 0.7777777777777778,
+      "missing": [
+        "rice:Deadheart",
+        "rice:Sheath_Blight"
+      ],
+      "unit": "disease",
+      "status": "PASS",
+      "ms": 221.5
+    },
+    {
+      "id": "CQ-02",
+      "level": "L1",
+      "dim": "D1",
+      "mode": "coverage",
+      "question": "Which diseases and pests have at least one observable symptom?",
+      "rationale": "Diagnosability. Without a symptom link an entity is invisible to field-observation-driven inference.",
+      "covered": 15,
+      "total": 16,
+      "ratio": 0.9375,
+      "missing": [
+        "rice:Nephotettix_Virescens"
+      ],
+      "unit": "disease/pest",
+      "status": "PASS",
+      "ms": 7.9
+    },
+    {
+      "id": "CQ-03",
+      "level": "L1",
+      "dim": "D1",
+      "mode": "coverage",
+      "question": "Which diseases and pests have at least one control treatment?",
+      "rationale": "Actionability. The KG must not diagnose what it cannot advise on.",
+      "covered": 15,
+      "total": 16,
+      "ratio": 0.9375,
+      "missing": [
+        "rice:Nephotettix_Virescens"
+      ],
+      "unit": "disease/pest",
+      "status": "PASS",
+      "ms": 6.3
+    },
+    {
+      "id": "CQ-04",
+      "level": "L1",
+      "dim": "D1",
+      "mode": "coverage",
+      "question": "Which symptoms are attached to at least one disease or pest?",
+      "rationale": "Detects orphan symptoms - vocabulary declared but never used in a diagnostic pattern.",
+      "covered": 28,
+      "total": 28,
+      "ratio": 1.0,
+      "missing": [],
+      "unit": "symptom",
+      "status": "PASS",
+      "ms": 3.7
+    },
+    {
+      "id": "CQ-05",
+      "level": "L2",
+      "dim": "D1",
+      "mode": "coverage",
+      "question": "For which diseases/pests can we state both the growth stage of occurrence and an environmental factor raising their risk?",
+      "rationale": "Multi-criteria contextualisation. Both joins are mandatory (no OPTIONAL), so the CQ measures real co-population of occursIn and increaseRiskOf.",
+      "covered": 13,
+      "total": 16,
+      "ratio": 0.8125,
+      "missing": [
+        "rice:Leaf_Folder",
+        "rice:Nephotettix_Virescens",
+        "rice:Rice_Bug"
+      ],
+      "unit": "disease/pest",
+      "status": "PASS",
+      "detail_rows": [
+        [
+          "rice:Flowering_Stage",
+          "rice:Bacterial_Leaf_Streak",
+          "rice:High_Humidity"
+        ],
+        [
+          "rice:Flowering_Stage",
+          "rice:Bacterial_Leaf_Streak",
+          "rice:High_Temperature"
+        ],
+        [
+          "rice:Flowering_Stage",
+          "rice:Bacterial_Panicle_Blight",
+          "rice:High_Humidity"
+        ],
+        [
+          "rice:Flowering_Stage",
+          "rice:Bacterial_Panicle_Blight",
+          "rice:High_Night_Temperature"
+        ],
+        [
+          "rice:Flowering_Stage",
+          "rice:Bacterial_Panicle_Blight",
+          "rice:High_Temperature"
+        ],
+        [
+          "rice:Flowering_Stage",
+          "rice:Brown_Planthopper",
+          "rice:High_Temperature"
+        ],
+        [
+          "rice:Flowering_Stage",
+          "rice:Brown_Planthopper",
+          "rice:Excessive_Nitrogen"
+        ],
+        [
+          "rice:Flowering_Stage",
+          "rice:Rice_Blast_Disease",
+          "rice:High_Humidity"
+        ],
+        [
+          "rice:Flowering_Stage",
+          "rice:Rice_Blast_Disease",
+          "rice:Low_Rainfall"
+        ],
+        [
+          "rice:Flowering_Stage",
+          "rice:Sheath_Blight",
+          "rice:High_Humidity"
+        ],
+        [
+          "rice:Flowering_Stage",
+          "rice:Sheath_Blight",
+          "rice:Poor_Soil_Drainage"
+        ],
+        [
+          "rice:Maturity_Stage",
+          "rice:Bacterial_Panicle_Blight",
+          "rice:High_Humidity"
+        ]
+      ],
+      "detail_vars": [
+        "stage",
+        "e",
+        "f"
+      ],
+      "detail_total": 88,
+      "ms": 26.1
+    },
+    {
+      "id": "CQ-06",
+      "level": "L2",
+      "dim": "D1",
+      "mode": "coverage",
+      "question": "Which growth stages have a documented vulnerability profile naming a concrete disease or pest?",
+      "rationale": "vulnerableTo is the most frequently asserted domain relation in the KG (59 triples), so it must be exercised directly.",
+      "covered": 6,
+      "total": 7,
+      "ratio": 0.8571428571428571,
+      "missing": [
+        "rice:Harvest_Stage"
+      ],
+      "unit": "growth stage",
+      "status": "PASS",
+      "ms": 6.5
+    },
+    {
+      "id": "CQ-07",
+      "level": "L2",
+      "dim": "D1",
+      "mode": "negative",
+      "question": "Is the stage-vulnerability view consistent with the occurrence view (vulnerableTo without a matching occursIn)?",
+      "rationale": "Integrity constraint. If stage G is vulnerableTo entity E, then E should occursIn G. Any row is an inconsistency.",
+      "violations": 0,
+      "examples": [],
+      "status": "PASS",
+      "ms": 5.7
+    },
+    {
+      "id": "CQ-08",
+      "level": "L2",
+      "dim": "D1",
+      "mode": "coverage",
+      "question": "Which preventive treatments carry an explicit growth-stage prerequisite for their application?",
+      "rationale": "Prevention advice without a timing constraint is not operationalisable in the field.",
+      "covered": 1,
+      "total": 2,
+      "ratio": 0.5,
+      "missing": [
+        "rice:Seed_Treatment"
+      ],
+      "unit": "preventive treatment",
+      "status": "PASS",
+      "ms": 3.1
+    },
+    {
+      "id": "CQ-09",
+      "level": "L3",
+      "dim": "D1",
+      "mode": "coverage",
+      "question": "For which declared insect vectors is the transmission chain vector -> pathogen -> disease fully traversable?",
+      "rationale": "The canonical multi-hop epidemiological query. The denominator is the set of pests asserted to transmit something (not all pests), so the measure is chain completeness, not vector prevalence.",
+      "covered": 1,
+      "total": 1,
+      "ratio": 1.0,
+      "missing": [],
+      "unit": "declared vector",
+      "status": "PASS",
+      "detail_rows": [
+        [
+          "rice:Nephotettix_Virescens",
+          "rice:Rice_Tungro_Bacilliform_Virus",
+          "rice:Rice_Tungro_Disease"
+        ],
+        [
+          "rice:Nephotettix_Virescens",
+          "rice:Rice_Tungro_Spherical_Virus",
+          "rice:Rice_Tungro_Disease"
+        ]
+      ],
+      "detail_vars": [
+        "v",
+        "p",
+        "d"
+      ],
+      "detail_total": 2,
+      "ms": 5.2
+    },
+    {
+      "id": "CQ-09b",
+      "level": "L3",
+      "dim": "D1",
+      "mode": "negative",
+      "question": "Are there insect vectors for which no control treatment is recorded, leaving the transmission chain unbreakable?",
+      "rationale": "A vector chain that cannot be interrupted has no advisory value. Splitting this from CQ-09 separates 'the chain exists' from 'the chain is actionable'.",
+      "violations": 1,
+      "examples": [
+        [
+          "rice:Nephotettix_Virescens"
+        ]
+      ],
+      "status": "FAIL",
+      "ms": 2.3
+    },
+    {
+      "id": "CQ-10",
+      "level": "L3",
+      "dim": "D1",
+      "mode": "coverage",
+      "question": "For which diseases is the full risk-to-remedy chain traversable: environmental factor -> disease -> symptom -> treatment?",
+      "rationale": "End-to-end decision-support path. This is the query an advisory application actually needs to answer.",
+      "covered": 9,
+      "total": 9,
+      "ratio": 1.0,
+      "missing": [],
+      "unit": "disease",
+      "status": "PASS",
+      "detail_rows": [
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Wilting",
+          "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Wilting",
+          "rice:Crop_Sanitation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Wilting",
+          "rice:Resistant_Variety"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Wilting",
+          "rice:Water_Management"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Dry_Leaf_Tip",
+          "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Dry_Leaf_Tip",
+          "rice:Crop_Sanitation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Dry_Leaf_Tip",
+          "rice:Resistant_Variety"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Dry_Leaf_Tip",
+          "rice:Water_Management"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Yellow_Leaf",
+          "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Yellow_Leaf",
+          "rice:Crop_Sanitation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Yellow_Leaf",
+          "rice:Resistant_Variety"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Yellow_Leaf",
+          "rice:Water_Management"
+        ]
+      ],
+      "detail_vars": [
+        "d",
+        "f",
+        "s",
+        "t"
+      ],
+      "detail_total": 277,
+      "ms": 375.7
+    },
+    {
+      "id": "CQ-11",
+      "level": "L3",
+      "dim": "D1",
+      "mode": "coverage",
+      "question": "For which diseases and pests does the KG reach the management layer, i.e. recommend a concrete ManagementAction?",
+      "rationale": "Tests that diagnosis terminates in an operational decision. Note the direction of rice:recommends in this KG is entity -> action, not action -> treatment.",
+      "covered": 9,
+      "total": 16,
+      "ratio": 0.5625,
+      "missing": [
+        "rice:Armyworm",
+        "rice:Brown_Planthopper",
+        "rice:Leaf_Folder",
+        "rice:Nephotettix_Virescens",
+        "rice:Rice_Bug",
+        "rice:Sheath_Blight",
+        "rice:Stem_Borer"
+      ],
+      "unit": "disease/pest",
+      "status": "PASS",
+      "ms": 5.4
+    },
+    {
+      "id": "CQ-11b",
+      "level": "L2",
+      "dim": "D1",
+      "mode": "coverage",
+      "question": "Does every severity level map to a recommended management action, so that triage advice is total?",
+      "rationale": "Severity-driven triage is the decision layer of the KG. A severity level with no action is a hole in the advisory logic.",
+      "covered": 4,
+      "total": 4,
+      "ratio": 1.0,
+      "missing": [],
+      "unit": "severity level",
+      "status": "PASS",
+      "detail_rows": [
+        [
+          "rice:Critical_Severity",
+          "rice:Immediate_Intervention"
+        ],
+        [
+          "rice:High_Severity",
+          "rice:Preventive_Action"
+        ],
+        [
+          "rice:High_Severity",
+          "rice:Immediate_Intervention"
+        ],
+        [
+          "rice:Low_Severity",
+          "rice:No_Action_Needed"
+        ],
+        [
+          "rice:Medium_Severity",
+          "rice:Field_Inspection"
+        ],
+        [
+          "rice:Medium_Severity",
+          "rice:Monitoring"
+        ]
+      ],
+      "detail_vars": [
+        "sev",
+        "m"
+      ],
+      "detail_total": 6,
+      "ms": 5.0
+    },
+    {
+      "id": "CQ-12",
+      "level": "L4",
+      "dim": "D1",
+      "mode": "entailment",
+      "question": "Which observations are SymptomaticObservations, i.e. members of the defined class 'Observation that captures some Symptom'?",
+      "rationale": "The one genuine defined class in the ontology. Asserted membership is zero by construction; a non-zero entailed count proves the OWL axiomatisation does work SPARQL alone cannot.",
+      "asserted": 0,
+      "entailed": 1442,
+      "gain": 1442,
+      "status": "PASS",
+      "ms": 14.0
+    },
+    {
+      "id": "CQ-13",
+      "level": "L4",
+      "dim": "D1",
+      "mode": "entailment",
+      "question": "Can the KG be queried in the inverse direction, e.g. disease -> causedBy -> pathogen and symptom -> indicates -> disease?",
+      "rationale": "14 of 26 object properties are declared as owl:inverseOf but never asserted. Query robustness depends on materialising them.",
+      "asserted": 0,
+      "entailed": 139,
+      "gain": 139,
+      "status": "PASS",
+      "ms": 6.3
+    },
+    {
+      "id": "CQ-14",
+      "level": "L3",
+      "dim": "D2",
+      "mode": "coverage",
+      "question": "Which image observations can be grounded all the way to an agronomic recommendation: image -> annotated class -> symptom and treatment?",
+      "rationale": "The central multimodal claim of the KG. The denominator is restricted to images annotated with a Disease or Pest: images labelled with a HealthStatus (healthy plants) correctly have no symptom or treatment, and including them would understate grounding by a fixed 17%.",
+      "covered": 8643,
+      "total": 8643,
+      "ratio": 1.0,
+      "missing": [],
+      "unit": "diagnostic image",
+      "status": "PASS",
+      "ms": 2007.6
+    },
+    {
+      "id": "CQ-15",
+      "level": "L2",
+      "dim": "D2",
+      "mode": "coverage",
+      "question": "Which annotated classes of the image corpus are typed as a domain entity (Disease, Pest or HealthStatus)?",
+      "rationale": "Checks that dataset labels were reconciled with the ontology rather than left as free-floating individuals.",
+      "covered": 10,
+      "total": 10,
+      "ratio": 1.0,
+      "missing": [],
+      "unit": "annotated class",
+      "status": "PASS",
+      "ms": 445.6
+    },
+    {
+      "id": "CQ-16",
+      "level": "L1",
+      "dim": "D2",
+      "mode": "coverage",
+      "question": "Which symptoms are grounded in visual evidence, i.e. captured by at least one image observation?",
+      "rationale": "Symptom-level visual grounding is what distinguishes an MMKG from a text ontology with images bolted on. Expected to expose the sharpest gap in the current release.",
+      "covered": 1,
+      "total": 28,
+      "ratio": 0.03571428571428571,
+      "missing": [
+        "rice:Brown_Leaf_Tip",
+        "rice:Brown_Lesion",
+        "rice:Chewed_Leaf",
+        "rice:Dead_Tiller",
+        "rice:Discolored_Panicle",
+        "rice:Dry_Leaf_Tip",
+        "rice:Empty_Grain",
+        "rice:Excessive_Tillering",
+        "rice:Grain_Discoloration",
+        "rice:Hopper_Burn",
+        "rice:Leaf_Rolling",
+        "rice:Leaf_Scratching",
+        "rice:Leaf_Spot",
+        "rice:Neck_Rot",
+        "rice:Panicle_Blast",
+        "rice:Reduced_Tillering",
+        "rice:Stem_Rot_Symptom",
+        "rice:Sterile_Panicle",
+        "rice:Stunted_Growth",
+        "rice:Translucent_Stripe",
+        "rice:Water_Soaked_Streak",
+        "rice:White_Ear",
+        "rice:White_Streak",
+        "rice:Wilting",
+        "rice:Yellow_Leaf",
+        "rice:Yellow_Orange_Discoloration",
+        "rice:Yellow_Stripe"
+      ],
+      "unit": "symptom",
+      "status": "PARTIAL",
+      "ms": 18.5
+    },
+    {
+      "id": "CQ-17",
+      "level": "L1",
+      "dim": "D2",
+      "mode": "negative",
+      "question": "Are there image observations lacking a content URL or a source dataset provenance link?",
+      "rationale": "Integrity constraint on the media layer. Any row means an image cannot be retrieved or attributed.",
+      "violations": 0,
+      "examples": [],
+      "status": "PASS",
+      "ms": 897.4
+    },
+    {
+      "id": "CQ-18",
+      "level": "L1",
+      "dim": "D2",
+      "mode": "documented",
+      "question": "How many sensor observations does the KG contain?",
+      "rationale": "Declared extension point. Recorded as a measurement, not scored, so the roadmap gap stays visible without inflating or deflating the pass rate.",
+      "count": 0,
+      "status": "DOCUMENTED",
+      "ms": 1.4
+    },
+    {
+      "id": "CQ-19",
+      "level": "L4",
+      "dim": "D3",
+      "mode": "coverage",
+      "question": "Which reified domain assertions carry both an authoritative source URI and a bibliographic citation?",
+      "rationale": "Provenance completeness - the scientific-defensibility claim of the KG.",
+      "covered": 265,
+      "total": 265,
+      "ratio": 1.0,
+      "missing": [],
+      "unit": "reified axiom",
+      "status": "PASS",
+      "ms": 11.3
+    },
+    {
+      "id": "CQ-20",
+      "level": "L4",
+      "dim": "D3",
+      "mode": "negative",
+      "question": "Are there reified axioms with incomplete provenance (missing source, citation or evidence type)?",
+      "rationale": "Integrity constraint complementing CQ-19.",
+      "violations": 0,
+      "examples": [],
+      "status": "PASS",
+      "ms": 37.1
+    },
+    {
+      "id": "CQ-21",
+      "level": "L4",
+      "dim": "D3",
+      "mode": "coverage",
+      "question": "Which biological entities (disease, pathogen, pest) are aligned to an external vocabulary (EPPO, AGROVOC or NCBI Taxonomy)?",
+      "rationale": "Interoperability. Written as a coverage measure rather than an OPTIONAL projection, which would report success even when every alignment column is null.",
+      "covered": 18,
+      "total": 24,
+      "ratio": 0.75,
+      "missing": [
+        "rice:Bacterial_Leaf_Blight",
+        "rice:Bacterial_Leaf_Streak",
+        "rice:Bacterial_Panicle_Blight",
+        "rice:Brown_Spot",
+        "rice:Deadheart",
+        "rice:Sheath_Blight"
+      ],
+      "unit": "biological entity",
+      "status": "PASS",
+      "ms": 7.4
+    },
+    {
+      "id": "CQ-22",
+      "level": "L4",
+      "dim": "D3",
+      "mode": "negative",
+      "question": "Are annotation literals lexically consistent, i.e. is rice:evidenceType uniformly language-tagged?",
+      "rationale": "Literal-hygiene constraint. An untagged duplicate of a tagged value silently splits GROUP BY and breaks lang() filters.",
+      "violations": 1,
+      "examples": [
+        [
+          "Nbfaed4dbd7b44b53bd1f94cabfb4cac5",
+          "literature-curated"
+        ]
+      ],
+      "status": "FAIL",
+      "ms": 10.6
+    },
+    {
+      "id": "CQ-23",
+      "level": "L4",
+      "dim": "D1",
+      "mode": "negative",
+      "question": "Under entailment, is any individual typed as both a Symptom and a Disease?",
+      "rationale": "Category discipline. Symptom and Disease are intended to be disjoint; an overlap means either a mistyped individual or a property domain that is declared too narrowly. This constraint is checked on the materialised graph, because the conflict is produced by inference and is invisible in the asserted triples.",
+      "violations": 1,
+      "examples": [
+        [
+          "rice:Deadheart"
+        ]
+      ],
+      "status": "FAIL",
+      "ms": 1.8
+    }
+  ]
+}
