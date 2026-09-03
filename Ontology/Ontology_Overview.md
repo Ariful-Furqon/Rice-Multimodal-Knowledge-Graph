@@ -44,8 +44,7 @@ modality class is named `ImageObservation` (not `LeafImage`) since the
 2026-08-19 cleanup round — the old name was factually wrong for the part
 of the corpus that isn't a leaf (panicle blight, deadheart).
 
-**License:** CC BY 4.0. **Creator:** Muhammad Ariful Furqon (ORCID
-0000-0002-1031-3567). **Version:** `0.6` (live as of 2026-09-03; pre-release progression: `v0.1` → `v0.2` → `v0.3` → `v0.4` → `v0.5` → `v0.6`).
+**License:** CC BY 4.0. **Creator:** Muhammad Ariful Furqon (ORCID 0000-0002-1031-3567), Natthawut Kertkeidkachorn (ORCID 0000-0003-4527-776X). **Version:** `0.6` (live as of 2026-09-03; pre-release progression: `v0.1` → `v0.2` → `v0.3` → `v0.4` → `v0.5` → `v0.6`).
 
 ---
 

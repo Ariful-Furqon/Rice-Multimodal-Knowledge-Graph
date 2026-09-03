@@ -27927,8 +27927,9 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <owl:versionIRI rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG/0.6"/>
     <dcterms:creator>Muhammad Ariful Furqon (ORCID: https://orcid.org/0000-0002-1031-3567)</dcterms:creator>
+    <dcterms:creator>Natthawut Kertkeidkachorn (ORCID: https://orcid.org/0000-0003-4527-776X)</dcterms:creator>
     <dcterms:description>Rice MMKG is a knowledge graph for rice disease and pest diagnosis, populated from the Paddy Doctor image dataset. It links diseases, pests, pathogens, symptoms, environmental factors, growth stages, and management knowledge, and separates raw dataset annotation (annotatedAs) from domain-knowledge evidence (captures/indicates). This is a minimal schema: every class holds individuals and every asserted property holds assertions -- nothing is declared ahead of the data that would populate it. See dcterms:description's sibling note on the deferred design roadmap for what was intentionally left out and why.</dcterms:description>
-    <dcterms:issued>2026-08-21</dcterms:issued>
+    <dcterms:issued>2026-09-03</dcterms:issued>
     <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
     <dcterms:title>Rice MMKG — Rice Multimodal Knowledge Graph</dcterms:title>
     <vann:preferredNamespacePrefix>riceMMKG</vann:preferredNamespacePrefix>
