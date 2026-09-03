@@ -175,8 +175,8 @@ print(f"Asserted triples loaded: {len(g)}")
 ## Citation & License
 
 - **License:** [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
-- **Author:** Muhammad Ariful Furqon (ORCID: [0000-0002-1031-3567](https://orcid.org/0000-0002-1031-3567))
-- **Cite as:**
+- **Author:** Muhammad Ariful Furqon (ORCID: [0000-0002-1031-3567](https://orcid.org/0000-0002-1031-3567)), Natthawut Kertkeidkachorn (ORCID: [0000-0003-4527-776X](https://orcid.org/0000-0003-4527-776X))
+<!-- - **Cite as:**
   ```bibtex
   @misc{ricemmkg_2026,
     title  = {Rice MMKG: A Multimodal Knowledge Graph and Domain Ontology for Rice Disease and Pest Diagnosis},
@@ -184,4 +184,4 @@ print(f"Asserted triples loaded: {len(g)}")
     year   = {2026},
     note   = {Version 0.6, evaluated with 25 Competency Questions and OWL RL reasoning}
   }
-  ```
+  ``` -->
