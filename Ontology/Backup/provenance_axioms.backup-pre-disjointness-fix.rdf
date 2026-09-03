@@ -108,6 +108,14 @@
     <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/56977"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Xanthomonas oryzae pv. oryzicola (bacterial leaf streak of rice). Crop Protection Compendium. CAB International, Wallingford, UK. / IRRI (2020). Rice Doctor: Bacterial Leaf Streak.</dcterms:bibliographicCitation>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf4d33a9a31bf4c8aaf7c16a97a507805">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#vulnerableTo"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Sclerophthora_Macrospora"/>
+    <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/49243"/>
+    <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Sclerophthora macrospora (downy mildew of rice / crazy top). Crop Protection Compendium. CAB International. / Ou, S. H. (1985). Rice Diseases (2nd ed.). CAB International.</dcterms:bibliographicCitation>
+  </rdf:Description>
   <rdf:Description rdf:nodeID="Nb57abb86ad1a4fcf8af5391e7a96c56c">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
     <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Excessive_Nitrogen"/>
@@ -147,6 +155,14 @@
     <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Deadheart"/>
     <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/49009"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Scirpophaga incertulas (yellow stem borer / deadheart). Crop Protection Compendium. CAB International. / IRRI (2020). Rice Doctor: Stem Borer.</dcterms:bibliographicCitation>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd972eaf20f924e8ba39388b3c67ecffb">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#vulnerableTo"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Burkholderia_Glumae"/>
+    <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/44964"/>
+    <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Burkholderia glumae (bacterial panicle blight). Crop Protection Compendium. CAB International. / Ham, J. H. et al. (2011). Burkholderia glumae: next major pathogen of rice? Mol. Plant Pathol., 12(4), 329-339.</dcterms:bibliographicCitation>
   </rdf:Description>
   <rdf:Description rdf:nodeID="N5755aebfdadf436b87a0d19d6a6207c2">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
@@ -195,6 +211,14 @@
     <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Biological_Control"/>
     <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/49009"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Scirpophaga incertulas (yellow stem borer / deadheart). Crop Protection Compendium. CAB International. / IRRI (2020). Rice Doctor: Stem Borer.</dcterms:bibliographicCitation>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6f47ca61595f417dbbb7c0cc5f60530e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Normal_Health"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#occursIn"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Vegetative_Stage"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/step-by-step-production/growth"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (2020). Rice Knowledge Bank: Growth Stages of the Rice Plant and Good Agricultural Practices. International Rice Research Institute, Los Baños, Philippines.</dcterms:bibliographicCitation>
   </rdf:Description>
   <rdf:Description rdf:nodeID="N501a562ba17045569423cd9411478d01">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
@@ -500,6 +524,14 @@
     <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/47203"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Thanatephorus cucumeris (sheath blight of rice). Crop Protection Compendium. CAB International, Wallingford, UK. / IRRI (2020). Rice Doctor: Sheath Blight.</dcterms:bibliographicCitation>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne9a89c715fd6468e8d428313e07c34cb">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Normal_Health"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#occursIn"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Tillering_Stage"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/step-by-step-production/growth"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (2020). Rice Knowledge Bank: Growth Stages of the Rice Plant and Good Agricultural Practices. International Rice Research Institute, Los Baños, Philippines.</dcterms:bibliographicCitation>
+  </rdf:Description>
   <rdf:Description rdf:nodeID="N70ac1dc1aeb441c6bae14a5f6c56ef27">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
     <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Blight"/>
@@ -591,7 +623,7 @@
   <rdf:Description rdf:nodeID="N97d8bace6d7c460d989c01338056f53a">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
     <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Stem_Borer"/>
-    <owl:annotatedProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broadMatch"/>
+    <owl:annotatedProperty rdf:resource="http://www.w3.org/2004/02/skos/core#closeMatch"/>
     <owl:annotatedTarget rdf:resource="http://aims.fao.org/aos/agrovoc/c_7389"/>
     <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/49009"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Scirpophaga incertulas (yellow stem borer / deadheart). Crop Protection Compendium. CAB International. / IRRI (2020). Rice Doctor: Stem Borer.</dcterms:bibliographicCitation>
@@ -819,6 +851,14 @@
     <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Disease"/>
     <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/47654"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Rice tungro disease. Crop Protection Compendium. CAB International. / Hibino, H. (1996). Biology and epidemiology of rice viruses. Annu. Rev. Phytopathol., 34, 249-274.</dcterms:bibliographicCitation>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N65f96a46f7a4447a8d74ffd05b538c0e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Scirpophaga_Incertulas"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#causes"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Deadheart"/>
+    <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/49009"/>
+    <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Scirpophaga incertulas (yellow stem borer / deadheart). Crop Protection Compendium. CAB International. / IRRI (2020). Rice Doctor: Stem Borer.</dcterms:bibliographicCitation>
   </rdf:Description>
   <rdf:Description rdf:nodeID="N0ea973f621bc4296b885de0b77efc97e">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
@@ -1084,6 +1124,14 @@
     <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/47654"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Rice tungro disease. Crop Protection Compendium. CAB International. / Hibino, H. (1996). Biology and epidemiology of rice viruses. Annu. Rev. Phytopathol., 34, 249-274.</dcterms:bibliographicCitation>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="N5fdf9b2a250c409e85dfa8902ffd60a1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Stem_Borer"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Deadheart"/>
+    <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/49009"/>
+    <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Scirpophaga incertulas (yellow stem borer / deadheart). Crop Protection Compendium. CAB International. / IRRI (2020). Rice Doctor: Stem Borer.</dcterms:bibliographicCitation>
+  </rdf:Description>
   <rdf:Description rdf:nodeID="N07858a37a8b44d0f9f1d38c6d3caee3b">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
     <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Armyworm"/>
@@ -1324,6 +1372,14 @@
     <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/46103"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Magnaporthe oryzae (rice blast disease). Crop Protection Compendium. CAB International, Wallingford, UK. / IRRI (2020). Rice Doctor: Blast (leaf and collar).</dcterms:bibliographicCitation>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="N602301c64617414bb72c3b815703c24a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Normal_Health"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#occursIn"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Maturity_Stage"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/step-by-step-production/growth"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (2020). Rice Knowledge Bank: Growth Stages of the Rice Plant and Good Agricultural Practices. International Rice Research Institute, Los Baños, Philippines.</dcterms:bibliographicCitation>
+  </rdf:Description>
   <rdf:Description rdf:nodeID="Nbfd66e997e484f7dad91948ea102a65d">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
     <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Streak"/>
@@ -1548,6 +1604,14 @@
     <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/14493"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Cnaphalocrocis medinalis (rice leaf folder). Crop Protection Compendium. CAB International, Wallingford, UK. / IRRI (2020). Rice Doctor: Leaf Folder.</dcterms:bibliographicCitation>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="N57ceb7bbd77e41f983e18475630ef64e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Normal_Health"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#occursIn"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Flowering_Stage"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/step-by-step-production/growth"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (2020). Rice Knowledge Bank: Growth Stages of the Rice Plant and Good Agricultural Practices. International Rice Research Institute, Los Baños, Philippines.</dcterms:bibliographicCitation>
+  </rdf:Description>
   <rdf:Description rdf:nodeID="N2b4a32940a4d4971ac3b2eff3c65b6c3">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
     <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Low_Rainfall"/>
@@ -1611,6 +1675,14 @@
     <owl:annotatedTarget rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
     <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/decision-tools/rice-doctor"/>
     <dcterms:bibliographicCitation xml:lang="en">IRRI (2020). Rice Doctor: Fact Sheets for Rice Pests and Diseases. International Rice Research Institute, Los Baños, Philippines.</dcterms:bibliographicCitation>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2af90bbe5ea94830b8a7b0c889df4480">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#vulnerableTo"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Xanthomonas_Oryzicola"/>
+    <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/56977"/>
+    <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Xanthomonas oryzae pv. oryzicola (bacterial leaf streak of rice). Crop Protection Compendium. CAB International, Wallingford, UK. / IRRI (2020). Rice Doctor: Bacterial Leaf Streak.</dcterms:bibliographicCitation>
   </rdf:Description>
   <rdf:Description rdf:nodeID="N94cec346d10a47828e18b6cbdc211c5a">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
@@ -1716,6 +1788,14 @@
     <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/45093"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Mythimna separata (oriental armyworm). Crop Protection Compendium. CAB International, Wallingford, UK. / IRRI (2020). Rice Doctor: Armyworm.</dcterms:bibliographicCitation>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="Nded7ea13e4954f268a17ac5c341e7cfc">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#vulnerableTo"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Bacilliform_Virus"/>
+    <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/47654"/>
+    <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Rice tungro disease. Crop Protection Compendium. CAB International. / Hibino, H. (1996). Biology and epidemiology of rice viruses. Annu. Rev. Phytopathol., 34, 249-274.</dcterms:bibliographicCitation>
+  </rdf:Description>
   <rdf:Description rdf:nodeID="Nd841c7a4b5714e659597d4cb98e0891c">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
     <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Hispa"/>
@@ -1771,6 +1851,14 @@
     <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Sheath_Blight"/>
     <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/47203"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Thanatephorus cucumeris (sheath blight of rice). Crop Protection Compendium. CAB International, Wallingford, UK. / IRRI (2020). Rice Doctor: Sheath Blight.</dcterms:bibliographicCitation>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N28ea0ec37e754bf58e21e8c1069512ca">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Nephotettix_Virescens"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#causes"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Disease"/>
+    <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/47654"/>
+    <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Rice tungro disease. Crop Protection Compendium. CAB International. / Hibino, H. (1996). Biology and epidemiology of rice viruses. Annu. Rev. Phytopathol., 34, 249-274.</dcterms:bibliographicCitation>
   </rdf:Description>
   <rdf:Description rdf:nodeID="N2f2a04b88a6e474fa55f72ce240fdcd1">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
@@ -1835,6 +1923,14 @@
     <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Resistant_Variety"/>
     <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/56977"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Xanthomonas oryzae pv. oryzicola (bacterial leaf streak of rice). Crop Protection Compendium. CAB International, Wallingford, UK. / IRRI (2020). Rice Doctor: Bacterial Leaf Streak.</dcterms:bibliographicCitation>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3c6005fd891c4cf092b7b32462ead84c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Normal_Health"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#controlledBy"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Good_Agricultural_Practice"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/step-by-step-production/growth"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (2020). Rice Knowledge Bank: Growth Stages of the Rice Plant and Good Agricultural Practices. International Rice Research Institute, Los Baños, Philippines.</dcterms:bibliographicCitation>
   </rdf:Description>
   <rdf:Description rdf:nodeID="N6c5a9f2c9eff4ed390a9d0644395a12a">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
@@ -2092,6 +2188,14 @@
     <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/49243"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Sclerophthora macrospora (downy mildew of rice / crazy top). Crop Protection Compendium. CAB International. / Ou, S. H. (1985). Rice Diseases (2nd ed.). CAB International.</dcterms:bibliographicCitation>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="Na26372d90c9a40d383fc908a5dc86aa7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Normal_Health"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#occursIn"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Seedling_Stage"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/step-by-step-production/growth"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (2020). Rice Knowledge Bank: Growth Stages of the Rice Plant and Good Agricultural Practices. International Rice Research Institute, Los Baños, Philippines.</dcterms:bibliographicCitation>
+  </rdf:Description>
   <rdf:Description rdf:nodeID="Nb0dedcee3ca64c41b00cc0d7909010af">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
     <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#High_Temperature"/>
@@ -2291,6 +2395,14 @@
     <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Flowering_Stage"/>
     <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/56977"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Xanthomonas oryzae pv. oryzicola (bacterial leaf streak of rice). Crop Protection Compendium. CAB International, Wallingford, UK. / IRRI (2020). Rice Doctor: Bacterial Leaf Streak.</dcterms:bibliographicCitation>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N32ceec4318ab4fd6a7e889197c022691">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Normal_Health"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#occursIn"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Reproductive_Stage"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/step-by-step-production/growth"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (2020). Rice Knowledge Bank: Growth Stages of the Rice Plant and Good Agricultural Practices. International Rice Research Institute, Los Baños, Philippines.</dcterms:bibliographicCitation>
   </rdf:Description>
   <rdf:Description rdf:nodeID="Nd57f0c620f934f2e9f49d2560dec943e">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>

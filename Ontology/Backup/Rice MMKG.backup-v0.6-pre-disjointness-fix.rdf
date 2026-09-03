@@ -2197,6 +2197,15 @@
     <rdfs:label xml:lang="en">Paddy Doctor image: blast/105541.jpg</rdfs:label>
     <prov:wasDerivedFrom rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne2073151272c496699ed2a621babd7c7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Stem_Borer"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#indicatedBy"/>
+    <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/49009"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Deadheart"/>
+    <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Scirpophaga incertulas (yellow stem borer / deadheart). Crop Protection Compendium. CAB International. / IRRI (2020). Rice Doctor: Stem Borer.</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_tungro_104658">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#ImageObservation"/>
@@ -6689,6 +6698,15 @@
     <schema1:contentUrl>Data/PaddyDoctor/blast/109298.jpg</schema1:contentUrl>
     <rdfs:label xml:lang="en">Paddy Doctor image: blast/109298.jpg</rdfs:label>
     <prov:wasDerivedFrom rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfc252db39bfd4b269d2cfb5137cc5c39">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#vulnerableTo"/>
+    <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Xanthomonas oryzae pv. oryzicola (bacterial leaf streak of rice). Crop Protection Compendium. CAB International, Wallingford, UK. / IRRI (2020). Rice Doctor: Bacterial Leaf Streak.</dcterms:bibliographicCitation>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Xanthomonas_Oryzicola"/>
+    <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/56977"/>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_downy_mildew_108730">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -12766,9 +12784,13 @@
     <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Nephotettix_Virescens"/>
     <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Streak"/>
     <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Downy_Mildew"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Sclerophthora_Macrospora"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Burkholderia_Glumae"/>
     <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Deadheart"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Bacilliform_Virus"/>
     <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Disease"/>
     <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Hispa"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Xanthomonas_Oryzicola"/>
     <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Panicle_Blight"/>
     <rdfs:label xml:lang="en">Rice</rdfs:label>
     <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_6599"/>
@@ -14196,6 +14218,15 @@
     <schema1:contentUrl>Data/PaddyDoctor/normal/101094.jpg</schema1:contentUrl>
     <rdfs:label xml:lang="en">Paddy Doctor image: normal/101094.jpg</rdfs:label>
     <prov:wasDerivedFrom rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7f19a28e28084a6ab3c5b385c3a78da5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Normal_Health"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Seedling_Stage"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (2020). Rice Knowledge Bank: Growth Stages of the Rice Plant and Good Agricultural Practices. International Rice Research Institute, Los Baños, Philippines.</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/step-by-step-production/growth"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#occursIn"/>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
   <rdf:Description rdf:nodeID="N9c5e058785804cedad193f51e086fb41">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
@@ -24556,6 +24587,15 @@
     <rdfs:label xml:lang="en">Paddy Doctor image: downy_mildew/103163.jpg</rdfs:label>
     <prov:wasDerivedFrom rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="N4b9bd0fd438343f3b1987fe35a92e869">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Normal_Health"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (2020). Rice Knowledge Bank: Growth Stages of the Rice Plant and Good Agricultural Practices. International Rice Research Institute, Los Baños, Philippines.</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/step-by-step-production/growth"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Reproductive_Stage"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#occursIn"/>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_blast_107218">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#ImageObservation"/>
@@ -24839,6 +24879,15 @@
     <schema1:contentUrl>Data/PaddyDoctor/blast/100154.jpg</schema1:contentUrl>
     <rdfs:label xml:lang="en">Paddy Doctor image: blast/100154.jpg</rdfs:label>
     <prov:wasDerivedFrom rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N66b764006c2c482aad7591d04e68c648">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice"/>
+    <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/44964"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#vulnerableTo"/>
+    <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Burkholderia glumae (bacterial panicle blight). Crop Protection Compendium. CAB International. / Ham, J. H. et al. (2011). Burkholderia glumae: next major pathogen of rice? Mol. Plant Pathol., 12(4), 329-339.</dcterms:bibliographicCitation>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Burkholderia_Glumae"/>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_hispa_107197">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -28088,6 +28137,15 @@
     <rdfs:label xml:lang="en">Paddy Doctor image: brown_spot/105464.jpg</rdfs:label>
     <prov:wasDerivedFrom rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf36e2b325ad341809f9b27ec5bf81de3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#vulnerableTo"/>
+    <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Sclerophthora macrospora (downy mildew of rice / crazy top). Crop Protection Compendium. CAB International. / Ou, S. H. (1985). Rice Diseases (2nd ed.). CAB International.</dcterms:bibliographicCitation>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice"/>
+    <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/49243"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Sclerophthora_Macrospora"/>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_tungro_108273">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#ImageObservation"/>
@@ -30333,6 +30391,15 @@
     <schema1:contentUrl>Data/PaddyDoctor/bacterial_leaf_blight/106092.jpg</schema1:contentUrl>
     <rdfs:label xml:lang="en">Paddy Doctor image: bacterial_leaf_blight/106092.jpg</rdfs:label>
     <prov:wasDerivedFrom rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nda1620f689254c90811d3777f42ec573">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Flowering_Stage"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#occursIn"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/step-by-step-production/growth"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (2020). Rice Knowledge Bank: Growth Stages of the Rice Plant and Good Agricultural Practices. International Rice Research Institute, Los Baños, Philippines.</dcterms:bibliographicCitation>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Normal_Health"/>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_bacterial_leaf_streak_110178">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -41996,6 +42063,15 @@
     <rdfs:label xml:lang="en">Paddy Doctor image: brown_spot/106476.jpg</rdfs:label>
     <prov:wasDerivedFrom rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="N16447ab79b394f4bb3aa16a5b1e732c6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/step-by-step-production/growth"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Normal_Health"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (2020). Rice Knowledge Bank: Growth Stages of the Rice Plant and Good Agricultural Practices. International Rice Research Institute, Los Baños, Philippines.</dcterms:bibliographicCitation>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Good_Agricultural_Practice"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#controlledBy"/>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_hispa_101584">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#ImageObservation"/>
@@ -46791,6 +46867,15 @@
     <schema1:contentUrl>Data/PaddyDoctor/normal/107867.jpg</schema1:contentUrl>
     <rdfs:label xml:lang="en">Paddy Doctor image: normal/107867.jpg</rdfs:label>
     <prov:wasDerivedFrom rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne37aad6ac2d7455abbc6fdf97fc1e92e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#vulnerableTo"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice"/>
+    <dcterms:source rdf:resource="https://www.cabi.org/isc/datasheet/47654"/>
+    <dcterms:bibliographicCitation xml:lang="en">CABI (2022). Rice tungro disease. Crop Protection Compendium. CAB International. / Hibino, H. (1996). Biology and epidemiology of rice viruses. Annu. Rev. Phytopathol., 34, 249-274.</dcterms:bibliographicCitation>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Bacilliform_Virus"/>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_bacterial_leaf_streak_107892">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -70391,6 +70476,13 @@
     <rdfs:comment>Represents the non-disease class in the Paddy Doctor dataset.</rdfs:comment>
     <rdfs:comment xml:lang="en">Represents a rice plant with no observable disease, pest, or nutritional disorder. By design, no symptom or pathogen is asserted for this entity — its absence of assertions is semantically meaningful, not an omission.</rdfs:comment>
     <rdfs:label xml:lang="en">Normal / Healthy</rdfs:label>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Good_Agricultural_Practice"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Seedling_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Flowering_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Maturity_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Tillering_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Vegetative_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Reproductive_Stage"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_normal_107182">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -79030,6 +79122,15 @@
     <rdfs:label xml:lang="en">Paddy Doctor image: dead_heart/109748.jpg</rdfs:label>
     <prov:wasDerivedFrom rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne0b1abede5904106b49c31ad0eaa8b2a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (2020). Rice Knowledge Bank: Growth Stages of the Rice Plant and Good Agricultural Practices. International Rice Research Institute, Los Baños, Philippines.</dcterms:bibliographicCitation>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Normal_Health"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Maturity_Stage"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#occursIn"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/step-by-step-production/growth"/>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_normal_110347">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#ImageObservation"/>
@@ -80061,6 +80162,15 @@
     <schema1:contentUrl>Data/PaddyDoctor/hispa/110200.jpg</schema1:contentUrl>
     <rdfs:label xml:lang="en">Paddy Doctor image: hispa/110200.jpg</rdfs:label>
     <prov:wasDerivedFrom rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc62d0a6d66bd4129840771cf20cbbe61">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (2020). Rice Knowledge Bank: Growth Stages of the Rice Plant and Good Agricultural Practices. International Rice Research Institute, Los Baños, Philippines.</dcterms:bibliographicCitation>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#occursIn"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/step-by-step-production/growth"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Normal_Health"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Tillering_Stage"/>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_blast_107440">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -82650,6 +82760,15 @@
     <schema1:contentUrl>Data/PaddyDoctor/blast/102724.jpg</schema1:contentUrl>
     <rdfs:label xml:lang="en">Paddy Doctor image: blast/102724.jpg</rdfs:label>
     <prov:wasDerivedFrom rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1e91ff81c82e4bfcae1dcf5d0de1d608">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/step-by-step-production/growth"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Normal_Health"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (2020). Rice Knowledge Bank: Growth Stages of the Rice Plant and Good Agricultural Practices. International Rice Research Institute, Los Baños, Philippines.</dcterms:bibliographicCitation>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Vegetative_Stage"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#occursIn"/>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_dead_heart_101138">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
