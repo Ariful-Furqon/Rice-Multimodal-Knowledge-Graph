@@ -1,9 +1,13 @@
-# Rice MMKG v0.5 — SPARQL Competency Question Documentation
+# Rice MMKG v0.6 — SPARQL Competency Question Documentation
 
-**Ontology:** `Rice MMKG.rdf` (owl:versionInfo 0.5)  
-**Triples:** 66,873 asserted / 158,685 after OWL RL materialisation (+91,812 triples)  
-**Benchmark Execution:** 2026-09-02  
-**Overall Result:** 20 PASS / 1 PARTIAL / 3 FAIL / 1 DOCUMENTED (24 scored + 1 documented = 25 CQs)
+**Ontology:** `Rice MMKG.rdf` (owl:versionInfo 0.6)  
+**Triples:** 66,874 asserted / 161,568 after OWL RL materialisation (+94,694 triples)  
+**Benchmark Execution:** 2026-09-03  
+**Overall Result:** 21 PASS / 1 PARTIAL / 2 FAIL / 1 DOCUMENTED (24 scored + 1 documented = 25 CQs)
+**Pass Rate:** 87.5% (21/24 scored CQs)
+
+> **v0.6 Release Note:**  
+> Version 0.6 resolves the `Deadheart` class collision identified in v0.5. `Deadheart` is now formally classified as a `Disease` (damage syndrome), while `Dead_Tiller` represents the observed `Symptom`. All 1,442 dead-heart images now capture `Dead_Tiller`, fully satisfying `SymptomaticObservation` while clearing all disjointness conflicts (CQ-25 now **PASS** with 0 violations). Pre-fix v0.5 is preserved in `Ontology/Backup/Rice MMKG.backup-v.05.rdf`.
 
 ---
 
@@ -53,14 +57,14 @@ Each CQ is positioned along two orthogonal axes: **Reasoning Depth (L1–L4)** a
 
 ---
 
-## Master Result Matrix (25 Competency Questions)
+## Master Result Matrix (25 Competency Questions — v0.6)
 
 | CQ ID | Depth | Dim | Mode | Result | Measurement | Summary |
 |:---:|:---:|:---:|:---:|:---:|:---:|---|
 | **CQ-01** | L1 | D1 | `coverage`   | **PASS**       | 7/9 (78%)            | Rice diseases with causal pathogens |
 | **CQ-02** | L1 | D1 | `coverage`   | **PASS**       | 15/16 (94%)          | Diseases/pests with observable symptoms |
 | **CQ-03** | L1 | D1 | `coverage`   | **PASS**       | 15/16 (94%)          | Diseases/pests with control treatments |
-| **CQ-04** | L1 | D1 | `coverage`   | **PASS**       | 28/28 (100%)         | Symptoms attached to domain entities (zero orphan) |
+| **CQ-04** | L1 | D1 | `coverage`   | **PASS**       | 27/27 (100%)         | Symptoms attached to domain entities (zero orphan) |
 | **CQ-05** | L2 | D1 | `coverage`   | **PASS**       | 13/16 (81%)          | Co-occurrence: Growth stage + Env. risk factor (88 pairs) |
 | **CQ-06** | L2 | D1 | `coverage`   | **PASS**       | 6/7 (86%)            | Growth stages with vulnerability profiles (`vulnerableTo`) |
 | **CQ-07** | L2 | D1 | `negative`   | **PASS**       | 0 violations         | Consistency between `vulnerableTo` and `occursIn` |
@@ -71,17 +75,17 @@ Each CQ is positioned along two orthogonal axes: **Reasoning Depth (L1–L4)** a
 | **CQ-12** | L3 | D1 | `coverage`   | **PASS**       | 9/16 (56%)           | Diseases/pests recommending concrete `ManagementAction` |
 | **CQ-13** | L2 | D1 | `coverage`   | **PASS**       | 4/4 (100%)           | Total triage: Every `SeverityLevel` maps to an action |
 | **CQ-14** | L4 | D1 | `entailment` | **PASS**       | 0 -> 1,442 rows      | OWL classification: `SymptomaticObservation` defined class |
-| **CQ-15** | L4 | D1 | `entailment` | **PASS**       | 0 -> 139 rows        | Bidirectional query capability via inverse properties |
+| **CQ-15** | L4 | D1 | `entailment` | **PASS**       | 0 -> 140 rows        | Bidirectional query capability via inverse properties |
 | **CQ-16** | L3 | D2 | `coverage`   | **PASS**       | 8,643/8,643 (100%)   | Multimodal grounding: Image -> Class -> Symptom & Treatment |
 | **CQ-17** | L2 | D2 | `coverage`   | **PASS**       | 10/10 (100%)         | Dataset annotation labels typed as OWL domain classes |
-| **CQ-18** | L1 | D2 | `coverage`   | **PARTIAL**    | 1/28 (4%)            | Direct visual grounding of symptoms (`rice:captures`) |
+| **CQ-18** | L1 | D2 | `coverage`   | **PARTIAL**    | 1/27 (4%)            | Direct visual grounding of symptoms (`rice:captures`) |
 | **CQ-19** | L1 | D2 | `negative`   | **PASS**       | 0 violations         | Media layer integrity: Content URL & dataset provenance |
 | **CQ-20** | L1 | D2 | `documented` | **DOC**        | 0 individuals        | Sensor observation population (Phase 3 extension point) |
 | **CQ-21** | L4 | D3 | `coverage`   | **PASS**       | 265/265 (100%)       | Reified domain axioms with source URI and citation |
 | **CQ-22** | L4 | D3 | `negative`   | **PASS**       | 0 violations         | Reified axioms with incomplete provenance metadata |
 | **CQ-23** | L4 | D3 | `coverage`   | **PASS**       | 18/24 (75%)          | Biological entities aligned to EPPO / AGROVOC / NCBI |
 | **CQ-24** | L4 | D3 | `negative`   | **FAIL**       | 1 violation          | Literal hygiene: Uniform language tags (`@en`) on `evidenceType` |
-| **CQ-25** | L4 | D1 | `negative`   | **FAIL**       | 1 violation          | Class disjointness: Entailed overlap between `Symptom` & `Disease` |
+| **CQ-25** | L4 | D1 | `negative`   | **PASS**       | 0 violations         | Class disjointness: Entailed overlap between `Symptom` & `Disease` |
 
 ---
 
@@ -141,7 +145,7 @@ SELECT DISTINCT ?e WHERE { { ?e a rice:Disease } UNION { ?e a rice:Pest } }
 
 ---
 
-#### CQ-04 | L1 x D1 | coverage | PASS (28/28 symptoms, 100%)
+#### CQ-04 | L1 x D1 | coverage | PASS (27/27 symptoms, 100%)
 **Question:** Which symptoms are attached to at least one disease or pest?
 **Rationale:** Detects orphan symptoms — vocabulary declared but never utilized in diagnostic patterns.
 **Numerator Query:**
@@ -152,7 +156,7 @@ SELECT DISTINCT ?s WHERE { ?s a rice:Symptom . ?e rice:indicatedBy ?s }
 ```sparql
 SELECT DISTINCT ?s WHERE { ?s a rice:Symptom }
 ```
-**Result:** 28 covered / 28 total (100.0%) — PASS. Zero orphan vocabulary.
+**Result:** 27 covered / 27 total (100.0%) — PASS. Zero orphan vocabulary.
 
 ---
 
@@ -324,7 +328,7 @@ SELECT DISTINCT ?o WHERE { ?o a rice:SymptomaticObservation }
 
 ---
 
-#### CQ-15 | L4 x D1 | entailment | PASS (0 asserted -> 139 entailed)
+#### CQ-15 | L4 x D1 | entailment | PASS (0 asserted -> 140 entailed)
 **Question:** Can the KG be queried in the inverse direction (e.g. `causedBy`, `indicates`, `controls`) via OWL inverse inference?
 **Rationale:** Robustness under bidirectional query formulations without duplicate manual assertions.
 **Query:**
@@ -333,7 +337,7 @@ SELECT ?x ?y WHERE {
   { ?x rice:causedBy ?y } UNION { ?x rice:indicates ?y } UNION
   { ?x rice:hasOccurrenceOf ?y } UNION { ?x rice:controls ?y } }
 ```
-**Result:** 0 on asserted graph -> **139 on materialised graph (+139 gain)** — PASS
+**Result:** 0 on asserted graph -> **140 on materialised graph (+140 gain)** — PASS
 
 ---
 
@@ -375,7 +379,7 @@ SELECT DISTINCT ?e WHERE { ?img rice:annotatedAs ?e }
 
 ---
 
-#### CQ-18 | L1 x D2 | coverage | PARTIAL (1/28 symptoms, 4%)
+#### CQ-18 | L1 x D2 | coverage | PARTIAL (1/27 symptoms, 4%)
 **Question:** Which symptoms are grounded in direct visual evidence (`captures` relation)?
 **Rationale:** Distinguishes an MMKG from a text ontology with images attached. Highlights the symptom-level grounding gap.
 **Numerator Query:**
@@ -386,8 +390,8 @@ SELECT DISTINCT ?s WHERE { ?s a rice:Symptom . ?o rice:captures ?s }
 ```sparql
 SELECT DISTINCT ?s WHERE { ?s a rice:Symptom }
 ```
-**Result:** 1 covered / 28 total (3.6%) — **PARTIAL**  
-> **Roadmap Target (Phase 3):** Populate per-symptom visual annotations for the remaining 27 symptoms.
+**Result:** 1 covered / 27 total (3.7%) — **PARTIAL** (grounded symptom: `Dead_Tiller`)  
+> **Roadmap Target (Phase 3):** Populate per-symptom visual annotations for the remaining 26 symptoms.
 
 ---
 
@@ -480,38 +484,26 @@ SELECT ?ax ?v WHERE {
 
 ---
 
-#### CQ-25 | L4 x D1 | negative | FAIL (1 violation)
+#### CQ-25 | L4 x D1 | negative | PASS (0 violations)
 **Question:** Under entailment, is any individual typed as both a `Symptom` and a `Disease`?
-**Rationale:** Category discipline and class disjointness.
+**Rationale:** Category discipline and class disjointness. In v0.5 this failed due to `Deadheart`. In v0.6, `Deadheart` is disambiguated as Disease and `Dead_Tiller` as Symptom, resolving the conflict completely.
 **Query (executed on OWL RL materialised graph):**
 ```sparql
 SELECT DISTINCT ?x WHERE {
   ?x a rice:Symptom . ?x a rice:Disease }
 ```
-**Result:** 1 violation — **FAIL** (`rice:Deadheart` inferred as both Symptom and Disease).  
-> **Action Item:** Rename symptom individual to `rice:Deadheart_Symptom` and keep `rice:Deadheart` typed as Disease only.
+**Result:** 0 violations — **PASS** (Zero class disjointness conflicts under full entailment).
 
 ---
 
-## Action Items & Roadmap Summary
+## Action Items & Roadmap Summary (v0.6)
 
-| CQ ID | Finding / Issue | Corrective Action / Milestone |
-|:---:|---|---|
-| **CQ-10** | `Nephotettix_Virescens` lacks control treatment | Add `rice:Nephotettix_Virescens rice:controlledBy rice:Vector_Control` (v0.5.1 fix) |
-| **CQ-24** | Untagged literal on `rice:evidenceType` | Update literal to `"literature-curated"@en` across all axioms (v0.5.1 fix) |
-| **CQ-25** | `rice:Deadheart` typed as Symptom & Disease | Disambiguate symptom as `rice:Deadheart_Symptom` (v0.5.1 fix) |
-| **CQ-18** | Only 1/28 symptoms visually grounded | Annotate image dataset at symptom level (`captures` relation) (Phase 3) |
-| **CQ-20** | 0 sensor observations | Ingest IoT sensor telemetry as `SensorObservation` instances (Phase 3) |
+| CQ ID | Status | Finding / Issue | Corrective Action / Milestone |
+|:---:|:---:|---|---|
+| **CQ-25** | ✅ **RESOLVED** | `Deadheart` typed as Symptom & Disease | Resolved in v0.6 (`Deadheart` as Disease, `Dead_Tiller` as Symptom) |
+| **CQ-10** | ❌ **FAIL** | `Nephotettix_Virescens` lacks control treatment | Add `rice:Nephotettix_Virescens rice:controlledBy rice:Vector_Control` |
+| **CQ-24** | ❌ **FAIL** | Untagged literal on `rice:evidenceType` | Update literal to `"literature-curated"@en` across all axioms |
+| **CQ-18** | ⚠️ **PARTIAL**| Only 1/27 symptoms visually grounded | Annotate image dataset at symptom level (`captures` relation) (Phase 3) |
+| **CQ-20** | 📋 **DOC** | 0 sensor observations | Ingest IoT sensor telemetry as `SensorObservation` instances (Phase 3) |
 
 ---
-
-## Citation
-
-```bibtex
-@misc{ricemmkg_benchmark_2026,
-  title  = {Rice MMKG v0.5: Competency Question SPARQL Benchmark},
-  author = {Ariful et al.},
-  year   = {2026},
-  note   = {25 Competency Questions evaluated against OWL RL materialised Rice MMKG.rdf (66,873 asserted / 158,685 materialised triples)}
-}
-```

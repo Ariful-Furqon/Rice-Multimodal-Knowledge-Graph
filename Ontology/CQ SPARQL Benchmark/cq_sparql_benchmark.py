@@ -157,7 +157,7 @@ CQS = [
   ?v rice:transmits ?p . ?p rice:causes ?d . ?d a rice:Disease } ORDER BY ?v""",
     },
     {
-        "id": "CQ-09b", "level": "L3", "dim": "D1", "mode": "negative",
+        "id": "CQ-10", "level": "L3", "dim": "D1", "mode": "negative",
         "question": "Are there insect vectors for which no control treatment is "
                     "recorded, leaving the transmission chain unbreakable?",
         "rationale": "A vector chain that cannot be interrupted has no advisory "
@@ -168,7 +168,7 @@ CQS = [
   FILTER NOT EXISTS { ?v rice:controlledBy ?t } }""",
     },
     {
-        "id": "CQ-10", "level": "L3", "dim": "D1", "mode": "coverage",
+        "id": "CQ-11", "level": "L3", "dim": "D1", "mode": "coverage",
         "question": "For which diseases is the full risk-to-remedy chain traversable: "
                     "environmental factor -> disease -> symptom -> treatment?",
         "rationale": "End-to-end decision-support path. This is the query an "
@@ -187,7 +187,7 @@ CQS = [
   ?d rice:controlledBy ?t . ?t a rice:Treatment } ORDER BY ?d""",
     },
     {
-        "id": "CQ-11", "level": "L3", "dim": "D1", "mode": "coverage",
+        "id": "CQ-12", "level": "L3", "dim": "D1", "mode": "coverage",
         "question": "For which diseases and pests does the KG reach the management "
                     "layer, i.e. recommend a concrete ManagementAction?",
         "rationale": "Tests that diagnosis terminates in an operational decision. "
@@ -200,7 +200,7 @@ CQS = [
         "unit": "disease/pest",
     },
     {
-        "id": "CQ-11b", "level": "L2", "dim": "D1", "mode": "coverage",
+        "id": "CQ-13", "level": "L2", "dim": "D1", "mode": "coverage",
         "question": "Does every severity level map to a recommended management "
                     "action, so that triage advice is total?",
         "rationale": "Severity-driven triage is the decision layer of the KG. A "
@@ -215,7 +215,7 @@ CQS = [
 
     # ============================ L4 x D1 =====================================
     {
-        "id": "CQ-12", "level": "L4", "dim": "D1", "mode": "entailment",
+        "id": "CQ-14", "level": "L4", "dim": "D1", "mode": "entailment",
         "question": "Which observations are SymptomaticObservations, i.e. members "
                     "of the defined class 'Observation that captures some Symptom'?",
         "rationale": "The one genuine defined class in the ontology. Asserted "
@@ -225,7 +225,7 @@ CQS = [
         "expect": {"min_entailed": 1},
     },
     {
-        "id": "CQ-13", "level": "L4", "dim": "D1", "mode": "entailment",
+        "id": "CQ-15", "level": "L4", "dim": "D1", "mode": "entailment",
         "question": "Can the KG be queried in the inverse direction, e.g. "
                     "disease -> causedBy -> pathogen and symptom -> indicates -> disease?",
         "rationale": "14 of 26 object properties are declared as owl:inverseOf but "
@@ -238,7 +238,7 @@ CQS = [
 
     # ============================ D2 - cross-modal ============================
     {
-        "id": "CQ-14", "level": "L3", "dim": "D2", "mode": "coverage",
+        "id": "CQ-16", "level": "L3", "dim": "D2", "mode": "coverage",
         "question": "Which image observations can be grounded all the way to an "
                     "agronomic recommendation: image -> annotated class -> symptom "
                     "and treatment?",
@@ -256,7 +256,7 @@ CQS = [
         "unit": "diagnostic image",
     },
     {
-        "id": "CQ-15", "level": "L2", "dim": "D2", "mode": "coverage",
+        "id": "CQ-17", "level": "L2", "dim": "D2", "mode": "coverage",
         "question": "Which annotated classes of the image corpus are typed as a "
                     "domain entity (Disease, Pest or HealthStatus)?",
         "rationale": "Checks that dataset labels were reconciled with the ontology "
@@ -268,7 +268,7 @@ CQS = [
         "unit": "annotated class",
     },
     {
-        "id": "CQ-16", "level": "L1", "dim": "D2", "mode": "coverage",
+        "id": "CQ-18", "level": "L1", "dim": "D2", "mode": "coverage",
         "question": "Which symptoms are grounded in visual evidence, i.e. captured "
                     "by at least one image observation?",
         "rationale": "Symptom-level visual grounding is what distinguishes an MMKG "
@@ -279,7 +279,7 @@ CQS = [
         "unit": "symptom",
     },
     {
-        "id": "CQ-17", "level": "L1", "dim": "D2", "mode": "negative",
+        "id": "CQ-19", "level": "L1", "dim": "D2", "mode": "negative",
         "question": "Are there image observations lacking a content URL or a source "
                     "dataset provenance link?",
         "rationale": "Integrity constraint on the media layer. Any row means an "
@@ -290,7 +290,7 @@ CQS = [
            NOT EXISTS { ?img prov:wasDerivedFrom ?ds } ) }""",
     },
     {
-        "id": "CQ-18", "level": "L1", "dim": "D2", "mode": "documented",
+        "id": "CQ-20", "level": "L1", "dim": "D2", "mode": "documented",
         "question": "How many sensor observations does the KG contain?",
         "rationale": "Declared extension point. Recorded as a measurement, not "
                      "scored, so the roadmap gap stays visible without inflating "
@@ -300,7 +300,7 @@ CQS = [
 
     # ============================ D3 - provenance and alignment ===============
     {
-        "id": "CQ-19", "level": "L4", "dim": "D3", "mode": "coverage",
+        "id": "CQ-21", "level": "L4", "dim": "D3", "mode": "coverage",
         "question": "Which reified domain assertions carry both an authoritative "
                     "source URI and a bibliographic citation?",
         "rationale": "Provenance completeness - the scientific-defensibility claim "
@@ -311,7 +311,7 @@ CQS = [
         "unit": "reified axiom",
     },
     {
-        "id": "CQ-20", "level": "L4", "dim": "D3", "mode": "negative",
+        "id": "CQ-22", "level": "L4", "dim": "D3", "mode": "negative",
         "question": "Are there reified axioms with incomplete provenance "
                     "(missing source, citation or evidence type)?",
         "rationale": "Integrity constraint complementing CQ-19.",
@@ -322,7 +322,7 @@ CQS = [
            NOT EXISTS { ?ax rice:evidenceType ?e } ) }""",
     },
     {
-        "id": "CQ-21", "level": "L4", "dim": "D3", "mode": "coverage",
+        "id": "CQ-23", "level": "L4", "dim": "D3", "mode": "coverage",
         "question": "Which biological entities (disease, pathogen, pest) are aligned "
                     "to an external vocabulary (EPPO, AGROVOC or NCBI Taxonomy)?",
         "rationale": "Interoperability. Written as a coverage measure rather than an "
@@ -336,7 +336,7 @@ CQS = [
         "unit": "biological entity",
     },
     {
-        "id": "CQ-22", "level": "L4", "dim": "D3", "mode": "negative",
+        "id": "CQ-24", "level": "L4", "dim": "D3", "mode": "negative",
         "question": "Are annotation literals lexically consistent, i.e. is "
                     "rice:evidenceType uniformly language-tagged?",
         "rationale": "Literal-hygiene constraint. An untagged duplicate of a tagged "
@@ -345,7 +345,7 @@ CQS = [
   ?ax rice:evidenceType ?v . FILTER ( lang(?v) = "" ) }""",
     },
     {
-        "id": "CQ-23", "level": "L4", "dim": "D1", "mode": "negative",
+        "id": "CQ-25", "level": "L4", "dim": "D1", "mode": "negative",
         "question": "Under entailment, is any individual typed as both a Symptom "
                     "and a Disease?",
         "rationale": "Category discipline. Symptom and Disease are intended to be "

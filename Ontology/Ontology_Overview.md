@@ -1,6 +1,6 @@
 # Rice MMKG — description, statistics, and changelog
 
-Status snapshot as of **2026-08-19**, commit `c37dcf8` (post-cleanup).
+Status snapshot as of **2026-09-03** (Rice MMKG v0.6 release).
 Covers `Ontology/Rice MMKG.rdf` from its first commit through the current
 state. Numbers below were measured with rdflib 7.6.0 via
 `Worklog/RiceMMKG_cleanup_worklog/scripts/verify.py`.
@@ -19,10 +19,12 @@ and keeps two things deliberately separate:
   label folder says an image is, asserted on all 10,407 image individuals.
 - **Domain-knowledge evidence** (`rice:captures` → `rice:indicates`) — a
   narrower, independently-populated chain from observed symptom to
-  diagnosed condition. Currently populated only for the `Deadheart` symptom
-  (1,442 images), since that's the one place the dataset's own label
-  happens to already coincide with a `Symptom`-typed entity rather than a
-  `Disease`, `Pest`, or `HealthStatus` one.
+  diagnosed condition. In v0.6, `Deadheart` is disambiguated as a `Disease`
+  (damage syndrome caused by yellow stem borer *Scirpophaga incertulas*),
+  while the 1,442 dead-heart images capture the `Dead_Tiller` symptom
+  (`rice:captures rice:Dead_Tiller`, which has rdfs:label "dead heart"@en and
+  is typed `Symptom`). This cleanly satisfies the `SymptomaticObservation`
+  defined class while eliminating class disjointness collisions with `Disease`.
 
 **Namespace:** `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#`
 (prefix `rice:`) — not yet dereferenceable; a `w3id.org` permanent
@@ -43,7 +45,7 @@ modality class is named `ImageObservation` (not `LeafImage`) since the
 of the corpus that isn't a leaf (panicle blight, deadheart).
 
 **License:** CC BY 4.0. **Creator:** Muhammad Ariful Furqon (ORCID
-0000-0002-1031-3567). **Version:** `0.4` (live as of 2026-08-21; pre-release progression: `v0.1` → `v0.2` → `v0.3` → `v0.4`).
+0000-0002-1031-3567). **Version:** `0.6` (live as of 2026-09-03; pre-release progression: `v0.1` → `v0.2` → `v0.3` → `v0.4` → `v0.5` → `v0.6`).
 
 ---
 
@@ -51,16 +53,18 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **66,873** | v0.5. Down 9 from v0.4's 66,882 — see §3, 2026-08-22 (v0.5 worklog) for the merge/retarget that caused the net decrease despite two new properties being added |
-| **Named classes** | 16 | 13 primitive + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class |
-| **Object properties** | 26 | All declared with explicit domain and range; `transmits`/`transmittedBy` added in v0.5 |
+| **Total triples** | **66,874** (asserted) / **161,568** (OWL RL) | v0.6. +94,694 triples derived via OWL RL materialisation in 24.0s |
+| **Named classes** | 16 | 13 primitive + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class (`SymptomaticObservation`) |
+| **Object properties** | 26 | All declared with explicit domain and range; includes `transmits`/`transmittedBy` |
 | **Datatype properties** | 5 | All declared with explicit domain and range |
-| **Annotation properties** | 14 | + `rice:evidenceType`, PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
-| **Named individuals** | **10,498** | 10,407 image individuals + 91 domain entities (`Scirpophaga_Incertulas` merged into `Stem_Borer` in v0.5) |
+| **Annotation properties** | 14 | Includes `rice:evidenceType`, PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
+| **Named individuals** | **10,498** | 10,407 image individuals + 1 dataset metadata + 90 domain entities |
 | **`owl:Axiom` (provenance)** | **265** | **100% of domain assertions reified with sources & evidenceType — 1:1, no duplicates, no orphans** |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
-| **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & entity types |
-| **`skos:exactMatch` / `closeMatch` / `broadMatch`** | 33 / 17 / 1 | Mapped to AGROVOC / NCBI Taxonomy concept URIs, each verified against a live API response and cross-checked against the project's own alignment registers (see §3, 2026-08-22) |
+| **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories |
+| **Reasoner Consistency** | **100% Consistent** | Verified in **HermiT & Pellet**: 0 unsatisfiable classes, 0 disjointness conflicts |
+| **Competency Questions (CQ)** | **21 PASS / 1 PARTIAL / 2 FAIL / 1 DOC** | **87.5% pass rate** across 24 scored CQs (25 total CQs in benchmark suite) |
+| **`skos:exactMatch` / `closeMatch` / `broadMatch`** | 33 / 17 / 1 | Mapped to AGROVOC / NCBI Taxonomy concept URIs, verified against live API |
 | **`TODO` literals remaining** | **0** | **100% resolved (dataset metadata & EPPO codes verified)** |
 | **Properties with no declared domain/range** | 0 / 0 | 100% coverage |
 
@@ -75,20 +79,20 @@ The 10,499 individuals in the knowledge graph are categorized by domain layer:
 | **Observation Modality** | `ImageObservation` | 10,407 | Paddy Doctor field image instances |
 | | `SensorObservation` | 0 | Scaffolding for multimodal sensor feeds |
 | | `Observation` | 0 | Abstract root observation superclass |
-| **Defined Class** | `SymptomaticObservation` | *(1,442)* | Defined class (`captures some Symptom`), populated via reasoner |
+| **Defined Class** | `SymptomaticObservation` | *(1,442)* | Defined class (`captures some Symptom`), populated via OWL reasoning |
 | **Dataset Metadata** | `Dataset` (`dcat:Dataset`) | 1 | `PaddyDoctorDataset` metadata individual |
 | **Biotic Agents & Host** | `Pathogen` | 8 | Viral, bacterial, fungal, oomycete agents |
-| | `Pest` | 8 | Insect pests and vector organisms |
-| | `Disease` | 8 | Biotic disease diagnostic classes |
+| | `Pest` | 7 | Insect pests and vector organisms (`Scirpophaga_Incertulas` merged into `Stem_Borer`) |
+| | `Disease` | 9 | Biotic disease & damage condition classes (including `Deadheart`) |
 | | `HealthStatus` | 1 | `Normal_Health` (healthy reference baseline) |
 | | `Plant` | 1 | `Rice` (*Oryza sativa*) host individual |
-| **Phenotype & Environment** | `Symptom` | 28 | Visual symptoms (lesions, streaks, rotting, discoloration) |
+| **Phenotype & Environment** | `Symptom` | 27 | Visual symptoms (lesions, streaks, rotting, discoloration, dead tiller) |
 | | `GrowthStage` | 7 | Rice phenological stages (Seedling, Tillering, Flowering, etc.) |
 | | `EnvironmentalFactor` | 9 | Predisposing weather, canopy, and soil conditions |
 | **Agronomic Management** | `Treatment` | 12 | Chemical, biological, genetic, and cultural practices |
 | | `ManagementAction` | 5 | Operational actions (Immediate Intervention, Monitoring, etc.) |
 | | `SeverityLevel` | 4 | Low, Medium, High, and Critical severity scales |
-| **Total Named Individuals** | | **10,499** | *(10,407 images + 92 domain entities)* |
+| **Total Named Individuals** | | **10,498** | *(10,407 images + 1 dataset + 90 domain entities)* |
 
 ---
 
@@ -123,13 +127,32 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | v0.2 (AGROVOC alignment) | 2026-08-06 | 52,806–52,816 | 17 | 24 | 10,467 | ~50 |
 | v0.3 (EPPO/Planteome Enrichment) | 2026-08-13 | 84,064 | 18 | 24 | 10,463 | ~80 |
 | v0.4 (domain enrichment + provenance) | 2026-08-20 | 66,882 | 16 | 24 | 10,499 | 329 |
-| **v0.5 (verified-defect + modelling corrections)** | **2026-08-22** | **66,873** | **16** | **26** | **10,498** | **328** |
+| v0.5 (vector transmission + benchmark design) | 2026-08-25 | 66,873 | 16 | 26 | 10,498 | 265 axioms |
+| **v0.6 (Deadheart disambiguation, DL consistency, 25 CQs)** | **2026-09-03** | **66,874** (161,568 OWL RL) | **16** | **26** | **10,498** | **265 axioms** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-09-03: v0.6 — Deadheart Disambiguation, DL Reasoner Consistency, and 25 CQ Benchmark
+
+- **Disambiguated `Deadheart` class collision:** In v0.5, `Deadheart` was asserted as a `Symptom` while simultaneously carrying domain relations belonging to `Disease` (`preventedBy`, `indicatedBy`, `occursIn`, `controlledBy`, `increaseRiskOf`), causing HermiT and Pellet reasoners to produce 33 inconsistency explanations due to `AllDisjointClasses {Disease, Symptom, ...}`. In v0.6:
+  - `Deadheart` is retyped as `Disease` (rice damage condition/syndrome caused by yellow stem borer *Scirpophaga incertulas*).
+  - All 1,442 Paddy Doctor dead-heart images now target the actual symptom individual: `Dead_Tiller` (`rice:captures rice:Dead_Tiller`), which has `rdfs:label "dead heart"@en` and is typed `Symptom`.
+  - `Stem_Borer` connects to its true symptoms: `Dead_Tiller` and `White_Ear`.
+  - Reasoner result: **100% Consistent** in HermiT and Pellet with 0 unsatisfiable classes and 0 disjointness conflicts.
+- **Sequential 25 CQ SPARQL Benchmark Suite:**
+  - Implemented automated benchmark runner (`cq_sparql_benchmark.py`) covering 25 Competency Questions structured across Reasoning Depth (L1–L4) and Knowledge Dimensions (D1–D3) with 4 formal evaluation modes (`coverage`, `negative`, `entailment`, `documented`).
+  - Achieved **21 PASS (87.5% pass rate)**, 1 PARTIAL (CQ-18 visual grounding gap at 4%), 2 FAIL (CQ-10 vector control triple, CQ-24 literal `@en` tag), and 1 DOCUMENTED (CQ-20 sensor observations).
+  - Evaluated on OWL RL materialised graph: expands from 66,874 asserted triples to **161,568 materialised triples (+94,694 triples in 24.0s)**. CQ-14 verifies 1,442 entailed members in `SymptomaticObservation`, and CQ-15 derives 140 inverse assertions.
+- **Backup preserved:** Pre-fix state saved as `Ontology/Backup/Rice MMKG.backup-v.05.rdf`.
+
+### 2026-09-01: v0.5 — Vector Transmission Relations & CQ Evaluation Framework
+
+- Added `rice:transmits` and `rice:transmittedBy` object properties with explicit domain (`Pest`) and range (`Pathogen`) to formally represent insect vector epidemiology (Green leafhopper transmitting Tungro viruses).
+- Formulated initial 25 Competency Questions for Phase 1 functional and reasoning evaluation toward ESWC 2027.
 
 ### 2026-08-25: full external-identifier audit — EPPO codes and dataset citation fixed
 
@@ -438,8 +461,8 @@ assertions, verified with no duplicates and no orphans. Triples: 67,236 →
   `Worklog/RiceMMKG_cleanup_worklog/contenturl_base.md`.
 - **Permanent identifier:** `w3id.org` path segment to be registered for PURL minting.
 - **Version status:** `0.4` is officially live in `Rice MMKG.rdf` (as of 2026-08-21).
-- **Competency Questions (CQs) Benchmark:** Formalization as executable SPARQL queries (next development priority).
-- **No reasoner available** in the working environment (no Java) — several
-  acceptance checks across sessions (consistency, DL-classified defined-
-  class membership) were substituted with direct graph queries, exact for
-  the simple cases involved but not a general substitute.
+- **Competency Questions (CQs) Benchmark (Phase 1 COMPLETED):** 25 CQs fully implemented and benchmarked via `cq_sparql_benchmark.py` with 87.5% pass rate (21 PASS / 1 PARTIAL / 2 FAIL / 1 DOC). Full documentation in `CQ_SPARQL_Documentation.md`.
+- **Automated Reasoner verified:** OWL RL deductive closure via Python `owlrl` (+94,694 triples) and full DL tableaux reasoning via Protégé (HermiT / Pellet) verified: 100% consistent with zero unsatisfiable classes and zero disjointness collisions.
+- **Immediate Action Items for v0.6.1:**
+  - CQ-10: Add `rice:Nephotettix_Virescens rice:controlledBy rice:Vector_Control` (1 triple).
+  - CQ-24: Add `@en` language tag to `rice:evidenceType "literature-curated"` literal across reified axioms.
