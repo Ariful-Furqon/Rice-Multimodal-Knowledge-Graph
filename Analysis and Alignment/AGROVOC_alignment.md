@@ -23,7 +23,7 @@ below note where an external citation applies and link out to it.
 
 **Source queried:** AGROVOC official SPARQL endpoint, `https://agrovoc.fao.org/sparql`  
 **Query method:** English `skos:prefLabel` candidate search (see below)  
-**Checked:** 2026-08-03 (initial round), 2026-08-04 (rounds 2–4)
+**Checked:** 2026-08-03 (initial round), 2026-08-04 (rounds 2–4), verified 2026-09-03 (v0.6 release)
 
 ## Query method
 
@@ -116,7 +116,7 @@ is recorded as local-only rather than guessed.
 | `downy_mildew` | `Downy_Mildew` | Disease | [`downy mildews`](http://aims.fao.org/aos/agrovoc/c_10450) | `skos:closeMatch` | Implemented in v2.3 | Reviewed hierarchy: `skos:broader` is `c_4825` ("mildews"), no `skos:narrower` exists under `c_10450`, and no `skos:scopeNote` restricts it to a host plant. AGROVOC has no rice-specific downy mildew concept, so `closeMatch` (not `exactMatch`) is the ceiling given the local entity's rice-only scope. |
 | `tungro` | `Rice_Tungro_Disease` | Disease | [`tungro disease`](http://aims.fao.org/aos/agrovoc/c_34137) | `skos:exactMatch` | Implemented in v2.2 | Terminology match; retain the mapping register for future review. |
 | `hispa` | `Hispa` | Pest | No relevant English concept found | — | Local-only / gap | Search hits for *hispanica* are not valid matches. |
-| `dead_heart` | `Deadheart` | Symptom | No exact English concept found | — | Local-only / gap | Remains a symptom, not a disease. |
+| `dead_heart` | `Deadheart` | Disease | No exact English concept found | — | Local-only / gap | In v0.6, disambiguated as a Disease (damage condition caused by stem borer). The observed symptom is represented by `Dead_Tiller` (Symptom, label "dead heart"@en). |
 | `normal` | `Normal_Health` | HealthStatus | No concept selected | — | Local-only by design | Dataset-specific non-disease class. |
 
 ## Pathogen and Pest alignment (round 2)
@@ -130,7 +130,7 @@ individuals already in `Rice MMKG.rdf`. Checked 2026-08-04.
 | `Xanthomonas_Oryzae` | Pathogen | [`Xanthomonas oryzae`](http://aims.fao.org/aos/agrovoc/c_24383) | `skos:exactMatch` | Implemented in v2.4 | Direct label match. |
 | `Bipolaris_Oryzae` | Pathogen | [`Cochliobolus miyabeanus`](http://aims.fao.org/aos/agrovoc/c_34512) | `skos:exactMatch` | Implemented in v2.7 | AGROVOC's own altLabel list could not confirm this synonymy; resolved 2026-08-07 using a citation from NCBI Taxonomy — see [`NCBI_Taxonomy_alignment.md`](NCBI_Taxonomy_alignment.md). |
 | `Brown_Planthopper` | Pest | [`Nilaparvata lugens`](http://aims.fao.org/aos/agrovoc/c_25204) | `skos:exactMatch` | Implemented in v2.4 | AGROVOC prefLabel is the scientific name; `brown planthopper` is a `skos:altLabel` on the same concept — direct common-name confirmation. |
-| `Stem_Borer` | Pest | [`stem eating insects`](http://aims.fao.org/aos/agrovoc/c_7389) | `skos:closeMatch` | Implemented in v2.4 | Generic pest-group concept (`skos:altLabel` "stem borers"); AGROVOC also has narrower species terms (e.g. `Scirpophaga incertulas`, yellow stem borer) but the local entity is generic, so the generic group is the better-scoped match — same pattern as the `Downy_Mildew` review. |
+| `Stem_Borer` | Pest | [`stem eating insects`](http://aims.fao.org/aos/agrovoc/c_7389) | `skos:closeMatch` | Implemented | Generic pest-group concept (`skos:altLabel` "stem borers"). In v0.5/v0.6, `Scirpophaga_Incertulas` was merged into `Stem_Borer` as altLabel, and mapped directly to NCBI Taxonomy TaxID 72366. |
 | `Leaf_Folder` | Pest | [`Cnaphalocrocis medinalis`](http://aims.fao.org/aos/agrovoc/c_30305) | `skos:exactMatch` | Implemented in v2.7 | AGROVOC had no altLabel confirming the common name; resolved 2026-08-07 using a citation from NCBI Taxonomy — see [`NCBI_Taxonomy_alignment.md`](NCBI_Taxonomy_alignment.md). |
 | `Rice_Bug` | Pest | [`Leptocorisa oratorius`](http://aims.fao.org/aos/agrovoc/c_30653) or genus [`Leptocorisa`](http://aims.fao.org/aos/agrovoc/c_4277) | Not applied | Needs domain review | Still open. A 2026-08-07 NCBI Taxonomy cross-check did not resolve this one and surfaced a spelling discrepancy (AGROVOC's `oratorius` vs. NCBI's `oratoria`) — see [`NCBI_Taxonomy_alignment.md`](NCBI_Taxonomy_alignment.md) for detail. |
 | `Armyworm` | Pest | No suitable candidate found | — | Local-only / gap | AGROVOC's `fall armyworms` (`Spodoptera frugiperda`, c_e6b223d7) is a maize pest, not a rice pest — a false-positive risk, not a match. `Mythimna separata`/`Mythimna unipuncta` (common rice armyworm species) carry no `armyworm` altLabel in AGROVOC. Do not guess; keep local-only. |
@@ -309,7 +309,9 @@ literature evidence and provenance.
 4. The seven remaining `Local-only / gap` entities from the Paddy Doctor set
    (`Bacterial_Leaf_Blight`, `Bacterial_Leaf_Streak`,
    `Bacterial_Panicle_Blight`, `Brown_Spot`, `Hispa`, `Deadheart`,
-   `Normal_Health`) have no AGROVOC candidate on record. Re-attempt only if a
+   `Normal_Health`) have no direct AGROVOC candidate on record. Note that in v0.6,
+   `Deadheart` is typed as `Disease` (damage condition), resolving class disjointness collisions
+   in HermiT and passing CQ-25. Re-attempt only if a
    new search strategy (alternate labels, broader terms) is worth trying;
    otherwise they remain local-only by design.
 5. ~~Three Pest/Pathogen candidates need a literature citation before they
