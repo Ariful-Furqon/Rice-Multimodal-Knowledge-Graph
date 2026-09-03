@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated": "2026-09-02 15:00",
+    "generated": "2026-09-03 10:31",
     "ontology": "Rice MMKG.rdf",
-    "asserted_triples": 66873,
-    "entailed_triples": 158685,
-    "reasoning_seconds": 33.9,
+    "asserted_triples": 66874,
+    "entailed_triples": 161568,
+    "reasoning_seconds": 24.0,
     "coverage_threshold": 0.5
   },
   "results": [
@@ -24,7 +24,7 @@
       ],
       "unit": "disease",
       "status": "PASS",
-      "ms": 337.2
+      "ms": 234.7
     },
     {
       "id": "CQ-02",
@@ -41,7 +41,7 @@
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 33.2
+      "ms": 9.5
     },
     {
       "id": "CQ-03",
@@ -58,7 +58,7 @@
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 24.1
+      "ms": 6.8
     },
     {
       "id": "CQ-04",
@@ -67,13 +67,13 @@
       "mode": "coverage",
       "question": "Which symptoms are attached to at least one disease or pest?",
       "rationale": "Detects orphan symptoms - vocabulary declared but never used in a diagnostic pattern.",
-      "covered": 28,
-      "total": 28,
+      "covered": 27,
+      "total": 27,
       "ratio": 1.0,
       "missing": [],
       "unit": "symptom",
       "status": "PASS",
-      "ms": 8.0
+      "ms": 4.4
     },
     {
       "id": "CQ-05",
@@ -106,12 +106,12 @@
         [
           "rice:Flowering_Stage",
           "rice:Bacterial_Panicle_Blight",
-          "rice:High_Temperature"
+          "rice:High_Night_Temperature"
         ],
         [
           "rice:Flowering_Stage",
           "rice:Bacterial_Panicle_Blight",
-          "rice:High_Night_Temperature"
+          "rice:High_Temperature"
         ],
         [
           "rice:Flowering_Stage",
@@ -131,12 +131,12 @@
         [
           "rice:Flowering_Stage",
           "rice:Rice_Blast_Disease",
-          "rice:Low_Rainfall"
+          "rice:High_Humidity"
         ],
         [
           "rice:Flowering_Stage",
           "rice:Rice_Blast_Disease",
-          "rice:High_Humidity"
+          "rice:Low_Rainfall"
         ],
         [
           "rice:Flowering_Stage",
@@ -151,7 +151,7 @@
         [
           "rice:Maturity_Stage",
           "rice:Bacterial_Panicle_Blight",
-          "rice:High_Temperature"
+          "rice:High_Night_Temperature"
         ]
       ],
       "detail_vars": [
@@ -160,7 +160,7 @@
         "f"
       ],
       "detail_total": 88,
-      "ms": 54.4
+      "ms": 33.2
     },
     {
       "id": "CQ-06",
@@ -177,7 +177,7 @@
       ],
       "unit": "growth stage",
       "status": "PASS",
-      "ms": 9.3
+      "ms": 5.3
     },
     {
       "id": "CQ-07",
@@ -189,7 +189,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 19.0
+      "ms": 8.2
     },
     {
       "id": "CQ-08",
@@ -206,7 +206,7 @@
       ],
       "unit": "preventive treatment",
       "status": "PASS",
-      "ms": 9.0
+      "ms": 3.5
     },
     {
       "id": "CQ-09",
@@ -224,12 +224,12 @@
       "detail_rows": [
         [
           "rice:Nephotettix_Virescens",
-          "rice:Rice_Tungro_Bacilliform_Virus",
+          "rice:Rice_Tungro_Spherical_Virus",
           "rice:Rice_Tungro_Disease"
         ],
         [
           "rice:Nephotettix_Virescens",
-          "rice:Rice_Tungro_Spherical_Virus",
+          "rice:Rice_Tungro_Bacilliform_Virus",
           "rice:Rice_Tungro_Disease"
         ]
       ],
@@ -239,7 +239,7 @@
         "d"
       ],
       "detail_total": 2,
-      "ms": 15.8
+      "ms": 5.0
     },
     {
       "id": "CQ-10",
@@ -255,7 +255,7 @@
         ]
       ],
       "status": "FAIL",
-      "ms": 7.1
+      "ms": 2.4
     },
     {
       "id": "CQ-11",
@@ -273,75 +273,75 @@
       "detail_rows": [
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Leaf_Rolling",
-          "rice:Resistant_Variety"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Leaf_Rolling",
-          "rice:Crop_Sanitation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Leaf_Rolling",
-          "rice:Crop_Rotation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Leaf_Rolling",
-          "rice:Water_Management"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
+          "rice:Excessive_Nitrogen",
           "rice:Dry_Leaf_Tip",
           "rice:Resistant_Variety"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Dry_Leaf_Tip",
-          "rice:Crop_Sanitation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Dry_Leaf_Tip",
-          "rice:Crop_Rotation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
+          "rice:Excessive_Nitrogen",
           "rice:Dry_Leaf_Tip",
           "rice:Water_Management"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
+          "rice:Excessive_Nitrogen",
+          "rice:Dry_Leaf_Tip",
+          "rice:Crop_Sanitation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
+          "rice:Dry_Leaf_Tip",
+          "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
+          "rice:Leaf_Rolling",
+          "rice:Resistant_Variety"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
+          "rice:Leaf_Rolling",
+          "rice:Water_Management"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
+          "rice:Leaf_Rolling",
+          "rice:Crop_Sanitation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
+          "rice:Leaf_Rolling",
+          "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
           "rice:Wilting",
           "rice:Resistant_Variety"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
+          "rice:Excessive_Nitrogen",
+          "rice:Wilting",
+          "rice:Water_Management"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
           "rice:Wilting",
           "rice:Crop_Sanitation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
+          "rice:Excessive_Nitrogen",
           "rice:Wilting",
           "rice:Crop_Rotation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Wilting",
-          "rice:Water_Management"
         ]
       ],
       "detail_vars": [
@@ -351,7 +351,7 @@
         "t"
       ],
       "detail_total": 277,
-      "ms": 627.5
+      "ms": 395.2
     },
     {
       "id": "CQ-12",
@@ -374,7 +374,7 @@
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 12.2
+      "ms": 6.0
     },
     {
       "id": "CQ-13",
@@ -396,11 +396,11 @@
         ],
         [
           "rice:High_Severity",
-          "rice:Preventive_Action"
+          "rice:Immediate_Intervention"
         ],
         [
           "rice:High_Severity",
-          "rice:Immediate_Intervention"
+          "rice:Preventive_Action"
         ],
         [
           "rice:Low_Severity",
@@ -420,7 +420,7 @@
         "m"
       ],
       "detail_total": 6,
-      "ms": 10.8
+      "ms": 5.3
     },
     {
       "id": "CQ-14",
@@ -433,7 +433,7 @@
       "entailed": 1442,
       "gain": 1442,
       "status": "PASS",
-      "ms": 30.1
+      "ms": 17.9
     },
     {
       "id": "CQ-15",
@@ -443,10 +443,10 @@
       "question": "Can the KG be queried in the inverse direction, e.g. disease -> causedBy -> pathogen and symptom -> indicates -> disease?",
       "rationale": "14 of 26 object properties are declared as owl:inverseOf but never asserted. Query robustness depends on materialising them.",
       "asserted": 0,
-      "entailed": 139,
-      "gain": 139,
+      "entailed": 140,
+      "gain": 140,
       "status": "PASS",
-      "ms": 13.6
+      "ms": 7.7
     },
     {
       "id": "CQ-16",
@@ -461,7 +461,7 @@
       "missing": [],
       "unit": "diagnostic image",
       "status": "PASS",
-      "ms": 2869.0
+      "ms": 2106.6
     },
     {
       "id": "CQ-17",
@@ -476,7 +476,7 @@
       "missing": [],
       "unit": "annotated class",
       "status": "PASS",
-      "ms": 574.6
+      "ms": 452.6
     },
     {
       "id": "CQ-18",
@@ -486,13 +486,12 @@
       "question": "Which symptoms are grounded in visual evidence, i.e. captured by at least one image observation?",
       "rationale": "Symptom-level visual grounding is what distinguishes an MMKG from a text ontology with images bolted on. Expected to expose the sharpest gap in the current release.",
       "covered": 1,
-      "total": 28,
-      "ratio": 0.03571428571428571,
+      "total": 27,
+      "ratio": 0.037037037037037035,
       "missing": [
         "rice:Brown_Leaf_Tip",
         "rice:Brown_Lesion",
         "rice:Chewed_Leaf",
-        "rice:Dead_Tiller",
         "rice:Discolored_Panicle",
         "rice:Dry_Leaf_Tip",
         "rice:Empty_Grain",
@@ -519,7 +518,7 @@
       ],
       "unit": "symptom",
       "status": "PARTIAL",
-      "ms": 24.0
+      "ms": 20.0
     },
     {
       "id": "CQ-19",
@@ -531,7 +530,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 1357.3
+      "ms": 942.6
     },
     {
       "id": "CQ-20",
@@ -542,7 +541,7 @@
       "rationale": "Declared extension point. Recorded as a measurement, not scored, so the roadmap gap stays visible without inflating or deflating the pass rate.",
       "count": 0,
       "status": "DOCUMENTED",
-      "ms": 2.5
+      "ms": 1.6
     },
     {
       "id": "CQ-21",
@@ -557,7 +556,7 @@
       "missing": [],
       "unit": "reified axiom",
       "status": "PASS",
-      "ms": 19.2
+      "ms": 13.7
     },
     {
       "id": "CQ-22",
@@ -569,7 +568,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 50.3
+      "ms": 38.0
     },
     {
       "id": "CQ-23",
@@ -591,7 +590,7 @@
       ],
       "unit": "biological entity",
       "status": "PASS",
-      "ms": 11.0
+      "ms": 8.7
     },
     {
       "id": "CQ-24",
@@ -603,12 +602,12 @@
       "violations": 1,
       "examples": [
         [
-          "N60c2821ddb06435dae88e1988d197429",
+          "N14f7b5c7cffa4b6a9cc8baf7f8716a77",
           "literature-curated"
         ]
       ],
       "status": "FAIL",
-      "ms": 25.8
+      "ms": 10.2
     },
     {
       "id": "CQ-25",
@@ -617,14 +616,10 @@
       "mode": "negative",
       "question": "Under entailment, is any individual typed as both a Symptom and a Disease?",
       "rationale": "Category discipline. Symptom and Disease are intended to be disjoint; an overlap means either a mistyped individual or a property domain that is declared too narrowly. This constraint is checked on the materialised graph, because the conflict is produced by inference and is invisible in the asserted triples.",
-      "violations": 1,
-      "examples": [
-        [
-          "rice:Deadheart"
-        ]
-      ],
-      "status": "FAIL",
-      "ms": 6.9
+      "violations": 0,
+      "examples": [],
+      "status": "PASS",
+      "ms": 2.1
     }
   ]
 }
