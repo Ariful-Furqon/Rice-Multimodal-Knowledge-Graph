@@ -142,6 +142,7 @@ Analysis and Alignment/
     NCBI_Taxonomy_alignment.md   # Organism-level alignment to NCBI Taxonomy
     Planteome_alignment.md       # Environmental factor alignment to Plant Ontologies
     PaddyDoctor_Dataset_Analysis.md # Dataset profile and ingestion strategy
+    Provenance_and_Authoritative_Sources.md # 3-layer provenance architecture & literature sources
 Data/                            # Local image dataset (gitignored)
 Worklog/                         # Internal cleanup and task logs (gitignored)
 ```
