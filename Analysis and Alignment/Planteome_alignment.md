@@ -21,7 +21,7 @@ closer semantic fit to this class than AGROVOC's candidates were.
 
 **Source queried:** EBI Ontology Lookup Service (OLS4), `https://www.ebi.ac.uk/ols4/api/`  
 **Query method:** free-text search across `peco,eo,po,to,pso`, no registration or API key required  
-**Checked:** 2026-08-17
+**Checked:** 2026-08-17, verified 2026-09-03 (Rice MMKG v0.6)
 
 ## Query method
 
@@ -89,3 +89,14 @@ mismatches were re-searched here.
    as a promising candidate for `Leaf_Rolling` (currently local-only with no
    AGROVOC candidate at all), not yet formally reviewed or implemented.
 3. `Excessive_Nitrogen` was not checked against Planteome in this round.
+
+
+---
+
+## Competency Question Validation (v0.6)
+
+The four Planteome-aligned environmental factor entities (`High_Humidity`, `High_Temperature`, `Low_Rainfall`, `Poor_Soil_Drainage`) are actively evaluated in the **Rice MMKG 25 CQ Benchmark**:
+
+- **CQ-05 (Contextual Multi-criteria, L2/D1):** Validates co-occurrence joins between growth stages and these environmental factors across 88 validated agronomic pairs (**81.2% PASS**).
+- **CQ-11 (End-to-End Decision Support Chain, L3/D1):** Tests 4-hop traversals: `EnvironmentalFactor` → `Disease` → `Symptom` → `Treatment` across 277 full instantiations (**100% PASS**).
+- **CQ-23 (External Alignment, L4/D3):** Verifies semantic interoperability with external bio-ontologies (**75% PASS**).

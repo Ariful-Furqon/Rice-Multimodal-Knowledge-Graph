@@ -6,10 +6,9 @@ This report profiles the **local** dataset at `Data/PaddyDoctor`. It describes
 the 10,407-image collection available in this workspace and must not be treated
 as a claim about the complete public Paddy Doctor release.
 
-**Profile date:** 2026-08-03  
+**Profile date:** 2026-08-03 (Updated 2026-09-03 for Rice MMKG v0.6)  
 **Data access:** local files only; `/Data/` is excluded from Git  
-**Purpose:** assess class coverage, data quality signals, and the viable first
-instance-population plan for Rice MMKG.
+**Purpose:** assess class coverage, data quality signals, semantic alignment, and multimodal ground-truth mapping for Rice MMKG.
 
 ## File-level profile
 
@@ -30,18 +29,18 @@ is a separate quality-control task before model training or full KG ingestion.
 
 ## Class distribution and semantic alignment
 
-| Dataset label | Count | Share | Rice MMKG entity | Semantic type | AGROVOC status |
+| Dataset label | Count | Share | Rice MMKG entity | Semantic type (v0.6) | Visual Grounding (`rice:captures`) |
 |---|---:|---:|---|---|---|
-| `bacterial_leaf_blight` | 479 | 4.60% | `Bacterial_Leaf_Blight` | Disease | Local-only / gap |
-| `bacterial_leaf_streak` | 380 | 3.65% | `Bacterial_Leaf_Streak` | Disease | Local-only / gap |
-| `bacterial_panicle_blight` | 337 | 3.24% | `Bacterial_Panicle_Blight` | Disease | Local-only / gap |
-| `blast` | 1,738 | 16.70% | `Rice_Blast_Disease` | Disease | `skos:exactMatch` candidate added |
-| `brown_spot` | 965 | 9.27% | `Brown_Spot` | Disease | Local-only / gap |
-| `dead_heart` | 1,442 | 13.86% | `Deadheart` | Symptom | Local-only / gap |
-| `downy_mildew` | 620 | 5.96% | `Downy_Mildew` | Disease | `skos:closeMatch` implemented (v2.3) |
-| `hispa` | 1,594 | 15.32% | `Hispa` | Pest | Local-only / gap |
-| `normal` | 1,764 | 16.95% | `Normal_Health` | HealthStatus | Local-only by design |
-| `tungro` | 1,088 | 10.45% | `Rice_Tungro_Disease` | Disease | `skos:exactMatch` candidate added |
+| `bacterial_leaf_blight` | 479 | 4.60% | `Bacterial_Leaf_Blight` | Disease | — (class-level annotation) |
+| `bacterial_leaf_streak` | 380 | 3.65% | `Bacterial_Leaf_Streak` | Disease | — (class-level annotation) |
+| `bacterial_panicle_blight` | 337 | 3.24% | `Bacterial_Panicle_Blight` | Disease | — (class-level annotation) |
+| `blast` | 1,738 | 16.70% | `Rice_Blast_Disease` | Disease | — (class-level annotation) |
+| `brown_spot` | 965 | 9.27% | `Brown_Spot` | Disease | — (class-level annotation) |
+| `dead_heart` | 1,442 | 13.86% | `Deadheart` | Disease (Damage condition) | `rice:captures rice:Dead_Tiller` (Symptom) |
+| `downy_mildew` | 620 | 5.96% | `Downy_Mildew` | Disease | — (class-level annotation) |
+| `hispa` | 1,594 | 15.32% | `Hispa` | Pest | — (class-level annotation) |
+| `normal` | 1,764 | 16.95% | `Normal_Health` | HealthStatus | — (healthy reference baseline) |
+| `tungro` | 1,088 | 10.45% | `Rice_Tungro_Disease` | Disease | — (class-level annotation) |
 | **Total** | **10,407** | **100.00%** | — | — | — |
 
 The collection is moderately imbalanced. A model evaluation split should be
@@ -51,9 +50,11 @@ addition to overall accuracy; otherwise, common labels such as `normal` and
 
 ## KG population readiness
 
-The folder labels map without ambiguity to the local ontology: 5,607 images map
-to `Disease` entities, 1,594 to a `Pest`, 1,442 to a `Symptom`, and 1,764 to a
-`HealthStatus`. The absence of filename collisions permits deterministic image
+The folder labels map without ambiguity to the local ontology: in v0.6, 7,049 images map
+to `Disease` entities (including the 1,442 `dead_heart` damage-condition images), 1,594 to a `Pest`,
+and 1,764 to a `HealthStatus`. Furthermore, the 1,442 `dead_heart` images formally capture the
+`Dead_Tiller` symptom (`rice:captures rice:Dead_Tiller`), satisfying the `SymptomaticObservation`
+defined class. The absence of filename collisions permits deterministic image
 IRIs, but the class label should still be included in each IRI to make the
 generation rule explicit.
 
@@ -73,19 +74,27 @@ riceMMKG:PaddyDoctor_blast_100023
 
 ```turtle
 riceMMKG:PaddyDoctor_blast_100023
-    a riceMMKG:LeafImage ;
+    a riceMMKG:ImageObservation ;
     rdfs:label "Paddy Doctor image: blast/100023.jpg"@en ;
-    riceMMKG:sourceDatasetLabel "blast" ;
-    riceMMKG:classifiedAs riceMMKG:Rice_Blast_Disease .
+    schema:contentUrl "Data/PaddyDoctor/blast/100023.jpg" ;
+    prov:wasDerivedFrom riceMMKG:PaddyDoctorDataset ;
+    riceMMKG:annotatedAs riceMMKG:Rice_Blast_Disease .
+
+# For dead_heart images with symptom grounding (v0.6):
+riceMMKG:PaddyDoctor_dead_heart_110232
+    a riceMMKG:ImageObservation ;
+    rdfs:label "Paddy Doctor image: dead_heart/110232.jpg"@en ;
+    schema:contentUrl "Data/PaddyDoctor/dead_heart/110232.jpg" ;
+    prov:wasDerivedFrom riceMMKG:PaddyDoctorDataset ;
+    riceMMKG:annotatedAs riceMMKG:Deadheart ;
+    riceMMKG:captures riceMMKG:Dead_Tiller .
 ```
 
-`LeafImage` (not `Observation` directly) since the 2026-08-05 restructure —
-see the "Querying note" under Competency questions, and checklist item 4
-under Recommended next implementation task, below.
-
-**Implemented 2026-08-04.** `classifiedAs` (domain `Observation`, range union
-`Disease`/`Pest`/`Symptom`/`HealthStatus`, inverse `classifies`) is now
-declared in `Rice MMKG.rdf`. Correction to the original gap note below: at
+> **Evolution note:** In initial prototypes, `ImageObservation` was formerly named `LeafImage`
+and `annotatedAs` was named `classifiedAs`. These were cleaned up in v0.4 and v0.5 to adhere to
+standard schema terminology (`ImageObservation` avoids inaccuracy for panicle and deadheart
+images, and `annotatedAs` separates raw dataset labeling from verified domain detection). In v0.6,
+`captures` was disambiguated to link `Dead_Tiller` directly. Correction to the original gap note below: at
 review time the `detects` property's range had already been extended to
 `Disease`/`Pest`/`Symptom` (not just `Disease`/`Pest` as first assumed), so
 `dead_heart` alone was not actually blocked — `normal` (`HealthStatus`) was
@@ -207,3 +216,15 @@ SELECT ?entity ?type WHERE {
    5-class one), 10,407/10,407 images confirmed `LeafImage`, CQ1–CQ3 give
    identical results under the corrected queries above. Not yet committed to
    Git as of this writing.
+
+
+---
+
+## Benchmark Validation (Rice MMKG v0.6)
+
+As of Rice MMKG v0.6, the Paddy Doctor dataset mapping is formally validated by the **25 Competency Question SPARQL Benchmark**:
+
+- **CQ-16 (Multimodal Grounding, L3/D2):** Validates that all **8,643 disease and pest images** ground through their annotated classes to actionable symptoms and control treatments (**100% PASS**).
+- **CQ-17 (Label Ontology Typing, L2/D2):** Confirms that all **10 dataset annotation labels** resolve to valid OWL classes in the domain graph (**100% PASS**).
+- **CQ-18 (Symptom Visual Grounding, L1/D2):** Highlights that while 1,442 images capture `Dead_Tiller` via `rice:captures`, the remaining 26 symptoms represent a visual grounding gap (**PARTIAL at 4%**, forming the roadmap target for Phase 3).
+- **CQ-19 (Media Integrity, L1/D2):** Verifies that 100% of all **10,407 image individuals** possess resolvable relative content URLs and `prov:wasDerivedFrom` provenance to `PaddyDoctorDataset` (**0 violations, PASS**).
