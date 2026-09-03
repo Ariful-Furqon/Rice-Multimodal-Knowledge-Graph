@@ -1,166 +1,176 @@
-# Rice MMKG — ESWC preparation plan
+# Rice MMKG — Master Plan Toward ESWC 2027
 
-Construction-focused plan for the resource paper. Assumes an abstract deadline around December; check the CFP when it appears.
-
-*Updated 2026-08-24 — reflecting completed v0.4 milestone: domain graph enrichment, 100% OWL axiom provenance, 0 TODOs, and metadata polish.*
-
----
-
-## Where the resource stands
-
-| | Current (v0.4) | Comparator |
-|---|---|---|
-| Image individuals | 10,407 | none in any comparator |
-| Domain-level assertions | **328** (up from 101) | RiceDO: 18 diseases fully axiomatised |
-| Assertions with a cited source | **320 / 320 (100%)** | — |
-| `owl:Axiom` annotations | 320 with `dcterms:source`, `bibliographicCitation`, `evidenceType` | — |
-| SKOS alignment (AGROVOC/NCBI Taxonomy) | 32 exactMatch + 18 closeMatch, individually verified | — |
-| Unresolved `TODO` literals | **0** (100% clean, dataset metadata & EPPO verified) | — |
-| Ontology Version | **`0.4` (Live)**, monotonic sequence `v0.1` → `v0.4` | RiceDO: `1.0` |
-| Evaluation reported | **In progress** (CQs / OOPS! baseline next) | RiceDO: 95.2%, 5 ontology experts |
-| Dereferenceable IRI | **Planned** (w3id PURL segment to register) | RiceDO: `purl.org/ricedo` |
-| Registry presence | **Planned** (AgroPortal / Zenodo deposit) | RiceDO: IEEE DataPort |
-| Competency questions published | Formulated, SPARQL formalisation next | RiceDO: CQ-driven throughout |
-
-The image layer remains the primary differentiator. Provenance and domain-graph density have now graduated from "critical gap" to "solidly established and 100% traceable" in v0.4. Evaluation (CQs + OOPS!/FOOPS!), availability (w3id + Zenodo + AgroPortal), and HTML documentation are now the active critical path.
+Construction, evaluation, and publication roadmap for the **ESWC 2027 Resource Track**.  
+**Current Milestone:** Rice MMKG **v0.6** (live as of 2026-09-03).  
+**Abstract / Paper Deadline:** Late November – early December.
 
 ---
 
-## Progress since the original plan (as of 2026-08-24)
+## 1. Executive Summary & Resource Snapshot
 
-**Improvement 1 (provenance) is 100% complete and polished.** All domain-relation
-assertions (`causes`, `indicatedBy`, `occursIn`, `controlledBy`,
-`preventedBy`, `increaseRiskOf`, `vulnerableTo`, `recommends`, `requires`)
-carry an `owl:Axiom` reification with `dcterms:source`,
-`dcterms:bibliographicCitation`, and `rice:evidenceType "literature-curated"` (320
-axioms in total). Sources trace to IRRI Rice Doctor Knowledge Bank (2020),
-CABI Crop Protection Compendium (2022), BBPOPT Kementan RI (2022), and seminal
-peer-reviewed literature (Ou 1985; Hibino 1996; Ham et al. 2011). The legacy
-disclaimer ("illustrative examples to be verified") has been replaced by a
-certified statement of literature grounding in the ontology header.
-
-**Improvement 2 (grow the domain graph) has reached 328 assertions with 37 new individuals.**
-All seven originally degree-0/1 entities (`Normal_Health`, `Hispa`,
-`Rice_Tungro_Disease`, `Downy_Mildew`, `Bacterial_Leaf_Streak`,
-`Bacterial_Panicle_Blight`, `Deadheart`) are now fully articulated
-(degree 7–21 each). 37 new named individuals were added:
-- **5 Pathogens:** *Rice Tungro Bacilliform Virus*, *Rice Tungro Spherical Virus*, *Sclerophthora macrospora*, *Xanthomonas oryzae pv. oryzicola*, *Burkholderia glumae*.
-- **2 Pests:** *Scirpophaga incertulas* (yellow stem borer), *Nephotettix virescens* (green leafhopper / Tungro vector).
-- **18 Symptoms:** *Panicle_Blast*, *Neck_Rot*, *White_Streak*, *Leaf_Scratching*, *Dead_Tiller*, *White_Ear*, *Yellow_Orange_Discoloration*, *Stunted_Growth*, *Water_Soaked_Streak*, *Translucent_Stripe*, *Discolored_Panicle*, *Empty_Grain*, etc.
-- **2 Growth Stages:** *Tillering_Stage*, *Reproductive_Stage*.
-- **4 Environmental Factors:** *Dense_Canopy*, *Waterlogged_Soil*, *High_Night_Temperature*, *Presence_of_Leafhopper_Vector*.
-- **6 Treatments / Good Agricultural Practices:** *Seed_Treatment*, *Neem_Based_Pesticide*, *Trichoderma_Application*, *Good_Agricultural_Practice*, *Vector_Control*, *Crop_Sanitation*.
-
-9 of 10 target conditions now carry rich multi-property feature vectors, and testable class-level Jaccard similarity pairs expanded from **2 to 34** (top prediction: `Brown_Spot` ↔ `Rice_Blast_Disease` at Jaccard 0.56).
-
-**Availability & Metadata Polish completed (0 TODOs remaining):**
-- Completed `PaddyDoctorDataset` metadata (`dcterms:title`, `dcterms:source`, `dcterms:license` CC-BY 4.0, `dcterms:bibliographicCitation`).
-- Verified and attached official EPPO codes for all 6 remaining organisms (`COCHMI`, `DCLPAR`, `SCPIIN`, `CNAPME`, `LEUCOM`, `LEPTOR`), removing all `TODO` comments.
-- Standardized ontology versioning to `0.4` (`owl:versionInfo "0.4"`, `owl:versionIRI <.../riceMMKG/0.4>`, `dcterms:issued "2026-08-21"`), normalizing prototype history to `v0.1` → `v0.2` → `v0.3` → `v0.4`.
-- Total triples in ontology: **67,236 triples** (up from 64,662).
-
-**Current Critical Path:**
-With Improvements 1 & 2 solidly in place, the immediate focus turns to **Improvement 3 (Competency Questions & SPARQL Evaluation Benchmark, OOPS!/FOOPS! baselines)** and **Improvement 4 (w3id PURL registration & AgroPortal/Zenodo prep)**.
+| Metric / Dimension | Current State (v0.6) | Comparator (RiceDO) | Target for Submission |
+|---|---|---|---|
+| **Ontology Version** | **`0.6` (Live)** | `1.0` | `1.0` (Production release) |
+| **Asserted Triples** | **66,874** | ~1,200 | ~70,000–80,000 (with sensor & text) |
+| **Materialised Triples (OWL RL)** | **161,568** (+94,694 triples) | — | > 175,000 |
+| **Image Observations** | **10,407** | 0 | 10,407 (with symptom bounding boxes) |
+| **Sensor & Text Modalities** | Scaffolding (`SensorObservation`) | 0 | Ingested telemetry & advisory text |
+| **Domain-Level Assertions** | **265 reified axioms (100% cited)** | 18 diseases | 100% literature-grounded |
+| **Reasoner Consistency** | **100% Consistent (HermiT / Pellet)** | Verified | 100% Consistent (0 unsatisfiable classes) |
+| **Competency Questions** | **25 CQs** (87.5% Pass Rate, 21 PASS) | Qualitative CQs | 25 CQs (> 95% Pass Rate) |
+| **Permanent URI (PURL)** | Local namespace (`.../riceMMKG#`) | `purl.org/ricedo` | `w3id.org/ricemmkg` (Live redirection) |
+| **FAIR Score (FOOPS!)** | Pending execution | — | **FOOPS! score > 0.85** |
+| **Registry Findability** | Local repository | IEEE DataPort | **AgroPortal** entry + **Zenodo DOI** |
+| **Online Documentation** | Markdown documentation | — | **pyLODE / Widoco** live at w3id PURL |
+| **Expert Validation** | Planned (Phase 4) | 5 experts (95.2%) | 3–5 plant pathologists (Fleiss' κ) |
 
 ---
 
-## Five improvements, in priority order
+## 2. Five-Phase Master Workflow Toward ESWC 2027
 
-### 1. Provenance per assertion — the one that changes the paper's category — **done (100%)**
-
-The ontology comment used to state that the populated relations were illustrative examples based on general agronomy knowledge, to be verified before use. That is now replaced with a certified statement of literature grounding, because the grounding work actually happened.
-
-What distinguishes a *resource* from a knowledge graph is that its assertions are traceable. Every domain assertion now carries a citation — **320 / 320 (100%)**, verified.
-
-**Mechanism (as implemented).** OWL axiom annotation — every domain relation triple is reified with `owl:Axiom` carrying `dcterms:source` (URI), `dcterms:bibliographicCitation` (APA citation), and `rice:evidenceType "literature-curated"`. Confirmed to survive round-tripping (rdflib parse/serialize, matching the pattern Protégé produces) without disturbing logical consistency.
-
-**Scope (as implemented).** All 320 domain-relation assertions. Sources used: IRRI Rice Doctor Knowledge Bank (2020), CABI Crop Protection Compendium (2022), BBPOPT Kementan RI (2022), and peer-reviewed literature (Ou 1985; Hibino 1996; Ham et al. 2011).
-
-**What's left here:** Structure is complete. Scales automatically as additional assertions are added, following the established citation-at-creation pattern.
-
-### 2. Grow the domain graph from 101 to 400–600 assertions — **in progress: 328/400–600**
-
-Ten thousand images resting on 101 triples was the structural imbalance running through everything — it is why the fusion PoC collapsed to ten points, why IKRL is blocked, and why reasoning cannot be demonstrated. That imbalance is now largely bridged (328 assertions, 37 new individuals).
-
-**Immediate target: the seven entities with degree 0 or 1 — done.** `Normal_Health`, `Hispa`, `Rice_Tungro_Disease`, `Downy_Mildew`, `Bacterial_Leaf_Streak`, `Bacterial_Panicle_Blight`, and `Deadheart` are all now degree 7–21, each with symptoms (`indicatedBy`), causal agent (`causes`), susceptible growth stages (`occursIn`/`vulnerableTo`), control measures (`controlledBy`/`preventedBy`), and environmental risk factors (`increaseRiskOf`) populated. The tungro vector chain is in: `Nephotettix_Virescens` exists as an individual with `causes`/`increaseRiskOf` populated. `Normal_Health` carries `occursIn` (all growth stages) and a GAP `controlledBy` link.
-
-**Then extend — substantially advanced.** 9 of 10 diseases have full pathogen/pest links and symptom networks. Expanding further to reach the 400–500 mark can proceed alongside CQ evaluation.
-
-### 3. Evaluation — currently the active critical path
-
-Every comparator reports one. Build it in four layers, cheapest first.
-
-**Automated, one afternoon.** Run OOPS! (`oops.linkeddata.es`) — it checks 33 of 41 catalogued pitfalls and returns them with importance levels. Then FOOPS! (`w3id.org/foops/`) — 24 checks across the four FAIR dimensions with a normalised score. Both are free web services, both produce a number and a defect list you can report and act on. For calibration, gUFO reports a 92% FOOPS score. Report the before-and-after score.
-
-**Competency-question based (immediate next step).** Formalise the CQs from the ORSD as SPARQL queries, run them against `Rice MMKG.rdf`, and report execution results. This is the standard functional evaluation for an ontology.
-
-**Reasoning.** Add defined classes and materialise their members. `SymptomaticObservation` already exists and materialises 1,442. Additional candidate classes can be tested.
-
-**Expert validation.** RiceDO used five ontology experts plus agronomists. Rice MMKG targets 3–5 domain experts rating a sample of assertions for correctness with an agreement statistic.
-
-### 4. Availability — metadata polished, registry prep next
-
-The ESWC resources track grades on persistent identifiers, licensing, public availability, registry findability, and a sustainability plan.
-
-- **Version numbering — done.** `versionInfo` is officially set to `0.4` (`owl:versionIRI <.../riceMMKG/0.4>`), with pre-release history normalized to `v0.1` → `v0.2` → `v0.3` → `v0.4`.
-- **Licence — done.** CC-BY 4.0 is in place on the ontology header and on `PaddyDoctorDataset` (`TODO` resolved).
-- **All TODOs resolved — done.** 0 `TODO` literals remaining in the ontology; all EPPO codes verified (`COCHMI`, `DCLPAR`, `SCPIIN`, `CNAPME`, `LEUCOM`, `LEPTOR`).
-- **w3id.org PURL.** Free, pull-request based. Register namespace segment before camera-ready.
-- **Zenodo deposit** for a citable DOI, and **AgroPortal submission** as the community registry for agricultural ontologies (which also runs O'FAIRe).
-- **Maintenance plan.** A short statement of who maintains it, on what cadence, where issues are filed.
-
-### 5. Documentation
-
-Generate HTML documentation with pyLODE or Widoco and host it at the PURL. Publish the ORSD and the competency questions alongside.
+```
+Phase 1: Functional & Reasoning Evaluation (Weeks 1–2, Sept) — [IN PROGRESS: 90% COMPLETE]
+   ├── Formulate 25 Agronomic CQs (Schema-level, L1–L4 × D1–D3) [DONE]
+   ├── Implement Automated SPARQL Benchmark Suite (cq_sparql_benchmark.py) [DONE]
+   ├── Run Automated DL Reasoner (HermiT / Pellet) for Consistency & Entailment [DONE]
+   └── Deliverables: Benchmark Script, Pass Rate Report (87.5%), Reasoner Consistency Log [DONE]
+          │
+          ▼
+Phase 2: Availability, PURL & FAIR Polish (Weeks 3–4, Sept)
+   ├── Register w3id.org Permanent Namespace (w3id.org/ricemmkg)
+   ├── Execute URI Namespace Rewrite Script on Ontology Triples
+   ├── Deploy Responsive HTML Documentation via pyLODE / Widoco
+   ├── Deposit Citable Release to Zenodo (DOI) and AgroPortal Registry
+   └── Target: FOOPS! FAIR score > 0.85, Live Content Negotiation
+          │
+          ▼
+Phase 3: Multimodal Experimentation (Weeks 5–8, Late Sept & Oct)
+   ├── Sensor Modality: Populate SensorObservation with microclimate/weather telemetry
+   ├── Textual Modality: Ingest unstructured advisory reports into TextualObservation
+   ├── Cross-modal Grounding: Annotate images at symptom level (rice:captures for 27 symptoms)
+   └── Tri-Modal Fusion: Extend IKRL / representation learning benchmark across Image + Sensor + Text + Graph
+          │
+          ▼
+Phase 4: Domain Expert Validation (Weeks 9–10, Late Oct & Early Nov)
+   ├── Prepare 30–50 Assertion & CQ Validation Questionnaire
+   ├── Survey Panel of Professional Agronomists & Plant Pathologists
+   └── Compute Inter-Rater Reliability (Cohen's / Fleiss' Kappa)
+          │
+          ▼
+Phase 5: Resource Paper Drafting & Camera-Ready Submission (Weeks 11–14, Nov – Early Dec)
+   ├── Draft Manuscript according to ESWC Resource Track Guidelines
+   ├── Finalize Public Reproducibility GitHub Repo (Docker / automated runner)
+   └── Internal Academic Review & Final Submission
+```
 
 ---
 
-## Workflow
+## 3. Detailed Phase Breakdown & Deliverables
 
-Ordered so that nothing waits on anything unnecessarily.
+### Phase 1: Functional & Reasoning Evaluation (Weeks 1–2, Sept)
+*Status: **90% Completed** (v0.6 released, 21/24 CQs passing, Protégé HermiT 100% clean).*
 
-### Domain graph and provenance — **completed**
-
-Close the seven low-degree entities, add domain individuals, and attach provenance to all domain assertions.
-- **Achieved:** 328 assertions, 37 new individuals, 320 `owl:Axiom` records (100% sourced), 0 `TODO`s, version `0.4` live.
-
-### Formalisation & SPARQL CQ Benchmark — **active sprint**
-
-Competency questions written as executable SPARQL queries. Defined classes verified. Reasoner run and consistency confirmed. Run OOPS! and FOOPS! to obtain baseline FAIR / pitfall scores.
-
-Deliverable: formalised, consistent ontology with a documented query benchmark suite and baseline evaluation scores.
-
-### Availability
-
-w3id registration, Zenodo deposit, AgroPortal submission, pyLODE documentation, maintenance plan.
-
-###  Evaluation
-
-Expert validation on a sample of assertions with an agreement statistic. CQ query execution results. Final OOPS!/FOOPS! scores. Multimodal confusion prior evaluation (Route B).
-
-### Writing
-
-Draft against the resource-track criteria explicitly: what the resource is, why it is needed, how it was built, how it was evaluated, where it lives, who maintains it, and who else could use it.
+- **Target Milestones & Activities:**
+  1. Formulate 25 agronomic Competency Questions (CQs) spanning 4 reasoning levels (L1–L4) and 3 knowledge dimensions (D1–D3).
+  2. Implement executable SPARQL query runner with 4 strict evaluation modes (`coverage`, `negative`, `entailment`, `documented`) without `OPTIONAL` on mandatory hops.
+  3. Execute automated DL Reasoner (HermiT/Pellet in Protégé, OWL RL in Python) for defined class materialization and disjointness verification.
+  4. Fix remaining minor failures for v0.6.1 (`Nephotettix_Virescens` control treatment and literal `@en` language tagging).
+- **Key Deliverables & Outputs:**
+  1. `cq_sparql_benchmark.py` & `cq_sparql_benchmark_results.json`.
+  2. Auto-generated `CQ_SPARQL_Benchmark_Report.md` and complete documentation `CQ_SPARQL_Documentation.md`.
+  3. Protégé Reasoner consistency log (0 unsatisfiable classes, 1,442 entailed `SymptomaticObservation` individuals).
 
 ---
 
-## Framing to settle early
+### Phase 2: Availability, PURL & FAIR Polish (Weeks 3–4, Sept)
+*Objective: Transform Rice MMKG into a certified, FAIR-compliant permanent Semantic Web resource.*
 
-The strongest available claim is not "a multimodal knowledge graph for rice". It is closer to:
-
-> the first rice pest and disease ontology to link a large public image collection to a semantically grounded, externally aligned domain model, separating what was observed from what was concluded, with every domain assertion traceable to a cited source
-
-That claim is defensible, it does not overstate the sensor and text modalities that remain unpopulated, and it explains why the artefact is a resource rather than a dataset with a schema attached.
-
-**Complementarity with RiceDO, not competition.** RiceDO is more heavily axiomatised, published, and expert-evaluated. Its own evaluation asked whether it could be extended to cover symptom images — the experts agreed at 88%, and the authors named multimodal monitoring as future work. Rice MMKG occupies exactly that space. Saying so directly is stronger than any claim of superiority, and it pre-empts the comparison a reviewer would make anyway.
-
-**Naming.** Until sensor and text modalities hold individuals, "image-anchored" is more defensible than "multimodal" in the title and abstract. The multimodal schema can still be presented as designed and extensible — that is a legitimate contribution — but the populated artefact should be described as what it is.
+- **Target Milestones & Activities:**
+  1. **w3id PURL Registration:** Submit a pull request to `github.com/perma-id/w3id.org` to reserve `https://w3id.org/ricemmkg` with Apache `.htaccess` content negotiation (redirecting browser requests to HTML documentation and RDF clients to raw Turtle/RDF-XML).
+  2. **Namespace Rewrite:** Run an automated rewrite script across `Rice MMKG.rdf` and all SPARQL queries, replacing `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#` with `https://w3id.org/ricemmkg#`.
+  3. **Automated Documentation Deployment:** Generate interactive HTML documentation using **pyLODE** or **Widoco**, including class diagrams, schema visualization, and cross-reference links, hosted via GitHub Pages at the PURL.
+  4. **FAIR & Pitfall Auditing:** Run **FOOPS!** (`w3id.org/foops/`) and **OOPS!** (`oops.linkeddata.es`) to achieve a verified FAIR metric score **> 0.85**.
+  5. **Registry Submissions:**
+     - Deposit dataset and ontology snapshot to **Zenodo** to mint a citable DOI.
+     - Register the ontology in **AgroPortal** (the primary FAO/INRAE repository for agronomical ontologies).
+- **Key Deliverables & Outputs:**
+  1. Live `https://w3id.org/ricemmkg` redirection with content negotiation.
+  2. FOOPS! assessment certificate with score > 0.85.
+  3. AgroPortal catalog entry and official Zenodo DOI.
+  4. Public online HTML specification.
 
 ---
 
-## What to keep out of scope
+### Phase 3: Multimodal Experimentation (Weeks 5–8, Late Sept & Oct)
+*Objective: Populate non-image modalities and prove multimodal representation learning.*
 
-- SOSA/SSN alignment. Worth doing, likely valuable for an ESWC audience, but a deliberate design decision rather than something to fold into a deadline.
-- Populating the sensor and text modalities. Without data, the classes stay declared and the naming stays image-anchored.
-- IKRL implementation as a dependency of the resource paper. It is a separate contribution and it is blocked on improvement 2 anyway.
-- Splitting `Xanthomonas_Oryzae` into pathovars, PATO symptom decomposition, taxonomic subclasses under `Disease`. All defensible, none load-bearing.
+- **Target Milestones & Activities:**
+  1. **Sensor Modality Population (`SensorObservation`):** Ingest real-world environmental/microclimate telemetry (temperature, relative humidity, soil moisture) linked to rice phenology stages and environmental factors (`increaseRiskOf`).
+  2. **Textual Modality Population (`TextualObservation`):** Extract and ingest unstructured field advisory notes, expert diagnostic transcripts, and extension service reports.
+  3. **Granular Visual Grounding (Closing CQ-18):** Expand image annotations from class-level (`annotatedAs Disease`) to bounding-box / symptom-level (`captures Symptom`) across all 27 declared symptoms.
+  4. **Tri-Modal Fusion Benchmark:** Implement knowledge graph representation learning (e.g., Image-embodied KG embedding, IKRL) combining Image + Sensor + Text + Graph embeddings for disease prediction.
+- **Key Deliverables & Outputs:**
+  1. Populated `SensorObservation` graph module.
+  2. Populated `TextualObservation` graph module.
+  3. Benchmarked tri-modal multimodal fusion pipeline and comparative baseline evaluation.
+
+---
+
+### Phase 4: Domain Expert Validation (Weeks 9–10, Late Oct & Early Nov)
+*Objective: Rigorous human-in-the-loop qualitative and quantitative agronomic validation.*
+
+- **Target Milestones & Activities:**
+  1. Design a formal validation protocol and 5-point Likert scale questionnaire sampling 30–50 representative axioms (pathogen causality, symptom associations, stage vulnerability, and management triage).
+  2. Recruit 3–5 professional plant pathologists and agricultural extension specialists (e.g., from BBPOPT, IRRI alumni, or university agricultural faculties).
+  3. Measure statistical consensus using **Fleiss' Kappa** ($\kappa$) or **Cohen's Weighted Kappa** for inter-rater agreement.
+  4. Collate expert qualitative critique into an actionable improvement appendix.
+- **Key Deliverables & Outputs:**
+  1. Anonymized expert evaluation dataset and rating matrix.
+  2. Statistical inter-rater agreement score ($\kappa \ge 0.75$).
+  3. Qualitative agronomic validation report.
+
+---
+
+### Phase 5: Resource Paper Drafting & Camera-Ready Submission (Weeks 11–14, Nov – Early Dec)
+*Objective: Prepare, polish, and submit the full manuscript to ESWC 2027 (Resource Track).*
+
+- **Target Milestones & Activities:**
+  1. **Manuscript Drafting:** Write the full 15-page LNCS paper following the official ESWC Resource Track review criteria:
+     - *Potential impact & value to the community* (image grounding + agronomic decision support).
+     - *Reusability, design rigor, and FAIR compliance* (FOOPS! > 0.85, w3id PURL, AgroPortal, Zenodo).
+     - *Evaluation rigor* (25 CQs with > 95% pass rate, DL consistency, expert validation $\kappa$, multimodal fusion benchmark).
+  2. **Reproducibility Package:** Package a clean GitHub repository containing:
+     - One-click benchmark runner (`python run_benchmark.py`).
+     - Dockerfile / virtual environment lockfile.
+     - Zenodo-hosted image datasets and pre-computed embeddings.
+  3. **Internal Review:** Conduct peer review and advisor revisions prior to final submission.
+- **Key Deliverables & Outputs:**
+  1. Complete 15-page camera-ready PDF manuscript.
+  2. Public, reproducible, release-tagged GitHub repository.
+  3. Official ESWC 2027 conference submission.
+
+---
+
+## 4. Key Differences and Framing vs. Comparator (RiceDO)
+
+| Feature | RiceDO (Comparator) | Rice MMKG (Our Contribution) | Strategic Narrative |
+|---|---|---|---|
+| **Visual Modality** | None (Text only) | **10,407 field images** grounded to concepts | Complementary expansion: RiceDO explicitly requested image grounding in their future work |
+| **Observation / Evidence Separation** | Conflated | Rigorous: `annotatedAs` (dataset) vs. `captures` (evidence) | Prevents noisy ML labels from corrupting domain truths |
+| **Traceable Provenance** | Unreified | **100% domain assertions reified with `owl:Axiom`** | Full auditability to CABI, IRRI, and BBPOPT literature |
+| **Interoperability** | Partial | Formally mapped to **EPPO, AGROVOC, and NCBI Taxonomy** | Seamless FAIR cross-linking across biological registries |
+| **Decision Support** | High-level advice | **End-to-end 4-hop DSS chain** + severity triage | Practical farm-level advisory utility |
+
+---
+
+## 5. Active Sprint Checklist (Current Week)
+
+- [x] **v0.6 Ontology Release:** Disambiguate `Deadheart` (Disease) and `Dead_Tiller` (Symptom).
+- [x] **Reasoner Consistency:** Verify 100% clean consistency in Protégé HermiT & Pellet (0 unsatisfiable classes).
+- [x] **25 CQ SPARQL Suite:** Execute automated benchmark with 87.5% pass rate (21 PASS / 1 PARTIAL / 2 FAIL / 1 DOC).
+- [x] **Synchronize Documentation:** Update `Ontology_Overview.md`, `CQ_SPARQL_Documentation.md`, and presentation slides.
+- [ ] **v0.6.1 Minor Patch:**
+  - [ ] Add `rice:Nephotettix_Virescens rice:controlledBy rice:Vector_Control` (CQ-10 fix).
+  - [ ] Add `@en` language tag to `rice:evidenceType "literature-curated"` (CQ-24 fix).
+  - [ ] Re-run benchmark to reach **23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC (96% Pass Rate)**.
+- [ ] **Kick off Phase 2:** Prepare w3id PURL pull request and generate pyLODE HTML preview.
