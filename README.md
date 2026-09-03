@@ -175,6 +175,7 @@ print(f"Asserted triples loaded: {len(g)}")
 ## Citation & License
 
 - **License:** [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
+- **License:** [MIT License](LICENSE) (repository & code) / [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) (ontology artifact)
 - **Author:** Muhammad Ariful Furqon (ORCID: [0000-0002-1031-3567](https://orcid.org/0000-0002-1031-3567)), Natthawut Kertkeidkachorn (ORCID: [0000-0003-4527-776X](https://orcid.org/0000-0003-4527-776X))
 <!-- - **Cite as:**
   ```bibtex
