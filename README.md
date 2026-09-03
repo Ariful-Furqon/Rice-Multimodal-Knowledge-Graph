@@ -119,7 +119,7 @@ Our five-phase development roadmap toward the **ESWC 2027 Resource Track** is de
 4. **Phase 4: Domain Expert Validation (Weeks 9–10, Late Oct & Early Nov)**  
    Survey panel of plant pathologists and agronomists; compute Fleiss' Kappa ($\kappa$) inter-rater agreement.
 5. **Phase 5: Resource Paper Drafting & Submission (Weeks 11–14, Nov – Early Dec)**  
-   Author full 15-page LNCS manuscript, finalize reproducible GitHub release, and submit to ESWC 2027.
+   Author full LNCS manuscript, finalize reproducible GitHub release, and submit to ESWC 2027.
 
 ---
 
