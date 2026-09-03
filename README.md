@@ -142,7 +142,6 @@ Analysis and Alignment/
     NCBI_Taxonomy_alignment.md   # Organism-level alignment to NCBI Taxonomy
     Planteome_alignment.md       # Environmental factor alignment to Plant Ontologies
     PaddyDoctor_Dataset_Analysis.md # Dataset profile and ingestion strategy
-    Provenance_and_Authoritative_Sources.md # 3-layer provenance architecture & literature sources
 Data/                            # Local image dataset (gitignored)
 Worklog/                         # Internal cleanup and task logs (gitignored)
 ```
@@ -181,7 +180,7 @@ print(f"Asserted triples loaded: {len(g)}")
   ```bibtex
   @misc{ricemmkg_2026,
     title  = {Rice MMKG: A Multimodal Knowledge Graph and Domain Ontology for Rice Disease and Pest Diagnosis},
-    author = {Muhammad Ariful Furqon},
+    author = {Muhammad Ariful Furqon and Natthawut Kertkeidkachorn},
     year   = {2026},
     note   = {Version 0.6, evaluated with 25 Competency Questions and OWL RL reasoning}
   }
