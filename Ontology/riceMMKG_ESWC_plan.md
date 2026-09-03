@@ -135,7 +135,7 @@ Phase 5: Resource Paper Drafting & Camera-Ready Submission (Weeks 11â€“14, Nov â
 *Objective: Prepare, polish, and submit the full manuscript to ESWC 2027 (Resource Track).*
 
 - **Target Milestones & Activities:**
-  1. **Manuscript Drafting:** Write the full 15-page LNCS paper following the official ESWC Resource Track review criteria:
+  1. **Manuscript Drafting:** Write the full LNCS paper following the official ESWC Resource Track review criteria:
      - *Potential impact & value to the community* (image grounding + agronomic decision support).
      - *Reusability, design rigor, and FAIR compliance* (FOOPS! > 0.85, w3id PURL, AgroPortal, Zenodo).
      - *Evaluation rigor* (25 CQs with > 95% pass rate, DL consistency, expert validation $\kappa$, multimodal fusion benchmark).
@@ -145,7 +145,7 @@ Phase 5: Resource Paper Drafting & Camera-Ready Submission (Weeks 11â€“14, Nov â
      - Zenodo-hosted image datasets and pre-computed embeddings.
   3. **Internal Review:** Conduct peer review and advisor revisions prior to final submission.
 - **Key Deliverables & Outputs:**
-  1. Complete 15-page camera-ready PDF manuscript.
+  1. Complete camera-ready PDF manuscript.
   2. Public, reproducible, release-tagged GitHub repository.
   3. Official ESWC 2027 conference submission.
 
