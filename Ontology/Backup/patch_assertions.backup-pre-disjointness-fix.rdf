@@ -56,6 +56,7 @@
     <rdfs:comment xml:lang="en">Green leafhopper; primary vector for Rice Tungro Bacilliform Virus and Rice Tungro Spherical Virus.</rdfs:comment>
     <rice:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_5160"/>
     <rice:eppoCode>NEPHVI</rice:eppoCode>
+    <rice:causes rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Disease"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Blight">
     <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Wilting"/>
@@ -121,6 +122,10 @@
     <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Streak"/>
     <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Panicle_Blight"/>
     <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Deadheart"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Bacilliform_Virus"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Sclerophthora_Macrospora"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Xanthomonas_Oryzicola"/>
+    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Burkholderia_Glumae"/>
     <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Scirpophaga_Incertulas"/>
     <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Nephotettix_Virescens"/>
   </rdf:Description>
@@ -247,6 +252,13 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Normal_Health">
     <rdfs:comment xml:lang="en">Represents a rice plant with no observable disease, pest, or nutritional disorder. By design, no symptom or pathogen is asserted for this entity — its absence of assertions is semantically meaningful, not an omission.</rdfs:comment>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Seedling_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Tillering_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Vegetative_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Reproductive_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Flowering_Stage"/>
+    <rice:occursIn rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Maturity_Stage"/>
+    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Good_Agricultural_Practice"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Translucent_Stripe">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -396,6 +408,7 @@
     <rdfs:comment xml:lang="en">Yellow stem borer; larvae bore into rice tillers causing 'dead heart' at vegetative stage and 'white ear' at reproductive stage.</rdfs:comment>
     <rice:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_6911"/>
     <rice:eppoCode>SCPIIN</rice:eppoCode>
+    <rice:causes rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Deadheart"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Excessive_Tillering">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
