@@ -79,7 +79,9 @@ CQ Screening/
     ├── cq_stage3_decisions.md        per-group breakdown, dropped CQs
     ├── cq_stage3_final_tierA.md      ← the deliverable: the 23 CQs
     ├── cq_stage4_reconciliation.md   benchmark comparison and the 12 gaps
-    └── cq_stage5_questionnaire.md    ← the form to hand to experts
+    ├── cq_stage5_questionnaire.md    ← the form to hand to experts
+    └── cq_stage5_google_form.js      Apps Script that builds the same form
+                                      in Google Forms
 ```
 
 Every artefact is named `cq_stage<N>_*`, so sorting either directory lays the
@@ -175,6 +177,23 @@ the one thing this instrument exists to test.
 The form closes with five open slots. That section is not a courtesy: the list
 was assembled from automatic sources, so what it omits is exactly what a
 practitioner is positioned to notice.
+
+### Distributing it through Google Forms
+
+`reports/cq_stage5_google_form.js` is an Apps Script generated from the same
+item table, so it cannot drift from the printable form. Open script.google.com,
+paste it into a new project, run `createValidationForm()` once; the execution
+log prints the form URL. Item numbers match `cq_stage5_items.csv`, which is how
+responses join back to the key.
+
+Three settings matter. **Do not enable Forms' own question shuffling** - the
+order is already randomised once with a fixed seed and documented; reshuffling
+per respondent discards that for little gain at this sample size. **Set
+`COLLECT_EMAIL`** deliberately: agreement coefficients cannot be computed
+without attributing ratings to raters, but that is a consent decision, so the
+script leaves it off and asks for a name instead. And the four sections of six
+items exist for pacing only - they deliberately do **not** group by category,
+which would expose the structure the blinding is meant to hide.
 
 ### Analysing the returns
 
