@@ -52,9 +52,6 @@ automatic result.
 ```
 CQ Screening/
 ├── README.md                         this file
-├── CQ_Screening_Overview.pptx        15-slide deck explaining the funnel
-├── make_slides.py                    builds that deck from data/ (not part
-│                                     of the pipeline, hence not in scripts/)
 ├── scripts/                          run in order; each is self-contained
 │   ├── stage0_build_pool.py          parse the five model outputs
 │   ├── stage1_screen.py              structural validity triage

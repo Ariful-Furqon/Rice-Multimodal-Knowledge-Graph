@@ -1,6 +1,6 @@
 # Stage 4 - Reconciliation with the existing benchmark
 
-Generated 2026-09-07 20:45 by `scripts/stage4_reconcile.py`.
+Generated 2026-09-07 21:41 by `scripts/stage4_reconcile.py`.
 
 **23 elicited competency questions** (Stage 3) against **25 benchmark CQs** already implemented in `../cq_sparql_benchmark.py`.
 

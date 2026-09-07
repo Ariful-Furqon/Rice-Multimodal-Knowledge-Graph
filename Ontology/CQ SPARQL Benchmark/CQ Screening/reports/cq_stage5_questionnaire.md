@@ -7,11 +7,16 @@
 
 ## Pengantar
 
-Kami sedang membangun sebuah *knowledge graph* untuk mendukung diagnosis dan pengelolaan hama serta penyakit padi, yang menggabungkan pengetahuan dari literatur dengan citra gejala di lapangan.
+Kami sedang **merancang** sebuah basis pengetahuan (*knowledge graph*) tentang hama dan penyakit padi, yang akan menggabungkan pengetahuan dari literatur dengan citra gejala di lapangan.
 
-Daftar di bawah ini berisi pertanyaan-pertanyaan yang kami harapkan dapat dijawab oleh sistem tersebut. Kami memerlukan penilaian Anda sebagai pakar: **apakah pertanyaan-pertanyaan ini memang yang perlu dijawab, dan apakah rumusannya sudah tepat.**
+Tahap yang sedang kami kerjakan adalah **penentuan cakupan**: menetapkan pertanyaan-pertanyaan apa saja yang nantinya harus dapat dijawab. Dalam rekayasa ontologi, daftar semacam ini disebut *competency questions* dan berfungsi sebagai spesifikasi kebutuhan - ditetapkan **sebelum** sistemnya dibangun, dan menentukan entitas serta relasi apa yang perlu direpresentasikan.
 
-Kami menilai *pertanyaannya*, bukan jawabannya. Anda tidak perlu menjawab pertanyaan-pertanyaan ini.
+**Belum ada sistem yang perlu Anda coba, dan Anda tidak perlu menjawab pertanyaan-pertanyaannya.** Yang kami minta adalah penilaian Anda sebagai pakar atas pertanyaannya sendiri:
+
+- Apakah pertanyaan ini penting dalam praktik diagnosis dan pengelolaan hama serta penyakit padi?
+- Apakah rumusannya sudah tepat menurut peristilahan di lapangan, dan tidak menimbulkan tafsir ganda?
+
+Penilaian Anda menentukan bagian mana dari basis pengetahuan ini yang kami bangun lebih dahulu, dan mana yang kami tunda.
 
 Pengisian diperkirakan memakan waktu 20-30 menit.
 
@@ -19,7 +24,7 @@ Pengisian diperkirakan memakan waktu 20-30 menit.
 
 Untuk setiap pertanyaan, berikan dua penilaian pada skala 1-5:
 
-**Relevansi** - seberapa penting pertanyaan ini dijawab oleh sebuah sistem pendukung diagnosis padi?
+**Relevansi** - seberapa penting pertanyaan ini bagi praktik diagnosis dan pengelolaan hama serta penyakit padi?
 
 | 1 | 2 | 3 | 4 | 5 |
 |---|---|---|---|---|
@@ -227,7 +232,7 @@ Kolom **catatan** bersifat opsional. Mohon diisi terutama bila Anda memberi nila
 
 Bagian ini sama pentingnya dengan penilaian di atas. Daftar tersebut kami susun dari sumber otomatis, sehingga besar kemungkinan ada hal yang penting di lapangan namun tidak muncul di sana.
 
-**Menurut Anda, pertanyaan apa yang seharusnya dapat dijawab oleh sistem seperti ini, tetapi belum ada dalam daftar di atas?**
+**Menurut Anda, pertanyaan apa yang seharusnya masuk dalam cakupan basis pengetahuan ini, tetapi belum ada dalam daftar di atas?**
 
 1. 
 

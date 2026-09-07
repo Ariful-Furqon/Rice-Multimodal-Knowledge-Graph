@@ -186,16 +186,18 @@ def main():
                     "v06_status": c["v06_status"],
                     "canonical_question": c["canonical_question"]})
 
-    write_csv(DATA / "cq_stage5_items.csv", items)
-    write_csv(DATA / "cq_stage5_key.csv", key)
+    # The form is the deliverable, so write it first: a spreadsheet left open
+    # in Excel should not be able to block it.
+    write_form(items)
 
     responses = [{"item_no": i["item_no"], "expert_id": f"E{e}",
                   "relevance_1_5": "", "clarity_1_5": "", "comment": ""}
                  for e in range(1, N_EXPERTS + 1) for i in items]
     responses.sort(key=lambda r: (r["expert_id"], r["item_no"]))
-    write_csv(DATA / "cq_stage5_responses.csv", responses)
 
-    write_form(items)
+    write_csv(DATA / "cq_stage5_items.csv", items)
+    write_csv(DATA / "cq_stage5_key.csv", key)
+    write_csv(DATA / "cq_stage5_responses.csv", responses)
     print(f"questionnaire: {len(items)} items, seed {SHUFFLE_SEED}, "
           f"response template for {N_EXPERTS} experts")
     print(f"  key kept separately in {DATA.name}/cq_stage5_key.csv "
@@ -203,7 +205,13 @@ def main():
 
 
 def write_csv(path, rows):
-    with path.open("w", encoding="utf-8-sig", newline="") as f:
+    try:
+        f = path.open("w", encoding="utf-8-sig", newline="")
+    except PermissionError:
+        raise SystemExit(
+            f"\n{path.name} is locked - close it in Excel and run again.\n"
+            "(The questionnaire itself was written; only this file is stale.)")
+    with f:
         w = csv.DictWriter(f, fieldnames=list(rows[0]))
         w.writeheader()
         w.writerows(rows)
@@ -216,21 +224,29 @@ def write_form(items):
          f"*Versi {datetime.datetime.now():%Y-%m-%d}. "
          f"{len(items)} pertanyaan.*", "",
          "---", "", "## Pengantar", "",
-         "Kami sedang membangun sebuah *knowledge graph* untuk mendukung "
-         "diagnosis dan pengelolaan hama serta penyakit padi, yang "
-         "menggabungkan pengetahuan dari literatur dengan citra gejala di "
-         "lapangan.", "",
-         "Daftar di bawah ini berisi pertanyaan-pertanyaan yang kami harapkan "
-         "dapat dijawab oleh sistem tersebut. Kami memerlukan penilaian Anda "
-         "sebagai pakar: **apakah pertanyaan-pertanyaan ini memang yang perlu "
-         "dijawab, dan apakah rumusannya sudah tepat.**", "",
-         "Kami menilai *pertanyaannya*, bukan jawabannya. Anda tidak perlu "
-         "menjawab pertanyaan-pertanyaan ini.", "",
+         "Kami sedang **merancang** sebuah basis pengetahuan (*knowledge "
+         "graph*) tentang hama dan penyakit padi, yang akan menggabungkan "
+         "pengetahuan dari literatur dengan citra gejala di lapangan.", "",
+         "Tahap yang sedang kami kerjakan adalah **penentuan cakupan**: "
+         "menetapkan pertanyaan-pertanyaan apa saja yang nantinya harus dapat "
+         "dijawab. Dalam rekayasa ontologi, daftar semacam ini disebut "
+         "*competency questions* dan berfungsi sebagai spesifikasi kebutuhan - "
+         "ditetapkan **sebelum** sistemnya dibangun, dan menentukan entitas "
+         "serta relasi apa yang perlu direpresentasikan.", "",
+         "**Belum ada sistem yang perlu Anda coba, dan Anda tidak perlu "
+         "menjawab pertanyaan-pertanyaannya.** Yang kami minta adalah "
+         "penilaian Anda sebagai pakar atas pertanyaannya sendiri:", "",
+         "- Apakah pertanyaan ini penting dalam praktik diagnosis dan "
+         "pengelolaan hama serta penyakit padi?",
+         "- Apakah rumusannya sudah tepat menurut peristilahan di lapangan, "
+         "dan tidak menimbulkan tafsir ganda?", "",
+         "Penilaian Anda menentukan bagian mana dari basis pengetahuan ini "
+         "yang kami bangun lebih dahulu, dan mana yang kami tunda.", "",
          "Pengisian diperkirakan memakan waktu 20-30 menit.", "",
          "## Cara mengisi", "",
          "Untuk setiap pertanyaan, berikan dua penilaian pada skala 1-5:", "",
-         "**Relevansi** - seberapa penting pertanyaan ini dijawab oleh sebuah "
-         "sistem pendukung diagnosis padi?", "",
+         "**Relevansi** - seberapa penting pertanyaan ini bagi praktik "
+         "diagnosis dan pengelolaan hama serta penyakit padi?", "",
          "| 1 | 2 | 3 | 4 | 5 |", "|---|---|---|---|---|",
          "| tidak relevan | kurang relevan | cukup | penting | sangat penting |",
          "",
@@ -253,8 +269,8 @@ def write_form(items):
           "Bagian ini sama pentingnya dengan penilaian di atas. Daftar tersebut "
           "kami susun dari sumber otomatis, sehingga besar kemungkinan ada hal "
           "yang penting di lapangan namun tidak muncul di sana.", "",
-          "**Menurut Anda, pertanyaan apa yang seharusnya dapat dijawab oleh "
-          "sistem seperti ini, tetapi belum ada dalam daftar di atas?**", ""]
+          "**Menurut Anda, pertanyaan apa yang seharusnya masuk dalam cakupan "
+          "basis pengetahuan ini, tetapi belum ada dalam daftar di atas?**", ""]
     for i in range(1, 6):
         L += [f"{i}. ", "", "&nbsp;", ""]
     L += ["---", "", "## Identitas penilai", "",
