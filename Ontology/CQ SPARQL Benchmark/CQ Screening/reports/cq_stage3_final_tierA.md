@@ -1,6 +1,6 @@
 # Rice MMKG - Final Competency Question Set (Tier A)
 
-Generated 2026-09-03 22:14 by `scripts/stage3_scope_and_group.py`.
+Generated 2026-09-07 14:39 by `scripts/stage3_scope_and_group.py`.
 
 **23 canonical competency questions**, distilled from 173 candidates elicited independently from five large language models against one shared prompt.
 

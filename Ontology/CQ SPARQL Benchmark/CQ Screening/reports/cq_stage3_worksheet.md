@@ -2,7 +2,7 @@
 
 Every CQ here needs neither sensor nor genomic data, so all of them bear on the resource actually being released. Ordering places similar CQs next to each other.
 
-Fill two columns in `data/worksheet_tierA.csv`:
+Fill two columns in `data/cq_stage3_worksheet.csv`:
 
 - **KEEP_or_DROP** - `keep` or `drop`
 - **GROUP_ID** - any number; CQs asking the same thing share a number

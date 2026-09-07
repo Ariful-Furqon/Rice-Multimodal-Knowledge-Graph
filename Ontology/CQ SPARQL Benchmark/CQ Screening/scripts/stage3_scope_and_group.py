@@ -19,12 +19,12 @@ on 2026-09-03. The paper must describe it as an LLM-assisted first pass,
 human-adjudicated, not as an automatic result.
 
 Outputs:
-  data/worksheet_tierA.csv           the 64 Tier A CQs, ordered by similarity
-  data/worksheet_tierA_proposal.csv  the same, with decisions and groups
-  data/CQ_Final_TierA.csv            the 23 canonical CQs
-  reports/worksheet_tierA.md         readable worksheet
-  reports/worksheet_tierA_proposal.md  per-group breakdown and dropped CQs
-  reports/CQ_Final_TierA.md          the deliverable CQ set
+  ../data/cq_stage3_worksheet.csv     the 64 Tier A CQs, ordered by similarity
+  ../data/cq_stage3_decisions.csv     the same, with decisions and groups
+  ../data/cq_stage3_final_tierA.csv   the 23 canonical CQs
+  ../reports/cq_stage3_worksheet.md   readable worksheet
+  ../reports/cq_stage3_decisions.md   per-group breakdown and dropped CQs
+  ../reports/cq_stage3_final_tierA.md the deliverable CQ set
 """
 
 import csv
@@ -243,7 +243,7 @@ def similarity_order(s2, rows):
 
 
 def main():
-    pool = list(csv.DictReader((DATA / "cq_pool_stage0.csv").open(
+    pool = list(csv.DictReader((DATA / "cq_stage0_pool.csv").open(
         encoding="utf-8-sig")))
     flags = {r["pool_id"]: (r["auto_codes"], r["parameterised"])
              for r in csv.DictReader((DATA / "cq_stage1_adjudication.csv").open(
@@ -259,7 +259,7 @@ def main():
         r["stage1_flag"], r["parameterised"] = flags.get(r["pool_id"], ("", ""))
         sheet.append(r)
 
-    with (DATA / "worksheet_tierA.csv").open("w", encoding="utf-8-sig",
+    with (DATA / "cq_stage3_worksheet.csv").open("w", encoding="utf-8-sig",
                                              newline="") as f:
         cols = ["no", "pool_id", "category", "question", "source_model",
                 "stage1_flag", "parameterised", "KEEP_or_DROP", "GROUP_ID",
@@ -280,7 +280,7 @@ def main():
         r["group_label"] = GROUPS[g][1] if g else ""
         r["reason_or_gap"] = note
 
-    with (DATA / "worksheet_tierA_proposal.csv").open(
+    with (DATA / "cq_stage3_decisions.csv").open(
             "w", encoding="utf-8-sig", newline="") as f:
         cols = ["no", "pool_id", "category", "source_model", "KEEP_or_DROP",
                 "GROUP_ID", "group_label", "reason_or_gap", "question",
@@ -317,7 +317,7 @@ def main():
         })
 
     ffields = list(final[0])
-    with (DATA / "CQ_Final_TierA.csv").open("w", encoding="utf-8-sig",
+    with (DATA / "cq_stage3_final_tierA.csv").open("w", encoding="utf-8-sig",
                                             newline="") as f:
         w = csv.DictWriter(f, fieldnames=ffields)
         w.writeheader()
@@ -336,7 +336,7 @@ def write_worksheet_md(sheet):
          "Every CQ here needs neither sensor nor genomic data, so all of them "
          "bear on the resource actually being released. Ordering places similar "
          "CQs next to each other.", "",
-         "Fill two columns in `data/worksheet_tierA.csv`:", "",
+         "Fill two columns in `data/cq_stage3_worksheet.csv`:", "",
          "- **KEEP_or_DROP** - `keep` or `drop`",
          "- **GROUP_ID** - any number; CQs asking the same thing share a number",
          "", "---", ""]
@@ -354,7 +354,7 @@ def write_worksheet_md(sheet):
         suffix = f" - {', '.join(tag)}" if tag else ""
         L += [f"**{r['no']}.** `{r['pool_id']}` - {r['source_model']}{suffix}",
               f"> {r['question']}", ""]
-    (REPORTS / "worksheet_tierA.md").write_text("\n".join(L), encoding="utf-8")
+    (REPORTS / "cq_stage3_worksheet.md").write_text("\n".join(L), encoding="utf-8")
 
 
 def write_proposal_md(grouped, dropped, keep):
@@ -391,7 +391,7 @@ def write_proposal_md(grouped, dropped, keep):
     for r in dropped:
         L.append(f"| {r['no']} | `{r['pool_id']}` | {r['reason_or_gap']} | "
                  f"{r['question'][:110].replace('|', '/')} |")
-    (REPORTS / "worksheet_tierA_proposal.md").write_text("\n".join(L),
+    (REPORTS / "cq_stage3_decisions.md").write_text("\n".join(L),
                                                          encoding="utf-8")
 
 
@@ -455,7 +455,7 @@ def write_final_md(final, n_pool, n_tier_a, n_keep, n_drop):
           "- **Stage 5** - stratified sampling to questionnaire size, "
           "instantiating parameterised CQs with concrete diseases, and blinding "
           "the questionnaire to source model and convergence count.", ""]
-    (REPORTS / "CQ_Final_TierA.md").write_text("\n".join(L), encoding="utf-8")
+    (REPORTS / "cq_stage3_final_tierA.md").write_text("\n".join(L), encoding="utf-8")
 
 
 if __name__ == "__main__":

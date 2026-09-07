@@ -1,7 +1,7 @@
 """
 Stage 1 of the CQ screening funnel: structural validity triage.
 
-Reads cq_pool_stage0.csv and flags CQs that may not be admissible as
+Reads cq_stage0_pool.csv and flags CQs that may not be admissible as
 competency questions on structural grounds -- independently of whether the
 current ontology happens to answer them (that is Stage 3's job).
 
@@ -16,9 +16,9 @@ Reason codes
   R3-NOSOURCE    presupposes an attribute no declared source supplies
   R4-UNBOUNDED   scope so open that no query could be complete
 
-Outputs (in this directory):
-  cq_stage1_adjudication.csv  173 rows, with blank decision columns
-  cq_stage1_proposal.md       counts, rules, and every flagged CQ in full
+Outputs:
+  ../data/cq_stage1_adjudication.csv  173 rows, blank decision columns
+  ../reports/cq_stage1_proposal.md    counts, rules, every flagged CQ in full
 """
 
 import csv
@@ -30,7 +30,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 ROOT = SCRIPT_DIR.parent
 DATA = ROOT / "data"
 REPORTS = ROOT / "reports"
-POOL = DATA / "cq_pool_stage0.csv"
+POOL = DATA / "cq_stage0_pool.csv"
 
 # Each rule is (code, compiled pattern, why it matters). Patterns are
 # deliberately narrow: over-flagging wastes the adjudicator's attention, and
@@ -115,7 +115,7 @@ def main():
     n_param = sum(1 for r in rows if r["parameterised"])
     L = ["# Stage 1 - Structural Validity Triage (proposal)", "",
          f"Generated {datetime.datetime.now():%Y-%m-%d %H:%M} by "
-         "`stage1_screen.py` from `cq_pool_stage0.csv`.", "",
+         "`stage1_screen.py` from `cq_stage0_pool.csv`.", "",
          "**Nothing has been rejected.** The rules below propose flags; the "
          "decision columns in `cq_stage1_adjudication.csv` are blank and are "
          "the actual filter. Two screener columns are provided so "

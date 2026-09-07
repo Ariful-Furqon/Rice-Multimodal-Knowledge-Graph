@@ -1,6 +1,6 @@
 # Stage 1 - Structural Validity Triage (proposal)
 
-Generated 2026-09-03 22:12 by `stage1_screen.py` from `cq_pool_stage0.csv`.
+Generated 2026-09-07 14:39 by `stage1_screen.py` from `cq_stage0_pool.csv`.
 
 **Nothing has been rejected.** The rules below propose flags; the decision columns in `cq_stage1_adjudication.csv` are blank and are the actual filter. Two screener columns are provided so inter-screener agreement can be computed from the same file.
 

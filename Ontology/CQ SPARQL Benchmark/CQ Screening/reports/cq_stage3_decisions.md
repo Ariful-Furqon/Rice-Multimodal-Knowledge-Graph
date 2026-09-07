@@ -1,6 +1,6 @@
 # Stage 3 - Scope gate and grouping
 
-Generated 2026-09-03 22:14. **65 Tier A CQs in -> 56 keep, 8 drop, 23 groups.**
+Generated 2026-09-07 14:39. **65 Tier A CQs in -> 56 keep, 8 drop, 23 groups.**
 
 > **Declared conflict of interest.** This grouping was drafted by Claude Opus 5, one of the five models whose output forms the pool, so a model graded its own work. It was reviewed and approved by M. A. Furqon on 2026-09-03. Describe it in writing as an LLM-assisted first pass, human-adjudicated.
 

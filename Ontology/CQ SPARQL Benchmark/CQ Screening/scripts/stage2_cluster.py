@@ -33,11 +33,11 @@ cq_stage2_borderline.csv is required, not optional polish.
 As in Stage 1 this script decides nothing. Clusters are proposals and the
 adjudication columns are blank.
 
-Outputs (in this directory):
-  cq_stage2_clusters.csv     one row per CQ, with its proposed cluster
-  cq_stage2_canonical.csv    one row per cluster, with n_models
-  cq_stage2_borderline.csv   near-miss pairs for manual review
-  cq_stage2_proposal.md      method, counts, and the convergent clusters
+Outputs:
+  ../data/cq_stage2_clusters.csv     one row per CQ, with its cluster
+  ../data/cq_stage2_canonical.csv    one row per cluster, with n_models
+  ../data/cq_stage2_borderline.csv   near-miss pairs for manual review
+  ../reports/cq_stage2_proposal.md   method, counts, convergent clusters
 """
 
 import csv
@@ -53,7 +53,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 ROOT = SCRIPT_DIR.parent
 DATA = ROOT / "data"
 REPORTS = ROOT / "reports"
-POOL = DATA / "cq_pool_stage0.csv"
+POOL = DATA / "cq_stage0_pool.csv"
 
 # A merge is proposed only when both signals clear their threshold.
 TAU_COSINE = 0.40
@@ -282,7 +282,7 @@ def main():
     dist = collections.Counter(r["n_models"] for r in canon_rows)
     L = ["# Stage 2 - Cross-model Deduplication (proposal)", "",
          f"Generated {datetime.datetime.now():%Y-%m-%d %H:%M} by "
-         "`stage2_cluster.py` from `cq_pool_stage0.csv`.", "",
+         "`stage2_cluster.py` from `cq_stage0_pool.csv`.", "",
          f"**In:** {len(rows)} CQs &nbsp;&nbsp; **Out:** {len(canon_rows)} "
          "canonical CQs (provisional) &nbsp;&nbsp; **Merge rule:** cosine >= "
          f"{TAU_COSINE} AND Jaccard >= {TAU_JACCARD}, average linkage, within "

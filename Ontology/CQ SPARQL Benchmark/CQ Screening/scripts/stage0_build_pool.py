@@ -1,3 +1,20 @@
+"""
+Stage 0 of the CQ screening funnel: build the raw candidate pool.
+
+Reads the five LLM outputs in ../../LLM Prompt/ verbatim and emits one row per
+competency question. Nothing is filtered, deduplicated or reworded here --
+Stage 0 exists so that every later screening decision can be traced back to an
+untouched source row via pool_id, source_file and source_line.
+
+Note the pool is 173, not 176: GPT-5.6 lists three of its CQ ids twice in its
+modality-pair coverage tables, so a line count over-reports it.
+
+Outputs:
+  ../data/cq_stage0_pool.csv    one row per CQ, spreadsheet-friendly
+  ../data/cq_stage0_pool.jsonl  same rows, one JSON object per line
+  ../reports/cq_stage0_pool.md  provenance + per-model counts, for the paper
+"""
+
 import csv
 import json
 import re
@@ -116,13 +133,13 @@ def main():
               "complexity", "question", "entities", "rationale", "section",
               "source_file", "source_line"]
 
-    with (DATA / "cq_pool_stage0.csv").open("w", encoding="utf-8-sig",
+    with (DATA / "cq_stage0_pool.csv").open("w", encoding="utf-8-sig",
                                                   newline="") as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
         w.writerows({k: r[k] for k in fields} for r in pool)
 
-    with (DATA / "cq_pool_stage0.jsonl").open("w", encoding="utf-8") as f:
+    with (DATA / "cq_stage0_pool.jsonl").open("w", encoding="utf-8") as f:
         for r in pool:
             f.write(json.dumps({k: r[k] for k in fields}, ensure_ascii=False) + "\n")
 
@@ -164,7 +181,7 @@ def main():
         L.append(f"| {k} | {v} |")
     L += ["", "Labels are reproduced verbatim; harmonising them is a Stage 2 task.", ""]
 
-    (REPORTS / "cq_pool_stage0.md").write_text("\n".join(L), encoding="utf-8")
+    (REPORTS / "cq_stage0_pool.md").write_text("\n".join(L), encoding="utf-8")
     print(f"pool: {len(pool)} CQs")
     for m, c in per_model.items():
         print(f"  {m:20s} {c}")
