@@ -46,9 +46,17 @@ ADJUDICATED_ON = "2026-09-03"
 
 # A CQ mentioning any of these needs a modality the released resource does not
 # have, and is held back as Tier B.
+#
+# Short tokens are word-bounded on purpose. Unbounded, "iot" matches inside
+# "biotype" and "wind" inside "temporal window", which put two CQs in Tier B for
+# the wrong reason. They belong there, but because they need environmental time
+# series -- so the terms that actually identify them are listed explicitly.
+# Bounding the tokens and adding those terms leaves the partition identical
+# (Tier A 64, Tier B 109) while making every reason honest.
 SENSOR_RE = re.compile(
-    r"sensor|temperature|humidit|rainfall|soil|weather|agroclimat|iot|"
-    r"leaf wetness|degree.?day|climate|telemetry|ndvi|wind|\bstations?\b", re.I)
+    r"sensor|temperature|humidit|rainfall|soil|weather|agroclimat|\biot\b|"
+    r"leaf wetness|degree.?day|climate|telemetry|ndvi|\bwind\b|\bstations?\b|"
+    r"environmental variable|conducive.{0,2}condition|monitored plot", re.I)
 GENOMIC_RE = re.compile(
     r"genom|variet|cultivar|\bgene\b|\bgenes\b|genotype|snp|allele|qtl|"
     r"locus|loci|biotype|breeding|yield|pedigree|release year", re.I)
@@ -129,6 +137,29 @@ LABELS = {
     "P152": ("drop", "", "needs plot-linked image time series - no such data"),
     "P029": ("drop", "", "needs district surveillance records - no such data"),
 }
+# Reasoning level and knowledge dimension, using the same grid as the existing
+# SPARQL benchmark so the two sets can be reported side by side:
+#   L1 Factual      single-hop retrieval
+#   L2 Contextual   multi-criteria join
+#   L3 Causal       multi-hop chain, comparison or aggregation
+#   L4 Inferential  requires entailment
+#   D1 Agronomic / symbolic     D2 Cross-modal     D3 Provenance & alignment
+#
+# Nothing lands in L4. That is a finding, not an oversight: entailment CQs are
+# an ontology engineer's concern, and a domain-oriented elicitation does not
+# produce them. The benchmark's three L4 checks have no elicited counterpart,
+# just as the elicited image questions have no benchmark counterpart.
+GRID = {
+    "G01": ("L1", "D1"), "G02": ("L3", "D1"), "G03": ("L2", "D1"),
+    "G04": ("L3", "D1"), "G05": ("L1", "D1"), "G06": ("L1", "D1"),
+    "G07": ("L2", "D1"), "G08": ("L1", "D1"), "G09": ("L3", "D1"),
+    "G10": ("L1", "D2"), "G11": ("L1", "D3"), "G12": ("L2", "D3"),
+    "G13": ("L2", "D2"), "G14": ("L1", "D2"), "G15": ("L1", "D2"),
+    "G16": ("L3", "D2"), "G17": ("L3", "D2"), "G18": ("L1", "D2"),
+    "G19": ("L2", "D2"), "G20": ("L1", "D2"), "G21": ("L2", "D2"),
+    "G22": ("L3", "D2"), "G23": ("L3", "D2"),
+}
+
 # Canonical question per group, plus the short label used in tables.
 GROUPS = {
     "G01": ("Which pathogen causes a given rice disease, and to which taxonomic "
@@ -302,9 +333,12 @@ def main():
         models = sorted({m["source_model"] for m in members})
         gaps = [m["reason_or_gap"] for m in members if m["reason_or_gap"]]
         answerable = any(not m["reason_or_gap"] for m in members)
+        level, dim = GRID[g]
         final.append({
             "cq_id": f"CQ-A{n:02d}",
             "group_id": g,
+            "level": level,
+            "dim": dim,
             "category": members[0]["category"],
             "canonical_question": GROUPS[g][0],
             "short_label": GROUPS[g][1],
@@ -423,11 +457,37 @@ def write_final_md(final, n_pool, n_tier_a, n_keep, n_drop):
          f"Stage 5 deliberately retains low-convergence CQs so that the "
          "hypothesis *convergence predicts expert-rated relevance* remains "
          "testable.", "",
-         "| ID | Category | n_models | Status vs v0.6 | Competency question |",
-         "|---|---|---|---|---|"]
+         "| ID | Level | Dim | n_models | Status vs v0.6 | Competency question |",
+         "|---|---|---|---|---|---|"]
     for f in final:
-        L.append(f"| `{f['cq_id']}` | {f['category']} | {f['n_models']} | "
-                 f"{f['v06_status']} | {f['canonical_question']} |")
+        L.append(f"| `{f['cq_id']}` | {f['level']} | {f['dim']} | "
+                 f"{f['n_models']} | {f['v06_status']} | "
+                 f"{f['canonical_question']} |")
+    grid = collections.Counter((f["level"], f["dim"]) for f in final)
+    L += ["", "### Distribution over the benchmark's grid", "",
+          "L1 factual (single-hop) · L2 contextual (multi-criteria join) · "
+          "L3 causal (multi-hop, comparison, aggregation) · L4 inferential "
+          "(entailment).  D1 agronomic/symbolic · D2 cross-modal · "
+          "D3 provenance and alignment.", "",
+          "| | D1 | D2 | D3 | total |", "|---|---|---|---|---|"]
+    for lvl in ("L1", "L2", "L3", "L4"):
+        row = [grid[(lvl, d)] for d in ("D1", "D2", "D3")]
+        L.append(f"| **{lvl}** | {row[0]} | {row[1]} | {row[2]} | "
+                 f"{sum(row)} |")
+    tot = [sum(grid[(l, d)] for l in ("L1", "L2", "L3", "L4"))
+           for d in ("D1", "D2", "D3")]
+    L.append(f"| **total** | {tot[0]} | {tot[1]} | {tot[2]} | {sum(tot)} |")
+    L += ["",
+          "**Nothing lands in L4.** That is a finding rather than an "
+          "oversight: entailment questions are an ontology engineer's concern, "
+          "and a domain-oriented elicitation does not produce them. It mirrors "
+          "the Stage 4 result from the opposite direction - the benchmark's "
+          "three L4 checks have no elicited counterpart, just as the elicited "
+          "image questions have no benchmark counterpart.", "",
+          "For comparison, the 25 benchmark CQs sit at L1 7, L2 6, L3 5, L4 7 "
+          "and D1 16, D2 5, D3 4 - weighted towards the symbolic layer and "
+          "towards entailment, where this set is weighted towards cross-modal "
+          "retrieval.", ""]
     L += ["", "## Detail", ""]
     for f in final:
         L += [f"### {f['cq_id']} - {f['short_label']}", "",

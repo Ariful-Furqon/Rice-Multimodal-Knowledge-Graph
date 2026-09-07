@@ -1,6 +1,6 @@
 # Rice MMKG - Final Competency Question Set (Tier A)
 
-Generated 2026-09-07 14:39 by `scripts/stage3_scope_and_group.py`.
+Generated 2026-09-07 20:45 by `scripts/stage3_scope_and_group.py`.
 
 **23 canonical competency questions**, distilled from 173 candidates elicited independently from five large language models against one shared prompt.
 
@@ -22,31 +22,48 @@ Grouping was an LLM-assisted first pass reviewed and approved by M. A. Furqon on
 
 `n_models` counts how many of the five models proposed the question independently. It is a convergence signal, not a quality score; Stage 5 deliberately retains low-convergence CQs so that the hypothesis *convergence predicts expert-rated relevance* remains testable.
 
-| ID | Category | n_models | Status vs v0.6 | Competency question |
+| ID | Level | Dim | n_models | Status vs v0.6 | Competency question |
+|---|---|---|---|---|---|
+| `CQ-A01` | L1 | D1 | 4 | answerable | Which pathogen causes a given rice disease, and to which taxonomic group does it belong? |
+| `CQ-A02` | L3 | D1 | 4 | answerable | Which vector species transmits which pathogen or viral disease, and by which transmission mode? |
+| `CQ-A03` | L2 | D1 | 2 | answerable | Which symptoms does a given disease produce, on which plant organ, and at which growth stage? |
+| `CQ-A04` | L3 | D1 | 4 | answerable | Which diseases or pests share overlapping symptoms, and which symptoms discriminate between them? |
+| `CQ-A05` | L1 | D1 | 1 | answerable | Which environmental conditions are reported to favour a given disease or pest? |
+| `CQ-A06` | L1 | D1 | 1 | answerable | At which growth stages is a given disease or pest reported as most damaging? |
+| `CQ-A07` | L2 | D1 | 4 | answerable | Which control measures are recommended for a given disease or pest, of which management category, and on which source authority? |
+| `CQ-A08` | L1 | D1 | 1 | needs new schema/data | Which natural enemies are documented as predators or parasitoids of a given pest? |
+| `CQ-A09` | L3 | D1 | 1 | needs new schema/data | Which features distinguish a nutritional disorder from a disease with similar visible symptoms? |
+| `CQ-A10` | L1 | D2 | 4 | answerable | Which images are annotated as showing a given condition or visual symptom? |
+| `CQ-A11` | L1 | D3 | 1 | needs new schema/data | Who or what produced a given image annotation, and with what confidence? |
+| `CQ-A12` | L2 | D3 | 1 | needs new schema/data | Where do model-generated and expert image annotations disagree, and on which conditions and plant parts? |
+| `CQ-A13` | L2 | D2 | 2 | answerable | How is the image corpus distributed across conditions, plant parts, and capture types? |
+| `CQ-A14` | L1 | D2 | 3 | needs new schema/data | Which plant organ is depicted in a given image? |
+| `CQ-A15` | L1 | D2 | 2 | answerable | Which visible symptoms are annotated in a given image? |
+| `CQ-A16` | L3 | D2 | 3 | answerable | Which disease or pest is best supported by the visual evidence in a given image? |
+| `CQ-A17` | L3 | D2 | 4 | answerable | Which visual features separate two visually confusable conditions? |
+| `CQ-A18` | L1 | D2 | 2 | needs new schema/data | How severe is the damage recorded in a given image? |
+| `CQ-A19` | L2 | D2 | 1 | needs new schema/data | Which symptoms co-occur on the same plant within a single image? |
+| `CQ-A20` | L1 | D2 | 1 | needs new schema/data | Which growth stage is visually manifest in a whole-canopy image? |
+| `CQ-A21` | L2 | D2 | 2 | answerable | Which literature-described symptoms have supporting image evidence, and which do not? |
+| `CQ-A22` | L3 | D2 | 2 | answerable | Which literature-described disease matches the symptoms annotated in a given image? |
+| `CQ-A23` | L3 | D2 | 1 | answerable | Which treatment does the literature prescribe for a condition identified from an image? |
+
+### Distribution over the benchmark's grid
+
+L1 factual (single-hop) · L2 contextual (multi-criteria join) · L3 causal (multi-hop, comparison, aggregation) · L4 inferential (entailment).  D1 agronomic/symbolic · D2 cross-modal · D3 provenance and alignment.
+
+| | D1 | D2 | D3 | total |
 |---|---|---|---|---|
-| `CQ-A01` | text | 4 | answerable | Which pathogen causes a given rice disease, and to which taxonomic group does it belong? |
-| `CQ-A02` | text | 4 | answerable | Which vector species transmits which pathogen or viral disease, and by which transmission mode? |
-| `CQ-A03` | text | 2 | answerable | Which symptoms does a given disease produce, on which plant organ, and at which growth stage? |
-| `CQ-A04` | text | 4 | answerable | Which diseases or pests share overlapping symptoms, and which symptoms discriminate between them? |
-| `CQ-A05` | text | 1 | answerable | Which environmental conditions are reported to favour a given disease or pest? |
-| `CQ-A06` | text | 1 | answerable | At which growth stages is a given disease or pest reported as most damaging? |
-| `CQ-A07` | text | 4 | answerable | Which control measures are recommended for a given disease or pest, of which management category, and on which source authority? |
-| `CQ-A08` | text | 1 | needs new schema/data | Which natural enemies are documented as predators or parasitoids of a given pest? |
-| `CQ-A09` | text | 1 | needs new schema/data | Which features distinguish a nutritional disorder from a disease with similar visible symptoms? |
-| `CQ-A10` | image | 4 | answerable | Which images are annotated as showing a given condition or visual symptom? |
-| `CQ-A11` | image | 1 | needs new schema/data | Who or what produced a given image annotation, and with what confidence? |
-| `CQ-A12` | image | 1 | needs new schema/data | Where do model-generated and expert image annotations disagree, and on which conditions and plant parts? |
-| `CQ-A13` | image | 2 | answerable | How is the image corpus distributed across conditions, plant parts, and capture types? |
-| `CQ-A14` | image | 3 | needs new schema/data | Which plant organ is depicted in a given image? |
-| `CQ-A15` | image | 2 | answerable | Which visible symptoms are annotated in a given image? |
-| `CQ-A16` | image | 3 | answerable | Which disease or pest is best supported by the visual evidence in a given image? |
-| `CQ-A17` | image | 4 | answerable | Which visual features separate two visually confusable conditions? |
-| `CQ-A18` | image | 2 | needs new schema/data | How severe is the damage recorded in a given image? |
-| `CQ-A19` | image | 1 | needs new schema/data | Which symptoms co-occur on the same plant within a single image? |
-| `CQ-A20` | image | 1 | needs new schema/data | Which growth stage is visually manifest in a whole-canopy image? |
-| `CQ-A21` | crossmodal | 2 | answerable | Which literature-described symptoms have supporting image evidence, and which do not? |
-| `CQ-A22` | crossmodal | 2 | answerable | Which literature-described disease matches the symptoms annotated in a given image? |
-| `CQ-A23` | crossmodal | 1 | answerable | Which treatment does the literature prescribe for a condition identified from an image? |
+| **L1** | 4 | 5 | 1 | 10 |
+| **L2** | 2 | 3 | 1 | 6 |
+| **L3** | 3 | 4 | 0 | 7 |
+| **L4** | 0 | 0 | 0 | 0 |
+| **total** | 9 | 12 | 2 | 23 |
+
+**Nothing lands in L4.** That is a finding rather than an oversight: entailment questions are an ontology engineer's concern, and a domain-oriented elicitation does not produce them. It mirrors the Stage 4 result from the opposite direction - the benchmark's three L4 checks have no elicited counterpart, just as the elicited image questions have no benchmark counterpart.
+
+For comparison, the 25 benchmark CQs sit at L1 7, L2 6, L3 5, L4 7 and D1 16, D2 5, D3 4 - weighted towards the symbolic layer and towards entailment, where this set is weighted towards cross-modal retrieval.
+
 
 ## Detail
 

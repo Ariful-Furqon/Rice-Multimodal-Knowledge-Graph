@@ -52,6 +52,9 @@ automatic result.
 ```
 CQ Screening/
 ├── README.md                         this file
+├── CQ_Screening_Overview.pptx        15-slide deck explaining the funnel
+├── make_slides.py                    builds that deck from data/ (not part
+│                                     of the pipeline, hence not in scripts/)
 ├── scripts/                          run in order; each is self-contained
 │   ├── stage0_build_pool.py          parse the five model outputs
 │   ├── stage1_screen.py              structural validity triage
@@ -187,7 +190,36 @@ agreement.
 
 The convergence hypothesis is tested by joining ratings to the key afterwards:
 does `n_models` predict mean relevance? Benchmark corroboration (Stage 4) is a
-second, independent convergence signal - it can enter the same analysis.
+second, independent convergence signal - it can enter the same analysis. The key
+also carries `level` and `dim`, so relevance can be broken down by reasoning
+level and knowledge dimension.
+
+## Reasoning level and knowledge dimension
+
+The 23 CQs are classified on the same grid as the existing benchmark, so the two
+sets can be reported side by side.
+
+| | L1 | L2 | L3 | L4 | | D1 | D2 | D3 |
+|---|---|---|---|---|---|---|---|---|
+| Benchmark (25) | 7 | 6 | 5 | **7** | | **16** | 5 | 4 |
+| Elicited (23) | 10 | 6 | 7 | **0** | | 9 | **12** | 2 |
+
+**Nothing elicited lands in L4**, and that is a finding rather than a gap in the
+classification. Entailment questions - does the defined class populate, does
+inverse traversal work, is any individual typed both Symptom and Disease - are
+an ontology engineer's concern. No agronomist poses them, so no domain-oriented
+elicitation produces them.
+
+This mirrors Stage 4 from the opposite direction. The benchmark is weighted to
+the symbolic layer and to entailment: it tests the ontology. The elicited set is
+weighted to cross-modal retrieval: it tests what a user would ask. Neither
+covers the other, which is the argument for keeping both.
+
+The assignment lives in the `GRID` table in `stage3_scope_and_group.py` and is
+adjudicable like every other decision here. Two calls are genuinely arguable:
+`CQ-A04` is L3 because differential diagnosis needs a self-join through symptoms
+plus set operations, but L2 is defensible; and `CQ-A07` is D1 although its "on
+which source authority" clause also exercises D3.
 
 ## Still outstanding
 

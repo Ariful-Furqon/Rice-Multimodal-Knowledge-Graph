@@ -177,6 +177,8 @@ def main():
         items.append({"item_no": n, "question_id": idn, "question_en": en})
         key.append({"item_no": n,
                     "cq_id": c["cq_id"],
+                    "level": c["level"],
+                    "dim": c["dim"],
                     "category": c["category"],
                     "n_models": c["n_models"],
                     "benchmark_corroborated":
