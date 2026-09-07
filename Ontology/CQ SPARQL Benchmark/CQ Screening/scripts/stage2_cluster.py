@@ -50,7 +50,10 @@ from pathlib import Path
 import numpy as np
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-POOL = SCRIPT_DIR / "cq_pool_stage0.csv"
+ROOT = SCRIPT_DIR.parent
+DATA = ROOT / "data"
+REPORTS = ROOT / "reports"
+POOL = DATA / "cq_pool_stage0.csv"
 
 # A merge is proposed only when both signals clear their threshold.
 TAU_COSINE = 0.40
@@ -221,7 +224,7 @@ def main():
               "is_representative", "source_model", "original_id", "category",
               "complexity", "question", "cluster_members", "merge_ok",
               "split_into", "notes"]
-    with (SCRIPT_DIR / "cq_stage2_clusters.csv").open(
+    with (DATA / "cq_stage2_clusters.csv").open(
             "w", encoding="utf-8-sig", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
@@ -247,7 +250,7 @@ def main():
             "notes": "",
         })
     canon_rows.sort(key=lambda r: (-r["n_models"], r["category"], r["cluster_id"]))
-    with (SCRIPT_DIR / "cq_stage2_canonical.csv").open(
+    with (DATA / "cq_stage2_canonical.csv").open(
             "w", encoding="utf-8-sig", newline="") as f:
         w = csv.DictWriter(f, fieldnames=cfields)
         w.writeheader()
@@ -264,7 +267,7 @@ def main():
                                round(float(C[i, j]), 3),
                                round(float(J[i, j]), 3), rows[i], rows[j]))
     border.sort(key=lambda x: -x[0])
-    with (SCRIPT_DIR / "cq_stage2_borderline.csv").open(
+    with (DATA / "cq_stage2_borderline.csv").open(
             "w", encoding="utf-8-sig", newline="") as f:
         w = csv.writer(f)
         w.writerow(["max_signal", "cosine", "jaccard", "category",
@@ -320,7 +323,7 @@ def main():
           "carries both scores and a blank `should_merge` column. This list is "
           "where the convergence count actually gets settled.", ""]
 
-    (SCRIPT_DIR / "cq_stage2_proposal.md").write_text("\n".join(L),
+    (REPORTS / "cq_stage2_proposal.md").write_text("\n".join(L),
                                                       encoding="utf-8")
     print(f"in: {len(rows)}  canonical: {len(canon_rows)}  "
           f"borderline pairs: {len(border)}")

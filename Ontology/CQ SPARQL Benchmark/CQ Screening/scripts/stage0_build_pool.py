@@ -5,7 +5,10 @@ import datetime
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-SRC_DIR = SCRIPT_DIR.parent / "LLM Prompt"
+ROOT = SCRIPT_DIR.parent
+DATA = ROOT / "data"
+REPORTS = ROOT / "reports"
+SRC_DIR = ROOT.parent / "LLM Prompt"
 PROMPT = SRC_DIR / "rice_mmkg_cq_prompt.md"
 
 # Filename -> model label as it should appear in the paper.
@@ -113,13 +116,13 @@ def main():
               "complexity", "question", "entities", "rationale", "section",
               "source_file", "source_line"]
 
-    with (SCRIPT_DIR / "cq_pool_stage0.csv").open("w", encoding="utf-8-sig",
+    with (DATA / "cq_pool_stage0.csv").open("w", encoding="utf-8-sig",
                                                   newline="") as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
         w.writerows({k: r[k] for k in fields} for r in pool)
 
-    with (SCRIPT_DIR / "cq_pool_stage0.jsonl").open("w", encoding="utf-8") as f:
+    with (DATA / "cq_pool_stage0.jsonl").open("w", encoding="utf-8") as f:
         for r in pool:
             f.write(json.dumps({k: r[k] for k in fields}, ensure_ascii=False) + "\n")
 
@@ -161,7 +164,7 @@ def main():
         L.append(f"| {k} | {v} |")
     L += ["", "Labels are reproduced verbatim; harmonising them is a Stage 2 task.", ""]
 
-    (SCRIPT_DIR / "cq_pool_stage0.md").write_text("\n".join(L), encoding="utf-8")
+    (REPORTS / "cq_pool_stage0.md").write_text("\n".join(L), encoding="utf-8")
     print(f"pool: {len(pool)} CQs")
     for m, c in per_model.items():
         print(f"  {m:20s} {c}")

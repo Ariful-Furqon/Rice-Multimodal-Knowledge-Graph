@@ -27,7 +27,10 @@ import datetime
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-POOL = SCRIPT_DIR / "cq_pool_stage0.csv"
+ROOT = SCRIPT_DIR.parent
+DATA = ROOT / "data"
+REPORTS = ROOT / "reports"
+POOL = DATA / "cq_pool_stage0.csv"
 
 # Each rule is (code, compiled pattern, why it matters). Patterns are
 # deliberately narrow: over-flagging wastes the adjudicator's attention, and
@@ -103,7 +106,7 @@ def main():
               "question", "auto_flag", "auto_codes", "auto_evidence",
               "parameterised", "screener1_keep", "screener1_code",
               "screener2_keep", "screener2_code", "notes"]
-    out = SCRIPT_DIR / "cq_stage1_adjudication.csv"
+    out = DATA / "cq_stage1_adjudication.csv"
     with out.open("w", encoding="utf-8-sig", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
@@ -145,7 +148,7 @@ def main():
           "cannot judge agronomic correctness without seeing a concrete "
           "instantiation.", ""]
 
-    (SCRIPT_DIR / "cq_stage1_proposal.md").write_text("\n".join(L),
+    (REPORTS / "cq_stage1_proposal.md").write_text("\n".join(L),
                                                       encoding="utf-8")
     print(f"in: {len(rows)}  auto-flagged: {len(flagged)}  "
           f"parameterised: {n_param}")

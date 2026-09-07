@@ -1,6 +1,6 @@
 # Stage 0 - Raw Competency Question Pool
 
-Generated 2026-09-03 15:35 by `stage0_build_pool.py`. No filtering, deduplication or rewording has been applied; every row reproduces its source verbatim.
+Generated 2026-09-03 22:12 by `stage0_build_pool.py`. No filtering, deduplication or rewording has been applied; every row reproduces its source verbatim.
 
 **Prompt:** `LLM Prompt/rice_mmkg_cq_prompt.md` (single shared prompt, identical for all five models).
 

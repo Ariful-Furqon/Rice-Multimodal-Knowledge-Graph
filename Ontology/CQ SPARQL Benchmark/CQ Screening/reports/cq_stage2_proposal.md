@@ -1,6 +1,6 @@
 # Stage 2 - Cross-model Deduplication (proposal)
 
-Generated 2026-09-03 20:36 by `stage2_cluster.py` from `cq_pool_stage0.csv`.
+Generated 2026-09-03 22:12 by `stage2_cluster.py` from `cq_pool_stage0.csv`.
 
 **In:** 173 CQs &nbsp;&nbsp; **Out:** 148 canonical CQs (provisional) &nbsp;&nbsp; **Merge rule:** cosine >= 0.4 AND Jaccard >= 0.4, average linkage, within category.
 
