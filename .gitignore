@@ -4,3 +4,7 @@
 /Worklog/
 /Multimodal Fusion PoC/
 __pycache__/
+
+# CQ screening internals: kept locally, not published
+/Ontology/CQ SPARQL Benchmark/CQ Screening/reports/
+/Ontology/CQ SPARQL Benchmark/CQ Screening/scripts/
