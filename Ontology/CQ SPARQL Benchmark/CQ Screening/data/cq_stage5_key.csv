@@ -1,24 +1,26 @@
 ﻿item_no,cq_id,level,dim,category,n_models,benchmark_corroborated,v06_status,canonical_question
-1,CQ-A20,L1,D2,image,1,no,needs new schema/data,Which growth stage is visually manifest in a whole-canopy image?
+1,CQ-A22,L3,D2,crossmodal,3,yes,answerable,Which literature-described disease matches the symptoms annotated in a given image?
 2,CQ-A12,L2,D3,image,1,no,needs new schema/data,"Where do model-generated and expert image annotations disagree, and on which conditions and plant parts?"
-3,CQ-A18,L1,D2,image,2,no,needs new schema/data,How severe is the damage recorded in a given image?
+3,CQ-A19,L2,D2,image,2,no,needs new schema/data,Which symptoms co-occur on the same plant within a single image?
 4,CQ-A11,L1,D3,image,1,yes,needs new schema/data,"Who or what produced a given image annotation, and with what confidence?"
-5,CQ-A19,L2,D2,image,1,no,needs new schema/data,Which symptoms co-occur on the same plant within a single image?
-6,CQ-A21,L2,D2,crossmodal,2,yes,answerable,"Which literature-described symptoms have supporting image evidence, and which do not?"
-7,CQ-A02,L3,D1,text,4,yes,answerable,"Which vector species transmits which pathogen or viral disease, and by which transmission mode?"
-8,CQ-A01,L1,D1,text,4,yes,answerable,"Which pathogen causes a given rice disease, and to which taxonomic group does it belong?"
+5,CQ-A21,L2,D2,crossmodal,3,yes,answerable,"Which literature-described symptoms have supporting image evidence, and which do not?"
+6,CQ-A23,L3,D2,crossmodal,1,yes,answerable,Which treatment does the literature prescribe for a condition identified from an image?
+7,CQ-A02,L3,D1,text,5,yes,answerable,"Which vector species transmits which pathogen or viral disease, and by which transmission mode?"
+8,CQ-A01,L1,D1,text,5,yes,answerable,"Which pathogen causes a given rice disease, and to which taxonomic group does it belong?"
 9,CQ-A13,L2,D2,image,2,no,answerable,"How is the image corpus distributed across conditions, plant parts, and capture types?"
-10,CQ-A10,L1,D2,image,4,no,answerable,Which images are annotated as showing a given condition or visual symptom?
+10,CQ-A10,L1,D2,image,5,no,answerable,Which images are annotated as showing a given condition or visual symptom?
 11,CQ-A05,L1,D1,text,1,yes,answerable,Which environmental conditions are reported to favour a given disease or pest?
-12,CQ-A17,L3,D2,image,4,no,answerable,Which visual features separate two visually confusable conditions?
+12,CQ-A18,L1,D2,image,3,no,needs new schema/data,How severe is the damage recorded in a given image?
 13,CQ-A06,L1,D1,text,1,yes,answerable,At which growth stages is a given disease or pest reported as most damaging?
-14,CQ-A03,L2,D1,text,2,yes,answerable,"Which symptoms does a given disease produce, on which plant organ, and at which growth stage?"
+14,CQ-A03,L2,D1,text,3,yes,answerable,"Which symptoms does a given disease produce, on which plant organ, and at which growth stage?"
 15,CQ-A16,L3,D2,image,3,no,answerable,Which disease or pest is best supported by the visual evidence in a given image?
-16,CQ-A04,L3,D1,text,4,no,answerable,"Which diseases or pests share overlapping symptoms, and which symptoms discriminate between them?"
-17,CQ-A09,L3,D1,text,1,no,needs new schema/data,Which features distinguish a nutritional disorder from a disease with similar visible symptoms?
-18,CQ-A15,L1,D2,image,2,yes,answerable,Which visible symptoms are annotated in a given image?
-19,CQ-A23,L3,D2,crossmodal,1,yes,answerable,Which treatment does the literature prescribe for a condition identified from an image?
-20,CQ-A22,L3,D2,crossmodal,2,yes,answerable,Which literature-described disease matches the symptoms annotated in a given image?
-21,CQ-A14,L1,D2,image,3,no,needs new schema/data,Which plant organ is depicted in a given image?
-22,CQ-A07,L2,D1,text,4,yes,answerable,"Which control measures are recommended for a given disease or pest, of which management category, and on which source authority?"
-23,CQ-A08,L1,D1,text,1,no,needs new schema/data,Which natural enemies are documented as predators or parasitoids of a given pest?
+16,CQ-A04,L3,D1,text,5,no,answerable,"Which diseases or pests share overlapping symptoms, and which symptoms discriminate between them?"
+17,CQ-A17,L3,D2,image,4,no,answerable,Which visual features separate two visually confusable conditions?
+18,CQ-A09,L3,D1,text,1,no,needs new schema/data,Which features distinguish a nutritional disorder from a disease with similar visible symptoms?
+19,CQ-A15,L1,D2,image,2,yes,answerable,Which visible symptoms are annotated in a given image?
+20,CQ-A25,L3,D3,crossmodal,1,no,needs new schema/data,"Where do a written assessment and an image-derived assessment of the same observation disagree, on a common declared scale?"
+21,CQ-A20,L1,D2,image,1,no,needs new schema/data,Which growth stage is visually manifest in a whole-canopy image?
+22,CQ-A24,L1,D2,image,1,no,needs new schema/data,"Which images are explicitly annotated as showing no visible symptoms, and which organ or plant view does each represent?"
+23,CQ-A14,L1,D2,image,4,no,needs new schema/data,Which plant organ is depicted in a given image?
+24,CQ-A07,L2,D1,text,5,yes,answerable,"Which control measures are recommended for a given disease or pest, of which management category, and on which source authority?"
+25,CQ-A08,L1,D1,text,1,no,needs new schema/data,Which natural enemies are documented as predators or parasitoids of a given pest?

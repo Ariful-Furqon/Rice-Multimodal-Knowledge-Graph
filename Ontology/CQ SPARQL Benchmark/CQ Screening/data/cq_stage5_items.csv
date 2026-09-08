@@ -1,24 +1,26 @@
 ﻿item_no,question_id,question_en
-1,Fase pertumbuhan apa yang tampak dari citra kanopi utuh?,Which growth stage is visually manifest in a whole-canopy image?
+1,Penyakit apa dalam literatur yang cocok dengan gejala teranotasi pada citra yang menunjukkan garis kebasahan (water-soaked streak)?,Which disease described in the literature matches the symptoms annotated in an image showing water-soaked streaks?
 2,Pada kondisi apa saja anotasi hasil model dan anotasi pakar berbeda?,On which conditions do model-generated and expert image annotations disagree?
-3,Seberapa berat tingkat kerusakan yang tercatat pada suatu citra?,How severe is the damage recorded in a given image?
+3,Gejala apa saja yang muncul bersamaan pada satu tanaman dalam satu citra?,Which symptoms co-occur on the same plant within a single image?
 4,"Siapa atau apa yang membuat anotasi pada suatu citra, dan dengan tingkat keyakinan berapa?","Who or what produced the annotation of a given image, and with what confidence?"
-5,Gejala apa saja yang muncul bersamaan pada satu tanaman dalam satu citra?,Which symptoms co-occur on the same plant within a single image?
-6,"Gejala apa yang dideskripsikan di literatur dan memiliki bukti citra pendukung, dan mana yang tidak?","Which symptoms described in the literature have supporting image evidence, and which do not?"
+5,"Gejala apa yang dideskripsikan di literatur dan memiliki bukti citra pendukung, dan mana yang tidak?","Which symptoms described in the literature have supporting image evidence, and which do not?"
+6,Tindakan apa yang direkomendasikan literatur untuk kondisi yang teridentifikasi dari citra sebagai hawar pelepah?,Which treatment does the literature prescribe for a condition identified from an image as Sheath Blight?
 7,"Spesies vektor apa yang menularkan Rice Tungro Bacilliform Virus, dan melalui mekanisme penularan apa?","Which vector species transmits Rice Tungro Bacilliform Virus, and by which transmission mode?"
 8,"Patogen apa yang menyebabkan penyakit blas (rice blast), dan termasuk kelompok taksonomi apa (jamur, bakteri, virus)?","Which pathogen causes Rice Blast, and to which taxonomic group (fungus, bacterium, virus) does it belong?"
 9,"Berapa jumlah citra untuk tiap kondisi, organ tanaman, dan jenis pengambilan (lapangan atau jarak dekat)?","How many images exist for each condition, plant organ, and capture type (field versus close-up)?"
 10,Citra mana saja yang dianotasi menunjukkan serangan hispa?,Which images are annotated as showing Hispa damage?
 11,Kondisi lingkungan apa yang dilaporkan memicu berkembangnya hawar pelepah (sheath blight)?,Which environmental conditions are reported to favour Sheath Blight?
-12,Ciri visual apa yang membedakan bercak coklat (brown spot) dari penyakit blas (rice blast)?,Which visual features separate Brown Spot from Rice Blast?
+12,Seberapa berat tingkat kerusakan yang tercatat pada suatu citra?,How severe is the damage recorded in a given image?
 13,Pada fase pertumbuhan apa wereng batang coklat dilaporkan paling merusak?,At which growth stages is Brown Planthopper reported as most damaging?
 14,"Gejala apa saja yang ditimbulkan hawar daun bakteri (bacterial leaf blight), pada organ tanaman apa, dan pada fase pertumbuhan apa?","Which symptoms does Bacterial Leaf Blight produce, on which plant organ, and at which growth stage?"
 15,Penyakit atau hama apa yang paling didukung oleh bukti visual pada citra yang menunjukkan bercak coklat di helai daun?,Which disease or pest is best supported by the visual evidence in an image showing brown lesions on the leaf blade?
 16,"Penyakit apa saja yang gejalanya tumpang tindih dengan bercak coklat (brown spot), dan gejala apa yang membedakannya?","Which diseases share symptoms with Brown Spot, and which symptoms discriminate between them?"
-17,"Ciri apa yang membedakan gangguan hara seperti defisiensi seng dari penyakit blas, ketika gejala yang tampak mirip?","Which features distinguish a nutritional disorder such as zinc deficiency from Rice Blast, when the visible symptoms are similar?"
-18,Gejala apa saja yang dianotasi pada suatu citra?,Which visible symptoms are annotated in a given image?
-19,Tindakan apa yang direkomendasikan literatur untuk kondisi yang teridentifikasi dari citra sebagai hawar pelepah?,Which treatment does the literature prescribe for a condition identified from an image as Sheath Blight?
-20,Penyakit apa dalam literatur yang cocok dengan gejala teranotasi pada citra yang menunjukkan garis kebasahan (water-soaked streak)?,Which disease described in the literature matches the symptoms annotated in an image showing water-soaked streaks?
-21,"Organ tanaman apa (daun, pelepah, batang, malai) yang tampak pada suatu citra?","Which plant organ (leaf, sheath, stem, panicle) is depicted in a given image?"
-22,"Tindakan pengendalian apa yang direkomendasikan untuk penggerek batang, termasuk kategori apa (kimiawi, hayati, kultur teknis), dan bersumber dari rujukan apa?","Which control measures are recommended for Stem Borer, of which management category (chemical, biological, cultural), and on which source authority?"
-23,Musuh alami apa saja yang tercatat sebagai predator atau parasitoid wereng batang coklat?,Which natural enemies are documented as predators or parasitoids of Brown Planthopper?
+17,Ciri visual apa yang membedakan bercak coklat (brown spot) dari penyakit blas (rice blast)?,Which visual features separate Brown Spot from Rice Blast?
+18,"Ciri apa yang membedakan gangguan hara seperti defisiensi seng dari penyakit blas, ketika gejala yang tampak mirip?","Which features distinguish a nutritional disorder such as zinc deficiency from Rice Blast, when the visible symptoms are similar?"
+19,Gejala apa saja yang dianotasi pada suatu citra?,Which visible symptoms are annotated in a given image?
+20,Di mana penilaian kerusakan daun yang tertulis di literatur berbeda dengan penilaian yang diturunkan dari citra daun yang sama?,Where does a written assessment of leaf damage disagree with an assessment derived from the image of the same leaf?
+21,Fase pertumbuhan apa yang tampak dari citra kanopi utuh?,Which growth stage is visually manifest in a whole-canopy image?
+22,"Citra mana yang secara eksplisit dianotasi sebagai tanaman sehat tanpa gejala terlihat, dan organ atau sudut pandang apa yang ditampilkan masing-masing?","Which images are explicitly annotated as showing a healthy plant with no visible symptoms, and which organ or plant view does each show?"
+23,"Organ tanaman apa (daun, pelepah, batang, malai) yang tampak pada suatu citra?","Which plant organ (leaf, sheath, stem, panicle) is depicted in a given image?"
+24,"Tindakan pengendalian apa yang direkomendasikan untuk penggerek batang, termasuk kategori apa (kimiawi, hayati, kultur teknis), dan bersumber dari rujukan apa?","Which control measures are recommended for Stem Borer, of which management category (chemical, biological, cultural), and on which source authority?"
+25,Musuh alami apa saja yang tercatat sebagai predator atau parasitoid wereng batang coklat?,Which natural enemies are documented as predators or parasitoids of Brown Planthopper?

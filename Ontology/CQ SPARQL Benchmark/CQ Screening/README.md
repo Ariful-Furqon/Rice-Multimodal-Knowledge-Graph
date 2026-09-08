@@ -1,10 +1,10 @@
 # CQ Screening
 
-How 173 competency questions elicited from five large language models were
-filtered down to the 23 that go to expert validation, and how to reproduce that
+How 213 competency questions elicited from six large language models were
+filtered down to the 25 that go to expert validation, and how to reproduce that
 filtering from the source files.
 
-The deliverable is **[`reports/cq_stage3_final_tierA.md`](reports/cq_stage3_final_tierA.md)**.
+The deliverable is `reports/cq_stage3_final_tierA.md`.
 Everything else in this directory exists to show how it was arrived at.
 
 ---
@@ -13,39 +13,49 @@ Everything else in this directory exists to show how it was arrived at.
 
 | Stage | What it decides | In | Out |
 |---|---|---|---|
-| 0 - Pool | nothing; verbatim extraction | 5 model outputs | **173** |
-| 1 - Structural validity | is this a competency question at all? | 173 | 173, of which **8 flagged** |
-| 2 - Deduplication | which CQs restate one requirement? | 173 | 148 provisional clusters *(superseded, see below)* |
-| 3 - Scope gate | does it need a modality we do not have? | 173 | **64** Tier A, 109 Tier B |
-| 3 - Adjudication | keep or drop, and grouping | 64 | **56** keep, 8 drop |
-| 3 - Grouping | one canonical CQ per requirement | 56 | **23** |
-| 4 - Reconciliation | how do these relate to the 25 benchmark CQs? | 23 vs 25 | 15 corroborated, **12 gaps** |
-| 5 - Questionnaire | instantiate, blind, randomise | 23 | **23 items**, all included |
+| 0 - Pool | nothing; verbatim extraction | 6 model outputs | **213** |
+| 1 - Structural validity | is this a competency question at all? | 213 | 213, of which **9 flagged** |
+| 2 - Deduplication | which CQs restate one requirement? | 213 | 182 provisional clusters *(superseded, see below)* |
+| 3 - Scope gate | does it need a modality we do not have? | 213 | **80** Tier A, 133 Tier B |
+| 3 - Adjudication | keep or drop, and grouping | 80 | **70** keep, 10 drop |
+| 3 - Grouping | one canonical CQ per requirement | 70 | **25** |
+| 4 - Reconciliation | how do these relate to the 25 benchmark CQs? | 25 vs 25 | 15 corroborated, **14 gaps** |
+| 5 - Questionnaire | instantiate, blind, randomise | 25 | **25 items**, all included |
 
 Stage 2's automatic clustering **did not survive**. Two independent similarity
 signals were tried (TF-IDF cosine over question text, Jaccard over the
 class/property signature) at many thresholds, and both conflate requirements
 that are genuinely distinct: at every cut tried, *what pathogen causes blast*
 clustered with *what symptoms are reported for blast*. Its output is kept for
-the record, but the grouping that produced the final set was done by reading all
-64 Tier A CQs. Stage 2's `n_models` figures are a lower bound and should not be
-quoted.
+the record, but the grouping that produced the final set was done by reading
+every Tier A CQ. Stage 2's `n_models` figures are a lower bound and should not
+be quoted.
 
-## Two things to state in writing
+## Three things to state in writing
+
+**The elicitation was done in two rounds.** Five models were prompted first
+(pool of 173, adjudicated 2026-09-03). A sixth, GPT-6 Astra, was prompted later
+with the *same* prompt file and folded into one pool on 2026-09-08, bringing it
+to 213. Merging two rounds into a single pool is defensible because the prompt
+did not change, but it must be reported as what it is: the six outputs were not
+collected simultaneously, and the sixth model's 40 CQs were adjudicated after
+the grouping vocabulary (G01-G23) already existed, which makes it easier for its
+CQs to land in an existing group than to found a new one. Two did found new
+groups (`G24`, `G25`).
 
 **The scope decision.** Only text and image are claimed. RiceMMKG v0.6 holds
 10,407 `ImageObservation` individuals, **zero** `SensorObservation` individuals,
 and no variety, gene, document or region entities. The elicitation prompt
-declared a four-modality KG as context to assume, so all five models wrote CQs
-for a KG that does not exist yet: 45 of the 173 need sensor data, 39 need
-genomic, 23 need both. Those become Tier B - a requirements-based justification
+declared a four-modality KG as context to assume, so all six models wrote CQs
+for a KG that does not exist yet: 82 of the 213 need sensor data, 77 need
+genomic, 26 need both. Those become Tier B - a requirements-based justification
 for the roadmap, not a claim about this release.
 
 **The conflict of interest.** The Stage 3 grouping was drafted by Claude Opus 5,
-which is *also one of the five models whose output forms the pool*. A model
-graded its own work. It was reviewed and approved by M. A. Furqon on 2026-09-03.
-Describe it as an LLM-assisted first pass, human-adjudicated - never as an
-automatic result.
+which is *also one of the models whose output forms the pool*. A model graded
+its own work. It was reviewed and approved by M. A. Furqon on 2026-09-03, and
+the sixth model's CQs on 2026-09-08. Describe it as an LLM-assisted first pass,
+human-adjudicated - never as an automatic result.
 
 ## Layout
 
@@ -53,19 +63,19 @@ automatic result.
 CQ Screening/
 ├── README.md                         this file
 ├── scripts/                          run in order; each is self-contained
-│   ├── stage0_build_pool.py          parse the five model outputs
+│   ├── stage0_build_pool.py          parse the six model outputs
 │   ├── stage1_screen.py              structural validity triage
 │   ├── stage2_cluster.py             automatic clustering (superseded)
 │   ├── stage3_scope_and_group.py     scope gate, grouping, final CQ set
 │   ├── stage4_reconcile.py           compare against the 25 benchmark CQs
 │   └── stage5_questionnaire.py       build the blinded expert questionnaire
 ├── data/                             machine-readable, one row per CQ
-│   ├── cq_stage0_pool.csv|.jsonl     the 173-CQ pool
+│   ├── cq_stage0_pool.csv|.jsonl     the 213-CQ pool
 │   ├── cq_stage1_adjudication.csv    flags + blank screener columns
 │   ├── cq_stage2_*.csv               provisional clusters, borderline pairs
-│   ├── cq_stage3_worksheet.csv       the 64 Tier A CQs, blank for adjudication
+│   ├── cq_stage3_worksheet.csv       the 80 Tier A CQs, blank for adjudication
 │   ├── cq_stage3_decisions.csv       the same, with decisions and groups
-│   ├── cq_stage3_final_tierA.csv     the 23 canonical CQs
+│   ├── cq_stage3_final_tierA.csv     the 25 canonical CQs
 │   ├── cq_stage4_reconciliation.csv  one row per benchmark CQ
 │   ├── cq_stage4_gaps.csv            elicited CQs the benchmark misses
 │   ├── cq_stage5_items.csv           blinded items, presentation order
@@ -77,18 +87,22 @@ CQ Screening/
     ├── cq_stage2_proposal.md         method and its stated limitation
     ├── cq_stage3_worksheet.md        readable worksheet
     ├── cq_stage3_decisions.md        per-group breakdown, dropped CQs
-    ├── cq_stage3_final_tierA.md      ← the deliverable: the 23 CQs
-    ├── cq_stage4_reconciliation.md   benchmark comparison and the 12 gaps
-    ├── cq_stage5_questionnaire.md    ← the form to hand to experts
+    ├── cq_stage3_final_tierA.md      <- the deliverable: the 25 CQs
+    ├── cq_stage4_reconciliation.md   benchmark comparison and the 14 gaps
+    ├── cq_stage5_questionnaire.md    <- the form to hand to experts
     └── cq_stage5_google_form.js      Apps Script that builds the same form
                                       in Google Forms
 ```
+
+`scripts/` and `reports/` are kept locally but excluded from version control, so
+a reader of the repository sees `README.md` and `data/` only. The tree above
+describes the working directory, not the published one.
 
 Every artefact is named `cq_stage<N>_*`, so sorting either directory lays the
 funnel out in order and no stage can look absent.
 
 Source material lives in `../LLM Prompt/`: one shared prompt
-(`rice_mmkg_cq_prompt.md`) and the five model outputs. Nothing in this directory
+(`rice_mmkg_cq_prompt.md`) and the six model outputs. Nothing in this directory
 edits those.
 
 ## Reproducing
@@ -107,30 +121,39 @@ similarity method can be described exactly in a paper rather than deferred to a
 library version. Scripts are idempotent and overwrite their own outputs.
 
 Human decisions are not recomputed - they are recorded as the `LABELS` table in
-`stage3_scope_and_group.py`, keyed by `pool_id`. Changing a filter therefore
-cannot silently re-target a decision; the script asserts that its labels and its
-Tier A set still correspond, and stops if they drift.
+`stage3_scope_and_group.py`, keyed by **`(source_model, original_id)`**: the
+model that wrote the CQ and the identifier that model gave it.
 
-## What the 23 CQs look like
+That key was originally `pool_id`, and it was wrong. `pool_id` is assigned after
+sorting the whole pool, so adding a model renumbers everything alphabetically
+after it. Inserting GPT-6 Astra moved 23 of the 64 existing labels onto
+*different questions* while every id remained valid, which the sync assertion
+could not see. The `(model, id)` pair cannot move. Re-keying was verified by
+re-running the five-model pool and confirming byte-identical output; the first
+six-model run then reported 0 stale labels and 17 unlabelled ones - exactly the
+17 new CQs that survived the scope gate.
 
-Six were proposed independently by four of the five models, and are effectively
+## What the 25 CQs look like
+
+Five were proposed independently by five of the six models, and are effectively
 the core of the ontology: pathogen causing a disease (`CQ-A01`), vector
 transmission (`CQ-A02`), overlapping symptoms and what discriminates them
-(`CQ-A04`), recommended control measures (`CQ-A07`), retrieving images by
-condition (`CQ-A10`), and visual features separating confusable conditions
-(`CQ-A17`).
+(`CQ-A04`), recommended control measures (`CQ-A07`), and retrieving images by
+condition (`CQ-A10`).
 
-Nine were proposed by a single model. **Keep them.** Stage 5 needs
+Ten were proposed by a single model. **Keep them.** Stage 5 needs
 low-convergence CQs in the questionnaire, or the hypothesis that convergence
 predicts expert-rated relevance cannot be tested - and that hypothesis is the
 methodological contribution.
 
-**20 of the 56 retained CQs cannot yet be answered by v0.6.** That is not a
-defect: competency questions are requirements, and an ontology that answers all
-of its CQs on day one had its CQs written to fit what was already built. The
-gaps are itemised at the end of `reports/cq_stage3_final_tierA.md` and constitute the
-v0.7 work plan - `PlantPart` is missing, `confidenceScore` is declared but never
-used, `SeverityLevel` exists but is not linked to any image.
+**32 of the 70 retained CQs cannot yet be answered by v0.6**, and 10 of the 25
+canonical CQs have no answerable member at all. That is not a defect: competency
+questions are requirements, and an ontology that answers all of its CQs on day
+one had its CQs written to fit what was already built. The gaps are itemised at
+the end of `reports/cq_stage3_final_tierA.md` and constitute the v0.7 work plan -
+`PlantPart` is missing, `confidenceScore` is declared but never used,
+`SeverityLevel` exists but is not linked to any image, and region-level image
+annotation does not exist at all.
 
 ## What Stage 4 found
 
@@ -147,26 +170,31 @@ the right division of labour. The one item to revisit is `CQ-20`, which counts
 sensor observations - Tier B under the scope decision, and currently reported as
 a passing benchmark item.
 
-The actionable half is the other direction: **12 of the 23 elicited CQs have no
-benchmark counterpart, and 9 of those 12 are image or cross-modal**. The
+The actionable half is the other direction: **14 of the 25 elicited CQs have no
+benchmark counterpart, and 11 of those 14 are image or cross-modal**. The
 benchmark covers the symbolic layer thoroughly and the image layer barely.
-Four are already answerable by v0.6 and could be implemented as SPARQL now:
-`CQ-A04` (differential diagnosis), `CQ-A10`, `CQ-A16`, `CQ-A17`. `CQ-A04` is
-the most striking - four of five models proposed it, it is the question a field
-diagnostician actually asks, and the benchmark has no equivalent.
+Five are already answerable by v0.6 and could be implemented as SPARQL now:
+`CQ-A04` (differential diagnosis), `CQ-A10`, `CQ-A13`, `CQ-A16`, `CQ-A17`.
+`CQ-A04` is the most striking - five of six models proposed it, it is the
+question a field diagnostician actually asks, and the benchmark has no
+equivalent.
 
-Detail in [`reports/cq_stage4_reconciliation.md`](reports/cq_stage4_reconciliation.md).
+Detail in `reports/cq_stage4_reconciliation.md`.
 
 ## Stage 5: the questionnaire
 
-[`reports/cq_stage5_questionnaire.md`](reports/cq_stage5_questionnaire.md) is
-ready to hand to experts. All 23 CQs are included - the planned size was 30-50
-items, so nothing had to be sampled away, and the full convergence spread
-survives (nine single-model CQs alongside six proposed by four models).
+`reports/cq_stage5_questionnaire.md` is ready to hand to experts. All 25 CQs are
+included - the planned size was 30-50 items, so nothing had to be sampled away,
+and the full convergence spread survives (ten single-model CQs alongside five
+proposed by five of the six models).
 
 Every item is **instantiated** with an entity that exists in v0.6: not *"which
 pathogen causes a given disease"* but *"which pathogen causes rice blast"*. An
 expert cannot judge the former.
+
+The introduction states plainly that the project is at the formalisation stage,
+that no system exists yet, and that the expert is asked to rate the *questions*,
+not to answer them. Anything else would misdescribe what is being evaluated.
 
 The form is **blinded**. Order is shuffled with a fixed seed, and no item shows
 its source model, `n_models`, group id, or benchmark-corroboration flag. Those
@@ -186,14 +214,14 @@ paste it into a new project, run `createValidationForm()` once; the execution
 log prints the form URL. Item numbers match `cq_stage5_items.csv`, which is how
 responses join back to the key.
 
-Three settings matter. **Do not enable Forms' own question shuffling** - the
+Three settings matter. **Do not enable the built-in question shuffling** - the
 order is already randomised once with a fixed seed and documented; reshuffling
 per respondent discards that for little gain at this sample size. **Set
 `COLLECT_EMAIL`** deliberately: agreement coefficients cannot be computed
 without attributing ratings to raters, but that is a consent decision, so the
-script leaves it off and asks for a name instead. And the four sections of six
-items exist for pacing only - they deliberately do **not** group by category,
-which would expose the structure the blinding is meant to hide.
+script leaves it off and asks for a name instead. And the sections of six items
+exist for pacing only - they deliberately do **not** group by category, which
+would expose the structure the blinding is meant to hide.
 
 ### Analysing the returns
 
@@ -212,19 +240,20 @@ level and knowledge dimension.
 
 ## Reasoning level and knowledge dimension
 
-The 23 CQs are classified on the same grid as the existing benchmark, so the two
+The 25 CQs are classified on the same grid as the existing benchmark, so the two
 sets can be reported side by side.
 
 | | L1 | L2 | L3 | L4 | | D1 | D2 | D3 |
 |---|---|---|---|---|---|---|---|---|
 | Benchmark (25) | 7 | 6 | 5 | **7** | | **16** | 5 | 4 |
-| Elicited (23) | 10 | 6 | 7 | **0** | | 9 | **12** | 2 |
+| Elicited (25) | 11 | 6 | 8 | **0** | | 9 | **13** | 3 |
 
 **Nothing elicited lands in L4**, and that is a finding rather than a gap in the
 classification. Entailment questions - does the defined class populate, does
 inverse traversal work, is any individual typed both Symptom and Disease - are
 an ontology engineer's concern. No agronomist poses them, so no domain-oriented
-elicitation produces them.
+elicitation produces them. Adding a sixth model did not change this: 40 further
+CQs from a model that was never asked for entailment produced none.
 
 This mirrors Stage 4 from the opposite direction. The benchmark is weighted to
 the symbolic layer and to entailment: it tests the ontology. The elicited set is
@@ -237,6 +266,18 @@ adjudicable like every other decision here. Two calls are genuinely arguable:
 plus set operations, but L2 is defensible; and `CQ-A07` is D1 although its "on
 which source authority" clause also exercises D3.
 
+## The scope gate has two parts
+
+A CQ is Tier B if its text matches the sensor or genomic keyword patterns, **or**
+if the model that wrote it filed it under the sensor or genomic category. The
+second test was added on 2026-09-08 and is retrospectively a no-op on the
+five-model pool. It exists because GPT-6 Astra `CQ-GEN-02` asks about Xoo
+inoculation assays of IRBB5 and IRBB21 - unmistakably a germplasm question,
+written without a single term in the keyword list. Trusting the source model's
+own filing catches what keywords miss. The keyword list also gained
+`accession`, `isolate` and `inoculation`, which likewise catch nothing in the
+original pool.
+
 ## Still outstanding
 
 - **Second screener.** Stages 1, 3 and 4 rest on the ontology engineer's own
@@ -246,5 +287,7 @@ which source authority" clause also exercises D3.
 - **Tier B instrument.** Tier A rates the released resource; a separate
   instrument should prioritise the roadmap. The two must never merge - Tier B
   ratings must not enter the kappa that evaluates the resource.
-- **Four SPARQL implementations.** `CQ-A04`, `CQ-A10`, `CQ-A16` and `CQ-A17`
-  are answerable by v0.6 today and absent from the benchmark (Stage 4).
+- **Five SPARQL implementations.** `CQ-A04`, `CQ-A10`, `CQ-A13`, `CQ-A16` and
+  `CQ-A17` are answerable by v0.6 today and absent from the benchmark (Stage 4).
+- **The 50% coverage threshold** used in the SPARQL benchmark has no external
+  source. State it as an author convention; do not cite it.
