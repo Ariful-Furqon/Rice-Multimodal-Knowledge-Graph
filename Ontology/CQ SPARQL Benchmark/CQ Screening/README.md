@@ -51,59 +51,17 @@ for a KG that does not exist yet: 82 of the 213 need sensor data, 77 need
 genomic, 26 need both. Those become Tier B - a requirements-based justification
 for the roadmap, not a claim about this release.
 
+Quote all four numbers together, because they have to reconcile: 82 + 77 - 26 =
+133 = 213 - 80. An earlier version of this table gave 45 / 39 / 23 against a
+Tier B of 109, which does not add up - those three were computed over the
+question text alone while the gate also reads the entity list. Any restatement
+of the split must be recomputed with the same predicate the gate uses.
+
 **The conflict of interest.** The Stage 3 grouping was drafted by Claude Opus 5,
 which is *also one of the models whose output forms the pool*. A model graded
 its own work. It was reviewed and approved by M. A. Furqon on 2026-09-03, and
 the sixth model's CQs on 2026-09-08. Describe it as an LLM-assisted first pass,
 human-adjudicated - never as an automatic result.
-
-## Layout
-
-```
-CQ Screening/
-├── README.md                         this file
-├── scripts/                          run in order; each is self-contained
-│   ├── stage0_build_pool.py          parse the six model outputs
-│   ├── stage1_screen.py              structural validity triage
-│   ├── stage2_cluster.py             automatic clustering (superseded)
-│   ├── stage3_scope_and_group.py     scope gate, grouping, final CQ set
-│   ├── stage4_reconcile.py           compare against the 25 benchmark CQs
-│   └── stage5_questionnaire.py       build the blinded expert questionnaire
-├── data/                             machine-readable, one row per CQ
-│   ├── cq_stage0_pool.csv|.jsonl     the 213-CQ pool
-│   ├── cq_stage1_adjudication.csv    flags + blank screener columns
-│   ├── cq_stage2_*.csv               provisional clusters, borderline pairs
-│   ├── cq_stage3_worksheet.csv       the 80 Tier A CQs, blank for adjudication
-│   ├── cq_stage3_decisions.csv       the same, with decisions and groups
-│   ├── cq_stage3_final_tierA.csv     the 25 canonical CQs
-│   ├── cq_stage4_reconciliation.csv  one row per benchmark CQ
-│   ├── cq_stage4_gaps.csv            elicited CQs the benchmark misses
-│   ├── cq_stage5_items.csv           blinded items, presentation order
-│   ├── cq_stage5_key.csv             unblinding key - never show to raters
-│   └── cq_stage5_responses.csv       empty response template
-└── reports/                          human-readable, for the paper
-    ├── cq_stage0_pool.md             pool provenance and distribution
-    ├── cq_stage1_proposal.md         rules, counts, every flagged CQ
-    ├── cq_stage2_proposal.md         method and its stated limitation
-    ├── cq_stage3_worksheet.md        readable worksheet
-    ├── cq_stage3_decisions.md        per-group breakdown, dropped CQs
-    ├── cq_stage3_final_tierA.md      <- the deliverable: the 25 CQs
-    ├── cq_stage4_reconciliation.md   benchmark comparison and the 14 gaps
-    ├── cq_stage5_questionnaire.md    <- the form to hand to experts
-    └── cq_stage5_google_form.js      Apps Script that builds the same form
-                                      in Google Forms
-```
-
-`scripts/` and `reports/` are kept locally but excluded from version control, so
-a reader of the repository sees `README.md` and `data/` only. The tree above
-describes the working directory, not the published one.
-
-Every artefact is named `cq_stage<N>_*`, so sorting either directory lays the
-funnel out in order and no stage can look absent.
-
-Source material lives in `../LLM Prompt/`: one shared prompt
-(`rice_mmkg_cq_prompt.md`) and the six model outputs. Nothing in this directory
-edits those.
 
 ## Reproducing
 
@@ -114,7 +72,13 @@ python scripts/stage2_cluster.py
 python scripts/stage3_scope_and_group.py
 python scripts/stage4_reconcile.py
 python scripts/stage5_questionnaire.py
+python scripts/make_deck.py
 ```
+
+`make_deck.py` reads every count from `data/`, so the slides cannot drift from
+the pipeline. It needs `python-pptx`; the six pipeline stages do not. Slides
+identify a CQ by source model and that model's own id, never by `pool_id`, for
+the reason given below.
 
 Requires Python 3 and numpy; no other dependencies, deliberately, so the
 similarity method can be described exactly in a paper rather than deferred to a
