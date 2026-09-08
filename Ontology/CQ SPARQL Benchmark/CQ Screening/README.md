@@ -251,7 +251,16 @@ original pool.
 - **Tier B instrument.** Tier A rates the released resource; a separate
   instrument should prioritise the roadmap. The two must never merge - Tier B
   ratings must not enter the kappa that evaluates the resource.
-- **Five SPARQL implementations.** `CQ-A04`, `CQ-A10`, `CQ-A13`, `CQ-A16` and
-  `CQ-A17` are answerable by v0.6 today and absent from the benchmark (Stage 4).
+- ~~**Five SPARQL implementations.**~~ **Done 2026-09-08.** `CQ-A04`, `CQ-A10`,
+  `CQ-A13`, `CQ-A16` and `CQ-A17` are implemented in
+  `../elicited_cq_sparql.py`, reported in `../Elicited_CQ_SPARQL_Report.md`.
+  All five return answers; `CQ-A13` and `CQ-A17` are recorded as *partial*
+  because v0.6 carries no plant part, capture type or lesion descriptors. Kept
+  separate from `cq_sparql_benchmark.py` on purpose: those are coverage
+  questions scored against a threshold, these are retrieval questions that
+  answer or do not. The run also surfaced a v0.7 priority the coverage
+  benchmark could not: `captures` holds 1,442 assertions and **every one of
+  them points at a single symptom**, so image-to-symptom grounding exists for
+  one condition and no other.
 - **The 50% coverage threshold** used in the SPARQL benchmark has no external
   source. State it as an author convention; do not cite it.

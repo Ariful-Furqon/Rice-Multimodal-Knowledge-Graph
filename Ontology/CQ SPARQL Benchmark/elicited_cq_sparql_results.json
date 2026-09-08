@@ -1,0 +1,506 @@
+{
+  "generated": "2026-09-08T20:49:51",
+  "ontology": "Rice MMKG.rdf",
+  "triples": 66780,
+  "results": [
+    {
+      "id": "CQ-A04",
+      "level": "L3",
+      "dim": "D1",
+      "mode": "retrieval",
+      "question": "Which diseases share symptoms with Brown Spot, and which symptoms discriminate between them?",
+      "note": "Differential diagnosis. Proposed independently by five of the six models and absent from the benchmark, which asks only whether symptoms are attached, never which conditions they fail to separate.",
+      "partial": null,
+      "queries": [
+        {
+          "label": "Conditions sharing at least one symptom with Brown Spot",
+          "sparql": "SELECT ?other (COUNT(DISTINCT ?shared) AS ?shared_symptoms)\nWHERE {\n  rice:Brown_Spot rice:indicatedBy ?shared .\n  ?other rice:indicatedBy ?shared .\n  FILTER (?other != rice:Brown_Spot)\n}\nGROUP BY ?other\nORDER BY DESC(?shared_symptoms)",
+          "rows": 4,
+          "ms": 82.8,
+          "columns": [
+            "other",
+            "shared_symptoms"
+          ],
+          "sample": [
+            [
+              "rice:Rice_Blast_Disease",
+              "3"
+            ],
+            [
+              "rice:Bacterial_Panicle_Blight",
+              "2"
+            ],
+            [
+              "rice:Sheath_Blight",
+              "1"
+            ],
+            [
+              "rice:Bacterial_Leaf_Blight",
+              "1"
+            ]
+          ]
+        },
+        {
+          "label": "Symptoms that discriminate Brown Spot from Rice Blast",
+          "sparql": "SELECT ?symptom ?present_only_in WHERE {\n  {\n    rice:Brown_Spot rice:indicatedBy ?symptom .\n    FILTER NOT EXISTS { rice:Rice_Blast_Disease rice:indicatedBy ?symptom }\n    BIND (\"Brown Spot\" AS ?present_only_in)\n  } UNION {\n    rice:Rice_Blast_Disease rice:indicatedBy ?symptom .\n    FILTER NOT EXISTS { rice:Brown_Spot rice:indicatedBy ?symptom }\n    BIND (\"Rice Blast\" AS ?present_only_in)\n  }\n}\nORDER BY ?present_only_in ?symptom",
+          "rows": 3,
+          "ms": 7.0,
+          "columns": [
+            "symptom",
+            "present_only_in"
+          ],
+          "sample": [
+            [
+              "rice:Grain_Discoloration",
+              "Brown Spot"
+            ],
+            [
+              "rice:Neck_Rot",
+              "Rice Blast"
+            ],
+            [
+              "rice:Panicle_Blast",
+              "Rice Blast"
+            ]
+          ]
+        }
+      ],
+      "answered": true,
+      "status": "answers"
+    },
+    {
+      "id": "CQ-A10",
+      "level": "L1",
+      "dim": "D2",
+      "mode": "retrieval",
+      "question": "Which images are annotated as showing Hispa damage?",
+      "note": "The most basic cross-modal retrieval there is. The benchmark checks that annotations are typed, never that they can be retrieved by condition.",
+      "partial": null,
+      "queries": [
+        {
+          "label": "Images annotated as Hispa, with their retrievable URL",
+          "sparql": "SELECT ?image ?url WHERE {\n  ?image rice:annotatedAs rice:Hispa ;\n         schema:contentUrl ?url .\n}\nORDER BY ?image",
+          "rows": 1594,
+          "ms": 32.6,
+          "columns": [
+            "image",
+            "url"
+          ],
+          "sample": [
+            [
+              "rice:PaddyDoctor_hispa_100003",
+              "Data/PaddyDoctor/hispa/100003.jpg"
+            ],
+            [
+              "rice:PaddyDoctor_hispa_100005",
+              "Data/PaddyDoctor/hispa/100005.jpg"
+            ],
+            [
+              "rice:PaddyDoctor_hispa_100010",
+              "Data/PaddyDoctor/hispa/100010.jpg"
+            ],
+            [
+              "rice:PaddyDoctor_hispa_100051",
+              "Data/PaddyDoctor/hispa/100051.jpg"
+            ],
+            [
+              "rice:PaddyDoctor_hispa_100052",
+              "Data/PaddyDoctor/hispa/100052.jpg"
+            ],
+            [
+              "rice:PaddyDoctor_hispa_100061",
+              "Data/PaddyDoctor/hispa/100061.jpg"
+            ],
+            [
+              "rice:PaddyDoctor_hispa_100072",
+              "Data/PaddyDoctor/hispa/100072.jpg"
+            ],
+            [
+              "rice:PaddyDoctor_hispa_100077",
+              "Data/PaddyDoctor/hispa/100077.jpg"
+            ]
+          ]
+        }
+      ],
+      "answered": true,
+      "status": "answers"
+    },
+    {
+      "id": "CQ-A13",
+      "level": "L2",
+      "dim": "D2",
+      "mode": "retrieval",
+      "question": "How is the image corpus distributed across conditions and entity types?",
+      "note": "PARTIAL. The elicited question also asks for plant part and capture type. v0.6 models neither, so this implements the answerable half and the rest stays on the v0.7 plan. Reported as partial rather than passed.",
+      "partial": "plant part and capture type are not modelled in v0.6",
+      "queries": [
+        {
+          "label": "Images per annotated condition and entity type",
+          "sparql": "SELECT ?condition ?type (COUNT(?image) AS ?images) WHERE {\n  ?image a rice:ImageObservation ;\n         rice:annotatedAs ?condition .\n  ?condition a ?type .\n  FILTER (STRSTARTS(STR(?type), STR(rice:)))\n}\nGROUP BY ?condition ?type\nORDER BY DESC(?images)",
+          "rows": 10,
+          "ms": 722.4,
+          "columns": [
+            "condition",
+            "type",
+            "images"
+          ],
+          "sample": [
+            [
+              "rice:Normal_Health",
+              "rice:HealthStatus",
+              "1764"
+            ],
+            [
+              "rice:Rice_Blast_Disease",
+              "rice:Disease",
+              "1738"
+            ],
+            [
+              "rice:Hispa",
+              "rice:Pest",
+              "1594"
+            ],
+            [
+              "rice:Deadheart",
+              "rice:Disease",
+              "1442"
+            ],
+            [
+              "rice:Rice_Tungro_Disease",
+              "rice:Disease",
+              "1088"
+            ],
+            [
+              "rice:Brown_Spot",
+              "rice:Disease",
+              "965"
+            ],
+            [
+              "rice:Downy_Mildew",
+              "rice:Disease",
+              "620"
+            ],
+            [
+              "rice:Bacterial_Leaf_Blight",
+              "rice:Disease",
+              "479"
+            ]
+          ]
+        },
+        {
+          "label": "Images per source dataset",
+          "sparql": "SELECT ?dataset (COUNT(?image) AS ?images) WHERE {\n  ?image a rice:ImageObservation ;\n         prov:wasDerivedFrom ?dataset .\n}\nGROUP BY ?dataset",
+          "rows": 1,
+          "ms": 131.4,
+          "columns": [
+            "dataset",
+            "images"
+          ],
+          "sample": [
+            [
+              "rice:PaddyDoctorDataset",
+              "10407"
+            ]
+          ]
+        }
+      ],
+      "answered": true,
+      "status": "partial"
+    },
+    {
+      "id": "CQ-A16",
+      "level": "L3",
+      "dim": "D2",
+      "mode": "retrieval",
+      "question": "Which disease or pest is best supported by the visual evidence in a given image?",
+      "note": "The full cross-modal chain: image -> symptom it captures -> conditions that symptom indicates. The image is chosen by the query itself rather than hardcoded, so the test survives any re-import of the corpus.",
+      "partial": null,
+      "queries": [
+        {
+          "label": "Candidate conditions for one annotated image, ranked by supporting symptoms",
+          "sparql": "SELECT ?image ?candidate (COUNT(DISTINCT ?symptom) AS ?support)\nWHERE {\n  { SELECT ?image WHERE { ?image rice:captures ?s } ORDER BY ?image LIMIT 1 }\n  ?image rice:captures ?symptom .\n  ?candidate rice:indicatedBy ?symptom .\n}\nGROUP BY ?image ?candidate\nORDER BY DESC(?support) ?candidate",
+          "rows": 2,
+          "ms": 41.8,
+          "columns": [
+            "image",
+            "candidate",
+            "support"
+          ],
+          "sample": [
+            [
+              "rice:PaddyDoctor_dead_heart_100008",
+              "rice:Deadheart",
+              "1"
+            ],
+            [
+              "rice:PaddyDoctor_dead_heart_100008",
+              "rice:Stem_Borer",
+              "1"
+            ]
+          ]
+        }
+      ],
+      "answered": true,
+      "status": "answers"
+    },
+    {
+      "id": "CQ-A17",
+      "level": "L3",
+      "dim": "D2",
+      "mode": "retrieval",
+      "question": "Which visual features separate Brown Spot from Rice Blast?",
+      "note": "The pair the models named most often as visually confusable. Answered from the symptom layer; v0.6 has no lesion shape/colour descriptors, so the separation is by symptom identity rather than by visual feature.",
+      "partial": "separation is by symptom, not by lesion descriptors, which v0.6 does not carry",
+      "queries": [
+        {
+          "label": "Symptoms unique to each of the two conditions",
+          "sparql": "SELECT ?condition ?distinguishing_symptom WHERE {\n  {\n    rice:Brown_Spot rice:indicatedBy ?distinguishing_symptom .\n    FILTER NOT EXISTS {\n      rice:Rice_Blast_Disease rice:indicatedBy ?distinguishing_symptom }\n    BIND (\"Brown Spot\" AS ?condition)\n  } UNION {\n    rice:Rice_Blast_Disease rice:indicatedBy ?distinguishing_symptom .\n    FILTER NOT EXISTS {\n      rice:Brown_Spot rice:indicatedBy ?distinguishing_symptom }\n    BIND (\"Rice Blast\" AS ?condition)\n  }\n}\nORDER BY ?condition ?distinguishing_symptom",
+          "rows": 3,
+          "ms": 7.4,
+          "columns": [
+            "condition",
+            "distinguishing_symptom"
+          ],
+          "sample": [
+            [
+              "Brown Spot",
+              "rice:Grain_Discoloration"
+            ],
+            [
+              "Rice Blast",
+              "rice:Neck_Rot"
+            ],
+            [
+              "Rice Blast",
+              "rice:Panicle_Blast"
+            ]
+          ]
+        },
+        {
+          "label": "Symptoms the two share, which therefore cannot separate them",
+          "sparql": "SELECT ?shared_symptom WHERE {\n  rice:Brown_Spot rice:indicatedBy ?shared_symptom .\n  rice:Rice_Blast_Disease rice:indicatedBy ?shared_symptom .\n}\nORDER BY ?shared_symptom",
+          "rows": 3,
+          "ms": 2.1,
+          "columns": [
+            "shared_symptom"
+          ],
+          "sample": [
+            [
+              "rice:Brown_Lesion"
+            ],
+            [
+              "rice:Leaf_Spot"
+            ],
+            [
+              "rice:Wilting"
+            ]
+          ]
+        }
+      ],
+      "answered": true,
+      "status": "partial"
+    }
+  ],
+  "status_table": [
+    {
+      "cq_id": "CQ-A01",
+      "level": "L1",
+      "dim": "D1",
+      "short_label": "Pathogen causing a disease, and its taxonomy",
+      "state": "covered by the benchmark",
+      "why": "the benchmark probes the same relation in coverage form"
+    },
+    {
+      "cq_id": "CQ-A02",
+      "level": "L3",
+      "dim": "D1",
+      "short_label": "Vector transmitting a pathogen or viral disease",
+      "state": "covered by the benchmark",
+      "why": "the benchmark probes the same relation in coverage form"
+    },
+    {
+      "cq_id": "CQ-A03",
+      "level": "L2",
+      "dim": "D1",
+      "short_label": "Symptoms of a disease, by organ and growth stage",
+      "state": "covered by the benchmark",
+      "why": "the benchmark probes the same relation in coverage form"
+    },
+    {
+      "cq_id": "CQ-A04",
+      "level": "L3",
+      "dim": "D1",
+      "short_label": "Diseases sharing symptoms, and what discriminates them",
+      "state": "implemented here",
+      "why": "answerable by v0.6, no benchmark counterpart"
+    },
+    {
+      "cq_id": "CQ-A05",
+      "level": "L1",
+      "dim": "D1",
+      "short_label": "Environmental conditions favouring a disease or pest",
+      "state": "covered by the benchmark",
+      "why": "the benchmark probes the same relation in coverage form"
+    },
+    {
+      "cq_id": "CQ-A06",
+      "level": "L1",
+      "dim": "D1",
+      "short_label": "Growth stage at which a pest or disease is most damaging",
+      "state": "covered by the benchmark",
+      "why": "the benchmark probes the same relation in coverage form"
+    },
+    {
+      "cq_id": "CQ-A07",
+      "level": "L2",
+      "dim": "D1",
+      "short_label": "Recommended control measures, by category and source",
+      "state": "covered by the benchmark",
+      "why": "the benchmark probes the same relation in coverage form"
+    },
+    {
+      "cq_id": "CQ-A08",
+      "level": "L1",
+      "dim": "D1",
+      "short_label": "Natural enemies of a pest",
+      "state": "v0.7 work plan",
+      "why": "needs NaturalEnemy class - not in v0.6"
+    },
+    {
+      "cq_id": "CQ-A09",
+      "level": "L3",
+      "dim": "D1",
+      "short_label": "Distinguishing a nutritional disorder from a disease",
+      "state": "v0.7 work plan",
+      "why": "needs nutritional disorder (zinc deficiency) - not in v0.6"
+    },
+    {
+      "cq_id": "CQ-A10",
+      "level": "L1",
+      "dim": "D2",
+      "short_label": "Images showing a given condition or symptom",
+      "state": "implemented here",
+      "why": "answerable by v0.6, no benchmark counterpart"
+    },
+    {
+      "cq_id": "CQ-A11",
+      "level": "L1",
+      "dim": "D3",
+      "short_label": "Provenance and confidence of an image annotation",
+      "state": "v0.7 work plan",
+      "why": "needs annotator + confidence - confidenceScore unused in v0.6"
+    },
+    {
+      "cq_id": "CQ-A12",
+      "level": "L2",
+      "dim": "D3",
+      "short_label": "Disagreement between model and expert annotations",
+      "state": "v0.7 work plan",
+      "why": "needs both model and expert annotations - only dataset labels in v0.6"
+    },
+    {
+      "cq_id": "CQ-A13",
+      "level": "L2",
+      "dim": "D2",
+      "short_label": "Distribution of the image corpus",
+      "state": "implemented here",
+      "why": "answerable by v0.6, no benchmark counterpart"
+    },
+    {
+      "cq_id": "CQ-A14",
+      "level": "L1",
+      "dim": "D2",
+      "short_label": "Plant organ depicted in an image",
+      "state": "v0.7 work plan",
+      "why": "needs PlantPart + visual symptom class; needs PlantPart class - not in v0.6; needs region-level organ ..."
+    },
+    {
+      "cq_id": "CQ-A15",
+      "level": "L1",
+      "dim": "D2",
+      "short_label": "Symptoms annotated in a given image",
+      "state": "covered by the benchmark",
+      "why": "the benchmark probes the same relation in coverage form"
+    },
+    {
+      "cq_id": "CQ-A16",
+      "level": "L3",
+      "dim": "D2",
+      "short_label": "Disease or pest supported by visual evidence",
+      "state": "implemented here",
+      "why": "answerable by v0.6, no benchmark counterpart"
+    },
+    {
+      "cq_id": "CQ-A17",
+      "level": "L3",
+      "dim": "D2",
+      "short_label": "Visual features separating confusable conditions",
+      "state": "implemented here",
+      "why": "answerable by v0.6, no benchmark counterpart"
+    },
+    {
+      "cq_id": "CQ-A18",
+      "level": "L1",
+      "dim": "D2",
+      "short_label": "Severity of the damage in an image",
+      "state": "v0.7 work plan",
+      "why": "needs lesion and leaf segmentation masks plus an area-percentage measurement; needs region-level lesion ..."
+    },
+    {
+      "cq_id": "CQ-A19",
+      "level": "L2",
+      "dim": "D2",
+      "short_label": "Symptoms co-occurring in one image",
+      "state": "v0.7 work plan",
+      "why": "needs image series grouped by the same plant - v0.6 images are independent; needs multi-symptom ..."
+    },
+    {
+      "cq_id": "CQ-A20",
+      "level": "L1",
+      "dim": "D2",
+      "short_label": "Growth stage visible in a canopy image",
+      "state": "v0.7 work plan",
+      "why": "needs growth stage annotation on images"
+    },
+    {
+      "cq_id": "CQ-A21",
+      "level": "L2",
+      "dim": "D2",
+      "short_label": "Literature symptoms with and without image support",
+      "state": "covered by the benchmark",
+      "why": "the benchmark probes the same relation in coverage form"
+    },
+    {
+      "cq_id": "CQ-A22",
+      "level": "L3",
+      "dim": "D2",
+      "short_label": "Literature disease matching an image",
+      "state": "covered by the benchmark",
+      "why": "the benchmark probes the same relation in coverage form"
+    },
+    {
+      "cq_id": "CQ-A23",
+      "level": "L3",
+      "dim": "D2",
+      "short_label": "Treatment prescribed for an imaged condition",
+      "state": "covered by the benchmark",
+      "why": "the benchmark probes the same relation in coverage form"
+    },
+    {
+      "cq_id": "CQ-A24",
+      "level": "L1",
+      "dim": "D2",
+      "short_label": "Symptom-free baseline images, by organ and view",
+      "state": "v0.7 work plan",
+      "why": "needs an explicit symptom-free assertion and a view type per image"
+    },
+    {
+      "cq_id": "CQ-A25",
+      "level": "L3",
+      "dim": "D3",
+      "short_label": "Written and image-derived assessments in disagreement",
+      "state": "v0.7 work plan",
+      "why": "needs written and image-derived measurements on one declared scale"
+    }
+  ]
+}
