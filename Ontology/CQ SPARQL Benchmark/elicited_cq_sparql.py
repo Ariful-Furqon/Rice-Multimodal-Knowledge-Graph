@@ -11,11 +11,15 @@ against a coverage threshold would be a category error, so they are kept apart
 and reported separately.
 
 WHAT IS IMPLEMENTED
-Stage 4 identified five elicited CQs that are answerable by v0.6 as it stands
-and have no benchmark counterpart. Those are implemented here. The other twenty
-are recorded in the status table with the reason they are not: ten are already
-probed by the benchmark in coverage form, ten need schema or data that v0.6 does
-not have (the v0.7 work plan).
+Every elicited Tier A CQ that v0.6 can answer: 15 of the 25. The other 10 need
+schema or data the release does not have and are the v0.7 work plan; they are
+listed in the status table with the reason, so nothing is quietly omitted.
+
+Five of the fifteen have no benchmark counterpart at all -- they close the gap
+Stage 4 exposed. The other ten do have one, but only in coverage form: the
+benchmark asks what fraction of diseases have a pathogen, these ask which
+pathogen causes blast. Reporting both forms of the same relation side by side
+is what turns "two instruments" from a claim into something a reader can check.
 
 SCORING
 Mode "retrieval": the query answers if it returns at least one row. There is no
@@ -25,7 +29,8 @@ weak one.
 
 A RULE THAT MATTERS
 Nothing here may be used to edit the CQ set. A competency question that the
-graph answers poorly is a finding about the graph, not a defect in the question.
+graph answers poorly, or only in part, is a finding about the graph, not a
+defect in the question.
 Rewording CQs to fit what the ontology already does is precisely the circularity
 this whole elicitation exists to avoid -- and the expert ratings, which are the
 only legitimate ground for revising the set, are not in yet.
@@ -41,6 +46,7 @@ import datetime
 from pathlib import Path
 
 from rdflib import Graph
+import owlrl
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 ONTOLOGY = SCRIPT_DIR.parent / "Rice MMKG.rdf"
@@ -60,11 +66,235 @@ PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX schema: <http://schema.org/>
 PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 """
 
 # Instantiations are the same ones the expert questionnaire uses, so a rating
 # and a query result can be read against each other without translation.
 CQS = [
+    {
+        "id": "CQ-A01", "level": "L1", "dim": "D1", "mode": "retrieval",
+        "question": "Which pathogen causes Rice Blast, and to which taxonomic "
+                    "group does it belong?",
+        "note": "The single most converged requirement: five of six models "
+                "proposed it, and all five made it their own question number "
+                "one. The benchmark asks the coverage form of the same "
+                "relation - how many diseases have any pathogen - never the "
+                "answer form.",
+        "partial_kind": "schema",
+        "partial": "v0.6 types every pathogen as rice:Pathogen and nothing "
+                   "more, so there is no taxonomic group to return; the "
+                   "closest available identity is the external alignment",
+        "queries": [
+            ("Causal pathogen of Rice Blast, with its external identity",
+             """SELECT ?pathogen ?eppo_code ?external_alignment WHERE {
+  rice:Rice_Blast_Disease rice:causedBy ?pathogen .
+  OPTIONAL { ?pathogen rice:eppoCode ?eppo_code }
+  OPTIONAL { ?pathogen skos:exactMatch ?external_alignment }
+}"""),
+            ("Every disease with its causal pathogen - the answer form of "
+             "benchmark CQ-01",
+             """SELECT ?disease ?pathogen WHERE {
+  ?disease rice:causedBy ?pathogen .
+}
+ORDER BY ?disease"""),
+        ],
+    },
+    {
+        "id": "CQ-A02", "level": "L3", "dim": "D1", "mode": "retrieval",
+        "question": "Which vector species transmits Rice Tungro Bacilliform "
+                    "Virus, and by which transmission mode?",
+        "note": "A three-hop chain: vector -> agent -> disease. Proposed by "
+                "five of six models.",
+        "partial_kind": "schema",
+        "partial": "transmission mode is not a property in v0.6, so the mode "
+                   "cannot be returned",
+        "queries": [
+            ("Vector, the agent it transmits, and the disease that agent "
+             "causes",
+             """SELECT ?vector ?agent ?disease WHERE {
+  ?vector rice:transmits ?agent .
+  OPTIONAL { ?disease rice:causedBy ?agent }
+}
+ORDER BY ?vector ?agent"""),
+        ],
+    },
+    {
+        "id": "CQ-A03", "level": "L2", "dim": "D1", "mode": "retrieval",
+        "question": "Which symptoms does Bacterial Leaf Blight produce, on "
+                    "which plant organ, and at which growth stage?",
+        "note": "The diagnostic question in its plainest form.",
+        "partial_kind": "schema",
+        "partial": "plant organ is not modelled in v0.6; growth stage is "
+                   "attached to the disease, not to the individual symptom, so "
+                   "the two are returned as a cross product rather than a fact",
+        "queries": [
+            ("Symptoms of Bacterial Leaf Blight, with the stages at which the "
+             "disease occurs",
+             """SELECT ?symptom ?stage_of_disease WHERE {
+  rice:Bacterial_Leaf_Blight rice:indicatedBy ?symptom .
+  OPTIONAL { rice:Bacterial_Leaf_Blight rice:occursIn ?stage_of_disease }
+}
+ORDER BY ?symptom ?stage_of_disease"""),
+        ],
+    },
+    {
+        "id": "CQ-A05", "level": "L1", "dim": "D1", "mode": "retrieval",
+        "question": "Which environmental conditions are reported to favour "
+                    "Sheath Blight?",
+        "note": "Proposed by a single model, and kept for exactly that reason: "
+                "the questionnaire needs low-convergence CQs or the hypothesis "
+                "that convergence predicts expert-rated relevance cannot be "
+                "tested. It turns out to be answerable and well populated.",
+        "queries": [
+            ("Conditions that increase the risk of Sheath Blight",
+             """SELECT ?condition WHERE {
+  ?condition rice:increaseRiskOf rice:Sheath_Blight .
+}
+ORDER BY ?condition"""),
+            ("Every condition-to-entity risk link in the graph",
+             """SELECT ?condition (COUNT(DISTINCT ?entity) AS ?entities) WHERE {
+  ?condition rice:increaseRiskOf ?entity .
+}
+GROUP BY ?condition
+ORDER BY DESC(?entities) ?condition"""),
+        ],
+    },
+    {
+        "id": "CQ-A06", "level": "L1", "dim": "D1", "mode": "retrieval",
+        "question": "At which growth stages is Brown Planthopper reported as "
+                    "most damaging?",
+        "note": "Also single-model, also answerable.",
+        "partial_kind": "schema",
+        "partial": "v0.6 records that a pest occurs at a stage, not how "
+                   "damaging it is there, so the question's ranking cannot be "
+                   "answered - occurrence is returned instead",
+        "queries": [
+            ("Growth stages at which Brown Planthopper occurs",
+             """SELECT ?stage WHERE {
+  rice:Brown_Planthopper rice:occursIn ?stage .
+}
+ORDER BY ?stage"""),
+        ],
+    },
+    {
+        "id": "CQ-A07", "level": "L2", "dim": "D1", "mode": "retrieval",
+        "question": "Which control measures are recommended for Stem Borer, "
+                    "of which management category, and on which source "
+                    "authority?",
+        "note": "Actionability - the KG must not diagnose what it cannot "
+                "advise on. Proposed by five of six models.",
+        "partial_kind": "schema",
+        "partial": "management category (chemical / biological / cultural) and "
+                   "source authority are not modelled in v0.6; only the "
+                   "treatment itself and its prerequisites can be returned",
+        "queries": [
+            ("Treatments for Stem Borer and what each requires",
+             """SELECT ?treatment ?requires WHERE {
+  rice:Stem_Borer rice:controlledBy ?treatment .
+  OPTIONAL { ?treatment rice:requires ?requires }
+}
+ORDER BY ?treatment"""),
+        ],
+    },
+    {
+        "id": "CQ-A15", "level": "L1", "dim": "D2", "mode": "retrieval",
+        "question": "Which visible symptoms are annotated in a given image?",
+        "note": "Reads the visual layer from the image side rather than the "
+                "symptom side - which is what exposes how thin it is.",
+        "partial_kind": "data",
+        "partial": "only 1,442 of 10,407 images (14%) carry a captures link, "
+                   "and every one of them points at the same symptom",
+        "queries": [
+            ("Symptoms annotated in one image that has them",
+             """SELECT ?image ?symptom WHERE {
+  { SELECT ?image WHERE { ?image rice:captures ?s } ORDER BY ?image LIMIT 1 }
+  ?image rice:captures ?symptom .
+}"""),
+            ("How many distinct symptoms the whole image corpus captures",
+             """SELECT ?symptom (COUNT(DISTINCT ?image) AS ?images) WHERE {
+  ?image rice:captures ?symptom .
+}
+GROUP BY ?symptom
+ORDER BY DESC(?images)"""),
+        ],
+    },
+    {
+        "id": "CQ-A21", "level": "L2", "dim": "D2", "mode": "retrieval",
+        "question": "Which symptoms described in the literature have "
+                    "supporting image evidence, and which do not?",
+        "note": "The multimodal grounding question asked as a partition rather "
+                "than a ratio. Benchmark CQ-18 measures the same relation as a "
+                "coverage percentage; this returns the two lists, which is a "
+                "far blunter way of seeing the same thing.",
+        "queries": [
+            ("Symptoms partitioned by whether any image captures them",
+             """SELECT ?image_evidence (COUNT(DISTINCT ?symptom) AS ?symptoms)
+WHERE {
+  ?symptom a rice:Symptom .
+  OPTIONAL { ?image rice:captures ?symptom }
+  BIND (IF(BOUND(?image), "has image evidence", "no image evidence")
+        AS ?image_evidence)
+}
+GROUP BY ?image_evidence"""),
+            ("The symptoms with no image evidence at all",
+             """SELECT ?symptom WHERE {
+  ?symptom a rice:Symptom .
+  FILTER NOT EXISTS { ?image rice:captures ?symptom }
+}
+ORDER BY ?symptom"""),
+        ],
+    },
+    {
+        "id": "CQ-A22", "level": "L3", "dim": "D2", "mode": "retrieval",
+        "question": "Which disease described in the literature matches the "
+                    "condition annotated in a given image?",
+        "note": "Joins through the annotated class rather than through "
+                "captures, so it reaches all 10,407 images instead of the "
+                "1,442 that CQ-A16 can reach. Same cross-modal claim, "
+                "different and much better populated join.",
+        "queries": [
+            ("Literature evidence for the condition annotated in one image",
+             """SELECT ?image ?condition ?symptom ?pathogen WHERE {
+  { SELECT ?image WHERE { ?image rice:annotatedAs rice:Brown_Spot }
+    ORDER BY ?image LIMIT 1 }
+  ?image rice:annotatedAs ?condition .
+  OPTIONAL { ?condition rice:indicatedBy ?symptom }
+  OPTIONAL { ?condition rice:causedBy ?pathogen }
+}
+ORDER BY ?symptom"""),
+            ("How many images reach a literature-described condition",
+             """SELECT (COUNT(DISTINCT ?image) AS ?images_with_literature)
+WHERE {
+  ?image rice:annotatedAs ?condition .
+  ?condition rice:indicatedBy ?symptom .
+}"""),
+        ],
+    },
+    {
+        "id": "CQ-A23", "level": "L3", "dim": "D2", "mode": "retrieval",
+        "question": "Which treatment does the literature prescribe for a "
+                    "condition identified from an image?",
+        "note": "The full multimodal claim of the resource, end to end: an "
+                "image leads to an agronomic recommendation. Proposed by a "
+                "single model.",
+        "queries": [
+            ("Image -> annotated condition -> recommended treatment",
+             """SELECT ?image ?condition ?treatment WHERE {
+  { SELECT ?image WHERE {
+      ?image rice:annotatedAs ?c . ?c rice:controlledBy ?t }
+    ORDER BY ?image LIMIT 1 }
+  ?image rice:annotatedAs ?condition .
+  ?condition rice:controlledBy ?treatment .
+}
+ORDER BY ?treatment"""),
+            ("How many images reach at least one treatment",
+             """SELECT (COUNT(DISTINCT ?image) AS ?images_with_treatment) WHERE {
+  ?image rice:annotatedAs ?condition .
+  ?condition rice:controlledBy ?treatment .
+}"""),
+        ],
+    },
     {
         "id": "CQ-A04", "level": "L3", "dim": "D1", "mode": "retrieval",
         "question": "Which diseases share symptoms with Brown Spot, and which "
@@ -121,6 +351,7 @@ ORDER BY ?image"""),
                 "capture type. v0.6 models neither, so this implements the "
                 "answerable half and the rest stays on the v0.7 plan. Reported "
                 "as partial rather than passed.",
+        "partial_kind": "schema",
         "partial": "plant part and capture type are not modelled in v0.6",
         "queries": [
             ("Images per annotated condition and entity type",
@@ -169,6 +400,7 @@ ORDER BY DESC(?support) ?candidate"""),
                 "Answered from the symptom layer; v0.6 has no lesion "
                 "shape/colour descriptors, so the separation is by symptom "
                 "identity rather than by visual feature.",
+        "partial_kind": "schema",
         "partial": "separation is by symptom, not by lesion descriptors, "
                    "which v0.6 does not carry",
         "queries": [
@@ -221,8 +453,13 @@ def run(graph, cq):
         if not rows:
             answered = False
     out["answered"] = answered
-    out["status"] = ("answers" if answered and not cq.get("partial")
-                     else "partial" if answered else "NO ANSWER")
+    out["partial_kind"] = cq.get("partial_kind")
+    if not answered:
+        out["status"] = "NO ANSWER"
+    elif not cq.get("partial"):
+        out["status"] = "answers"
+    else:
+        out["status"] = "partial - %s" % cq["partial_kind"]
     return out
 
 
@@ -236,7 +473,11 @@ def status_table():
     for c in final:
         cid = c["cq_id"]
         if cid in implemented:
-            state, why = "implemented here", "answerable by v0.6, no benchmark counterpart"
+            state = "implemented here"
+            why = ("answerable by v0.6; no benchmark counterpart"
+                   if cid in gap_ids else
+                   "answerable by v0.6; the benchmark probes the same relation "
+                   "in coverage form, this is the answer form")
         elif c["v06_status"] != "answerable":
             # extensions_required joins several gap notes with " | ", which
             # would break the markdown table it is rendered into.
@@ -256,13 +497,25 @@ def status_table():
 
 def main():
     print(f"loading {ONTOLOGY.name} ...")
-    t0 = time.perf_counter()
     g = Graph()
     g.parse(ONTOLOGY)
-    load_ms = (time.perf_counter() - t0) * 1000
-    print(f"  {len(g)} triples in {load_ms/1000:.1f}s")
+    n_asserted = len(g)
+    print(f"  {n_asserted:,} asserted triples")
 
-    results = [run(g, cq) for cq in CQS]
+    # Same materialisation the SPARQL benchmark uses, so both instruments see
+    # the same graph and their results can be read against each other. It is not
+    # optional here: several inverse properties are declared but never asserted
+    # -- causedBy has zero assertions, only its inverse `causes` -- so a query
+    # written in the natural direction returns nothing on the asserted graph.
+    print("materialising OWL RL closure ...", end=" ", flush=True)
+    t0 = time.perf_counter()
+    owlrl.DeductiveClosure(owlrl.OWLRL_Semantics,
+                           axiomatic_triples=False,
+                           datatype_axioms=False).expand(g)
+    reason_s = time.perf_counter() - t0
+    print(f"{len(g):,} triples (+{len(g) - n_asserted:,}) in {reason_s:.1f}s")
+
+    results = [run(g, cq) for cq in sorted(CQS, key=lambda c: c["id"])]
     rows = status_table()
 
     for r in results:
@@ -273,7 +526,9 @@ def main():
     payload = {
         "generated": datetime.datetime.now().isoformat(timespec="seconds"),
         "ontology": ONTOLOGY.name,
-        "triples": len(g),
+        "asserted_triples": n_asserted,
+        "entailed_triples": len(g),
+        "reasoning_s": round(reason_s, 1),
         "results": results,
         "status_table": rows,
     }
@@ -286,15 +541,36 @@ def write_report(p):
     res = p["results"]
     rows = p["status_table"]
     n_ans = sum(1 for r in res if r["answered"])
+    n_full = sum(1 for r in res if r["status"] == "answers")
+    n_part = sum(1 for r in res if r["status"].startswith("partial"))
+    n_schema = sum(1 for r in res if r["partial_kind"] == "schema")
+    n_data = sum(1 for r in res if r["partial_kind"] == "data")
     L = ["# Elicited Competency Questions - SPARQL Results", "",
          f"Generated {p['generated'][:16].replace('T', ' ')} by "
-         "`elicited_cq_sparql.py` against `{}` ({:,} triples).".format(
-             p["ontology"], p["triples"]), "",
+         "`elicited_cq_sparql.py` against `{}`: {:,} asserted triples, "
+         "{:,} after OWL RL materialisation ({}s).".format(
+             p["ontology"], p["asserted_triples"], p["entailed_triples"],
+             p["reasoning_s"]), "",
          f"**{len(res)} of the {len(rows)} elicited Tier A CQs are implemented "
-         "here.** They are the ones Stage 4 found to be answerable by v0.6 and "
-         "absent from the SPARQL benchmark, so they close the sharpest gap the "
-         "reconciliation exposed.", "",
-         f"All {n_ans} return answers.", "",
+         "here** - every one that RiceMMKG v0.6 can answer. The remaining "
+         f"{len(rows) - len(res)} need schema or data the release does not "
+         "carry and are the v0.7 work plan; the status table at the end lists "
+         "each with its reason.", "",
+         f"**{n_full} answer in full and {n_part} answer in part.** A partial "
+         "is not a pass: the query returns what v0.6 supports, and the "
+         f"shortfall is named on the CQ. {n_part} of {len(res)} coming back "
+         "partial is itself the finding - competency questions are "
+         "requirements, and requirements are supposed to outrun the release "
+         "that exists.", "",
+         "**A partial comes in two kinds, and they are different pieces of "
+         f"work.** {n_schema} are *partial - schema*: the ontology has no "
+         "concept for what the question asks, so no amount of data would "
+         f"answer it and the remedy is modelling. {n_data} is *partial - "
+         "data*: the concept exists and the query is correct, but few "
+         "individuals carry it, so the remedy is annotation. Only the second "
+         "kind is a coverage question at all - a relation that does not exist "
+         "has no ratio to report, and calling that 0% would misdescribe it.",
+         "",
          "> **These results may not be used to edit the CQ set.** A question "
          "the graph answers poorly is a finding about the graph. Rewording CQs "
          "to fit what the ontology already does is the circularity this "

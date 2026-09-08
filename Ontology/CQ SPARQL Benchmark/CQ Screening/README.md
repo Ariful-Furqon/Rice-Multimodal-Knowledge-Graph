@@ -73,12 +73,16 @@ python scripts/stage3_scope_and_group.py
 python scripts/stage4_reconcile.py
 python scripts/stage5_questionnaire.py
 python scripts/make_deck.py
+python scripts/make_benchmark_deck.py
 ```
 
-`make_deck.py` reads every count from `data/`, so the slides cannot drift from
-the pipeline. It needs `python-pptx`; the six pipeline stages do not. Slides
-identify a CQ by source model and that model's own id, never by `pool_id`, for
-the reason given below.
+The two deck scripts read every count from `data/` and from the benchmark
+result JSONs, so the slides cannot drift from what was actually run:
+`make_deck.py` covers the screening funnel, `make_benchmark_deck.py` the
+elicited-CQ SPARQL results. Both need `python-pptx`, which the six pipeline
+stages do not; the second also needs `../elicited_cq_sparql.py` to have been
+run first. Slides identify a CQ by source model and that model's own id, never
+by `pool_id`, for the reason given below.
 
 Requires Python 3 and numpy; no other dependencies, deliberately, so the
 similarity method can be described exactly in a paper rather than deferred to a
