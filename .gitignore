@@ -8,3 +8,7 @@ __pycache__/
 # CQ screening internals: kept locally, not published
 /Ontology/CQ SPARQL Benchmark/CQ Screening/reports/
 /Ontology/CQ SPARQL Benchmark/CQ Screening/scripts/
+
+# Stage 5 unblinding key: source model, n_models, group id, benchmark flag.
+# Must never reach a rater, so it is not published even though data/ is.
+/Ontology/CQ SPARQL Benchmark/CQ Screening/data/cq_stage5_key.csv
