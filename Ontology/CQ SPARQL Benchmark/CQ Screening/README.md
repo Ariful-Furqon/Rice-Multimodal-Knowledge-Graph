@@ -21,6 +21,7 @@ Everything else in this directory exists to show how it was arrived at.
 | 3 - Grouping | one canonical CQ per requirement | 70 | **25** |
 | 4 - Reconciliation | how do these relate to the 25 benchmark CQs? | 25 vs 25 | 15 corroborated, **14 gaps** |
 | 5 - Questionnaire | instantiate, blind, randomise | 25 | **25 items**, all included |
+| 6 - Analysis | agreement, and does convergence predict relevance? | ratings | *awaiting returns* |
 
 Stage 2's automatic clustering **did not survive**. Two independent similarity
 signals were tried (TF-IDF cosine over question text, Jaccard over the
@@ -72,6 +73,7 @@ python scripts/stage2_cluster.py
 python scripts/stage3_scope_and_group.py
 python scripts/stage4_reconcile.py
 python scripts/stage5_questionnaire.py
+python scripts/stage6_analyse_responses.py   # only once the forms come back
 python scripts/make_deck.py
 python scripts/make_benchmark_deck.py
 ```
@@ -170,6 +172,13 @@ live in `data/cq_stage5_key.csv`, which must never reach a rater - if it did,
 the ratings would stop being independent evidence about convergence, which is
 the one thing this instrument exists to test.
 
+That file was tracked in git until 2026-09-09, and this repository is public,
+so it is **still readable in the history** even though it no longer appears in
+the tree. Removing it from the tip stops a rater stumbling over it; it does not
+undo publication. If a rater is given the repository URL before answering,
+either rewrite the history for those three commits or treat the blinding as
+compromised and say so - do not quietly assume nobody looked.
+
 The form closes with five open slots. That section is not a courtesy: the list
 was assembled from automatic sources, so what it omits is exactly what a
 practitioner is positioned to notice.
@@ -205,6 +214,26 @@ does `n_models` predict mean relevance? Benchmark corroboration (Stage 4) is a
 second, independent convergence signal - it can enter the same analysis. The key
 also carries `level` and `dim`, so relevance can be broken down by reasoning
 level and knowledge dimension.
+
+`scripts/stage6_analyse_responses.py` does all of that. It picks the
+coefficient the design supports - weighted kappa at two raters, ordinal alpha
+at three or more, the latter also tolerating the cells a real return will leave
+blank - and reports Spearman's rho between `n_models` and mean relevance with a
+permutation p-value. Both coefficients and both tests are computed from first
+principles on numpy alone, like every other stage, so the method can be written
+out rather than deferred to a library version; there is no scipy here, which is
+why the p-values are permuted (20,000 draws, seed 20260907) rather than
+approximated.
+
+Run against the untouched template it exits with a message and writes nothing.
+Outputs are `data/cq_stage6_item_scores.csv` (one row per CQ, ratings joined to
+the key), `data/cq_stage6_agreement.csv` and `reports/cq_stage6_analysis.md`.
+
+Two things it deliberately will not do: drop a rater, an item or a scale to
+improve a coefficient, and admit Tier B ratings into the same analysis. A low
+alpha is a result about the instrument, not a defect to tune away - and the
+same applies to a CQ that rates poorly, which is a finding about the question,
+not a licence to rewrite it.
 
 ## Reasoning level and knowledge dimension
 
