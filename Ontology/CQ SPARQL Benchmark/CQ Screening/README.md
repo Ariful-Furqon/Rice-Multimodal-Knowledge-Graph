@@ -14,6 +14,7 @@ Everything else in this directory exists to show how it was arrived at.
 | Stage | What it decides | In | Out |
 |---|---|---|---|
 | 0 - Pool | nothing; verbatim extraction | 6 model outputs | **213** |
+| 0a - Provenance | how was each output obtained, and is it unaltered? | 6 runs | 6 verified |
 | 1 - Structural validity | is this a competency question at all? | 213 | 213, of which **9 flagged** |
 | 2 - Deduplication | which CQs restate one requirement? | 213 | 182 provisional clusters *(superseded, see below)* |
 | 3 - Scope gate | does it need a modality we do not have? | 213 | **80** Tier A, 133 Tier B |
@@ -22,6 +23,7 @@ Everything else in this directory exists to show how it was arrived at.
 | 4 - Reconciliation | how do these relate to the 25 benchmark CQs? | 25 vs 25 | 15 corroborated, **14 gaps** |
 | 5 - Questionnaire | instantiate, blind, randomise | 25 | **25 items**, all included |
 | 6 - Analysis | agreement, and does convergence predict relevance? | ratings | *awaiting returns* |
+| 7 - Stability | how often does a repeated run of the prompt return each CQ? | 25 x 30 runs | *awaiting runs* |
 
 Stage 2's automatic clustering **did not survive**. Two independent similarity
 signals were tried (TF-IDF cosine over question text, Jaccard over the
@@ -64,16 +66,65 @@ its own work. It was reviewed and approved by M. A. Furqon on 2026-09-03, and
 the sixth model's CQs on 2026-09-08. Describe it as an LLM-assisted first pass,
 human-adjudicated - never as an automatic result.
 
+## What "reproducible" means for an LLM elicitation
+
+Two different things, and the paper has to separate them.
+
+**The screening reproduces exactly.** Everything downstream of the six model
+outputs is deterministic Python over files in this repository. Re-running it
+returns every number byte for byte, and the human decisions inside it are
+recorded as tables rather than recomputed, so a reader can inspect and disagree
+with each one.
+
+**The elicitation does not, and cannot.** Commercial chat models are sampled,
+are updated without notice, and the interfaces used here expose no temperature
+or seed. Sending the same prompt tomorrow returns a different set of CQs. This
+is a property of the instrument; documentation does not remove it.
+
+What is defensible is to freeze the prompt, record the runs, and then *measure*
+the instability rather than leave it to the reader's imagination.
+
+- **The prompt is frozen and hashed.** `LLM Prompt/rice_mmkg_cq_prompt.payload.txt`
+  is the exact text that was pasted into each interface — the fenced block, not
+  the whole markdown file, since the surrounding prose is operator guidance that
+  was never sent. Its SHA-256 is `0e3207a1...`, computed over LF-normalised
+  bytes so it does not depend on which machine did the checkout.
+- **The two sittings provably used the same bytes.** The prompt file was
+  committed once, in `9e7efb1` on 2026-09-03, and never modified, so GPT-6 Astra
+  on 2026-09-08 received what the first five models received. `git rev-parse`
+  on both commits returns the same blob. That is evidence, not an assertion.
+- **The placeholders were deliberately left unfilled.** The prompt's closing
+  instruction tells the model to proceed with the stated defaults and mark its
+  own assumptions, which is why the Fable and Astra outputs carry "Assumptions"
+  sections. Filling them in now would be a *different* protocol whose runs would
+  not replicate this pool.
+- **Each run is recorded.** `LLM Prompt/runs/run_manifest.csv`, verified by
+  `stage0a_provenance.py`, which exits non-zero if any output file has been
+  edited since its digest was taken.
+
+**Three facts about the original runs were never captured and cannot be
+recovered:** the exact date each prompt was sent, the model version string the
+interface displayed, and which interface features (web search, memory, custom
+instructions) were active. Those cells read `not-recorded` and must stay that
+way — reconstructing them from commit dates would turn an upper bound into a
+fabricated observation. State the limitation in the paper; a reviewer who spots
+it first will trust everything else less.
+
+The full procedure, including how to run round 2, is
+`LLM Prompt/ELICITATION_PROTOCOL.md`.
+
 ## Reproducing
 
 ```bash
 python scripts/stage0_build_pool.py
+python scripts/stage0a_provenance.py         # verifies the run manifest
 python scripts/stage1_screen.py
 python scripts/stage2_cluster.py
 python scripts/stage3_scope_and_group.py
 python scripts/stage4_reconcile.py
 python scripts/stage5_questionnaire.py
 python scripts/stage6_analyse_responses.py   # only once the forms come back
+python scripts/stage7_stability.py           # only once round 2 has been run
 python scripts/make_deck.py
 python scripts/make_benchmark_deck.py
 ```
@@ -277,6 +328,32 @@ original pool.
 
 ## Still outstanding
 
+- **The replication runs.** `stage7_stability.py` is written and tested but has
+  nothing to read: the prompt has not been sent again. Until it is, the 25 CQs
+  rest on a single sample and the paper can say only that the prompt is frozen,
+  not how stable the set is. The design is fixed at **five runs of each of the
+  six models, 30 runs**, and it is fixed *before* any output is seen — choosing
+  the number of runs after seeing how the first ones went turns a stability
+  estimate into a selected one. Procedure in
+  `LLM Prompt/ELICITATION_PROTOCOL.md`.
+
+  Five per model is what buys the decomposition. One replication round
+  conflates two sources of variation; a run x model matrix separates them, and
+  Stage 7 tests the difference between within-model and between-model Jaccard
+  by permuting the model label across runs. If the two are indistinguishable,
+  then model identity carries no information and `n_models` is closer to a run
+  count than to a cross-model agreement measure — which would not invalidate
+  the canonical set, but would change what convergence across models can be
+  claimed to show.
+
+  Round 1 is **not** one of the five. The grouping vocabulary G01-G25 was
+  derived from the round-1 outputs, so round 1 re-proposes 100% of it by
+  construction; it is carried in the manifest as `replicate` 0 and excluded
+  from every rate.
+
+  Budget the adjudication honestly: 30 runs produce roughly a thousand CQs, and
+  the checklist is 750 run x group decisions. It is filled one run at a time,
+  and every `yes` must name the CQ that supports it or the script rejects it.
 - **Second screener.** Stages 1, 3 and 4 rest on the ontology engineer's own
   judgement, on a first pass drafted by one of the source models. Have someone
   else screen ~20% independently and report agreement; it closes the most
