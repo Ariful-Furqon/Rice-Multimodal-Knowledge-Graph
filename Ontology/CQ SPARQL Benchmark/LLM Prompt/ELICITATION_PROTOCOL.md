@@ -29,9 +29,10 @@ different set of competency questions. This is a property of the instrument,
 not a defect in the procedure, and no amount of documentation removes it.
 
 The honest response to that last point is to measure it rather than hide it.
-That is what Stage 7 does: send the prompt again — five times to each of the
-six models — and report how often each canonical requirement comes back, and
-whether run-to-run variation differs from model-to-model variation. See
+That is what Stage 7 does: send the prompt again — as run, four further trials
+each for five of the six models — and report how often each canonical
+requirement comes back, and whether run-to-run variation differs from
+model-to-model variation. See
 `../CQ Screening/scripts/stage7_stability.py`.
 
 ---
@@ -44,7 +45,7 @@ whether run-to-run variation differs from model-to-model variation. See
 | Text actually sent | `rice_mmkg_cq_prompt.payload.txt` |
 | SHA-256 of the sent text | `0e3207a14a18dd777a704068a208333c1ac538dd50e3007600c414faddaddd78` |
 | Length | 8,364 characters, 134 lines |
-| First and only commit | `9e7efb1`, 2026-09-03 |
+| First and only commit | `97d2986`, 2026-09-03 |
 
 The payload file is **generated**, never edited: it is the contents of the
 fenced block inside `rice_mmkg_cq_prompt.md`, which is what an operator was
@@ -87,7 +88,7 @@ the same prompt as the first five is **verifiable, not asserted** — the prompt
 file was committed once and never modified:
 
 ```bash
-git rev-parse 9e7efb1:"Ontology/CQ SPARQL Benchmark/LLM Prompt/rice_mmkg_cq_prompt.md"
+git rev-parse 97d2986:"Ontology/CQ SPARQL Benchmark/LLM Prompt/rice_mmkg_cq_prompt.md"
 git rev-parse   HEAD:"Ontology/CQ SPARQL Benchmark/LLM Prompt/rice_mmkg_cq_prompt.md"
 # both print 7332baabe6bfc6b6f8354dde2bd09e6977ffea46
 ```
@@ -105,7 +106,7 @@ since it was recorded.
 |---|---|
 | `run_id` | stable handle, e.g. `r1-gpt-6-astra` |
 | `round` | `1a` five models, `1b` GPT-6 Astra, `2` the stability replication |
-| `replicate` | `1`–`5` within round 2; `0` means a reference run, not a replicate |
+| `replicate` | the trial number in the filename; `round` says whether it is a reference run or a replicate |
 | `elicited_on` | date the prompt was sent |
 | `model_label` | model name as it should appear in the paper |
 | `model_version_reported` | the exact version string the interface showed |
@@ -137,9 +138,14 @@ of the pipeline less.
 
 ## Running the prompt again: the replication matrix
 
-**Design: each of the six models, five times. Thirty runs.**
+**Design: each model repeatedly, so that runs and models can be told apart.**
+As actually run on 2026-09-10: trials 2-5 for Claude Opus 5, Claude Fable 5.1,
+GPT-5.6 Sol, Gemini Pro 3.1 and Gemini Flash 3.8 — **20 replication runs**.
+GPT-6 Astra was not repeated, so `G24` and `G25`, the two groups it founded
+alone, have no model in round 2 that had proposed them before; a miss on those
+two cannot be told apart from the model's absence.
 
-Five runs per model is what makes the exercise worth the effort. A single
+Several runs per model is what makes the exercise worth the effort. A single
 replication round confounds two things — the same model answering differently
 twice, and different models answering differently at all. A run × model matrix
 separates them, and that separation is the finding. If runs of one model
@@ -155,8 +161,8 @@ selected one.
 
 **Round 1 is not one of the five.** The grouping vocabulary G01–G25 was derived
 *from* the round-1 outputs, so round 1 re-proposes 100% of it by construction
-and including it would be circular. It stays in the manifest with `replicate` =
-`0`, meaning reference, and Stage 7 excludes it from every rate.
+and including it would be circular. It stays in the manifest under `round` 1a/1b, and
+Stage 7 reads only `round` 2, which excludes it from every rate.
 
 ### 1. Fix the conditions
 
@@ -205,7 +211,7 @@ Gemini Pro 3.1 trial 5 CQ.md
 
 **`trial 1` is the round-1 output**, renamed on 2026-09-10 when the replication
 trials arrived — a rename only, each file byte-identical to what was committed
-under its old name in `50974ab`. So the trial numbers run 1-5 while the
+under its old name in `a084b91`. So the trial numbers run 1-5 while the
 *replicates* are trials 2-5: trial 1 is the reference the canonical set was
 derived from and is excluded from every rate. The manifest encodes that with
 `round` (`1a`/`1b` for trial 1, `2` for the rest) and never by shifting the

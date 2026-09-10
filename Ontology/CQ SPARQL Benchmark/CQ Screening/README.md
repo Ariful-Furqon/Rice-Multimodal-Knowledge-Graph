@@ -23,7 +23,7 @@ Everything else in this directory exists to show how it was arrived at.
 | 4 - Reconciliation | how do these relate to the 25 benchmark CQs? | 25 vs 25 | 15 corroborated, **14 gaps** |
 | 5 - Questionnaire | instantiate, blind, randomise | 25 | **25 items**, all included |
 | 6 - Analysis | agreement, and does convergence predict relevance? | ratings | *awaiting returns* |
-| 7 - Stability | how often does a repeated run of the prompt return each CQ? | 25 x 30 runs | *awaiting runs* |
+| 7 - Stability | how often does a repeated run of the prompt return each CQ? | 25 x 20 runs | **2 always, 2 never** |
 
 ## Execution order
 
@@ -62,7 +62,7 @@ exactly that: its Stage 1 was the scope gate, its Stage 3 the grouping.
 ### What depends on what
 
 ```
-        [six LLM outputs]                 [expert returns]     [30 replication runs]
+        [six LLM outputs]                 [expert returns]     [20 replication runs]
                |                                  |                      |
    0 Pool -- 0a Provenance                        |                      |
                |                                  |                      |
@@ -83,8 +83,8 @@ yet, and those two are independent of each other:
 
 - **Stage 6** needs the questionnaire back from the experts. It reads only
   `cq_stage5_key.csv`, `cq_stage5_items.csv` and `cq_stage5_responses.csv`.
-- **Stage 7** needs 30 new LLM runs. It reads only Stage 3's canonical set and
-  those runs. It does **not** wait for the experts.
+- **Stage 7** needed 20 new LLM runs and has them. It reads only Stage 3's
+  canonical set and those runs, and did **not** wait for the experts.
 
 ### The running order
 
@@ -92,12 +92,13 @@ yet, and those two are independent of each other:
    (`reports/cq_stage5_questionnaire.md`, or the Google Form built from the
    same table). Nothing downstream can start until the experts have it, so it
    goes first and then runs in the background for weeks.
-2. **Run Stage 7 while waiting.** Thirty elicitation runs and a 750-row
-   checklist is exactly the shape of work that fits the wait. Procedure in
-   `LLM Prompt/ELICITATION_PROTOCOL.md`.
+2. ~~**Run Stage 7 while waiting.**~~ **Done 2026-09-10** — 20 runs, a 500-row
+   checklist derived from 266 per-CQ labels, reported in
+   `reports/cq_stage7_stability.md`. The labels are an LLM first pass and still
+   need human adjudication before any rate is quoted.
 3. **Wire the Stage 7 rate into Stage 6** *before* any returns are analysed.
    Stage 6 currently tests `n_models` — a 0-to-6 count, granular to the point
-   of bluntness — against expert relevance. The re-proposal rate over 30 runs
+   of bluntness — against expert relevance. The re-proposal rate over 20 runs
    measures the same construct far more finely, and belongs in that analysis
    alongside `n_models` and the benchmark-corroboration flag. Choosing
    predictors after seeing the ratings is choosing them from the answer.
@@ -188,7 +189,7 @@ the instability rather than leave it to the reader's imagination.
   was never sent. Its SHA-256 is `0e3207a1...`, computed over LF-normalised
   bytes so it does not depend on which machine did the checkout.
 - **The two sittings provably used the same bytes.** The prompt file was
-  committed once, in `9e7efb1` on 2026-09-03, and never modified, so GPT-6 Astra
+  committed once, in `97d2986` on 2026-09-03, and never modified, so GPT-6 Astra
   on 2026-09-08 received what the first five models received. `git rev-parse`
   on both commits returns the same blob. That is evidence, not an assertion.
 - **The placeholders were deliberately left unfilled.** The prompt's closing
