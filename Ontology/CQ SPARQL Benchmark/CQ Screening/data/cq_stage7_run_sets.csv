@@ -1,0 +1,21 @@
+﻿run_id,model,replicate,n_groups,groups
+r2-claude-fable-5-1-t2,Claude Fable 5.1,2,9,G01 G02 G06 G07 G10 G13 G14 G17 G21
+r2-claude-fable-5-1-t3,Claude Fable 5.1,3,10,G01 G02 G03 G04 G07 G10 G12 G17 G21 G23
+r2-claude-fable-5-1-t4,Claude Fable 5.1,4,11,G01 G02 G06 G07 G10 G12 G13 G14 G17 G21 G22
+r2-claude-fable-5-1-t5,Claude Fable 5.1,5,11,G01 G02 G04 G07 G10 G11 G12 G13 G22 G23 G24
+r2-claude-opus-5-t2,Claude Opus 5,2,12,G01 G02 G03 G07 G10 G11 G12 G13 G14 G17 G21 G22
+r2-claude-opus-5-t3,Claude Opus 5,3,12,G01 G02 G03 G05 G07 G10 G12 G13 G19 G21 G24 G25
+r2-claude-opus-5-t4,Claude Opus 5,4,11,G01 G02 G03 G04 G07 G11 G13 G18 G21 G24 G25
+r2-claude-opus-5-t5,Claude Opus 5,5,12,G01 G02 G03 G04 G07 G10 G11 G12 G13 G14 G21 G23
+r2-gpt-5-6-sol-t2,GPT-5.6 Sol,2,11,G01 G02 G03 G04 G07 G10 G15 G17 G18 G21 G22
+r2-gpt-5-6-sol-t3,GPT-5.6 Sol,3,9,G01 G03 G04 G07 G10 G16 G17 G21 G24
+r2-gpt-5-6-sol-t4,GPT-5.6 Sol,4,10,G01 G03 G04 G05 G07 G14 G15 G16 G22 G24
+r2-gpt-5-6-sol-t5,GPT-5.6 Sol,5,10,G01 G03 G04 G05 G07 G10 G14 G17 G18 G22
+r2-gemini-flash-3-8-t2,Gemini Flash 3.8,2,6,G01 G07 G09 G14 G15 G23
+r2-gemini-flash-3-8-t3,Gemini Flash 3.8,3,8,G01 G02 G07 G09 G14 G16 G17 G18
+r2-gemini-flash-3-8-t4,Gemini Flash 3.8,4,8,G01 G07 G09 G14 G15 G16 G17 G18
+r2-gemini-flash-3-8-t5,Gemini Flash 3.8,5,8,G01 G04 G07 G09 G14 G15 G17 G18
+r2-gemini-pro-3-1-t2,Gemini Pro 3.1,2,9,G01 G02 G03 G04 G07 G16 G18 G19 G22
+r2-gemini-pro-3-1-t3,Gemini Pro 3.1,3,11,G01 G03 G04 G07 G10 G14 G15 G18 G21 G22 G24
+r2-gemini-pro-3-1-t4,Gemini Pro 3.1,4,7,G01 G03 G04 G07 G14 G16 G18
+r2-gemini-pro-3-1-t5,Gemini Pro 3.1,5,9,G01 G03 G07 G10 G15 G17 G18 G22 G24

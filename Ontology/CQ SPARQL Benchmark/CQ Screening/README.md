@@ -444,6 +444,31 @@ adjudicable like every other decision here. Two calls are genuinely arguable:
 plus set operations, but L2 is defensible; and `CQ-A07` is D1 although its "on
 which source authority" clause also exercises D3.
 
+### A third failure mode, found in Stage 7
+
+The gate misses a CQ that asks about *measured* environmental conditions
+without using any gated term. Six of the 704 replication CQs read like *"which
+plots currently satisfy the literature-reported favourable conditions for
+sheath blight"* or *"how many days did each plot fall inside the favourable
+envelope"* — they need environmental time series, and they reached Tier A
+because they say "environmental conditions" and "conducive window" rather than
+temperature, humidity or sensor.
+
+**Round 1 is not affected, and this was checked rather than assumed.** Exactly
+one round-1 Tier A CQ matches that phrasing — GPT-5.6 Sol `CQ-TXT-05`, *"which
+environmental conditions are reported to favor outbreaks..."* — and it is
+correctly Tier A: it asks what the literature reports, not what a sensor
+measured, which is canonical group `G05`. So the 82 / 77 / 26 / 133 / 80 split
+stands as published.
+
+The distinction the gate cannot see is **reported versus measured**: the same
+noun phrase is Tier A when a document is the source and Tier B when a sensor
+is. Tightening the regex is not obviously the fix, since "environmental
+condition" alone would wrongly pull `G05` into Tier B. What did catch all six
+was the adjudication step reading them — which is the argument for keeping the
+gate as a coarse filter with a human pass behind it, rather than treating it as
+the decision.
+
 ## The scope gate has two parts
 
 A CQ is Tier B if its text matches the sensor or genomic keyword patterns, **or**
