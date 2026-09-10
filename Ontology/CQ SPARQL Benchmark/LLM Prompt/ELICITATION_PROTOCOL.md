@@ -194,18 +194,44 @@ did.
 
 ### 3. Save the answer verbatim
 
+One file per run in this directory, named `<Model> trial <N> CQ.md`:
+
 ```
-runs/round2/rep1/Claude Opus 5 CQ.md
-runs/round2/rep1/Claude Fable 5.1 CQ.md
+Claude Opus 5 trial 1 CQ.md      <- round 1, the reference run
+Claude Opus 5 trial 2 CQ.md      <- replication
 ...
-runs/round2/rep5/Gemini Pro 3.1 CQ.md
+Gemini Pro 3.1 trial 5 CQ.md
 ```
 
-One directory per replicate, filenames identical to their round-1 counterparts
-so that every run is comparable file for file. Save the model's markdown as it
-came out: do not fix its tables, renumber its CQs, delete a preamble, or tidy
-its headings. If an answer was truncated and continued, save the concatenation
-and say so in `notes`. Every edit you make to an output is an edit to the data.
+**`trial 1` is the round-1 output**, renamed on 2026-09-10 when the replication
+trials arrived — a rename only, each file byte-identical to what was committed
+under its old name in `50974ab`. So the trial numbers run 1-5 while the
+*replicates* are trials 2-5: trial 1 is the reference the canonical set was
+derived from and is excluded from every rate. The manifest encodes that with
+`round` (`1a`/`1b` for trial 1, `2` for the rest) and never by shifting the
+number, so a row's `replicate` always equals the trial number in its filename.
+
+Filenames must match their round-1 counterpart exactly apart from the trial
+number, so every run is comparable file for file. Note GPT-5.6 Sol's files
+carry a dash the others do not (`GPT-5.6 Sol - trial 2 CQ.md`); the manifest
+names each file explicitly, so that is harmless — but do not "tidy" it, because
+`stage0_build_pool.py` maps the exact string.
+
+Save the model's markdown as it came out: do not fix its tables, renumber its
+CQs, delete a preamble, or tidy its headings. If an answer was truncated and
+continued, save the concatenation and say so in `notes`. Every edit you make to
+an output is an edit to the data.
+
+**Do not reformat a table to help the parser.** Fix the parser instead. On
+2026-09-10 four trials parsed to zero CQs because the reader required the
+second header cell to read exactly `Question` while those trials wrote
+`Natural-Language Question` — the prompt's own term. Worse, three further
+trials silently lost *every cross-modal row*, the category the prompt weights
+most heavily, because their id cells read `CQ-MM-01 (T x I)` and the id pattern
+was anchored at the end of the cell. That loss looked exactly like a model
+writing fewer CQs. Both patterns were loosened, and re-parsing trial 1 through
+them returns the same 213 rows with identical ids and text — check that
+invariant whenever the reader changes.
 
 If a run produces something unusable — the model ignored the table format
 entirely, or refused — **keep the file and record the run anyway**, with the
@@ -214,9 +240,9 @@ stability rate becomes an overestimate.
 
 ### 4. Record the runs
 
-One manifest row per run, with `round` = `2`, `replicate` = 1–5, `output_file`
-as the path relative to this directory (`runs/round2/rep3/Claude Opus 5 CQ.md`),
-and `prompt_sha256` / `output_sha256` left as `pending`. Then:
+One manifest row per run, with `round` = `2`, `replicate` = the trial number,
+`output_file` as the filename relative to this directory (`Claude Opus 5 trial
+3 CQ.md`), and `prompt_sha256` / `output_sha256` left as `pending`. Then:
 
 ```bash
 python "../CQ Screening/scripts/stage0a_provenance.py" --update
