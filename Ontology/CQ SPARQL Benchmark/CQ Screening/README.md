@@ -364,6 +364,37 @@ The form closes with five open slots. That section is not a courtesy: the list
 was assembled from automatic sources, so what it omits is exactly what a
 practitioner is positioned to notice.
 
+### A prediction recorded before the first expert rated anything
+
+Stage 7 found nine requirements that twenty replication runs raised and the
+canonical 25 do not cover. Two were raised by five runs each:
+
+- **`NEW-02`** — which agronomic practices (nitrogen over-fertilisation, dense
+  planting) are reported to aggravate a disease, and by what cited mechanism.
+- **`NEW-03`** — which weeds or volunteer plants act as off-season reservoirs
+  for a pathogen or pest.
+
+The questionnaire closes by asking the expert which questions are missing. If a
+practitioner independently names either of these, that is convergent evidence
+from a source with nothing in common with the elicitation — the models had only
+the prompt, the expert has only field practice.
+
+**This is written down on 2026-09-10, before any expert has seen the form**, so
+that it is a prediction rather than something noticed afterwards in the
+returns. Two conditions make it worth anything:
+
+- **Do not prompt the expert with these.** Naming them in the meeting, or
+  adding them to the form, destroys exactly the independence that would make a
+  match informative. The open box stays open.
+- **A miss is also a result.** If no expert raises them, the honest reading is
+  that five runs of a language model agreed on something practitioners do not
+  prioritise — which is a finding about the elicitation instrument, and belongs
+  in the paper next to the hits.
+
+The remaining seven (`NEW-01`, `NEW-04` to `NEW-09`) were raised by one or two
+runs each and are recorded in `data/cq_stage7_new_requirements.csv`; they are
+too thin to predict from, but check them against the returns too.
+
 ### Distributing it through Google Forms
 
 `reports/cq_stage5_google_form.js` is an Apps Script generated from the same
