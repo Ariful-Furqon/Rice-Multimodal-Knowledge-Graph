@@ -25,6 +25,104 @@ Everything else in this directory exists to show how it was arrived at.
 | 6 - Analysis | agreement, and does convergence predict relevance? | ratings | *awaiting returns* |
 | 7 - Stability | how often does a repeated run of the prompt return each CQ? | 25 x 30 runs | *awaiting runs* |
 
+## Execution order
+
+**A stage number is a permanent label, not a position.** They are not
+consecutive already — `0a` is a side check, `2` is superseded and retained only
+for the record, and `3` covers three decisions — and they are referenced by
+every filename in `data/` and `reports/`, by both decks, and by notes outside
+this repository. Renumbering them would silently change what an existing
+reference means, which is the failure this project already had once when
+`pool_id` was renumbered by the arrival of a sixth model and moved 23 labels
+onto different questions while every id stayed valid. Read the numbers as names
+and take the running order from here.
+
+### Presentations name the steps; they do not number them
+
+A slide funnel and this pipeline number different things. This pipeline numbers
+**scripts**: one script is one stage, which is why Stage 3 performs three
+decisions and why Stage 2 exists at all — it ran, it failed, and the failure is
+part of the record. A slide funnel numbers **count reductions**: every box has
+to lower a number, 213 to 80 to 70 to 25.
+
+Neither can adopt the other. Renumbering this pipeline to match a slide would
+mean deleting Stage 1 (which removes nothing) and Stage 2 (which failed) from
+the record, and Stage 2's failure is one of the stronger parts of the
+methodology — automatic clustering was tried, it conflated distinct
+requirements at every threshold, and the evidence is kept. Renumbering the
+slide to match this pipeline would put a 213 -> 213 box and a "superseded" box
+in a funnel graphic.
+
+So slides and papers refer to the steps **by name and never by number** — Pool,
+Scope gate, Adjudication, Grouping, Reconciliation. The arrows and counts
+already carry the order. A number on a slide adds nothing except a second
+scheme that competes with this one, and on 2026-09-10 a progress deck did
+exactly that: its Stage 1 was the scope gate, its Stage 3 the grouping.
+
+### What depends on what
+
+```
+        [six LLM outputs]                 [expert returns]     [30 replication runs]
+               |                                  |                      |
+   0 Pool -- 0a Provenance                        |                      |
+               |                                  |                      |
+        1 Structural validity                     |                      |
+               |                                  |                      |
+        (2 Deduplication - superseded)            |                      |
+               |                                  |                      |
+        3 Scope gate + adjudication + grouping    |                      |
+               |            |                     |                      |
+      4 Reconciliation   5 Questionnaire          |                      |
+                            |                     |                      |
+                            +-------------------- 6 Analysis <---- 7 Stability
+```
+
+Stages 0-5 are a chain: each consumes the previous one's output, and all of
+them are **done**. Everything remaining hangs off two inputs that do not exist
+yet, and those two are independent of each other:
+
+- **Stage 6** needs the questionnaire back from the experts. It reads only
+  `cq_stage5_key.csv`, `cq_stage5_items.csv` and `cq_stage5_responses.csv`.
+- **Stage 7** needs 30 new LLM runs. It reads only Stage 3's canonical set and
+  those runs. It does **not** wait for the experts.
+
+### The running order
+
+1. **Send the questionnaire out.** Stage 5 is ready
+   (`reports/cq_stage5_questionnaire.md`, or the Google Form built from the
+   same table). Nothing downstream can start until the experts have it, so it
+   goes first and then runs in the background for weeks.
+2. **Run Stage 7 while waiting.** Thirty elicitation runs and a 750-row
+   checklist is exactly the shape of work that fits the wait. Procedure in
+   `LLM Prompt/ELICITATION_PROTOCOL.md`.
+3. **Wire the Stage 7 rate into Stage 6** *before* any returns are analysed.
+   Stage 6 currently tests `n_models` — a 0-to-6 count, granular to the point
+   of bluntness — against expert relevance. The re-proposal rate over 30 runs
+   measures the same construct far more finely, and belongs in that analysis
+   alongside `n_models` and the benchmark-corroboration flag. Choosing
+   predictors after seeing the ratings is choosing them from the answer.
+4. **Run Stage 6 once the returns are in.** One pass, three convergence signals
+   against the same ratings.
+
+Steps 2 and 3 must both finish before step 4, which is the whole reason Stage 7
+is worth starting now rather than after. Run it afterwards and Stage 6 has to
+be redone.
+
+The cost of this order is knowing which CQs are unstable before seeing the
+ratings. That is a temptation, not a contamination — the raters never see any
+of this — but it is a real one. Do not revise the set on it; see *How to read
+this* in the Stage 7 report for why that would make the Stage 6 hypothesis
+unfalsifiable.
+
+### If a second screener becomes available
+
+The outstanding second-screener work (below) attaches to Stages 1, 3 and 4,
+which are already done, and to the Stage 7 checklist, which is not. A screener
+who is available now is better spent auditing a sample of the Stage 7 checklist
+as it is filled than re-screening Stage 1 afterwards, because Stage 7's rates
+are a fresh single-adjudicator judgement and Stage 1's have at least been
+stable for months.
+
 Stage 2's automatic clustering **did not survive**. Two independent similarity
 signals were tried (TF-IDF cosine over question text, Jaccard over the
 class/property signature) at many thresholds, and both conflate requirements
@@ -115,25 +213,36 @@ The full procedure, including how to run round 2, is
 
 ## Reproducing
 
+Re-deriving everything that is already done, in dependency order:
+
 ```bash
 python scripts/stage0_build_pool.py
 python scripts/stage0a_provenance.py         # verifies the run manifest
 python scripts/stage1_screen.py
-python scripts/stage2_cluster.py
+python scripts/stage2_cluster.py             # superseded; kept for the record
 python scripts/stage3_scope_and_group.py
 python scripts/stage4_reconcile.py
 python scripts/stage5_questionnaire.py
-python scripts/stage6_analyse_responses.py   # only once the forms come back
-python scripts/stage7_stability.py           # only once round 2 has been run
 python scripts/make_deck.py
 python scripts/make_benchmark_deck.py
+```
+
+The two stages that are not done yet wait on inputs that do not exist. Both
+exit with a message and write nothing if run early, so running them costs
+nothing but tells you nothing either. **Stage 7 before Stage 6** — see
+*Execution order* above:
+
+```bash
+python scripts/stage7_stability.py --checklist   # once the 30 runs are saved
+python scripts/stage7_stability.py               # once the checklist is filled
+python scripts/stage6_analyse_responses.py       # once the forms come back
 ```
 
 The two deck scripts read every count from `data/` and from the benchmark
 result JSONs, so the slides cannot drift from what was actually run:
 `make_deck.py` covers the screening funnel, `make_benchmark_deck.py` the
-elicited-CQ SPARQL results. Both need `python-pptx`, which the six pipeline
-stages do not; the second also needs `../elicited_cq_sparql.py` to have been
+elicited-CQ SPARQL results. Both need `python-pptx`, which no pipeline stage
+does; the second also needs `../elicited_cq_sparql.py` to have been
 run first. Slides identify a CQ by source model and that model's own id, never
 by `pool_id`, for the reason given below.
 
@@ -167,6 +276,25 @@ low-convergence CQs in the questionnaire, or the hypothesis that convergence
 predicts expert-rated relevance cannot be tested - and that hypothesis is the
 methodological contribution.
 
+### `v06_status` is a prediction, not a measurement
+
+The `v06_status` column in `cq_stage3_final_tierA.csv` was assigned during
+Stage 3 grouping, **before any SPARQL had been written**. It records what the
+adjudicator expected v0.6 to answer. It is not evidence that v0.6 answers
+anything.
+
+The measurement is `../elicited_cq_sparql_results.json`, and the two disagree
+on **8 of the 15 CQs that have since been implemented** — always in the same
+direction: Stage 3 predicted `answerable`, the query came back `partial`. That
+direction is not a coincidence. Reading a schema and judging that it *could*
+answer a question is systematically more optimistic than writing the query and
+finding out.
+
+**Anything that reports answerability must read the JSON, not this column** —
+a slide deck built off `v06_status` on 2026-09-10 presented all 15 as
+answerable. The column is kept because Stage 3's reasoning is part of the
+record, not because it is current.
+
 **32 of the 70 retained CQs cannot yet be answered by v0.6**, and 10 of the 25
 canonical CQs have no answerable member at all. That is not a defect: competency
 questions are requirements, and an ontology that answers all of its CQs on day
@@ -194,8 +322,10 @@ a passing benchmark item.
 The actionable half is the other direction: **14 of the 25 elicited CQs have no
 benchmark counterpart, and 11 of those 14 are image or cross-modal**. The
 benchmark covers the symbolic layer thoroughly and the image layer barely.
-Five are already answerable by v0.6 and could be implemented as SPARQL now:
-`CQ-A04` (differential diagnosis), `CQ-A10`, `CQ-A13`, `CQ-A16`, `CQ-A17`.
+Five *looked* answerable by v0.6 and were implemented as SPARQL first:
+`CQ-A04` (differential diagnosis), `CQ-A10`, `CQ-A13`, `CQ-A16`, `CQ-A17` — of
+which `CQ-A13` and `CQ-A17` turned out to answer only in part once the query
+was actually written. See the warning below about `v06_status`.
 `CQ-A04` is the most striking - five of six models proposed it, it is the
 question a field diagnostician actually asks, and the benchmark has no
 equivalent.
@@ -354,6 +484,14 @@ original pool.
   Budget the adjudication honestly: 30 runs produce roughly a thousand CQs, and
   the checklist is 750 run x group decisions. It is filled one run at a time,
   and every `yes` must name the CQ that supports it or the script rejects it.
+
+  This does not wait for the expert returns, and is best done while waiting.
+- **Stability rate as a Stage 6 predictor.** Once Stage 7 has run, its per-CQ
+  re-proposal rate should enter the Stage 6 analysis alongside `n_models` and
+  the benchmark-corroboration flag — three convergence signals against the same
+  expert ratings. `stage6_analyse_responses.py` does not read it yet; wiring it
+  in is a small change, but it has to happen before the returns are analysed,
+  not after.
 - **Second screener.** Stages 1, 3 and 4 rest on the ontology engineer's own
   judgement, on a first pass drafted by one of the source models. Have someone
   else screen ~20% independently and report agreement; it closes the most
@@ -361,11 +499,14 @@ original pool.
 - **Tier B instrument.** Tier A rates the released resource; a separate
   instrument should prioritise the roadmap. The two must never merge - Tier B
   ratings must not enter the kappa that evaluates the resource.
-- ~~**Five SPARQL implementations.**~~ **Done 2026-09-08.** `CQ-A04`, `CQ-A10`,
-  `CQ-A13`, `CQ-A16` and `CQ-A17` are implemented in
-  `../elicited_cq_sparql.py`, reported in `../Elicited_CQ_SPARQL_Report.md`.
-  All five return answers; `CQ-A13` and `CQ-A17` are recorded as *partial*
-  because v0.6 carries no plant part, capture type or lesion descriptors. Kept
+- ~~**Five SPARQL implementations.**~~ **Done 2026-09-08, and since extended to
+  15.** `../elicited_cq_sparql.py` implements 15 of the 25 elicited CQs and
+  reports them in `../Elicited_CQ_SPARQL_Report.md`. **7 answer in full and 8
+  answer in part** - `CQ-A01`, `A02`, `A03`, `A06`, `A07`, `A13` and `A17` are
+  *partial - schema* (the ontology has no concept for what is asked, so no
+  amount of data would answer it), and `CQ-A15` is *partial - data* (the
+  concept exists, few individuals carry it). A partial is not a pass and is
+  never counted as one. Kept
   separate from `cq_sparql_benchmark.py` on purpose: those are coverage
   questions scored against a threshold, these are retrieval questions that
   answer or do not. The run also surfaced a v0.7 priority the coverage
