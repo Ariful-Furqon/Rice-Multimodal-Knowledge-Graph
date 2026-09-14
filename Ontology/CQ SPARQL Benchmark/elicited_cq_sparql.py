@@ -11,9 +11,14 @@ against a coverage threshold would be a category error, so they are kept apart
 and reported separately.
 
 WHAT IS IMPLEMENTED
-Every elicited Tier A CQ that v0.6 can answer: 15 of the 25. The other 10 need
-schema or data the release does not have and are the v0.7 work plan; they are
-listed in the status table with the reason, so nothing is quietly omitted.
+Every elicited Tier A CQ for which v0.6 has at least the concept the question
+turns on: 19 of the 25. The first pass implemented 15, chosen by the Stage 3
+v06_status prediction; A11, A18, A19 and A24 were added once it was clear that
+column had never been checked against a query. A CQ whose query returns nothing
+is kept and reported as NO ANSWER - the empty result is the measurement. The
+other 6 ask for a concept v0.6 does not have at all and are the v0.7 work plan;
+they are listed in the status table with the reason, so nothing is quietly
+omitted.
 
 Five of the fifteen have no benchmark counterpart at all -- they close the gap
 Stage 4 exposed. The other ten do have one, but only in coverage form: the
@@ -67,6 +72,7 @@ PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX schema: <http://schema.org/>
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
 """
 
 # Instantiations are the same ones the expert questionnaire uses, so a rating
@@ -344,6 +350,132 @@ ORDER BY ?image"""),
         ],
     },
     {
+        "id": "CQ-A11", "level": "L1", "dim": "D3", "mode": "retrieval",
+        "question": "Who or what produced a given image annotation, and with "
+                    "what confidence?",
+        "note": "Stage 3 predicted this needs new schema and left it out. "
+                "Queried here so that the prediction becomes a measurement. "
+                "Provenance exists, but only at dataset level: every image "
+                "points at the dataset it came from, never at the person or "
+                "model that labelled it.",
+        "partial_kind": "schema",
+        "partial": "there is no annotator property, so 'who or what' can only "
+                   "be answered with the source dataset; confidenceScore is "
+                   "declared on Observation but carries no values",
+        "queries": [
+            ("Source and confidence of the annotation on one image",
+             """SELECT ?image ?condition ?dataset ?title ?source ?confidence
+WHERE {
+  { SELECT ?image WHERE { ?image a rice:ImageObservation }
+    ORDER BY ?image LIMIT 1 }
+  ?image rice:annotatedAs ?condition .
+  OPTIONAL {
+    ?image prov:wasDerivedFrom ?dataset .
+    OPTIONAL { ?dataset dcterms:title ?title }
+    OPTIONAL { ?dataset dcterms:source ?source }
+  }
+  OPTIONAL { ?image rice:confidenceScore ?confidence }
+}"""),
+            ("How many image annotations carry a source dataset, and how many "
+             "a confidence score",
+             """SELECT (COUNT(DISTINCT ?image) AS ?images)
+       (COUNT(DISTINCT ?sourced) AS ?with_source_dataset)
+       (COUNT(DISTINCT ?scored) AS ?with_confidence)
+WHERE {
+  ?image a rice:ImageObservation .
+  OPTIONAL { ?image prov:wasDerivedFrom ?d . BIND (?image AS ?sourced) }
+  OPTIONAL { ?image rice:confidenceScore ?c . BIND (?image AS ?scored) }
+}"""),
+        ],
+    },
+    {
+        "id": "CQ-A18", "level": "L1", "dim": "D2", "mode": "retrieval",
+        "question": "How severe is the damage recorded in a given image?",
+        "note": "Stage 3 predicted this needs new schema and left it out. "
+                "Queried here so that the prediction becomes a measurement. "
+                "SeverityLevel exists and has four individuals, so the concept "
+                "is not missing; what is missing is any link from an image to "
+                "one of them.",
+        "gap": "no image carries a severity level. The four SeverityLevel "
+               "individuals are used only as subjects of recommends, which "
+               "drives management actions, and no property has SeverityLevel "
+               "as its range",
+        "queries": [
+            ("Severity level recorded on any image",
+             """SELECT ?image ?severity WHERE {
+  ?severity a rice:SeverityLevel .
+  ?image a rice:ImageObservation ;
+         ?link ?severity .
+}
+ORDER BY ?image"""),
+            ("What the severity levels are used for in v0.6",
+             """SELECT ?severity ?recommends WHERE {
+  ?severity a rice:SeverityLevel .
+  OPTIONAL { ?severity rice:recommends ?recommends }
+}
+ORDER BY ?severity"""),
+        ],
+    },
+    {
+        "id": "CQ-A19", "level": "L2", "dim": "D2", "mode": "retrieval",
+        "question": "Which symptoms co-occur on the same plant within a single "
+                    "image?",
+        "note": "Stage 3 predicted this needs new schema and left it out. "
+                "Queried here so that the prediction becomes a measurement. "
+                "captures is not single-valued, so the query is expressible "
+                "today. An empty result is not evidence that symptoms never "
+                "co-occur: under the open-world assumption it only says that "
+                "no image has been annotated with two.",
+        "gap": "every image that captures a symptom captures exactly one, so "
+               "no pair can co-occur; the same-plant part of the question has "
+               "no model at all, since v0.6 images are independent",
+        "queries": [
+            ("Pairs of symptoms captured in the same image",
+             """SELECT ?image ?symptom_a ?symptom_b WHERE {
+  ?image rice:captures ?symptom_a , ?symptom_b .
+  FILTER (STR(?symptom_a) < STR(?symptom_b))
+}
+ORDER BY ?image"""),
+            ("How many symptoms each annotated image captures",
+             """SELECT ?symptoms_per_image (COUNT(?image) AS ?images) WHERE {
+  { SELECT ?image (COUNT(DISTINCT ?s) AS ?symptoms_per_image)
+    WHERE { ?image rice:captures ?s }
+    GROUP BY ?image }
+}
+GROUP BY ?symptoms_per_image
+ORDER BY ?symptoms_per_image"""),
+        ],
+    },
+    {
+        "id": "CQ-A24", "level": "L1", "dim": "D2", "mode": "retrieval",
+        "question": "Which images are explicitly annotated as showing no "
+                    "visible symptoms, and which organ or plant view does each "
+                    "represent?",
+        "note": "Stage 3 predicted this needs new schema and left it out. "
+                "Queried here so that the prediction becomes a measurement. "
+                "The Paddy Doctor 'normal' class is imported as an explicit "
+                "Normal_Health annotation, which is the symptom-free assertion "
+                "the question asks for; only the organ and view half is "
+                "missing.",
+        "partial_kind": "schema",
+        "partial": "organ and plant view are not modelled in v0.6, so the "
+                   "images are returned without them",
+        "queries": [
+            ("Images annotated as healthy, with their retrievable URL",
+             """SELECT ?image ?url WHERE {
+  ?image rice:annotatedAs rice:Normal_Health ;
+         schema:contentUrl ?url .
+}
+ORDER BY ?image"""),
+            ("Healthy-annotated images that nonetheless capture a symptom - "
+             "should be zero",
+             """SELECT (COUNT(DISTINCT ?image) AS ?contradictory_images) WHERE {
+  ?image rice:annotatedAs rice:Normal_Health ;
+         rice:captures ?symptom .
+}"""),
+        ],
+    },
+    {
         "id": "CQ-A13", "level": "L2", "dim": "D2", "mode": "retrieval",
         "question": "How is the image corpus distributed across conditions and "
                     "entity types?",
@@ -439,7 +571,8 @@ def short(term):
 def run(graph, cq):
     out = {"id": cq["id"], "level": cq["level"], "dim": cq["dim"],
            "mode": cq["mode"], "question": cq["question"],
-           "note": cq["note"], "partial": cq.get("partial"), "queries": []}
+           "note": cq["note"], "partial": cq.get("partial"),
+           "gap": cq.get("gap"), "queries": []}
     answered = True
     for label, body in cq["queries"]:
         t0 = time.perf_counter()
@@ -463,21 +596,31 @@ def run(graph, cq):
     return out
 
 
-def status_table():
-    """Every Tier A CQ and why it is or is not implemented here."""
+def status_table(results):
+    """Every Tier A CQ and why it is or is not implemented here.
+
+    The state of an implemented CQ comes from its query result, never from
+    v06_status in the Stage 3 CSV: that column is a prediction made before any
+    SPARQL existed, and it was wrong on 8 of the first 15 CQs.
+    """
     import csv
     final = list(csv.DictReader(FINAL_CQS.open(encoding="utf-8-sig")))
     gap_ids = {g["cq_id"] for g in csv.DictReader(GAPS.open(encoding="utf-8-sig"))}
-    implemented = {c["id"] for c in CQS}
+    measured = {r["id"]: r for r in results}
     rows = []
     for c in final:
         cid = c["cq_id"]
-        if cid in implemented:
-            state = "implemented here"
-            why = ("answerable by v0.6; no benchmark counterpart"
-                   if cid in gap_ids else
-                   "answerable by v0.6; the benchmark probes the same relation "
-                   "in coverage form, this is the answer form")
+        if cid in measured:
+            r = measured[cid]
+            if r["status"] == "NO ANSWER":
+                state = "queried - no answer"
+                why = "v0.6 returns nothing: " + (r["gap"] or "see detail")
+            else:
+                state = "implemented here"
+                why = (f"{r['status']} in v0.6; no benchmark counterpart"
+                       if cid in gap_ids else
+                       f"{r['status']} in v0.6; the benchmark probes the same "
+                       "relation in coverage form, this is the answer form")
         elif c["v06_status"] != "answerable":
             # extensions_required joins several gap notes with " | ", which
             # would break the markdown table it is rendered into.
@@ -516,7 +659,7 @@ def main():
     print(f"{len(g):,} triples (+{len(g) - n_asserted:,}) in {reason_s:.1f}s")
 
     results = [run(g, cq) for cq in sorted(CQS, key=lambda c: c["id"])]
-    rows = status_table()
+    rows = status_table(results)
 
     for r in results:
         total = sum(q["rows"] for q in r["queries"])
@@ -540,32 +683,34 @@ def main():
 def write_report(p):
     res = p["results"]
     rows = p["status_table"]
-    n_ans = sum(1 for r in res if r["answered"])
     n_full = sum(1 for r in res if r["status"] == "answers")
     n_part = sum(1 for r in res if r["status"].startswith("partial"))
-    n_schema = sum(1 for r in res if r["partial_kind"] == "schema")
-    n_data = sum(1 for r in res if r["partial_kind"] == "data")
+    n_none = sum(1 for r in res if r["status"] == "NO ANSWER")
+    n_schema = sum(1 for r in res if r["status"] == "partial - schema")
+    n_data = sum(1 for r in res if r["status"] == "partial - data")
     L = ["# Elicited Competency Questions - SPARQL Results", "",
          f"Generated {p['generated'][:16].replace('T', ' ')} by "
          "`elicited_cq_sparql.py` against `{}`: {:,} asserted triples, "
          "{:,} after OWL RL materialisation ({}s).".format(
              p["ontology"], p["asserted_triples"], p["entailed_triples"],
              p["reasoning_s"]), "",
-         f"**{len(res)} of the {len(rows)} elicited Tier A CQs are implemented "
-         "here** - every one that RiceMMKG v0.6 can answer. The remaining "
-         f"{len(rows) - len(res)} need schema or data the release does not "
-         "carry and are the v0.7 work plan; the status table at the end lists "
-         "each with its reason.", "",
-         f"**{n_full} answer in full and {n_part} answer in part.** A partial "
-         "is not a pass: the query returns what v0.6 supports, and the "
-         f"shortfall is named on the CQ. {n_part} of {len(res)} coming back "
-         "partial is itself the finding - competency questions are "
-         "requirements, and requirements are supposed to outrun the release "
-         "that exists.", "",
+         f"**{len(res)} of the {len(rows)} elicited Tier A CQs are queried "
+         "here** - every one for which RiceMMKG v0.6 has at least the concept "
+         "the question turns on. Answerability is measured, not predicted: "
+         "the Stage 3 `v06_status` column is not used. The remaining "
+         f"{len(rows) - len(res)} ask for a concept v0.6 does not have at all "
+         "and are the v0.7 work plan; the status table at the end lists each "
+         "with its reason.", "",
+         f"**{n_full} answer in full, {n_part} answer in part, and {n_none} "
+         "return nothing.** A partial is not a pass: the query returns what "
+         "v0.6 supports, and the shortfall is named on the CQ. A CQ that "
+         "returns nothing is reported, not dropped - the empty result is the "
+         "measurement.", "",
          "**A partial comes in two kinds, and they are different pieces of "
          f"work.** {n_schema} are *partial - schema*: the ontology has no "
-         "concept for what the question asks, so no amount of data would "
-         f"answer it and the remedy is modelling. {n_data} is *partial - "
+         "concept for part of what the question asks, so no amount of data "
+         f"would answer it and the remedy is modelling. {n_data} "
+         f"{'is' if n_data == 1 else 'are'} *partial - "
          "data*: the concept exists and the query is correct, but few "
          "individuals carry it, so the remedy is annotation. Only the second "
          "kind is a coverage question at all - a relation that does not exist "
@@ -603,6 +748,8 @@ def write_report(p):
               f"{r['status']}**", "", r["note"], ""]
         if r["partial"]:
             L += [f"> **Partial:** {r['partial']}", ""]
+        if r["status"] == "NO ANSWER" and r["gap"]:
+            L += [f"> **No answer:** {r['gap']}", ""]
         for q in r["queries"]:
             L += [f"**{q['label']}**", "", "```sparql", q["sparql"], "```", "",
                   f"{q['rows']} row(s) in {q['ms']} ms."]

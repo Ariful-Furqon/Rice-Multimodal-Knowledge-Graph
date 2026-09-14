@@ -284,12 +284,15 @@ Stage 3 grouping, **before any SPARQL had been written**. It records what the
 adjudicator expected v0.6 to answer. It is not evidence that v0.6 answers
 anything.
 
-The measurement is `../elicited_cq_sparql_results.json`, and the two disagree
-on **8 of the 15 CQs that have since been implemented** — always in the same
-direction: Stage 3 predicted `answerable`, the query came back `partial`. That
-direction is not a coincidence. Reading a schema and judging that it *could*
-answer a question is systematically more optimistic than writing the query and
-finding out.
+The measurement is `../elicited_cq_sparql_results.json`. Of the 15 CQs
+predicted `answerable`, **8 came back `partial`** — reading a schema and judging
+that it *could* answer a question is more optimistic than writing the query and
+finding out. The error is not one-directional, though. On 2026-09-14 four CQs
+predicted `needs new schema/data` were queried as well: `CQ-A18` and `CQ-A19`
+return nothing, as predicted, but `CQ-A11` and `CQ-A24` answer in part, and the
+"explicit symptom-free assertion" Stage 3 said `CQ-A24` lacked turned out to be
+the 1,764 `Normal_Health` annotations already in the graph. A prediction is
+wrong in whichever direction nobody checked.
 
 **Anything that reports answerability must read the JSON, not this column** —
 a slide deck built off `v06_status` on 2026-09-10 presented all 15 as
@@ -556,14 +559,21 @@ original pool.
 - **Tier B instrument.** Tier A rates the released resource; a separate
   instrument should prioritise the roadmap. The two must never merge - Tier B
   ratings must not enter the kappa that evaluates the resource.
-- ~~**Five SPARQL implementations.**~~ **Done 2026-09-08, and since extended to
-  15.** `../elicited_cq_sparql.py` implements 15 of the 25 elicited CQs and
-  reports them in `../Elicited_CQ_SPARQL_Report.md`. **7 answer in full and 8
-  answer in part** - `CQ-A01`, `A02`, `A03`, `A06`, `A07`, `A13` and `A17` are
-  *partial - schema* (the ontology has no concept for what is asked, so no
-  amount of data would answer it), and `CQ-A15` is *partial - data* (the
-  concept exists, few individuals carry it). A partial is not a pass and is
-  never counted as one. Kept
+- ~~**Five SPARQL implementations.**~~ **Done 2026-09-08, extended to 15, and
+  on 2026-09-14 to 19.** `../elicited_cq_sparql.py` queries 19 of the 25
+  elicited CQs and reports them in `../Elicited_CQ_SPARQL_Report.md`. **7 answer
+  in full, 10 answer in part, 2 return nothing.** `CQ-A01`, `A02`, `A03`, `A06`,
+  `A07`, `A11`, `A13`, `A17` and `A24` are *partial - schema* (the ontology has
+  no concept for part of what is asked, so no amount of data would answer it),
+  and `CQ-A15` is *partial - data* (the concept exists, few individuals carry
+  it). `CQ-A18` (no image carries a `SeverityLevel`) and `CQ-A19` (every image
+  captures exactly one symptom) are *NO ANSWER*. A partial is not a pass and is
+  never counted as one; an empty result is reported, never dropped. The four
+  added on 2026-09-14 had been left out on the strength of `v06_status` alone,
+  and `CQ-A24` shows the prediction was wrong in the other direction too: the
+  "explicit symptom-free assertion" it said was missing is the 1,764
+  `Normal_Health` annotations. The remaining six (A08, A09, A12, A14, A20, A25)
+  ask for a concept v0.6 does not have at all. Kept
   separate from `cq_sparql_benchmark.py` on purpose: those are coverage
   questions scored against a threshold, these are retrieval questions that
   answer or do not. The run also surfaced a v0.7 priority the coverage
