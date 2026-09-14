@@ -11,12 +11,13 @@ against a coverage threshold would be a category error, so they are kept apart
 and reported separately.
 
 WHAT IS IMPLEMENTED
-Every elicited Tier A CQ for which v0.6 has at least the concept the question
-turns on: 19 of the 25. The first pass implemented 15, chosen by the Stage 3
-v06_status prediction; A11, A18, A19 and A24 were added once it was clear that
-column had never been checked against a query. A CQ whose query returns nothing
-is kept and reported as NO ANSWER - the empty result is the measurement. The
-other 6 ask for a concept v0.6 does not have at all and are the v0.7 work plan;
+Every elicited Tier A CQ for which the ontology has at least the concept the
+question turns on: 19 of the 25. The first pass implemented 15, chosen by the
+Stage 3 v06_status prediction; A11, A18, A19 and A24 were added once it was clear
+that column had never been checked against a query. A CQ whose query returns
+nothing is kept and reported as NO ANSWER - the empty result is the measurement.
+The other 6 ask for a concept the ontology does not have at all and are the v0.7
+work plan;
 they are listed in the status table with the reason, so nothing is quietly
 omitted.
 
@@ -64,6 +65,15 @@ assert ONTOLOGY.exists(), f"Ontology not found: {ONTOLOGY}"
 
 RICE_NS = "http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#"
 
+# Release label substituted for {V} in CQ notes, query labels and report text.
+# Set in main() from owl:versionInfo, so a run against a later release never
+# describes itself as an earlier one.
+V = "v?"
+
+
+def versioned(text):
+    return text.replace("{V}", V) if text else text
+
 PREFIX = f"""
 PREFIX rice: <{RICE_NS}>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -88,7 +98,7 @@ CQS = [
                 "relation - how many diseases have any pathogen - never the "
                 "answer form.",
         "partial_kind": "schema",
-        "partial": "v0.6 types every pathogen as rice:Pathogen and nothing "
+        "partial": "{V} types every pathogen as rice:Pathogen and nothing "
                    "more, so there is no taxonomic group to return; the "
                    "closest available identity is the external alignment",
         "queries": [
@@ -113,7 +123,7 @@ ORDER BY ?disease"""),
         "note": "A three-hop chain: vector -> agent -> disease. Proposed by "
                 "five of six models.",
         "partial_kind": "schema",
-        "partial": "transmission mode is not a property in v0.6, so the mode "
+        "partial": "transmission mode is not a property in {V}, so the mode "
                    "cannot be returned",
         "queries": [
             ("Vector, the agent it transmits, and the disease that agent "
@@ -131,7 +141,7 @@ ORDER BY ?vector ?agent"""),
                     "which plant organ, and at which growth stage?",
         "note": "The diagnostic question in its plainest form.",
         "partial_kind": "schema",
-        "partial": "plant organ is not modelled in v0.6; growth stage is "
+        "partial": "plant organ is not modelled in {V}; growth stage is "
                    "attached to the disease, not to the individual symptom, so "
                    "the two are returned as a cross product rather than a fact",
         "queries": [
@@ -172,7 +182,7 @@ ORDER BY DESC(?entities) ?condition"""),
                     "most damaging?",
         "note": "Also single-model, also answerable.",
         "partial_kind": "schema",
-        "partial": "v0.6 records that a pest occurs at a stage, not how "
+        "partial": "{V} records that a pest occurs at a stage, not how "
                    "damaging it is there, so the question's ranking cannot be "
                    "answered - occurrence is returned instead",
         "queries": [
@@ -192,7 +202,7 @@ ORDER BY ?stage"""),
                 "advise on. Proposed by five of six models.",
         "partial_kind": "schema",
         "partial": "management category (chemical / biological / cultural) and "
-                   "source authority are not modelled in v0.6; only the "
+                   "source authority are not modelled in {V}; only the "
                    "treatment itself and its prerequisites can be returned",
         "queries": [
             ("Treatments for Stem Borer and what each requires",
@@ -408,7 +418,7 @@ WHERE {
          ?link ?severity .
 }
 ORDER BY ?image"""),
-            ("What the severity levels are used for in v0.6",
+            ("What the severity levels are used for in {V}",
              """SELECT ?severity ?recommends WHERE {
   ?severity a rice:SeverityLevel .
   OPTIONAL { ?severity rice:recommends ?recommends }
@@ -428,7 +438,7 @@ ORDER BY ?severity"""),
                 "no image has been annotated with two.",
         "gap": "every image that captures a symptom captures exactly one, so "
                "no pair can co-occur; the same-plant part of the question has "
-               "no model at all, since v0.6 images are independent",
+               "no model at all, since {V} images are independent",
         "queries": [
             ("Pairs of symptoms captured in the same image",
              """SELECT ?image ?symptom_a ?symptom_b WHERE {
@@ -458,7 +468,7 @@ ORDER BY ?symptoms_per_image"""),
                 "the question asks for; only the organ and view half is "
                 "missing.",
         "partial_kind": "schema",
-        "partial": "organ and plant view are not modelled in v0.6, so the "
+        "partial": "organ and plant view are not modelled in {V}, so the "
                    "images are returned without them",
         "queries": [
             ("Images annotated as healthy, with their retrievable URL",
@@ -480,11 +490,11 @@ ORDER BY ?image"""),
         "question": "How is the image corpus distributed across conditions and "
                     "entity types?",
         "note": "PARTIAL. The elicited question also asks for plant part and "
-                "capture type. v0.6 models neither, so this implements the "
+                "capture type. {V} models neither, so this implements the "
                 "answerable half and the rest stays on the v0.7 plan. Reported "
                 "as partial rather than passed.",
         "partial_kind": "schema",
-        "partial": "plant part and capture type are not modelled in v0.6",
+        "partial": "plant part and capture type are not modelled in {V}",
         "queries": [
             ("Images per annotated condition and entity type",
              """SELECT ?condition ?type (COUNT(?image) AS ?images) WHERE {
@@ -529,12 +539,12 @@ ORDER BY DESC(?support) ?candidate"""),
         "question": "Which visual features separate Brown Spot from Rice "
                     "Blast?",
         "note": "The pair the models named most often as visually confusable. "
-                "Answered from the symptom layer; v0.6 has no lesion "
+                "Answered from the symptom layer; {V} has no lesion "
                 "shape/colour descriptors, so the separation is by symptom "
                 "identity rather than by visual feature.",
         "partial_kind": "schema",
         "partial": "separation is by symptom, not by lesion descriptors, "
-                   "which v0.6 does not carry",
+                   "which {V} does not carry",
         "queries": [
             ("Symptoms unique to each of the two conditions",
              """SELECT ?condition ?distinguishing_symptom WHERE {
@@ -571,8 +581,9 @@ def short(term):
 def run(graph, cq):
     out = {"id": cq["id"], "level": cq["level"], "dim": cq["dim"],
            "mode": cq["mode"], "question": cq["question"],
-           "note": cq["note"], "partial": cq.get("partial"),
-           "gap": cq.get("gap"), "queries": []}
+           "note": versioned(cq["note"]),
+           "partial": versioned(cq.get("partial")),
+           "gap": versioned(cq.get("gap")), "queries": []}
     answered = True
     for label, body in cq["queries"]:
         t0 = time.perf_counter()
@@ -581,7 +592,7 @@ def run(graph, cq):
         cols = [str(v) for v in (rows[0].labels if rows else [])]
         sample = [[short(v) for v in row] for row in rows[:MAX_SAMPLE]]
         out["queries"].append({
-            "label": label, "sparql": body.strip(), "rows": len(rows),
+            "label": versioned(label), "sparql": body.strip(), "rows": len(rows),
             "ms": round(ms, 1), "columns": cols, "sample": sample})
         if not rows:
             answered = False
@@ -614,12 +625,12 @@ def status_table(results):
             r = measured[cid]
             if r["status"] == "NO ANSWER":
                 state = "queried - no answer"
-                why = "v0.6 returns nothing: " + (r["gap"] or "see detail")
+                why = "{V} returns nothing: " + (r["gap"] or "see detail")
             else:
                 state = "implemented here"
-                why = (f"{r['status']} in v0.6; no benchmark counterpart"
+                why = (f"{r['status']} in {V}; no benchmark counterpart"
                        if cid in gap_ids else
-                       f"{r['status']} in v0.6; the benchmark probes the same "
+                       f"{r['status']} in {V}; the benchmark probes the same "
                        "relation in coverage form, this is the answer form")
         elif c["v06_status"] != "answerable":
             # extensions_required joins several gap notes with " | ", which
@@ -627,14 +638,14 @@ def status_table(results):
             needs = c["extensions_required"].replace(" | ", "; ")
             if len(needs) > 110:
                 needs = needs[:107].rsplit(" ", 1)[0] + " ..."
-            state, why = "v0.7 work plan", needs or "needs schema or data v0.6 lacks"
+            state, why = "v0.7 work plan", needs or "needs schema or data {V} lacks"
         elif cid not in gap_ids:
             state, why = "covered by the benchmark", "the benchmark probes the same relation in coverage form"
         else:
             state, why = "not yet implemented", "answerable, but not selected for this pass"
         rows.append({"cq_id": cid, "level": c["level"], "dim": c["dim"],
                      "short_label": c["short_label"], "state": state,
-                     "why": why})
+                     "why": versioned(why)})
     return rows
 
 
@@ -642,6 +653,12 @@ def main():
     print(f"loading {ONTOLOGY.name} ...")
     g = Graph()
     g.parse(ONTOLOGY)
+    global V
+    from rdflib import OWL
+    version = next(g.objects(None, OWL.versionInfo), None)
+    assert version is not None, "owl:versionInfo missing - cannot label the report"
+    V = f"v{version}"
+    print(f"  release {V}")
     n_asserted = len(g)
     print(f"  {n_asserted:,} asserted triples")
 
@@ -695,15 +712,15 @@ def write_report(p):
              p["ontology"], p["asserted_triples"], p["entailed_triples"],
              p["reasoning_s"]), "",
          f"**{len(res)} of the {len(rows)} elicited Tier A CQs are queried "
-         "here** - every one for which RiceMMKG v0.6 has at least the concept "
+         "here** - every one for which RiceMMKG {V} has at least the concept "
          "the question turns on. Answerability is measured, not predicted: "
          "the Stage 3 `v06_status` column is not used. The remaining "
-         f"{len(rows) - len(res)} ask for a concept v0.6 does not have at all "
+         f"{len(rows) - len(res)} ask for a concept {V} does not have at all "
          "and are the v0.7 work plan; the status table at the end lists each "
          "with its reason.", "",
          f"**{n_full} answer in full, {n_part} answer in part, and {n_none} "
          "return nothing.** A partial is not a pass: the query returns what "
-         "v0.6 supports, and the shortfall is named on the CQ. A CQ that "
+         "{V} supports, and the shortfall is named on the CQ. A CQ that "
          "returns nothing is reported, not dropped - the empty result is the "
          "measurement.", "",
          "**A partial comes in two kinds, and they are different pieces of "
@@ -737,7 +754,7 @@ def write_report(p):
     for r in res:
         L.append(f"| `{r['id']}` | {r['level']} | {r['dim']} | "
                  f"{r['status']} | {r['question']} |")
-    L += ["", "`partial` means the query answers the part of the question v0.6 "
+    L += ["", "`partial` means the query answers the part of the question {V} "
           "can support, with the shortfall named. It is not a pass and is not "
           "counted as one.", ""]
 
@@ -786,7 +803,7 @@ def write_report(p):
           "condition and no other. That is a v0.7 priority the coverage "
           "benchmark did not surface, because it counted symptoms with any "
           "visual grounding rather than images with any symptom.", ""]
-    REPORT_OUT.write_text("\n".join(L), encoding="utf-8")
+    REPORT_OUT.write_text(versioned("\n".join(L)), encoding="utf-8")
 
 
 if __name__ == "__main__":
