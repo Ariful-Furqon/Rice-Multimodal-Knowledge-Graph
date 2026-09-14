@@ -24709,7 +24709,7 @@
     <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Harvest_Stage"/>
     <dcterms:source rdf:resource="https://bbpopt.tanamanpangan.pertanian.go.id/"/>
     <dcterms:bibliographicCitation>BBPOPT (2022). Pedoman Pengamatan dan Pengendalian Organisme Pengganggu Tumbuhan Tanaman Padi. Balai Besar Peramalan Organisme Pengganggu Tumbuhan, Kementerian Pertanian Republik Indonesia.</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:evidenceType>literature-curated</rice:evidenceType>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_tungro_103534">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -27876,7 +27876,7 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <owl:versionIRI rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG/0.6.1"/>
+    <owl:versionIRI rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG/0.6"/>
     <dcterms:creator>Muhammad Ariful Furqon (ORCID: https://orcid.org/0000-0002-1031-3567)</dcterms:creator>
     <dcterms:creator>Natthawut Kertkeidkachorn (ORCID: https://orcid.org/0000-0003-4527-776X)</dcterms:creator>
     <dcterms:description>Rice MMKG is a knowledge graph for rice disease and pest diagnosis, populated from the Paddy Doctor image dataset. It links diseases, pests, pathogens, symptoms, environmental factors, growth stages, and management knowledge, and separates raw dataset annotation (annotatedAs) from domain-knowledge evidence (captures/indicates). This is a minimal schema: every class holds individuals and every asserted property holds assertions -- nothing is declared ahead of the data that would populate it. See dcterms:description's sibling note on the deferred design roadmap for what was intentionally left out and why.</dcterms:description>
@@ -27885,7 +27885,7 @@
     <dcterms:title>Rice MMKG — Rice Multimodal Knowledge Graph</dcterms:title>
     <vann:preferredNamespacePrefix>riceMMKG</vann:preferredNamespacePrefix>
     <rdfs:comment xml:lang="en">RiceMMKG: A Multimodal Knowledge Graph and Domain Ontology for Rice Pest and Disease Identification. Every domain-level assertion is grounded in peer-reviewed agronomic literature and authoritative databases (IRRI Rice Doctor Knowledge Bank, CABI Crop Protection Compendium, EPPO Global Database, and BBPOPT), formally traceable via OWL axiom annotations (owl:Axiom with dcterms:source and dcterms:bibliographicCitation).</rdfs:comment>
-    <owl:versionInfo>0.6.1</owl:versionInfo>
+    <owl:versionInfo>0.6</owl:versionInfo>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_brown_spot_108096">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -38705,34 +38705,6 @@
     <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_1032906"/>
     <rice:transmits rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Bacilliform_Virus"/>
     <rice:transmits rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Spherical_Virus"/>
-    <rice:controlledBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Resistant_Variety"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv0610ax01nephotettixresistvar">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Nephotettix_Virescens"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#controlledBy"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Resistant_Variety"/>
-    <dcterms:source rdf:resource="https://www.fao.org/4/y6159t/y6159t02.htm"/>
-    <dcterms:bibliographicCitation xml:lang="en">Gallagher, K.D., Ooi, P.A.C., Mew, T.W., Borromeo, E. and Kenmore, P.E. (2002). Integrated pest management in rice. International Rice Commission Newsletter. FAO.</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv0610ax02stemborerdeadtiller">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Stem_Borer"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#indicatedBy"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Dead_Tiller"/>
-    <dcterms:source rdf:resource="https://irac-online.org/documents/yellow-rice-stem-borer-irm/"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRAC (2025). Rice Stem Borer, Scirpophaga incertulas (yellow rice stem borer): Sustainable Control Strategies in Asia. Poster, version 2, May 2025. Insecticide Resistance Action Committee.</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv0610ax03stemborerwhiteear">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Stem_Borer"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#indicatedBy"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#White_Ear"/>
-    <dcterms:source rdf:resource="https://irac-online.org/documents/yellow-rice-stem-borer-irm/"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRAC (2025). Rice Stem Borer, Scirpophaga incertulas (yellow rice stem borer): Sustainable Control Strategies in Asia. Poster, version 2, May 2025. Insecticide Resistance Action Committee.</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_bacterial_leaf_blight_103629">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>

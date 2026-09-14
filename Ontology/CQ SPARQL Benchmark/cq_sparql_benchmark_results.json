@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated": "2026-09-03 10:31",
+    "generated": "2026-09-14 22:21",
     "ontology": "Rice MMKG.rdf",
-    "asserted_triples": 66874,
-    "entailed_triples": 161568,
-    "reasoning_seconds": 24.0,
+    "asserted_triples": 66802,
+    "entailed_triples": 161447,
+    "reasoning_seconds": 30.0,
     "coverage_threshold": 0.5
   },
   "results": [
@@ -24,7 +24,7 @@
       ],
       "unit": "disease",
       "status": "PASS",
-      "ms": 234.7
+      "ms": 424.9
     },
     {
       "id": "CQ-02",
@@ -41,7 +41,7 @@
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 9.5
+      "ms": 12.7
     },
     {
       "id": "CQ-03",
@@ -50,15 +50,13 @@
       "mode": "coverage",
       "question": "Which diseases and pests have at least one control treatment?",
       "rationale": "Actionability. The KG must not diagnose what it cannot advise on.",
-      "covered": 15,
+      "covered": 16,
       "total": 16,
-      "ratio": 0.9375,
-      "missing": [
-        "rice:Nephotettix_Virescens"
-      ],
+      "ratio": 1.0,
+      "missing": [],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 6.8
+      "ms": 8.3
     },
     {
       "id": "CQ-04",
@@ -73,7 +71,7 @@
       "missing": [],
       "unit": "symptom",
       "status": "PASS",
-      "ms": 4.4
+      "ms": 3.7
     },
     {
       "id": "CQ-05",
@@ -106,12 +104,12 @@
         [
           "rice:Flowering_Stage",
           "rice:Bacterial_Panicle_Blight",
-          "rice:High_Night_Temperature"
+          "rice:High_Temperature"
         ],
         [
           "rice:Flowering_Stage",
           "rice:Bacterial_Panicle_Blight",
-          "rice:High_Temperature"
+          "rice:High_Night_Temperature"
         ],
         [
           "rice:Flowering_Stage",
@@ -131,16 +129,11 @@
         [
           "rice:Flowering_Stage",
           "rice:Rice_Blast_Disease",
-          "rice:High_Humidity"
-        ],
-        [
-          "rice:Flowering_Stage",
-          "rice:Rice_Blast_Disease",
           "rice:Low_Rainfall"
         ],
         [
           "rice:Flowering_Stage",
-          "rice:Sheath_Blight",
+          "rice:Rice_Blast_Disease",
           "rice:High_Humidity"
         ],
         [
@@ -149,9 +142,14 @@
           "rice:Poor_Soil_Drainage"
         ],
         [
+          "rice:Flowering_Stage",
+          "rice:Sheath_Blight",
+          "rice:High_Humidity"
+        ],
+        [
           "rice:Maturity_Stage",
           "rice:Bacterial_Panicle_Blight",
-          "rice:High_Night_Temperature"
+          "rice:High_Temperature"
         ]
       ],
       "detail_vars": [
@@ -160,7 +158,7 @@
         "f"
       ],
       "detail_total": 88,
-      "ms": 33.2
+      "ms": 31.2
     },
     {
       "id": "CQ-06",
@@ -177,7 +175,7 @@
       ],
       "unit": "growth stage",
       "status": "PASS",
-      "ms": 5.3
+      "ms": 7.3
     },
     {
       "id": "CQ-07",
@@ -189,7 +187,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 8.2
+      "ms": 12.2
     },
     {
       "id": "CQ-08",
@@ -206,7 +204,7 @@
       ],
       "unit": "preventive treatment",
       "status": "PASS",
-      "ms": 3.5
+      "ms": 4.8
     },
     {
       "id": "CQ-09",
@@ -239,7 +237,7 @@
         "d"
       ],
       "detail_total": 2,
-      "ms": 5.0
+      "ms": 7.5
     },
     {
       "id": "CQ-10",
@@ -248,14 +246,10 @@
       "mode": "negative",
       "question": "Are there insect vectors for which no control treatment is recorded, leaving the transmission chain unbreakable?",
       "rationale": "A vector chain that cannot be interrupted has no advisory value. Splitting this from CQ-09 separates 'the chain exists' from 'the chain is actionable'.",
-      "violations": 1,
-      "examples": [
-        [
-          "rice:Nephotettix_Virescens"
-        ]
-      ],
-      "status": "FAIL",
-      "ms": 2.4
+      "violations": 0,
+      "examples": [],
+      "status": "PASS",
+      "ms": 3.4
     },
     {
       "id": "CQ-11",
@@ -274,19 +268,25 @@
         [
           "rice:Bacterial_Leaf_Blight",
           "rice:Excessive_Nitrogen",
-          "rice:Dry_Leaf_Tip",
-          "rice:Resistant_Variety"
+          "rice:Yellow_Leaf",
+          "rice:Crop_Rotation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
           "rice:Excessive_Nitrogen",
-          "rice:Dry_Leaf_Tip",
+          "rice:Yellow_Leaf",
           "rice:Water_Management"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
           "rice:Excessive_Nitrogen",
-          "rice:Dry_Leaf_Tip",
+          "rice:Yellow_Leaf",
+          "rice:Resistant_Variety"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
+          "rice:Yellow_Leaf",
           "rice:Crop_Sanitation"
         ],
         [
@@ -298,19 +298,19 @@
         [
           "rice:Bacterial_Leaf_Blight",
           "rice:Excessive_Nitrogen",
-          "rice:Leaf_Rolling",
-          "rice:Resistant_Variety"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Leaf_Rolling",
+          "rice:Dry_Leaf_Tip",
           "rice:Water_Management"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
           "rice:Excessive_Nitrogen",
-          "rice:Leaf_Rolling",
+          "rice:Dry_Leaf_Tip",
+          "rice:Resistant_Variety"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
+          "rice:Dry_Leaf_Tip",
           "rice:Crop_Sanitation"
         ],
         [
@@ -322,26 +322,20 @@
         [
           "rice:Bacterial_Leaf_Blight",
           "rice:Excessive_Nitrogen",
-          "rice:Wilting",
-          "rice:Resistant_Variety"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Wilting",
+          "rice:Leaf_Rolling",
           "rice:Water_Management"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
           "rice:Excessive_Nitrogen",
-          "rice:Wilting",
-          "rice:Crop_Sanitation"
+          "rice:Leaf_Rolling",
+          "rice:Resistant_Variety"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
           "rice:Excessive_Nitrogen",
-          "rice:Wilting",
-          "rice:Crop_Rotation"
+          "rice:Leaf_Rolling",
+          "rice:Crop_Sanitation"
         ]
       ],
       "detail_vars": [
@@ -351,7 +345,7 @@
         "t"
       ],
       "detail_total": 277,
-      "ms": 395.2
+      "ms": 530.8
     },
     {
       "id": "CQ-12",
@@ -374,7 +368,7 @@
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 6.0
+      "ms": 7.7
     },
     {
       "id": "CQ-13",
@@ -420,7 +414,7 @@
         "m"
       ],
       "detail_total": 6,
-      "ms": 5.3
+      "ms": 7.0
     },
     {
       "id": "CQ-14",
@@ -433,7 +427,7 @@
       "entailed": 1442,
       "gain": 1442,
       "status": "PASS",
-      "ms": 17.9
+      "ms": 19.6
     },
     {
       "id": "CQ-15",
@@ -443,10 +437,10 @@
       "question": "Can the KG be queried in the inverse direction, e.g. disease -> causedBy -> pathogen and symptom -> indicates -> disease?",
       "rationale": "14 of 26 object properties are declared as owl:inverseOf but never asserted. Query robustness depends on materialising them.",
       "asserted": 0,
-      "entailed": 140,
-      "gain": 140,
+      "entailed": 134,
+      "gain": 134,
       "status": "PASS",
-      "ms": 7.7
+      "ms": 8.2
     },
     {
       "id": "CQ-16",
@@ -461,7 +455,7 @@
       "missing": [],
       "unit": "diagnostic image",
       "status": "PASS",
-      "ms": 2106.6
+      "ms": 2699.3
     },
     {
       "id": "CQ-17",
@@ -476,7 +470,7 @@
       "missing": [],
       "unit": "annotated class",
       "status": "PASS",
-      "ms": 452.6
+      "ms": 477.2
     },
     {
       "id": "CQ-18",
@@ -518,7 +512,7 @@
       ],
       "unit": "symptom",
       "status": "PARTIAL",
-      "ms": 20.0
+      "ms": 18.9
     },
     {
       "id": "CQ-19",
@@ -530,7 +524,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 942.6
+      "ms": 1308.9
     },
     {
       "id": "CQ-20",
@@ -541,7 +535,7 @@
       "rationale": "Declared extension point. Recorded as a measurement, not scored, so the roadmap gap stays visible without inflating or deflating the pass rate.",
       "count": 0,
       "status": "DOCUMENTED",
-      "ms": 1.6
+      "ms": 1.9
     },
     {
       "id": "CQ-21",
@@ -550,25 +544,25 @@
       "mode": "coverage",
       "question": "Which reified domain assertions carry both an authoritative source URI and a bibliographic citation?",
       "rationale": "Provenance completeness - the scientific-defensibility claim of the KG.",
-      "covered": 265,
-      "total": 265,
+      "covered": 256,
+      "total": 256,
       "ratio": 1.0,
       "missing": [],
       "unit": "reified axiom",
       "status": "PASS",
-      "ms": 13.7
+      "ms": 15.6
     },
     {
       "id": "CQ-22",
       "level": "L4",
       "dim": "D3",
       "mode": "negative",
-      "question": "Are there reified axioms with incomplete provenance (missing source, citation or evidence type)?",
-      "rationale": "Integrity constraint complementing CQ-19.",
+      "question": "Are there domain assertions with missing or incomplete provenance - either no reified axiom at all, or an axiom missing its source, citation or evidence type?",
+      "rationale": "Integrity constraint complementing CQ-21. Extended on 2026-09-14: the original form checked only axioms that exist, so an assertion with no axiom at all was invisible to both CQ-21 and CQ-22, and v0.6 carried two such assertions while both reported full provenance. Runs on the asserted graph, since materialised inverses are never reified and would all count as violations.",
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 38.0
+      "ms": 179.4
     },
     {
       "id": "CQ-23",
@@ -599,15 +593,10 @@
       "mode": "negative",
       "question": "Are annotation literals lexically consistent, i.e. is rice:evidenceType uniformly language-tagged?",
       "rationale": "Literal-hygiene constraint. An untagged duplicate of a tagged value silently splits GROUP BY and breaks lang() filters.",
-      "violations": 1,
-      "examples": [
-        [
-          "N14f7b5c7cffa4b6a9cc8baf7f8716a77",
-          "literature-curated"
-        ]
-      ],
-      "status": "FAIL",
-      "ms": 10.2
+      "violations": 0,
+      "examples": [],
+      "status": "PASS",
+      "ms": 10.9
     },
     {
       "id": "CQ-25",
@@ -619,7 +608,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 2.1
+      "ms": 1.8
     }
   ]
 }

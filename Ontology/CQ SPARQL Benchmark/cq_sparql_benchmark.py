@@ -312,14 +312,36 @@ CQS = [
     },
     {
         "id": "CQ-22", "level": "L4", "dim": "D3", "mode": "negative",
-        "question": "Are there reified axioms with incomplete provenance "
-                    "(missing source, citation or evidence type)?",
-        "rationale": "Integrity constraint complementing CQ-19.",
-        "num": PREFIX + """SELECT ?ax WHERE {
-  ?ax a owl:Axiom .
-  FILTER ( NOT EXISTS { ?ax dcterms:source ?s } ||
-           NOT EXISTS { ?ax dcterms:bibliographicCitation ?c } ||
-           NOT EXISTS { ?ax rice:evidenceType ?e } ) }""",
+        "question": "Are there domain assertions with missing or incomplete "
+                    "provenance - either no reified axiom at all, or an axiom "
+                    "missing its source, citation or evidence type?",
+        "rationale": "Integrity constraint complementing CQ-21. Extended on "
+                     "2026-09-14: the original form checked only axioms that "
+                     "exist, so an assertion with no axiom at all was invisible "
+                     "to both CQ-21 and CQ-22, and v0.6 carried two such "
+                     "assertions while both reported full provenance. Runs on "
+                     "the asserted graph, since materialised inverses are never "
+                     "reified and would all count as violations.",
+        "num": PREFIX + """SELECT ?item ?problem WHERE {
+  {
+    ?item a owl:Axiom .
+    FILTER ( NOT EXISTS { ?item dcterms:source ?s } ||
+             NOT EXISTS { ?item dcterms:bibliographicCitation ?c } ||
+             NOT EXISTS { ?item rice:evidenceType ?e } )
+    BIND ("axiom with incomplete provenance" AS ?problem)
+  } UNION {
+    VALUES ?p { rice:causes rice:transmits rice:indicatedBy rice:occursIn
+                rice:controlledBy rice:preventedBy rice:increaseRiskOf
+                rice:vulnerableTo rice:recommends rice:requires }
+    ?s ?p ?o .
+    FILTER NOT EXISTS { ?ax owl:annotatedSource ?s ;
+                            owl:annotatedProperty ?p ;
+                            owl:annotatedTarget ?o }
+    BIND (CONCAT(STRAFTER(STR(?s), "#"), " ", STRAFTER(STR(?p), "#"), " ",
+                 STRAFTER(STR(?o), "#")) AS ?item)
+    BIND ("assertion without provenance" AS ?problem)
+  }
+}""",
     },
     {
         "id": "CQ-23", "level": "L4", "dim": "D3", "mode": "coverage",

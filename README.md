@@ -11,15 +11,15 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 ### Core Design Principles
 
 - **Observation is kept separate from domain knowledge.** An `ImageObservation`'s raw dataset label (`annotatedAs`) is never conflated with curated symptom/cause/treatment relations (`captures`, `causes`, `indicatedBy`, ...) — what was recorded by computer vision is distinct from what is concluded by domain knowledge.
-- **Every domain-level assertion is traceable.** All 265 populated domain triples (`causes`, `indicatedBy`, `occursIn`, `controlledBy`, `preventedBy`, `increaseRiskOf`, `vulnerableTo`, `recommends`, `requires`, `transmits`) are reified with `owl:Axiom` and carry `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType` — **100% provenance coverage**, verified against authoritative sources (IRRI, CABI, EPPO, BBPOPT).
+- **Every domain-level assertion is traceable.** All 256 populated domain triples (`causes`, `indicatedBy`, `occursIn`, `controlledBy`, `preventedBy`, `increaseRiskOf`, `vulnerableTo`, `recommends`, `requires`, `transmits`) are reified with `owl:Axiom` and carry `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType` — **100% provenance coverage as of v0.6.1**, checked by CQ-22 (assertions without an axiom) as well as CQ-21 (axioms without a source). v0.6 fell two assertions short of this; see the v0.6.1 note in [`Ontology_Overview.md`](Ontology/Ontology_Overview.md).
 - **Formal reasoning & falsifiable Competency Questions.** Evaluated under automated Description Logic (HermiT/Pellet) and rule-based (OWL RL) reasoning across 25 schema-level Competency Questions without permissive `OPTIONAL` clauses.
 
 ### Metadata Snapshot
 
 - **Namespace:** `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#` (permanent PURL `https://w3id.org/ricemmkg` in Phase 2)
 - **Format:** OWL/XML (`.rdf`), fully compatible with [Protégé](https://protege.stanford.edu/)
-- **Version:** `0.6` (live as of 2026-09-03) — actively progressing toward the **ESWC 2027 Resource Track** (see [`Ontology/riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md))
-- **Triples:** **66,874** asserted triples / **161,568** materialised triples under OWL RL (+94,694 inferred triples)
+- **Version:** `0.6.1` (2026-09-14; v0.6 released 2026-09-03) — actively progressing toward the **ESWC 2027 Resource Track** (see [`Ontology/riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md))
+- **Triples:** **66,802** asserted triples / **161,447** materialised triples under OWL RL (+94,645 inferred triples)
 - **Reasoner Consistency:** **100% Consistent** in HermiT & Pellet (0 unsatisfiable classes, 0 disjointness conflicts)
 
 ---
@@ -61,7 +61,7 @@ Relations connect the domain entities with defined domains, ranges, and inverse 
 ### Individuals & Provenance
 
 - **10,498 named individuals**: 10,407 `ImageObservation` instances, 1 dataset metadata individual, plus 90 domain entities.
-- **265 reified domain axioms**: 100% backed by `owl:Axiom` records with `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType`. Sources trace to CABI Crop Protection Compendium, IRRI Rice Knowledge Bank, EPPO Global Database, and BBPOPT Kementan RI.
+- **256 reified domain axioms** over 256 domain assertions: every assertion backed by an `owl:Axiom` record with `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType`. Source URIs: CABI Crop Protection Compendium 242, BBPOPT Kementan RI 7, IRRI Rice Knowledge Bank 4, IRAC 2, FAO 1.
 - **External Alignment**: 33 `skos:exactMatch`, 17 `skos:closeMatch`, 1 `skos:broadMatch` to AGROVOC, NCBI Taxonomy, and EPPO identifiers, verified via live API checks.
 
 ### Paddy Doctor Dataset Alignment
@@ -90,16 +90,18 @@ Rice MMKG incorporates an automated verification harness (`cq_sparql_benchmark.p
 - **Knowledge Dimensions (D1–D3):** D1 Agronomic/Symbolic, D2 Cross-modal Grounding, D3 Provenance & External Alignment.
 - **Evaluation Modes:** `coverage` (≥ 50%), `negative` (0 violations), `entailment` (entailed > asserted), `documented` (declared extension point).
 
-### Benchmark Summary (v0.6)
+### Benchmark Summary (v0.6.1)
 
 ```
 ================================================================
-  PASS      21 / 24  (87.5% Pass Rate)
+  PASS      23 / 24  (95.8% Pass Rate)
   PARTIAL    1 / 24  (CQ-18 Symptom Visual Grounding: 4%)
-  FAIL       2 / 24  (CQ-10 Vector Actionability, CQ-24 Literal Tag)
+  FAIL       0 / 24
   DOC        1 / 25  (CQ-20 Sensor Observation Extension Point)
 ================================================================
 ```
+
+The released v0.6 file scores 21 PASS / 1 PARTIAL / 2 FAIL / 1 DOC (CQ-10, CQ-24). Under the extended CQ-22 (2026-09-14), which also flags domain assertions carrying no provenance axiom, v0.6 has a third failure: two `Stem_Borer indicatedBy` assertions were never reified. v0.6.1 fixes all three.
 
 - Complete documentation with exact SPARQL queries: [`Ontology/CQ SPARQL Benchmark/CQ_SPARQL_Documentation.md`](Ontology/CQ%20SPARQL%20Benchmark/CQ_SPARQL_Documentation.md)
 - Automated execution report: [`Ontology/CQ SPARQL Benchmark/CQ_SPARQL_Benchmark_Report.md`](Ontology/CQ%20SPARQL%20Benchmark/CQ_SPARQL_Benchmark_Report.md)
@@ -110,8 +112,8 @@ Rice MMKG incorporates an automated verification harness (`cq_sparql_benchmark.p
 
 Our five-phase development roadmap toward the **ESWC 2027 Resource Track** is detailed in [`Ontology/riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md):
 
-1. **Phase 1: Functional & Reasoning Evaluation (Weeks 1–2, Sept) — [90% Complete]**  
-   25 CQs benchmark (87.5% pass rate), HermiT/Pellet 100% consistency, OWL RL materialisation (+94k triples).
+1. **Phase 1: Functional & Reasoning Evaluation (Weeks 1–2, Sept) — [v0.6.1 patch done]**  
+   25 CQs benchmark (95.8% pass rate, 0 FAIL), HermiT consistency, OWL RL materialisation (+94k triples).
 2. **Phase 2: Availability, PURL & FAIR Polish (Weeks 3–4, Sept)**  
    Register permanent URI (`https://w3id.org/ricemmkg`), deploy pyLODE HTML documentation, deposit to Zenodo (DOI) & AgroPortal, achieve FOOPS! FAIR score > 0.85.
 3. **Phase 3: Multimodal Experimentation (Weeks 5–8, Late Sept & Oct)**  
@@ -127,11 +129,11 @@ Our five-phase development roadmap toward the **ESWC 2027 Resource Track** is de
 
 ```
 Ontology/
-  Rice MMKG.rdf                  # Master ontology file (OWL/XML), v0.6
+  Rice MMKG.rdf                  # Master ontology file (OWL/XML), v0.6.1
   Rice MMKG.properties           # Protégé project preferences
   Ontology_Overview.md           # Comprehensive structure, statistics, and full changelog
   riceMMKG_ESWC_plan.md          # 5-phase master roadmap toward ESWC 2027 submission
-  Backup/                        # Preserved release backups (v0.2 through v0.5)
+  Backup/                        # Preserved backups (v0.2 through v0.6 pre-v0.6.1)
   CQ SPARQL Benchmark/
     cq_sparql_benchmark.py       # Automated Python/rdflib/owlrl benchmark runner
     cq_sparql_benchmark_results.json # Full machine-readable test results

@@ -1,9 +1,11 @@
 # Rice MMKG — description, statistics, and changelog
 
-Status snapshot as of **2026-09-03** (Rice MMKG v0.6 release).
+Status snapshot as of **2026-09-14** (Rice MMKG v0.6.1 patch).
 Covers `Ontology/Rice MMKG.rdf` from its first commit through the current
-state. Numbers below were measured with rdflib 7.6.0 via
-`Worklog/RiceMMKG_cleanup_worklog/scripts/verify.py`.
+state. Numbers below were re-measured with rdflib on 2026-09-14. The v0.6
+figures this document first carried (66,874 triples, 265 axioms) had been
+measured before the same-day inconsistency fix and did not describe the
+released file; see the v0.6.1 changelog entry.
 
 ---
 
@@ -44,7 +46,7 @@ modality class is named `ImageObservation` (not `LeafImage`) since the
 2026-08-19 cleanup round — the old name was factually wrong for the part
 of the corpus that isn't a leaf (panicle blight, deadheart).
 
-**License:** CC BY 4.0. **Creator:** Muhammad Ariful Furqon (ORCID 0000-0002-1031-3567), Natthawut Kertkeidkachorn (ORCID 0000-0003-4527-776X). **Version:** `0.6` (live as of 2026-09-03; pre-release progression: `v0.1` → `v0.2` → `v0.3` → `v0.4` → `v0.5` → `v0.6`).
+**License:** CC BY 4.0. **Creator:** Muhammad Ariful Furqon (ORCID 0000-0002-1031-3567), Natthawut Kertkeidkachorn (ORCID 0000-0003-4527-776X). **Version:** `0.6.1` (2026-09-14; pre-release progression: `v0.1` → `v0.2` → `v0.3` → `v0.4` → `v0.5` → `v0.6` → `v0.6.1`).
 
 ---
 
@@ -52,17 +54,17 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **66,874** (asserted) / **161,568** (OWL RL) | v0.6. +94,694 triples derived via OWL RL materialisation in 24.0s |
+| **Total triples** | **66,802** (asserted) / **161,447** (OWL RL) | v0.6.1. +94,645 triples derived via OWL RL materialisation (~29s). Released v0.6: 66,780 / 161,416 |
 | **Named classes** | 16 | 13 primitive + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class (`SymptomaticObservation`) |
 | **Object properties** | 26 | All declared with explicit domain and range; includes `transmits`/`transmittedBy` |
 | **Datatype properties** | 5 | All declared with explicit domain and range |
 | **Annotation properties** | 14 | Includes `rice:evidenceType`, PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
 | **Named individuals** | **10,498** | 10,407 image individuals + 1 dataset metadata + 90 domain entities |
-| **`owl:Axiom` (provenance)** | **265** | **100% of domain assertions reified with sources & evidenceType — 1:1, no duplicates, no orphans** |
+| **`owl:Axiom` (provenance)** | **256** | **256 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (v0.6.1). Released v0.6: 253 axioms over 255 assertions |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories |
-| **Reasoner Consistency** | **100% Consistent** | Verified in **HermiT & Pellet**: 0 unsatisfiable classes, 0 disjointness conflicts |
-| **Competency Questions (CQ)** | **21 PASS / 1 PARTIAL / 2 FAIL / 1 DOC** | **87.5% pass rate** across 24 scored CQs (25 total CQs in benchmark suite) |
+| **Reasoner Consistency** | **Consistent** | v0.6.1 checked in **HermiT** on 2026-09-14 (space-free copy, with an injected-contradiction control that correctly reports inconsistent); v0.6 verified in HermiT & Pellet |
+| **Competency Questions (CQ)** | **23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC** | **95.8% pass rate** across 24 scored CQs (25 total). Released v0.6: 21 / 1 / 2 / 1 |
 | **`skos:exactMatch` / `closeMatch` / `broadMatch`** | 33 / 17 / 1 | Mapped to AGROVOC / NCBI Taxonomy concept URIs, verified against live API |
 | **`TODO` literals remaining** | **0** | **100% resolved (dataset metadata & EPPO codes verified)** |
 | **Properties with no declared domain/range** | 0 / 0 | 100% coverage |
@@ -71,7 +73,7 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 ### Per-class individual counts
 
-The 10,499 individuals in the knowledge graph are categorized by domain layer:
+The 10,498 individuals in the knowledge graph are categorized by domain layer:
 
 | Domain Category | Class Name | Count | Type / Description |
 |---|---|---:|---|
@@ -104,16 +106,17 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | **Dataset & Observation Layer** | `annotatedAs` | 10,407 | `ImageObservation` → `Disease ⊔ Pest ⊔ HealthStatus` | Raw dataset labels |
 | | `captures` | 1,442 | `ImageObservation` → `Symptom` | Visual evidence links |
 | | `sourceDatasetLabel` | 10 | `Disease ⊔ Pest ⊔ HealthStatus` → `xsd:string` | Dataset vocabulary mapping |
-| **Etiology & Susceptibility** | `vulnerableTo` | 60 | `Plant ⊔ GrowthStage` → `Disease ⊔ Pest ⊔ Pathogen` | IRRI RKB / CABI CPC |
-| | `occursIn` | 47 | `Disease ⊔ Pest ⊔ HealthStatus` → `GrowthStage` | IRRI RKB / Ou (1985) |
-| | `causes` | 10 | `Pathogen ⊔ Pest` → `Disease` | CABI / Ham / Hibino |
-| **Symptomatology & Risk Factors**| `indicatedBy` | 42 | `Disease ⊔ Pest` → `Symptom` | IRRI Rice Doctor / CABI |
+| **Etiology & Susceptibility** | `vulnerableTo` | 55 | `Plant ⊔ GrowthStage` → `Disease ⊔ Pest ⊔ Pathogen` | IRRI RKB / CABI CPC |
+| | `occursIn` | 41 | `Disease ⊔ Pest ⊔ HealthStatus` → `GrowthStage` | IRRI RKB / Ou (1985) |
+| | `causes` | 8 | `Pathogen` → `Disease` | CABI / Ham / Hibino |
+| | `transmits` | 2 | `Pest` → `Pathogen` | CABI / Hibino (1996) |
+| **Symptomatology & Risk Factors**| `indicatedBy` | 43 | `Disease ⊔ Pest` → `Symptom` | IRRI Rice Doctor / CABI / IRAC (2025) |
 | | `increaseRiskOf` | 29 | `EnvironmentalFactor` → `Disease ⊔ Pest` | CABI CPC / IRRI RKB |
-| **Control & Management** | `controlledBy` | 42 | `Disease ⊔ Pest` → `Treatment` | CABI / BBPOPT (2022) |
+| **Control & Management** | `controlledBy` | 42 | `Disease ⊔ Pest` → `Treatment` | CABI / BBPOPT (2022) / Gallagher et al. (2002) |
 | | `recommends` | 23 | `Disease ⊔ Pest ⊔ SeverityLevel` → `ManagementAction` | BBPOPT / IRRI |
 | | `preventedBy` | 8 | `Disease ⊔ Pest` → `Treatment` | IRRI RKB / CABI |
 | | `requires` | 5 | `Treatment` → `GrowthStage` | BBPOPT / IRRI GAP |
-| **Total Populated Triples** | | **12,125** | *(11,859 image/dataset + 266 direct domain relations)* | **100% domain triples reified** |
+| **Total domain assertions** | | **256** | *(v0.6.1, measured 2026-09-14 with rdflib; plus 10,407 `annotatedAs`, 1,442 `captures`, 10 `sourceDatasetLabel`, 15 `eppoCode`)* | **256 / 256 reified** |
 
 > *Note on inverse properties:* All twelve inverse directions (`indicates`, `detectedBy`, `causedBy`, `prevents`, `controls`, `threatens`, etc.) and `detects` are declared in the schema for reasoning/querying symmetry.
 
@@ -127,13 +130,25 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | v0.3 (EPPO/Planteome Enrichment) | 2026-08-13 | 84,064 | 18 | 24 | 10,463 | ~80 |
 | v0.4 (domain enrichment + provenance) | 2026-08-20 | 66,882 | 16 | 24 | 10,499 | 329 |
 | v0.5 (vector transmission + benchmark design) | 2026-08-25 | 66,873 | 16 | 26 | 10,498 | 265 axioms |
-| **v0.6 (Deadheart disambiguation, DL consistency, 25 CQs)** | **2026-09-03** | **66,874** (161,568 OWL RL) | **16** | **26** | **10,498** | **265 axioms** |
+| v0.6 (Deadheart disambiguation, DL consistency, 25 CQs) | 2026-09-03 | 66,780 (161,416 OWL RL) | 16 | 26 | 10,498 | 253 axioms / 255 assertions |
+| **v0.6.1 (provenance gaps closed, CQ-10/CQ-24 fixed)** | **2026-09-14** | **66,802** (161,447 OWL RL) | **16** | **26** | **10,498** | **256 axioms / 256 assertions** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-09-14: v0.6.1 — provenance gaps closed, CQ-10 and CQ-24 fixed, v0.6 figures corrected
+
+- **The published v0.6 figures described the wrong file.** This document, the root README, the ESWC plan, `CQ_SPARQL_Documentation.md` and the original benchmark report all quoted 66,874 asserted / 161,568 materialised triples and 265 axioms. Those were measured at commit `19d632d` (10:43). Commit `103c5ed` "Fix inconsistency" (12:04 the same day) then removed 11 domain assertions — 6× `Normal_Health occursIn`, `Normal_Health controlledBy Good_Agricultural_Practice`, and 4× `Rice vulnerableTo` (`Burkholderia_Glumae`, `Rice_Tungro_Bacilliform_Virus`, `Sclerophthora_Macrospora`, `Xanthomonas_Oryzicola`) — together with their 12 axioms (84 triples). **The released v0.6 file measures 66,780 / 161,416 triples, 253 axioms over 255 domain assertions.** Benchmark verdicts were unaffected (21 / 1 / 2 / 1), but CQ-15 is 133 not 140 and CQ-21 is 253/253 not 265/265. The released file is preserved as git tag `elicited-baseline-v0.6`.
+- **v0.6 did not have 100% provenance.** `Stem_Borer indicatedBy Dead_Tiller` and `Stem_Borer indicatedBy White_Ear`, added in the v0.6 Deadheart disambiguation, never received an `owl:Axiom`. Neither provenance CQ could see it: CQ-21 divides by the number of axioms, and CQ-22 only inspected axioms that exist. Both now carry axioms citing IRAC (2025), *Rice Stem Borer, Scirpophaga incertulas: Sustainable Control Strategies in Asia* — the only source that could be read directly on the day (CABI and Plantwise returned 403, the IRRI Knowledge Bank refused connections).
+- **CQ-10 fixed differently from the plan.** The v0.6 action item was `Nephotettix_Virescens controlledBy Vector_Control`. Gallagher et al. (2002, FAO/IRC) state that "controlling the vector population with insecticide does not always result in tungro control" and recommend resistant varieties where synchronous planting is impossible; IRRI's tungro fact sheet says the same. Asserting vector control only to make the CQ pass would not have been supported by the literature, so `Nephotettix_Virescens controlledBy Resistant_Variety` was added instead, with its axiom citing Gallagher et al. (2002).
+- **CQ-24 fixed.** The one untagged `rice:evidenceType` literal (axiom on `Crop_Sanitation requires Harvest_Stage`) is now `"literature-curated"@en`.
+- **CQ-22 extended** to also flag domain assertions with no reified axiom; the CQ count stays at 25. Control-tested: 2 violations on the released v0.6 file, 0 on v0.6.1.
+- **Result:** 66,802 asserted / 161,447 OWL RL triples; 256 axioms = 256 domain assertions, 0 orphans, 0 duplicates; HermiT consistent (run on a space-free copy, with an injected-contradiction control that correctly reports inconsistent); benchmark **23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC (95.8%)**; the 19 queried elicited CQs return exactly the same results as on v0.6. `owl:versionInfo` and `owl:versionIRI` bumped to `0.6.1`.
+- **Found, not fixed:** `provenance_axioms.rdf` holds 306 axioms against 256 in `Rice MMKG.rdf` and has drifted from it; and every `https://www.cabi.org/isc/datasheet/...` source URI now redirects (301) to `cabidigitallibrary.org`.
+- **Backup:** `Ontology/Backup/Rice MMKG.backup-v0.6-pre-v0.6.1.rdf`.
 
 ### 2026-09-03: v0.6 — Deadheart Disambiguation, DL Reasoner Consistency, and 25 CQ Benchmark
 
@@ -146,6 +161,7 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
   - Implemented automated benchmark runner (`cq_sparql_benchmark.py`) covering 25 Competency Questions structured across Reasoning Depth (L1–L4) and Knowledge Dimensions (D1–D3) with 4 formal evaluation modes (`coverage`, `negative`, `entailment`, `documented`).
   - Achieved **21 PASS (87.5% pass rate)**, 1 PARTIAL (CQ-18 visual grounding gap at 4%), 2 FAIL (CQ-10 vector control triple, CQ-24 literal `@en` tag), and 1 DOCUMENTED (CQ-20 sensor observations).
   - Evaluated on OWL RL materialised graph: expands from 66,874 asserted triples to **161,568 materialised triples (+94,694 triples in 24.0s)**. CQ-14 verifies 1,442 entailed members in `SymptomaticObservation`, and CQ-15 derives 140 inverse assertions.
+  - *Correction (2026-09-14): the figures in the two bullets above were measured before "Fix inconsistency" (`103c5ed`) later the same day. On the released v0.6 file they are 66,780 / 161,416 triples, CQ-15 = 133 and CQ-21 = 253/253; the verdicts (21 / 1 / 2 / 1) are unchanged. See the v0.6.1 entry.*
 - **Backup preserved:** Pre-fix state saved as `Ontology/Backup/Rice MMKG.backup-v.05.rdf`.
 
 ### 2026-09-01: v0.5 — Vector Transmission Relations & CQ Evaluation Framework
@@ -459,9 +475,9 @@ assertions, verified with no duplicates and no orphans. Triples: 67,236 →
   that don't dereference. Three options written up, none chosen. See
   `Worklog/RiceMMKG_cleanup_worklog/contenturl_base.md`.
 - **Permanent identifier:** `w3id.org` path segment to be registered for PURL minting.
-- **Version status:** `0.4` is officially live in `Rice MMKG.rdf` (as of 2026-08-21).
-- **Competency Questions (CQs) Benchmark (Phase 1 COMPLETED):** 25 CQs fully implemented and benchmarked via `cq_sparql_benchmark.py` with 87.5% pass rate (21 PASS / 1 PARTIAL / 2 FAIL / 1 DOC). Full documentation in `CQ_SPARQL_Documentation.md`.
-- **Automated Reasoner verified:** OWL RL deductive closure via Python `owlrl` (+94,694 triples) and full DL tableaux reasoning via Protégé (HermiT / Pellet) verified: 100% consistent with zero unsatisfiable classes and zero disjointness collisions.
-- **Immediate Action Items for v0.6.1:**
-  - CQ-10: Add `rice:Nephotettix_Virescens rice:controlledBy rice:Vector_Control` (1 triple).
-  - CQ-24: Add `@en` language tag to `rice:evidenceType "literature-curated"` literal across reified axioms.
+- **Version status:** `0.6.1` in `Rice MMKG.rdf` (as of 2026-09-14).
+- **Competency Questions (CQs) Benchmark:** 25 CQs benchmarked via `cq_sparql_benchmark.py`: v0.6.1 scores 95.8% (23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC). Full documentation in `CQ_SPARQL_Documentation.md`.
+- **Automated Reasoner verified:** OWL RL deductive closure via Python `owlrl` (+94,645 triples) and HermiT consistency on v0.6.1 (with a verified control case).
+- ~~**Immediate Action Items for v0.6.1**~~ — done 2026-09-14; see the v0.6.1 changelog entry.
+- **`provenance_axioms.rdf` has drifted** from `Rice MMKG.rdf` (306 vs 256 axioms). Decide whether it is still a maintained source file or an archived intermediate, and either re-sync it or label it as archived.
+- **CABI source URIs redirect.** All `https://www.cabi.org/isc/datasheet/...` URIs now return 301 to `cabidigitallibrary.org`; 242 of the 256 axioms cite one.

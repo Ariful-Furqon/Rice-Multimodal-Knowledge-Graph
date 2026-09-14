@@ -1,10 +1,19 @@
-# Rice MMKG v0.6 — SPARQL Competency Question Documentation
+# Rice MMKG v0.6.1 — SPARQL Competency Question Documentation
 
-**Ontology:** `Rice MMKG.rdf` (owl:versionInfo 0.6)  
-**Triples:** 66,874 asserted / 161,568 after OWL RL materialisation (+94,694 triples)  
-**Benchmark Execution:** 2026-09-03  
-**Overall Result:** 21 PASS / 1 PARTIAL / 2 FAIL / 1 DOCUMENTED (24 scored + 1 documented = 25 CQs)
-**Pass Rate:** 87.5% (21/24 scored CQs)
+**Ontology:** `Rice MMKG.rdf` (owl:versionInfo 0.6.1)  
+**Triples:** 66,802 asserted / 161,447 after OWL RL materialisation (+94,645 triples)  
+**Benchmark Execution:** 2026-09-14  
+**Overall Result:** 23 PASS / 1 PARTIAL / 0 FAIL / 1 DOCUMENTED (24 scored + 1 documented = 25 CQs)
+**Pass Rate:** 95.8% (23/24 scored CQs)
+
+> **v0.6.1 Patch Note (2026-09-14):**  
+> Three domain assertions gained or received provenance and one literal was tagged: `Stem_Borer indicatedBy Dead_Tiller` and `Stem_Borer indicatedBy White_Ear` (present since v0.6 but never reified) now carry `owl:Axiom` records citing IRAC (2025); `Nephotettix_Virescens controlledBy Resistant_Variety` was added, citing Gallagher et al. (2002); and the one untagged `rice:evidenceType` literal is now `@en`. CQ-10 and CQ-24 move from FAIL to PASS. The CQ-10 fix deliberately departs from the action item planned in v0.6 (`controlledBy Vector_Control`): FAO and IRRI both report that insecticide control of the green leafhopper often fails to control tungro and recommend resistant varieties instead, so asserting vector control only to satisfy the CQ would not have been supported by the literature. Pre-patch file: `Ontology/Backup/Rice MMKG.backup-v0.6-pre-v0.6.1.rdf`.
+
+> **Correction to previously published v0.6 figures:**  
+> The v0.6 numbers originally reported here (66,874 asserted / 161,568 materialised triples, 265 axioms, CQ-15 = 140, CQ-21 = 265/265) were measured at commit `19d632d`, before the same-day inconsistency fix (`103c5ed`) removed 11 domain assertions and their 12 axioms. Re-measured on the released v0.6 file (git tag `elicited-baseline-v0.6`): 66,780 asserted / 161,416 materialised triples, 253 axioms over 255 domain assertions, verdicts unchanged at 21 PASS / 1 PARTIAL / 2 FAIL / 1 DOC, CQ-15 = 133, CQ-21 = 253/253.
+
+> **CQ-22 extended (2026-09-14):**  
+> CQ-21 divides by the number of axioms, so an assertion with no axiom at all is invisible to it, and the original CQ-22 checked only axioms that exist. v0.6 therefore reported full provenance while two assertions had none. CQ-22 now also flags domain assertions without a reified axiom. Against the released v0.6 file the extended CQ-22 reports **2 violations (FAIL)**, where the original form reported 0; against v0.6.1 it reports 0. The CQ count stays at 25.
 
 > **v0.6 Release Note:**  
 > Version 0.6 resolves the `Deadheart` class collision identified in v0.5. `Deadheart` is now formally classified as a `Disease` (damage syndrome), while `Dead_Tiller` represents the observed `Symptom`. All 1,442 dead-heart images now capture `Dead_Tiller`, fully satisfying `SymptomaticObservation` while clearing all disjointness conflicts (CQ-25 now **PASS** with 0 violations). Pre-fix v0.5 is preserved in `Ontology/Backup/Rice MMKG.backup-v.05.rdf`.
@@ -57,34 +66,34 @@ Each CQ is positioned along two orthogonal axes: **Reasoning Depth (L1–L4)** a
 
 ---
 
-## Master Result Matrix (25 Competency Questions — v0.6)
+## Master Result Matrix (25 Competency Questions — v0.6.1)
 
 | CQ ID | Depth | Dim | Mode | Result | Measurement | Summary |
 |:---:|:---:|:---:|:---:|:---:|:---:|---|
 | **CQ-01** | L1 | D1 | `coverage`   | **PASS**       | 7/9 (78%)            | Rice diseases with causal pathogens |
 | **CQ-02** | L1 | D1 | `coverage`   | **PASS**       | 15/16 (94%)          | Diseases/pests with observable symptoms |
-| **CQ-03** | L1 | D1 | `coverage`   | **PASS**       | 15/16 (94%)          | Diseases/pests with control treatments |
+| **CQ-03** | L1 | D1 | `coverage`   | **PASS**       | 16/16 (100%)         | Diseases/pests with control treatments (v0.6: 15/16) |
 | **CQ-04** | L1 | D1 | `coverage`   | **PASS**       | 27/27 (100%)         | Symptoms attached to domain entities (zero orphan) |
 | **CQ-05** | L2 | D1 | `coverage`   | **PASS**       | 13/16 (81%)          | Co-occurrence: Growth stage + Env. risk factor (88 pairs) |
 | **CQ-06** | L2 | D1 | `coverage`   | **PASS**       | 6/7 (86%)            | Growth stages with vulnerability profiles (`vulnerableTo`) |
 | **CQ-07** | L2 | D1 | `negative`   | **PASS**       | 0 violations         | Consistency between `vulnerableTo` and `occursIn` |
 | **CQ-08** | L2 | D1 | `coverage`   | **PASS**       | 1/2 (50%)            | Preventive treatments with growth-stage prerequisites |
 | **CQ-09** | L3 | D1 | `coverage`   | **PASS**       | 1/1 (100%)           | Vector transmission chain: vector -> pathogen -> disease |
-| **CQ-10** | L3 | D1 | `negative`   | **FAIL**       | 1 violation          | Vectors without control treatments (`Nephotettix_Virescens`) |
+| **CQ-10** | L3 | D1 | `negative`   | **PASS**       | 0 violations         | Vectors without control treatments (v0.6: 1, `Nephotettix_Virescens`) |
 | **CQ-11** | L3 | D1 | `coverage`   | **PASS**       | 9/9 (100%)           | End-to-end DSS chain: env -> disease -> symptom -> treatment |
 | **CQ-12** | L3 | D1 | `coverage`   | **PASS**       | 9/16 (56%)           | Diseases/pests recommending concrete `ManagementAction` |
 | **CQ-13** | L2 | D1 | `coverage`   | **PASS**       | 4/4 (100%)           | Total triage: Every `SeverityLevel` maps to an action |
 | **CQ-14** | L4 | D1 | `entailment` | **PASS**       | 0 -> 1,442 rows      | OWL classification: `SymptomaticObservation` defined class |
-| **CQ-15** | L4 | D1 | `entailment` | **PASS**       | 0 -> 140 rows        | Bidirectional query capability via inverse properties |
+| **CQ-15** | L4 | D1 | `entailment` | **PASS**       | 0 -> 134 rows        | Bidirectional query capability via inverse properties (v0.6: 133) |
 | **CQ-16** | L3 | D2 | `coverage`   | **PASS**       | 8,643/8,643 (100%)   | Multimodal grounding: Image -> Class -> Symptom & Treatment |
 | **CQ-17** | L2 | D2 | `coverage`   | **PASS**       | 10/10 (100%)         | Dataset annotation labels typed as OWL domain classes |
 | **CQ-18** | L1 | D2 | `coverage`   | **PARTIAL**    | 1/27 (4%)            | Direct visual grounding of symptoms (`rice:captures`) |
 | **CQ-19** | L1 | D2 | `negative`   | **PASS**       | 0 violations         | Media layer integrity: Content URL & dataset provenance |
 | **CQ-20** | L1 | D2 | `documented` | **DOC**        | 0 individuals        | Sensor observation population (Phase 3 extension point) |
-| **CQ-21** | L4 | D3 | `coverage`   | **PASS**       | 265/265 (100%)       | Reified domain axioms with source URI and citation |
-| **CQ-22** | L4 | D3 | `negative`   | **PASS**       | 0 violations         | Reified axioms with incomplete provenance metadata |
+| **CQ-21** | L4 | D3 | `coverage`   | **PASS**       | 256/256 (100%)       | Reified domain axioms with source URI and citation (v0.6: 253/253) |
+| **CQ-22** | L4 | D3 | `negative`   | **PASS**       | 0 violations         | Domain assertions without an axiom, or axioms with incomplete provenance (extended 2026-09-14; v0.6: 2) |
 | **CQ-23** | L4 | D3 | `coverage`   | **PASS**       | 18/24 (75%)          | Biological entities aligned to EPPO / AGROVOC / NCBI |
-| **CQ-24** | L4 | D3 | `negative`   | **FAIL**       | 1 violation          | Literal hygiene: Uniform language tags (`@en`) on `evidenceType` |
+| **CQ-24** | L4 | D3 | `negative`   | **PASS**       | 0 violations         | Literal hygiene: Uniform language tags (`@en`) on `evidenceType` (v0.6: 1) |
 | **CQ-25** | L4 | D1 | `negative`   | **PASS**       | 0 violations         | Class disjointness: Entailed overlap between `Symptom` & `Disease` |
 
 ---
@@ -127,7 +136,7 @@ SELECT DISTINCT ?e WHERE { { ?e a rice:Disease } UNION { ?e a rice:Pest } }
 
 ---
 
-#### CQ-03 | L1 x D1 | coverage | PASS (15/16 disease/pest, 94%)
+#### CQ-03 | L1 x D1 | coverage | PASS (16/16 disease/pest, 100%)
 **Question:** Which diseases and pests have at least one control treatment?
 **Rationale:** Actionability. The KG must not diagnose what it cannot advise on.
 **Numerator Query:**
@@ -140,8 +149,8 @@ SELECT DISTINCT ?e WHERE {
 ```sparql
 SELECT DISTINCT ?e WHERE { { ?e a rice:Disease } UNION { ?e a rice:Pest } }
 ```
-**Result:** 15 covered / 16 total (93.8%) — PASS  
-**Uncovered entities (1):** `rice:Nephotettix_Virescens`
+**Result:** 16 covered / 16 total (100.0%) — PASS  
+**v0.6:** 15/16 (93.8%), uncovered `rice:Nephotettix_Virescens`; closed in v0.6.1 by `controlledBy Resistant_Variety` (see CQ-10).
 
 ---
 
@@ -181,7 +190,7 @@ SELECT DISTINCT ?e WHERE { { ?e a rice:Disease } UNION { ?e a rice:Pest } }
 
 #### CQ-06 | L2 x D1 | coverage | PASS (6/7 growth stages, 86%)
 **Question:** Which growth stages have a documented vulnerability profile naming a concrete disease or pest?
-**Rationale:** Exercises the `vulnerableTo` relation (59 asserted triples in the KG).
+**Rationale:** Exercises the `vulnerableTo` relation (55 asserted triples in v0.6.1).
 **Numerator Query:**
 ```sparql
 SELECT DISTINCT ?g WHERE {
@@ -250,7 +259,7 @@ SELECT DISTINCT ?v ?p ?d WHERE {
 
 ---
 
-#### CQ-10 | L3 x D1 | negative | FAIL (1 violation)
+#### CQ-10 | L3 x D1 | negative | PASS (0 violations)
 **Question:** Are there insect vectors for which no control treatment is recorded, leaving the transmission chain unbreakable?
 **Rationale:** Actionability. A vector chain that cannot be interrupted has no advisory utility.
 **Query:**
@@ -259,9 +268,9 @@ SELECT DISTINCT ?v WHERE {
   ?v rice:transmits ?p .
   FILTER NOT EXISTS { ?v rice:controlledBy ?t } }
 ```
-**Result:** 1 violation — **FAIL**  
-**Violating Entity:** `rice:Nephotettix_Virescens` has no `controlledBy` assertion.  
-> **Action Item:** Add `rice:Nephotettix_Virescens rice:controlledBy rice:Vector_Control`.
+**Result:** 0 violations — **PASS**  
+**v0.6:** 1 violation — `rice:Nephotettix_Virescens` had no `controlledBy` assertion.  
+> **Resolved in v0.6.1, not as planned.** The v0.6 action item was `controlledBy Vector_Control`. Gallagher et al. (2002, FAO/IRC) report that "controlling the vector population with insecticide does not always result in tungro control" and recommend resistant varieties, as does IRRI's tungro fact sheet. v0.6.1 therefore asserts `rice:Nephotettix_Virescens rice:controlledBy rice:Resistant_Variety`, reified with that citation. A CQ is a requirement on the graph, not a licence to assert whatever makes it pass.
 
 ---
 
@@ -328,7 +337,7 @@ SELECT DISTINCT ?o WHERE { ?o a rice:SymptomaticObservation }
 
 ---
 
-#### CQ-15 | L4 x D1 | entailment | PASS (0 asserted -> 140 entailed)
+#### CQ-15 | L4 x D1 | entailment | PASS (0 asserted -> 134 entailed)
 **Question:** Can the KG be queried in the inverse direction (e.g. `causedBy`, `indicates`, `controls`) via OWL inverse inference?
 **Rationale:** Robustness under bidirectional query formulations without duplicate manual assertions.
 **Query:**
@@ -337,7 +346,7 @@ SELECT ?x ?y WHERE {
   { ?x rice:causedBy ?y } UNION { ?x rice:indicates ?y } UNION
   { ?x rice:hasOccurrenceOf ?y } UNION { ?x rice:controls ?y } }
 ```
-**Result:** 0 on asserted graph -> **140 on materialised graph (+140 gain)** — PASS
+**Result:** 0 on asserted graph -> **134 on materialised graph (+134 gain)** — PASS (v0.6: 133; the added `controlledBy` contributes one `controls` inverse)
 
 ---
 
@@ -422,9 +431,10 @@ SELECT DISTINCT ?o WHERE { ?o a rice:SensorObservation }
 
 ### Section C: Provenance & Alignment Layer (D3)
 
-#### CQ-21 | L4 x D3 | coverage | PASS (265/265 axioms, 100%)
+#### CQ-21 | L4 x D3 | coverage | PASS (256/256 axioms, 100%)
 **Question:** Which reified domain assertions carry both an authoritative source URI and a bibliographic citation?
 **Rationale:** Scientific defensibility & provenance completeness.
+**Scope limit:** the denominator is the set of axioms, so CQ-21 measures whether existing axioms carry a source — never whether every assertion has an axiom. An unreified assertion is invisible to it; CQ-22 covers that case.
 **Numerator Query:**
 ```sparql
 SELECT DISTINCT ?ax WHERE {
@@ -434,14 +444,38 @@ SELECT DISTINCT ?ax WHERE {
 ```sparql
 SELECT DISTINCT ?ax WHERE { ?ax a owl:Axiom }
 ```
-**Result:** 265 covered / 265 total (100.0%) — PASS (CABI: 248, IRRI: 11, BBPOPT: 7).
+**Result:** 256 covered / 256 total (100.0%) — PASS. Source URIs by host: CABI 242, BBPOPT 7, IRRI 4, IRAC 2, FAO 1.  
+**v0.6:** 253/253 (100%) — which hid the two unreified `Stem_Borer` assertions reported by CQ-22.
 
 ---
 
 #### CQ-22 | L4 x D3 | negative | PASS (0 violations)
-**Question:** Are there reified axioms with incomplete provenance (missing source, citation, or evidence type)?
-**Rationale:** Integrity constraint complementing CQ-21.
-**Query:**
+**Question:** Are there domain assertions with missing or incomplete provenance — either no reified axiom at all, or an axiom missing its source, citation or evidence type?
+**Rationale:** Integrity constraint complementing CQ-21. **Extended 2026-09-14.** The original form (below) inspected only axioms that exist, so an assertion with no axiom was invisible to both provenance CQs. Runs on the asserted graph: materialised inverses are never reified and would all count as violations.
+**Query (current):**
+```sparql
+SELECT ?item ?problem WHERE {
+  {
+    ?item a owl:Axiom .
+    FILTER ( NOT EXISTS { ?item dcterms:source ?s } ||
+             NOT EXISTS { ?item dcterms:bibliographicCitation ?c } ||
+             NOT EXISTS { ?item rice:evidenceType ?e } )
+    BIND ("axiom with incomplete provenance" AS ?problem)
+  } UNION {
+    VALUES ?p { rice:causes rice:transmits rice:indicatedBy rice:occursIn
+                rice:controlledBy rice:preventedBy rice:increaseRiskOf
+                rice:vulnerableTo rice:recommends rice:requires }
+    ?s ?p ?o .
+    FILTER NOT EXISTS { ?ax owl:annotatedSource ?s ;
+                            owl:annotatedProperty ?p ;
+                            owl:annotatedTarget ?o }
+    BIND (CONCAT(STRAFTER(STR(?s), "#"), " ", STRAFTER(STR(?p), "#"), " ",
+                 STRAFTER(STR(?o), "#")) AS ?item)
+    BIND ("assertion without provenance" AS ?problem)
+  }
+}
+```
+**Query (original, v0.6):**
 ```sparql
 SELECT ?ax WHERE {
   ?ax a owl:Axiom .
@@ -449,7 +483,8 @@ SELECT ?ax WHERE {
            NOT EXISTS { ?ax dcterms:bibliographicCitation ?c } ||
            NOT EXISTS { ?ax rice:evidenceType ?e } ) }
 ```
-**Result:** 0 violations — PASS.
+**Result:** 0 violations — PASS.  
+**On the released v0.6 file:** original query 0 violations (PASS); current query **2 violations (FAIL)** — `Stem_Borer indicatedBy Dead_Tiller` and `Stem_Borer indicatedBy White_Ear`, both reified in v0.6.1 citing IRAC (2025). Both results are reported; the original is not retracted.
 
 ---
 
@@ -471,7 +506,7 @@ SELECT DISTINCT ?e WHERE { { ?e a rice:Disease } UNION { ?e a rice:Pathogen } UN
 
 ---
 
-#### CQ-24 | L4 x D3 | negative | FAIL (1 violation)
+#### CQ-24 | L4 x D3 | negative | PASS (0 violations)
 **Question:** Are annotation literals lexically consistent, i.e. is `rice:evidenceType` uniformly language-tagged?
 **Rationale:** Literal hygiene. Untagged strings break `lang()` filters and split SPARQL `GROUP BY` aggregations.
 **Query:**
@@ -479,8 +514,8 @@ SELECT DISTINCT ?e WHERE { { ?e a rice:Disease } UNION { ?e a rice:Pathogen } UN
 SELECT ?ax ?v WHERE {
   ?ax rice:evidenceType ?v . FILTER ( lang(?v) = "" ) }
 ```
-**Result:** 1 violation — **FAIL** (`Nbfaed4dbd...` literal `"literature-curated"` lacks `@en`).  
-> **Action Item:** Replace bare literals with `"literature-curated"@en` across all 265 axioms.
+**Result:** 0 violations — **PASS**.  
+**v0.6:** 1 violation — the axiom on `Crop_Sanitation requires Harvest_Stage` carried an untagged `"literature-curated"`. Tagged `@en` in v0.6.1; it was the only untagged literal, so no other axiom changed.
 
 ---
 
@@ -496,13 +531,14 @@ SELECT DISTINCT ?x WHERE {
 
 ---
 
-## Action Items & Roadmap Summary (v0.6)
+## Action Items & Roadmap Summary (v0.6.1)
 
 | CQ ID | Status | Finding / Issue | Corrective Action / Milestone |
 |:---:|:---:|---|---|
 | **CQ-25** | ✅ **RESOLVED** | `Deadheart` typed as Symptom & Disease | Resolved in v0.6 (`Deadheart` as Disease, `Dead_Tiller` as Symptom) |
-| **CQ-10** | ❌ **FAIL** | `Nephotettix_Virescens` lacks control treatment | Add `rice:Nephotettix_Virescens rice:controlledBy rice:Vector_Control` |
-| **CQ-24** | ❌ **FAIL** | Untagged literal on `rice:evidenceType` | Update literal to `"literature-curated"@en` across all axioms |
+| **CQ-10** | ✅ **RESOLVED** | `Nephotettix_Virescens` lacked a control treatment | v0.6.1: `controlledBy Resistant_Variety`, citing Gallagher et al. (2002) — not the planned `Vector_Control`, which the literature does not support for tungro |
+| **CQ-22** | ✅ **RESOLVED** | Extended query found 2 domain assertions with no provenance axiom | v0.6.1: `Stem_Borer indicatedBy Dead_Tiller` / `White_Ear` reified, citing IRAC (2025) |
+| **CQ-24** | ✅ **RESOLVED** | One untagged literal on `rice:evidenceType` | v0.6.1: tagged `"literature-curated"@en` |
 | **CQ-18** | ⚠️ **PARTIAL**| Only 1/27 symptoms visually grounded | Annotate image dataset at symptom level (`captures` relation) (Phase 3) |
 | **CQ-20** | 📋 **DOC** | 0 sensor observations | Ingest IoT sensor telemetry as `SensorObservation` instances (Phase 3) |
 

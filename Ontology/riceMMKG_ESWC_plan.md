@@ -1,23 +1,25 @@
 # Rice MMKG — Master Plan Toward ESWC 2027
 
 Construction, evaluation, and publication roadmap for the **ESWC 2027 Resource Track**.  
-**Current Milestone:** Rice MMKG **v0.6** (live as of 2026-09-03).  
+**Current Milestone:** Rice MMKG **v0.6.1** (2026-09-14; v0.6 released 2026-09-03).  
 **Abstract / Paper Deadline:** Late November – early December.
+
+> **Figures corrected 2026-09-14.** The v0.6 numbers first recorded in this plan (66,874 / 161,568 triples, 265 axioms, "100% cited") were measured before the v0.6 inconsistency fix. The released v0.6 file measures 66,780 / 161,416 triples with 253 axioms over 255 domain assertions. The snapshot below is v0.6.1.
 
 ---
 
 ## 1. Executive Summary & Resource Snapshot
 
-| Metric / Dimension | Current State (v0.6) | Comparator (RiceDO) | Target for Submission |
+| Metric / Dimension | Current State (v0.6.1) | Comparator (RiceDO) | Target for Submission |
 |---|---|---|---|
-| **Ontology Version** | **`0.6` (Live)** | `1.0` | `1.0` (Production release) |
-| **Asserted Triples** | **66,874** | ~1,200 | ~70,000–80,000 (with sensor & text) |
-| **Materialised Triples (OWL RL)** | **161,568** (+94,694 triples) | — | > 175,000 |
+| **Ontology Version** | **`0.6.1`** | `1.0` | `1.0` (Production release) |
+| **Asserted Triples** | **66,802** | ~1,200 | ~70,000–80,000 (with sensor & text) |
+| **Materialised Triples (OWL RL)** | **161,447** (+94,645 triples) | — | > 175,000 |
 | **Image Observations** | **10,407** | 0 | 10,407 (with symptom bounding boxes) |
 | **Sensor & Text Modalities** | Scaffolding (`SensorObservation`) | 0 | Ingested telemetry & advisory text |
-| **Domain-Level Assertions** | **265 reified axioms (100% cited)** | 18 diseases | 100% literature-grounded |
-| **Reasoner Consistency** | **100% Consistent (HermiT / Pellet)** | Verified | 100% Consistent (0 unsatisfiable classes) |
-| **Competency Questions** | **25 CQs** (87.5% Pass Rate, 21 PASS) | Qualitative CQs | 25 CQs (> 95% Pass Rate) |
+| **Domain-Level Assertions** | **256 assertions, 256 reified axioms (100% cited)** | 18 diseases | 100% literature-grounded |
+| **Reasoner Consistency** | **Consistent (HermiT, checked 2026-09-14 with an injected-contradiction control)** | Verified | 100% Consistent (0 unsatisfiable classes) |
+| **Competency Questions** | **25 CQs** (95.8% Pass Rate, 23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC) | Qualitative CQs | 25 CQs (> 95% Pass Rate) |
 | **Permanent URI (PURL)** | Local namespace (`.../riceMMKG#`) | `purl.org/ricedo` | `w3id.org/ricemmkg` (Live redirection) |
 | **FAIR Score (FOOPS!)** | Pending execution | — | **FOOPS! score > 0.85** |
 | **Registry Findability** | Local repository | IEEE DataPort | **AgroPortal** entry + **Zenodo DOI** |
@@ -33,7 +35,7 @@ Phase 1: Functional & Reasoning Evaluation (Weeks 1–2, Sept) — [IN PROGRESS:
    ├── Formulate 25 Agronomic CQs (Schema-level, L1–L4 × D1–D3) [DONE]
    ├── Implement Automated SPARQL Benchmark Suite (cq_sparql_benchmark.py) [DONE]
    ├── Run Automated DL Reasoner (HermiT / Pellet) for Consistency & Entailment [DONE]
-   └── Deliverables: Benchmark Script, Pass Rate Report (87.5%), Reasoner Consistency Log [DONE]
+   └── Deliverables: Benchmark Script, Pass Rate Report (v0.6.1: 95.8%), Reasoner Consistency Log [DONE]
           │
           ▼
 Phase 2: Availability, PURL & FAIR Polish (Weeks 3–4, Sept)
@@ -68,13 +70,13 @@ Phase 5: Resource Paper Drafting & Camera-Ready Submission (Weeks 11–14, Nov �
 ## 3. Detailed Phase Breakdown & Deliverables
 
 ### Phase 1: Functional & Reasoning Evaluation (Weeks 1–2, Sept)
-*Status: **90% Completed** (v0.6 released, 21/24 CQs passing, Protégé HermiT 100% clean).*
+*Status: **v0.6.1 patch done 2026-09-14** (23/24 CQs passing, 0 FAIL; HermiT consistent with a verified control case). Remaining: independent second screener and the Stage 5 expert ratings (see `CQ Screening/README.md`).*
 
 - **Target Milestones & Activities:**
   1. Formulate 25 agronomic Competency Questions (CQs) spanning 4 reasoning levels (L1–L4) and 3 knowledge dimensions (D1–D3).
   2. Implement executable SPARQL query runner with 4 strict evaluation modes (`coverage`, `negative`, `entailment`, `documented`) without `OPTIONAL` on mandatory hops.
   3. Execute automated DL Reasoner (HermiT/Pellet in Protégé, OWL RL in Python) for defined class materialization and disjointness verification.
-  4. Fix remaining minor failures for v0.6.1 (`Nephotettix_Virescens` control treatment and literal `@en` language tagging).
+  4. ~~Fix remaining minor failures for v0.6.1~~ **Done 2026-09-14:** `Nephotettix_Virescens controlledBy Resistant_Variety` (not the planned `Vector_Control`, which FAO and IRRI do not support for tungro), `@en` on the one untagged `evidenceType`, and provenance axioms for the two unreified `Stem_Borer indicatedBy` assertions found by the extended CQ-22.
 - **Key Deliverables & Outputs:**
   1. `cq_sparql_benchmark.py` & `cq_sparql_benchmark_results.json`.
   2. Auto-generated `CQ_SPARQL_Benchmark_Report.md` and complete documentation `CQ_SPARQL_Documentation.md`.
@@ -167,10 +169,11 @@ Phase 5: Resource Paper Drafting & Camera-Ready Submission (Weeks 11–14, Nov �
 
 - [x] **v0.6 Ontology Release:** Disambiguate `Deadheart` (Disease) and `Dead_Tiller` (Symptom).
 - [x] **Reasoner Consistency:** Verify 100% clean consistency in Protégé HermiT & Pellet (0 unsatisfiable classes).
-- [x] **25 CQ SPARQL Suite:** Execute automated benchmark with 87.5% pass rate (21 PASS / 1 PARTIAL / 2 FAIL / 1 DOC).
-- [x] **Synchronize Documentation:** Update `Ontology_Overview.md`, `CQ_SPARQL_Documentation.md`, and presentation slides.
-- [ ] **v0.6.1 Minor Patch:**
-  - [ ] Add `rice:Nephotettix_Virescens rice:controlledBy rice:Vector_Control` (CQ-10 fix).
-  - [ ] Add `@en` language tag to `rice:evidenceType "literature-curated"` (CQ-24 fix).
-  - [ ] Re-run benchmark to reach **23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC (96% Pass Rate)**.
+- [x] **25 CQ SPARQL Suite:** Execute automated benchmark (v0.6: 21 PASS / 1 PARTIAL / 2 FAIL / 1 DOC).
+- [x] **Synchronize Documentation:** Update `Ontology_Overview.md`, `CQ_SPARQL_Documentation.md`, and presentation slides. *Re-synchronised 2026-09-14: the first sync quoted pre-fix figures; the slides have not been re-checked.*
+- [x] **v0.6.1 Minor Patch (2026-09-14):**
+  - [x] ~~Add `rice:Nephotettix_Virescens rice:controlledBy rice:Vector_Control`~~ Added `controlledBy Resistant_Variety` instead, citing Gallagher et al. (2002): FAO and IRRI report that insecticide control of the leafhopper often fails to control tungro (CQ-10 fix).
+  - [x] Add `@en` language tag to the one untagged `rice:evidenceType "literature-curated"` (CQ-24 fix).
+  - [x] Reify `Stem_Borer indicatedBy Dead_Tiller` / `White_Ear`, citing IRAC (2025) — found by the extended CQ-22.
+  - [x] Re-run benchmark: **23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC (95.8% Pass Rate)**; elicited CQ results unchanged from `elicited-baseline-v0.6`.
 - [ ] **Kick off Phase 2:** Prepare w3id PURL pull request and generate pyLODE HTML preview.
