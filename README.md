@@ -61,7 +61,7 @@ Relations connect the domain entities with defined domains, ranges, and inverse 
 ### Individuals & Provenance
 
 - **10,498 named individuals**: 10,407 `ImageObservation` instances, 1 dataset metadata individual, plus 90 domain entities.
-- **256 reified domain axioms** over 256 domain assertions: every assertion backed by an `owl:Axiom` record with `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType`. Source URIs: CABI Crop Protection Compendium 242, BBPOPT Kementan RI 7, IRRI Rice Knowledge Bank 4, IRAC 2, FAO 1.
+- **256 reified domain axioms** over 256 domain assertions: every assertion backed by an `owl:Axiom` record with `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType`. Source URIs: CABI Compendium 242 (as `doi.org/10.1079/cabicompendium.*` DOIs), BBPOPT Kementan RI 7, IRRI Rice Knowledge Bank 4, IRAC 2, FAO 1.
 - **External Alignment**: 33 `skos:exactMatch`, 17 `skos:closeMatch`, 1 `skos:broadMatch` to AGROVOC, NCBI Taxonomy, and EPPO identifiers, verified via live API checks.
 
 ### Paddy Doctor Dataset Alignment
@@ -110,18 +110,20 @@ The released v0.6 file scores 21 PASS / 1 PARTIAL / 2 FAIL / 1 DOC (CQ-10, CQ-24
 
 ## Roadmap Toward ESWC 2027
 
-Our five-phase development roadmap toward the **ESWC 2027 Resource Track** is detailed in [`Ontology/riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md):
+Our six-phase development roadmap toward the **ESWC 2027 Resource Track** is detailed in [`Ontology/riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md) (revised 2026-09-14):
 
-1. **Phase 1: Functional & Reasoning Evaluation (Weeks 1–2, Sept) — [v0.6.1 patch done]**  
-   25 CQs benchmark (95.8% pass rate, 0 FAIL), HermiT consistency, OWL RL materialisation (+94k triples).
-2. **Phase 2: Availability, PURL & FAIR Polish (Weeks 3–4, Sept)**  
-   Register permanent URI (`https://w3id.org/ricemmkg`), deploy pyLODE HTML documentation, deposit to Zenodo (DOI) & AgroPortal, achieve FOOPS! FAIR score > 0.85.
-3. **Phase 3: Multimodal Experimentation (Weeks 5–8, Late Sept & Oct)**  
-   Populate `SensorObservation` with microclimate telemetry, ingest field texts into `TextualObservation`, ground all 27 symptoms visually, and run tri-modal representation learning (IKRL).
-4. **Phase 4: Domain Expert Validation (Weeks 9–10, Late Oct & Early Nov)**  
-   Survey panel of plant pathologists and agronomists; compute Fleiss' Kappa ($\kappa$) inter-rater agreement.
-5. **Phase 5: Resource Paper Drafting & Submission (Weeks 11–14, Nov – Early Dec)**  
-   Author full LNCS manuscript, finalize reproducible GitHub release, and submit to ESWC 2027.
+1. **Phase 1: Functional & Reasoning Evaluation (Weeks 1–2, Sept) — [done: v0.6.1]**  
+   25 benchmark CQs (95.8% pass rate, 0 FAIL), 19 of 25 elicited CQs queried against a frozen baseline, HermiT consistency, OWL RL materialisation.
+2. **Phase 2: Namespace & Release Scaffolding (Weeks 3–4, Sept)**  
+   Register the w3id PURL and rewrite the namespace early, before more artefacts embed the old IRIs; close the maintenance plan; send the expert questionnaire and image annotation sample.
+3. **Phase 3: Modality Checkpoint, Grounding & Schema → v0.7 (Weeks 5–8, Late Sept & Oct)**  
+   Decide whether sensor and genomic data enter the submission (open decision); symptom-level image grounding from expert annotation; literature-backed schema (plant part, transmission mode, management category).
+4. **Phase 4: Expert Validation & Analysis (Late Oct & Early Nov)**  
+   Ordinal agreement (weighted κ / Krippendorff's α) on the elicited CQs, independent second screener, separate roadmap-tier instrument.
+5. **Phase 5: Availability & FAIR Finalisation (Early–Mid Nov)**  
+   pyLODE/Widoco documentation at the PURL, FOOPS!/OOPS!, Zenodo DOI and AgroPortal for the final release.
+6. **Phase 6: Resource Paper & Submission (Mid Nov – Early Dec)**  
+   Manuscript, reproducibility package, submission to ESWC 2027.
 
 ---
 

@@ -2,14 +2,16 @@
 
 ## 1. Purpose and Scope
 
-This register documents the formal provenance architecture, authoritative literature grounding, and external vocabulary alignment implemented in **Rice MMKG v0.6**. 
+This register documents the provenance architecture, literature grounding, and external vocabulary alignment of **Rice MMKG v0.6.1** (`owl:versionInfo 0.6.1`). All counts below were measured on `Ontology/Rice MMKG.rdf` with rdflib on 2026-09-14.
 
 In Semantic Web resource evaluations (such as the ESWC Resource Track), a key differentiator between an arbitrary graph and a published **scientific resource** is **defensibility and auditability**:
 1. *Every domain assertion must be traceable to a citable authoritative source.*
 2. *Raw dataset observations must be strictly distinguished from curated domain knowledge.*
 3. *Biological entities must be anchored to canonical registries (EPPO, AGROVOC, NCBI Taxonomy).*
 
-In Rice MMKG, **100% of domain relation assertions (265/265)** are formally reified via `owl:Axiom` with complete bibliographic citations, source URIs, and evidence typing.
+In Rice MMKG v0.6.1, **all 256 domain relation assertions are reified** via `owl:Axiom` with a source URI, a bibliographic citation, and an evidence type — 256 axioms, 0 orphans, 0 duplicates.
+
+> **Correction (2026-09-14).** Earlier versions of this register stated "100% of domain relation assertions (265/265)". That figure was measured before the v0.6 inconsistency fix; the released v0.6 file had 253 axioms over 255 assertions, i.e. two assertions (`Stem_Borer indicatedBy Dead_Tiller` / `White_Ear`) had no provenance. They were reified in v0.6.1. See `Ontology/Ontology_Overview.md`, v0.6.1 entry.
 
 ---
 
@@ -18,85 +20,115 @@ In Rice MMKG, **100% of domain relation assertions (265/265)** are formally reif
 ```
 Layer 1: Dataset & Media Provenance (W3C PROV-O & Schema.org)
    └── 10,407 ImageObservations ──[prov:wasDerivedFrom]──> PaddyDoctorDataset (dcat:Dataset)
-   └── 10,407 ImageObservations ──[schema:contentUrl]───> Verified relative image paths
+   └── 10,407 ImageObservations ──[schema:contentUrl]───> Relative image paths
 
 Layer 2: Axiom-Level Literature Grounding (OWL 2 Axiom Reification)
-   └── 265 Domain Triples ──[owl:Axiom]──┬──[dcterms:source]──────────────> Authoritative Source URI
-                                         ├──[dcterms:bibliographicCitation]─> Formal Academic Citation
-                                         └──[rice:evidenceType]────────────> "literature-curated"
+   └── 256 Domain Triples ──[owl:Axiom]──┬──[dcterms:source]──────────────> Source URI (DOI where one exists)
+                                         ├──[dcterms:bibliographicCitation]─> Formal citation
+                                         └──[rice:evidenceType]────────────> "literature-curated"@en
 
 Layer 3: Cross-Vocabulary Alignment (SKOS & Bio-Registries)
-   └── Biological Entities ──[skos:exactMatch / closeMatch]──> FAO AGROVOC / NCBI Taxonomy
-   └── Organism Individuals ──[rice:eppoCode]───────────────> EPPO Global Database (15 validated codes)
+   └── Entities ──[skos:exactMatch 33 / closeMatch 17 / broadMatch 1]──> FAO AGROVOC / NCBI Taxonomy / PECO
+   └── Organism Individuals ──[rice:eppoCode]──────────────────────────> EPPO Global Database (15 codes)
 ```
 
 ---
 
 ## 3. Inventory of Authoritative Sources
 
-All 265 reified domain axioms trace back to three authoritative institutional bodies and seminal peer-reviewed agronomic literature:
+Counts are by the host of each axiom's `dcterms:source` URI. An axiom has exactly one source URI; its citation may additionally name a co-source (e.g. "… / IRRI (2020). Rice Doctor: Stem Borer."), which is not counted separately here.
 
-| Source Institution / Body | Role in Rice MMKG | Domain URL / PURL | Axiom Count |
+| Source | Role in Rice MMKG | Source URI form | Axioms |
 |---|---|---|:---:|
-| **CABI Compendium** (Crop Protection Compendium) | Primary reference for global pest/pathogen biology, host ranges, environmental risk factors, and chemical/cultural control | `https://www.cabi.org/isc/datasheet/...` | **247** |
-| **IRRI Rice Knowledge Bank** (International Rice Research Institute) | Authoritative reference for diagnostic field symptomatology, rice growth stages, and Integrated Pest Management (IPM) guidelines | `http://www.knowledgebank.irri.org/...` | **11** |
-| **BBPOPT Kementan RI** (Balai Besar Peramalan Organisme Pengganggu Tumbuhan) | National standard for tropical rice pest forecasting, crop surveillance, and emergency intervention thresholds | `http://bbpopt.tanamanpangan.pertanian.go.id/...` | **7** |
-| **Total Reified Domain Axioms** | | | **265 (100%)** |
+| **CABI Compendium** (formerly Crop Protection Compendium) | Pest/pathogen biology, host ranges, environmental risk factors, chemical/cultural control | `https://doi.org/10.1079/cabicompendium.<id>` (14 datasheets) | **242** |
+| **BBPOPT Kementan RI** (Balai Besar Peramalan Organisme Pengganggu Tumbuhan) | National pest forecasting, surveillance, and intervention guidance | `https://bbpopt.tanamanpangan.pertanian.go.id/` | **7** |
+| **IRRI Rice Knowledge Bank** | Field symptomatology, growth stages, IPM guidance | `http://www.knowledgebank.irri.org/...` | **4** |
+| **IRAC** (Insecticide Resistance Action Committee) | Stem borer damage symptoms (deadheart, whitehead) | `https://irac-online.org/documents/yellow-rice-stem-borer-irm/` | **2** |
+| **FAO / International Rice Commission** | Tungro vector management (resistant varieties) | `https://www.fao.org/4/y6159t/y6159t02.htm` | **1** |
+| **Total** | | | **256** |
 
-### Seminal Peer-Reviewed Literature Cited
-- **Ou, S.H. (1985).** *Rice Diseases* (2nd ed.). Commonwealth Mycological Institute, Kew, Surrey, UK. *(Standard international treatise for rice fungal and bacterial pathologies).*
-- **Hibino, H. (1996).** Biology and epidemiology of rice viruses. *Annual Review of Phytopathology*, 34(1), 249-274. *(Foundation for the Nephotettix virescens → RTBV/RTSV vector transmission chain).*
-- **Ham, J.H., Melanson, R.A., & Rush, M.C. (2011).** *Burkholderia glumae*: next major pathogen of rice? *Molecular Plant Pathology*, 12(4), 329-339. *(Foundation for bacterial panicle blight etiology and temperature risk).*
+### CABI datasheets cited
+
+Citation text for every CABI axiom is taken from the Crossref record of its DOI (rewritten 2026-09-14; previously every entry read "CABI (2022) … Crop Protection Compendium", which the DOI metadata does not support).
+
+| Datasheet id | Citation (Crossref) |
+|---|---|
+| 14493 | CABI (2021). *Cnaphalocrocis medinalis* (rice leaf folder). CABI Compendium. |
+| 14691 | Castell Miller, C. (2025). *Bipolaris oryzae* (brown leaf spot of rice). CABI Compendium. |
+| 27270 | CABI (2021). *Dicladispa armigera* (rice hispa). CABI Compendium. |
+| 30366 | CABI (2021). *Leptocorisa oratorius* (slender rice bug). CABI Compendium. |
+| 36301 | CABI (2021). *Nilaparvata lugens* (brown planthopper). CABI Compendium. |
+| 44964 | CABI (2021). *Burkholderia glumae* (bacterial grain rot). CABI Compendium. |
+| 45093 | CABI (2021). *Mythimna separata* (paddy armyworm). CABI Compendium. |
+| 46103 | CABI (2021). *Magnaporthe oryzae* (rice blast disease). CABI Compendium. |
+| 47203 | Back, M. (2012). *Thanatephorus cucumeris* (many names, depending on host). CABI Compendium. |
+| 47654 | CABI (2019). Rice tungro disease (rice tungro virus). CABI Compendium. |
+| 49009 | CABI (2021). *Scirpophaga incertulas* (yellow stem borer). CABI Compendium. |
+| 49243 | CABI (2019). *Sclerophthora macrospora* (downy mildew). CABI Compendium. |
+| 56956 | CABI (2021). *Xanthomonas oryzae* pv. *oryzae* (rice leaf blight). CABI Compendium. |
+| 56977 | CABI (2021). *Xanthomonas oryzae* pv. *oryzicola* (bacterial leaf streak of rice). CABI Compendium. |
+
+All published by CABI Publishing; DOI `10.1079/cabicompendium.<id>`.
+
+### Other literature cited
+- **Ou, S.H. (1985).** *Rice Diseases* (2nd ed.). Commonwealth Mycological Institute, Kew, UK.
+- **Hibino, H. (1996).** Biology and epidemiology of rice viruses. *Annual Review of Phytopathology*, 34, 249–274. *(Nephotettix virescens → RTBV/RTSV transmission.)*
+- **Ham, J.H., Melanson, R.A., & Rush, M.C. (2011).** *Burkholderia glumae*: next major pathogen of rice? *Molecular Plant Pathology*, 12(4), 329–339.
+- **Gallagher, K.D., Ooi, P.A.C., Mew, T.W., Borromeo, E. & Kenmore, P.E. (2002).** Integrated pest management in rice. *International Rice Commission Newsletter*. FAO. *(Resistant varieties for tungro/leafhopper management.)*
+- **IRAC (2025).** *Rice Stem Borer, Scirpophaga incertulas (yellow rice stem borer): Sustainable Control Strategies in Asia.* Poster, version 2. *(Deadheart and whitehead symptoms.)*
 
 ---
 
 ## 4. Reified Domain Properties Breakdown
 
-The 265 `owl:Axiom` records cover 10 distinct domain object properties, representing 100% of all direct domain assertions in the knowledge graph:
+The 256 `owl:Axiom` records cover 10 domain object properties — every asserted domain relation in the graph:
 
-| Property | Subject Class → Object Class | Axiom Count | Primary Literature Sources |
-|---|---|:---:|---|
-| `rice:vulnerableTo` | `Plant ⊔ GrowthStage` → `Disease ⊔ Pest` | **59** | IRRI Rice Knowledge Bank, CABI Compendium |
-| `rice:occursIn` | `Disease ⊔ Pest` → `GrowthStage` | **47** | IRRI RKB, Ou (1985), CABI |
-| `rice:controlledBy` | `Disease ⊔ Pest` → `Treatment` | **42** | CABI Compendium, BBPOPT Kementan (2022) |
-| `rice:indicatedBy` | `Disease ⊔ Pest` → `Symptom` | **42** | IRRI Rice Doctor, CABI Compendium |
-| `rice:increaseRiskOf` | `EnvironmentalFactor` → `Disease ⊔ Pest` | **29** | CABI Compendium, Ham et al. (2011) |
-| `rice:recommends` | `Disease ⊔ Pest ⊔ SeverityLevel` → `ManagementAction` | **23** | BBPOPT Technical Bulletins, IRRI GAP |
-| `rice:causes` | `Pathogen` → `Disease` | **8** | CABI, Ou (1985), Hibino (1996) |
-| `rice:preventedBy` | `Disease` → `Treatment` | **8** | IRRI Rice Knowledge Bank, CABI |
-| `rice:requires` | `Treatment` → `GrowthStage` | **5** | BBPOPT, IRRI GAP Standard Protocols |
-| `rice:transmits` | `Pest` → `Pathogen` | **2** | Hibino (1996), CABI CPC (Leafhopper vector) |
-| **Total** | | **265** | **100% Reified with Sources** |
+| Property | Subject Class → Object Class | Axioms |
+|---|---|:---:|
+| `rice:vulnerableTo` | `Plant ⊔ GrowthStage` → `Disease ⊔ Pest ⊔ Pathogen` | **55** |
+| `rice:indicatedBy` | `Disease ⊔ Pest` → `Symptom` | **43** |
+| `rice:controlledBy` | `Disease ⊔ Pest` → `Treatment` | **42** |
+| `rice:occursIn` | `Disease ⊔ Pest ⊔ HealthStatus` → `GrowthStage` | **41** |
+| `rice:increaseRiskOf` | `EnvironmentalFactor` → `Disease ⊔ Pest` | **29** |
+| `rice:recommends` | `Disease ⊔ Pest ⊔ SeverityLevel` → `ManagementAction` | **23** |
+| `rice:causes` | `Pathogen` → `Disease` | **8** |
+| `rice:preventedBy` | `Disease ⊔ Pest` → `Treatment` | **8** |
+| `rice:requires` | `Treatment` → `GrowthStage` | **5** |
+| `rice:transmits` | `Pest` → `Pathogen` | **2** |
+| **Total** | | **256** |
 
 ---
 
 ## 5. Audit & Quality Assurance History
 
-### 1. CABI Datasheet Numeric ID Audit
-In earlier drafts, several CABI Compendium numeric IDs suffered from generic redirection or legacy ID drift. An exhaustive verification audit checked every URL against the live CABI Digital Library:
-- Corrected 14 distinct datasheet URLs to authoritative species/disease records (e.g., *Magnaporthe oryzae* datasheet 46154, *Scirpophaga incertulas* datasheet 49132, *Xanthomonas oryzae pv. oryzae* datasheet 56947).
-- Verified that all 247 CABI assertions point to valid, 200-OK HTTP resources.
+### 5.1 CABI source URIs
+- **2026-08-25:** a provenance audit found that all 14 distinct CABI datasheet ids then in use redirected to unrelated species (e.g. the *Magnaporthe oryzae* citation resolved to an oak tree). Each was re-verified and corrected.
+- **2026-09-14:** the 14 corrected ids were re-checked live. `https://www.cabi.org/isc/datasheet/<id>` now returns **301** to `cabidigitallibrary.org/doi/10.1079/cabicompendium.<id>`, so all 242 source URIs were replaced by the DOI form; each DOI resolves through doi.org and its Crossref title names the organism in the citation. Citation text was rewritten from Crossref at the same time (§3).
+- *Correction:* an earlier version of this register listed "corrected" ids 46154, 49132 and 56947 and stated that "all 247 CABI assertions point to valid, 200-OK HTTP resources". Neither holds: the ids in the ontology are 46103, 49009 and 56956, the count was 247 only before the v0.6 fix, and the old URLs redirect rather than return 200.
 
-### 2. Indonesian Ministry of Agriculture (BBPOPT) Domain Update
-The institutional web portal for BBPOPT underwent a national domain migration:
-- Legacy URL `bbpopt.ditlin.pertanian.go.id` was updated to the active government domain `bbpopt.tanamanpangan.pertanian.go.id`.
+### 5.2 BBPOPT domain update
+- Legacy URL `bbpopt.ditlin.pertanian.go.id` updated to the active domain `bbpopt.tanamanpangan.pertanian.go.id`.
 
-### 3. EPPO Global Database Audit (15 Verified Codes)
-All 15 biological organisms in the ontology carry validated 6-letter EPPO codes:
-- Pathogens: `PYRIOR` (*Magnaporthe oryzae*), `XANTOR` (*Xanthomonas oryzae pv. oryzae*), `XANTTO` (*X. oryzae pv. oryzicola*), `COCHMI` (*Bipolaris oryzae*), `PSDMGM` (*Burkholderia glumae*), `SCPHMA` (*Sclerophthora macrospora*), `RTBV00` (RTBV), `RTSV00` (RTSV).
-- Pests: `SCHOBI` (*Scirpophaga incertulas* / Stem Borer), `CNAPME` (*Cnaphalocrocis medinalis* / Leaf Folder), `NILALU` (*Nilaparvata lugens* / Brown Planthopper), `PSEDSE` (*Mythimna separata* / Armyworm), `LEPROR` (*Leptocorisa oratorius* / Rice Bug), `HISPAR` (*Dicladispa armigera* / Hispa), `NEPHIM` (*Nephotettix virescens* / Green Leafhopper).
+### 5.3 EPPO codes (15)
+- Pathogens: `PYRIOR` (*Magnaporthe oryzae*), `XANTOR` (*X. oryzae* pv. *oryzae*), `XANTTO` (*X. oryzae* pv. *oryzicola*), `COCHMI` (*Bipolaris oryzae*), `PSDMGM` (*Burkholderia glumae*), `SCPHMA` (*Sclerophthora macrospora*), `RTBV00` (RTBV), `RTSV00` (RTSV).
+- Pests: `SCHOBI` (*Scirpophaga incertulas* / Stem Borer), `CNAPME` (*Cnaphalocrocis medinalis*), `NILALU` (*Nilaparvata lugens*), `PSEDSE` (*Mythimna separata*), `LEPROR` (*Leptocorisa oratorius*), `HISPAR` (*Dicladispa armigera*), `NEPHIM` (*Nephotettix virescens*).
 
-### 4. Dataset Source Attribution
-- `PaddyDoctorDataset` metadata explicitly cites Petchiammal et al. (2022), *Paddy Doctor: A Large-Scale Image Dataset for Plant Disease Classification*, arXiv:2205.11108, with CC-BY 4.0 license and live Kaggle benchmark repository URI.
+### 5.4 v0.6.1 provenance gaps (2026-09-14)
+- `Stem_Borer indicatedBy Dead_Tiller` and `Stem_Borer indicatedBy White_Ear` had been asserted since v0.6 without an axiom; now reified citing IRAC (2025).
+- `Nephotettix_Virescens controlledBy Resistant_Variety` added with an axiom citing Gallagher et al. (2002).
+- The one untagged `rice:evidenceType` literal is now `@en`.
+- `Ontology/provenance_axioms.rdf`, an intermediate from the 2026-08-21 provenance pass that had drifted from the main file, was archived to `Ontology/Backup/`. `Rice MMKG.rdf` is the single source of truth.
+
+### 5.5 Dataset source attribution
+- `PaddyDoctorDataset` cites Petchiammal, A., Briskline Kiruba, S., Murugan, D. & Pandarasamy, A. (2022), *Paddy Doctor: A visual image dataset for automated paddy disease classification and benchmarking*, arXiv:2205.11108, CC BY 4.0, with the Kaggle competition URI as `dcterms:source`.
 
 ---
 
-## 6. Formal Competency Question (SPARQL) Verification
+## 6. Competency Question (SPARQL) Verification
 
-The provenance layer (Knowledge Dimension D3) is evaluated under the automated **Rice MMKG 25 CQ Benchmark**:
+The provenance layer (Knowledge Dimension D3) is evaluated by the 25-CQ benchmark (`Ontology/CQ SPARQL Benchmark/cq_sparql_benchmark.py`).
 
-### CQ-21 | L4 × D3 | Provenance Completeness (PASS: 265/265, 100%)
-Verifies that 100% of reified domain axioms possess both an authoritative source URI and a complete bibliographic citation:
+### CQ-21 | L4 × D3 | Provenance completeness of existing axioms (PASS: 256/256)
 ```sparql
 PREFIX owl:     <http://www.w3.org/2002/07/owl#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
@@ -107,25 +139,39 @@ SELECT DISTINCT ?ax WHERE {
       dcterms:bibliographicCitation ?cit .
 }
 ```
+*Scope limit:* the denominator is the set of axioms, so CQ-21 cannot see an assertion that has no axiom at all. CQ-22 covers that case.
 
-### CQ-22 | L4 × D3 | Integrity Constraint against Incomplete Provenance (PASS: 0 violations)
-Enforces that no orphaned or partial axiom exists in the ontology lacking essential metadata:
+### CQ-22 | L4 × D3 | Assertions without provenance, or axioms with incomplete provenance (PASS: 0 violations)
+Extended 2026-09-14. Runs on the asserted graph.
 ```sparql
 PREFIX owl:     <http://www.w3.org/2002/07/owl#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX rice:    <http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#>
 
-SELECT ?ax WHERE {
-  ?ax a owl:Axiom .
-  FILTER ( NOT EXISTS { ?ax dcterms:source ?s } ||
-           NOT EXISTS { ?ax dcterms:bibliographicCitation ?c } ||
-           NOT EXISTS { ?ax rice:evidenceType ?e } )
+SELECT ?item ?problem WHERE {
+  {
+    ?item a owl:Axiom .
+    FILTER ( NOT EXISTS { ?item dcterms:source ?s } ||
+             NOT EXISTS { ?item dcterms:bibliographicCitation ?c } ||
+             NOT EXISTS { ?item rice:evidenceType ?e } )
+    BIND ("axiom with incomplete provenance" AS ?problem)
+  } UNION {
+    VALUES ?p { rice:causes rice:transmits rice:indicatedBy rice:occursIn
+                rice:controlledBy rice:preventedBy rice:increaseRiskOf
+                rice:vulnerableTo rice:recommends rice:requires }
+    ?s ?p ?o .
+    FILTER NOT EXISTS { ?ax owl:annotatedSource ?s ;
+                            owl:annotatedProperty ?p ;
+                            owl:annotatedTarget ?o }
+    BIND (CONCAT(STRAFTER(STR(?s), "#"), " ", STRAFTER(STR(?p), "#"), " ",
+                 STRAFTER(STR(?o), "#")) AS ?item)
+    BIND ("assertion without provenance" AS ?problem)
+  }
 }
 ```
-*Result: Exactly 0 violations.*
+*Result:* 0 violations on v0.6.1. On the released v0.6 file: 2 violations (the two `Stem_Borer indicatedBy` assertions); the original axiom-only form of this query reported 0 there.
 
-### CQ-24 | L4 × D3 | Literal Hygiene (FAIL: 1 violation -> Scheduled Fix for v0.6.1)
-Verifies that all `rice:evidenceType` annotations carry explicit language tags (`@en`) to ensure uniform SPARQL grouping and filtering:
+### CQ-24 | L4 × D3 | Literal hygiene (PASS: 0 violations)
 ```sparql
 PREFIX rice: <http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#>
 
@@ -134,4 +180,4 @@ SELECT ?ax ?v WHERE {
   FILTER ( lang(?v) = "" )
 }
 ```
-*Status: Scheduled for uniform `@en` tagging in v0.6.1.*
+*Result:* 0 violations on v0.6.1 (v0.6: 1, fixed by tagging the literal `@en`).
