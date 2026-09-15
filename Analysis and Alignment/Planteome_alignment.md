@@ -21,7 +21,7 @@ closer semantic fit to this class than AGROVOC's candidates were.
 
 **Source queried:** EBI Ontology Lookup Service (OLS4), `https://www.ebi.ac.uk/ols4/api/`  
 **Query method:** free-text search across `peco,eo,po,to,pso`, no registration or API key required  
-**Checked:** 2026-08-17, verified 2026-09-03 (Rice MMKG v0.6)
+**Checked:** 2026-08-17, verified 2026-09-03 (Rice MMKG v0.6); PlantPart round 2026-09-15 (Rice MMKG 0.7.0-dev)
 
 ## Query method
 
@@ -67,6 +67,25 @@ mismatches were re-searched here.
 | `Low_Rainfall` | [`drought`](http://aims.fao.org/aos/agrovoc/c_2391) — severity mismatch | [`drought exposure`](http://purl.obolibrary.org/obo/PECO_0007404) (PECO:0007404) | `skos:closeMatch` | Implemented | Definition: "exposure of plants to a prolonged dry period" — same severity/duration nuance as the AGROVOC candidate (drought implies more than just "low"), but the exposure framing is the correct category. Considered the more generic `rainfall exposure` (PECO:0007181, no low/high qualifier) as an alternative; `drought exposure` is the closer match in intent. |
 | `Poor_Soil_Drainage` | [`waterlogging`](http://aims.fao.org/aos/agrovoc/c_8333) — cause-vs-effect mismatch | [`flood water exposure`](http://purl.obolibrary.org/obo/PECO_0007172) (PECO:0007172) | `skos:closeMatch` | Implemented | Same cause-vs-effect nuance as the AGROVOC candidate (standing water is the *effect* of poor drainage, not the drainage condition itself); no direct "soil drainage" term exists in Planteome (search returned zero results). Kept as the best available proxy rather than left unmapped, since the semantic distance is no worse than the AGROVOC alternative already accepted for `Downy_Mildew`-style broader matches. |
 
+## PlantPart alignment (round 2)
+
+Checked 2026-09-15 against the **Plant Ontology (PO)** for the new `PlantPart` individuals (Rice MMKG 0.7.0-dev). Unlike round 1, these entities were created together with their alignment, so there is no AGROVOC candidate column.
+
+**Query method:** same as round 1 — free-text search restricted to `ontology=po`; where the label search found nothing, `queryFields=label,synonym` was used to reach synonym-only terms (this is how PO:0005001 was found for "tiller"). Part-of relations were read from `GET https://www.ebi.ac.uk/ols4/api/ontologies/po/terms/<double-encoded-iri>/graph`, which lists the term's `part of` edges.
+
+| Rice MMKG entity | Planteome candidate | Relation | Status | Decision note |
+|---|---|---|---|---|
+| `Whole_Plant` | [`whole plant`](http://purl.obolibrary.org/obo/PO_0000003) (PO:0000003) | `skos:exactMatch` | Implemented | Same meaning and category. |
+| `Leaf` | [`leaf`](http://purl.obolibrary.org/obo/PO_0025034) (PO:0025034) | `skos:exactMatch` | Implemented | Needed only as the whole in `partOf`. PO's leaf lamina is part_of this term; leaf sheath is part_of its subclass `vascular leaf` (PO:0009025). |
+| `Leaf_Blade` | [`leaf lamina`](http://purl.obolibrary.org/obo/PO_0020039) (PO:0020039) | `skos:exactMatch` | Implemented | "leaf blade" is a listed synonym; lamina and blade name the same organ. |
+| `Leaf_Sheath` | [`leaf sheath`](http://purl.obolibrary.org/obo/PO_0020104) (PO:0020104) | `skos:exactMatch` | Implemented | Exact label match; PO notes the term is typical of Poaceae. |
+| `Panicle` | [`panicle inflorescence`](http://purl.obolibrary.org/obo/PO_0030123) (PO:0030123) | `skos:exactMatch` | Implemented | "panicle" is an exact synonym. |
+| `Tiller` | [`basal axillary shoot system`](http://purl.obolibrary.org/obo/PO_0005001) (PO:0005001) | `skos:closeMatch` | Implemented | "tiller" is only a *narrow* synonym here, and a label search for "tiller" returns growth stages, not an anatomy term. No more specific term exists. |
+| `Grain` | [`caryopsis fruit`](http://purl.obolibrary.org/obo/PO_0030104) (PO:0030104) | `skos:closeMatch` | Implemented | PO's synonyms ("brown rice", "dehulled grain") show the term is the dehulled grain, whereas a rice grain in the field carries its hull. Scope mismatch, not category. |
+| `Panicle_Neck` | none | — | Local only | Searches for "neck" and "panicle neck" return only bryophyte terms (archegonium/sporangium neck). |
+
+`partOf` (itself `skos:closeMatch` to [BFO:0000050 *part of*](http://purl.obolibrary.org/obo/BFO_0000050)) is asserted only where PO records the relation: `Leaf_Blade partOf Leaf` (PO:0020039 part_of PO:0025034) and `Leaf_Sheath partOf Leaf` (PO:0020104 part_of PO:0009025, which is_a PO:0025034). The graph endpoint returned no part_of edge for panicle inflorescence, caryopsis fruit or basal axillary shoot system, so no `partOf` is asserted for `Panicle`, `Grain` or `Tiller`. Both assertions carry an `owl:Axiom` whose source is the PO term and whose `evidenceType` is `ontology-derived`.
+
 ## Decision log
 
 | Entity | Relation | Reviewer | Source | Date |
@@ -75,6 +94,11 @@ mismatches were re-searched here.
 | `High_Temperature` | `skos:exactMatch` | Muhammad Ariful Furqon | EBI OLS4 search (PECO) | 2026-08-17 |
 | `Low_Rainfall` | `skos:closeMatch` | Muhammad Ariful Furqon | EBI OLS4 search (PECO) | 2026-08-17 |
 | `Poor_Soil_Drainage` | `skos:closeMatch` | Muhammad Ariful Furqon | EBI OLS4 search (PECO) | 2026-08-17 |
+| `Whole_Plant`, `Leaf`, `Leaf_Blade`, `Leaf_Sheath`, `Panicle` | `skos:exactMatch` | Muhammad Ariful Furqon | EBI OLS4 search (PO) | 2026-09-15 |
+| `Tiller` | `skos:closeMatch` | Muhammad Ariful Furqon | EBI OLS4 synonym search (PO) | 2026-09-15 |
+| `Grain` | `skos:closeMatch` | Muhammad Ariful Furqon | EBI OLS4 search (PO) | 2026-09-15 |
+| `Panicle_Neck` | local only | Muhammad Ariful Furqon | EBI OLS4 search (PO), no candidate | 2026-09-15 |
+| `Leaf_Blade partOf Leaf`, `Leaf_Sheath partOf Leaf` | `rice:partOf` | Muhammad Ariful Furqon | EBI OLS4 term graph (PO part_of edges) | 2026-09-15 |
 
 ## Next review actions
 

@@ -1,10 +1,13 @@
-# Rice MMKG v0.6.2 — SPARQL Competency Question Documentation
+# Rice MMKG 0.7.0-dev — SPARQL Competency Question Documentation
 
-**Ontology:** `Rice MMKG.rdf` (owl:versionInfo 0.6.2; results identical to v0.6.1, which differs only in source URIs and citation text)  
-**Triples:** 66,802 asserted / 161,447 after OWL RL materialisation (+94,645 triples)  
-**Benchmark Execution:** 2026-09-14  
+**Ontology:** `Rice MMKG.rdf` (owl:versionInfo 0.7.0-dev, commit `a331769`; last release v0.6.2)  
+**Triples:** 67,090 asserted / 161,861 after OWL RL materialisation (+94,771 triples)  
+**Benchmark Execution:** 2026-09-15  
 **Overall Result:** 23 PASS / 1 PARTIAL / 0 FAIL / 1 DOCUMENTED (24 scored + 1 documented = 25 CQs)
 **Pass Rate:** 95.8% (23/24 scored CQs)
+
+> **0.7.0-dev Note (2026-09-15):**  
+> `PlantPart` (8 individuals), `affectsPlantPart` (27 assertions, citing IRRI Rice Knowledge Bank fact sheets) and `partOf` (2 assertions, from the Plant Ontology) were added. Verdicts are unchanged. Two measurements move because the new assertions are reified: CQ-21 256/256 → **285/285**, and CQ-22 now also checks `affectsPlantPart` and `partOf` (still 0 violations). The new property was added to CQ-22's list rather than left out, so that the extension could not pass CQ-22 by omission. All other results are identical to v0.6.2. See the 0.7.0-dev entry in `Ontology_Overview.md`.
 
 > **v0.6.1 Patch Note (2026-09-14):**  
 > Three domain assertions gained or received provenance and one literal was tagged: `Stem_Borer indicatedBy Dead_Tiller` and `Stem_Borer indicatedBy White_Ear` (present since v0.6 but never reified) now carry `owl:Axiom` records citing IRAC (2025); `Nephotettix_Virescens controlledBy Resistant_Variety` was added, citing Gallagher et al. (2002); and the one untagged `rice:evidenceType` literal is now `@en`. CQ-10 and CQ-24 move from FAIL to PASS. The CQ-10 fix deliberately departs from the action item planned in v0.6 (`controlledBy Vector_Control`): FAO and IRRI both report that insecticide control of the green leafhopper often fails to control tungro and recommend resistant varieties instead, so asserting vector control only to satisfy the CQ would not have been supported by the literature. Pre-patch file: `Ontology/Backup/Rice MMKG.backup-v0.6-pre-v0.6.1.rdf`.
@@ -66,7 +69,7 @@ Each CQ is positioned along two orthogonal axes: **Reasoning Depth (L1–L4)** a
 
 ---
 
-## Master Result Matrix (25 Competency Questions — v0.6.1)
+## Master Result Matrix (25 Competency Questions — 0.7.0-dev)
 
 | CQ ID | Depth | Dim | Mode | Result | Measurement | Summary |
 |:---:|:---:|:---:|:---:|:---:|:---:|---|
@@ -90,7 +93,7 @@ Each CQ is positioned along two orthogonal axes: **Reasoning Depth (L1–L4)** a
 | **CQ-18** | L1 | D2 | `coverage`   | **PARTIAL**    | 1/27 (4%)            | Direct visual grounding of symptoms (`rice:captures`) |
 | **CQ-19** | L1 | D2 | `negative`   | **PASS**       | 0 violations         | Media layer integrity: Content URL & dataset provenance |
 | **CQ-20** | L1 | D2 | `documented` | **DOC**        | 0 individuals        | Sensor observation population (Phase 3 extension point) |
-| **CQ-21** | L4 | D3 | `coverage`   | **PASS**       | 256/256 (100%)       | Reified domain axioms with source URI and citation (v0.6: 253/253) |
+| **CQ-21** | L4 | D3 | `coverage`   | **PASS**       | 285/285 (100%)       | Reified domain axioms with source URI and citation (v0.6.2: 256/256; v0.6: 253/253) |
 | **CQ-22** | L4 | D3 | `negative`   | **PASS**       | 0 violations         | Domain assertions without an axiom, or axioms with incomplete provenance (extended 2026-09-14; v0.6: 2) |
 | **CQ-23** | L4 | D3 | `coverage`   | **PASS**       | 18/24 (75%)          | Biological entities aligned to EPPO / AGROVOC / NCBI |
 | **CQ-24** | L4 | D3 | `negative`   | **PASS**       | 0 violations         | Literal hygiene: Uniform language tags (`@en`) on `evidenceType` (v0.6: 1) |
@@ -431,7 +434,7 @@ SELECT DISTINCT ?o WHERE { ?o a rice:SensorObservation }
 
 ### Section C: Provenance & Alignment Layer (D3)
 
-#### CQ-21 | L4 x D3 | coverage | PASS (256/256 axioms, 100%)
+#### CQ-21 | L4 x D3 | coverage | PASS (285/285 axioms, 100%)
 **Question:** Which reified domain assertions carry both an authoritative source URI and a bibliographic citation?
 **Rationale:** Scientific defensibility & provenance completeness.
 **Scope limit:** the denominator is the set of axioms, so CQ-21 measures whether existing axioms carry a source — never whether every assertion has an axiom. An unreified assertion is invisible to it; CQ-22 covers that case.
@@ -444,7 +447,8 @@ SELECT DISTINCT ?ax WHERE {
 ```sparql
 SELECT DISTINCT ?ax WHERE { ?ax a owl:Axiom }
 ```
-**Result:** 256 covered / 256 total (100.0%) — PASS. Source URIs by host: CABI 242, BBPOPT 7, IRRI 4, IRAC 2, FAO 1.  
+**Result:** 285 covered / 285 total (100.0%) — PASS. Source URIs by host: CABI (doi.org) 242, IRRI Rice Knowledge Bank 31, BBPOPT 7, IRAC 2, Plant Ontology 2, FAO 1.  
+**v0.6.2:** 256/256 (CABI 242, BBPOPT 7, IRRI 4, IRAC 2, FAO 1).  
 **v0.6:** 253/253 (100%) — which hid the two unreified `Stem_Borer` assertions reported by CQ-22.
 
 ---
@@ -464,7 +468,8 @@ SELECT ?item ?problem WHERE {
   } UNION {
     VALUES ?p { rice:causes rice:transmits rice:indicatedBy rice:occursIn
                 rice:controlledBy rice:preventedBy rice:increaseRiskOf
-                rice:vulnerableTo rice:recommends rice:requires }
+                rice:vulnerableTo rice:recommends rice:requires
+                rice:affectsPlantPart rice:partOf }
     ?s ?p ?o .
     FILTER NOT EXISTS { ?ax owl:annotatedSource ?s ;
                             owl:annotatedProperty ?p ;
@@ -483,7 +488,7 @@ SELECT ?ax WHERE {
            NOT EXISTS { ?ax dcterms:bibliographicCitation ?c } ||
            NOT EXISTS { ?ax rice:evidenceType ?e } ) }
 ```
-**Result:** 0 violations — PASS.  
+**Result:** 0 violations — PASS. `rice:affectsPlantPart` and `rice:partOf` were added to the property list in 0.7.0-dev together with the properties themselves.  
 **On the released v0.6 file:** original query 0 violations (PASS); current query **2 violations (FAIL)** — `Stem_Borer indicatedBy Dead_Tiller` and `Stem_Borer indicatedBy White_Ear`, both reified in v0.6.1 citing IRAC (2025). Both results are reported; the original is not retracted.
 
 ---
@@ -531,7 +536,7 @@ SELECT DISTINCT ?x WHERE {
 
 ---
 
-## Action Items & Roadmap Summary (v0.6.1)
+## Action Items & Roadmap Summary (0.7.0-dev)
 
 | CQ ID | Status | Finding / Issue | Corrective Action / Milestone |
 |:---:|:---:|---|---|

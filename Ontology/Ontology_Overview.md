@@ -1,8 +1,9 @@
 # Rice MMKG — description, statistics, and changelog
 
-Status snapshot as of **2026-09-15** (Rice MMKG v0.6.2).
+Status snapshot as of **2026-09-15** (Rice MMKG `0.7.0-dev`, in development
+after the `v0.6.2` release).
 Covers `Ontology/Rice MMKG.rdf` from its first commit through the current
-state. Numbers below were re-measured with rdflib on 2026-09-14. The v0.6
+state. Numbers below were re-measured with rdflib on 2026-09-15. The v0.6
 figures this document first carried (66,874 triples, 265 axioms) had been
 measured before the same-day inconsistency fix and did not describe the
 released file; see the v0.6.1 changelog entry.
@@ -46,7 +47,7 @@ modality class is named `ImageObservation` (not `LeafImage`) since the
 2026-08-19 cleanup round — the old name was factually wrong for the part
 of the corpus that isn't a leaf (panicle blight, deadheart).
 
-**License:** CC BY 4.0. **Creator:** Muhammad Ariful Furqon (ORCID 0000-0002-1031-3567), Natthawut Kertkeidkachorn (ORCID 0000-0003-4527-776X). **Version:** `0.6.2` (2026-09-15; pre-release progression: `v0.1` → `v0.2` → `v0.3` → `v0.4` → `v0.5` → `v0.6` → `v0.6.1` → `v0.6.2`; git tags `elicited-baseline-v0.6`, `v0.6.1`, `v0.6.2`).
+**License:** CC BY 4.0. **Creator:** Muhammad Ariful Furqon (ORCID 0000-0002-1031-3567), Natthawut Kertkeidkachorn (ORCID 0000-0003-4527-776X). **Version:** `0.7.0-dev` (in development since 2026-09-15; last release `0.6.2`; pre-release progression: `v0.1` → `v0.2` → `v0.3` → `v0.4` → `v0.5` → `v0.6` → `v0.6.1` → `v0.6.2`; git tags `elicited-baseline-v0.6`, `v0.6.1`, `v0.6.2`).
 
 ---
 
@@ -54,18 +55,18 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **66,802** (asserted) / **161,447** (OWL RL) | v0.6.1. +94,645 triples derived via OWL RL materialisation (~29s). Released v0.6: 66,780 / 161,416 |
-| **Named classes** | 16 | 13 primitive + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class (`SymptomaticObservation`) |
-| **Object properties** | 26 | All declared with explicit domain and range; includes `transmits`/`transmittedBy` |
+| **Total triples** | **67,090** (asserted) / **161,861** (OWL RL) | 0.7.0-dev. +94,771 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Named classes** | 17 | 14 primitive (incl. `PlantPart`, 0.7.0-dev) + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class (`SymptomaticObservation`) |
+| **Object properties** | 28 | All declared with explicit domain and range; includes `transmits`/`transmittedBy`, and `affectsPlantPart` and transitive `partOf` (0.7.0-dev) |
 | **Datatype properties** | 5 | All declared with explicit domain and range |
 | **Annotation properties** | 14 | Includes `rice:evidenceType`, PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
-| **Named individuals** | **10,498** | 10,407 image individuals + 1 dataset metadata + 90 domain entities |
-| **`owl:Axiom` (provenance)** | **256** | **256 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (v0.6.1). Released v0.6: 253 axioms over 255 assertions |
+| **Named individuals** | **10,506** | 10,407 image individuals + 1 dataset metadata + 98 domain entities (8 of them `PlantPart`) |
+| **`owl:Axiom` (provenance)** | **285** | **285 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev). v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
-| **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories |
-| **Reasoner Consistency** | **Consistent** | v0.6.1 checked in **HermiT** on 2026-09-14 (space-free copy, with an injected-contradiction control that correctly reports inconsistent); v0.6 verified in HermiT & Pellet |
+| **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (13 classes, `PlantPart` added in 0.7.0-dev) |
+| **Reasoner Consistency** | **Consistent** | 0.7.0-dev checked in **HermiT** on 2026-09-15 with `-k` on a space-free copy, with two injected-contradiction controls (`Rice` as Plant + Disease; `Leaf_Blade` as PlantPart + Disease) that both report inconsistent; v0.6 verified in HermiT & Pellet |
 | **Competency Questions (CQ)** | **23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC** | **95.8% pass rate** across 24 scored CQs (25 total). Released v0.6: 21 / 1 / 2 / 1 |
-| **`skos:exactMatch` / `closeMatch` / `broadMatch`** | 33 / 17 / 1 | Mapped to AGROVOC / NCBI Taxonomy concept URIs, verified against live API |
+| **`skos:exactMatch` / `closeMatch` / `broadMatch`** | 38 / 20 / 1 | Mapped to AGROVOC / NCBI Taxonomy / Planteome (PECO, PO) and BFO, verified against live APIs |
 | **`TODO` literals remaining** | **0** | **100% resolved (dataset metadata & EPPO codes verified)** |
 | **Properties with no declared domain/range** | 0 / 0 | 100% coverage |
 
@@ -73,7 +74,7 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 ### Per-class individual counts
 
-The 10,498 individuals in the knowledge graph are categorized by domain layer:
+The 10,506 individuals in the knowledge graph are categorized by domain layer:
 
 | Domain Category | Class Name | Count | Type / Description |
 |---|---|---:|---|
@@ -88,12 +89,13 @@ The 10,498 individuals in the knowledge graph are categorized by domain layer:
 | | `HealthStatus` | 1 | `Normal_Health` (healthy reference baseline) |
 | | `Plant` | 1 | `Rice` (*Oryza sativa*) host individual |
 | **Phenotype & Environment** | `Symptom` | 27 | Visual symptoms (lesions, streaks, rotting, discoloration, dead tiller) |
+| | `PlantPart` | 8 | Organs on which symptoms appear (Whole_Plant, Tiller, Leaf, Leaf_Blade, Leaf_Sheath, Panicle, Panicle_Neck, Grain); 0.7.0-dev |
 | | `GrowthStage` | 7 | Rice phenological stages (Seedling, Tillering, Flowering, etc.) |
 | | `EnvironmentalFactor` | 9 | Predisposing weather, canopy, and soil conditions |
 | **Agronomic Management** | `Treatment` | 12 | Chemical, biological, genetic, and cultural practices |
 | | `ManagementAction` | 5 | Operational actions (Immediate Intervention, Monitoring, etc.) |
 | | `SeverityLevel` | 4 | Low, Medium, High, and Critical severity scales |
-| **Total Named Individuals** | | **10,498** | *(10,407 images + 1 dataset + 90 domain entities)* |
+| **Total Named Individuals** | | **10,506** | *(10,407 images + 1 dataset + 98 domain entities)* |
 
 ---
 
@@ -112,11 +114,13 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | | `transmits` | 2 | `Pest` → `Pathogen` | CABI / Hibino (1996) |
 | **Symptomatology & Risk Factors**| `indicatedBy` | 43 | `Disease ⊔ Pest` → `Symptom` | IRRI Rice Doctor / CABI / IRAC (2025) |
 | | `increaseRiskOf` | 29 | `EnvironmentalFactor` → `Disease ⊔ Pest` | CABI CPC / IRRI RKB |
+| **Plant Anatomy** | `affectsPlantPart` | 27 | `Symptom` → `PlantPart` | IRRI Rice Knowledge Bank fact sheets (13) |
+| | `partOf` | 2 | `PlantPart` → `PlantPart` | Plant Ontology via EBI OLS4 (`ontology-derived`) |
 | **Control & Management** | `controlledBy` | 42 | `Disease ⊔ Pest` → `Treatment` | CABI / BBPOPT (2022) / Gallagher et al. (2002) |
 | | `recommends` | 23 | `Disease ⊔ Pest ⊔ SeverityLevel` → `ManagementAction` | BBPOPT / IRRI |
 | | `preventedBy` | 8 | `Disease ⊔ Pest` → `Treatment` | IRRI RKB / CABI |
 | | `requires` | 5 | `Treatment` → `GrowthStage` | BBPOPT / IRRI GAP |
-| **Total domain assertions** | | **256** | *(v0.6.1, measured 2026-09-14 with rdflib; plus 10,407 `annotatedAs`, 1,442 `captures`, 10 `sourceDatasetLabel`, 15 `eppoCode`)* | **256 / 256 reified** |
+| **Total domain assertions** | | **285** | *(0.7.0-dev, measured 2026-09-15 with rdflib; plus 10,407 `annotatedAs`, 1,442 `captures`, 10 `sourceDatasetLabel`, 15 `eppoCode`)* | **285 / 285 reified** |
 
 > *Note on inverse properties:* All twelve inverse directions (`indicates`, `detectedBy`, `causedBy`, `prevents`, `controls`, `threatens`, etc.) and `detects` are declared in the schema for reasoning/querying symmetry.
 
@@ -132,13 +136,27 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | v0.5 (vector transmission + benchmark design) | 2026-08-25 | 66,873 | 16 | 26 | 10,498 | 265 axioms |
 | v0.6 (Deadheart disambiguation, DL consistency, 25 CQs) | 2026-09-03 | 66,780 (161,416 OWL RL) | 16 | 26 | 10,498 | 253 axioms / 255 assertions |
 | v0.6.1 (provenance gaps closed, CQ-10/CQ-24 fixed) | 2026-09-14 | 66,802 (161,447 OWL RL) | 16 | 26 | 10,498 | 256 axioms / 256 assertions |
-| **v0.6.2 (CABI DOIs, Crossref citations)** | **2026-09-15** | **66,802** (161,447 OWL RL) | **16** | **26** | **10,498** | **256 axioms / 256 assertions** |
+| v0.6.2 (CABI DOIs, Crossref citations) | 2026-09-15 | 66,802 (161,447 OWL RL) | 16 | 26 | 10,498 | 256 axioms / 256 assertions |
+| **0.7.0-dev (PlantPart — in development)** | **2026-09-15** | **67,090** (161,861 OWL RL) | **17** | **28** | **10,506** | **285 axioms / 285 assertions** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-09-15: 0.7.0-dev — `PlantPart`, symptom → organ, `partOf`
+
+First schema extension of Phase 3 (literature-backed, no expert data needed). Commit `a331769`; not a release, so `owl:versionInfo` and `owl:versionIRI` read `0.7.0-dev` rather than reusing the tagged `0.6.2`. Pre-patch file: `Backup/Rice MMKG.backup-v0.6.2-pre-plantpart.rdf`.
+
+- **Class `PlantPart`** with 8 individuals, aligned to the Plant Ontology (checked live via EBI OLS4 on 2026-09-15): `Whole_Plant` = PO:0000003, `Leaf` = PO:0025034, `Leaf_Blade` = PO:0020039 *leaf lamina*, `Leaf_Sheath` = PO:0020104, `Panicle` = PO:0030123 *panicle inflorescence* (all `exactMatch`); `Tiller` ~ PO:0005001 *basal axillary shoot system* ("tiller" is only a narrow synonym) and `Grain` ~ PO:0030104 *caryopsis fruit* (PO denotes the dehulled grain) as `closeMatch`; `Panicle_Neck` local only — PO has no term for it.
+- **`affectsPlantPart`** (`Symptom` → `PlantPart`): 27 assertions on 26 of the 27 symptoms, asserted per symptom rather than per disease–symptom pair (only `Brown_Lesion` has two organs: leaf blade and leaf sheath). Every assertion cites an IRRI Rice Knowledge Bank fact sheet (13 pages, read on 2026-09-15). The CABI datasheets behind the existing `indicatedBy` assertions return 403, so organ claims could not be verified against them. `Excessive_Tillering` is left without an organ: its only disease (downy mildew) has no IRRI fact sheet, and the candidate article (Lee et al. 2003, doi:10.5423/rpd.2003.9.1.052) could not be read.
+- **`partOf`** (transitive, `PlantPart` → `PlantPart`, `closeMatch` BFO:0000050): only the 2 relations the Plant Ontology records — leaf lamina part_of leaf and leaf sheath part_of vascular leaf (is_a leaf). PO records no part_of for panicle, grain or tiller, so none is asserted. Provenance is the PO term with `evidenceType` `ontology-derived`, a new value alongside `literature-curated`.
+- **Disjointness:** `PlantPart` added to the `AllDisjointClasses` axiom of the core domain classes. Without it an organ typed as `Disease` went undetected — the first HermiT control injected exactly that and was not reported.
+- **Plant Ontology (via OLS) was the source, not a commercial library.** Plantix was considered and rejected as a source: its terms of use (PEAT GmbH) prohibit scraping and data mining, and its pages carry no citable references.
+- **CQ instruments:** CQ-22's property list now includes `affectsPlantPart` and `partOf`, so the new assertions are held to the same provenance check. Elicited CQ-A03's query now returns the organ per symptom; the CQ text is unchanged and its status stays *partial - schema*, because growth stage is still attached to the disease, not the symptom.
+- **Result:** 67,090 asserted / 161,861 OWL RL triples; 285 axioms = 285 domain assertions, 0 unreified; HermiT consistent with `-k` (both controls inconsistent); benchmark **23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC** (CQ-21 285/285, CQ-22 0); elicited CQ statuses unchanged (7 answers / 10 partial / 2 NO ANSWER).
+- **Found while reading IRRI, not changed:** `Stem_Rot_Symptom` is asserted on `Sheath_Blight`, but IRRI describes sheath-blight lesions on the leaf sheath and treats stem rot as a separate disease, so the label is misleading. `Wilting` on `Sheath_Blight`, `Rice_Blast_Disease` and `Bacterial_Panicle_Blight` is not mentioned by IRRI; the assertions cite CABI, which cannot be read, so they are not shown to be wrong. See Open items.
 
 ### 2026-09-15: v0.6.2 — CABI sources as DOIs, citations from Crossref, stale provenance file archived
 
@@ -484,9 +502,12 @@ assertions, verified with no duplicates and no orphans. Triples: 67,236 →
   that don't dereference. Three options written up, none chosen. See
   `Worklog/RiceMMKG_cleanup_worklog/contenturl_base.md`.
 - **Permanent identifier:** `w3id.org` path segment to be registered for PURL minting.
-- **Version status:** `0.6.2` in `Rice MMKG.rdf` (as of 2026-09-15). Tags `v0.6.1` (commit `1d13542`) and `v0.6.2` mark the two releases.
-- **Competency Questions (CQs) Benchmark:** 25 CQs benchmarked via `cq_sparql_benchmark.py`: v0.6.1 scores 95.8% (23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC). Full documentation in `CQ_SPARQL_Documentation.md`.
-- **Automated Reasoner verified:** OWL RL deductive closure via Python `owlrl` (+94,645 triples) and HermiT consistency on v0.6.1 (with a verified control case).
+- **Version status:** `0.7.0-dev` in `Rice MMKG.rdf` (as of 2026-09-15). Tags `v0.6.1` (commit `1d13542`) and `v0.6.2` mark the last two releases; the final number of the next release is set when it is tagged.
+- **Competency Questions (CQs) Benchmark:** 25 CQs benchmarked via `cq_sparql_benchmark.py`: 0.7.0-dev scores 95.8% (23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC), as did v0.6.1/v0.6.2. Full documentation in `CQ_SPARQL_Documentation.md`.
+- **Automated Reasoner verified:** OWL RL deductive closure via Python `owlrl` (+94,771 triples) and HermiT consistency on 0.7.0-dev (with two verified control cases).
+- **`Excessive_Tillering` has no organ** — waiting for a readable source on rice downy mildew (IRRI has no fact sheet; Lee et al. 2003 could not be read).
+- **`Stem_Rot_Symptom` on `Sheath_Blight`** — label does not match IRRI, which places sheath-blight lesions on the leaf sheath and treats stem rot as a separate disease. Candidate for a patch correction (relabel or re-source); not changed.
+- **`Wilting` on `Sheath_Blight`, `Rice_Blast_Disease`, `Bacterial_Panicle_Blight`** — not mentioned by IRRI; the cited CABI datasheets return 403. Re-check when a readable source is found; not shown to be wrong.
 - ~~**Immediate Action Items for v0.6.1**~~ — done 2026-09-14; see the v0.6.1 changelog entry.
 - ~~**`provenance_axioms.rdf` has drifted**~~ — archived 2026-09-14 to `Backup/provenance_axioms.archived-2026-09-14.rdf`. `Rice MMKG.rdf` is the single source of truth; do not merge the archived file back (see the v0.6.2 entry).
 - ~~**CABI source URIs redirect**~~ — replaced 2026-09-14 by DOIs (`https://doi.org/10.1079/cabicompendium.<id>`), each checked live.

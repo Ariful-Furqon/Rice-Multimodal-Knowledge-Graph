@@ -1,7 +1,7 @@
 # Rice MMKG — Master Plan Toward ESWC 2027
 
 Construction, evaluation, and publication roadmap for the **ESWC 2027 Resource Track**.  
-**Current Milestone:** Rice MMKG **v0.6.2** (2026-09-15; v0.6.1 2026-09-14; v0.6 released 2026-09-03).  
+**Current Milestone:** Rice MMKG **v0.6.2** released (2026-09-15; v0.6.1 2026-09-14; v0.6 released 2026-09-03); **0.7.0-dev** in development (PlantPart added 2026-09-15).  
 **Abstract / Paper Deadline:** Late November – early December.  
 **Plan revised:** 2026-09-14 — phases re-ordered and re-scoped; see §2.
 
@@ -16,12 +16,12 @@ Construction, evaluation, and publication roadmap for the **ESWC 2027 Resource T
 | Metric / Dimension | Current State (v0.6.2) | Comparator (RiceDO) | Target for Submission |
 |---|---|---|---|
 | **Ontology Version** | **`0.6.2`** | `1.0` | `1.0` (release tagged for submission) |
-| **Asserted Triples** | **66,802** | ~1,200 | Grows with symptom-level image grounding; no fixed triple target |
-| **Materialised Triples (OWL RL)** | **161,447** (+94,645 triples) | — | Re-measured at release |
+| **Asserted Triples** | **66,802** (0.7.0-dev: 67,090) | ~1,200 | Grows with symptom-level image grounding; no fixed triple target |
+| **Materialised Triples (OWL RL)** | **161,447** (+94,645 triples; 0.7.0-dev: 161,861) | — | Re-measured at release |
 | **Modalities** | Populated: text-curated domain layer + **10,407** image observations. Declared but empty: `SensorObservation`. Not modelled: genomic | Text only | **Open — decided at the Phase 3 checkpoint.** Candidates: sensor (if data can be obtained), genomic (raised by expert feedback) |
 | **Symptom-level image grounding** | `captures` on 1,442 images, all to one symptom (CQ-18: 1/27) | 0 | Multiple symptoms grounded from expert annotation (see Phase 3) |
-| **Domain-Level Assertions** | **256 assertions, 256 reified axioms (100% cited)** | 18 diseases | 100% literature-grounded, checked by CQ-21 + extended CQ-22 |
-| **Reasoner Consistency** | **Consistent (HermiT, 2026-09-14, with an injected-contradiction control)** | Verified | Consistent at release, re-checked after every schema change |
+| **Domain-Level Assertions** | **256 assertions, 256 reified axioms (100% cited)**; 0.7.0-dev: 285 / 285 | 18 diseases | 100% literature-grounded, checked by CQ-21 + extended CQ-22 |
+| **Reasoner Consistency** | **Consistent (HermiT, 2026-09-14, with an injected-contradiction control)**; 0.7.0-dev re-checked 2026-09-15 with two controls | Verified | Consistent at release, re-checked after every schema change |
 | **Competency Questions** | **25 benchmark CQs** (23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC); **19 of 25 elicited CQs** queried (7 answer, 10 partial, 2 no answer) | Qualitative CQs | Both instruments re-run against the tagged v0.6 baseline |
 | **Permanent URI (PURL)** | Local namespace (`.../riceMMKG#`) | `purl.org/ricedo` | `w3id.org/<segment>` live — **segment to confirm** (`ricemmkg` or `rice-mmkg`) |
 | **FAIR Score (FOOPS!)** | 0.7275 (v0.5 schema-only baseline, 2026-08-22; main gap: no PURL) | — | **> 0.85**, measured once on the release |
@@ -105,6 +105,7 @@ Phase 6: Resource Paper & Submission (Weeks 11–14: mid Nov – early Dec)
   3. **Namespace rewrite:** run `rewrite_namespace.py` as a **separate commit**. It re-serialises the whole file, so its diff is unreadable by design; verify instead by triple count, HermiT, and both CQ instruments returning the same results as before the rewrite. Update the `PREFIX` blocks in both scripts and in `CQ_SPARQL_Documentation.md`.
   4. ~~**Maintenance plan:** resolve the two open TODOs and publish it in the repository.~~ **Done 2026-09-15:** `MAINTENANCE.md` at the repository root (supersedes the Worklog draft) — both creators affiliated with JAIST, contact via GitHub Issues, minor releases per milestone plus patch releases, MAJOR.MINOR.PATCH versioning with permanent tags, release checklist.
   5. **Start the expert clock:** send the Stage 5 questionnaire (`CQ Screening/reports/cq_stage5_questionnaire.md`) and the 250-image stratified annotation sample. Keep `cq_stage5_key.csv` away from raters; the repository history still contains it.
+     **Re-scheduled 2026-09-15:** ontology development comes first and the image annotation is done **last**, after CQ validation. Consequence: CQ-18, A14, A15, A16, A18 and A21 stay partial until then, and annotations must still be integrated before the Phase 5 freeze (3 Nov), so the package should go out by mid-October at the latest. Before sending, the annotation template (`Worklog/RiceMMKG_v0.5_worklog/reports/annotation_sample.csv`, symptom column only) needs organ and severity columns and an annotation guide.
 - **Deliverables:** merged w3id PR; namespace-rewritten ontology with unchanged verification results; published maintenance plan; questionnaire and annotation sample sent.
 
 ---
@@ -115,7 +116,7 @@ Phase 6: Resource Paper & Submission (Weeks 11–14: mid Nov – early Dec)
 - **Modality checkpoint (start of Phase 3):** for **sensor** and **genomic** data separately, answer: is a real data source secured and linkable to the existing entities (varieties, diseases, growth stages, images)? Can it be modelled, populated and covered by CQs before the Phase 5 freeze? If yes, it enters the submission as a populated module; if not, it stays roadmap and is described as such in the paper. A modality with a declared but empty class is never claimed. Genomic scope should follow the expert's input — to be recorded here once clarified.
 - **Activities:**
   1. **Literature-backed schema** (no expert data needed; each assertion needs a live-checked source and an `owl:Axiom`):
-     - `PlantPart` and symptom → organ (elicited CQ-A03, part of CQ-A14);
+     - ~~`PlantPart` and symptom → organ (elicited CQ-A03, part of CQ-A14);~~ **Done 2026-09-15 (0.7.0-dev, commit `a331769`):** 8 `PlantPart` individuals aligned to the Plant Ontology, 27 `affectsPlantPart` assertions citing IRRI Rice Knowledge Bank, 2 `partOf` from PO; HermiT consistent, benchmark unchanged, CQ-A03 now returns organs (still partial: stage is per disease). `Excessive_Tillering` waits for a readable source. Organ *per image* (CQ-A14) still needs annotators;
      - transmission mode for vectors (CQ-A02);
      - management category and source authority for control measures (CQ-A07).
   2. **Expert image annotation → graph:** from the 250-image sample, add `captures` to further symptoms (CQ-18, CQ-A15, A16, A21), organ per image (CQ-A14), and severity per image (CQ-A18). None of these can be derived from Paddy Doctor labels or literature — they must come from annotators.
@@ -190,5 +191,8 @@ Phase 6: Resource Paper & Submission (Weeks 11–14: mid Nov – early Dec)
 - [ ] **Wait for merge**, then check the redirects with `curl` (browser, RDF client, `/0.6.1`).
 - [ ] **Namespace rewrite** as a separate commit after the merge; re-run HermiT and both CQ instruments.
 - [x] **Maintenance plan** — `MAINTENANCE.md` (2026-09-15): both creators affiliated with JAIST, contact via GitHub Issues, minor releases per milestone plus patch releases as corrections are verified.
-- [ ] **Send to experts:** Stage 5 questionnaire and 250-image annotation sample.
+- [x] **PlantPart schema** (2026-09-15, 0.7.0-dev) — see Phase 3, activity 1.
+- [ ] **Transmission mode for vectors** (CQ-A02) — next literature-backed schema item.
+- [ ] **Management category and source authority** (CQ-A07).
+- [ ] **Send to experts:** Stage 5 questionnaire; image annotation **deferred to last** (2026-09-15), but out by mid-October.
 - [ ] **Re-check presentation slides** — they still quote pre-fix v0.6 figures.
