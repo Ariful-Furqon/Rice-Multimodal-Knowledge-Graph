@@ -103,7 +103,7 @@ Phase 6: Resource Paper & Submission (Weeks 11–14: mid Nov – early Dec)
   1. **Decide the w3id segment** (`ricemmkg` or `rice-mmkg`) — it cannot change after anything is published under it.
   2. **w3id PURL registration:** pull request to `github.com/perma-id/w3id.org` using the prepared `.htaccess` (`Worklog/RiceMMKG_v0.5_worklog/reports/w3id_config/`). Content negotiation can point at the GitHub raw file until Phase 5 documentation exists.
   3. **Namespace rewrite:** run `rewrite_namespace.py` as a **separate commit**. It re-serialises the whole file, so its diff is unreadable by design; verify instead by triple count, HermiT, and both CQ instruments returning the same results as before the rewrite. Update the `PREFIX` blocks in both scripts and in `CQ_SPARQL_Documentation.md`.
-  4. **Maintenance plan:** resolve the two open TODOs (institutional affiliation; release cadence) in `Worklog/RiceMMKG_v0.5_worklog/reports/maintenance_plan.md` and publish it in the repository.
+  4. ~~**Maintenance plan:** resolve the two open TODOs and publish it in the repository.~~ **Done 2026-09-15:** `MAINTENANCE.md` at the repository root (supersedes the Worklog draft) — both creators affiliated with JAIST, contact via GitHub Issues, minor releases per milestone plus patch releases, MAJOR.MINOR.PATCH versioning with permanent tags, release checklist.
   5. **Start the expert clock:** send the Stage 5 questionnaire (`CQ Screening/reports/cq_stage5_questionnaire.md`) and the 250-image stratified annotation sample. Keep `cq_stage5_key.csv` away from raters; the repository history still contains it.
 - **Deliverables:** merged w3id PR; namespace-rewritten ontology with unchanged verification results; published maintenance plan; questionnaire and annotation sample sent.
 
@@ -185,9 +185,10 @@ Phase 6: Resource Paper & Submission (Weeks 11–14: mid Nov – early Dec)
 - [x] **Provenance clean-up** (2026-09-14) — `provenance_axioms.rdf` archived; 242 CABI sources as DOIs with Crossref citations.
 - [ ] **Record the expert's genome input** (what data, which entities, which questions) — needed before the Phase 3 modality checkpoint.
 - [ ] **Scout sensor and genomic data sources** (availability, licence, linkability to existing entities) so the Phase 3 checkpoint can decide on evidence.
-- [ ] **Decide w3id segment** (`ricemmkg` / `rice-mmkg`).
-- [ ] **Open w3id.org pull request.**
-- [ ] **Namespace rewrite** as a separate commit; re-run HermiT and both CQ instruments.
-- [ ] **Maintenance plan:** affiliation and release cadence.
+- [x] **Decide w3id segment** — `ricemmkg`, maintainer @Ariful-Furqon (2026-09-15).
+- [x] **Open w3id.org pull request** — [perma-id/w3id.org#6697](https://github.com/perma-id/w3id.org/pull/6697), files mirrored in `w3id/ricemmkg/` (2026-09-15). Tags `v0.6.1` and `v0.6.2` pushed so version IRIs resolve.
+- [ ] **Wait for merge**, then check the redirects with `curl` (browser, RDF client, `/0.6.1`).
+- [ ] **Namespace rewrite** as a separate commit after the merge; re-run HermiT and both CQ instruments.
+- [x] **Maintenance plan** — `MAINTENANCE.md` (2026-09-15): both creators affiliated with JAIST, contact via GitHub Issues, minor releases per milestone plus patch releases as corrections are verified.
 - [ ] **Send to experts:** Stage 5 questionnaire and 250-image annotation sample.
 - [ ] **Re-check presentation slides** — they still quote pre-fix v0.6 figures.

@@ -130,6 +130,8 @@ Our six-phase development roadmap toward the **ESWC 2027 Resource Track** is det
 ## Repository Contents
 
 ```
+MAINTENANCE.md                   # Maintainers, contact, versioning and release process
+w3id/ricemmkg/                   # w3id.org redirect files (.htaccess, README.md)
 Ontology/
   Rice MMKG.rdf                  # Master ontology file (OWL/XML), v0.6.2
   Rice MMKG.properties           # Protégé project preferences
