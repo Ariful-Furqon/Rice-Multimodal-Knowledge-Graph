@@ -1,6 +1,6 @@
 # Rice MMKG — description, statistics, and changelog
 
-Status snapshot as of **2026-09-14** (Rice MMKG v0.6.1 patch).
+Status snapshot as of **2026-09-15** (Rice MMKG v0.6.2).
 Covers `Ontology/Rice MMKG.rdf` from its first commit through the current
 state. Numbers below were re-measured with rdflib on 2026-09-14. The v0.6
 figures this document first carried (66,874 triples, 265 axioms) had been
@@ -46,7 +46,7 @@ modality class is named `ImageObservation` (not `LeafImage`) since the
 2026-08-19 cleanup round — the old name was factually wrong for the part
 of the corpus that isn't a leaf (panicle blight, deadheart).
 
-**License:** CC BY 4.0. **Creator:** Muhammad Ariful Furqon (ORCID 0000-0002-1031-3567), Natthawut Kertkeidkachorn (ORCID 0000-0003-4527-776X). **Version:** `0.6.1` (2026-09-14; pre-release progression: `v0.1` → `v0.2` → `v0.3` → `v0.4` → `v0.5` → `v0.6` → `v0.6.1`).
+**License:** CC BY 4.0. **Creator:** Muhammad Ariful Furqon (ORCID 0000-0002-1031-3567), Natthawut Kertkeidkachorn (ORCID 0000-0003-4527-776X). **Version:** `0.6.2` (2026-09-15; pre-release progression: `v0.1` → `v0.2` → `v0.3` → `v0.4` → `v0.5` → `v0.6` → `v0.6.1` → `v0.6.2`; git tags `elicited-baseline-v0.6`, `v0.6.1`, `v0.6.2`).
 
 ---
 
@@ -131,13 +131,23 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | v0.4 (domain enrichment + provenance) | 2026-08-20 | 66,882 | 16 | 24 | 10,499 | 329 |
 | v0.5 (vector transmission + benchmark design) | 2026-08-25 | 66,873 | 16 | 26 | 10,498 | 265 axioms |
 | v0.6 (Deadheart disambiguation, DL consistency, 25 CQs) | 2026-09-03 | 66,780 (161,416 OWL RL) | 16 | 26 | 10,498 | 253 axioms / 255 assertions |
-| **v0.6.1 (provenance gaps closed, CQ-10/CQ-24 fixed)** | **2026-09-14** | **66,802** (161,447 OWL RL) | **16** | **26** | **10,498** | **256 axioms / 256 assertions** |
+| v0.6.1 (provenance gaps closed, CQ-10/CQ-24 fixed) | 2026-09-14 | 66,802 (161,447 OWL RL) | 16 | 26 | 10,498 | 256 axioms / 256 assertions |
+| **v0.6.2 (CABI DOIs, Crossref citations)** | **2026-09-15** | **66,802** (161,447 OWL RL) | **16** | **26** | **10,498** | **256 axioms / 256 assertions** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-09-15: v0.6.2 — CABI sources as DOIs, citations from Crossref, stale provenance file archived
+
+No triple added or removed and no assertion changed: 66,802 asserted / 161,447 OWL RL triples, 256 axioms = 256 domain assertions, benchmark 23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC, HermiT consistent, elicited CQ results unchanged. Only source URIs, citation text and the version changed. The work was done on 2026-09-14 after `v0.6.1` had been committed, and is released separately so that each version number names exactly one content state. `owl:versionInfo` and `owl:versionIRI` bumped to `0.6.2`.
+
+- **`provenance_axioms.rdf` archived** to `Backup/provenance_axioms.archived-2026-09-14.rdf`. It was an intermediate from the 2026-08-21 provenance pass that had drifted: 306 axioms, of which 55 are the spurious `subPropertyOf`/SKOS citations removed from `Rice MMKG.rdf` on 2026-08-22, 1 is for the merged-away `Rice vulnerableTo Scirpophaga_Incertulas`, and the other 250 lack `rice:evidenceType`; it was also missing 6 axioms the main file has. No script read it. Re-syncing would only duplicate the main file, and merging it would be harmful, because a reified axiom re-asserts its triple and would resurrect the deleted assertions. `Rice MMKG.rdf` is the single source of truth.
+- **CABI source URIs replaced by DOIs.** All 242 `https://www.cabi.org/isc/datasheet/<id>` URIs (14 distinct datasheets) now read `https://doi.org/10.1079/cabicompendium.<id>`. Each id was checked live: the old URL returns 301 to the matching `cabicompendium` DOI page, the DOI resolves through doi.org, and the Crossref title names the same organism as the citation text.
+- **CABI citations rewritten from Crossref.** All 242 CABI citation segments read "CABI (2022). … Crop Protection Compendium. CAB International" — a year, a compendium name and, for two datasheets, an author that the DOI metadata does not support. Each is now built from the Crossref record of its DOI: `<author> (<year>). <datasheet title>. CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.<id>`. Years are 2021 for 10 datasheets, 2019 for 47654 (rice tungro) and 49243 (*S. macrospora*), 2025 for 14691 and 2012 for 47203. Two datasheets have personal authors and are no longer attributed to CABI: 14691 *Bipolaris oryzae* → Castell Miller, C. (2025); 47203 *Thanatephorus cucumeris* → Back, M. (2012). Datasheet titles follow Crossref, so some common names changed (e.g. *Burkholderia glumae* "bacterial grain rot", not "bacterial panicle blight"). Only the CABI segment was replaced; co-citations such as "/ IRRI (2020). Rice Doctor: …" are untouched.
+- **`elicited_cq_sparql.py`** now labels its report from `owl:versionInfo` instead of a hardcoded "v0.6".
 
 ### 2026-09-14: v0.6.1 — provenance gaps closed, CQ-10 and CQ-24 fixed, v0.6 figures corrected
 
@@ -146,10 +156,7 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 - **CQ-10 fixed differently from the plan.** The v0.6 action item was `Nephotettix_Virescens controlledBy Vector_Control`. Gallagher et al. (2002, FAO/IRC) state that "controlling the vector population with insecticide does not always result in tungro control" and recommend resistant varieties where synchronous planting is impossible; IRRI's tungro fact sheet says the same. Asserting vector control only to make the CQ pass would not have been supported by the literature, so `Nephotettix_Virescens controlledBy Resistant_Variety` was added instead, with its axiom citing Gallagher et al. (2002).
 - **CQ-24 fixed.** The one untagged `rice:evidenceType` literal (axiom on `Crop_Sanitation requires Harvest_Stage`) is now `"literature-curated"@en`.
 - **CQ-22 extended** to also flag domain assertions with no reified axiom; the CQ count stays at 25. Control-tested: 2 violations on the released v0.6 file, 0 on v0.6.1.
-- **Result:** 66,802 asserted / 161,447 OWL RL triples; 256 axioms = 256 domain assertions, 0 orphans, 0 duplicates; HermiT consistent (run on a space-free copy, with an injected-contradiction control that correctly reports inconsistent); benchmark **23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC (95.8%)**; the 19 queried elicited CQs return exactly the same results as on v0.6. `owl:versionInfo` and `owl:versionIRI` bumped to `0.6.1`.
-- **`provenance_axioms.rdf` archived** to `Backup/provenance_axioms.archived-2026-09-14.rdf`. It was an intermediate from the 2026-08-21 provenance pass that had drifted: 306 axioms, of which 55 are the spurious `subPropertyOf`/SKOS citations removed from `Rice MMKG.rdf` on 2026-08-22, 1 is for the merged-away `Rice vulnerableTo Scirpophaga_Incertulas`, and the other 250 lack `rice:evidenceType`; it was also missing 6 axioms the main file has. No script read it. Re-syncing would only duplicate the main file, and merging it would be harmful, because a reified axiom re-asserts its triple and would resurrect the deleted assertions. `Rice MMKG.rdf` is the single source of truth.
-- **CABI source URIs replaced by DOIs.** All 242 `https://www.cabi.org/isc/datasheet/<id>` URIs (14 distinct datasheets) now read `https://doi.org/10.1079/cabicompendium.<id>`. Each id was checked live: the old URL returns 301 to the matching `cabicompendium` DOI page, the DOI resolves through doi.org, and the Crossref title names the same organism as the citation text. Triple count unchanged; benchmark and HermiT re-run with identical results. 
-- **CABI citations rewritten from Crossref.** All 242 CABI citation segments read "CABI (2022). … Crop Protection Compendium. CAB International" — a year, a compendium name and, for two datasheets, an author that the DOI metadata does not support. Each is now built from the Crossref record of its DOI: `<author> (<year>). <datasheet title>. CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.<id>`. Years are 2021 for 10 datasheets, 2019 for 47654 (rice tungro) and 49243 (*S. macrospora*), 2025 for 14691 and 2012 for 47203. Two datasheets have personal authors and are no longer attributed to CABI: 14691 *Bipolaris oryzae* → Castell Miller, C. (2025); 47203 *Thanatephorus cucumeris* → Back, M. (2012). Datasheet titles follow Crossref, so some common names changed (e.g. *Burkholderia glumae* "bacterial grain rot", not "bacterial panicle blight"). Only the CABI segment was replaced; co-citations such as "/ IRRI (2020). Rice Doctor: …" are untouched.
+- **Result:** 66,802 asserted / 161,447 OWL RL triples; 256 axioms = 256 domain assertions, 0 orphans, 0 duplicates; HermiT consistent (run on a space-free copy, with an injected-contradiction control that correctly reports inconsistent); benchmark **23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC (95.8%)**; the 19 queried elicited CQs return exactly the same results as on v0.6. `owl:versionInfo` and `owl:versionIRI` bumped to `0.6.1`. Released as git tag `v0.6.1` (commit `1d13542`).
 - **Backup:** `Ontology/Backup/Rice MMKG.backup-v0.6-pre-v0.6.1.rdf`.
 
 ### 2026-09-03: v0.6 — Deadheart Disambiguation, DL Reasoner Consistency, and 25 CQ Benchmark
@@ -477,10 +484,10 @@ assertions, verified with no duplicates and no orphans. Triples: 67,236 →
   that don't dereference. Three options written up, none chosen. See
   `Worklog/RiceMMKG_cleanup_worklog/contenturl_base.md`.
 - **Permanent identifier:** `w3id.org` path segment to be registered for PURL minting.
-- **Version status:** `0.6.1` in `Rice MMKG.rdf` (as of 2026-09-14).
+- **Version status:** `0.6.2` in `Rice MMKG.rdf` (as of 2026-09-15). Tags `v0.6.1` (commit `1d13542`) and `v0.6.2` mark the two releases.
 - **Competency Questions (CQs) Benchmark:** 25 CQs benchmarked via `cq_sparql_benchmark.py`: v0.6.1 scores 95.8% (23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC). Full documentation in `CQ_SPARQL_Documentation.md`.
 - **Automated Reasoner verified:** OWL RL deductive closure via Python `owlrl` (+94,645 triples) and HermiT consistency on v0.6.1 (with a verified control case).
 - ~~**Immediate Action Items for v0.6.1**~~ — done 2026-09-14; see the v0.6.1 changelog entry.
-- ~~**`provenance_axioms.rdf` has drifted**~~ — archived 2026-09-14 to `Backup/provenance_axioms.archived-2026-09-14.rdf`. `Rice MMKG.rdf` is the single source of truth; do not merge the archived file back (see the v0.6.1 entry).
+- ~~**`provenance_axioms.rdf` has drifted**~~ — archived 2026-09-14 to `Backup/provenance_axioms.archived-2026-09-14.rdf`. `Rice MMKG.rdf` is the single source of truth; do not merge the archived file back (see the v0.6.2 entry).
 - ~~**CABI source URIs redirect**~~ — replaced 2026-09-14 by DOIs (`https://doi.org/10.1079/cabicompendium.<id>`), each checked live.
-- ~~**CABI citation years**~~ — resolved 2026-09-14: all CABI citation segments rewritten from Crossref metadata (see the v0.6.1 entry).
+- ~~**CABI citation years**~~ — resolved 2026-09-14: all CABI citation segments rewritten from Crossref metadata (see the v0.6.2 entry).

@@ -1,11 +1,11 @@
 # Rice MMKG — Master Plan Toward ESWC 2027
 
 Construction, evaluation, and publication roadmap for the **ESWC 2027 Resource Track**.  
-**Current Milestone:** Rice MMKG **v0.6.1** (2026-09-14; v0.6 released 2026-09-03).  
+**Current Milestone:** Rice MMKG **v0.6.2** (2026-09-15; v0.6.1 2026-09-14; v0.6 released 2026-09-03).  
 **Abstract / Paper Deadline:** Late November – early December.  
 **Plan revised:** 2026-09-14 — phases re-ordered and re-scoped; see §2.
 
-> **Figures corrected 2026-09-14.** The v0.6 numbers first recorded in this plan (66,874 / 161,568 triples, 265 axioms, "100% cited") were measured before the v0.6 inconsistency fix. The released v0.6 file measures 66,780 / 161,416 triples with 253 axioms over 255 domain assertions. The snapshot below is v0.6.1.
+> **Figures corrected 2026-09-14.** The v0.6 numbers first recorded in this plan (66,874 / 161,568 triples, 265 axioms, "100% cited") were measured before the v0.6 inconsistency fix. The released v0.6 file measures 66,780 / 161,416 triples with 253 axioms over 255 domain assertions. The snapshot below is v0.6.2 (same figures as v0.6.1; v0.6.2 changed only source URIs and citation text).
 
 > **Modality scope — open decision (2026-09-14).** The submission is **not** limited to text + image. Sensor data stays in the plan if it can be obtained, and expert feedback has raised **genomic** data as a further modality. Neither is decided yet: the decision point is in Phase 3. What is released today is a text-curated domain layer plus 10,407 image observations; `SensorObservation` is declared but empty, and no genomic entities exist. Whatever is decided, a declared-but-empty modality cannot be claimed as part of the resource. The CQ screening's Tier A / Tier B split (CQs without / with sensor or genomic requirements) stays as an instrument design, and the two tiers are never pooled into one agreement statistic.
 
@@ -13,9 +13,9 @@ Construction, evaluation, and publication roadmap for the **ESWC 2027 Resource T
 
 ## 1. Executive Summary & Resource Snapshot
 
-| Metric / Dimension | Current State (v0.6.1) | Comparator (RiceDO) | Target for Submission |
+| Metric / Dimension | Current State (v0.6.2) | Comparator (RiceDO) | Target for Submission |
 |---|---|---|---|
-| **Ontology Version** | **`0.6.1`** | `1.0` | `1.0` (release tagged for submission) |
+| **Ontology Version** | **`0.6.2`** | `1.0` | `1.0` (release tagged for submission) |
 | **Asserted Triples** | **66,802** | ~1,200 | Grows with symptom-level image grounding; no fixed triple target |
 | **Materialised Triples (OWL RL)** | **161,447** (+94,645 triples) | — | Re-measured at release |
 | **Modalities** | Populated: text-curated domain layer + **10,407** image observations. Declared but empty: `SensorObservation`. Not modelled: genomic | Text only | **Open — decided at the Phase 3 checkpoint.** Candidates: sensor (if data can be obtained), genomic (raised by expert feedback) |

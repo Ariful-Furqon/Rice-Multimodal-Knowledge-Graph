@@ -2,7 +2,7 @@
 
 ## 1. Purpose and Scope
 
-This register documents the provenance architecture, literature grounding, and external vocabulary alignment of **Rice MMKG v0.6.1** (`owl:versionInfo 0.6.1`). All counts below were measured on `Ontology/Rice MMKG.rdf` with rdflib on 2026-09-14.
+This register documents the provenance architecture, literature grounding, and external vocabulary alignment of **Rice MMKG v0.6.2** (`owl:versionInfo 0.6.2`). All counts below were measured on `Ontology/Rice MMKG.rdf` with rdflib on 2026-09-14; v0.6.2 changed only source URIs and citation text, so they are unchanged.
 
 In Semantic Web resource evaluations (such as the ESWC Resource Track), a key differentiator between an arbitrary graph and a published **scientific resource** is **defensibility and auditability**:
 1. *Every domain assertion must be traceable to a citable authoritative source.*

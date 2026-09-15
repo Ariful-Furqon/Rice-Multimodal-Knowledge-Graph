@@ -18,7 +18,7 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 
 - **Namespace:** `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#` (permanent PURL `https://w3id.org/ricemmkg` in Phase 2)
 - **Format:** OWL/XML (`.rdf`), fully compatible with [Protégé](https://protege.stanford.edu/)
-- **Version:** `0.6.1` (2026-09-14; v0.6 released 2026-09-03) — actively progressing toward the **ESWC 2027 Resource Track** (see [`Ontology/riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md))
+- **Version:** `0.6.2` (2026-09-15; git tags `v0.6.1`, `v0.6.2`; v0.6 released 2026-09-03) — actively progressing toward the **ESWC 2027 Resource Track** (see [`Ontology/riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md))
 - **Triples:** **66,802** asserted triples / **161,447** materialised triples under OWL RL (+94,645 inferred triples)
 - **Reasoner Consistency:** **100% Consistent** in HermiT & Pellet (0 unsatisfiable classes, 0 disjointness conflicts)
 
@@ -90,7 +90,7 @@ Rice MMKG incorporates an automated verification harness (`cq_sparql_benchmark.p
 - **Knowledge Dimensions (D1–D3):** D1 Agronomic/Symbolic, D2 Cross-modal Grounding, D3 Provenance & External Alignment.
 - **Evaluation Modes:** `coverage` (≥ 50%), `negative` (0 violations), `entailment` (entailed > asserted), `documented` (declared extension point).
 
-### Benchmark Summary (v0.6.1)
+### Benchmark Summary (v0.6.2; identical to v0.6.1)
 
 ```
 ================================================================
@@ -131,7 +131,7 @@ Our six-phase development roadmap toward the **ESWC 2027 Resource Track** is det
 
 ```
 Ontology/
-  Rice MMKG.rdf                  # Master ontology file (OWL/XML), v0.6.1
+  Rice MMKG.rdf                  # Master ontology file (OWL/XML), v0.6.2
   Rice MMKG.properties           # Protégé project preferences
   Ontology_Overview.md           # Comprehensive structure, statistics, and full changelog
   riceMMKG_ESWC_plan.md          # 5-phase master roadmap toward ESWC 2027 submission
