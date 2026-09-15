@@ -1,10 +1,10 @@
 # Elicited Competency Questions - SPARQL Results
 
-Generated 2026-09-15 10:01 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 66,802 asserted triples, 161,447 after OWL RL materialisation (27.5s).
+Generated 2026-09-15 11:51 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 67,090 asserted triples, 161,861 after OWL RL materialisation (84.0s).
 
-**19 of the 25 elicited Tier A CQs are queried here** - every one for which RiceMMKG v0.6.2 has at least the concept the question turns on. Answerability is measured, not predicted: the Stage 3 `v06_status` column is not used. The remaining 6 ask for a concept v0.6.2 does not have at all and are the v0.7 work plan; the status table at the end lists each with its reason.
+**19 of the 25 elicited Tier A CQs are queried here** - every one for which RiceMMKG v0.7.0-dev has at least the concept the question turns on. Answerability is measured, not predicted: the Stage 3 `v06_status` column is not used. The remaining 6 ask for a concept v0.7.0-dev does not have at all and are the v0.7 work plan; the status table at the end lists each with its reason.
 
-**7 answer in full, 10 answer in part, and 2 return nothing.** A partial is not a pass: the query returns what v0.6.2 supports, and the shortfall is named on the CQ. A CQ that returns nothing is reported, not dropped - the empty result is the measurement.
+**7 answer in full, 10 answer in part, and 2 return nothing.** A partial is not a pass: the query returns what v0.7.0-dev supports, and the shortfall is named on the CQ. A CQ that returns nothing is reported, not dropped - the empty result is the measurement.
 
 **A partial comes in two kinds, and they are different pieces of work.** 9 are *partial - schema*: the ontology has no concept for part of what the question asks, so no amount of data would answer it and the remedy is modelling. 1 is *partial - data*: the concept exists and the query is correct, but few individuals carry it, so the remedy is annotation. Only the second kind is a coverage question at all - a relation that does not exist has no ratio to report, and calling that 0% would misdescribe it.
 
@@ -40,7 +40,7 @@ A retrieval CQ answers if it returns at least one row. **A large row count is no
 | `CQ-A23` | L3 | D2 | answers | Which treatment does the literature prescribe for a condition identified from an image? |
 | `CQ-A24` | L1 | D2 | partial - schema | Which images are explicitly annotated as showing no visible symptoms, and which organ or plant view does each represent? |
 
-`partial` means the query answers the part of the question v0.6.2 can support, with the shortfall named. It is not a pass and is not counted as one.
+`partial` means the query answers the part of the question v0.7.0-dev can support, with the shortfall named. It is not a pass and is not counted as one.
 
 ---
 
@@ -52,7 +52,7 @@ A retrieval CQ answers if it returns at least one row. **A large row count is no
 
 The single most converged requirement: five of six models proposed it, and all five made it their own question number one. The benchmark asks the coverage form of the same relation - how many diseases have any pathogen - never the answer form.
 
-> **Partial:** v0.6.2 types every pathogen as rice:Pathogen and nothing more, so there is no taxonomic group to return; the closest available identity is the external alignment
+> **Partial:** v0.7.0-dev types every pathogen as rice:Pathogen and nothing more, so there is no taxonomic group to return; the closest available identity is the external alignment
 
 **Causal pathogen of Rice Blast, with its external identity**
 
@@ -64,7 +64,7 @@ SELECT ?pathogen ?eppo_code ?external_alignment WHERE {
 }
 ```
 
-1 row(s) in 172.8 ms.
+1 row(s) in 373.9 ms.
 
 | pathogen | eppo_code | external_alignment |
 |---|---|---|
@@ -79,7 +79,7 @@ SELECT ?disease ?pathogen WHERE {
 ORDER BY ?disease
 ```
 
-8 row(s) in 3.6 ms.
+8 row(s) in 7.9 ms.
 
 | disease | pathogen |
 |---|---|
@@ -89,8 +89,8 @@ ORDER BY ?disease
 | rice:Brown_Spot | rice:Bipolaris_Oryzae |
 | rice:Downy_Mildew | rice:Sclerophthora_Macrospora |
 | rice:Rice_Blast_Disease | rice:Magnaporthe_Oryzae |
-| rice:Rice_Tungro_Disease | rice:Rice_Tungro_Spherical_Virus |
 | rice:Rice_Tungro_Disease | rice:Rice_Tungro_Bacilliform_Virus |
+| rice:Rice_Tungro_Disease | rice:Rice_Tungro_Spherical_Virus |
 
 ### CQ-A02 - Which vector species transmits Rice Tungro Bacilliform Virus, and by which transmission mode?
 
@@ -98,7 +98,7 @@ ORDER BY ?disease
 
 A three-hop chain: vector -> agent -> disease. Proposed by five of six models.
 
-> **Partial:** transmission mode is not a property in v0.6.2, so the mode cannot be returned
+> **Partial:** transmission mode is not a property in v0.7.0-dev, so the mode cannot be returned
 
 **Vector, the agent it transmits, and the disease that agent causes**
 
@@ -110,7 +110,7 @@ SELECT ?vector ?agent ?disease WHERE {
 ORDER BY ?vector ?agent
 ```
 
-2 row(s) in 6.3 ms.
+2 row(s) in 15.1 ms.
 
 | vector | agent | disease |
 |---|---|---|
@@ -123,31 +123,32 @@ ORDER BY ?vector ?agent
 
 The diagnostic question in its plainest form.
 
-> **Partial:** plant organ is not modelled in v0.6.2; growth stage is attached to the disease, not to the individual symptom, so the two are returned as a cross product rather than a fact
+> **Partial:** plant organ is asserted per symptom, but growth stage is attached to the disease, not to the individual symptom, so stage is returned as a cross product rather than a fact
 
-**Symptoms of Bacterial Leaf Blight, with the stages at which the disease occurs**
+**Symptoms of Bacterial Leaf Blight with the plant part each affects, and the stages at which the disease occurs**
 
 ```sparql
-SELECT ?symptom ?stage_of_disease WHERE {
+SELECT ?symptom ?plant_part ?stage_of_disease WHERE {
   rice:Bacterial_Leaf_Blight rice:indicatedBy ?symptom .
+  OPTIONAL { ?symptom rice:affectsPlantPart ?plant_part }
   OPTIONAL { rice:Bacterial_Leaf_Blight rice:occursIn ?stage_of_disease }
 }
-ORDER BY ?symptom ?stage_of_disease
+ORDER BY ?symptom ?plant_part ?stage_of_disease
 ```
 
-12 row(s) in 7.9 ms.
+12 row(s) in 18.2 ms.
 
-| symptom | stage_of_disease |
-|---|---|
-| rice:Dry_Leaf_Tip | rice:Reproductive_Stage |
-| rice:Dry_Leaf_Tip | rice:Tillering_Stage |
-| rice:Dry_Leaf_Tip | rice:Vegetative_Stage |
-| rice:Leaf_Rolling | rice:Reproductive_Stage |
-| rice:Leaf_Rolling | rice:Tillering_Stage |
-| rice:Leaf_Rolling | rice:Vegetative_Stage |
-| rice:Wilting | rice:Reproductive_Stage |
-| rice:Wilting | rice:Tillering_Stage |
-| *… 4 more rows* | |
+| symptom | plant_part | stage_of_disease |
+|---|---|---|
+| rice:Dry_Leaf_Tip | rice:Leaf_Blade | rice:Reproductive_Stage |
+| rice:Dry_Leaf_Tip | rice:Leaf_Blade | rice:Tillering_Stage |
+| rice:Dry_Leaf_Tip | rice:Leaf_Blade | rice:Vegetative_Stage |
+| rice:Leaf_Rolling | rice:Leaf_Blade | rice:Reproductive_Stage |
+| rice:Leaf_Rolling | rice:Leaf_Blade | rice:Tillering_Stage |
+| rice:Leaf_Rolling | rice:Leaf_Blade | rice:Vegetative_Stage |
+| rice:Wilting | rice:Whole_Plant | rice:Reproductive_Stage |
+| rice:Wilting | rice:Whole_Plant | rice:Tillering_Stage |
+| *… 4 more rows* | | |
 
 ### CQ-A04 - Which diseases share symptoms with Brown Spot, and which symptoms discriminate between them?
 
@@ -168,7 +169,7 @@ GROUP BY ?other
 ORDER BY DESC(?shared_symptoms)
 ```
 
-4 row(s) in 11.3 ms.
+4 row(s) in 27.8 ms.
 
 | other | shared_symptoms |
 |---|---|
@@ -194,7 +195,7 @@ SELECT ?symptom ?present_only_in WHERE {
 ORDER BY ?present_only_in ?symptom
 ```
 
-3 row(s) in 9.9 ms.
+3 row(s) in 31.5 ms.
 
 | symptom | present_only_in |
 |---|---|
@@ -217,7 +218,7 @@ SELECT ?condition WHERE {
 ORDER BY ?condition
 ```
 
-2 row(s) in 3.3 ms.
+2 row(s) in 16.4 ms.
 
 | condition |
 |---|
@@ -234,7 +235,7 @@ GROUP BY ?condition
 ORDER BY DESC(?entities) ?condition
 ```
 
-9 row(s) in 6.9 ms.
+9 row(s) in 22.0 ms.
 
 | condition | entities |
 |---|---|
@@ -254,7 +255,7 @@ ORDER BY DESC(?entities) ?condition
 
 Also single-model, also answerable.
 
-> **Partial:** v0.6.2 records that a pest occurs at a stage, not how damaging it is there, so the question's ranking cannot be answered - occurrence is returned instead
+> **Partial:** v0.7.0-dev records that a pest occurs at a stage, not how damaging it is there, so the question's ranking cannot be answered - occurrence is returned instead
 
 **Growth stages at which Brown Planthopper occurs**
 
@@ -265,7 +266,7 @@ SELECT ?stage WHERE {
 ORDER BY ?stage
 ```
 
-2 row(s) in 1.9 ms.
+2 row(s) in 10.9 ms.
 
 | stage |
 |---|
@@ -278,7 +279,7 @@ ORDER BY ?stage
 
 Actionability - the KG must not diagnose what it cannot advise on. Proposed by five of six models.
 
-> **Partial:** management category (chemical / biological / cultural) and source authority are not modelled in v0.6.2; only the treatment itself and its prerequisites can be returned
+> **Partial:** management category (chemical / biological / cultural) and source authority are not modelled in v0.7.0-dev; only the treatment itself and its prerequisites can be returned
 
 **Treatments for Stem Borer and what each requires**
 
@@ -290,7 +291,7 @@ SELECT ?treatment ?requires WHERE {
 ORDER BY ?treatment
 ```
 
-2 row(s) in 2.4 ms.
+2 row(s) in 20.1 ms.
 
 | treatment | requires |
 |---|---|
@@ -313,7 +314,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-1594 row(s) in 31.9 ms.
+1594 row(s) in 128.8 ms.
 
 | image | url |
 |---|---|
@@ -352,7 +353,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 176.2 ms.
+1 row(s) in 613.1 ms.
 
 | image | condition | dataset | title | source | confidence |
 |---|---|---|---|---|---|
@@ -371,7 +372,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 858.3 ms.
+1 row(s) in 3103.4 ms.
 
 | images | with_source_dataset | with_confidence |
 |---|---|---|
@@ -381,9 +382,9 @@ WHERE {
 
 **Level L2 · Dimension D2 · partial - schema**
 
-PARTIAL. The elicited question also asks for plant part and capture type. v0.6.2 models neither, so this implements the answerable half and the rest stays on the v0.7 plan. Reported as partial rather than passed.
+PARTIAL. The elicited question also asks for plant part and capture type. v0.7.0-dev models neither, so this implements the answerable half and the rest stays on the v0.7 plan. Reported as partial rather than passed.
 
-> **Partial:** plant part and capture type are not modelled in v0.6.2
+> **Partial:** plant part and capture type are not modelled in v0.7.0-dev
 
 **Images per annotated condition and entity type**
 
@@ -398,7 +399,7 @@ GROUP BY ?condition ?type
 ORDER BY DESC(?images)
 ```
 
-10 row(s) in 4802.7 ms.
+10 row(s) in 10386.9 ms.
 
 | condition | type | images |
 |---|---|---|
@@ -422,7 +423,7 @@ SELECT ?dataset (COUNT(?image) AS ?images) WHERE {
 GROUP BY ?dataset
 ```
 
-1 row(s) in 166.8 ms.
+1 row(s) in 139.9 ms.
 
 | dataset | images |
 |---|---|
@@ -445,7 +446,7 @@ SELECT ?image ?symptom WHERE {
 }
 ```
 
-1 row(s) in 34.6 ms.
+1 row(s) in 27.3 ms.
 
 | image | symptom |
 |---|---|
@@ -461,7 +462,7 @@ GROUP BY ?symptom
 ORDER BY DESC(?images)
 ```
 
-1 row(s) in 23.6 ms.
+1 row(s) in 15.1 ms.
 
 | symptom | images |
 |---|---|
@@ -486,7 +487,7 @@ GROUP BY ?image ?candidate
 ORDER BY DESC(?support) ?candidate
 ```
 
-2 row(s) in 57.8 ms.
+2 row(s) in 47.2 ms.
 
 | image | candidate | support |
 |---|---|---|
@@ -497,9 +498,9 @@ ORDER BY DESC(?support) ?candidate
 
 **Level L3 · Dimension D2 · partial - schema**
 
-The pair the models named most often as visually confusable. Answered from the symptom layer; v0.6.2 has no lesion shape/colour descriptors, so the separation is by symptom identity rather than by visual feature.
+The pair the models named most often as visually confusable. Answered from the symptom layer; v0.7.0-dev has no lesion shape/colour descriptors, so the separation is by symptom identity rather than by visual feature.
 
-> **Partial:** separation is by symptom, not by lesion descriptors, which v0.6.2 does not carry
+> **Partial:** separation is by symptom, not by lesion descriptors, which v0.7.0-dev does not carry
 
 **Symptoms unique to each of the two conditions**
 
@@ -520,7 +521,7 @@ SELECT ?condition ?distinguishing_symptom WHERE {
 ORDER BY ?condition ?distinguishing_symptom
 ```
 
-3 row(s) in 8.8 ms.
+3 row(s) in 10.0 ms.
 
 | condition | distinguishing_symptom |
 |---|---|
@@ -538,7 +539,7 @@ SELECT ?shared_symptom WHERE {
 ORDER BY ?shared_symptom
 ```
 
-3 row(s) in 2.5 ms.
+3 row(s) in 2.4 ms.
 
 | shared_symptom |
 |---|
@@ -565,9 +566,9 @@ SELECT ?image ?severity WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 337.2 ms.
+0 row(s) in 320.5 ms.
 
-**What the severity levels are used for in v0.6.2**
+**What the severity levels are used for in v0.7.0-dev**
 
 ```sparql
 SELECT ?severity ?recommends WHERE {
@@ -577,7 +578,7 @@ SELECT ?severity ?recommends WHERE {
 ORDER BY ?severity
 ```
 
-6 row(s) in 4.0 ms.
+6 row(s) in 4.4 ms.
 
 | severity | recommends |
 |---|---|
@@ -594,7 +595,7 @@ ORDER BY ?severity
 
 Stage 3 predicted this needs new schema and left it out. Queried here so that the prediction becomes a measurement. captures is not single-valued, so the query is expressible today. An empty result is not evidence that symptoms never co-occur: under the open-world assumption it only says that no image has been annotated with two.
 
-> **No answer:** every image that captures a symptom captures exactly one, so no pair can co-occur; the same-plant part of the question has no model at all, since v0.6.2 images are independent
+> **No answer:** every image that captures a symptom captures exactly one, so no pair can co-occur; the same-plant part of the question has no model at all, since v0.7.0-dev images are independent
 
 **Pairs of symptoms captured in the same image**
 
@@ -606,7 +607,7 @@ SELECT ?image ?symptom_a ?symptom_b WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 65.3 ms.
+0 row(s) in 69.0 ms.
 
 **How many symptoms each annotated image captures**
 
@@ -620,7 +621,7 @@ GROUP BY ?symptoms_per_image
 ORDER BY ?symptoms_per_image
 ```
 
-1 row(s) in 56.7 ms.
+1 row(s) in 66.3 ms.
 
 | symptoms_per_image | images |
 |---|---|
@@ -645,7 +646,7 @@ WHERE {
 GROUP BY ?image_evidence
 ```
 
-2 row(s) in 52.6 ms.
+2 row(s) in 57.7 ms.
 
 | image_evidence | symptoms |
 |---|---|
@@ -662,7 +663,7 @@ SELECT ?symptom WHERE {
 ORDER BY ?symptom
 ```
 
-26 row(s) in 15.1 ms.
+26 row(s) in 13.9 ms.
 
 | symptom |
 |---|
@@ -695,7 +696,7 @@ SELECT ?image ?condition ?symptom ?pathogen WHERE {
 ORDER BY ?symptom
 ```
 
-4 row(s) in 327.9 ms.
+4 row(s) in 293.4 ms.
 
 | image | condition | symptom | pathogen |
 |---|---|---|---|
@@ -714,7 +715,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 207.7 ms.
+1 row(s) in 197.8 ms.
 
 | images_with_literature |
 |---|
@@ -739,7 +740,7 @@ SELECT ?image ?condition ?treatment WHERE {
 ORDER BY ?treatment
 ```
 
-4 row(s) in 992.6 ms.
+4 row(s) in 954.9 ms.
 
 | image | condition | treatment |
 |---|---|---|
@@ -757,7 +758,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?images_with_treatment) WHERE {
 }
 ```
 
-1 row(s) in 205.1 ms.
+1 row(s) in 221.4 ms.
 
 | images_with_treatment |
 |---|
@@ -769,7 +770,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?images_with_treatment) WHERE {
 
 Stage 3 predicted this needs new schema and left it out. Queried here so that the prediction becomes a measurement. The Paddy Doctor 'normal' class is imported as an explicit Normal_Health annotation, which is the symptom-free assertion the question asks for; only the organ and view half is missing.
 
-> **Partial:** organ and plant view are not modelled in v0.6.2, so the images are returned without them
+> **Partial:** organ and plant view are not modelled in v0.7.0-dev, so the images are returned without them
 
 **Images annotated as healthy, with their retrievable URL**
 
@@ -781,7 +782,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-1764 row(s) in 39.7 ms.
+1764 row(s) in 39.6 ms.
 
 | image | url |
 |---|---|
@@ -804,7 +805,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?contradictory_images) WHERE {
 }
 ```
 
-1 row(s) in 9.8 ms.
+1 row(s) in 11.8 ms.
 
 | contradictory_images |
 |---|
@@ -818,30 +819,30 @@ So that nothing looks hidden: every CQ, and why it is or is not implemented here
 
 | CQ | Lv | Dim | State | Requirement | Why |
 |---|---|---|---|---|---|
-| `CQ-A01` | L1 | D1 | implemented here | Pathogen causing a disease, and its taxonomy | partial - schema in v0.6.2; the benchmark probes the same relation in coverage form, this is the answer form |
-| `CQ-A02` | L3 | D1 | implemented here | Vector transmitting a pathogen or viral disease | partial - schema in v0.6.2; the benchmark probes the same relation in coverage form, this is the answer form |
-| `CQ-A03` | L2 | D1 | implemented here | Symptoms of a disease, by organ and growth stage | partial - schema in v0.6.2; the benchmark probes the same relation in coverage form, this is the answer form |
-| `CQ-A04` | L3 | D1 | implemented here | Diseases sharing symptoms, and what discriminates them | answers in v0.6.2; no benchmark counterpart |
-| `CQ-A05` | L1 | D1 | implemented here | Environmental conditions favouring a disease or pest | answers in v0.6.2; the benchmark probes the same relation in coverage form, this is the answer form |
-| `CQ-A06` | L1 | D1 | implemented here | Growth stage at which a pest or disease is most damaging | partial - schema in v0.6.2; the benchmark probes the same relation in coverage form, this is the answer form |
-| `CQ-A07` | L2 | D1 | implemented here | Recommended control measures, by category and source | partial - schema in v0.6.2; the benchmark probes the same relation in coverage form, this is the answer form |
+| `CQ-A01` | L1 | D1 | implemented here | Pathogen causing a disease, and its taxonomy | partial - schema in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
+| `CQ-A02` | L3 | D1 | implemented here | Vector transmitting a pathogen or viral disease | partial - schema in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
+| `CQ-A03` | L2 | D1 | implemented here | Symptoms of a disease, by organ and growth stage | partial - schema in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
+| `CQ-A04` | L3 | D1 | implemented here | Diseases sharing symptoms, and what discriminates them | answers in v0.7.0-dev; no benchmark counterpart |
+| `CQ-A05` | L1 | D1 | implemented here | Environmental conditions favouring a disease or pest | answers in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
+| `CQ-A06` | L1 | D1 | implemented here | Growth stage at which a pest or disease is most damaging | partial - schema in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
+| `CQ-A07` | L2 | D1 | implemented here | Recommended control measures, by category and source | partial - schema in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
 | `CQ-A08` | L1 | D1 | v0.7 work plan | Natural enemies of a pest | needs NaturalEnemy class - not in v0.6 |
 | `CQ-A09` | L3 | D1 | v0.7 work plan | Distinguishing a nutritional disorder from a disease | needs nutritional disorder (zinc deficiency) - not in v0.6 |
-| `CQ-A10` | L1 | D2 | implemented here | Images showing a given condition or symptom | answers in v0.6.2; no benchmark counterpart |
-| `CQ-A11` | L1 | D3 | implemented here | Provenance and confidence of an image annotation | partial - schema in v0.6.2; the benchmark probes the same relation in coverage form, this is the answer form |
+| `CQ-A10` | L1 | D2 | implemented here | Images showing a given condition or symptom | answers in v0.7.0-dev; no benchmark counterpart |
+| `CQ-A11` | L1 | D3 | implemented here | Provenance and confidence of an image annotation | partial - schema in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
 | `CQ-A12` | L2 | D3 | v0.7 work plan | Disagreement between model and expert annotations | needs both model and expert annotations - only dataset labels in v0.6 |
-| `CQ-A13` | L2 | D2 | implemented here | Distribution of the image corpus | partial - schema in v0.6.2; no benchmark counterpart |
+| `CQ-A13` | L2 | D2 | implemented here | Distribution of the image corpus | partial - schema in v0.7.0-dev; no benchmark counterpart |
 | `CQ-A14` | L1 | D2 | v0.7 work plan | Plant organ depicted in an image | needs PlantPart + visual symptom class; needs PlantPart class - not in v0.6; needs region-level organ ... |
-| `CQ-A15` | L1 | D2 | implemented here | Symptoms annotated in a given image | partial - data in v0.6.2; the benchmark probes the same relation in coverage form, this is the answer form |
-| `CQ-A16` | L3 | D2 | implemented here | Disease or pest supported by visual evidence | answers in v0.6.2; no benchmark counterpart |
-| `CQ-A17` | L3 | D2 | implemented here | Visual features separating confusable conditions | partial - schema in v0.6.2; no benchmark counterpart |
-| `CQ-A18` | L1 | D2 | queried - no answer | Severity of the damage in an image | v0.6.2 returns nothing: no image carries a severity level. The four SeverityLevel individuals are used only as subjects of recommends, which drives management actions, and no property has SeverityLevel as its range |
-| `CQ-A19` | L2 | D2 | queried - no answer | Symptoms co-occurring in one image | v0.6.2 returns nothing: every image that captures a symptom captures exactly one, so no pair can co-occur; the same-plant part of the question has no model at all, since v0.6.2 images are independent |
+| `CQ-A15` | L1 | D2 | implemented here | Symptoms annotated in a given image | partial - data in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
+| `CQ-A16` | L3 | D2 | implemented here | Disease or pest supported by visual evidence | answers in v0.7.0-dev; no benchmark counterpart |
+| `CQ-A17` | L3 | D2 | implemented here | Visual features separating confusable conditions | partial - schema in v0.7.0-dev; no benchmark counterpart |
+| `CQ-A18` | L1 | D2 | queried - no answer | Severity of the damage in an image | v0.7.0-dev returns nothing: no image carries a severity level. The four SeverityLevel individuals are used only as subjects of recommends, which drives management actions, and no property has SeverityLevel as its range |
+| `CQ-A19` | L2 | D2 | queried - no answer | Symptoms co-occurring in one image | v0.7.0-dev returns nothing: every image that captures a symptom captures exactly one, so no pair can co-occur; the same-plant part of the question has no model at all, since v0.7.0-dev images are independent |
 | `CQ-A20` | L1 | D2 | v0.7 work plan | Growth stage visible in a canopy image | needs growth stage annotation on images |
-| `CQ-A21` | L2 | D2 | implemented here | Literature symptoms with and without image support | answers in v0.6.2; the benchmark probes the same relation in coverage form, this is the answer form |
-| `CQ-A22` | L3 | D2 | implemented here | Literature disease matching an image | answers in v0.6.2; the benchmark probes the same relation in coverage form, this is the answer form |
-| `CQ-A23` | L3 | D2 | implemented here | Treatment prescribed for an imaged condition | answers in v0.6.2; the benchmark probes the same relation in coverage form, this is the answer form |
-| `CQ-A24` | L1 | D2 | implemented here | Symptom-free baseline images, by organ and view | partial - schema in v0.6.2; no benchmark counterpart |
+| `CQ-A21` | L2 | D2 | implemented here | Literature symptoms with and without image support | answers in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
+| `CQ-A22` | L3 | D2 | implemented here | Literature disease matching an image | answers in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
+| `CQ-A23` | L3 | D2 | implemented here | Treatment prescribed for an imaged condition | answers in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
+| `CQ-A24` | L1 | D2 | implemented here | Symptom-free baseline images, by organ and view | partial - schema in v0.7.0-dev; no benchmark counterpart |
 | `CQ-A25` | L3 | D3 | v0.7 work plan | Written and image-derived assessments in disagreement | needs written and image-derived measurements on one declared scale |
 
 | State | CQs |

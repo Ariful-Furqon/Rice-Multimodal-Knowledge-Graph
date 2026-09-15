@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated": "2026-09-14 22:50",
+    "generated": "2026-09-15 11:49",
     "ontology": "Rice MMKG.rdf",
-    "asserted_triples": 66802,
-    "entailed_triples": 161447,
-    "reasoning_seconds": 23.2,
+    "asserted_triples": 67090,
+    "entailed_triples": 161861,
+    "reasoning_seconds": 93.5,
     "coverage_threshold": 0.5
   },
   "results": [
@@ -24,7 +24,7 @@
       ],
       "unit": "disease",
       "status": "PASS",
-      "ms": 222.2
+      "ms": 299.3
     },
     {
       "id": "CQ-02",
@@ -41,7 +41,7 @@
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 7.6
+      "ms": 38.4
     },
     {
       "id": "CQ-03",
@@ -56,7 +56,7 @@
       "missing": [],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 6.0
+      "ms": 28.0
     },
     {
       "id": "CQ-04",
@@ -71,7 +71,7 @@
       "missing": [],
       "unit": "symptom",
       "status": "PASS",
-      "ms": 3.8
+      "ms": 17.0
     },
     {
       "id": "CQ-05",
@@ -94,16 +94,11 @@
         [
           "rice:Flowering_Stage",
           "rice:Bacterial_Leaf_Streak",
-          "rice:High_Humidity"
-        ],
-        [
-          "rice:Flowering_Stage",
-          "rice:Bacterial_Leaf_Streak",
           "rice:High_Temperature"
         ],
         [
           "rice:Flowering_Stage",
-          "rice:Bacterial_Panicle_Blight",
+          "rice:Bacterial_Leaf_Streak",
           "rice:High_Humidity"
         ],
         [
@@ -115,6 +110,11 @@
           "rice:Flowering_Stage",
           "rice:Bacterial_Panicle_Blight",
           "rice:High_Night_Temperature"
+        ],
+        [
+          "rice:Flowering_Stage",
+          "rice:Bacterial_Panicle_Blight",
+          "rice:High_Humidity"
         ],
         [
           "rice:Flowering_Stage",
@@ -139,17 +139,17 @@
         [
           "rice:Flowering_Stage",
           "rice:Sheath_Blight",
-          "rice:High_Humidity"
+          "rice:Poor_Soil_Drainage"
         ],
         [
           "rice:Flowering_Stage",
           "rice:Sheath_Blight",
-          "rice:Poor_Soil_Drainage"
+          "rice:High_Humidity"
         ],
         [
           "rice:Maturity_Stage",
           "rice:Bacterial_Panicle_Blight",
-          "rice:High_Humidity"
+          "rice:High_Temperature"
         ]
       ],
       "detail_vars": [
@@ -158,7 +158,7 @@
         "f"
       ],
       "detail_total": 88,
-      "ms": 25.6
+      "ms": 113.9
     },
     {
       "id": "CQ-06",
@@ -175,7 +175,7 @@
       ],
       "unit": "growth stage",
       "status": "PASS",
-      "ms": 4.8
+      "ms": 21.1
     },
     {
       "id": "CQ-07",
@@ -187,7 +187,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 6.5
+      "ms": 31.5
     },
     {
       "id": "CQ-08",
@@ -204,7 +204,7 @@
       ],
       "unit": "preventive treatment",
       "status": "PASS",
-      "ms": 3.1
+      "ms": 12.0
     },
     {
       "id": "CQ-09",
@@ -237,7 +237,7 @@
         "d"
       ],
       "detail_total": 2,
-      "ms": 5.2
+      "ms": 27.5
     },
     {
       "id": "CQ-10",
@@ -249,7 +249,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 2.2
+      "ms": 6.4
     },
     {
       "id": "CQ-11",
@@ -267,75 +267,75 @@
       "detail_rows": [
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Wilting",
-          "rice:Crop_Sanitation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Wilting",
-          "rice:Resistant_Variety"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Wilting",
-          "rice:Crop_Rotation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Wilting",
-          "rice:Water_Management"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Dry_Leaf_Tip",
-          "rice:Crop_Sanitation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Dry_Leaf_Tip",
-          "rice:Resistant_Variety"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Dry_Leaf_Tip",
-          "rice:Crop_Rotation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Dry_Leaf_Tip",
-          "rice:Water_Management"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
+          "rice:Poor_Soil_Drainage",
           "rice:Yellow_Leaf",
           "rice:Crop_Sanitation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
+          "rice:Poor_Soil_Drainage",
+          "rice:Yellow_Leaf",
+          "rice:Water_Management"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
           "rice:Yellow_Leaf",
           "rice:Resistant_Variety"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
+          "rice:Poor_Soil_Drainage",
           "rice:Yellow_Leaf",
           "rice:Crop_Rotation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Yellow_Leaf",
+          "rice:Poor_Soil_Drainage",
+          "rice:Dry_Leaf_Tip",
+          "rice:Crop_Sanitation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Dry_Leaf_Tip",
           "rice:Water_Management"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Dry_Leaf_Tip",
+          "rice:Resistant_Variety"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Dry_Leaf_Tip",
+          "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Leaf_Rolling",
+          "rice:Crop_Sanitation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Leaf_Rolling",
+          "rice:Water_Management"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Leaf_Rolling",
+          "rice:Resistant_Variety"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Leaf_Rolling",
+          "rice:Crop_Rotation"
         ]
       ],
       "detail_vars": [
@@ -345,7 +345,7 @@
         "t"
       ],
       "detail_total": 277,
-      "ms": 354.5
+      "ms": 1525.2
     },
     {
       "id": "CQ-12",
@@ -368,7 +368,7 @@
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 5.3
+      "ms": 20.2
     },
     {
       "id": "CQ-13",
@@ -414,7 +414,7 @@
         "m"
       ],
       "detail_total": 6,
-      "ms": 4.9
+      "ms": 18.4
     },
     {
       "id": "CQ-14",
@@ -427,7 +427,7 @@
       "entailed": 1442,
       "gain": 1442,
       "status": "PASS",
-      "ms": 13.9
+      "ms": 39.4
     },
     {
       "id": "CQ-15",
@@ -440,7 +440,7 @@
       "entailed": 134,
       "gain": 134,
       "status": "PASS",
-      "ms": 5.9
+      "ms": 26.8
     },
     {
       "id": "CQ-16",
@@ -455,7 +455,7 @@
       "missing": [],
       "unit": "diagnostic image",
       "status": "PASS",
-      "ms": 1884.5
+      "ms": 6646.6
     },
     {
       "id": "CQ-17",
@@ -470,7 +470,7 @@
       "missing": [],
       "unit": "annotated class",
       "status": "PASS",
-      "ms": 418.6
+      "ms": 1256.0
     },
     {
       "id": "CQ-18",
@@ -512,7 +512,7 @@
       ],
       "unit": "symptom",
       "status": "PARTIAL",
-      "ms": 17.7
+      "ms": 56.6
     },
     {
       "id": "CQ-19",
@@ -524,7 +524,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 878.9
+      "ms": 3014.1
     },
     {
       "id": "CQ-20",
@@ -535,7 +535,7 @@
       "rationale": "Declared extension point. Recorded as a measurement, not scored, so the roadmap gap stays visible without inflating or deflating the pass rate.",
       "count": 0,
       "status": "DOCUMENTED",
-      "ms": 1.5
+      "ms": 3.9
     },
     {
       "id": "CQ-21",
@@ -544,13 +544,13 @@
       "mode": "coverage",
       "question": "Which reified domain assertions carry both an authoritative source URI and a bibliographic citation?",
       "rationale": "Provenance completeness - the scientific-defensibility claim of the KG.",
-      "covered": 256,
-      "total": 256,
+      "covered": 285,
+      "total": 285,
       "ratio": 1.0,
       "missing": [],
       "unit": "reified axiom",
       "status": "PASS",
-      "ms": 13.1
+      "ms": 51.7
     },
     {
       "id": "CQ-22",
@@ -562,7 +562,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 140.6
+      "ms": 507.3
     },
     {
       "id": "CQ-23",
@@ -584,7 +584,7 @@
       ],
       "unit": "biological entity",
       "status": "PASS",
-      "ms": 7.1
+      "ms": 18.1
     },
     {
       "id": "CQ-24",
@@ -596,7 +596,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 8.9
+      "ms": 24.3
     },
     {
       "id": "CQ-25",
@@ -608,7 +608,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 1.4
+      "ms": 3.6
     }
   ]
 }

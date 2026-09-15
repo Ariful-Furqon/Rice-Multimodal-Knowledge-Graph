@@ -332,7 +332,8 @@ CQS = [
   } UNION {
     VALUES ?p { rice:causes rice:transmits rice:indicatedBy rice:occursIn
                 rice:controlledBy rice:preventedBy rice:increaseRiskOf
-                rice:vulnerableTo rice:recommends rice:requires }
+                rice:vulnerableTo rice:recommends rice:requires
+                rice:affectsPlantPart rice:partOf }
     ?s ?p ?o .
     FILTER NOT EXISTS { ?ax owl:annotatedSource ?s ;
                             owl:annotatedProperty ?p ;

@@ -141,17 +141,18 @@ ORDER BY ?vector ?agent"""),
                     "which plant organ, and at which growth stage?",
         "note": "The diagnostic question in its plainest form.",
         "partial_kind": "schema",
-        "partial": "plant organ is not modelled in {V}; growth stage is "
+        "partial": "plant organ is asserted per symptom, but growth stage is "
                    "attached to the disease, not to the individual symptom, so "
-                   "the two are returned as a cross product rather than a fact",
+                   "stage is returned as a cross product rather than a fact",
         "queries": [
-            ("Symptoms of Bacterial Leaf Blight, with the stages at which the "
-             "disease occurs",
-             """SELECT ?symptom ?stage_of_disease WHERE {
+            ("Symptoms of Bacterial Leaf Blight with the plant part each "
+             "affects, and the stages at which the disease occurs",
+             """SELECT ?symptom ?plant_part ?stage_of_disease WHERE {
   rice:Bacterial_Leaf_Blight rice:indicatedBy ?symptom .
+  OPTIONAL { ?symptom rice:affectsPlantPart ?plant_part }
   OPTIONAL { rice:Bacterial_Leaf_Blight rice:occursIn ?stage_of_disease }
 }
-ORDER BY ?symptom ?stage_of_disease"""),
+ORDER BY ?symptom ?plant_part ?stage_of_disease"""),
         ],
     },
     {
