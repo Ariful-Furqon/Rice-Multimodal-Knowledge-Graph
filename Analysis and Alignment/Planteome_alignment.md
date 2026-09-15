@@ -99,6 +99,7 @@ Checked 2026-09-15 against the **Plant Ontology (PO)** for the new `PlantPart` i
 | `Grain` | `skos:closeMatch` | Muhammad Ariful Furqon | EBI OLS4 search (PO) | 2026-09-15 |
 | `Panicle_Neck` | local only | Muhammad Ariful Furqon | EBI OLS4 search (PO), no candidate | 2026-09-15 |
 | `Leaf_Blade partOf Leaf`, `Leaf_Sheath partOf Leaf` | `rice:partOf` | Muhammad Ariful Furqon | EBI OLS4 term graph (PO part_of edges) | 2026-09-15 |
+| `Root` (PO:0009005 *root*), `Stem` (PO:0009047 *stem*, culm = exact synonym) | `skos:exactMatch` | Muhammad Ariful Furqon | EBI OLS4 search (PO); added for nutrient-deficiency symptoms (black roots, thin spindly stems) | 2026-09-15 |
 
 ## Next review actions
 

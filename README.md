@@ -11,7 +11,7 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 ### Core Design Principles
 
 - **Observation is kept separate from domain knowledge.** An `ImageObservation`'s raw dataset label (`annotatedAs`) is never conflated with curated symptom/cause/treatment relations (`captures`, `causes`, `indicatedBy`, ...) — what was recorded by computer vision is distinct from what is concluded by domain knowledge.
-- **Every domain-level assertion is traceable.** All 293 populated domain triples (`causes`, `indicatedBy`, `occursIn`, `controlledBy`, `preventedBy`, `increaseRiskOf`, `vulnerableTo`, `recommends`, `requires`, `transmits`, `affectsPlantPart`, `partOf`, `hasTransmissionMode`, `hasManagementCategory`) are reified with `owl:Axiom` and carry `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType` — **100% provenance coverage as of v0.6.1**, checked by CQ-22 (assertions without an axiom) as well as CQ-21 (axioms without a source). v0.6 fell two assertions short of this; see the v0.6.1 note in [`Ontology_Overview.md`](Ontology/Ontology_Overview.md).
+- **Every domain-level assertion is traceable.** All 330 populated domain triples (`causes`, `indicatedBy`, `occursIn`, `controlledBy`, `preventedBy`, `increaseRiskOf`, `vulnerableTo`, `recommends`, `requires`, `transmits`, `affectsPlantPart`, `partOf`, `hasTransmissionMode`, `hasManagementCategory`) are reified with `owl:Axiom` and carry `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType` — **100% provenance coverage as of v0.6.1**, checked by CQ-22 (assertions without an axiom) as well as CQ-21 (axioms without a source). v0.6 fell two assertions short of this; see the v0.6.1 note in [`Ontology_Overview.md`](Ontology/Ontology_Overview.md).
 - **Formal reasoning & falsifiable Competency Questions.** Evaluated under automated Description Logic (HermiT/Pellet) and rule-based (OWL RL) reasoning across 25 schema-level Competency Questions without permissive `OPTIONAL` clauses.
 
 ### Metadata Snapshot
@@ -19,7 +19,7 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 - **Namespace:** `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#` (permanent PURL `https://w3id.org/ricemmkg` in Phase 2)
 - **Format:** OWL/XML (`.rdf`), fully compatible with [Protégé](https://protege.stanford.edu/)
 - **Version:** `0.7.0-dev` on `main` (in development; last release `v0.6.2`, 2026-09-15; git tags `v0.6.1`, `v0.6.2`; v0.6 released 2026-09-03) — actively progressing toward the **ESWC 2027 Resource Track** (see [`Ontology/riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md))
-- **Triples:** **67,200** asserted triples / **162,043** materialised triples under OWL RL (+94,843 inferred triples); v0.6.2: 66,802 / 161,447
+- **Triples:** **67,589** asserted triples / **162,778** materialised triples under OWL RL (+95,189 inferred triples); v0.6.2: 66,802 / 161,447
 - **Reasoner Consistency:** **100% Consistent** in HermiT & Pellet (0 unsatisfiable classes, 0 disjointness conflicts)
 
 ---
@@ -61,8 +61,9 @@ Relations connect the domain entities with defined domains, ranges, and inverse 
 ### Individuals & Provenance
 
 - **10,498 named individuals**: 10,407 `ImageObservation` instances, 1 dataset metadata individual, plus 90 domain entities.
-- **293 reified domain axioms** over 293 domain assertions: every assertion backed by an `owl:Axiom` record with `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType`. Source URIs: CABI Compendium 242 (as `doi.org/10.1079/cabicompendium.*` DOIs), IRRI Rice Knowledge Bank 33, BBPOPT Kementan RI 7, AGROVOC 4, IRAC 2, Plant Ontology 2, Wang et al. (2022) 2, FAO 1.
+- **330 reified domain axioms** over 330 domain assertions: every assertion backed by an `owl:Axiom` record with `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType`. Source URIs: CABI Compendium 242 (as `doi.org/10.1079/cabicompendium.*` DOIs), IRRI Rice Knowledge Bank 70, BBPOPT Kementan RI 7, AGROVOC 4, IRAC 2, Plant Ontology 2, Wang et al. (2022) 2, FAO 1.
 - **Vector transmission mode (0.7.0-dev):** both tungro viruses are recorded as semi-persistently transmitted (`hasTransmissionMode`), citing Wang et al. (2022).
+- **Abiotic causes (0.7.0-dev):** nitrogen, phosphorus, potassium and zinc deficiency are modelled as `AbioticFactor`s that cause nutritional disorders, with symptoms from the IRRI nutrient fact sheets — so abiotic factors, like pathogens, end at a Disease.
 - **Management categories (0.7.0-dev):** treatments are classed as chemical, biological, cultural or host-plant-resistance control (`hasManagementCategory`, categories from AGROVOC) where a source places them unambiguously.
 - **Plant anatomy (0.7.0-dev):** 8 `PlantPart` individuals aligned to the Plant Ontology; each symptom linked to the organ it affects (`affectsPlantPart`), with `partOf` where the Plant Ontology records it.
 - **External Alignment**: 33 `skos:exactMatch`, 17 `skos:closeMatch`, 1 `skos:broadMatch` to AGROVOC, NCBI Taxonomy, and EPPO identifiers, verified via live API checks.
@@ -93,18 +94,18 @@ Rice MMKG incorporates an automated verification harness (`cq_sparql_benchmark.p
 - **Knowledge Dimensions (D1–D3):** D1 Agronomic/Symbolic, D2 Cross-modal Grounding, D3 Provenance & External Alignment.
 - **Evaluation Modes:** `coverage` (≥ 50%), `negative` (0 violations), `entailment` (entailed > asserted), `documented` (declared extension point).
 
-### Benchmark Summary (0.7.0-dev; verdicts identical to v0.6.1 and v0.6.2)
+### Benchmark Summary (0.7.0-dev)
 
 ```
 ================================================================
-  PASS      23 / 24  (95.8% Pass Rate)
-  PARTIAL    1 / 24  (CQ-18 Symptom Visual Grounding: 4%)
+  PASS      22 / 24  (91.7% Pass Rate)
+  PARTIAL    2 / 24  (CQ-12 Management Layer: 45%; CQ-18 Symptom Visual Grounding: 3%)
   FAIL       0 / 24
   DOC        1 / 25  (CQ-20 Sensor Observation Extension Point)
 ================================================================
 ```
 
-The released v0.6 file scores 21 PASS / 1 PARTIAL / 2 FAIL / 1 DOC (CQ-10, CQ-24). Under the extended CQ-22 (2026-09-14), which also flags domain assertions carrying no provenance axiom, v0.6 has a third failure: two `Stem_Borer indicatedBy` assertions were never reified. v0.6.1 fixes all three.
+v0.6.1 and v0.6.2 score 23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC. In 0.7.0-dev CQ-12 fell to PARTIAL when four nutrient-deficiency disorders — sourced, but with no ManagementAction in their source — joined its denominator; it was not lifted by adding unsupported assertions. The released v0.6 file scores 21 PASS / 1 PARTIAL / 2 FAIL / 1 DOC (CQ-10, CQ-24). Under the extended CQ-22 (2026-09-14), which also flags domain assertions carrying no provenance axiom, v0.6 has a third failure: two `Stem_Borer indicatedBy` assertions were never reified. v0.6.1 fixes all three.
 
 - Complete documentation with exact SPARQL queries: [`Ontology/CQ SPARQL Benchmark/CQ_SPARQL_Documentation.md`](Ontology/CQ%20SPARQL%20Benchmark/CQ_SPARQL_Documentation.md)
 - Automated execution report: [`Ontology/CQ SPARQL Benchmark/CQ_SPARQL_Benchmark_Report.md`](Ontology/CQ%20SPARQL%20Benchmark/CQ_SPARQL_Benchmark_Report.md)

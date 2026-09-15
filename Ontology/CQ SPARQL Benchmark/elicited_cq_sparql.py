@@ -112,6 +112,7 @@ CQS = [
              "benchmark CQ-01",
              """SELECT ?disease ?pathogen WHERE {
   ?disease rice:causedBy ?pathogen .
+  ?pathogen a rice:Pathogen .
 }
 ORDER BY ?disease"""),
         ],

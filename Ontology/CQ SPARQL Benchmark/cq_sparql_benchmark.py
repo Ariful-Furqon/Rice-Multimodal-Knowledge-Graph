@@ -51,7 +51,7 @@ CQS = [
         "question": "Which rice diseases have an identified causal pathogen?",
         "rationale": "Aetiological completeness. A disease without a causal agent "
                      "cannot support any downstream causal query.",
-        "num": PREFIX + "SELECT DISTINCT ?d WHERE { ?d a rice:Disease . ?p rice:causes ?d }",
+        "num": PREFIX + "SELECT DISTINCT ?d WHERE { ?d a rice:Disease . ?p rice:causes ?d . ?p a rice:Pathogen }",
         "den": PREFIX + "SELECT DISTINCT ?d WHERE { ?d a rice:Disease }",
         "unit": "disease",
     },
