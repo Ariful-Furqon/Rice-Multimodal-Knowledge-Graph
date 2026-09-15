@@ -40153,8 +40153,7 @@
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Stem_Rot_Symptom">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
-    <rdfs:label xml:lang="en">leaf sheath lesion</rdfs:label>
-    <rdfs:comment xml:lang="en">Oval or ellipsoidal greenish-grey lesions on the leaf sheath, initially just above the soil or water level, later grey-white with brown margins, as described for sheath blight in the IRRI Rice Knowledge Bank fact sheet (accessed 2026-09-15). Labelled "Stem Rot Symptom" until 0.7.0-dev: stem rot is a separate rice disease whose early lesions on the outer leaf sheath resemble these. The IRI is unchanged pending a deprecation policy.</rdfs:comment>
+    <rdfs:label xml:lang="en">Stem Rot Symptom</rdfs:label>
     <rice:affectsPlantPart rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Leaf_Sheath"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_hispa_107495">
@@ -54483,7 +54482,7 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Treatment"/>
     <rdfs:label xml:lang="en">Biological Control</rdfs:label>
-    <skos:closeMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_918"/>
+    <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_918"/>
     <rice:hasManagementCategory rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Biological_Control_Category"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_hispa_102968">

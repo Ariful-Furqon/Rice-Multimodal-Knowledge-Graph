@@ -55,7 +55,7 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **67,199** (asserted) / **162,041** (OWL RL) | 0.7.0-dev. +94,842 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Total triples** | **67,200** (asserted) / **162,043** (OWL RL) | 0.7.0-dev. +94,843 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
 | **Named classes** | 19 | 16 primitive (incl. `PlantPart`, `TransmissionMode` and `ManagementCategory`, 0.7.0-dev) + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class (`SymptomaticObservation`) |
 | **Object properties** | 30 | All declared with explicit domain and range; includes `transmits`/`transmittedBy`, and `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode` and `hasManagementCategory` (0.7.0-dev) |
 | **Datatype properties** | 5 | All declared with explicit domain and range |
@@ -66,7 +66,7 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (15 classes; `PlantPart`, `TransmissionMode` and `ManagementCategory` added in 0.7.0-dev) |
 | **Reasoner Consistency** | **Consistent** | 0.7.0-dev checked in **HermiT** on 2026-09-15 with `-k` on a space-free copy, with injected-contradiction controls (`Rice` as Plant + Disease; `Leaf_Blade` as PlantPart + Disease; `Semi_Persistent` as TransmissionMode + Disease; `Chemical_Control_Category` as ManagementCategory + Disease) that all report inconsistent; v0.6 verified in HermiT & Pellet |
 | **Competency Questions (CQ)** | **23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC** | **95.8% pass rate** across 24 scored CQs (25 total). Released v0.6: 21 / 1 / 2 / 1 |
-| **`skos:exactMatch` / `closeMatch` / `broadMatch`** | 41 / 22 / 1 | Mapped to AGROVOC / NCBI Taxonomy / Planteome (PECO, PO) and BFO, verified against live APIs |
+| **`skos:exactMatch` / `closeMatch` / `broadMatch`** | 40 / 23 / 1 | Mapped to AGROVOC / NCBI Taxonomy / Planteome (PECO, PO) and BFO, verified against live APIs |
 | **`TODO` literals remaining** | **0** | **100% resolved (dataset metadata & EPPO codes verified)** |
 | **Properties with no declared domain/range** | 0 / 0 | 100% coverage |
 
@@ -143,13 +143,21 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | v0.6.2 (CABI DOIs, Crossref citations) | 2026-09-15 | 66,802 (161,447 OWL RL) | 16 | 26 | 10,498 | 256 axioms / 256 assertions |
 | 0.7.0-dev (PlantPart) | 2026-09-15 | 67,090 (161,861 OWL RL) | 17 | 28 | 10,506 | 285 axioms / 285 assertions |
 | 0.7.0-dev (+ TransmissionMode) | 2026-09-15 | 67,120 (161,916 OWL RL) | 18 | 29 | 10,507 | 287 axioms / 287 assertions |
-| **0.7.0-dev (+ ManagementCategory — in development)** | **2026-09-15** | **67,199** (162,041 OWL RL) | **19** | **30** | **10,511** | **293 axioms / 293 assertions** |
+| **0.7.0-dev (+ ManagementCategory, label/mapping fixes — in development)** | **2026-09-15** | **67,200** (162,043 OWL RL) | **19** | **30** | **10,511** | **293 axioms / 293 assertions** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-09-15: 0.7.0-dev — two open items closed (symptom label, AGROVOC mapping)
+
+Pre-patch file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-openitems-patch.rdf`. No assertion added or removed.
+
+- **`Stem_Rot_Symptom` relabelled "leaf sheath lesion"** and given an `rdfs:comment`. The individual is the symptom of `Sheath_Blight`, which IRRI's sheath blight fact sheet describes as oval or ellipsoidal greenish-grey lesions on the leaf sheath; stem rot is a separate disease in IRRI's list (sclerotia inside the culm, lodging), although its first lesions on the outer leaf sheath look similar — IRRI itself warns that "sheath blight has symptoms similar to stem rot", the likely origin of the old label. **The IRI is unchanged:** it was published in tags v0.6.1 and v0.6.2, and renaming needs a deprecation policy that has not been decided.
+- **`Biological_Control` (Treatment) mapping to AGROVOC c_918 downgraded from `exactMatch` to `closeMatch`.** c_918 is the control-method category, now matched exactly by `Biological_Control_Category`; the Treatment is the practice.
+- **Result:** 67,200 asserted / 162,043 OWL RL triples (+1: the comment); 293 axioms = 293 domain assertions; SKOS exact/close/broad 40 / 23 / 1; HermiT consistent with `-k` (control `Stem_Rot_Symptom` as Symptom + Disease inconsistent); benchmark and elicited results unchanged (23 / 1 / 0 / 1; 9 / 8 / 2).
 
 ### 2026-09-15: 0.7.0-dev — `ManagementCategory` for treatments; control sources made queryable
 
@@ -539,9 +547,9 @@ assertions, verified with no duplicates and no orphans. Triples: 67,236 →
 - **Automated Reasoner verified:** OWL RL deductive closure via Python `owlrl` (+94,796 triples) and HermiT consistency on 0.7.0-dev (with verified control cases).
 - **Tungro virus retention period** — Wang et al. (2022) give 4–5 days (RTBV) and 2–4 days (RTSV); IRRI says transmission within 5–7 days. Not asserted until the discrepancy is resolved.
 - **Six treatments without a management category** — `Fungicide_Application` (only indirect evidence for "chemical"), `Water_Management` (physical per IRRI vs cultural per AGROVOC), `Seed_Treatment` (chemical or physical depending on method), `Neem_Based_Pesticide` (biopesticide vs plant-derived chemical), `Vector_Control` (spans categories), `Good_Agricultural_Practice` (unused). Each needs a source that places it, or — for the mixed ones — a split into separate treatments.
-- **`Biological_Control` (Treatment) and `Biological_Control_Category` both map to AGROVOC c_918** — the Treatment's `exactMatch` predates the category and conflates a practice with the category; candidate for downgrading to `closeMatch` in a patch.
+- ~~**`Biological_Control` (Treatment) and `Biological_Control_Category` both map to AGROVOC c_918**~~ — resolved 2026-09-15: the Treatment's mapping downgraded to `closeMatch`; only the category keeps `exactMatch`.
 - **`Excessive_Tillering` has no organ** — waiting for a readable source on rice downy mildew (IRRI has no fact sheet; Lee et al. 2003 could not be read).
-- **`Stem_Rot_Symptom` on `Sheath_Blight`** — label does not match IRRI, which places sheath-blight lesions on the leaf sheath and treats stem rot as a separate disease. Candidate for a patch correction (relabel or re-source); not changed.
+- ~~**`Stem_Rot_Symptom` on `Sheath_Blight`**~~ — relabelled "leaf sheath lesion" on 2026-09-15 (see changelog). **Still open:** the IRI itself still reads `Stem_Rot_Symptom`; renaming it needs a deprecation policy (e.g. `owl:deprecated` plus a replacement IRI), best decided together with the w3id namespace rewrite.
 - **`Wilting` on `Sheath_Blight`, `Rice_Blast_Disease`, `Bacterial_Panicle_Blight`** — not mentioned by IRRI; the cited CABI datasheets return 403. Re-check when a readable source is found; not shown to be wrong.
 - ~~**Immediate Action Items for v0.6.1**~~ — done 2026-09-14; see the v0.6.1 changelog entry.
 - ~~**`provenance_axioms.rdf` has drifted**~~ — archived 2026-09-14 to `Backup/provenance_axioms.archived-2026-09-14.rdf`. `Rice MMKG.rdf` is the single source of truth; do not merge the archived file back (see the v0.6.2 entry).
