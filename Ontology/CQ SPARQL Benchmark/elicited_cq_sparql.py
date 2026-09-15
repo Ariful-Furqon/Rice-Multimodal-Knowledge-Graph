@@ -122,14 +122,12 @@ ORDER BY ?disease"""),
                     "Virus, and by which transmission mode?",
         "note": "A three-hop chain: vector -> agent -> disease. Proposed by "
                 "five of six models.",
-        "partial_kind": "schema",
-        "partial": "transmission mode is not a property in {V}, so the mode "
-                   "cannot be returned",
         "queries": [
-            ("Vector, the agent it transmits, and the disease that agent "
-             "causes",
-             """SELECT ?vector ?agent ?disease WHERE {
+            ("Vector, the agent it transmits, the agent's transmission mode, "
+             "and the disease that agent causes",
+             """SELECT ?vector ?agent ?mode ?disease WHERE {
   ?vector rice:transmits ?agent .
+  OPTIONAL { ?agent rice:hasTransmissionMode ?mode }
   OPTIONAL { ?disease rice:causedBy ?agent }
 }
 ORDER BY ?vector ?agent"""),

@@ -1,12 +1,12 @@
 # Elicited Competency Questions - SPARQL Results
 
-Generated 2026-09-15 11:51 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 67,090 asserted triples, 161,861 after OWL RL materialisation (84.0s).
+Generated 2026-09-15 12:09 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 67,120 asserted triples, 161,916 after OWL RL materialisation (25.0s).
 
 **19 of the 25 elicited Tier A CQs are queried here** - every one for which RiceMMKG v0.7.0-dev has at least the concept the question turns on. Answerability is measured, not predicted: the Stage 3 `v06_status` column is not used. The remaining 6 ask for a concept v0.7.0-dev does not have at all and are the v0.7 work plan; the status table at the end lists each with its reason.
 
-**7 answer in full, 10 answer in part, and 2 return nothing.** A partial is not a pass: the query returns what v0.7.0-dev supports, and the shortfall is named on the CQ. A CQ that returns nothing is reported, not dropped - the empty result is the measurement.
+**8 answer in full, 9 answer in part, and 2 return nothing.** A partial is not a pass: the query returns what v0.7.0-dev supports, and the shortfall is named on the CQ. A CQ that returns nothing is reported, not dropped - the empty result is the measurement.
 
-**A partial comes in two kinds, and they are different pieces of work.** 9 are *partial - schema*: the ontology has no concept for part of what the question asks, so no amount of data would answer it and the remedy is modelling. 1 is *partial - data*: the concept exists and the query is correct, but few individuals carry it, so the remedy is annotation. Only the second kind is a coverage question at all - a relation that does not exist has no ratio to report, and calling that 0% would misdescribe it.
+**A partial comes in two kinds, and they are different pieces of work.** 8 are *partial - schema*: the ontology has no concept for part of what the question asks, so no amount of data would answer it and the remedy is modelling. 1 is *partial - data*: the concept exists and the query is correct, but few individuals carry it, so the remedy is annotation. Only the second kind is a coverage question at all - a relation that does not exist has no ratio to report, and calling that 0% would misdescribe it.
 
 > **These results may not be used to edit the CQ set.** A question the graph answers poorly is a finding about the graph. Rewording CQs to fit what the ontology already does is the circularity this elicitation exists to avoid, and the expert ratings - the only legitimate ground for revising the set - are not in yet.
 
@@ -21,7 +21,7 @@ A retrieval CQ answers if it returns at least one row. **A large row count is no
 | CQ | Level | Dim | Status | Question |
 |---|---|---|---|---|
 | `CQ-A01` | L1 | D1 | partial - schema | Which pathogen causes Rice Blast, and to which taxonomic group does it belong? |
-| `CQ-A02` | L3 | D1 | partial - schema | Which vector species transmits Rice Tungro Bacilliform Virus, and by which transmission mode? |
+| `CQ-A02` | L3 | D1 | answers | Which vector species transmits Rice Tungro Bacilliform Virus, and by which transmission mode? |
 | `CQ-A03` | L2 | D1 | partial - schema | Which symptoms does Bacterial Leaf Blight produce, on which plant organ, and at which growth stage? |
 | `CQ-A04` | L3 | D1 | answers | Which diseases share symptoms with Brown Spot, and which symptoms discriminate between them? |
 | `CQ-A05` | L1 | D1 | answers | Which environmental conditions are reported to favour Sheath Blight? |
@@ -64,7 +64,7 @@ SELECT ?pathogen ?eppo_code ?external_alignment WHERE {
 }
 ```
 
-1 row(s) in 373.9 ms.
+1 row(s) in 87.7 ms.
 
 | pathogen | eppo_code | external_alignment |
 |---|---|---|
@@ -79,7 +79,7 @@ SELECT ?disease ?pathogen WHERE {
 ORDER BY ?disease
 ```
 
-8 row(s) in 7.9 ms.
+8 row(s) in 2.2 ms.
 
 | disease | pathogen |
 |---|---|
@@ -89,33 +89,32 @@ ORDER BY ?disease
 | rice:Brown_Spot | rice:Bipolaris_Oryzae |
 | rice:Downy_Mildew | rice:Sclerophthora_Macrospora |
 | rice:Rice_Blast_Disease | rice:Magnaporthe_Oryzae |
-| rice:Rice_Tungro_Disease | rice:Rice_Tungro_Bacilliform_Virus |
 | rice:Rice_Tungro_Disease | rice:Rice_Tungro_Spherical_Virus |
+| rice:Rice_Tungro_Disease | rice:Rice_Tungro_Bacilliform_Virus |
 
 ### CQ-A02 - Which vector species transmits Rice Tungro Bacilliform Virus, and by which transmission mode?
 
-**Level L3 · Dimension D1 · partial - schema**
+**Level L3 · Dimension D1 · answers**
 
 A three-hop chain: vector -> agent -> disease. Proposed by five of six models.
 
-> **Partial:** transmission mode is not a property in v0.7.0-dev, so the mode cannot be returned
-
-**Vector, the agent it transmits, and the disease that agent causes**
+**Vector, the agent it transmits, the agent's transmission mode, and the disease that agent causes**
 
 ```sparql
-SELECT ?vector ?agent ?disease WHERE {
+SELECT ?vector ?agent ?mode ?disease WHERE {
   ?vector rice:transmits ?agent .
+  OPTIONAL { ?agent rice:hasTransmissionMode ?mode }
   OPTIONAL { ?disease rice:causedBy ?agent }
 }
 ORDER BY ?vector ?agent
 ```
 
-2 row(s) in 15.1 ms.
+2 row(s) in 3.3 ms.
 
-| vector | agent | disease |
-|---|---|---|
-| rice:Nephotettix_Virescens | rice:Rice_Tungro_Bacilliform_Virus | rice:Rice_Tungro_Disease |
-| rice:Nephotettix_Virescens | rice:Rice_Tungro_Spherical_Virus | rice:Rice_Tungro_Disease |
+| vector | agent | mode | disease |
+|---|---|---|---|
+| rice:Nephotettix_Virescens | rice:Rice_Tungro_Bacilliform_Virus | rice:Semi_Persistent | rice:Rice_Tungro_Disease |
+| rice:Nephotettix_Virescens | rice:Rice_Tungro_Spherical_Virus | rice:Semi_Persistent | rice:Rice_Tungro_Disease |
 
 ### CQ-A03 - Which symptoms does Bacterial Leaf Blight produce, on which plant organ, and at which growth stage?
 
@@ -136,7 +135,7 @@ SELECT ?symptom ?plant_part ?stage_of_disease WHERE {
 ORDER BY ?symptom ?plant_part ?stage_of_disease
 ```
 
-12 row(s) in 18.2 ms.
+12 row(s) in 4.1 ms.
 
 | symptom | plant_part | stage_of_disease |
 |---|---|---|
@@ -169,7 +168,7 @@ GROUP BY ?other
 ORDER BY DESC(?shared_symptoms)
 ```
 
-4 row(s) in 27.8 ms.
+4 row(s) in 6.1 ms.
 
 | other | shared_symptoms |
 |---|---|
@@ -195,7 +194,7 @@ SELECT ?symptom ?present_only_in WHERE {
 ORDER BY ?present_only_in ?symptom
 ```
 
-3 row(s) in 31.5 ms.
+3 row(s) in 6.8 ms.
 
 | symptom | present_only_in |
 |---|---|
@@ -218,7 +217,7 @@ SELECT ?condition WHERE {
 ORDER BY ?condition
 ```
 
-2 row(s) in 16.4 ms.
+2 row(s) in 2.0 ms.
 
 | condition |
 |---|
@@ -235,7 +234,7 @@ GROUP BY ?condition
 ORDER BY DESC(?entities) ?condition
 ```
 
-9 row(s) in 22.0 ms.
+9 row(s) in 4.2 ms.
 
 | condition | entities |
 |---|---|
@@ -266,7 +265,7 @@ SELECT ?stage WHERE {
 ORDER BY ?stage
 ```
 
-2 row(s) in 10.9 ms.
+2 row(s) in 2.0 ms.
 
 | stage |
 |---|
@@ -291,7 +290,7 @@ SELECT ?treatment ?requires WHERE {
 ORDER BY ?treatment
 ```
 
-2 row(s) in 20.1 ms.
+2 row(s) in 2.4 ms.
 
 | treatment | requires |
 |---|---|
@@ -314,7 +313,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-1594 row(s) in 128.8 ms.
+1594 row(s) in 31.9 ms.
 
 | image | url |
 |---|---|
@@ -353,7 +352,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 613.1 ms.
+1 row(s) in 167.1 ms.
 
 | image | condition | dataset | title | source | confidence |
 |---|---|---|---|---|---|
@@ -372,7 +371,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 3103.4 ms.
+1 row(s) in 753.7 ms.
 
 | images | with_source_dataset | with_confidence |
 |---|---|---|
@@ -399,7 +398,7 @@ GROUP BY ?condition ?type
 ORDER BY DESC(?images)
 ```
 
-10 row(s) in 10386.9 ms.
+10 row(s) in 4635.6 ms.
 
 | condition | type | images |
 |---|---|---|
@@ -423,7 +422,7 @@ SELECT ?dataset (COUNT(?image) AS ?images) WHERE {
 GROUP BY ?dataset
 ```
 
-1 row(s) in 139.9 ms.
+1 row(s) in 133.5 ms.
 
 | dataset | images |
 |---|---|
@@ -446,7 +445,7 @@ SELECT ?image ?symptom WHERE {
 }
 ```
 
-1 row(s) in 27.3 ms.
+1 row(s) in 23.6 ms.
 
 | image | symptom |
 |---|---|
@@ -462,7 +461,7 @@ GROUP BY ?symptom
 ORDER BY DESC(?images)
 ```
 
-1 row(s) in 15.1 ms.
+1 row(s) in 12.9 ms.
 
 | symptom | images |
 |---|---|
@@ -487,7 +486,7 @@ GROUP BY ?image ?candidate
 ORDER BY DESC(?support) ?candidate
 ```
 
-2 row(s) in 47.2 ms.
+2 row(s) in 36.9 ms.
 
 | image | candidate | support |
 |---|---|---|
@@ -521,7 +520,7 @@ SELECT ?condition ?distinguishing_symptom WHERE {
 ORDER BY ?condition ?distinguishing_symptom
 ```
 
-3 row(s) in 10.0 ms.
+3 row(s) in 7.3 ms.
 
 | condition | distinguishing_symptom |
 |---|---|
@@ -539,7 +538,7 @@ SELECT ?shared_symptom WHERE {
 ORDER BY ?shared_symptom
 ```
 
-3 row(s) in 2.4 ms.
+3 row(s) in 2.1 ms.
 
 | shared_symptom |
 |---|
@@ -566,7 +565,7 @@ SELECT ?image ?severity WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 320.5 ms.
+0 row(s) in 298.1 ms.
 
 **What the severity levels are used for in v0.7.0-dev**
 
@@ -578,7 +577,7 @@ SELECT ?severity ?recommends WHERE {
 ORDER BY ?severity
 ```
 
-6 row(s) in 4.4 ms.
+6 row(s) in 3.8 ms.
 
 | severity | recommends |
 |---|---|
@@ -607,7 +606,7 @@ SELECT ?image ?symptom_a ?symptom_b WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 69.0 ms.
+0 row(s) in 60.9 ms.
 
 **How many symptoms each annotated image captures**
 
@@ -621,7 +620,7 @@ GROUP BY ?symptoms_per_image
 ORDER BY ?symptoms_per_image
 ```
 
-1 row(s) in 66.3 ms.
+1 row(s) in 56.4 ms.
 
 | symptoms_per_image | images |
 |---|---|
@@ -646,7 +645,7 @@ WHERE {
 GROUP BY ?image_evidence
 ```
 
-2 row(s) in 57.7 ms.
+2 row(s) in 52.7 ms.
 
 | image_evidence | symptoms |
 |---|---|
@@ -663,7 +662,7 @@ SELECT ?symptom WHERE {
 ORDER BY ?symptom
 ```
 
-26 row(s) in 13.9 ms.
+26 row(s) in 12.3 ms.
 
 | symptom |
 |---|
@@ -696,7 +695,7 @@ SELECT ?image ?condition ?symptom ?pathogen WHERE {
 ORDER BY ?symptom
 ```
 
-4 row(s) in 293.4 ms.
+4 row(s) in 317.8 ms.
 
 | image | condition | symptom | pathogen |
 |---|---|---|---|
@@ -715,7 +714,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 197.8 ms.
+1 row(s) in 227.3 ms.
 
 | images_with_literature |
 |---|
@@ -740,7 +739,7 @@ SELECT ?image ?condition ?treatment WHERE {
 ORDER BY ?treatment
 ```
 
-4 row(s) in 954.9 ms.
+4 row(s) in 907.8 ms.
 
 | image | condition | treatment |
 |---|---|---|
@@ -758,7 +757,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?images_with_treatment) WHERE {
 }
 ```
 
-1 row(s) in 221.4 ms.
+1 row(s) in 181.2 ms.
 
 | images_with_treatment |
 |---|
@@ -782,7 +781,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-1764 row(s) in 39.6 ms.
+1764 row(s) in 43.2 ms.
 
 | image | url |
 |---|---|
@@ -805,7 +804,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?contradictory_images) WHERE {
 }
 ```
 
-1 row(s) in 11.8 ms.
+1 row(s) in 9.6 ms.
 
 | contradictory_images |
 |---|
@@ -820,7 +819,7 @@ So that nothing looks hidden: every CQ, and why it is or is not implemented here
 | CQ | Lv | Dim | State | Requirement | Why |
 |---|---|---|---|---|---|
 | `CQ-A01` | L1 | D1 | implemented here | Pathogen causing a disease, and its taxonomy | partial - schema in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
-| `CQ-A02` | L3 | D1 | implemented here | Vector transmitting a pathogen or viral disease | partial - schema in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
+| `CQ-A02` | L3 | D1 | implemented here | Vector transmitting a pathogen or viral disease | answers in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
 | `CQ-A03` | L2 | D1 | implemented here | Symptoms of a disease, by organ and growth stage | partial - schema in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
 | `CQ-A04` | L3 | D1 | implemented here | Diseases sharing symptoms, and what discriminates them | answers in v0.7.0-dev; no benchmark counterpart |
 | `CQ-A05` | L1 | D1 | implemented here | Environmental conditions favouring a disease or pest | answers in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |

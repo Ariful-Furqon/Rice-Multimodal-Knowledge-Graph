@@ -26279,7 +26279,6 @@
     <rdfs:label xml:lang="en">Rice Tungro Bacilliform Virus</rdfs:label>
     <rdfs:comment xml:lang="en">Double-stranded DNA virus; one of two agents of Rice Tungro Disease. Transmitted by green leafhopper Nephotettix virescens.</rdfs:comment>
     <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_10654"/>
-    <rice:hasTransmissionMode rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Semi_Persistent"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_normal_110171">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -56253,7 +56252,6 @@
     <rdfs:label xml:lang="en">Rice Tungro Spherical Virus</rdfs:label>
     <rice:causes rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Disease"/>
     <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_35287"/>
-    <rice:hasTransmissionMode rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Semi_Persistent"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_hispa_101589">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -89010,46 +89008,6 @@
   </rdf:Description>
   <rdf:Description rdf:nodeID="Nv070disjointplantpart">
     <rdf:first rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PlantPart"/>
-    <rdf:rest rdf:nodeID="Nv070disjointtransmissionmode"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#TransmissionMode">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">The manner in which a vector acquires, retains and transmits a pathogen (e.g. non-persistent, semi-persistent, persistent). Only modes supported by a cited source are populated.</rdfs:comment>
-    <rdfs:label xml:lang="en">Transmission Mode</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#hasTransmissionMode">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Pathogen"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#TransmissionMode"/>
-    <rdfs:comment xml:lang="en">Relates a vector-borne pathogen to its mode of transmission. Asserted per pathogen, which holds only while the source reports the same mode for all of its vectors; a pathogen whose mode differs by vector would need the vector-pathogen pair modelled instead.</rdfs:comment>
-    <rdfs:label xml:lang="en">has transmission mode</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Semi_Persistent">
-    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#TransmissionMode"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Semi-persistent transmission: the vector acquires the pathogen by feeding on an infected plant and retains it only for a limited period (days), after which it must feed on an infected plant again to transmit. No AGROVOC or OLS concept exists for this mode, so it is kept local.</rdfs:comment>
-    <rdfs:label xml:lang="en">semi-persistent</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070disjointtransmissionmode">
-    <rdf:first rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#TransmissionMode"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070tm01rtbvsemipersistent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Bacilliform_Virus"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#hasTransmissionMode"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Semi_Persistent"/>
-    <dcterms:source rdf:resource="https://doi.org/10.3390/v14102258"/>
-    <dcterms:bibliographicCitation xml:lang="en">Wang, P., Liu, J., Lyu, Y., Huang, Z., Zhang, X., Sun, B., Li, P., Jing, X., Li, H., &amp; Zhang, C. (2022). A Review of Vector-Borne Rice Viruses. Viruses, 14(10), 2258. https://doi.org/10.3390/v14102258</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070tm02rtsvsemipersistent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Spherical_Virus"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#hasTransmissionMode"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Semi_Persistent"/>
-    <dcterms:source rdf:resource="https://doi.org/10.3390/v14102258"/>
-    <dcterms:bibliographicCitation xml:lang="en">Wang, P., Liu, J., Lyu, Y., Huang, Z., Zhang, X., Sun, B., Li, P., Jing, X., Li, H., &amp; Zhang, C. (2022). A Review of Vector-Borne Rice Viruses. Viruses, 14(10), 2258. https://doi.org/10.3390/v14102258</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
 </rdf:RDF>

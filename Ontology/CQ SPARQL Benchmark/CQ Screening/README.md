@@ -561,8 +561,10 @@ original pool.
   ratings must not enter the kappa that evaluates the resource.
 - ~~**Five SPARQL implementations.**~~ **Done 2026-09-08, extended to 15, and
   on 2026-09-14 to 19.** `../elicited_cq_sparql.py` queries 19 of the 25
-  elicited CQs and reports them in `../Elicited_CQ_SPARQL_Report.md`. **7 answer
-  in full, 10 answer in part, 2 return nothing.** `CQ-A01`, `A02`, `A03`, `A06`,
+  elicited CQs and reports them in `../Elicited_CQ_SPARQL_Report.md`. On
+  0.7.0-dev (2026-09-15) **8 answer in full, 9 answer in part, 2 return
+  nothing** (v0.6.2: 7 / 10 / 2; `CQ-A02` became answerable when
+  `hasTransmissionMode` was added). `CQ-A01`, `A03`, `A06`,
   `A07`, `A11`, `A13`, `A17` and `A24` are *partial - schema* (the ontology has
   no concept for part of what is asked, so no amount of data would answer it),
   and `CQ-A15` is *partial - data* (the concept exists, few individuals carry

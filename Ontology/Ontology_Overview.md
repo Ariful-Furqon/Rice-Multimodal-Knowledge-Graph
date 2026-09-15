@@ -55,16 +55,16 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **67,090** (asserted) / **161,861** (OWL RL) | 0.7.0-dev. +94,771 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
-| **Named classes** | 17 | 14 primitive (incl. `PlantPart`, 0.7.0-dev) + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class (`SymptomaticObservation`) |
-| **Object properties** | 28 | All declared with explicit domain and range; includes `transmits`/`transmittedBy`, and `affectsPlantPart` and transitive `partOf` (0.7.0-dev) |
+| **Total triples** | **67,120** (asserted) / **161,916** (OWL RL) | 0.7.0-dev. +94,796 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Named classes** | 18 | 15 primitive (incl. `PlantPart` and `TransmissionMode`, 0.7.0-dev) + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class (`SymptomaticObservation`) |
+| **Object properties** | 29 | All declared with explicit domain and range; includes `transmits`/`transmittedBy`, and `affectsPlantPart`, transitive `partOf` and `hasTransmissionMode` (0.7.0-dev) |
 | **Datatype properties** | 5 | All declared with explicit domain and range |
 | **Annotation properties** | 14 | Includes `rice:evidenceType`, PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
-| **Named individuals** | **10,506** | 10,407 image individuals + 1 dataset metadata + 98 domain entities (8 of them `PlantPart`) |
-| **`owl:Axiom` (provenance)** | **285** | **285 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev). v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
+| **Named individuals** | **10,507** | 10,407 image individuals + 1 dataset metadata + 99 domain entities (8 `PlantPart`, 1 `TransmissionMode`) |
+| **`owl:Axiom` (provenance)** | **287** | **287 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev). v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
-| **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (13 classes, `PlantPart` added in 0.7.0-dev) |
-| **Reasoner Consistency** | **Consistent** | 0.7.0-dev checked in **HermiT** on 2026-09-15 with `-k` on a space-free copy, with two injected-contradiction controls (`Rice` as Plant + Disease; `Leaf_Blade` as PlantPart + Disease) that both report inconsistent; v0.6 verified in HermiT & Pellet |
+| **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (14 classes; `PlantPart` and `TransmissionMode` added in 0.7.0-dev) |
+| **Reasoner Consistency** | **Consistent** | 0.7.0-dev checked in **HermiT** on 2026-09-15 with `-k` on a space-free copy, with injected-contradiction controls (`Rice` as Plant + Disease; `Leaf_Blade` as PlantPart + Disease; `Semi_Persistent` as TransmissionMode + Disease) that all report inconsistent; v0.6 verified in HermiT & Pellet |
 | **Competency Questions (CQ)** | **23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC** | **95.8% pass rate** across 24 scored CQs (25 total). Released v0.6: 21 / 1 / 2 / 1 |
 | **`skos:exactMatch` / `closeMatch` / `broadMatch`** | 38 / 20 / 1 | Mapped to AGROVOC / NCBI Taxonomy / Planteome (PECO, PO) and BFO, verified against live APIs |
 | **`TODO` literals remaining** | **0** | **100% resolved (dataset metadata & EPPO codes verified)** |
@@ -74,7 +74,7 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 ### Per-class individual counts
 
-The 10,506 individuals in the knowledge graph are categorized by domain layer:
+The 10,507 individuals in the knowledge graph are categorized by domain layer:
 
 | Domain Category | Class Name | Count | Type / Description |
 |---|---|---:|---|
@@ -85,6 +85,7 @@ The 10,506 individuals in the knowledge graph are categorized by domain layer:
 | **Dataset Metadata** | `Dataset` (`dcat:Dataset`) | 1 | `PaddyDoctorDataset` metadata individual |
 | **Biotic Agents & Host** | `Pathogen` | 8 | Viral, bacterial, fungal, oomycete agents |
 | | `Pest` | 7 | Insect pests and vector organisms (`Scirpophaga_Incertulas` merged into `Stem_Borer`) |
+| | `TransmissionMode` | 1 | `Semi_Persistent` (vector transmission mode of both tungro viruses); 0.7.0-dev |
 | | `Disease` | 9 | Biotic disease & damage condition classes (including `Deadheart`) |
 | | `HealthStatus` | 1 | `Normal_Health` (healthy reference baseline) |
 | | `Plant` | 1 | `Rice` (*Oryza sativa*) host individual |
@@ -95,7 +96,7 @@ The 10,506 individuals in the knowledge graph are categorized by domain layer:
 | **Agronomic Management** | `Treatment` | 12 | Chemical, biological, genetic, and cultural practices |
 | | `ManagementAction` | 5 | Operational actions (Immediate Intervention, Monitoring, etc.) |
 | | `SeverityLevel` | 4 | Low, Medium, High, and Critical severity scales |
-| **Total Named Individuals** | | **10,506** | *(10,407 images + 1 dataset + 98 domain entities)* |
+| **Total Named Individuals** | | **10,507** | *(10,407 images + 1 dataset + 99 domain entities)* |
 
 ---
 
@@ -112,6 +113,7 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | | `occursIn` | 41 | `Disease ⊔ Pest ⊔ HealthStatus` → `GrowthStage` | IRRI RKB / Ou (1985) |
 | | `causes` | 8 | `Pathogen` → `Disease` | CABI / Ham / Hibino |
 | | `transmits` | 2 | `Pest` → `Pathogen` | CABI / Hibino (1996) |
+| | `hasTransmissionMode` | 2 | `Pathogen` → `TransmissionMode` | Wang et al. (2022); 0.7.0-dev |
 | **Symptomatology & Risk Factors**| `indicatedBy` | 43 | `Disease ⊔ Pest` → `Symptom` | IRRI Rice Doctor / CABI / IRAC (2025) |
 | | `increaseRiskOf` | 29 | `EnvironmentalFactor` → `Disease ⊔ Pest` | CABI CPC / IRRI RKB |
 | **Plant Anatomy** | `affectsPlantPart` | 27 | `Symptom` → `PlantPart` | IRRI Rice Knowledge Bank fact sheets (13) |
@@ -120,7 +122,7 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | | `recommends` | 23 | `Disease ⊔ Pest ⊔ SeverityLevel` → `ManagementAction` | BBPOPT / IRRI |
 | | `preventedBy` | 8 | `Disease ⊔ Pest` → `Treatment` | IRRI RKB / CABI |
 | | `requires` | 5 | `Treatment` → `GrowthStage` | BBPOPT / IRRI GAP |
-| **Total domain assertions** | | **285** | *(0.7.0-dev, measured 2026-09-15 with rdflib; plus 10,407 `annotatedAs`, 1,442 `captures`, 10 `sourceDatasetLabel`, 15 `eppoCode`)* | **285 / 285 reified** |
+| **Total domain assertions** | | **287** | *(0.7.0-dev, measured 2026-09-15 with rdflib; plus 10,407 `annotatedAs`, 1,442 `captures`, 10 `sourceDatasetLabel`, 15 `eppoCode`)* | **287 / 287 reified** |
 
 > *Note on inverse properties:* All twelve inverse directions (`indicates`, `detectedBy`, `causedBy`, `prevents`, `controls`, `threatens`, etc.) and `detects` are declared in the schema for reasoning/querying symmetry.
 
@@ -137,13 +139,26 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | v0.6 (Deadheart disambiguation, DL consistency, 25 CQs) | 2026-09-03 | 66,780 (161,416 OWL RL) | 16 | 26 | 10,498 | 253 axioms / 255 assertions |
 | v0.6.1 (provenance gaps closed, CQ-10/CQ-24 fixed) | 2026-09-14 | 66,802 (161,447 OWL RL) | 16 | 26 | 10,498 | 256 axioms / 256 assertions |
 | v0.6.2 (CABI DOIs, Crossref citations) | 2026-09-15 | 66,802 (161,447 OWL RL) | 16 | 26 | 10,498 | 256 axioms / 256 assertions |
-| **0.7.0-dev (PlantPart — in development)** | **2026-09-15** | **67,090** (161,861 OWL RL) | **17** | **28** | **10,506** | **285 axioms / 285 assertions** |
+| 0.7.0-dev (PlantPart) | 2026-09-15 | 67,090 (161,861 OWL RL) | 17 | 28 | 10,506 | 285 axioms / 285 assertions |
+| **0.7.0-dev (+ TransmissionMode — in development)** | **2026-09-15** | **67,120** (161,916 OWL RL) | **18** | **29** | **10,507** | **287 axioms / 287 assertions** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-09-15: 0.7.0-dev — `TransmissionMode` for vector-borne pathogens
+
+Second literature-backed schema item of Phase 3 (elicited CQ-A02). Pre-patch file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-transmissionmode.rdf`.
+
+- **Class `TransmissionMode`** with one individual, `Semi_Persistent`. Other modes (non-persistent, persistent) are not created until a pathogen in the graph needs them. No AGROVOC or OLS concept for "semi-persistent transmission" exists (AGROVOC has only *virus transmission*, c_81a342e6, a process rather than a mode), so the individual is local.
+- **`hasTransmissionMode`** (`Pathogen` → `TransmissionMode`): `Rice_Tungro_Bacilliform_Virus` and `Rice_Tungro_Spherical_Virus` → `Semi_Persistent`, both citing Wang et al. (2022), *A Review of Vector-Borne Rice Viruses*, Viruses 14(10):2258 (doi:10.3390/v14102258, CC BY 4.0). Its table "Transmission biology of distinct rice viruses" lists both viruses as semi-persistent, with *Nephotettix virescens* among the vectors; full text read from PMC9609659. Consistent with ICTV's Secoviridae profile (Thompson et al. 2017: "Field transmission is semi-persistent by aphids or leafhoppers") and with IRRI's tungro fact sheet, which describes the behaviour without naming the mode.
+- **Asserted per pathogen, not per vector–pathogen pair** — valid while the source gives one mode for all of a pathogen's vectors, as it does for both tungro viruses. A pathogen whose mode differs by vector would need the pair modelled instead; recorded in the property's `rdfs:comment`.
+- **Retention period not asserted.** Wang et al. give 4–5 days for RTBV and 2–4 for RTSV, while IRRI says a leafhopper can transmit within 5–7 days; the sources disagree, so neither figure was chosen.
+- **Disjointness:** `TransmissionMode` added to the core `AllDisjointClasses` axiom (now 14 classes).
+- **CQ instruments:** `hasTransmissionMode` added to CQ-22's property list; elicited CQ-A02's query now returns the mode and its status moves from *partial - schema* to **answers** (CQ text unchanged).
+- **Result:** 67,120 asserted / 161,916 OWL RL triples; 287 axioms = 287 domain assertions, 0 unreified; HermiT consistent with `-k` (controls `Semi_Persistent` as TransmissionMode + Disease and `Rice` as Plant + Disease both inconsistent); benchmark **23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC** (CQ-21 287/287, CQ-22 0); elicited **8 answers / 9 partial / 2 NO ANSWER**.
 
 ### 2026-09-15: 0.7.0-dev — `PlantPart`, symptom → organ, `partOf`
 
@@ -504,7 +519,8 @@ assertions, verified with no duplicates and no orphans. Triples: 67,236 →
 - **Permanent identifier:** `w3id.org` path segment to be registered for PURL minting.
 - **Version status:** `0.7.0-dev` in `Rice MMKG.rdf` (as of 2026-09-15). Tags `v0.6.1` (commit `1d13542`) and `v0.6.2` mark the last two releases; the final number of the next release is set when it is tagged.
 - **Competency Questions (CQs) Benchmark:** 25 CQs benchmarked via `cq_sparql_benchmark.py`: 0.7.0-dev scores 95.8% (23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC), as did v0.6.1/v0.6.2. Full documentation in `CQ_SPARQL_Documentation.md`.
-- **Automated Reasoner verified:** OWL RL deductive closure via Python `owlrl` (+94,771 triples) and HermiT consistency on 0.7.0-dev (with two verified control cases).
+- **Automated Reasoner verified:** OWL RL deductive closure via Python `owlrl` (+94,796 triples) and HermiT consistency on 0.7.0-dev (with verified control cases).
+- **Tungro virus retention period** — Wang et al. (2022) give 4–5 days (RTBV) and 2–4 days (RTSV); IRRI says transmission within 5–7 days. Not asserted until the discrepancy is resolved.
 - **`Excessive_Tillering` has no organ** — waiting for a readable source on rice downy mildew (IRRI has no fact sheet; Lee et al. 2003 could not be read).
 - **`Stem_Rot_Symptom` on `Sheath_Blight`** — label does not match IRRI, which places sheath-blight lesions on the leaf sheath and treats stem rot as a separate disease. Candidate for a patch correction (relabel or re-source); not changed.
 - **`Wilting` on `Sheath_Blight`, `Rice_Blast_Disease`, `Bacterial_Panicle_Blight`** — not mentioned by IRRI; the cited CABI datasheets return 403. Re-check when a readable source is found; not shown to be wrong.

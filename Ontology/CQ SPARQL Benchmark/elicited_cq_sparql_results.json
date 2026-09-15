@@ -1,9 +1,9 @@
 {
-  "generated": "2026-09-15T11:51:08",
+  "generated": "2026-09-15T12:09:00",
   "ontology": "Rice MMKG.rdf",
-  "asserted_triples": 67090,
-  "entailed_triples": 161861,
-  "reasoning_s": 84.0,
+  "asserted_triples": 67120,
+  "entailed_triples": 161916,
+  "reasoning_s": 25.0,
   "results": [
     {
       "id": "CQ-A01",
@@ -19,7 +19,7 @@
           "label": "Causal pathogen of Rice Blast, with its external identity",
           "sparql": "SELECT ?pathogen ?eppo_code ?external_alignment WHERE {\n  rice:Rice_Blast_Disease rice:causedBy ?pathogen .\n  OPTIONAL { ?pathogen rice:eppoCode ?eppo_code }\n  OPTIONAL { ?pathogen skos:exactMatch ?external_alignment }\n}",
           "rows": 1,
-          "ms": 373.9,
+          "ms": 87.7,
           "columns": [
             "pathogen",
             "eppo_code",
@@ -37,7 +37,7 @@
           "label": "Every disease with its causal pathogen - the answer form of benchmark CQ-01",
           "sparql": "SELECT ?disease ?pathogen WHERE {\n  ?disease rice:causedBy ?pathogen .\n}\nORDER BY ?disease",
           "rows": 8,
-          "ms": 7.9,
+          "ms": 2.2,
           "columns": [
             "disease",
             "pathogen"
@@ -69,11 +69,11 @@
             ],
             [
               "rice:Rice_Tungro_Disease",
-              "rice:Rice_Tungro_Bacilliform_Virus"
+              "rice:Rice_Tungro_Spherical_Virus"
             ],
             [
               "rice:Rice_Tungro_Disease",
-              "rice:Rice_Tungro_Spherical_Virus"
+              "rice:Rice_Tungro_Bacilliform_Virus"
             ]
           ]
         }
@@ -89,36 +89,39 @@
       "mode": "retrieval",
       "question": "Which vector species transmits Rice Tungro Bacilliform Virus, and by which transmission mode?",
       "note": "A three-hop chain: vector -> agent -> disease. Proposed by five of six models.",
-      "partial": "transmission mode is not a property in v0.7.0-dev, so the mode cannot be returned",
+      "partial": null,
       "gap": null,
       "queries": [
         {
-          "label": "Vector, the agent it transmits, and the disease that agent causes",
-          "sparql": "SELECT ?vector ?agent ?disease WHERE {\n  ?vector rice:transmits ?agent .\n  OPTIONAL { ?disease rice:causedBy ?agent }\n}\nORDER BY ?vector ?agent",
+          "label": "Vector, the agent it transmits, the agent's transmission mode, and the disease that agent causes",
+          "sparql": "SELECT ?vector ?agent ?mode ?disease WHERE {\n  ?vector rice:transmits ?agent .\n  OPTIONAL { ?agent rice:hasTransmissionMode ?mode }\n  OPTIONAL { ?disease rice:causedBy ?agent }\n}\nORDER BY ?vector ?agent",
           "rows": 2,
-          "ms": 15.1,
+          "ms": 3.3,
           "columns": [
             "vector",
             "agent",
+            "mode",
             "disease"
           ],
           "sample": [
             [
               "rice:Nephotettix_Virescens",
               "rice:Rice_Tungro_Bacilliform_Virus",
+              "rice:Semi_Persistent",
               "rice:Rice_Tungro_Disease"
             ],
             [
               "rice:Nephotettix_Virescens",
               "rice:Rice_Tungro_Spherical_Virus",
+              "rice:Semi_Persistent",
               "rice:Rice_Tungro_Disease"
             ]
           ]
         }
       ],
       "answered": true,
-      "partial_kind": "schema",
-      "status": "partial - schema"
+      "partial_kind": null,
+      "status": "answers"
     },
     {
       "id": "CQ-A03",
@@ -134,7 +137,7 @@
           "label": "Symptoms of Bacterial Leaf Blight with the plant part each affects, and the stages at which the disease occurs",
           "sparql": "SELECT ?symptom ?plant_part ?stage_of_disease WHERE {\n  rice:Bacterial_Leaf_Blight rice:indicatedBy ?symptom .\n  OPTIONAL { ?symptom rice:affectsPlantPart ?plant_part }\n  OPTIONAL { rice:Bacterial_Leaf_Blight rice:occursIn ?stage_of_disease }\n}\nORDER BY ?symptom ?plant_part ?stage_of_disease",
           "rows": 12,
-          "ms": 18.2,
+          "ms": 4.1,
           "columns": [
             "symptom",
             "plant_part",
@@ -202,7 +205,7 @@
           "label": "Conditions sharing at least one symptom with Brown Spot",
           "sparql": "SELECT ?other (COUNT(DISTINCT ?shared) AS ?shared_symptoms)\nWHERE {\n  rice:Brown_Spot rice:indicatedBy ?shared .\n  ?other rice:indicatedBy ?shared .\n  FILTER (?other != rice:Brown_Spot)\n}\nGROUP BY ?other\nORDER BY DESC(?shared_symptoms)",
           "rows": 4,
-          "ms": 27.8,
+          "ms": 6.1,
           "columns": [
             "other",
             "shared_symptoms"
@@ -230,7 +233,7 @@
           "label": "Symptoms that discriminate Brown Spot from Rice Blast",
           "sparql": "SELECT ?symptom ?present_only_in WHERE {\n  {\n    rice:Brown_Spot rice:indicatedBy ?symptom .\n    FILTER NOT EXISTS { rice:Rice_Blast_Disease rice:indicatedBy ?symptom }\n    BIND (\"Brown Spot\" AS ?present_only_in)\n  } UNION {\n    rice:Rice_Blast_Disease rice:indicatedBy ?symptom .\n    FILTER NOT EXISTS { rice:Brown_Spot rice:indicatedBy ?symptom }\n    BIND (\"Rice Blast\" AS ?present_only_in)\n  }\n}\nORDER BY ?present_only_in ?symptom",
           "rows": 3,
-          "ms": 31.5,
+          "ms": 6.8,
           "columns": [
             "symptom",
             "present_only_in"
@@ -269,7 +272,7 @@
           "label": "Conditions that increase the risk of Sheath Blight",
           "sparql": "SELECT ?condition WHERE {\n  ?condition rice:increaseRiskOf rice:Sheath_Blight .\n}\nORDER BY ?condition",
           "rows": 2,
-          "ms": 16.4,
+          "ms": 2.0,
           "columns": [
             "condition"
           ],
@@ -286,7 +289,7 @@
           "label": "Every condition-to-entity risk link in the graph",
           "sparql": "SELECT ?condition (COUNT(DISTINCT ?entity) AS ?entities) WHERE {\n  ?condition rice:increaseRiskOf ?entity .\n}\nGROUP BY ?condition\nORDER BY DESC(?entities) ?condition",
           "rows": 9,
-          "ms": 22.0,
+          "ms": 4.2,
           "columns": [
             "condition",
             "entities"
@@ -345,7 +348,7 @@
           "label": "Growth stages at which Brown Planthopper occurs",
           "sparql": "SELECT ?stage WHERE {\n  rice:Brown_Planthopper rice:occursIn ?stage .\n}\nORDER BY ?stage",
           "rows": 2,
-          "ms": 10.9,
+          "ms": 2.0,
           "columns": [
             "stage"
           ],
@@ -377,7 +380,7 @@
           "label": "Treatments for Stem Borer and what each requires",
           "sparql": "SELECT ?treatment ?requires WHERE {\n  rice:Stem_Borer rice:controlledBy ?treatment .\n  OPTIONAL { ?treatment rice:requires ?requires }\n}\nORDER BY ?treatment",
           "rows": 2,
-          "ms": 20.1,
+          "ms": 2.4,
           "columns": [
             "treatment",
             "requires"
@@ -412,7 +415,7 @@
           "label": "Images annotated as Hispa, with their retrievable URL",
           "sparql": "SELECT ?image ?url WHERE {\n  ?image rice:annotatedAs rice:Hispa ;\n         schema:contentUrl ?url .\n}\nORDER BY ?image",
           "rows": 1594,
-          "ms": 128.8,
+          "ms": 31.9,
           "columns": [
             "image",
             "url"
@@ -471,7 +474,7 @@
           "label": "Source and confidence of the annotation on one image",
           "sparql": "SELECT ?image ?condition ?dataset ?title ?source ?confidence\nWHERE {\n  { SELECT ?image WHERE { ?image a rice:ImageObservation }\n    ORDER BY ?image LIMIT 1 }\n  ?image rice:annotatedAs ?condition .\n  OPTIONAL {\n    ?image prov:wasDerivedFrom ?dataset .\n    OPTIONAL { ?dataset dcterms:title ?title }\n    OPTIONAL { ?dataset dcterms:source ?source }\n  }\n  OPTIONAL { ?image rice:confidenceScore ?confidence }\n}",
           "rows": 1,
-          "ms": 613.1,
+          "ms": 167.1,
           "columns": [
             "image",
             "condition",
@@ -495,7 +498,7 @@
           "label": "How many image annotations carry a source dataset, and how many a confidence score",
           "sparql": "SELECT (COUNT(DISTINCT ?image) AS ?images)\n       (COUNT(DISTINCT ?sourced) AS ?with_source_dataset)\n       (COUNT(DISTINCT ?scored) AS ?with_confidence)\nWHERE {\n  ?image a rice:ImageObservation .\n  OPTIONAL { ?image prov:wasDerivedFrom ?d . BIND (?image AS ?sourced) }\n  OPTIONAL { ?image rice:confidenceScore ?c . BIND (?image AS ?scored) }\n}",
           "rows": 1,
-          "ms": 3103.4,
+          "ms": 753.7,
           "columns": [
             "images",
             "with_source_dataset",
@@ -528,7 +531,7 @@
           "label": "Images per annotated condition and entity type",
           "sparql": "SELECT ?condition ?type (COUNT(?image) AS ?images) WHERE {\n  ?image a rice:ImageObservation ;\n         rice:annotatedAs ?condition .\n  ?condition a ?type .\n  FILTER (STRSTARTS(STR(?type), STR(rice:)))\n}\nGROUP BY ?condition ?type\nORDER BY DESC(?images)",
           "rows": 10,
-          "ms": 10386.9,
+          "ms": 4635.6,
           "columns": [
             "condition",
             "type",
@@ -581,7 +584,7 @@
           "label": "Images per source dataset",
           "sparql": "SELECT ?dataset (COUNT(?image) AS ?images) WHERE {\n  ?image a rice:ImageObservation ;\n         prov:wasDerivedFrom ?dataset .\n}\nGROUP BY ?dataset",
           "rows": 1,
-          "ms": 139.9,
+          "ms": 133.5,
           "columns": [
             "dataset",
             "images"
@@ -612,7 +615,7 @@
           "label": "Symptoms annotated in one image that has them",
           "sparql": "SELECT ?image ?symptom WHERE {\n  { SELECT ?image WHERE { ?image rice:captures ?s } ORDER BY ?image LIMIT 1 }\n  ?image rice:captures ?symptom .\n}",
           "rows": 1,
-          "ms": 27.3,
+          "ms": 23.6,
           "columns": [
             "image",
             "symptom"
@@ -628,7 +631,7 @@
           "label": "How many distinct symptoms the whole image corpus captures",
           "sparql": "SELECT ?symptom (COUNT(DISTINCT ?image) AS ?images) WHERE {\n  ?image rice:captures ?symptom .\n}\nGROUP BY ?symptom\nORDER BY DESC(?images)",
           "rows": 1,
-          "ms": 15.1,
+          "ms": 12.9,
           "columns": [
             "symptom",
             "images"
@@ -659,7 +662,7 @@
           "label": "Candidate conditions for one annotated image, ranked by supporting symptoms",
           "sparql": "SELECT ?image ?candidate (COUNT(DISTINCT ?symptom) AS ?support)\nWHERE {\n  { SELECT ?image WHERE { ?image rice:captures ?s } ORDER BY ?image LIMIT 1 }\n  ?image rice:captures ?symptom .\n  ?candidate rice:indicatedBy ?symptom .\n}\nGROUP BY ?image ?candidate\nORDER BY DESC(?support) ?candidate",
           "rows": 2,
-          "ms": 47.2,
+          "ms": 36.9,
           "columns": [
             "image",
             "candidate",
@@ -697,7 +700,7 @@
           "label": "Symptoms unique to each of the two conditions",
           "sparql": "SELECT ?condition ?distinguishing_symptom WHERE {\n  {\n    rice:Brown_Spot rice:indicatedBy ?distinguishing_symptom .\n    FILTER NOT EXISTS {\n      rice:Rice_Blast_Disease rice:indicatedBy ?distinguishing_symptom }\n    BIND (\"Brown Spot\" AS ?condition)\n  } UNION {\n    rice:Rice_Blast_Disease rice:indicatedBy ?distinguishing_symptom .\n    FILTER NOT EXISTS {\n      rice:Brown_Spot rice:indicatedBy ?distinguishing_symptom }\n    BIND (\"Rice Blast\" AS ?condition)\n  }\n}\nORDER BY ?condition ?distinguishing_symptom",
           "rows": 3,
-          "ms": 10.0,
+          "ms": 7.3,
           "columns": [
             "condition",
             "distinguishing_symptom"
@@ -721,7 +724,7 @@
           "label": "Symptoms the two share, which therefore cannot separate them",
           "sparql": "SELECT ?shared_symptom WHERE {\n  rice:Brown_Spot rice:indicatedBy ?shared_symptom .\n  rice:Rice_Blast_Disease rice:indicatedBy ?shared_symptom .\n}\nORDER BY ?shared_symptom",
           "rows": 3,
-          "ms": 2.4,
+          "ms": 2.1,
           "columns": [
             "shared_symptom"
           ],
@@ -756,7 +759,7 @@
           "label": "Severity level recorded on any image",
           "sparql": "SELECT ?image ?severity WHERE {\n  ?severity a rice:SeverityLevel .\n  ?image a rice:ImageObservation ;\n         ?link ?severity .\n}\nORDER BY ?image",
           "rows": 0,
-          "ms": 320.5,
+          "ms": 298.1,
           "columns": [],
           "sample": []
         },
@@ -764,7 +767,7 @@
           "label": "What the severity levels are used for in v0.7.0-dev",
           "sparql": "SELECT ?severity ?recommends WHERE {\n  ?severity a rice:SeverityLevel .\n  OPTIONAL { ?severity rice:recommends ?recommends }\n}\nORDER BY ?severity",
           "rows": 6,
-          "ms": 4.4,
+          "ms": 3.8,
           "columns": [
             "severity",
             "recommends"
@@ -815,7 +818,7 @@
           "label": "Pairs of symptoms captured in the same image",
           "sparql": "SELECT ?image ?symptom_a ?symptom_b WHERE {\n  ?image rice:captures ?symptom_a , ?symptom_b .\n  FILTER (STR(?symptom_a) < STR(?symptom_b))\n}\nORDER BY ?image",
           "rows": 0,
-          "ms": 69.0,
+          "ms": 60.9,
           "columns": [],
           "sample": []
         },
@@ -823,7 +826,7 @@
           "label": "How many symptoms each annotated image captures",
           "sparql": "SELECT ?symptoms_per_image (COUNT(?image) AS ?images) WHERE {\n  { SELECT ?image (COUNT(DISTINCT ?s) AS ?symptoms_per_image)\n    WHERE { ?image rice:captures ?s }\n    GROUP BY ?image }\n}\nGROUP BY ?symptoms_per_image\nORDER BY ?symptoms_per_image",
           "rows": 1,
-          "ms": 66.3,
+          "ms": 56.4,
           "columns": [
             "symptoms_per_image",
             "images"
@@ -854,7 +857,7 @@
           "label": "Symptoms partitioned by whether any image captures them",
           "sparql": "SELECT ?image_evidence (COUNT(DISTINCT ?symptom) AS ?symptoms)\nWHERE {\n  ?symptom a rice:Symptom .\n  OPTIONAL { ?image rice:captures ?symptom }\n  BIND (IF(BOUND(?image), \"has image evidence\", \"no image evidence\")\n        AS ?image_evidence)\n}\nGROUP BY ?image_evidence",
           "rows": 2,
-          "ms": 57.7,
+          "ms": 52.7,
           "columns": [
             "image_evidence",
             "symptoms"
@@ -874,7 +877,7 @@
           "label": "The symptoms with no image evidence at all",
           "sparql": "SELECT ?symptom WHERE {\n  ?symptom a rice:Symptom .\n  FILTER NOT EXISTS { ?image rice:captures ?symptom }\n}\nORDER BY ?symptom",
           "rows": 26,
-          "ms": 13.9,
+          "ms": 12.3,
           "columns": [
             "symptom"
           ],
@@ -924,7 +927,7 @@
           "label": "Literature evidence for the condition annotated in one image",
           "sparql": "SELECT ?image ?condition ?symptom ?pathogen WHERE {\n  { SELECT ?image WHERE { ?image rice:annotatedAs rice:Brown_Spot }\n    ORDER BY ?image LIMIT 1 }\n  ?image rice:annotatedAs ?condition .\n  OPTIONAL { ?condition rice:indicatedBy ?symptom }\n  OPTIONAL { ?condition rice:causedBy ?pathogen }\n}\nORDER BY ?symptom",
           "rows": 4,
-          "ms": 293.4,
+          "ms": 317.8,
           "columns": [
             "image",
             "condition",
@@ -962,7 +965,7 @@
           "label": "How many images reach a literature-described condition",
           "sparql": "SELECT (COUNT(DISTINCT ?image) AS ?images_with_literature)\nWHERE {\n  ?image rice:annotatedAs ?condition .\n  ?condition rice:indicatedBy ?symptom .\n}",
           "rows": 1,
-          "ms": 197.8,
+          "ms": 227.3,
           "columns": [
             "images_with_literature"
           ],
@@ -991,7 +994,7 @@
           "label": "Image -> annotated condition -> recommended treatment",
           "sparql": "SELECT ?image ?condition ?treatment WHERE {\n  { SELECT ?image WHERE {\n      ?image rice:annotatedAs ?c . ?c rice:controlledBy ?t }\n    ORDER BY ?image LIMIT 1 }\n  ?image rice:annotatedAs ?condition .\n  ?condition rice:controlledBy ?treatment .\n}\nORDER BY ?treatment",
           "rows": 4,
-          "ms": 954.9,
+          "ms": 907.8,
           "columns": [
             "image",
             "condition",
@@ -1024,7 +1027,7 @@
           "label": "How many images reach at least one treatment",
           "sparql": "SELECT (COUNT(DISTINCT ?image) AS ?images_with_treatment) WHERE {\n  ?image rice:annotatedAs ?condition .\n  ?condition rice:controlledBy ?treatment .\n}",
           "rows": 1,
-          "ms": 221.4,
+          "ms": 181.2,
           "columns": [
             "images_with_treatment"
           ],
@@ -1053,7 +1056,7 @@
           "label": "Images annotated as healthy, with their retrievable URL",
           "sparql": "SELECT ?image ?url WHERE {\n  ?image rice:annotatedAs rice:Normal_Health ;\n         schema:contentUrl ?url .\n}\nORDER BY ?image",
           "rows": 1764,
-          "ms": 39.6,
+          "ms": 43.2,
           "columns": [
             "image",
             "url"
@@ -1097,7 +1100,7 @@
           "label": "Healthy-annotated images that nonetheless capture a symptom - should be zero",
           "sparql": "SELECT (COUNT(DISTINCT ?image) AS ?contradictory_images) WHERE {\n  ?image rice:annotatedAs rice:Normal_Health ;\n         rice:captures ?symptom .\n}",
           "rows": 1,
-          "ms": 11.8,
+          "ms": 9.6,
           "columns": [
             "contradictory_images"
           ],
@@ -1128,7 +1131,7 @@
       "dim": "D1",
       "short_label": "Vector transmitting a pathogen or viral disease",
       "state": "implemented here",
-      "why": "partial - schema in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form"
+      "why": "answers in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form"
     },
     {
       "cq_id": "CQ-A03",
