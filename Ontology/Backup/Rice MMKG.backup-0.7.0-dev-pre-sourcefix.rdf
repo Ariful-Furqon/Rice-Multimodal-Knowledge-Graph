@@ -1086,6 +1086,15 @@
     <rdfs:label xml:lang="en">Paddy Doctor image: normal/109288.jpg</rdfs:label>
     <prov:wasDerivedFrom rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="N3892bacb2b6642cfbc90d7fe2f78fe2e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#recommends"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#High_Severity"/>
+    <dcterms:bibliographicCitation xml:lang="en">BBPOPT (2022). Pedoman Pengamatan dan Pengendalian Organisme Pengganggu Tumbuhan Tanaman Padi. Balai Besar Peramalan Organisme Pengganggu Tumbuhan, Kementerian Pertanian Republik Indonesia.</dcterms:bibliographicCitation>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Immediate_Intervention"/>
+    <dcterms:source rdf:resource="https://bbpopt.tanamanpangan.pertanian.go.id/"/>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_blast_104507">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#ImageObservation"/>
@@ -6505,7 +6514,6 @@
     <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Blast_Disease"/>
     <rdfs:label xml:lang="en">Low Rainfall</rdfs:label>
     <skos:closeMatch rdf:resource="http://purl.obolibrary.org/obo/PECO_0007404"/>
-    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Salinity_Disorder"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_normal_104467">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -15132,8 +15140,8 @@
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Critical_Severity">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#SeverityLevel"/>
+    <rice:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Immediate_Intervention"/>
     <rdfs:label xml:lang="en">Critical Severity</rdfs:label>
-    <rdfs:comment xml:lang="en">Corresponds to the attack-intensity category puso (total loss) of Direktorat Jenderal Tanaman Pangan (2021), Petunjuk Teknis Pengamatan dan Pelaporan OPT dan DPI, Kepdirjen TP No. 127/HK.310/C/5/2021: above 85% for diseases, above 85% for pests. The guideline defines the bands; the correspondence to this level is a modelling choice.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_brown_spot_105057">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -20008,8 +20016,9 @@
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Medium_Severity">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#SeverityLevel"/>
+    <rice:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Field_Inspection"/>
+    <rice:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Monitoring"/>
     <rdfs:label xml:lang="en">Medium Severity</rdfs:label>
-    <rdfs:comment xml:lang="en">Corresponds to the attack-intensity category sedang (moderate) of Direktorat Jenderal Tanaman Pangan (2021), Petunjuk Teknis Pengamatan dan Pelaporan OPT dan DPI, Kepdirjen TP No. 127/HK.310/C/5/2021: above 10% up to 25% for diseases, above 25% up to 50% for pests. The guideline defines the bands; the correspondence to this level is a modelling choice.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_dead_heart_108397">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -20367,8 +20376,8 @@
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Low_Severity">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#SeverityLevel"/>
+    <rice:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#No_Action_Needed"/>
     <rdfs:label xml:lang="en">Low Severity</rdfs:label>
-    <rdfs:comment xml:lang="en">Corresponds to the attack-intensity category ringan (light) of Direktorat Jenderal Tanaman Pangan (2021), Petunjuk Teknis Pengamatan dan Pelaporan OPT dan DPI, Kepdirjen TP No. 127/HK.310/C/5/2021: above the control threshold (AP) up to 10% for diseases, up to 25% for pests. The guideline defines the bands; the correspondence to this level is a modelling choice.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_normal_106806">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -22390,6 +22399,15 @@
     <rice:sourceDatasetLabel>blast</rice:sourceDatasetLabel>
     <rdfs:label xml:lang="en">Rice Blast</rdfs:label>
     <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_152ac092"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N450f08e211b440bd94e24faf8d60d04c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <dcterms:source rdf:resource="https://bbpopt.tanamanpangan.pertanian.go.id/"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#recommends"/>
+    <dcterms:bibliographicCitation xml:lang="en">BBPOPT (2022). Pedoman Pengamatan dan Pengendalian Organisme Pengganggu Tumbuhan Tanaman Padi. Balai Besar Peramalan Organisme Pengganggu Tumbuhan, Kementerian Pertanian Republik Indonesia.</dcterms:bibliographicCitation>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Monitoring"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Medium_Severity"/>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_brown_spot_101356">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -24698,8 +24716,8 @@
     <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Crop_Sanitation"/>
     <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#requires"/>
     <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Harvest_Stage"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-09-15).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://bbpopt.tanamanpangan.pertanian.go.id/"/>
+    <dcterms:bibliographicCitation xml:lang="en">BBPOPT (2022). Pedoman Pengamatan dan Pengendalian Organisme Pengganggu Tumbuhan Tanaman Padi. Balai Besar Peramalan Organisme Pengganggu Tumbuhan, Kementerian Pertanian Republik Indonesia.</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_tungro_103534">
@@ -27878,7 +27896,7 @@
     <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
     <dcterms:title>Rice MMKG — Rice Multimodal Knowledge Graph</dcterms:title>
     <vann:preferredNamespacePrefix>riceMMKG</vann:preferredNamespacePrefix>
-    <rdfs:comment xml:lang="en">RiceMMKG: A Multimodal Knowledge Graph and Domain Ontology for Rice Pest and Disease Identification. Every domain-level assertion is grounded in peer-reviewed agronomic literature and authoritative databases (IRRI Rice Doctor Knowledge Bank, CABI Crop Protection Compendium, and EPPO Global Database), formally traceable via OWL axiom annotations (owl:Axiom with dcterms:source and dcterms:bibliographicCitation).</rdfs:comment>
+    <rdfs:comment xml:lang="en">RiceMMKG: A Multimodal Knowledge Graph and Domain Ontology for Rice Pest and Disease Identification. Every domain-level assertion is grounded in peer-reviewed agronomic literature and authoritative databases (IRRI Rice Doctor Knowledge Bank, CABI Crop Protection Compendium, EPPO Global Database, and BBPOPT), formally traceable via OWL axiom annotations (owl:Axiom with dcterms:source and dcterms:bibliographicCitation).</rdfs:comment>
     <owl:versionInfo>0.7.0-dev</owl:versionInfo>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_brown_spot_108096">
@@ -35928,6 +35946,15 @@
     <schema1:contentUrl>Data/PaddyDoctor/hispa/109283.jpg</schema1:contentUrl>
     <rdfs:label xml:lang="en">Paddy Doctor image: hispa/109283.jpg</rdfs:label>
     <prov:wasDerivedFrom rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2cbc6582cf3d4568a2d7dafc107360b4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Low_Severity"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#No_Action_Needed"/>
+    <dcterms:bibliographicCitation xml:lang="en">BBPOPT (2022). Pedoman Pengamatan dan Pengendalian Organisme Pengganggu Tumbuhan Tanaman Padi. Balai Besar Peramalan Organisme Pengganggu Tumbuhan, Kementerian Pertanian Republik Indonesia.</dcterms:bibliographicCitation>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#recommends"/>
+    <dcterms:source rdf:resource="https://bbpopt.tanamanpangan.pertanian.go.id/"/>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_hispa_101150">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -49667,7 +49694,7 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#SeverityLevel">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">A categorical grading of how severe an observed condition is. The four levels correspond to the attack-intensity categories of the Indonesian pest-observation guideline (Direktorat Jenderal Tanaman Pangan (2021), Petunjuk Teknis Pengamatan dan Pelaporan OPT dan DPI, Kepdirjen TP No. 127/HK.310/C/5/2021): ringan, sedang, berat and puso. The guideline maps no category to a management action, so none is asserted.</rdfs:comment>
+    <rdfs:comment>A categorical grading of how severe an observed condition is, used to drive recommended ManagementActions.</rdfs:comment>
     <rdfs:label xml:lang="en">Severity Level</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_tungro_100660">
@@ -49880,6 +49907,15 @@
     <rdfs:label xml:lang="en">Paddy Doctor image: bacterial_panicle_blight/107719.jpg</rdfs:label>
     <prov:wasDerivedFrom rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="N6756abf72ba545afaca5d3a7d80cc01a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#recommends"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Immediate_Intervention"/>
+    <dcterms:source rdf:resource="https://bbpopt.tanamanpangan.pertanian.go.id/"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Critical_Severity"/>
+    <dcterms:bibliographicCitation xml:lang="en">BBPOPT (2022). Pedoman Pengamatan dan Pengendalian Organisme Pengganggu Tumbuhan Tanaman Padi. Balai Besar Peramalan Organisme Pengganggu Tumbuhan, Kementerian Pertanian Republik Indonesia.</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_dead_heart_105476">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#ImageObservation"/>
@@ -50059,7 +50095,6 @@
     <rdfs:label xml:lang="en">waterlogged soil</rdfs:label>
     <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_8333"/>
     <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Zinc_Deficiency_Disorder"/>
-    <rice:increaseRiskOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Iron_Toxicity_Disorder"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_brown_spot_109461">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -56018,6 +56053,15 @@
     <schema1:contentUrl>Data/PaddyDoctor/brown_spot/108077.jpg</schema1:contentUrl>
     <rdfs:label xml:lang="en">Paddy Doctor image: brown_spot/108077.jpg</rdfs:label>
     <prov:wasDerivedFrom rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncc51e00b633341a38d6d969d9ecbec06">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Field_Inspection"/>
+    <dcterms:bibliographicCitation xml:lang="en">BBPOPT (2022). Pedoman Pengamatan dan Pengendalian Organisme Pengganggu Tumbuhan Tanaman Padi. Balai Besar Peramalan Organisme Pengganggu Tumbuhan, Kementerian Pertanian Republik Indonesia.</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://bbpopt.tanamanpangan.pertanian.go.id/"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#recommends"/>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Medium_Severity"/>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_hispa_103765">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -83933,8 +83977,9 @@
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#High_Severity">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#SeverityLevel"/>
+    <rice:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Immediate_Intervention"/>
+    <rice:recommends rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Preventive_Action"/>
     <rdfs:label xml:lang="en">High Severity</rdfs:label>
-    <rdfs:comment xml:lang="en">Corresponds to the attack-intensity category berat (heavy) of Direktorat Jenderal Tanaman Pangan (2021), Petunjuk Teknis Pengamatan dan Pelaporan OPT dan DPI, Kepdirjen TP No. 127/HK.310/C/5/2021: above 25% up to 85% for diseases, above 50% up to 85% for pests. The guideline defines the bands; the correspondence to this level is a modelling choice.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_blast_106637">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -85070,6 +85115,15 @@
     <schema1:contentUrl>Data/PaddyDoctor/blast/105155.jpg</schema1:contentUrl>
     <rdfs:label xml:lang="en">Paddy Doctor image: blast/105155.jpg</rdfs:label>
     <prov:wasDerivedFrom rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctorDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbaf9623e6db24bb1b52efc3e4924158d">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#recommends"/>
+    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Preventive_Action"/>
+    <dcterms:bibliographicCitation xml:lang="en">BBPOPT (2022). Pedoman Pengamatan dan Pengendalian Organisme Pengganggu Tumbuhan Tanaman Padi. Balai Besar Peramalan Organisme Pengganggu Tumbuhan, Kementerian Pertanian Republik Indonesia.</dcterms:bibliographicCitation>
+    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#High_Severity"/>
+    <dcterms:source rdf:resource="https://bbpopt.tanamanpangan.pertanian.go.id/"/>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_hispa_108539">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -89108,7 +89162,7 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#AbioticFactor">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">A non-living cause of a rice disorder, such as the deficiency or excess of a nutrient or other substance. Like a Pathogen, an AbioticFactor causes a Disease. Only factors supported by a cited source are populated; so far these are nutrient deficiencies (N, P, K, Zn) and, on the excess side, iron toxicity and salinity.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A non-living cause of a rice disorder, such as the deficiency or excess of a nutrient or other substance. Like a Pathogen, an AbioticFactor causes a Disease. Only factors supported by a cited source are populated; so far these are nutrient deficiencies.</rdfs:comment>
     <rdfs:label xml:lang="en">Abiotic Factor</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:nodeID="Nv070pathogenorabioticfactor">
@@ -89614,216 +89668,6 @@
     <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Leaf"/>
     <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/item/zinc-factsheet"/>
     <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Zinc (Zn). Rice Knowledge Bank fact sheet (nutrient management). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/item/zinc-factsheet (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Leaf_Bronzing">
-    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Tiny brown spots on the lower leaves, starting from the tip, that merge until the leaf turns orange-yellow to brown and dies; the leaf bronzing of iron toxicity (IRRI). Kept apart from Yellow_Orange_Discoloration, the tungro symptom.</rdfs:comment>
-    <rdfs:label xml:lang="en">leaf bronzing</rdfs:label>
-    <rice:affectsPlantPart rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Leaf"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#White_Leaf_Tip">
-    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Tips of affected leaves turn white; a symptom of salinity (IRRI). Kept apart from Dry_Leaf_Tip and Brown_Leaf_Tip, whose colour differs.</rdfs:comment>
-    <rdfs:label xml:lang="en">white leaf tips</rdfs:label>
-    <rice:affectsPlantPart rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Leaf"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Chlorotic_Leaf_Patch">
-    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Symptom"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Pale, yellow or yellow-white patches caused by chlorosis on some leaves; a symptom of salinity (IRRI).</rdfs:comment>
-    <rdfs:label xml:lang="en">chlorotic leaf patches</rdfs:label>
-    <rice:affectsPlantPart rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Leaf"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Iron_Toxicity">
-    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#AbioticFactor"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Excess ferrous iron (Fe2+) taken up by the rice plant, generally in lowland soils with permanent flooding (IRRI). Listed in the 2021 Indonesian pest-observation juknis (Kepdirjen TP No. 127/HK.310/C/5/2021, Tabel 11) as keracunan Fe (asem-aseman). Modelled as the abiotic cause of Iron_Toxicity_Disorder.</rdfs:comment>
-    <rdfs:label xml:lang="en">iron toxicity</rdfs:label>
-    <rice:causes rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Iron_Toxicity_Disorder"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Iron_Toxicity_Disorder">
-    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Disease"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Nutritional disorder of rice caused by iron toxicity, with the symptoms listed in the IRRI iron toxicity fact sheet. Abiotic: not caused by a pathogen or pest.</rdfs:comment>
-    <rdfs:label xml:lang="en">iron toxicity disorder</rdfs:label>
-    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Leaf_Bronzing"/>
-    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Stunted_Growth"/>
-    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Reduced_Tillering"/>
-    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Black_Root"/>
-    <rice:preventedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Water_Management"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Salinity">
-    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#AbioticFactor"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Excess soluble salts in soil or irrigation water, with excess sodium uptake by the rice plant (IRRI). Listed in the 2021 Indonesian pest-observation juknis (Kepdirjen TP No. 127/HK.310/C/5/2021, Tabel 11) as keracunan garam (Na and Cl). Modelled as the abiotic cause of Salinity_Disorder.</rdfs:comment>
-    <rdfs:label xml:lang="en">salinity</rdfs:label>
-    <rice:causes rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Salinity_Disorder"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Salinity_Disorder">
-    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Disease"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Disorder of rice caused by salinity, with the symptoms listed in the IRRI salinity fact sheet. Abiotic: not caused by a pathogen or pest.</rdfs:comment>
-    <rdfs:label xml:lang="en">salinity disorder</rdfs:label>
-    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#White_Leaf_Tip"/>
-    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Chlorotic_Leaf_Patch"/>
-    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Stunted_Growth"/>
-    <rice:indicatedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Reduced_Tillering"/>
-    <rice:preventedBy rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Water_Management"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070tx01irontoxicitycauses">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Iron_Toxicity"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#causes"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Iron_Toxicity_Disorder"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/iron-toxicity"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Iron (Fe) toxicity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/iron-toxicity (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070tx02irontoxicitydisordindica">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Iron_Toxicity_Disorder"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#indicatedBy"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Leaf_Bronzing"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/iron-toxicity"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Iron (Fe) toxicity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/iron-toxicity (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070tx03irontoxicitydisordindica">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Iron_Toxicity_Disorder"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#indicatedBy"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Stunted_Growth"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/iron-toxicity"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Iron (Fe) toxicity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/iron-toxicity (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070tx04irontoxicitydisordindica">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Iron_Toxicity_Disorder"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#indicatedBy"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Reduced_Tillering"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/iron-toxicity"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Iron (Fe) toxicity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/iron-toxicity (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070tx05irontoxicitydisordindica">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Iron_Toxicity_Disorder"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#indicatedBy"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Black_Root"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/iron-toxicity"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Iron (Fe) toxicity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/iron-toxicity (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070tx06irontoxicitydisordpreven">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Iron_Toxicity_Disorder"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#preventedBy"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Water_Management"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/iron-toxicity"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Iron (Fe) toxicity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/iron-toxicity (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070tx07salinitycauses">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Salinity"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#causes"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Salinity_Disorder"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Salinity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070tx08salinitydisorderindica">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Salinity_Disorder"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#indicatedBy"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#White_Leaf_Tip"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Salinity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070tx09salinitydisorderindica">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Salinity_Disorder"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#indicatedBy"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Chlorotic_Leaf_Patch"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Salinity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070tx10salinitydisorderindica">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Salinity_Disorder"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#indicatedBy"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Stunted_Growth"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Salinity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070tx11salinitydisorderindica">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Salinity_Disorder"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#indicatedBy"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Reduced_Tillering"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Salinity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070tx12salinitydisorderpreven">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Salinity_Disorder"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#preventedBy"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Water_Management"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Salinity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070tx13waterloggedsoilincrea">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Waterlogged_Soil"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#increaseRiskOf"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Iron_Toxicity_Disorder"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/iron-toxicity"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Iron (Fe) toxicity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/iron-toxicity (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070tx14lowrainfallincrea">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Low_Rainfall"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#increaseRiskOf"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Salinity_Disorder"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Salinity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070tx15leafbronzingaffect">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Leaf_Bronzing"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#affectsPlantPart"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Leaf"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/iron-toxicity"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Iron (Fe) toxicity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/iron-toxicity (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070tx16whiteleaftipaffect">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#White_Leaf_Tip"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#affectsPlantPart"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Leaf"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Salinity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070tx17chloroticleafpatchaffect">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Chlorotic_Leaf_Patch"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#affectsPlantPart"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Leaf"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Salinity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity (accessed 2026-09-15).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
 </rdf:RDF>

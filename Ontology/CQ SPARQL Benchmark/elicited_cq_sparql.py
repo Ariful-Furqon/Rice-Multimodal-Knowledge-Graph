@@ -411,8 +411,9 @@ WHERE {
                 "is not missing; what is missing is any link from an image to "
                 "one of them.",
         "gap": "no image carries a severity level. The four SeverityLevel "
-               "individuals are used only as subjects of recommends, which "
-               "drives management actions, and no property has SeverityLevel "
+               "individuals carry only the juknis attack-intensity category "
+               "as a comment (their recommends links were removed in "
+               "0.7.0-dev as unsourced), and no property has SeverityLevel "
                "as its range",
         "queries": [
             ("Severity level recorded on any image",

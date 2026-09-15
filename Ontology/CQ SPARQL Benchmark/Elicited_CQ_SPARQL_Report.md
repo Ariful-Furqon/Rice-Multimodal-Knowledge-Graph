@@ -1,6 +1,6 @@
 # Elicited Competency Questions - SPARQL Results
 
-Generated 2026-09-15 14:48 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 67,589 asserted triples, 162,778 after OWL RL materialisation (39.9s).
+Generated 2026-09-15 15:34 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 67,708 asserted triples, 163,011 after OWL RL materialisation (22.1s).
 
 **19 of the 25 elicited Tier A CQs are queried here** - every one for which RiceMMKG v0.7.0-dev has at least the concept the question turns on. Answerability is measured, not predicted: the Stage 3 `v06_status` column is not used. The remaining 6 ask for a concept v0.7.0-dev does not have at all and are the v0.7 work plan; the status table at the end lists each with its reason.
 
@@ -64,7 +64,7 @@ SELECT ?pathogen ?eppo_code ?external_alignment WHERE {
 }
 ```
 
-1 row(s) in 145.8 ms.
+1 row(s) in 74.5 ms.
 
 | pathogen | eppo_code | external_alignment |
 |---|---|---|
@@ -80,7 +80,7 @@ SELECT ?disease ?pathogen WHERE {
 ORDER BY ?disease
 ```
 
-8 row(s) in 4.2 ms.
+8 row(s) in 2.5 ms.
 
 | disease | pathogen |
 |---|---|
@@ -110,7 +110,7 @@ SELECT ?vector ?agent ?mode ?disease WHERE {
 ORDER BY ?vector ?agent
 ```
 
-2 row(s) in 5.8 ms.
+2 row(s) in 3.2 ms.
 
 | vector | agent | mode | disease |
 |---|---|---|---|
@@ -136,7 +136,7 @@ SELECT ?symptom ?plant_part ?stage_of_disease WHERE {
 ORDER BY ?symptom ?plant_part ?stage_of_disease
 ```
 
-12 row(s) in 7.0 ms.
+12 row(s) in 4.1 ms.
 
 | symptom | plant_part | stage_of_disease |
 |---|---|---|
@@ -169,7 +169,7 @@ GROUP BY ?other
 ORDER BY DESC(?shared_symptoms)
 ```
 
-4 row(s) in 9.9 ms.
+4 row(s) in 5.6 ms.
 
 | other | shared_symptoms |
 |---|---|
@@ -195,7 +195,7 @@ SELECT ?symptom ?present_only_in WHERE {
 ORDER BY ?present_only_in ?symptom
 ```
 
-3 row(s) in 12.4 ms.
+3 row(s) in 6.8 ms.
 
 | symptom | present_only_in |
 |---|---|
@@ -218,7 +218,7 @@ SELECT ?condition WHERE {
 ORDER BY ?condition
 ```
 
-2 row(s) in 3.2 ms.
+2 row(s) in 1.8 ms.
 
 | condition |
 |---|
@@ -235,17 +235,17 @@ GROUP BY ?condition
 ORDER BY DESC(?entities) ?condition
 ```
 
-9 row(s) in 7.0 ms.
+9 row(s) in 4.7 ms.
 
 | condition | entities |
 |---|---|
 | rice:High_Humidity | 9 |
 | rice:High_Temperature | 7 |
 | rice:Poor_Soil_Drainage | 5 |
-| rice:Low_Rainfall | 3 |
+| rice:Low_Rainfall | 4 |
+| rice:Waterlogged_Soil | 3 |
 | rice:Dense_Canopy | 2 |
 | rice:Excessive_Nitrogen | 2 |
-| rice:Waterlogged_Soil | 2 |
 | rice:High_Night_Temperature | 1 |
 | *… 1 more rows* | |
 
@@ -266,7 +266,7 @@ SELECT ?stage WHERE {
 ORDER BY ?stage
 ```
 
-2 row(s) in 4.7 ms.
+2 row(s) in 2.0 ms.
 
 | stage |
 |---|
@@ -296,7 +296,7 @@ SELECT ?treatment ?category ?source ?citation WHERE {
 ORDER BY ?treatment
 ```
 
-2 row(s) in 7.1 ms.
+2 row(s) in 4.3 ms.
 
 | treatment | category | source | citation |
 |---|---|---|---|
@@ -319,7 +319,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-1594 row(s) in 50.5 ms.
+1594 row(s) in 28.5 ms.
 
 | image | url |
 |---|---|
@@ -358,7 +358,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 276.6 ms.
+1 row(s) in 146.8 ms.
 
 | image | condition | dataset | title | source | confidence |
 |---|---|---|---|---|---|
@@ -377,7 +377,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 1220.9 ms.
+1 row(s) in 688.6 ms.
 
 | images | with_source_dataset | with_confidence |
 |---|---|---|
@@ -404,7 +404,7 @@ GROUP BY ?condition ?type
 ORDER BY DESC(?images)
 ```
 
-10 row(s) in 7471.6 ms.
+10 row(s) in 3949.2 ms.
 
 | condition | type | images |
 |---|---|---|
@@ -428,7 +428,7 @@ SELECT ?dataset (COUNT(?image) AS ?images) WHERE {
 GROUP BY ?dataset
 ```
 
-1 row(s) in 291.0 ms.
+1 row(s) in 115.9 ms.
 
 | dataset | images |
 |---|---|
@@ -451,7 +451,7 @@ SELECT ?image ?symptom WHERE {
 }
 ```
 
-1 row(s) in 55.6 ms.
+1 row(s) in 21.1 ms.
 
 | image | symptom |
 |---|---|
@@ -467,7 +467,7 @@ GROUP BY ?symptom
 ORDER BY DESC(?images)
 ```
 
-1 row(s) in 35.6 ms.
+1 row(s) in 12.3 ms.
 
 | symptom | images |
 |---|---|
@@ -492,7 +492,7 @@ GROUP BY ?image ?candidate
 ORDER BY DESC(?support) ?candidate
 ```
 
-2 row(s) in 106.7 ms.
+2 row(s) in 35.2 ms.
 
 | image | candidate | support |
 |---|---|---|
@@ -526,7 +526,7 @@ SELECT ?condition ?distinguishing_symptom WHERE {
 ORDER BY ?condition ?distinguishing_symptom
 ```
 
-3 row(s) in 18.3 ms.
+3 row(s) in 6.3 ms.
 
 | condition | distinguishing_symptom |
 |---|---|
@@ -544,7 +544,7 @@ SELECT ?shared_symptom WHERE {
 ORDER BY ?shared_symptom
 ```
 
-3 row(s) in 6.3 ms.
+3 row(s) in 2.0 ms.
 
 | shared_symptom |
 |---|
@@ -558,7 +558,7 @@ ORDER BY ?shared_symptom
 
 Stage 3 predicted this needs new schema and left it out. Queried here so that the prediction becomes a measurement. SeverityLevel exists and has four individuals, so the concept is not missing; what is missing is any link from an image to one of them.
 
-> **No answer:** no image carries a severity level. The four SeverityLevel individuals are used only as subjects of recommends, which drives management actions, and no property has SeverityLevel as its range
+> **No answer:** no image carries a severity level. The four SeverityLevel individuals carry only the juknis attack-intensity category as a comment (their recommends links were removed in 0.7.0-dev as unsourced), and no property has SeverityLevel as its range
 
 **Severity level recorded on any image**
 
@@ -571,7 +571,7 @@ SELECT ?image ?severity WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 736.0 ms.
+0 row(s) in 252.8 ms.
 
 **What the severity levels are used for in v0.7.0-dev**
 
@@ -583,16 +583,14 @@ SELECT ?severity ?recommends WHERE {
 ORDER BY ?severity
 ```
 
-6 row(s) in 7.0 ms.
+4 row(s) in 2.9 ms.
 
 | severity | recommends |
 |---|---|
-| rice:Critical_Severity | rice:Immediate_Intervention |
-| rice:High_Severity | rice:Immediate_Intervention |
-| rice:High_Severity | rice:Preventive_Action |
-| rice:Low_Severity | rice:No_Action_Needed |
-| rice:Medium_Severity | rice:Field_Inspection |
-| rice:Medium_Severity | rice:Monitoring |
+| rice:Critical_Severity | None |
+| rice:High_Severity | None |
+| rice:Low_Severity | None |
+| rice:Medium_Severity | None |
 
 ### CQ-A19 - Which symptoms co-occur on the same plant within a single image?
 
@@ -612,7 +610,7 @@ SELECT ?image ?symptom_a ?symptom_b WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 125.0 ms.
+0 row(s) in 55.0 ms.
 
 **How many symptoms each annotated image captures**
 
@@ -626,7 +624,7 @@ GROUP BY ?symptoms_per_image
 ORDER BY ?symptoms_per_image
 ```
 
-1 row(s) in 119.4 ms.
+1 row(s) in 50.6 ms.
 
 | symptoms_per_image | images |
 |---|---|
@@ -651,11 +649,11 @@ WHERE {
 GROUP BY ?image_evidence
 ```
 
-2 row(s) in 111.7 ms.
+2 row(s) in 48.9 ms.
 
 | image_evidence | symptoms |
 |---|---|
-| no image evidence | 35 |
+| no image evidence | 38 |
 | has image evidence | 1 |
 
 **The symptoms with no image evidence at all**
@@ -668,7 +666,7 @@ SELECT ?symptom WHERE {
 ORDER BY ?symptom
 ```
 
-35 row(s) in 24.8 ms.
+38 row(s) in 11.5 ms.
 
 | symptom |
 |---|
@@ -676,11 +674,11 @@ ORDER BY ?symptom
 | rice:Brown_Leaf_Tip |
 | rice:Brown_Lesion |
 | rice:Chewed_Leaf |
+| rice:Chlorotic_Leaf_Patch |
 | rice:Dark_Green_Erect_Leaf |
 | rice:Delayed_Maturity |
 | rice:Discolored_Panicle |
-| rice:Dry_Leaf_Tip |
-| *… 27 more rows* |
+| *… 30 more rows* |
 
 ### CQ-A22 - Which disease described in the literature matches the condition annotated in a given image?
 
@@ -701,7 +699,7 @@ SELECT ?image ?condition ?symptom ?pathogen WHERE {
 ORDER BY ?symptom
 ```
 
-4 row(s) in 355.9 ms.
+4 row(s) in 165.5 ms.
 
 | image | condition | symptom | pathogen |
 |---|---|---|---|
@@ -720,7 +718,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 447.9 ms.
+1 row(s) in 177.3 ms.
 
 | images_with_literature |
 |---|
@@ -745,7 +743,7 @@ SELECT ?image ?condition ?treatment WHERE {
 ORDER BY ?treatment
 ```
 
-4 row(s) in 1284.8 ms.
+4 row(s) in 586.3 ms.
 
 | image | condition | treatment |
 |---|---|---|
@@ -763,7 +761,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?images_with_treatment) WHERE {
 }
 ```
 
-1 row(s) in 335.4 ms.
+1 row(s) in 157.9 ms.
 
 | images_with_treatment |
 |---|
@@ -787,7 +785,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-1764 row(s) in 56.0 ms.
+1764 row(s) in 32.6 ms.
 
 | image | url |
 |---|---|
@@ -810,7 +808,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?contradictory_images) WHERE {
 }
 ```
 
-1 row(s) in 17.0 ms.
+1 row(s) in 9.1 ms.
 
 | contradictory_images |
 |---|
@@ -841,7 +839,7 @@ So that nothing looks hidden: every CQ, and why it is or is not implemented here
 | `CQ-A15` | L1 | D2 | implemented here | Symptoms annotated in a given image | partial - data in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
 | `CQ-A16` | L3 | D2 | implemented here | Disease or pest supported by visual evidence | answers in v0.7.0-dev; no benchmark counterpart |
 | `CQ-A17` | L3 | D2 | implemented here | Visual features separating confusable conditions | partial - schema in v0.7.0-dev; no benchmark counterpart |
-| `CQ-A18` | L1 | D2 | queried - no answer | Severity of the damage in an image | v0.7.0-dev returns nothing: no image carries a severity level. The four SeverityLevel individuals are used only as subjects of recommends, which drives management actions, and no property has SeverityLevel as its range |
+| `CQ-A18` | L1 | D2 | queried - no answer | Severity of the damage in an image | v0.7.0-dev returns nothing: no image carries a severity level. The four SeverityLevel individuals carry only the juknis attack-intensity category as a comment (their recommends links were removed in 0.7.0-dev as unsourced), and no property has SeverityLevel as its range |
 | `CQ-A19` | L2 | D2 | queried - no answer | Symptoms co-occurring in one image | v0.7.0-dev returns nothing: every image that captures a symptom captures exactly one, so no pair can co-occur; the same-plant part of the question has no model at all, since v0.7.0-dev images are independent |
 | `CQ-A20` | L1 | D2 | v0.7 work plan | Growth stage visible in a canopy image | needs growth stage annotation on images |
 | `CQ-A21` | L2 | D2 | implemented here | Literature symptoms with and without image support | answers in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |

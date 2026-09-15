@@ -55,17 +55,17 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **67,589** (asserted) / **162,778** (OWL RL) | 0.7.0-dev. +95,189 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Total triples** | **67,708** (asserted) / **163,011** (OWL RL) | 0.7.0-dev. +95,303 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
 | **Named classes** | 20 | 17 primitive (incl. `PlantPart`, `TransmissionMode`, `ManagementCategory` and `AbioticFactor`, 0.7.0-dev) + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class (`SymptomaticObservation`) |
 | **Object properties** | 30 | All declared with explicit domain and range; includes `transmits`/`transmittedBy`, and `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode` and `hasManagementCategory` (0.7.0-dev) |
 | **Datatype properties** | 5 | All declared with explicit domain and range |
 | **Annotation properties** | 14 | Includes `rice:evidenceType`, PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
-| **Named individuals** | **10,531** | 10,407 image individuals + 1 dataset metadata + 123 domain entities (10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 4 `AbioticFactor`) |
-| **`owl:Axiom` (provenance)** | **330** | **330 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev). v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
+| **Named individuals** | **10,538** | 10,407 image individuals + 1 dataset metadata + 130 domain entities (10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 6 `AbioticFactor`) |
+| **`owl:Axiom` (provenance)** | **341** | **341 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev). v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (16 classes; `PlantPart`, `TransmissionMode`, `ManagementCategory` and `AbioticFactor` added in 0.7.0-dev) |
-| **Reasoner Consistency** | **Consistent** | 0.7.0-dev checked in **HermiT** on 2026-09-15 with `-k` on a space-free copy, with injected-contradiction controls (`Rice` as Plant + Disease; `Leaf_Blade` as PlantPart + Disease; `Semi_Persistent` as TransmissionMode + Disease; `Chemical_Control_Category` as ManagementCategory + Disease; `Zinc_Deficiency` as AbioticFactor + Pathogen) that all report inconsistent; v0.6 verified in HermiT & Pellet |
-| **Competency Questions (CQ)** | **22 PASS / 2 PARTIAL / 0 FAIL / 1 DOC** | **91.7% pass rate** across 24 scored CQs (25 total); CQ-12 fell to PARTIAL when four nutrient-deficiency disorders without a sourced ManagementAction entered its denominator. v0.6.1/v0.6.2: 23 / 1 / 0 / 1; released v0.6: 21 / 1 / 2 / 1 |
+| **Reasoner Consistency** | **Consistent** | 0.7.0-dev checked in **HermiT** on 2026-09-15 with `-k` on a space-free copy, with injected-contradiction controls (`Rice` as Plant + Disease; `Leaf_Blade` as PlantPart + Disease; `Semi_Persistent` as TransmissionMode + Disease; `Chemical_Control_Category` as ManagementCategory + Disease; `Zinc_Deficiency` as AbioticFactor + Pathogen; `Salinity` as AbioticFactor + Pathogen) that all report inconsistent; v0.6 verified in HermiT & Pellet |
+| **Competency Questions (CQ)** | **21 PASS / 2 PARTIAL / 1 FAIL / 1 DOC** | **87.5% pass rate** across 24 scored CQs (25 total). CQ-13 FAIL: the unsourced severity → action triage was removed. CQ-12 PARTIAL: six abiotic disorders entered its denominator. CQ-01 denominator corrected to exclude abiotic disorders (7/9; uncorrected 7/15). v0.6.1/v0.6.2: 23 / 1 / 0 / 1; released v0.6: 21 / 1 / 2 / 1 |
 | **`skos:exactMatch` / `closeMatch` / `broadMatch`** | 42 / 23 / 1 | Mapped to AGROVOC / NCBI Taxonomy / Planteome (PECO, PO) and BFO, verified against live APIs |
 | **`TODO` literals remaining** | **0** | **100% resolved (dataset metadata & EPPO codes verified)** |
 | **Properties with no declared domain/range** | 0 / 0 | 100% coverage |
@@ -86,19 +86,19 @@ The 10,531 individuals in the knowledge graph are categorized by domain layer:
 | **Biotic Agents & Host** | `Pathogen` | 8 | Viral, bacterial, fungal, oomycete agents |
 | | `Pest` | 7 | Insect pests and vector organisms (`Scirpophaga_Incertulas` merged into `Stem_Borer`) |
 | | `TransmissionMode` | 1 | `Semi_Persistent` (vector transmission mode of both tungro viruses); 0.7.0-dev |
-| | `Disease` | 13 | Biotic disease & damage condition classes (including `Deadheart`), plus 4 nutrient-deficiency disorders (0.7.0-dev) |
-| | `AbioticFactor` | 4 | Nitrogen, phosphorus, potassium and zinc deficiency — abiotic causes of the four disorders; 0.7.0-dev |
+| | `Disease` | 15 | Biotic disease & damage condition classes (including `Deadheart`), plus 4 nutrient-deficiency disorders and the iron toxicity and salinity disorders (0.7.0-dev) |
+| | `AbioticFactor` | 6 | Nitrogen, phosphorus, potassium and zinc deficiency; iron toxicity; salinity — abiotic causes of the six disorders; 0.7.0-dev |
 | | `HealthStatus` | 1 | `Normal_Health` (healthy reference baseline) |
 | | `Plant` | 1 | `Rice` (*Oryza sativa*) host individual |
-| **Phenotype & Environment** | `Symptom` | 36 | Visual symptoms (lesions, streaks, rotting, discoloration, dead tiller); 9 added in 0.7.0-dev for nutrient deficiencies |
+| **Phenotype & Environment** | `Symptom` | 39 | Visual symptoms (lesions, streaks, rotting, discoloration, dead tiller); 9 added in 0.7.0-dev for nutrient deficiencies, 3 for iron toxicity and salinity |
 | | `PlantPart` | 10 | Organs on which symptoms appear (Whole_Plant, Tiller, Leaf, Leaf_Blade, Leaf_Sheath, Panicle, Panicle_Neck, Grain, Root, Stem); 0.7.0-dev |
 | | `GrowthStage` | 7 | Rice phenological stages (Seedling, Tillering, Flowering, etc.) |
 | | `EnvironmentalFactor` | 9 | Predisposing weather, canopy, and soil conditions |
 | **Agronomic Management** | `Treatment` | 13 | Chemical, biological, genetic, and cultural practices; `Zinc_Fertilizer_Application` added in 0.7.0-dev |
 | | `ManagementAction` | 5 | Operational actions (Immediate Intervention, Monitoring, etc.) |
 | | `ManagementCategory` | 4 | Control-method categories from AGROVOC: chemical, biological, cultural, host plant resistance; 0.7.0-dev |
-| | `SeverityLevel` | 4 | Low, Medium, High, and Critical severity scales |
-| **Total Named Individuals** | | **10,531** | *(10,407 images + 1 dataset + 123 domain entities)* |
+| | `SeverityLevel` | 4 | Low, Medium, High, and Critical; each annotated with the matching attack-intensity category (ringan, sedang, berat, puso) of the 2021 Indonesian pest-observation juknis. No severity → action mapping since 0.7.0-dev |
+| **Total Named Individuals** | | **10,538** | *(10,407 images + 1 dataset + 130 domain entities)* |
 
 ---
 
@@ -113,19 +113,19 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | | `sourceDatasetLabel` | 10 | `Disease ⊔ Pest ⊔ HealthStatus` → `xsd:string` | Dataset vocabulary mapping |
 | **Etiology & Susceptibility** | `vulnerableTo` | 55 | `Plant ⊔ GrowthStage` → `Disease ⊔ Pest ⊔ Pathogen` | IRRI RKB / CABI CPC |
 | | `occursIn` | 41 | `Disease ⊔ Pest ⊔ HealthStatus` → `GrowthStage` | IRRI RKB / Ou (1985) |
-| | `causes` | 12 | `Pathogen ⊔ AbioticFactor` → `Disease` | CABI / Ham / Hibino; IRRI nutrient fact sheets (4, 0.7.0-dev) |
+| | `causes` | 14 | `Pathogen ⊔ AbioticFactor` → `Disease` | CABI / Ham / Hibino; IRRI nutrient and toxicity fact sheets (6, 0.7.0-dev) |
 | | `transmits` | 2 | `Pest` → `Pathogen` | CABI / Hibino (1996) |
 | | `hasTransmissionMode` | 2 | `Pathogen` → `TransmissionMode` | Wang et al. (2022); 0.7.0-dev |
-| **Symptomatology & Risk Factors**| `indicatedBy` | 62 | `Disease ⊔ Pest` → `Symptom` | IRRI Rice Doctor / CABI / IRAC (2025); IRRI nutrient fact sheets (19, 0.7.0-dev) |
-| | `increaseRiskOf` | 32 | `EnvironmentalFactor` → `Disease ⊔ Pest` | CABI CPC / IRRI RKB |
-| **Plant Anatomy** | `affectsPlantPart` | 36 | `Symptom` → `PlantPart` | IRRI Rice Knowledge Bank fact sheets (13 pest/disease + 4 nutrient) |
+| **Symptomatology & Risk Factors**| `indicatedBy` | 70 | `Disease ⊔ Pest` → `Symptom` | IRRI Rice Doctor / CABI / IRAC (2025); IRRI nutrient fact sheets (19) and toxicity fact sheets (8), 0.7.0-dev |
+| | `increaseRiskOf` | 34 | `EnvironmentalFactor` → `Disease ⊔ Pest` | CABI CPC (29) / IRRI RKB (5) |
+| **Plant Anatomy** | `affectsPlantPart` | 39 | `Symptom` → `PlantPart` | IRRI Rice Knowledge Bank fact sheets (13 pest/disease + 4 nutrient + 3 toxicity) |
 | | `partOf` | 2 | `PlantPart` → `PlantPart` | Plant Ontology via EBI OLS4 (`ontology-derived`) |
-| **Control & Management** | `controlledBy` | 44 | `Disease ⊔ Pest` → `Treatment` | CABI / BBPOPT (2022) / Gallagher et al. (2002); IRRI zinc fact sheet (2) |
-| | `recommends` | 23 | `Disease ⊔ Pest ⊔ SeverityLevel` → `ManagementAction` | BBPOPT / IRRI |
-| | `preventedBy` | 8 | `Disease ⊔ Pest` → `Treatment` | IRRI RKB / CABI |
-| | `requires` | 5 | `Treatment` → `GrowthStage` | BBPOPT / IRRI GAP |
+| **Control & Management** | `controlledBy` | 44 | `Disease ⊔ Pest` → `Treatment` | CABI (41) / Gallagher et al. (2002, FAO) (1); IRRI zinc fact sheet (2) |
+| | `recommends` | 17 | `Disease ⊔ Pest ⊔ SeverityLevel` → `ManagementAction` | CABI; the 6 severity → action assertions were removed in 0.7.0-dev (unsourced) |
+| | `preventedBy` | 10 | `Disease ⊔ Pest` → `Treatment` | CABI (8); IRRI toxicity fact sheets (2, 0.7.0-dev) |
+| | `requires` | 5 | `Treatment` → `GrowthStage` | IRRI RKB (`Crop_Sanitation requires Harvest_Stage` re-sourced from BBPOPT to the IRRI tungro sheet in 0.7.0-dev) |
 | | `hasManagementCategory` | 6 | `Treatment` → `ManagementCategory` | IRRI RKB (2) / AGROVOC definitions (4, `ontology-derived`); 0.7.0-dev |
-| **Total domain assertions** | | **330** | *(0.7.0-dev, measured 2026-09-15 with rdflib; plus 10,407 `annotatedAs`, 1,442 `captures`, 10 `sourceDatasetLabel`, 15 `eppoCode`)* | **330 / 330 reified** |
+| **Total domain assertions** | | **341** | *(0.7.0-dev, measured 2026-09-15 with rdflib; plus 10,407 `annotatedAs`, 1,442 `captures`, 10 `sourceDatasetLabel`, 15 `eppoCode`)* | **341 / 341 reified** |
 
 > *Note on inverse properties:* All twelve inverse directions (`indicates`, `detectedBy`, `causedBy`, `prevents`, `controls`, `threatens`, etc.) and `detects` are declared in the schema for reasoning/querying symmetry.
 
@@ -145,13 +145,55 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | 0.7.0-dev (PlantPart) | 2026-09-15 | 67,090 (161,861 OWL RL) | 17 | 28 | 10,506 | 285 axioms / 285 assertions |
 | 0.7.0-dev (+ TransmissionMode) | 2026-09-15 | 67,120 (161,916 OWL RL) | 18 | 29 | 10,507 | 287 axioms / 287 assertions |
 | 0.7.0-dev (+ ManagementCategory, label/mapping fixes) | 2026-09-15 | 67,200 (162,043 OWL RL) | 19 | 30 | 10,511 | 293 axioms / 293 assertions |
-| **0.7.0-dev (+ AbioticFactor — in development)** | **2026-09-15** | **67,589** (162,778 OWL RL) | **20** | **30** | **10,531** | **330 axioms / 330 assertions** |
+| 0.7.0-dev (+ AbioticFactor, literal hygiene) | 2026-09-15 | 67,588 (162,775 OWL RL) | 20 | 30 | 10,531 | 330 axioms / 330 assertions |
+| **0.7.0-dev (BBPOPT source resolved, + iron toxicity, salinity — in development)** | **2026-09-15** | **67,708** (163,011 OWL RL) | **20** | **30** | **10,538** | **341 axioms / 341 assertions** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-09-15: 0.7.0-dev — unverified BBPOPT source resolved; iron toxicity and salinity
+
+Closes the BBPOPT open item and adds the excess side of `AbioticFactor` that the domain expert asked for. Decisions approved 2026-09-15. Pre-patch file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-sourcefix.rdf`.
+
+- **Severity triage removed (6 assertions, 6 axioms):** `Low_Severity recommends No_Action_Needed`, `Medium_Severity recommends Monitoring` and `Field_Inspection`, `High_Severity recommends Preventive_Action` and `Immediate_Intervention`, `Critical_Severity recommends Immediate_Intervention`. They cited "BBPOPT (2022)", which was never found. The two official guidelines that were read — *Petunjuk Teknis Pengamatan dan Pelaporan OPT dan DPI* 2018 (Kepdirjen TP No. 36/HK.310/C/3/2018) and its 2021 revision (Kepdirjen TP No. 127/HK.310/C/5/2021) — define attack-intensity categories but map none to an action. The 2021 version also contradicts the first assertion: its lightest category, *ringan*, already lies above the control threshold. The six are kept as questions for the domain expert (Open items). **CQ-13 falls from 4/4 to 0/4 (FAIL)**; the CQ was not edited and no replacement mapping was made up.
+- **`SeverityLevel` aligned to the 2021 juknis, as comments only:** Low/Medium/High/Critical ↔ ringan/sedang/berat/puso. Disease bands: above the control threshold up to 10%, >10–25%, >25–85%, >85%. Pest bands: up to 25%, >25–50%, >50–85%, >85%. The two band sets are kept apart. The comments say the correspondence is a modelling choice. No `skos` mapping was added, because the juknis has no IRIs. The class comment no longer says the levels drive management actions, and the ontology header no longer lists BBPOPT as a source.
+- **Re-sourced:** `Crop_Sanitation requires Harvest_Stage` now cites the IRRI tungro fact sheet ("Plow infected stubbles immediately after harvest to reduce inoculum sources…", checked live). **No axiom cites BBPOPT any more.** The juknis is cited by SK number, not URL: the only online copy found was an unofficial mirror.
+- **Iron toxicity and salinity (17 assertions):**
+  - **Sources:** the IRRI Rice Knowledge Bank fact sheets *Iron (Fe) toxicity* and *Salinity* (deficiencies and toxicities), read in full on 2026-09-15. Both conditions are also listed in the 2021 juknis (Tabel 11: keracunan Fe, "asem-aseman"; keracunan garam, Na and Cl), which the individuals' comments name. Assertions cite IRRI, whose pages are live.
+  - **Individuals:** `Iron_Toxicity` and `Salinity` (`AbioticFactor`) `causes` `Iron_Toxicity_Disorder` and `Salinity_Disorder`.
+  - **Symptoms, from each sheet's "How to identify" list only:**
+    - Iron toxicity: `Leaf_Bronzing` (new), `Stunted_Growth`, `Reduced_Tillering` ("extremely limited tillering") and `Black_Root` ("many black roots").
+    - Salinity: `White_Leaf_Tip` (new), `Chlorotic_Leaf_Patch` (new), `Stunted_Growth` and `Reduced_Tillering`.
+    - **Left out:** "leaves narrow but often remain green"; "purple-brown if severe" (a grade); orange-yellow drying tips "in some varieties"; "patchy field growth" (a field pattern).
+    - **Not reused:** `Yellow_Orange_Discoloration` (the tungro symptom) and `Dry_Leaf_Tip`/`Brown_Leaf_Tip` (a different colour).
+  - **Prevention only:** `preventedBy Water_Management` for both. For iron toxicity the sheet says "use intermittent irrigation and avoid continuous flooding"; for salinity, "submerge the field … leach the soil after planting under intermittent submergence". No `controlledBy`: both sheets say "There is currently no practical field management option to treat" the condition. Tolerant varieties were not mapped to `Resistant_Variety`, because tolerance of a soil stress is not host-plant resistance to a pest or pathogen.
+  - **Risk factors:** `Waterlogged_Soil` → iron toxicity ("lowland rice soils with permanent flooding during crop growth"); `Low_Rainfall` → salinity ("insufficient irrigation water in seasons/years with low rainfall").
+- **Checks:**
+  - **HermiT:** consistent with `-k`; `-U` lists only `owl:Nothing`; the control (`Salinity` as AbioticFactor + Pathogen) is inconsistent.
+  - **Provenance:** 341 axioms = 341 domain assertions, with 0 unreified, orphan, duplicate or incomplete axioms. Evidence types: 335 literature-curated, 6 ontology-derived.
+  - **OWL RL:** both new causes are typed only `AbioticFactor`.
+- **Result:** 67,708 asserted / 163,011 OWL RL triples. Benchmark **20 PASS / 3 PARTIAL / 1 FAIL / 1 DOC** (was 22 / 2 / 0 / 1).
+  - **CQ-13:** 0/4, FAIL.
+  - **CQ-01:** 7/15 (47%), PARTIAL. The two new disorders entered the Disease denominator, and an abiotic disorder has no pathogen by construction.
+  - **CQ-12:** 9/22 (41%).
+  - **Other figures:** CQ-02 21/22, CQ-03 17/22, CQ-04 39/39, CQ-05 13/22, CQ-11 10/15, CQ-15 169, CQ-18 1/39, CQ-21 341/341, CQ-23 18/30.
+  - **CQ-08:** 2/3 (was 1/2). `Water_Management` became a preventive treatment, and it already had growth-stage prerequisites.
+  - **Elicited CQs:** statuses unchanged (9 / 8 / 2). The CQ-A18 gap note was updated because it described the removed `recommends` links; the note text only, not the CQ or its queries.
+- **CQ-01 denominator corrected (approved 2026-09-15, after the run above):** the denominator now excludes diseases caused by an `AbioticFactor` (`FILTER NOT EXISTS { ?a rice:causes ?d . ?a a rice:AbioticFactor }`). An abiotic disorder cannot have a causal pathogen, so counting it as a gap measured the modelling pattern rather than missing knowledge; this is the counterpart of the earlier numerator fix. Because it also restores the verdict, both figures are reported: **7/9 PASS** (corrected) and 7/15 PARTIAL (original). Only CQ-01 was corrected; CQ-03, CQ-11 and CQ-12 still include abiotic disorders, since their questions apply to them. **Final benchmark: 21 PASS / 2 PARTIAL / 1 FAIL / 1 DOC.**
+
+### 2026-09-15: 0.7.0-dev — full consistency and provenance audit; literal and label hygiene
+
+Audit of the whole file after the abiotic patch. Pre-patch file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-hygiene.rdf`. No assertion added or removed.
+
+- **Logic:** HermiT consistent (`-k`), no unsatisfiable class (`-U` lists only `owl:Nothing`), control (`Black_Root` as Symptom + Disease) inconsistent.
+- **Provenance:** 330 domain assertions = 330 axioms, no assertion without an axiom, no duplicate or orphan axiom; every axiom has exactly one source, citation and evidence type; every URL inside a citation equals its `dcterms:source`; no domain or range violation (including the widened `causes`); no undeclared `rice:` IRI or property; no individual in two disjoint core classes.
+- **Sources checked live (41 unique):** all IRRI (23), IRAC and FAO pages 200; AGROVOC and PO IRIs resolve (301/303 → 200); the 14 CABI DOIs and the Wang et al. DOI resolve at doi.org (the CABI landing site refuses automated clients). **The BBPOPT homepage returns 403** — see Open items.
+- **Fixed (4):** the citation on `Crop_Sanitation requires Harvest_Stage` had no language tag (v0.6.1 tagged only its evidence type; CQ-24 checks evidence types only, so it passed) → `@en`; the `PaddyDoctorDataset` label → `@en`; `Empty_Grain` carried two labels, "Empty Grain" and "empty grain" → "empty grain" kept; `Biological_Control_Category` shared the label "biological control" with the Treatment `Biological_Control` → "biological control (category)".
+- **Result:** 67,588 asserted / 162,775 OWL RL triples; 330 axioms; HermiT consistent; benchmark (22 / 2 / 0 / 1) and elicited (9 / 8 / 2) unchanged.
+- **BBPOPT source investigated:** see the Open item — the cited 2022 guideline was not found, and the closest official juknis does not support the severity → action mapping.
 
 ### 2026-09-15: 0.7.0-dev — `AbioticFactor`: nutrient deficiencies as causes of disease
 
@@ -559,10 +601,13 @@ assertions, verified with no duplicates and no orphans. Triples: 67,236 →
   `Worklog/RiceMMKG_cleanup_worklog/contenturl_base.md`.
 - **Permanent identifier:** `w3id.org` path segment to be registered for PURL minting.
 - **Version status:** `0.7.0-dev` in `Rice MMKG.rdf` (as of 2026-09-15). Tags `v0.6.1` (commit `1d13542`) and `v0.6.2` mark the last two releases; the final number of the next release is set when it is tagged.
-- **Competency Questions (CQs) Benchmark:** 25 CQs benchmarked via `cq_sparql_benchmark.py`: 0.7.0-dev scores 91.7% (22 PASS / 2 PARTIAL / 0 FAIL / 1 DOC); v0.6.1/v0.6.2 scored 95.8% (23 / 1 / 0 / 1). Full documentation in `CQ_SPARQL_Documentation.md`.
-- **Automated Reasoner verified:** OWL RL deductive closure via Python `owlrl` (+95,189 triples) and HermiT consistency on 0.7.0-dev (with verified control cases).
-- **Nutrient disorders are thinly connected** — no growth stage, no ManagementAction, and control only for zinc; this is what moved CQ-12 to PARTIAL (9/20). Each link needs a source that states it; the N, P and K sheets give fertilizer rates by yield target rather than as a remedy.
-- **Nutrient excess and toxicity not modelled** — the IRRI sheets cover deficiencies only (iron toxicity is mentioned once, as a look-alike of Zn deficiency).
+- **Competency Questions (CQs) Benchmark:** 25 CQs benchmarked via `cq_sparql_benchmark.py`: 0.7.0-dev scores 87.5% (21 PASS / 2 PARTIAL / 1 FAIL / 1 DOC); v0.6.1/v0.6.2 scored 95.8% (23 / 1 / 0 / 1). Full documentation in `CQ_SPARQL_Documentation.md`.
+- **Automated Reasoner verified:** OWL RL deductive closure via Python `owlrl` (+95,187 triples) and HermiT consistency on 0.7.0-dev (with verified control cases).
+- **Severity → action triage: questions for the domain expert.** The six assertions removed on 2026-09-15 (see changelog) are open questions, not facts. Which action does each juknis category warrant? In particular, does *ringan* (already above the control threshold) call for monitoring or for control? Does the answer differ between diseases and pests? If the expert confirms a mapping, re-add it with `rice:evidenceType "expert-elicited"` and the elicitation date (identity kept in the gitignored notes). CQ-13 stays FAIL until then.
+- ~~**CQ-01 denominator includes abiotic disorders**~~ — resolved 2026-09-15: denominator corrected to exclude diseases with an abiotic cause; 7/9 PASS, uncorrected 7/15 reported alongside (see changelog and `CQ_SPARQL_Documentation.md`).
+- ~~**BBPOPT (2022) citation could not be verified**~~ — resolved 2026-09-15: triage removed, `Crop_Sanitation requires Harvest_Stage` re-sourced to IRRI, SeverityLevel aligned to the 2021 juknis as comments (see changelog). Original note: 7 assertions (the severity → ManagementAction triage: `Low_Severity recommends No_Action_Needed`, `Medium_Severity recommends Monitoring` and `Field_Inspection`, `High_Severity recommends Preventive_Action` and `Immediate_Intervention`, `Critical_Severity recommends Immediate_Intervention`; and `Crop_Sanitation requires Harvest_Stage`) cite "BBPOPT (2022). Pedoman Pengamatan dan Pengendalian OPT Tanaman Padi" with the BBPOPT homepage as source, which returns 403. Searched 2026-09-15: no document of that title was found. The closest official document, *Petunjuk Teknis Pengamatan dan Pelaporan OPT dan DPI* (Direktorat Perlindungan Tanaman Pangan, 2018; Kepdirjen TP No. 36/HK.310/C/3/2018), defines attack-intensity categories — ringan, sedang, berat, puso, with percentage bands (Tables 4–5) — and control thresholds per pest (Lampiran 3), but **does not map a category to a specific action** and does not mention sanitation at harvest. The triage assertions are therefore unsupported by any document found so far; decision pending (re-source, remodel on the juknis categories, or remove).
+- **Abiotic disorders are thinly connected** — no growth stage, no ManagementAction, and control only for zinc (iron toxicity and salinity have prevention only; IRRI states no practical treatment exists); this is what moved CQ-12 to PARTIAL (9/22). Each link needs a source that states it; the N, P and K sheets give fertilizer rates by yield target rather than as a remedy.
+- ~~**Nutrient excess and toxicity not modelled**~~ — iron toxicity and salinity added 2026-09-15 from the IRRI toxicity fact sheets (see changelog). IRRI lists further toxicities (aluminum, boron, manganese, sulfide, nitrogen excess) not yet modelled; add only if a source or the expert makes them relevant to Indonesian rice.
 - **Potassium deficiency vs tungro** — IRRI warns the leaf symptoms can be confused (tungro occurs in patches, with more pronounced yellow-orange leaves). The two now share `Stunted_Growth`; the distinguishing field pattern is not modelled.
 - **Tungro virus retention period** — Wang et al. (2022) give 4–5 days (RTBV) and 2–4 days (RTSV); IRRI says transmission within 5–7 days. Not asserted until the discrepancy is resolved.
 - **Six treatments without a management category** — `Fungicide_Application` (only indirect evidence for "chemical"), `Water_Management` (physical per IRRI vs cultural per AGROVOC), `Seed_Treatment` (chemical or physical depending on method), `Neem_Based_Pesticide` (biopesticide vs plant-derived chemical), `Vector_Control` (spans categories), `Good_Agricultural_Practice` (unused). Each needs a source that places it, or — for the mixed ones — a split into separate treatments.

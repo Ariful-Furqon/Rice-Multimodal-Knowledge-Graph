@@ -52,7 +52,10 @@ CQS = [
         "rationale": "Aetiological completeness. A disease without a causal agent "
                      "cannot support any downstream causal query.",
         "num": PREFIX + "SELECT DISTINCT ?d WHERE { ?d a rice:Disease . ?p rice:causes ?d . ?p a rice:Pathogen }",
-        "den": PREFIX + "SELECT DISTINCT ?d WHERE { ?d a rice:Disease }",
+        # Denominator corrected 2026-09-15: a disease with an abiotic cause cannot have a
+        # causal pathogen, so the question does not apply to it. Was: every rice:Disease.
+        "den": PREFIX + """SELECT DISTINCT ?d WHERE { ?d a rice:Disease .
+  FILTER NOT EXISTS { ?a rice:causes ?d . ?a a rice:AbioticFactor } }""",
         "unit": "disease",
     },
     {

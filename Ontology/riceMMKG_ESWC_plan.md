@@ -16,13 +16,13 @@ Construction, evaluation, and publication roadmap for the **ESWC 2027 Resource T
 | Metric / Dimension | Current State (v0.6.2) | Comparator (RiceDO) | Target for Submission |
 |---|---|---|---|
 | **Ontology Version** | **`0.6.2`** | `1.0` | `1.0` (release tagged for submission) |
-| **Asserted Triples** | **66,802** (0.7.0-dev: 67,589) | ~1,200 | Grows with symptom-level image grounding; no fixed triple target |
-| **Materialised Triples (OWL RL)** | **161,447** (+94,645 triples; 0.7.0-dev: 162,778) | — | Re-measured at release |
+| **Asserted Triples** | **66,802** (0.7.0-dev: 67,708) | ~1,200 | Grows with symptom-level image grounding; no fixed triple target |
+| **Materialised Triples (OWL RL)** | **161,447** (+94,645 triples; 0.7.0-dev: 163,011) | — | Re-measured at release |
 | **Modalities** | Populated: text-curated domain layer + **10,407** image observations. Declared but empty: `SensorObservation`. Not modelled: genomic | Text only | **Open — decided at the Phase 3 checkpoint.** Candidates: sensor (if data can be obtained), genomic (raised by expert feedback) |
 | **Symptom-level image grounding** | `captures` on 1,442 images, all to one symptom (CQ-18: 1/27) | 0 | Multiple symptoms grounded from expert annotation (see Phase 3) |
-| **Domain-Level Assertions** | **256 assertions, 256 reified axioms (100% cited)**; 0.7.0-dev: 330 / 330 | 18 diseases | 100% literature-grounded, checked by CQ-21 + extended CQ-22 |
+| **Domain-Level Assertions** | **256 assertions, 256 reified axioms (100% cited)**; 0.7.0-dev: 341 / 341 (the 7 unverifiable BBPOPT axioms removed or re-sourced) | 18 diseases | 100% literature-grounded, checked by CQ-21 + extended CQ-22 |
 | **Reasoner Consistency** | **Consistent (HermiT, 2026-09-14, with an injected-contradiction control)**; 0.7.0-dev re-checked 2026-09-15 with two controls | Verified | Consistent at release, re-checked after every schema change |
-| **Competency Questions** | **25 benchmark CQs** (v0.6.2: 23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC; 0.7.0-dev: 22 / 2 / 0 / 1 after abiotic disorders entered CQ-12's denominator); **19 of 25 elicited CQs** queried (v0.6.2: 7 answer, 10 partial, 2 no answer; 0.7.0-dev: 9 / 8 / 2 after CQ-A02 and CQ-A07 were answered) | Qualitative CQs | Both instruments re-run against the tagged v0.6 baseline |
+| **Competency Questions** | **25 benchmark CQs** (v0.6.2: 23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC; 0.7.0-dev: 21 / 2 / 1 / 1 — CQ-12 PARTIAL after abiotic disorders entered its denominator, CQ-13 FAIL after the unsourced severity triage was removed, CQ-01 denominator corrected to exclude abiotic disorders with both figures reported); **19 of 25 elicited CQs** queried (v0.6.2: 7 answer, 10 partial, 2 no answer; 0.7.0-dev: 9 / 8 / 2 after CQ-A02 and CQ-A07 were answered) | Qualitative CQs | Both instruments re-run against the tagged v0.6 baseline |
 | **Permanent URI (PURL)** | Local namespace (`.../riceMMKG#`) | `purl.org/ricedo` | `w3id.org/<segment>` live — **segment to confirm** (`ricemmkg` or `rice-mmkg`) |
 | **FAIR Score (FOOPS!)** | 0.7275 (v0.5 schema-only baseline, 2026-08-22; main gap: no PURL) | — | **> 0.85**, measured once on the release |
 | **Registry Findability** | GitHub repository | IEEE DataPort | **AgroPortal** entry + **Zenodo DOI** for the release |
@@ -120,6 +120,7 @@ Phase 6: Resource Paper & Submission (Weeks 11–14: mid Nov – early Dec)
      - ~~transmission mode for vectors (CQ-A02);~~ **Done 2026-09-15 (0.7.0-dev):** `TransmissionMode` / `Semi_Persistent`, `hasTransmissionMode` on both tungro viruses citing Wang et al. (2022); CQ-A02 now **answers**. Retention period not asserted (sources disagree);
      - ~~management category and source authority for control measures (CQ-A07).~~ **Done 2026-09-15 (0.7.0-dev):** source authority was already in the provenance axioms (query fixed); `ManagementCategory` (4 AGROVOC categories) and `hasManagementCategory` on 6 treatments; 6 others left uncategorised for lack of a clear source. CQ-A07 now **answers**.
      - **Added 2026-09-15 from domain-expert feedback (0.7.0-dev):** abiotic causes — `AbioticFactor` (N, P, K, Zn deficiency) causing four nutritional disorders, from the IRRI nutrient fact sheets. `causes` domain widened to Pathogen ⊔ AbioticFactor; benchmark CQ-01 numerator corrected to count pathogens only. CQ-12 now PARTIAL (9/20): the disorders have no sourced ManagementAction.
+     - **Added 2026-09-15 (0.7.0-dev):** excess side — iron toxicity and salinity from the IRRI toxicity fact sheets (both also in the 2021 Indonesian juknis). Same day, the unverifiable BBPOPT (2022) source was resolved: the six severity → action assertions were removed (no guideline maps a category to an action; kept as expert questions), `Crop_Sanitation requires Harvest_Stage` re-sourced to IRRI. CQ-01 denominator then corrected to exclude abiotic disorders (7/9; uncorrected 7/15, both reported). Benchmark 21 / 2 / 1 / 1: CQ-13 FAIL.
   2. **Expert image annotation → graph:** from the 250-image sample, add `captures` to further symptoms (CQ-18, CQ-A15, A16, A21), organ per image (CQ-A14), and severity per image (CQ-A18). None of these can be derived from Paddy Doctor labels or literature — they must come from annotators.
   3. **Re-measure:** run `cq_sparql_benchmark.py` and `elicited_cq_sparql.py`, compare against `elicited-baseline-v0.6`, re-check HermiT. Never edit a CQ because its query returns little.
   4. **If the checkpoint admits sensor and/or genomic data:** model the module, ingest the real data, link it to existing entities, add or activate the relevant CQs (Tier B elicited CQs become measurable; benchmark CQ-20 stops being `documented`), re-check HermiT.
@@ -174,9 +175,9 @@ Phase 6: Resource Paper & Submission (Weeks 11–14: mid Nov – early Dec)
 |---|---|---|---|
 | **Visual Modality** | None (Text only) | **10,407 field images** linked to domain concepts | Complementary expansion: RiceDO explicitly requested image grounding in their future work |
 | **Observation / Evidence Separation** | Conflated | `annotatedAs` (dataset label) vs. `captures` (evidence) | Prevents noisy ML labels from corrupting domain truths |
-| **Traceable Provenance** | Unreified | **256/256 domain assertions reified with `owl:Axiom`**, CABI sources as DOIs | Auditable to CABI, IRRI, BBPOPT, FAO and IRAC literature |
+| **Traceable Provenance** | Unreified | **256/256 domain assertions reified with `owl:Axiom`**, CABI sources as DOIs | Auditable to CABI, IRRI, FAO and IRAC literature (BBPOPT citations withdrawn in 0.7.0-dev: the cited guideline could not be found) |
 | **Interoperability** | Partial | Mapped to **EPPO, AGROVOC, NCBI Taxonomy and PECO** | FAIR cross-linking across biological registries |
-| **Decision Support** | High-level advice | **End-to-end 4-hop DSS chain** + severity triage | Practical farm-level advisory utility |
+| **Decision Support** | High-level advice | **End-to-end 4-hop DSS chain**; severity triage pending expert confirmation (unsourced mapping removed in 0.7.0-dev) | Practical farm-level advisory utility |
 | **Requirements basis** | Qualitative CQs | Benchmark CQs **and** LLM-elicited, expert-rated CQs with measured answerability | Requirements not written to fit the existing graph |
 
 ---
@@ -197,6 +198,9 @@ Phase 6: Resource Paper & Submission (Weeks 11–14: mid Nov – early Dec)
 - [x] **Management category and source authority** (2026-09-15, 0.7.0-dev) — CQ-A07 answers; 6 treatments still uncategorised (see `Ontology_Overview.md` open items).
 - [x] **Record the expert's schema feedback** (2026-09-15) — kept locally, not published (`Analysis and Alignment/Expert_Input_2026-09-14.md`, gitignored). Genome input still to be recorded.
 - [x] **Abiotic causes** (2026-09-15, 0.7.0-dev) — N, P, K, Zn deficiency; CQ-12 PARTIAL as a consequence.
+- [x] **BBPOPT source and abiotic excess** (2026-09-15, 0.7.0-dev) — triage removed, Crop_Sanitation re-sourced, iron toxicity and salinity added; CQ-13 FAIL.
+- [ ] **Ask the expert for the severity → action mapping** (per juknis category; diseases vs pests) — CQ-13 stays FAIL until answered.
+- [x] **CQ-01 denominator** (2026-09-15) — abiotic disorders excluded by criterion; 7/9, uncorrected 7/15 reported. Paper must state this correction alongside the numerator fix.
 - [ ] **Remaining expert points:** pathogen groups (CQ-A01), variety-specific treatment, insect vs vertebrate pests, weeds in or out of scope, Pest → Disease endpoint.
 - [ ] **Send to experts:** Stage 5 questionnaire; image annotation **deferred to last** (2026-09-15), but out by mid-October.
 - [ ] **Re-check presentation slides** — they still quote pre-fix v0.6 figures.
