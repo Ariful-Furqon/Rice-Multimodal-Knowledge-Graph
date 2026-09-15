@@ -1,9 +1,9 @@
 # Rice MMKG - Competency Question SPARQL Benchmark
 
-**Generated:** 2026-09-15 12:08  
+**Generated:** 2026-09-15 12:22  
 **Ontology:** `Rice MMKG.rdf`  
-**Asserted triples:** 67,120  
-**After OWL RL materialisation:** 161,916 (+94,796, 26.8s)  
+**Asserted triples:** 67,199  
+**After OWL RL materialisation:** 162,041 (+94,842, 28.5s)  
 **Coverage threshold:** 50%
 
 ## 1. Evaluation design
@@ -71,7 +71,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 | CQ-18 | L1 | D2 | `coverage` | **PARTIAL** | 1/27 symptom (4%) |
 | CQ-19 | L1 | D2 | `negative` | **PASS** | 0 violation(s) |
 | CQ-20 | L1 | D2 | `documented` | **DOCUMENTED** | 0 individual(s) |
-| CQ-21 | L4 | D3 | `coverage` | **PASS** | 287/287 reified axiom (100%) |
+| CQ-21 | L4 | D3 | `coverage` | **PASS** | 293/293 reified axiom (100%) |
 | CQ-22 | L4 | D3 | `negative` | **PASS** | 0 violation(s) |
 | CQ-23 | L4 | D3 | `coverage` | **PASS** | 18/24 biological entity (75%) |
 | CQ-24 | L4 | D3 | `negative` | **PASS** | 0 violation(s) |
@@ -85,7 +85,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** Aetiological completeness. A disease without a causal agent cannot support any downstream causal query.
 
-**Measurement.** 7 of 9 disease covered - 77.8% (92.0 ms).
+**Measurement.** 7 of 9 disease covered - 77.8% (118.5 ms).
 
 **Not covered (2).** `rice:Deadheart`, `rice:Sheath_Blight`
 
@@ -97,7 +97,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** Diagnosability. Without a symptom link an entity is invisible to field-observation-driven inference.
 
-**Measurement.** 15 of 16 disease/pest covered - 93.8% (7.9 ms).
+**Measurement.** 15 of 16 disease/pest covered - 93.8% (10.4 ms).
 
 **Not covered (1).** `rice:Nephotettix_Virescens`
 
@@ -109,7 +109,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** Actionability. The KG must not diagnose what it cannot advise on.
 
-**Measurement.** 16 of 16 disease/pest covered - 100.0% (5.8 ms).
+**Measurement.** 16 of 16 disease/pest covered - 100.0% (9.0 ms).
 
 ---
 
@@ -119,7 +119,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** Detects orphan symptoms - vocabulary declared but never used in a diagnostic pattern.
 
-**Measurement.** 27 of 27 symptom covered - 100.0% (3.6 ms).
+**Measurement.** 27 of 27 symptom covered - 100.0% (4.7 ms).
 
 ---
 
@@ -129,7 +129,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** Multi-criteria contextualisation. Both joins are mandatory (no OPTIONAL), so the CQ measures real co-population of occursIn and increaseRiskOf.
 
-**Measurement.** 13 of 16 disease/pest covered - 81.2% (26.7 ms).
+**Measurement.** 13 of 16 disease/pest covered - 81.2% (39.9 ms).
 
 **Not covered (3).** `rice:Leaf_Folder`, `rice:Nephotettix_Virescens`, `rice:Rice_Bug`
 
@@ -137,18 +137,18 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 | stage | e | f |
 |---|---|---|
-| rice:Flowering_Stage | rice:Bacterial_Leaf_Streak | rice:High_Temperature |
 | rice:Flowering_Stage | rice:Bacterial_Leaf_Streak | rice:High_Humidity |
-| rice:Flowering_Stage | rice:Bacterial_Panicle_Blight | rice:High_Night_Temperature |
-| rice:Flowering_Stage | rice:Bacterial_Panicle_Blight | rice:High_Temperature |
+| rice:Flowering_Stage | rice:Bacterial_Leaf_Streak | rice:High_Temperature |
 | rice:Flowering_Stage | rice:Bacterial_Panicle_Blight | rice:High_Humidity |
-| rice:Flowering_Stage | rice:Brown_Planthopper | rice:Excessive_Nitrogen |
+| rice:Flowering_Stage | rice:Bacterial_Panicle_Blight | rice:High_Temperature |
+| rice:Flowering_Stage | rice:Bacterial_Panicle_Blight | rice:High_Night_Temperature |
 | rice:Flowering_Stage | rice:Brown_Planthopper | rice:High_Temperature |
+| rice:Flowering_Stage | rice:Brown_Planthopper | rice:Excessive_Nitrogen |
 | rice:Flowering_Stage | rice:Rice_Blast_Disease | rice:High_Humidity |
 | rice:Flowering_Stage | rice:Rice_Blast_Disease | rice:Low_Rainfall |
-| rice:Flowering_Stage | rice:Sheath_Blight | rice:Poor_Soil_Drainage |
 | rice:Flowering_Stage | rice:Sheath_Blight | rice:High_Humidity |
-| rice:Maturity_Stage | rice:Bacterial_Panicle_Blight | rice:High_Night_Temperature |
+| rice:Flowering_Stage | rice:Sheath_Blight | rice:Poor_Soil_Drainage |
+| rice:Maturity_Stage | rice:Bacterial_Panicle_Blight | rice:High_Humidity |
 
 ---
 
@@ -158,7 +158,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** vulnerableTo is the most frequently asserted domain relation in the KG (59 triples), so it must be exercised directly.
 
-**Measurement.** 6 of 7 growth stage covered - 85.7% (6.7 ms).
+**Measurement.** 6 of 7 growth stage covered - 85.7% (6.8 ms).
 
 **Not covered (1).** `rice:Harvest_Stage`
 
@@ -170,7 +170,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** Integrity constraint. If stage G is vulnerableTo entity E, then E should occursIn G. Any row is an inconsistency.
 
-**Measurement.** 0 violation(s) (7.3 ms). Constraint holds.
+**Measurement.** 0 violation(s) (10.3 ms). Constraint holds.
 
 ---
 
@@ -180,7 +180,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** Prevention advice without a timing constraint is not operationalisable in the field.
 
-**Measurement.** 1 of 2 preventive treatment covered - 50.0% (3.0 ms).
+**Measurement.** 1 of 2 preventive treatment covered - 50.0% (4.7 ms).
 
 **Not covered (1).** `rice:Seed_Treatment`
 
@@ -192,7 +192,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** The canonical multi-hop epidemiological query. The denominator is the set of pests asserted to transmit something (not all pests), so the measure is chain completeness, not vector prevalence.
 
-**Measurement.** 1 of 1 declared vector covered - 100.0% (5.0 ms).
+**Measurement.** 1 of 1 declared vector covered - 100.0% (7.6 ms).
 
 **Instantiations** (2 total, first 2 shown):
 
@@ -209,7 +209,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** A vector chain that cannot be interrupted has no advisory value. Splitting this from CQ-09 separates 'the chain exists' from 'the chain is actionable'.
 
-**Measurement.** 0 violation(s) (2.2 ms). Constraint holds.
+**Measurement.** 0 violation(s) (3.1 ms). Constraint holds.
 
 ---
 
@@ -219,24 +219,24 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** End-to-end decision-support path. This is the query an advisory application actually needs to answer.
 
-**Measurement.** 9 of 9 disease covered - 100.0% (354.9 ms).
+**Measurement.** 9 of 9 disease covered - 100.0% (498.0 ms).
 
 **Instantiations** (277 total, first 12 shown):
 
 | d | f | s | t |
 |---|---|---|---|
-| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Wilting | rice:Crop_Sanitation |
-| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Wilting | rice:Crop_Rotation |
-| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Wilting | rice:Water_Management |
-| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Wilting | rice:Resistant_Variety |
-| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Yellow_Leaf | rice:Crop_Sanitation |
-| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Yellow_Leaf | rice:Crop_Rotation |
-| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Yellow_Leaf | rice:Water_Management |
-| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Yellow_Leaf | rice:Resistant_Variety |
-| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Leaf_Rolling | rice:Crop_Sanitation |
-| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Leaf_Rolling | rice:Crop_Rotation |
-| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Leaf_Rolling | rice:Water_Management |
-| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Leaf_Rolling | rice:Resistant_Variety |
+| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Dry_Leaf_Tip | rice:Crop_Rotation |
+| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Dry_Leaf_Tip | rice:Water_Management |
+| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Dry_Leaf_Tip | rice:Crop_Sanitation |
+| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Dry_Leaf_Tip | rice:Resistant_Variety |
+| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Leaf_Rolling | rice:Crop_Rotation |
+| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Leaf_Rolling | rice:Water_Management |
+| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Leaf_Rolling | rice:Crop_Sanitation |
+| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Leaf_Rolling | rice:Resistant_Variety |
+| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Yellow_Leaf | rice:Crop_Rotation |
+| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Yellow_Leaf | rice:Water_Management |
+| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Yellow_Leaf | rice:Crop_Sanitation |
+| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Yellow_Leaf | rice:Resistant_Variety |
 
 ---
 
@@ -246,7 +246,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** Tests that diagnosis terminates in an operational decision. Note the direction of rice:recommends in this KG is entity -> action, not action -> treatment.
 
-**Measurement.** 9 of 16 disease/pest covered - 56.2% (6.0 ms).
+**Measurement.** 9 of 16 disease/pest covered - 56.2% (8.2 ms).
 
 **Not covered (7).** `rice:Armyworm`, `rice:Brown_Planthopper`, `rice:Leaf_Folder`, `rice:Nephotettix_Virescens`, `rice:Rice_Bug`, `rice:Sheath_Blight`, `rice:Stem_Borer`
 
@@ -258,7 +258,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** Severity-driven triage is the decision layer of the KG. A severity level with no action is a hole in the advisory logic.
 
-**Measurement.** 4 of 4 severity level covered - 100.0% (5.3 ms).
+**Measurement.** 4 of 4 severity level covered - 100.0% (6.9 ms).
 
 **Instantiations** (6 total, first 6 shown):
 
@@ -268,8 +268,8 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 | rice:High_Severity | rice:Immediate_Intervention |
 | rice:High_Severity | rice:Preventive_Action |
 | rice:Low_Severity | rice:No_Action_Needed |
-| rice:Medium_Severity | rice:Monitoring |
 | rice:Medium_Severity | rice:Field_Inspection |
+| rice:Medium_Severity | rice:Monitoring |
 
 ---
 
@@ -279,7 +279,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** The one genuine defined class in the ontology. Asserted membership is zero by construction; a non-zero entailed count proves the OWL axiomatisation does work SPARQL alone cannot.
 
-**Measurement.** 0 answer(s) on the asserted graph, 1442 after OWL RL materialisation (**+1442** contributed by reasoning, 15.6 ms).
+**Measurement.** 0 answer(s) on the asserted graph, 1442 after OWL RL materialisation (**+1442** contributed by reasoning, 22.0 ms).
 
 ---
 
@@ -289,7 +289,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** 14 of 26 object properties are declared as owl:inverseOf but never asserted. Query robustness depends on materialising them.
 
-**Measurement.** 0 answer(s) on the asserted graph, 134 after OWL RL materialisation (**+134** contributed by reasoning, 6.5 ms).
+**Measurement.** 0 answer(s) on the asserted graph, 134 after OWL RL materialisation (**+134** contributed by reasoning, 9.5 ms).
 
 ---
 
@@ -299,7 +299,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** The central multimodal claim of the KG. The denominator is restricted to images annotated with a Disease or Pest: images labelled with a HealthStatus (healthy plants) correctly have no symptom or treatment, and including them would understate grounding by a fixed 17%.
 
-**Measurement.** 8643 of 8643 diagnostic image covered - 100.0% (2018.1 ms).
+**Measurement.** 8643 of 8643 diagnostic image covered - 100.0% (2293.9 ms).
 
 ---
 
@@ -309,7 +309,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** Checks that dataset labels were reconciled with the ontology rather than left as free-floating individuals.
 
-**Measurement.** 10 of 10 annotated class covered - 100.0% (439.2 ms).
+**Measurement.** 10 of 10 annotated class covered - 100.0% (408.9 ms).
 
 ---
 
@@ -319,7 +319,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** Symptom-level visual grounding is what distinguishes an MMKG from a text ontology with images bolted on. Expected to expose the sharpest gap in the current release.
 
-**Measurement.** 1 of 27 symptom covered - 3.7% (17.4 ms).
+**Measurement.** 1 of 27 symptom covered - 3.7% (16.1 ms).
 
 **Not covered (26).** `rice:Brown_Leaf_Tip`, `rice:Brown_Lesion`, `rice:Chewed_Leaf`, `rice:Discolored_Panicle`, `rice:Dry_Leaf_Tip`, `rice:Empty_Grain`, `rice:Excessive_Tillering`, `rice:Grain_Discoloration`, `rice:Hopper_Burn`, `rice:Leaf_Rolling`, `rice:Leaf_Scratching`, `rice:Leaf_Spot`, `rice:Neck_Rot`, `rice:Panicle_Blast`, `rice:Reduced_Tillering`, `rice:Stem_Rot_Symptom`, `rice:Sterile_Panicle`, `rice:Stunted_Growth`, `rice:Translucent_Stripe`, `rice:Water_Soaked_Streak`, `rice:White_Ear`, `rice:White_Streak`, `rice:Wilting`, `rice:Yellow_Leaf`, `rice:Yellow_Orange_Discoloration` ...
 
@@ -331,7 +331,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** Integrity constraint on the media layer. Any row means an image cannot be retrieved or attributed.
 
-**Measurement.** 0 violation(s) (888.6 ms). Constraint holds.
+**Measurement.** 0 violation(s) (859.9 ms). Constraint holds.
 
 ---
 
@@ -341,7 +341,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** Declared extension point. Recorded as a measurement, not scored, so the roadmap gap stays visible without inflating or deflating the pass rate.
 
-**Measurement.** 0 individual(s) (1.5 ms). Recorded, not scored.
+**Measurement.** 0 individual(s) (1.8 ms). Recorded, not scored.
 
 ---
 
@@ -351,7 +351,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** Provenance completeness - the scientific-defensibility claim of the KG.
 
-**Measurement.** 287 of 287 reified axiom covered - 100.0% (11.8 ms).
+**Measurement.** 293 of 293 reified axiom covered - 100.0% (13.6 ms).
 
 ---
 
@@ -361,7 +361,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** Integrity constraint complementing CQ-21. Extended on 2026-09-14: the original form checked only axioms that exist, so an assertion with no axiom at all was invisible to both CQ-21 and CQ-22, and v0.6 carried two such assertions while both reported full provenance. Runs on the asserted graph, since materialised inverses are never reified and would all count as violations.
 
-**Measurement.** 0 violation(s) (152.6 ms). Constraint holds.
+**Measurement.** 0 violation(s) (155.1 ms). Constraint holds.
 
 ---
 
@@ -383,7 +383,7 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** Literal-hygiene constraint. An untagged duplicate of a tagged value silently splits GROUP BY and breaks lang() filters.
 
-**Measurement.** 0 violation(s) (10.7 ms). Constraint holds.
+**Measurement.** 0 violation(s) (10.0 ms). Constraint holds.
 
 ---
 
@@ -393,6 +393,6 @@ All mandatory hops are expressed **without `OPTIONAL`**. This is the decisive ru
 
 **Why this CQ.** Category discipline. Symptom and Disease are intended to be disjoint; an overlap means either a mistyped individual or a property domain that is declared too narrowly. This constraint is checked on the materialised graph, because the conflict is produced by inference and is invisible in the asserted triples.
 
-**Measurement.** 0 violation(s) (1.9 ms). Constraint holds.
+**Measurement.** 0 violation(s) (1.5 ms). Constraint holds.
 
 ---

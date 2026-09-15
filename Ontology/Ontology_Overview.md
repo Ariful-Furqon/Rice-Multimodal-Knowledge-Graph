@@ -55,18 +55,18 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **67,120** (asserted) / **161,916** (OWL RL) | 0.7.0-dev. +94,796 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
-| **Named classes** | 18 | 15 primitive (incl. `PlantPart` and `TransmissionMode`, 0.7.0-dev) + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class (`SymptomaticObservation`) |
-| **Object properties** | 29 | All declared with explicit domain and range; includes `transmits`/`transmittedBy`, and `affectsPlantPart`, transitive `partOf` and `hasTransmissionMode` (0.7.0-dev) |
+| **Total triples** | **67,199** (asserted) / **162,041** (OWL RL) | 0.7.0-dev. +94,842 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Named classes** | 19 | 16 primitive (incl. `PlantPart`, `TransmissionMode` and `ManagementCategory`, 0.7.0-dev) + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class (`SymptomaticObservation`) |
+| **Object properties** | 30 | All declared with explicit domain and range; includes `transmits`/`transmittedBy`, and `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode` and `hasManagementCategory` (0.7.0-dev) |
 | **Datatype properties** | 5 | All declared with explicit domain and range |
 | **Annotation properties** | 14 | Includes `rice:evidenceType`, PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
-| **Named individuals** | **10,507** | 10,407 image individuals + 1 dataset metadata + 99 domain entities (8 `PlantPart`, 1 `TransmissionMode`) |
-| **`owl:Axiom` (provenance)** | **287** | **287 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev). v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
+| **Named individuals** | **10,511** | 10,407 image individuals + 1 dataset metadata + 103 domain entities (8 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`) |
+| **`owl:Axiom` (provenance)** | **293** | **293 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev). v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
-| **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (14 classes; `PlantPart` and `TransmissionMode` added in 0.7.0-dev) |
-| **Reasoner Consistency** | **Consistent** | 0.7.0-dev checked in **HermiT** on 2026-09-15 with `-k` on a space-free copy, with injected-contradiction controls (`Rice` as Plant + Disease; `Leaf_Blade` as PlantPart + Disease; `Semi_Persistent` as TransmissionMode + Disease) that all report inconsistent; v0.6 verified in HermiT & Pellet |
+| **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (15 classes; `PlantPart`, `TransmissionMode` and `ManagementCategory` added in 0.7.0-dev) |
+| **Reasoner Consistency** | **Consistent** | 0.7.0-dev checked in **HermiT** on 2026-09-15 with `-k` on a space-free copy, with injected-contradiction controls (`Rice` as Plant + Disease; `Leaf_Blade` as PlantPart + Disease; `Semi_Persistent` as TransmissionMode + Disease; `Chemical_Control_Category` as ManagementCategory + Disease) that all report inconsistent; v0.6 verified in HermiT & Pellet |
 | **Competency Questions (CQ)** | **23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC** | **95.8% pass rate** across 24 scored CQs (25 total). Released v0.6: 21 / 1 / 2 / 1 |
-| **`skos:exactMatch` / `closeMatch` / `broadMatch`** | 38 / 20 / 1 | Mapped to AGROVOC / NCBI Taxonomy / Planteome (PECO, PO) and BFO, verified against live APIs |
+| **`skos:exactMatch` / `closeMatch` / `broadMatch`** | 41 / 22 / 1 | Mapped to AGROVOC / NCBI Taxonomy / Planteome (PECO, PO) and BFO, verified against live APIs |
 | **`TODO` literals remaining** | **0** | **100% resolved (dataset metadata & EPPO codes verified)** |
 | **Properties with no declared domain/range** | 0 / 0 | 100% coverage |
 
@@ -74,7 +74,7 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 ### Per-class individual counts
 
-The 10,507 individuals in the knowledge graph are categorized by domain layer:
+The 10,511 individuals in the knowledge graph are categorized by domain layer:
 
 | Domain Category | Class Name | Count | Type / Description |
 |---|---|---:|---|
@@ -95,8 +95,9 @@ The 10,507 individuals in the knowledge graph are categorized by domain layer:
 | | `EnvironmentalFactor` | 9 | Predisposing weather, canopy, and soil conditions |
 | **Agronomic Management** | `Treatment` | 12 | Chemical, biological, genetic, and cultural practices |
 | | `ManagementAction` | 5 | Operational actions (Immediate Intervention, Monitoring, etc.) |
+| | `ManagementCategory` | 4 | Control-method categories from AGROVOC: chemical, biological, cultural, host plant resistance; 0.7.0-dev |
 | | `SeverityLevel` | 4 | Low, Medium, High, and Critical severity scales |
-| **Total Named Individuals** | | **10,507** | *(10,407 images + 1 dataset + 99 domain entities)* |
+| **Total Named Individuals** | | **10,511** | *(10,407 images + 1 dataset + 103 domain entities)* |
 
 ---
 
@@ -122,7 +123,8 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | | `recommends` | 23 | `Disease ⊔ Pest ⊔ SeverityLevel` → `ManagementAction` | BBPOPT / IRRI |
 | | `preventedBy` | 8 | `Disease ⊔ Pest` → `Treatment` | IRRI RKB / CABI |
 | | `requires` | 5 | `Treatment` → `GrowthStage` | BBPOPT / IRRI GAP |
-| **Total domain assertions** | | **287** | *(0.7.0-dev, measured 2026-09-15 with rdflib; plus 10,407 `annotatedAs`, 1,442 `captures`, 10 `sourceDatasetLabel`, 15 `eppoCode`)* | **287 / 287 reified** |
+| | `hasManagementCategory` | 6 | `Treatment` → `ManagementCategory` | IRRI RKB (2) / AGROVOC definitions (4, `ontology-derived`); 0.7.0-dev |
+| **Total domain assertions** | | **293** | *(0.7.0-dev, measured 2026-09-15 with rdflib; plus 10,407 `annotatedAs`, 1,442 `captures`, 10 `sourceDatasetLabel`, 15 `eppoCode`)* | **293 / 293 reified** |
 
 > *Note on inverse properties:* All twelve inverse directions (`indicates`, `detectedBy`, `causedBy`, `prevents`, `controls`, `threatens`, etc.) and `detects` are declared in the schema for reasoning/querying symmetry.
 
@@ -140,13 +142,28 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | v0.6.1 (provenance gaps closed, CQ-10/CQ-24 fixed) | 2026-09-14 | 66,802 (161,447 OWL RL) | 16 | 26 | 10,498 | 256 axioms / 256 assertions |
 | v0.6.2 (CABI DOIs, Crossref citations) | 2026-09-15 | 66,802 (161,447 OWL RL) | 16 | 26 | 10,498 | 256 axioms / 256 assertions |
 | 0.7.0-dev (PlantPart) | 2026-09-15 | 67,090 (161,861 OWL RL) | 17 | 28 | 10,506 | 285 axioms / 285 assertions |
-| **0.7.0-dev (+ TransmissionMode — in development)** | **2026-09-15** | **67,120** (161,916 OWL RL) | **18** | **29** | **10,507** | **287 axioms / 287 assertions** |
+| 0.7.0-dev (+ TransmissionMode) | 2026-09-15 | 67,120 (161,916 OWL RL) | 18 | 29 | 10,507 | 287 axioms / 287 assertions |
+| **0.7.0-dev (+ ManagementCategory — in development)** | **2026-09-15** | **67,199** (162,041 OWL RL) | **19** | **30** | **10,511** | **293 axioms / 293 assertions** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-09-15: 0.7.0-dev — `ManagementCategory` for treatments; control sources made queryable
+
+Third literature-backed schema item of Phase 3 (elicited CQ-A07). Pre-patch file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-managementcategory.rdf`.
+
+- **Source authority needed no schema.** Every `controlledBy` assertion already carries an `owl:Axiom` with `dcterms:source` and a citation; CQ-A07's earlier note that source authority was "not modelled" was wrong — only the query did not read the axiom. The query now does.
+- **Class `ManagementCategory`** (`closeMatch` AGROVOC *control methods*, c_5728) with 4 individuals whose names follow AGROVOC's narrower concepts, checked live: `Chemical_Control_Category` = c_1514, `Biological_Control_Category` = c_918, `Cultural_Control_Category` = c_2020 (`exactMatch`); `Host_Plant_Resistance_Category` ~ c_331556 (`closeMatch`: the definition — "intentional use of resistant crop cultivars" — is a control tactic, but AGROVOC files the concept under *biological properties*). AGROVOC's *genetic control* (c_3216) was deliberately not used for resistant varieties: it means sterile-insect and pest-genome tactics. Individual IRIs carry a `_Category` suffix because `Biological_Control` already names a Treatment.
+- **`hasManagementCategory`** (`Treatment` → `ManagementCategory`), 6 assertions. AGROVOC supplies the category names but does not place the treatment concepts under them (crop rotation sits under *cropping systems*, pesticide application and seed treatment under *activities*), so each membership has its own source:
+  - `Insecticide_Application` → chemical and `Biological_Control` → biological: IRRI Rice Knowledge Bank *Planthopper* fact sheet, whose management section is headed "Biological control" (natural enemies) and "Chemical control" (insecticides) — `literature-curated`.
+  - `Trichoderma_Application` → biological (AGROVOC c_918 definition: "use of biological agents (e.g. insects, micro-organisms…)"), `Resistant_Variety` → host plant resistance (c_331556), `Crop_Rotation` and `Crop_Sanitation` → cultural (c_2020: "manipulation of abiotic and biotic components of the agroecosystem…"; scope note "changed cropping patterns") — `ontology-derived`, citing the AGROVOC concept and the source of its definition.
+- **Not categorised, on purpose:** `Fungicide_Application` (IRRI labels pesticide use "chemical control" but never names fungicides under that heading — evidence judged indirect), `Water_Management` (IRRI files seedbed flooding under "Mechanical & physical measures", AGROVOC would make it cultural), `Seed_Treatment` (IRRI gives both a fungicide and a hot-water treatment), `Neem_Based_Pesticide` (AGROVOC places botanical pesticides under *biopesticides* but defines them as plant-derived chemicals), `Vector_Control` (an objective spanning insecticides and resistant varieties, not a single tactic), and `Good_Agricultural_Practice` (no `controlledBy` uses it). See Open items.
+- **Disjointness:** `ManagementCategory` added to the core `AllDisjointClasses` axiom (now 15 classes).
+- **CQ instruments:** `hasManagementCategory` added to CQ-22's property list. Elicited CQ-A07 now returns, for Stem Borer, `Biological_Control` (biological control) and `Insecticide_Application` (chemical control), each with the CABI 49009 source of its `controlledBy` assertion; status *partial - schema* → **answers** (CQ text unchanged).
+- **Result:** 67,199 asserted / 162,041 OWL RL triples; 293 axioms = 293 domain assertions, 0 unreified; HermiT consistent with `-k` (controls `Chemical_Control_Category` as ManagementCategory + Disease and `Rice` as Plant + Disease both inconsistent); benchmark **23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC** (CQ-21 293/293, CQ-22 0); elicited **9 answers / 8 partial / 2 NO ANSWER**.
 
 ### 2026-09-15: 0.7.0-dev — `TransmissionMode` for vector-borne pathogens
 
@@ -521,6 +538,8 @@ assertions, verified with no duplicates and no orphans. Triples: 67,236 →
 - **Competency Questions (CQs) Benchmark:** 25 CQs benchmarked via `cq_sparql_benchmark.py`: 0.7.0-dev scores 95.8% (23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC), as did v0.6.1/v0.6.2. Full documentation in `CQ_SPARQL_Documentation.md`.
 - **Automated Reasoner verified:** OWL RL deductive closure via Python `owlrl` (+94,796 triples) and HermiT consistency on 0.7.0-dev (with verified control cases).
 - **Tungro virus retention period** — Wang et al. (2022) give 4–5 days (RTBV) and 2–4 days (RTSV); IRRI says transmission within 5–7 days. Not asserted until the discrepancy is resolved.
+- **Six treatments without a management category** — `Fungicide_Application` (only indirect evidence for "chemical"), `Water_Management` (physical per IRRI vs cultural per AGROVOC), `Seed_Treatment` (chemical or physical depending on method), `Neem_Based_Pesticide` (biopesticide vs plant-derived chemical), `Vector_Control` (spans categories), `Good_Agricultural_Practice` (unused). Each needs a source that places it, or — for the mixed ones — a split into separate treatments.
+- **`Biological_Control` (Treatment) and `Biological_Control_Category` both map to AGROVOC c_918** — the Treatment's `exactMatch` predates the category and conflates a practice with the category; candidate for downgrading to `closeMatch` in a patch.
 - **`Excessive_Tillering` has no organ** — waiting for a readable source on rice downy mildew (IRRI has no fact sheet; Lee et al. 2003 could not be read).
 - **`Stem_Rot_Symptom` on `Sheath_Blight`** — label does not match IRRI, which places sheath-blight lesions on the leaf sheath and treats stem rot as a separate disease. Candidate for a patch correction (relabel or re-source); not changed.
 - **`Wilting` on `Sheath_Blight`, `Rice_Blast_Disease`, `Bacterial_Panicle_Blight`** — not mentioned by IRRI; the cited CABI datasheets return 403. Re-check when a readable source is found; not shown to be wrong.

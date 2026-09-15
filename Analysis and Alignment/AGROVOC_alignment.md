@@ -230,6 +230,20 @@ still open — see `NCBI_Taxonomy_alignment.md`), `Excessive_Nitrogen`
 would conflate a symptom with the disease itself, the same category error
 as the disease-vs-pathogen cases).
 
+## ManagementCategory alignment (round 6)
+
+Checked 2026-09-15 through the AGROVOC REST API (`/search`, `/narrower`, `/broaderTransitive`, `/data` for definitions) for the new `ManagementCategory` individuals (Rice MMKG 0.7.0-dev). The category names were taken from AGROVOC in the first place — the narrower concepts of *control methods* (c_5728) — so every individual has a candidate by construction.
+
+| Rice MMKG entity | Type | AGROVOC concept | Relation | Status | Decision note |
+|---|---|---|---|---|---|
+| `ManagementCategory` | Class | [`control methods`](http://aims.fao.org/aos/agrovoc/c_5728) | `skos:closeMatch` | Implemented | The class groups the categories; AGROVOC's concept is the broader parent, which also contains non-category narrowers (*postharvest control*, *fouling control*). |
+| `Chemical_Control_Category` | ManagementCategory | [`chemical control`](http://aims.fao.org/aos/agrovoc/c_1514) | `skos:exactMatch` | Implemented | Exact label; narrower of *control methods*. AGROVOC gives no definition. |
+| `Biological_Control_Category` | ManagementCategory | [`biological control`](http://aims.fao.org/aos/agrovoc/c_918) | `skos:exactMatch` | Implemented | Exact label; definition "use of biological agents (e.g. insects, micro-organisms…)" (FAO & WHO 2017). **Shared concept:** the Treatment `Biological_Control` also `exactMatch`es c_918 (round 3). The category is the better fit; the Treatment's mapping is a candidate for `closeMatch`. |
+| `Cultural_Control_Category` | ManagementCategory | [`cultural control`](http://aims.fao.org/aos/agrovoc/c_2020) | `skos:exactMatch` | Implemented | Exact label; definition "manipulation of abiotic and biotic components of the agroecosystem…" (after Gabryś & Kordan 2022); scope note "cultivation techniques or changed cropping patterns". |
+| `Host_Plant_Resistance_Category` | ManagementCategory | [`host plant resistance`](http://aims.fao.org/aos/agrovoc/c_331556) | `skos:closeMatch` | Implemented | Definition "intentional use of resistant crop cultivars…" (after Stout 2014) matches the tactic, but AGROVOC files it under *biological properties*, not *control methods* — category mismatch in the hierarchy, hence closeMatch. *Genetic control* (c_3216) was rejected: its definitions describe sterile-insect release and altering the pest's genome. This concept also answers round 3's open question on `Resistant_Variety` indirectly: the variety now reaches it through `hasManagementCategory` rather than a direct SKOS mapping. |
+
+**AGROVOC was also used as a provenance source**, not only for alignment: four `hasManagementCategory` assertions (`Trichoderma_Application`, `Resistant_Variety`, `Crop_Rotation`, `Crop_Sanitation`) cite the AGROVOC definition of their category with `evidenceType` `ontology-derived`. The hierarchy itself was checked first and does **not** place any treatment concept under a control category (crop rotation → *cropping systems*; pesticide application and seed treatment → *activities*; neem extracts → *plant extracts*), so no membership was inferred from `skos:broader`.
+
 ## Implemented mapping pattern
 
 The three rows marked **Implemented in v2.2** are now present in
@@ -295,6 +309,9 @@ literature evidence and provenance.
 | `Trichoderma_Application` | `skos:closeMatch` | Muhammad Ariful Furqon | AGROVOC REST search API | 2026-08-22 |
 | `Good_Agricultural_Practice` | `skos:exactMatch` | Muhammad Ariful Furqon | AGROVOC REST search API | 2026-08-22 |
 | `Field_Inspection` | `skos:closeMatch` | Muhammad Ariful Furqon | AGROVOC REST search API | 2026-08-22 |
+| `ManagementCategory` (class) | `skos:closeMatch` | Muhammad Ariful Furqon | AGROVOC REST API (`narrower` on c_5728) | 2026-09-15 |
+| `Chemical_Control_Category`, `Biological_Control_Category`, `Cultural_Control_Category` | `skos:exactMatch` | Muhammad Ariful Furqon | AGROVOC REST API (search, definitions) | 2026-09-15 |
+| `Host_Plant_Resistance_Category` | `skos:closeMatch` | Muhammad Ariful Furqon | AGROVOC REST API (search, `broaderTransitive`, definition; c_3216 rejected) | 2026-09-15 |
 
 ## Next review actions
 

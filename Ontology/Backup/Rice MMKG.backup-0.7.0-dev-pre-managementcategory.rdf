@@ -15165,7 +15165,6 @@
     <rdfs:comment xml:lang="en">Application of Trichoderma spp. as a biocontrol agent against soil-borne fungal and oomycete pathogens.</rdfs:comment>
     <rdfs:label xml:lang="en">Trichoderma application</rdfs:label>
     <skos:closeMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_15814"/>
-    <rice:hasManagementCategory rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Biological_Control_Category"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_blast_109078">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -17250,7 +17249,6 @@
     <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Treatment"/>
     <rdfs:label xml:lang="en">Insecticide Application</rdfs:label>
     <skos:closeMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_27879"/>
-    <rice:hasManagementCategory rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Chemical_Control_Category"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_dead_heart_103738">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -18280,7 +18278,6 @@
     <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Treatment"/>
     <rdfs:label xml:lang="en">Crop Rotation</rdfs:label>
     <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_6662"/>
-    <rice:hasManagementCategory rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Cultural_Control_Category"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_dead_heart_103523">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -54362,7 +54359,6 @@
     <rdfs:comment xml:lang="en">Removal and destruction of infected plant debris to reduce inoculum carry-over between seasons.</rdfs:comment>
     <rice:requires rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Harvest_Stage"/>
     <skos:closeMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_3739"/>
-    <rice:hasManagementCategory rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Cultural_Control_Category"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_bacterial_leaf_blight_101938">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -54483,7 +54479,6 @@
     <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Treatment"/>
     <rdfs:label xml:lang="en">Biological Control</rdfs:label>
     <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_918"/>
-    <rice:hasManagementCategory rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Biological_Control_Category"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_hispa_102968">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -86959,7 +86954,6 @@
     <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Treatment"/>
     <rice:requires rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Seedling_Stage"/>
     <rdfs:label xml:lang="en">Resistant Variety</rdfs:label>
-    <rice:hasManagementCategory rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Host_Plant_Resistance_Category"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_brown_spot_104040">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -89038,7 +89032,7 @@
   </rdf:Description>
   <rdf:Description rdf:nodeID="Nv070disjointtransmissionmode">
     <rdf:first rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#TransmissionMode"/>
-    <rdf:rest rdf:nodeID="Nv070disjointmanagementcategory"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="Nv070tm01rtbvsemipersistent">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
@@ -89057,104 +89051,5 @@
     <dcterms:source rdf:resource="https://doi.org/10.3390/v14102258"/>
     <dcterms:bibliographicCitation xml:lang="en">Wang, P., Liu, J., Lyu, Y., Huang, Z., Zhang, X., Sun, B., Li, P., Jing, X., Li, H., &amp; Zhang, C. (2022). A Review of Vector-Borne Rice Viruses. Viruses, 14(10), 2258. https://doi.org/10.3390/v14102258</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#ManagementCategory">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">A category of pest and disease control method (chemical, biological, cultural, host plant resistance). Category names follow AGROVOC's narrower concepts of 'control methods' (c_5728).</rdfs:comment>
-    <rdfs:label xml:lang="en">Management Category</rdfs:label>
-    <skos:closeMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_5728"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#hasManagementCategory">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Treatment"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#ManagementCategory"/>
-    <rdfs:comment xml:lang="en">Relates a Treatment to its control-method category. Asserted only where a source places the treatment in one category; treatments that span several (e.g. seed treatment with fungicide or hot water) are left uncategorised.</rdfs:comment>
-    <rdfs:label xml:lang="en">has management category</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070disjointmanagementcategory">
-    <rdf:first rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#ManagementCategory"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Chemical_Control_Category">
-    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#ManagementCategory"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Control of pests or diseases with synthetic pesticides (insecticides, fungicides, bactericides).</rdfs:comment>
-    <rdfs:label xml:lang="en">chemical control</rdfs:label>
-    <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_1514"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Biological_Control_Category">
-    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#ManagementCategory"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Control using biological agents such as natural enemies or micro-organisms (AGROVOC definition, after FAO &amp; WHO 2017).</rdfs:comment>
-    <rdfs:label xml:lang="en">biological control</rdfs:label>
-    <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_918"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Cultural_Control_Category">
-    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#ManagementCategory"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Manipulation of the agroecosystem, such as cropping pattern or field hygiene, that makes it less suitable for pests and diseases (AGROVOC definition, after Gabryś &amp; Kordan 2022).</rdfs:comment>
-    <rdfs:label xml:lang="en">cultural control</rdfs:label>
-    <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_2020"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Host_Plant_Resistance_Category">
-    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#ManagementCategory"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Intentional use of resistant crop cultivars to reduce the impact of pests or diseases (AGROVOC definition, after Stout 2014). AGROVOC files the concept under biological properties rather than control methods, hence closeMatch.</rdfs:comment>
-    <rdfs:label xml:lang="en">host plant resistance</rdfs:label>
-    <skos:closeMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_331556"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070mc01insecticideapplication">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Insecticide_Application"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#hasManagementCategory"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Chemical_Control_Category"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Planthopper. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070mc02biologicalcontrol">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Biological_Control"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#hasManagementCategory"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Biological_Control_Category"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Planthopper. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070mc03trichodermaapplication">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Trichoderma_Application"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#hasManagementCategory"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Biological_Control_Category"/>
-    <dcterms:source rdf:resource="http://aims.fao.org/aos/agrovoc/c_918"/>
-    <dcterms:bibliographicCitation xml:lang="en">FAO. AGROVOC Multilingual Thesaurus, concept c_918 'biological control', definition adapted from FAO &amp; WHO (2017), Code of Hygienic Practice for Fresh Fruits and Vegetables, CXS 53-2003. Retrieved via the AGROVOC REST API on 2026-09-15.</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">ontology-derived</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070mc04resistantvariety">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Resistant_Variety"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#hasManagementCategory"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Host_Plant_Resistance_Category"/>
-    <dcterms:source rdf:resource="http://aims.fao.org/aos/agrovoc/c_331556"/>
-    <dcterms:bibliographicCitation xml:lang="en">FAO. AGROVOC Multilingual Thesaurus, concept c_331556 'host plant resistance', definition adapted from Stout, M. J. (2014), Host-plant resistance in pest management, in Integrated Pest Management, ed. D. P. Abrol, Academic Press, 1-21. Retrieved via the AGROVOC REST API on 2026-09-15.</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">ontology-derived</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070mc05croprotation">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Crop_Rotation"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#hasManagementCategory"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Cultural_Control_Category"/>
-    <dcterms:source rdf:resource="http://aims.fao.org/aos/agrovoc/c_2020"/>
-    <dcterms:bibliographicCitation xml:lang="en">FAO. AGROVOC Multilingual Thesaurus, concept c_2020 'cultural control', definition adapted from Gabryś, B. &amp; Kordan, B. (2022), Cultural control and other non-chemical methods, in Insect Pests of Potato (2nd ed.), Academic Press, 297-314. Retrieved via the AGROVOC REST API on 2026-09-15.</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">ontology-derived</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070mc06cropsanitation">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Crop_Sanitation"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#hasManagementCategory"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Cultural_Control_Category"/>
-    <dcterms:source rdf:resource="http://aims.fao.org/aos/agrovoc/c_2020"/>
-    <dcterms:bibliographicCitation xml:lang="en">FAO. AGROVOC Multilingual Thesaurus, concept c_2020 'cultural control', definition adapted from Gabryś, B. &amp; Kordan, B. (2022), Cultural control and other non-chemical methods, in Insect Pests of Potato (2nd ed.), Academic Press, 297-314. Retrieved via the AGROVOC REST API on 2026-09-15.</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">ontology-derived</rice:evidenceType>
   </rdf:Description>
 </rdf:RDF>

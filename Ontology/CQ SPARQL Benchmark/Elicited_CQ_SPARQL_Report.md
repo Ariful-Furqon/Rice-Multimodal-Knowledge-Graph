@@ -1,12 +1,12 @@
 # Elicited Competency Questions - SPARQL Results
 
-Generated 2026-09-15 12:09 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 67,120 asserted triples, 161,916 after OWL RL materialisation (25.0s).
+Generated 2026-09-15 12:23 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 67,199 asserted triples, 162,041 after OWL RL materialisation (44.2s).
 
 **19 of the 25 elicited Tier A CQs are queried here** - every one for which RiceMMKG v0.7.0-dev has at least the concept the question turns on. Answerability is measured, not predicted: the Stage 3 `v06_status` column is not used. The remaining 6 ask for a concept v0.7.0-dev does not have at all and are the v0.7 work plan; the status table at the end lists each with its reason.
 
-**8 answer in full, 9 answer in part, and 2 return nothing.** A partial is not a pass: the query returns what v0.7.0-dev supports, and the shortfall is named on the CQ. A CQ that returns nothing is reported, not dropped - the empty result is the measurement.
+**9 answer in full, 8 answer in part, and 2 return nothing.** A partial is not a pass: the query returns what v0.7.0-dev supports, and the shortfall is named on the CQ. A CQ that returns nothing is reported, not dropped - the empty result is the measurement.
 
-**A partial comes in two kinds, and they are different pieces of work.** 8 are *partial - schema*: the ontology has no concept for part of what the question asks, so no amount of data would answer it and the remedy is modelling. 1 is *partial - data*: the concept exists and the query is correct, but few individuals carry it, so the remedy is annotation. Only the second kind is a coverage question at all - a relation that does not exist has no ratio to report, and calling that 0% would misdescribe it.
+**A partial comes in two kinds, and they are different pieces of work.** 7 are *partial - schema*: the ontology has no concept for part of what the question asks, so no amount of data would answer it and the remedy is modelling. 1 is *partial - data*: the concept exists and the query is correct, but few individuals carry it, so the remedy is annotation. Only the second kind is a coverage question at all - a relation that does not exist has no ratio to report, and calling that 0% would misdescribe it.
 
 > **These results may not be used to edit the CQ set.** A question the graph answers poorly is a finding about the graph. Rewording CQs to fit what the ontology already does is the circularity this elicitation exists to avoid, and the expert ratings - the only legitimate ground for revising the set - are not in yet.
 
@@ -26,7 +26,7 @@ A retrieval CQ answers if it returns at least one row. **A large row count is no
 | `CQ-A04` | L3 | D1 | answers | Which diseases share symptoms with Brown Spot, and which symptoms discriminate between them? |
 | `CQ-A05` | L1 | D1 | answers | Which environmental conditions are reported to favour Sheath Blight? |
 | `CQ-A06` | L1 | D1 | partial - schema | At which growth stages is Brown Planthopper reported as most damaging? |
-| `CQ-A07` | L2 | D1 | partial - schema | Which control measures are recommended for Stem Borer, of which management category, and on which source authority? |
+| `CQ-A07` | L2 | D1 | answers | Which control measures are recommended for Stem Borer, of which management category, and on which source authority? |
 | `CQ-A10` | L1 | D2 | answers | Which images are annotated as showing Hispa damage? |
 | `CQ-A11` | L1 | D3 | partial - schema | Who or what produced a given image annotation, and with what confidence? |
 | `CQ-A13` | L2 | D2 | partial - schema | How is the image corpus distributed across conditions and entity types? |
@@ -64,7 +64,7 @@ SELECT ?pathogen ?eppo_code ?external_alignment WHERE {
 }
 ```
 
-1 row(s) in 87.7 ms.
+1 row(s) in 287.3 ms.
 
 | pathogen | eppo_code | external_alignment |
 |---|---|---|
@@ -79,7 +79,7 @@ SELECT ?disease ?pathogen WHERE {
 ORDER BY ?disease
 ```
 
-8 row(s) in 2.2 ms.
+8 row(s) in 8.8 ms.
 
 | disease | pathogen |
 |---|---|
@@ -89,8 +89,8 @@ ORDER BY ?disease
 | rice:Brown_Spot | rice:Bipolaris_Oryzae |
 | rice:Downy_Mildew | rice:Sclerophthora_Macrospora |
 | rice:Rice_Blast_Disease | rice:Magnaporthe_Oryzae |
-| rice:Rice_Tungro_Disease | rice:Rice_Tungro_Spherical_Virus |
 | rice:Rice_Tungro_Disease | rice:Rice_Tungro_Bacilliform_Virus |
+| rice:Rice_Tungro_Disease | rice:Rice_Tungro_Spherical_Virus |
 
 ### CQ-A02 - Which vector species transmits Rice Tungro Bacilliform Virus, and by which transmission mode?
 
@@ -109,7 +109,7 @@ SELECT ?vector ?agent ?mode ?disease WHERE {
 ORDER BY ?vector ?agent
 ```
 
-2 row(s) in 3.3 ms.
+2 row(s) in 11.8 ms.
 
 | vector | agent | mode | disease |
 |---|---|---|---|
@@ -135,7 +135,7 @@ SELECT ?symptom ?plant_part ?stage_of_disease WHERE {
 ORDER BY ?symptom ?plant_part ?stage_of_disease
 ```
 
-12 row(s) in 4.1 ms.
+12 row(s) in 16.8 ms.
 
 | symptom | plant_part | stage_of_disease |
 |---|---|---|
@@ -168,7 +168,7 @@ GROUP BY ?other
 ORDER BY DESC(?shared_symptoms)
 ```
 
-4 row(s) in 6.1 ms.
+4 row(s) in 21.9 ms.
 
 | other | shared_symptoms |
 |---|---|
@@ -194,7 +194,7 @@ SELECT ?symptom ?present_only_in WHERE {
 ORDER BY ?present_only_in ?symptom
 ```
 
-3 row(s) in 6.8 ms.
+3 row(s) in 25.2 ms.
 
 | symptom | present_only_in |
 |---|---|
@@ -217,7 +217,7 @@ SELECT ?condition WHERE {
 ORDER BY ?condition
 ```
 
-2 row(s) in 2.0 ms.
+2 row(s) in 7.4 ms.
 
 | condition |
 |---|
@@ -234,7 +234,7 @@ GROUP BY ?condition
 ORDER BY DESC(?entities) ?condition
 ```
 
-9 row(s) in 4.2 ms.
+9 row(s) in 17.0 ms.
 
 | condition | entities |
 |---|---|
@@ -265,7 +265,7 @@ SELECT ?stage WHERE {
 ORDER BY ?stage
 ```
 
-2 row(s) in 2.0 ms.
+2 row(s) in 8.7 ms.
 
 | stage |
 |---|
@@ -274,28 +274,33 @@ ORDER BY ?stage
 
 ### CQ-A07 - Which control measures are recommended for Stem Borer, of which management category, and on which source authority?
 
-**Level L2 · Dimension D1 · partial - schema**
+**Level L2 · Dimension D1 · answers**
 
 Actionability - the KG must not diagnose what it cannot advise on. Proposed by five of six models.
 
-> **Partial:** management category (chemical / biological / cultural) and source authority are not modelled in v0.7.0-dev; only the treatment itself and its prerequisites can be returned
-
-**Treatments for Stem Borer and what each requires**
+**Treatments for Stem Borer with their management category and the source the control assertion cites**
 
 ```sparql
-SELECT ?treatment ?requires WHERE {
+SELECT ?treatment ?category ?source ?citation WHERE {
   rice:Stem_Borer rice:controlledBy ?treatment .
-  OPTIONAL { ?treatment rice:requires ?requires }
+  OPTIONAL { ?treatment rice:hasManagementCategory ?category }
+  OPTIONAL {
+    ?ax owl:annotatedSource rice:Stem_Borer ;
+        owl:annotatedProperty rice:controlledBy ;
+        owl:annotatedTarget ?treatment ;
+        dcterms:source ?source ;
+        dcterms:bibliographicCitation ?citation .
+  }
 }
 ORDER BY ?treatment
 ```
 
-2 row(s) in 2.4 ms.
+2 row(s) in 24.2 ms.
 
-| treatment | requires |
-|---|---|
-| rice:Biological_Control | None |
-| rice:Insecticide_Application | None |
+| treatment | category | source | citation |
+|---|---|---|---|
+| rice:Biological_Control | rice:Biological_Control_Category | https://doi.org/10.1079/cabicompendium.49009 | CABI (2021). Scirpophaga incertulas (yellow stem borer). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.49009 / IRRI (2020). Rice Doctor: Stem Borer. |
+| rice:Insecticide_Application | rice:Chemical_Control_Category | https://doi.org/10.1079/cabicompendium.49009 | CABI (2021). Scirpophaga incertulas (yellow stem borer). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.49009 / IRRI (2020). Rice Doctor: Stem Borer. |
 
 ### CQ-A10 - Which images are annotated as showing Hispa damage?
 
@@ -313,7 +318,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-1594 row(s) in 31.9 ms.
+1594 row(s) in 109.6 ms.
 
 | image | url |
 |---|---|
@@ -352,7 +357,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 167.1 ms.
+1 row(s) in 589.2 ms.
 
 | image | condition | dataset | title | source | confidence |
 |---|---|---|---|---|---|
@@ -371,7 +376,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 753.7 ms.
+1 row(s) in 2398.9 ms.
 
 | images | with_source_dataset | with_confidence |
 |---|---|---|
@@ -398,7 +403,7 @@ GROUP BY ?condition ?type
 ORDER BY DESC(?images)
 ```
 
-10 row(s) in 4635.6 ms.
+10 row(s) in 8546.2 ms.
 
 | condition | type | images |
 |---|---|---|
@@ -422,7 +427,7 @@ SELECT ?dataset (COUNT(?image) AS ?images) WHERE {
 GROUP BY ?dataset
 ```
 
-1 row(s) in 133.5 ms.
+1 row(s) in 149.4 ms.
 
 | dataset | images |
 |---|---|
@@ -445,7 +450,7 @@ SELECT ?image ?symptom WHERE {
 }
 ```
 
-1 row(s) in 23.6 ms.
+1 row(s) in 26.8 ms.
 
 | image | symptom |
 |---|---|
@@ -461,7 +466,7 @@ GROUP BY ?symptom
 ORDER BY DESC(?images)
 ```
 
-1 row(s) in 12.9 ms.
+1 row(s) in 15.9 ms.
 
 | symptom | images |
 |---|---|
@@ -486,7 +491,7 @@ GROUP BY ?image ?candidate
 ORDER BY DESC(?support) ?candidate
 ```
 
-2 row(s) in 36.9 ms.
+2 row(s) in 43.2 ms.
 
 | image | candidate | support |
 |---|---|---|
@@ -520,7 +525,7 @@ SELECT ?condition ?distinguishing_symptom WHERE {
 ORDER BY ?condition ?distinguishing_symptom
 ```
 
-3 row(s) in 7.3 ms.
+3 row(s) in 8.6 ms.
 
 | condition | distinguishing_symptom |
 |---|---|
@@ -538,7 +543,7 @@ SELECT ?shared_symptom WHERE {
 ORDER BY ?shared_symptom
 ```
 
-3 row(s) in 2.1 ms.
+3 row(s) in 2.8 ms.
 
 | shared_symptom |
 |---|
@@ -565,7 +570,7 @@ SELECT ?image ?severity WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 298.1 ms.
+0 row(s) in 308.0 ms.
 
 **What the severity levels are used for in v0.7.0-dev**
 
@@ -577,7 +582,7 @@ SELECT ?severity ?recommends WHERE {
 ORDER BY ?severity
 ```
 
-6 row(s) in 3.8 ms.
+6 row(s) in 4.1 ms.
 
 | severity | recommends |
 |---|---|
@@ -606,7 +611,7 @@ SELECT ?image ?symptom_a ?symptom_b WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 60.9 ms.
+0 row(s) in 66.8 ms.
 
 **How many symptoms each annotated image captures**
 
@@ -620,7 +625,7 @@ GROUP BY ?symptoms_per_image
 ORDER BY ?symptoms_per_image
 ```
 
-1 row(s) in 56.4 ms.
+1 row(s) in 61.0 ms.
 
 | symptoms_per_image | images |
 |---|---|
@@ -645,7 +650,7 @@ WHERE {
 GROUP BY ?image_evidence
 ```
 
-2 row(s) in 52.7 ms.
+2 row(s) in 61.9 ms.
 
 | image_evidence | symptoms |
 |---|---|
@@ -662,7 +667,7 @@ SELECT ?symptom WHERE {
 ORDER BY ?symptom
 ```
 
-26 row(s) in 12.3 ms.
+26 row(s) in 14.6 ms.
 
 | symptom |
 |---|
@@ -695,7 +700,7 @@ SELECT ?image ?condition ?symptom ?pathogen WHERE {
 ORDER BY ?symptom
 ```
 
-4 row(s) in 317.8 ms.
+4 row(s) in 216.3 ms.
 
 | image | condition | symptom | pathogen |
 |---|---|---|---|
@@ -714,7 +719,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 227.3 ms.
+1 row(s) in 205.2 ms.
 
 | images_with_literature |
 |---|
@@ -739,7 +744,7 @@ SELECT ?image ?condition ?treatment WHERE {
 ORDER BY ?treatment
 ```
 
-4 row(s) in 907.8 ms.
+4 row(s) in 839.5 ms.
 
 | image | condition | treatment |
 |---|---|---|
@@ -757,7 +762,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?images_with_treatment) WHERE {
 }
 ```
 
-1 row(s) in 181.2 ms.
+1 row(s) in 192.1 ms.
 
 | images_with_treatment |
 |---|
@@ -781,7 +786,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-1764 row(s) in 43.2 ms.
+1764 row(s) in 42.8 ms.
 
 | image | url |
 |---|---|
@@ -804,7 +809,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?contradictory_images) WHERE {
 }
 ```
 
-1 row(s) in 9.6 ms.
+1 row(s) in 11.9 ms.
 
 | contradictory_images |
 |---|
@@ -824,7 +829,7 @@ So that nothing looks hidden: every CQ, and why it is or is not implemented here
 | `CQ-A04` | L3 | D1 | implemented here | Diseases sharing symptoms, and what discriminates them | answers in v0.7.0-dev; no benchmark counterpart |
 | `CQ-A05` | L1 | D1 | implemented here | Environmental conditions favouring a disease or pest | answers in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
 | `CQ-A06` | L1 | D1 | implemented here | Growth stage at which a pest or disease is most damaging | partial - schema in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
-| `CQ-A07` | L2 | D1 | implemented here | Recommended control measures, by category and source | partial - schema in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
+| `CQ-A07` | L2 | D1 | implemented here | Recommended control measures, by category and source | answers in v0.7.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
 | `CQ-A08` | L1 | D1 | v0.7 work plan | Natural enemies of a pest | needs NaturalEnemy class - not in v0.6 |
 | `CQ-A09` | L3 | D1 | v0.7 work plan | Distinguishing a nutritional disorder from a disease | needs nutritional disorder (zinc deficiency) - not in v0.6 |
 | `CQ-A10` | L1 | D2 | implemented here | Images showing a given condition or symptom | answers in v0.7.0-dev; no benchmark counterpart |

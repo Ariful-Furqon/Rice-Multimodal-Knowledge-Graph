@@ -199,15 +199,19 @@ ORDER BY ?stage"""),
                     "authority?",
         "note": "Actionability - the KG must not diagnose what it cannot "
                 "advise on. Proposed by five of six models.",
-        "partial_kind": "schema",
-        "partial": "management category (chemical / biological / cultural) and "
-                   "source authority are not modelled in {V}; only the "
-                   "treatment itself and its prerequisites can be returned",
         "queries": [
-            ("Treatments for Stem Borer and what each requires",
-             """SELECT ?treatment ?requires WHERE {
+            ("Treatments for Stem Borer with their management category and "
+             "the source the control assertion cites",
+             """SELECT ?treatment ?category ?source ?citation WHERE {
   rice:Stem_Borer rice:controlledBy ?treatment .
-  OPTIONAL { ?treatment rice:requires ?requires }
+  OPTIONAL { ?treatment rice:hasManagementCategory ?category }
+  OPTIONAL {
+    ?ax owl:annotatedSource rice:Stem_Borer ;
+        owl:annotatedProperty rice:controlledBy ;
+        owl:annotatedTarget ?treatment ;
+        dcterms:source ?source ;
+        dcterms:bibliographicCitation ?citation .
+  }
 }
 ORDER BY ?treatment"""),
         ],
