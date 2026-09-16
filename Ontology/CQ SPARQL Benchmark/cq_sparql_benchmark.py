@@ -337,7 +337,8 @@ CQS = [
                 rice:controlledBy rice:preventedBy rice:increaseRiskOf
                 rice:vulnerableTo rice:recommends rice:requires
                 rice:affectsPlantPart rice:partOf rice:hasTransmissionMode
-                rice:hasManagementCategory }
+                rice:hasManagementCategory rice:varietyOf rice:resistantTo
+                rice:moderatelyResistantTo }
     ?s ?p ?o .
     FILTER NOT EXISTS { ?ax owl:annotatedSource ?s ;
                             owl:annotatedProperty ?p ;

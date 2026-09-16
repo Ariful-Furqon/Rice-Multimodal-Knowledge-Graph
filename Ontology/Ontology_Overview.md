@@ -55,16 +55,16 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **67,708** (asserted) / **163,011** (OWL RL) | 0.7.0-dev. +95,303 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
-| **Named classes** | 20 | 17 primitive (incl. `PlantPart`, `TransmissionMode`, `ManagementCategory` and `AbioticFactor`, 0.7.0-dev) + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class (`SymptomaticObservation`) |
-| **Object properties** | 30 | All declared with explicit domain and range; includes `transmits`/`transmittedBy`, and `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode` and `hasManagementCategory` (0.7.0-dev) |
+| **Total triples** | **67,859** (asserted) / **163,293** (OWL RL) | 0.7.0-dev. +95,434 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Named classes** | 21 | 18 primitive (incl. `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor` and `Variety`, 0.7.0-dev) + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class (`SymptomaticObservation`) |
+| **Object properties** | 35 | All declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `resistantTo`/`resistedBy`, `moderatelyResistantTo` (0.7.0-dev) |
 | **Datatype properties** | 5 | All declared with explicit domain and range |
 | **Annotation properties** | 14 | Includes `rice:evidenceType`, PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
-| **Named individuals** | **10,538** | 10,407 image individuals + 1 dataset metadata + 130 domain entities (10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 6 `AbioticFactor`) |
-| **`owl:Axiom` (provenance)** | **341** | **341 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev). v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
+| **Named individuals** | **10,541** | 10,407 image individuals + 1 dataset metadata + 133 domain entities (10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 6 `AbioticFactor`, 3 `Variety`) |
+| **`owl:Axiom` (provenance)** | **353** | **353 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev). v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
-| **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (16 classes; `PlantPart`, `TransmissionMode`, `ManagementCategory` and `AbioticFactor` added in 0.7.0-dev) |
-| **Reasoner Consistency** | **Consistent** | 0.7.0-dev checked in **HermiT** on 2026-09-15 with `-k` on a space-free copy, with injected-contradiction controls (`Rice` as Plant + Disease; `Leaf_Blade` as PlantPart + Disease; `Semi_Persistent` as TransmissionMode + Disease; `Chemical_Control_Category` as ManagementCategory + Disease; `Zinc_Deficiency` as AbioticFactor + Pathogen; `Salinity` as AbioticFactor + Pathogen) that all report inconsistent; v0.6 verified in HermiT & Pellet |
+| **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (17 classes; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor` and `Variety` added in 0.7.0-dev) |
+| **Reasoner Consistency** | **Consistent** | 0.7.0-dev checked in **HermiT** on 2026-09-15 with `-k` on a space-free copy, with injected-contradiction controls (`Rice` as Plant + Disease; `Leaf_Blade` as PlantPart + Disease; `Semi_Persistent` as TransmissionMode + Disease; `Chemical_Control_Category` as ManagementCategory + Disease; `Zinc_Deficiency` as AbioticFactor + Pathogen; `Salinity` as AbioticFactor + Pathogen; `IR64` as Variety + Disease) that all report inconsistent; v0.6 verified in HermiT & Pellet |
 | **Competency Questions (CQ)** | **21 PASS / 2 PARTIAL / 1 FAIL / 1 DOC** | **87.5% pass rate** across 24 scored CQs (25 total). CQ-13 FAIL: the unsourced severity → action triage was removed. CQ-12 PARTIAL: six abiotic disorders entered its denominator. CQ-01 denominator corrected to exclude abiotic disorders (7/9; uncorrected 7/15). v0.6.1/v0.6.2: 23 / 1 / 0 / 1; released v0.6: 21 / 1 / 2 / 1 |
 | **`skos:exactMatch` / `closeMatch` / `broadMatch`** | 42 / 23 / 1 | Mapped to AGROVOC / NCBI Taxonomy / Planteome (PECO, PO) and BFO, verified against live APIs |
 | **`TODO` literals remaining** | **0** | **100% resolved (dataset metadata & EPPO codes verified)** |
@@ -88,6 +88,7 @@ The 10,531 individuals in the knowledge graph are categorized by domain layer:
 | | `TransmissionMode` | 1 | `Semi_Persistent` (vector transmission mode of both tungro viruses); 0.7.0-dev |
 | | `Disease` | 15 | Biotic disease & damage condition classes (including `Deadheart`), plus 4 nutrient-deficiency disorders and the iron toxicity and salinity disorders (0.7.0-dev) |
 | | `AbioticFactor` | 6 | Nitrogen, phosphorus, potassium and zinc deficiency; iron toxicity; salinity — abiotic causes of the six disorders; 0.7.0-dev |
+| | `Variety` | 3 | Rice cultivars: `IR64` and the Indonesian varieties `Angke` and `Conde` bred from it; 0.7.0-dev |
 | | `HealthStatus` | 1 | `Normal_Health` (healthy reference baseline) |
 | | `Plant` | 1 | `Rice` (*Oryza sativa*) host individual |
 | **Phenotype & Environment** | `Symptom` | 39 | Visual symptoms (lesions, streaks, rotting, discoloration, dead tiller); 9 added in 0.7.0-dev for nutrient deficiencies, 3 for iron toxicity and salinity |
@@ -98,7 +99,7 @@ The 10,531 individuals in the knowledge graph are categorized by domain layer:
 | | `ManagementAction` | 5 | Operational actions (Immediate Intervention, Monitoring, etc.) |
 | | `ManagementCategory` | 4 | Control-method categories from AGROVOC: chemical, biological, cultural, host plant resistance; 0.7.0-dev |
 | | `SeverityLevel` | 4 | Low, Medium, High, and Critical; each annotated with the matching attack-intensity category (ringan, sedang, berat, puso) of the 2021 Indonesian pest-observation juknis. No severity → action mapping since 0.7.0-dev |
-| **Total Named Individuals** | | **10,538** | *(10,407 images + 1 dataset + 130 domain entities)* |
+| **Total Named Individuals** | | **10,541** | *(10,407 images + 1 dataset + 133 domain entities)* |
 
 ---
 
@@ -111,7 +112,7 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | **Dataset & Observation Layer** | `annotatedAs` | 10,407 | `ImageObservation` → `Disease ⊔ Pest ⊔ HealthStatus` | Raw dataset labels |
 | | `captures` | 1,442 | `ImageObservation` → `Symptom` | Visual evidence links |
 | | `sourceDatasetLabel` | 10 | `Disease ⊔ Pest ⊔ HealthStatus` → `xsd:string` | Dataset vocabulary mapping |
-| **Etiology & Susceptibility** | `vulnerableTo` | 55 | `Plant ⊔ GrowthStage` → `Disease ⊔ Pest ⊔ Pathogen` | IRRI RKB / CABI CPC |
+| **Etiology & Susceptibility** | `vulnerableTo` | 57 | `Plant ⊔ GrowthStage ⊔ Variety` → `Disease ⊔ Pest` | CABI CPC (55); Mackill & Khush (2018) for IR64 (2, 0.7.0-dev) |
 | | `occursIn` | 41 | `Disease ⊔ Pest ⊔ HealthStatus` → `GrowthStage` | IRRI RKB / Ou (1985) |
 | | `causes` | 14 | `Pathogen ⊔ AbioticFactor` → `Disease` | CABI / Ham / Hibino; IRRI nutrient and toxicity fact sheets (6, 0.7.0-dev) |
 | | `transmits` | 2 | `Pest` → `Pathogen` | CABI / Hibino (1996) |
@@ -125,7 +126,10 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | | `preventedBy` | 10 | `Disease ⊔ Pest` → `Treatment` | CABI (8); IRRI toxicity fact sheets (2, 0.7.0-dev) |
 | | `requires` | 5 | `Treatment` → `GrowthStage` | IRRI RKB (`Crop_Sanitation requires Harvest_Stage` re-sourced from BBPOPT to the IRRI tungro sheet in 0.7.0-dev) |
 | | `hasManagementCategory` | 6 | `Treatment` → `ManagementCategory` | IRRI RKB (2) / AGROVOC definitions (4, `ontology-derived`); 0.7.0-dev |
-| **Total domain assertions** | | **341** | *(0.7.0-dev, measured 2026-09-15 with rdflib; plus 10,407 `annotatedAs`, 1,442 `captures`, 10 `sourceDatasetLabel`, 15 `eppoCode`)* | **341 / 341 reified** |
+| **Variety** | `varietyOf` | 3 | `Variety` → `Plant` | Mackill & Khush (2018); 0.7.0-dev |
+| | `resistantTo` | 5 | `Variety` → `Disease ⊔ Pest` | Mackill & Khush (2018); 0.7.0-dev |
+| | `moderatelyResistantTo` | 2 | `Variety` → `Disease ⊔ Pest` | Mackill & Khush (2018); sub-property of `resistantTo`; 0.7.0-dev |
+| **Total domain assertions** | | **353** | *(0.7.0-dev, measured 2026-09-16 with rdflib; plus 10,407 `annotatedAs`, 1,442 `captures`, 10 `sourceDatasetLabel`, 15 `eppoCode`)* | **353 / 353 reified** |
 
 > *Note on inverse properties:* All twelve inverse directions (`indicates`, `detectedBy`, `causedBy`, `prevents`, `controls`, `threatens`, etc.) and `detects` are declared in the schema for reasoning/querying symmetry.
 
@@ -146,13 +150,28 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | 0.7.0-dev (+ TransmissionMode) | 2026-09-15 | 67,120 (161,916 OWL RL) | 18 | 29 | 10,507 | 287 axioms / 287 assertions |
 | 0.7.0-dev (+ ManagementCategory, label/mapping fixes) | 2026-09-15 | 67,200 (162,043 OWL RL) | 19 | 30 | 10,511 | 293 axioms / 293 assertions |
 | 0.7.0-dev (+ AbioticFactor, literal hygiene) | 2026-09-15 | 67,588 (162,775 OWL RL) | 20 | 30 | 10,531 | 330 axioms / 330 assertions |
-| **0.7.0-dev (BBPOPT source resolved, + iron toxicity, salinity — in development)** | **2026-09-15** | **67,708** (163,011 OWL RL) | **20** | **30** | **10,538** | **341 axioms / 341 assertions** |
+| 0.7.0-dev (BBPOPT source resolved, + iron toxicity, salinity) | 2026-09-15 | 67,708 (163,011 OWL RL) | 20 | 30 | 10,538 | 341 axioms / 341 assertions |
+| **0.7.0-dev (+ `Variety`: IR64, Angke, Conde — in development)** | **2026-09-16** | **67,859** (163,293 OWL RL) | **21** | **35** | **10,541** | **353 axioms / 353 assertions** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-09-16: 0.7.0-dev — `Variety`: IR64 and two Indonesian varieties bred from it
+
+Answers the domain expert's variety point (2026-09-14: treatment differs per variety; "cek varietas IR64") for the part literature can settle. Pre-patch file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-variety.rdf`.
+
+- **Source:** Mackill, D.J. & Khush, G.S. (2018). *IR64: a high-quality and high-yielding mega variety*. Rice, 11, 18 — open access, DOI checked live, full text read on 2026-09-16; a review by one of IR64's own breeders. The official Indonesian variety descriptions (*Deskripsi Varietas Unggul Baru Padi*) were the first choice, but `repository.pertanian.go.id` returns 403 to automated clients and `bbpadi.litbang.pertanian.go.id` does not resolve — see Open items for round 2.
+- **Class `Variety`** with `IR64`, `Angke` and `Conde`, each `varietyOf` `Rice`. `Variety` joined the core `AllDisjointClasses` axiom (now 17 classes).
+- **Properties (5):** `varietyOf`/`hasVariety`, `resistantTo`/`resistedBy`, and `moderatelyResistantTo` as a sub-property of `resistantTo`, so a query for resistance also returns the moderate grades. `vulnerableTo` records the opposite direction, its domain widened to `Plant ⊔ GrowthStage ⊔ Variety`.
+- **IR64 (8 assertions):** `resistantTo` brown planthopper, green leafhopper and bacterial leaf blight; `moderatelyResistantTo` rice blast and stem borer ("moderate resistance to blast, BPH biotype 2, and stem borer"); `vulnerableTo` rice tungro disease ("IR64 is susceptible to tungro disease", the reason it was replaced in the Philippines and Indonesia) and iron toxicity ("It is also susceptible to Fe toxicity"), which the 0.7.0-dev iron-toxicity disorder now makes expressible. **Not modelled:** whitebacked planthopper, grassy stunt virus, BPH biotypes, drought and submergence — no entity exists for them, and none was invented.
+- **Angke and Conde (2 each):** Indonesian varieties "developed by pyramiding BB resistance genes into IR64", so each is `resistantTo` bacterial leaf blight.
+- **Logic trap found and fixed — an inverse's range.** Widening `vulnerableTo`'s domain was not enough: its inverse `threatens` still had the range `GrowthStage ⊔ Plant`, so `IR64 vulnerableTo …` entailed that IR64 is a growth stage or a plant, which contradicts `Variety` being disjoint from both. **HermiT reported the file inconsistent**; Pellet named the axioms. The range of `threatens` was widened to match. A new audit now compares every inverse pair's domain with its partner's range: **15 pairs, 0 mismatches.**
+- **Checks:** HermiT consistent with `-k`; `-U` lists only `owl:Nothing`; control (`IR64` as Variety + Disease) inconsistent. 353 axioms = 353 domain assertions, 0 unreified, orphan, duplicate or incomplete; 0 domain/range violations under OWL RL; 0 individuals in two disjoint core classes.
+- **Benchmark:** unchanged at **21 PASS / 2 PARTIAL / 1 FAIL / 1 DOC**; CQ-21 341/341 → **353/353**. A variety is neither a Disease nor a Pest, so no coverage denominator moved. `varietyOf`, `resistantTo` and `moderatelyResistantTo` were added to CQ-22's checked list, so the extension could not pass by omission. Elicited CQs unchanged (9 / 8 / 2).
+- **Result:** 67,859 asserted / 163,293 OWL RL triples.
 
 ### 2026-09-15: 0.7.0-dev — unverified BBPOPT source resolved; iron toxicity and salinity
 
@@ -603,6 +622,9 @@ assertions, verified with no duplicates and no orphans. Triples: 67,236 →
 - **Version status:** `0.7.0-dev` in `Rice MMKG.rdf` (as of 2026-09-15). Tags `v0.6.1` (commit `1d13542`) and `v0.6.2` mark the last two releases; the final number of the next release is set when it is tagged.
 - **Competency Questions (CQs) Benchmark:** 25 CQs benchmarked via `cq_sparql_benchmark.py`: 0.7.0-dev scores 87.5% (21 PASS / 2 PARTIAL / 1 FAIL / 1 DOC); v0.6.1/v0.6.2 scored 95.8% (23 / 1 / 0 / 1). Full documentation in `CQ_SPARQL_Documentation.md`.
 - **Automated Reasoner verified:** OWL RL deductive closure via Python `owlrl` (+95,187 triples) and HermiT consistency on 0.7.0-dev (with verified control cases).
+- **Varieties, round 2.** Only IR64 and its two Indonesian derivatives are modelled, all from one source. The varieties Indonesian farmers actually grow (Ciherang, the Inpari series, Situbagendit) need their own sources: the official *Deskripsi Varietas Unggul Baru Padi* is served from `repository.pertanian.go.id`, which returns 403 to automated clients, and `bbpadi.litbang.pertanian.go.id` does not resolve, so a copy has to be obtained another way or replaced by peer-reviewed sources (e.g. the Ciherang bacterial-blight introgression work in PMC). Note the temporal problem such sources raise: Ciherang and Inpari 13 are reported to have *lost* their bacterial-blight resistance, so a plain `resistantTo` assertion would be wrong without a date. Decide how to record a resistance that has broken down before asserting any of them.
+- **Variety-specific treatment needs the expert.** The expert asked for treatment that differs per variety. Round 1 covers only which variety resists what. Whether they meant "choose a resistant variety" (already expressible) or "different dosage or method per variety" (needs new modelling and a source) is still unanswered.
+- **Language tags on labels and comments.** 36 `rice:` literals carry no `@en` (mostly class and individual `rdfs:comment`, plus 6 labels), and 9 more sit on imported vocabulary terms. Two properties also carry two labels each, one tagged and one not: `annotatedAs` ("annotated as", "classified as"@en) and `annotationOf` ("annotation of", "classifies"@en). CQ-24 checks `evidenceType` only, so it passes. Fixing this is cheap and helps the FOOPS! score; the open question is whether CQ-24 should then be extended to all literals, with both the old and new figures reported, as CQ-22's extension was.
 - **Severity → action triage: questions for the domain expert.** The six assertions removed on 2026-09-15 (see changelog) are open questions, not facts. Which action does each juknis category warrant? In particular, does *ringan* (already above the control threshold) call for monitoring or for control? Does the answer differ between diseases and pests? If the expert confirms a mapping, re-add it with `rice:evidenceType "expert-elicited"` and the elicitation date (identity kept in the gitignored notes). CQ-13 stays FAIL until then.
 - ~~**CQ-01 denominator includes abiotic disorders**~~ — resolved 2026-09-15: denominator corrected to exclude diseases with an abiotic cause; 7/9 PASS, uncorrected 7/15 reported alongside (see changelog and `CQ_SPARQL_Documentation.md`).
 - ~~**BBPOPT (2022) citation could not be verified**~~ — resolved 2026-09-15: triage removed, `Crop_Sanitation requires Harvest_Stage` re-sourced to IRRI, SeverityLevel aligned to the 2021 juknis as comments (see changelog). Original note: 7 assertions (the severity → ManagementAction triage: `Low_Severity recommends No_Action_Needed`, `Medium_Severity recommends Monitoring` and `Field_Inspection`, `High_Severity recommends Preventive_Action` and `Immediate_Intervention`, `Critical_Severity recommends Immediate_Intervention`; and `Crop_Sanitation requires Harvest_Stage`) cite "BBPOPT (2022). Pedoman Pengamatan dan Pengendalian OPT Tanaman Padi" with the BBPOPT homepage as source, which returns 403. Searched 2026-09-15: no document of that title was found. The closest official document, *Petunjuk Teknis Pengamatan dan Pelaporan OPT dan DPI* (Direktorat Perlindungan Tanaman Pangan, 2018; Kepdirjen TP No. 36/HK.310/C/3/2018), defines attack-intensity categories — ringan, sedang, berat, puso, with percentage bands (Tables 4–5) — and control thresholds per pest (Lampiran 3), but **does not map a category to a specific action** and does not mention sanitation at harvest. The triage assertions are therefore unsupported by any document found so far; decision pending (re-source, remodel on the juknis categories, or remove).

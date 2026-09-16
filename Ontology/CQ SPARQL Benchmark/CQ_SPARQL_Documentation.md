@@ -1,7 +1,7 @@
 # Rice MMKG 0.7.0-dev — SPARQL Competency Question Documentation
 
 **Ontology:** `Rice MMKG.rdf` (owl:versionInfo 0.7.0-dev; last release v0.6.2)  
-**Triples:** 67,708 asserted / 163,011 after OWL RL materialisation (+95,303 triples)  
+**Triples:** 67,859 asserted / 163,293 after OWL RL materialisation (+95,434 triples)  
 **Benchmark Execution:** 2026-09-15  
 **Overall Result:** 21 PASS / 2 PARTIAL / 1 FAIL / 1 DOCUMENTED (24 scored + 1 documented = 25 CQs)
 **Pass Rate:** 87.5% (21/24 scored CQs); v0.6.2: 95.8% (23/24)
@@ -15,6 +15,7 @@
 > - **CQ-13 → FAIL (0/4).** The six severity → ManagementAction assertions were removed: no document supports them, and the 2021 Indonesian juknis contradicts one of them. The CQ was not edited.
 > - **CQ-01 fell to PARTIAL (7/15), then its denominator was corrected (approved 2026-09-15).** The two new disorders had entered the Disease denominator, and an abiotic disorder has no pathogen by construction. The denominator now excludes any disease caused by an `AbioticFactor` (a criterion, not a list of names). Result: **7/9, PASS**; the uncorrected form gives 7/15 (PARTIAL), and both are reported. Only CQ-01 was corrected: CQ-03, CQ-11 and CQ-12 still count abiotic disorders, because control, risk-to-remedy and management actions do apply to them.
 > - **Other figures:** CQ-12 9/22, CQ-08 2/3, CQ-21 **341/341**.
+> **Then** `Variety` was added (IR64, Angke, Conde; 12 assertions citing Mackill & Khush 2018), with `varietyOf`, `resistantTo` and `moderatelyResistantTo` added to CQ-22's checked list. CQ-21 → **353/353**; all verdicts unchanged (21 / 2 / 1 / 1). Varieties are neither diseases nor pests, so no coverage denominator moved.
 
 > **v0.6.1 Patch Note (2026-09-14):**  
 > Three domain assertions gained or received provenance and one literal was tagged: `Stem_Borer indicatedBy Dead_Tiller` and `Stem_Borer indicatedBy White_Ear` (present since v0.6 but never reified) now carry `owl:Axiom` records citing IRAC (2025); `Nephotettix_Virescens controlledBy Resistant_Variety` was added, citing Gallagher et al. (2002); and the one untagged `rice:evidenceType` literal is now `@en`. CQ-10 and CQ-24 move from FAIL to PASS. The CQ-10 fix deliberately departs from the action item planned in v0.6 (`controlledBy Vector_Control`): FAO and IRRI both report that insecticide control of the green leafhopper often fails to control tungro and recommend resistant varieties instead, so asserting vector control only to satisfy the CQ would not have been supported by the literature. Pre-patch file: `Ontology/Backup/Rice MMKG.backup-v0.6-pre-v0.6.1.rdf`.
@@ -100,7 +101,7 @@ Each CQ is positioned along two orthogonal axes: **Reasoning Depth (L1–L4)** a
 | **CQ-18** | L1 | D2 | `coverage`   | **PARTIAL**    | 1/39 (3%)            | Direct visual grounding of symptoms (`rice:captures`) |
 | **CQ-19** | L1 | D2 | `negative`   | **PASS**       | 0 violations         | Media layer integrity: Content URL & dataset provenance |
 | **CQ-20** | L1 | D2 | `documented` | **DOC**        | 0 individuals        | Sensor observation population (Phase 3 extension point) |
-| **CQ-21** | L4 | D3 | `coverage`   | **PASS**       | 341/341 (100%)       | Reified domain axioms with source URI and citation (v0.6.2: 256/256; v0.6: 253/253) |
+| **CQ-21** | L4 | D3 | `coverage`   | **PASS**       | 353/353 (100%)       | Reified domain axioms with source URI and citation (v0.6.2: 256/256; v0.6: 253/253) |
 | **CQ-22** | L4 | D3 | `negative`   | **PASS**       | 0 violations         | Domain assertions without an axiom, or axioms with incomplete provenance (extended 2026-09-14; v0.6: 2) |
 | **CQ-23** | L4 | D3 | `coverage`   | **PASS**       | 18/30 (60%)          | Biological entities aligned to EPPO / AGROVOC / NCBI |
 | **CQ-24** | L4 | D3 | `negative`   | **PASS**       | 0 violations         | Literal hygiene: Uniform language tags (`@en`) on `evidenceType` (v0.6: 1) |
@@ -458,7 +459,7 @@ SELECT DISTINCT ?o WHERE { ?o a rice:SensorObservation }
 
 ### Section C: Provenance & Alignment Layer (D3)
 
-#### CQ-21 | L4 x D3 | coverage | PASS (341/341 axioms, 100%)
+#### CQ-21 | L4 x D3 | coverage | PASS (353/353 axioms, 100%)
 **Question:** Which reified domain assertions carry both an authoritative source URI and a bibliographic citation?
 **Rationale:** Scientific defensibility & provenance completeness.
 **Scope limit:** the denominator is the set of axioms, so CQ-21 measures whether existing axioms carry a source — never whether every assertion has an axiom. An unreified assertion is invisible to it; CQ-22 covers that case.
@@ -471,7 +472,7 @@ SELECT DISTINCT ?ax WHERE {
 ```sparql
 SELECT DISTINCT ?ax WHERE { ?ax a owl:Axiom }
 ```
-**Result:** 341 covered / 341 total (100.0%) — PASS. Source URIs by host: CABI (doi.org) 242, IRRI Rice Knowledge Bank 88, AGROVOC 4, IRAC 2, Plant Ontology 2, Wang et al. 2022 (doi.org) 2, FAO 1. BBPOPT 0 (the 7 BBPOPT axioms of v0.6.2 were removed or re-sourced in 0.7.0-dev).  
+**Result:** 353 covered / 353 total (100.0%) — PASS. Source URIs by host: CABI (doi.org) 242, IRRI Rice Knowledge Bank 88, Mackill & Khush 2018 (doi.org) 12, AGROVOC 4, IRAC 2, Plant Ontology 2, Wang et al. 2022 (doi.org) 2, FAO 1. BBPOPT 0 (the 7 BBPOPT axioms of v0.6.2 were removed or re-sourced in 0.7.0-dev).  
 **v0.6.2:** 256/256 (CABI 242, BBPOPT 7, IRRI 4, IRAC 2, FAO 1).  
 **v0.6:** 253/253 (100%) — which hid the two unreified `Stem_Borer` assertions reported by CQ-22.
 

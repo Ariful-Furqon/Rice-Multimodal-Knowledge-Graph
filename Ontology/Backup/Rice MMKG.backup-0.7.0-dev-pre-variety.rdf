@@ -14747,7 +14747,7 @@
   </rdf:Description>
   <rdf:Description rdf:nodeID="Nf76e8c32bb964021b28a9eae6f273410">
     <rdf:first rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Plant"/>
-    <rdf:rest rdf:nodeID="Nv070varietythreatens"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#PaddyDoctor_bacterial_leaf_streak_107051">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -88552,7 +88552,7 @@
   </rdf:Description>
   <rdf:Description rdf:nodeID="Nb613b7bad1cf4bc5b9410a25ba7ee1c0">
     <rdf:first rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Plant"/>
-    <rdf:rest rdf:nodeID="Nv070varietyvuln"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="N3e5a1f0b6e7b4db895af4078239a27a2">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -89125,7 +89125,7 @@
   </rdf:Description>
   <rdf:Description rdf:nodeID="Nv070disjointabioticfactor">
     <rdf:first rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#AbioticFactor"/>
-    <rdf:rest rdf:nodeID="Nv070disjointvariety"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Zinc_Fertilizer_Application">
     <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Treatment"/>
@@ -89825,204 +89825,5 @@
     <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity"/>
     <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Salinity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity (accessed 2026-09-15).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070varietyvuln">
-    <rdf:first rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Variety"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070disjointvariety">
-    <rdf:first rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Variety"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Variety">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">A named cultivar of rice, such as IR64. A variety inherits the crop's biology but differs in its reaction to pests, diseases and abiotic stress, which is why treatment advice can be variety-specific. Resistance and susceptibility are recorded as the cited source reports them, for the pest population and period it studied: resistance can break down, as IR64's replacement over tungro susceptibility shows. Only varieties supported by a cited source are populated.</rdfs:comment>
-    <rdfs:label xml:lang="en">Variety</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#varietyOf">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <owl:inverseOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#hasVariety"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Variety"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Plant"/>
-    <rdfs:comment xml:lang="en">A cultivar of a plant species, e.g. IR64 is a variety of Oryza sativa.</rdfs:comment>
-    <rdfs:label xml:lang="en">variety of</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#hasVariety">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <owl:inverseOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#varietyOf"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Plant"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Variety"/>
-    <rdfs:comment xml:lang="en">Inverse of varietyOf.</rdfs:comment>
-    <rdfs:label xml:lang="en">has variety</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#resistantTo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <owl:inverseOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#resistedBy"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Variety"/>
-    <rdfs:range rdf:nodeID="N3dd104eee7984b30b747e2995d52100f"/>
-    <rdfs:comment xml:lang="en">The variety resists the disease or pest, as reported by the cited source for the population and period it studied. The counterpart of vulnerableTo, which records susceptibility.</rdfs:comment>
-    <rdfs:label xml:lang="en">resistant to</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#resistedBy">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <owl:inverseOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#resistantTo"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:domain rdf:nodeID="N3dd104eee7984b30b747e2995d52100f"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Variety"/>
-    <rdfs:comment xml:lang="en">Inverse of resistantTo.</rdfs:comment>
-    <rdfs:label xml:lang="en">resisted by</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#moderatelyResistantTo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#resistantTo"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Variety"/>
-    <rdfs:range rdf:nodeID="N3dd104eee7984b30b747e2995d52100f"/>
-    <rdfs:comment xml:lang="en">Partial resistance: the source grades the variety's reaction as moderate rather than resistant. A sub-property of resistantTo, so a query for resistance also returns these.</rdfs:comment>
-    <rdfs:label xml:lang="en">moderately resistant to</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#IR64">
-    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Variety"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Semidwarf indica rice variety bred at IRRI and released in the Philippines in 1985; grown on over 10 million ha and widely planted in Indonesia. Mackill and Khush (2018) report the traits IRRI listed at release and what later field experience showed, including the tungro susceptibility that displaced it in the Philippines and Indonesia. Resistance of a variety holds for the pest populations and period a source reports; it is not a timeless property.</rdfs:comment>
-    <rdfs:label xml:lang="en">IR64</rdfs:label>
-    <rice:varietyOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice"/>
-    <rice:resistantTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Brown_Planthopper"/>
-    <rice:resistantTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Nephotettix_Virescens"/>
-    <rice:resistantTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Blight"/>
-    <rice:moderatelyResistantTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Blast_Disease"/>
-    <rice:moderatelyResistantTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Stem_Borer"/>
-    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Disease"/>
-    <rice:vulnerableTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Iron_Toxicity_Disorder"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Angke">
-    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Variety"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Indonesian rice variety developed by pyramiding bacterial blight resistance genes into IR64 (Mackill and Khush 2018).</rdfs:comment>
-    <rdfs:label xml:lang="en">Angke</rdfs:label>
-    <rice:varietyOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice"/>
-    <rice:resistantTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Blight"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Conde">
-    <rdf:type rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Variety"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Indonesian rice variety developed by pyramiding bacterial blight resistance genes into IR64 (Mackill and Khush 2018).</rdfs:comment>
-    <rdfs:label xml:lang="en">Conde</rdfs:label>
-    <rice:varietyOf rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice"/>
-    <rice:resistantTo rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Blight"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070var01ir64varietyo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#IR64"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#varietyOf"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice"/>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070var02ir64resistan">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#IR64"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#resistantTo"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Brown_Planthopper"/>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070var03ir64resistan">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#IR64"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#resistantTo"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Nephotettix_Virescens"/>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070var04ir64resistan">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#IR64"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#resistantTo"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Blight"/>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070var05ir64moderate">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#IR64"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#moderatelyResistantTo"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Blast_Disease"/>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070var06ir64moderate">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#IR64"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#moderatelyResistantTo"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Stem_Borer"/>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070var07ir64vulnerab">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#IR64"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#vulnerableTo"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice_Tungro_Disease"/>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070var08ir64vulnerab">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#IR64"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#vulnerableTo"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Iron_Toxicity_Disorder"/>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070var09angkevarietyo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Angke"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#varietyOf"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice"/>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070var10angkeresistan">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Angke"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#resistantTo"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Blight"/>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070var11condevarietyo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Conde"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#varietyOf"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Rice"/>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070var12conderesistan">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Conde"/>
-    <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#resistantTo"/>
-    <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Bacterial_Leaf_Blight"/>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070varietythreatens">
-    <rdf:first rdf:resource="http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#Variety"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
 </rdf:RDF>
