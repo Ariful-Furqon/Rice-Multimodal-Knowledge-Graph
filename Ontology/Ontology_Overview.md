@@ -55,7 +55,7 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **67,863** (asserted) / **163,301** (OWL RL) | 0.7.0-dev. +95,438 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Total triples** | **67,861** (asserted) / **163,297** (OWL RL) | 0.7.0-dev. +95,436 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
 | **Named classes** | 21 | 18 primitive (incl. `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor` and `Variety`, 0.7.0-dev) + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class (`SymptomaticObservation`) |
 | **Object properties** | 35 | All declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `resistantTo`/`resistedBy`, `moderatelyResistantTo` (0.7.0-dev) |
 | **Datatype properties** | 5 | All declared with explicit domain and range |
@@ -152,13 +152,23 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | 0.7.0-dev (+ AbioticFactor, literal hygiene) | 2026-09-15 | 67,588 (162,775 OWL RL) | 20 | 30 | 10,531 | 330 axioms / 330 assertions |
 | 0.7.0-dev (BBPOPT source resolved, + iron toxicity, salinity) | 2026-09-15 | 67,708 (163,011 OWL RL) | 20 | 30 | 10,538 | 341 axioms / 341 assertions |
 | 0.7.0-dev (+ `Variety`: IR64, Angke, Conde) | 2026-09-16 | 67,859 (163,293 OWL RL) | 21 | 35 | 10,541 | 353 axioms / 353 assertions |
-| **0.7.0-dev (w3id namespace — in development)** | **2026-09-17** | **67,863** (163,301 OWL RL) | **21** | **35** | **10,541** | **353 axioms / 353 assertions** |
+| **0.7.0-dev (w3id namespace — in development)** | **2026-09-17** | **67,861** (163,297 OWL RL) | **21** | **35** | **10,541** | **353 axioms / 353 assertions** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-09-17: 0.7.0-dev — language tags on labels and comments; two stale labels removed
+
+Pre-patch file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-langtags.rdf`.
+
+- **Tagged `@en`:** 45 literals that had no language tag — 29 `rdfs:comment` and 7 `rdfs:label` on `rice:` terms, and 9 `rdfs:label` on imported vocabulary terms declared in the file (`dcterms:source`, `dcat:Dataset`, `prov:wasDerivedFrom`, …). Every `rdfs:label` and `rdfs:comment` in the file now carries `@en`.
+- **Removed:** `rdfs:label "classified as"@en` on `annotatedAs` and `"classifies"@en` on `annotationOf`. They were left over from the property's former name `classifiedAs` (renamed in v2.3), so each property carried two labels, one naming the old property. `"annotated as"@en` and `"annotation of"@en` remain.
+- **Left untagged on purpose:** the two `skos:altLabel` scientific names (`Scirpophaga incertulas` on `Stem_Borer`, `Pyricularia oryzae` on `Magnaporthe_Oryzae`); a Latin binomial belongs to no single language.
+- **CQ-24 unchanged.** Its question names `rice:evidenceType` only, so it was neither extended nor re-scored; it still passes (0 violations).
+- **Checks:** 67,861 asserted triples (−2, the removed labels) / 163,297 OWL RL; all other structural checks pass (353 axioms = 353 assertions, 15 inverse pairs matched, no domain/range violation); HermiT consistent, control inconsistent. Both CQ instruments give identical answers (21 PASS / 2 PARTIAL / 1 FAIL / 1 DOC; 9 / 8 / 2).
 
 ### 2026-09-17: 0.7.0-dev — `Stem_Rot_Symptom` renamed `Leaf_Sheath_Lesion`
 
@@ -646,7 +656,7 @@ assertions, verified with no duplicates and no orphans. Triples: 67,236 →
 - **Automated Reasoner verified:** OWL RL deductive closure via Python `owlrl` (+95,187 triples) and HermiT consistency on 0.7.0-dev (with verified control cases).
 - **Varieties, round 2.** Only IR64 and its two Indonesian derivatives are modelled, all from one source. The varieties Indonesian farmers actually grow (Ciherang, the Inpari series, Situbagendit) need their own sources: the official *Deskripsi Varietas Unggul Baru Padi* is served from `repository.pertanian.go.id`, which returns 403 to automated clients, and `bbpadi.litbang.pertanian.go.id` does not resolve, so a copy has to be obtained another way or replaced by peer-reviewed sources (e.g. the Ciherang bacterial-blight introgression work in PMC). Note the temporal problem such sources raise: Ciherang and Inpari 13 are reported to have *lost* their bacterial-blight resistance, so a plain `resistantTo` assertion would be wrong without a date. Decide how to record a resistance that has broken down before asserting any of them.
 - **Variety-specific treatment needs the expert.** The expert asked for treatment that differs per variety. Round 1 covers only which variety resists what. Whether they meant "choose a resistant variety" (already expressible) or "different dosage or method per variety" (needs new modelling and a source) is still unanswered.
-- **Language tags on labels and comments.** 36 `rice:` literals carry no `@en` (mostly class and individual `rdfs:comment`, plus 6 labels), and 9 more sit on imported vocabulary terms. Two properties also carry two labels each, one tagged and one not: `annotatedAs` ("annotated as", "classified as"@en) and `annotationOf` ("annotation of", "classifies"@en). CQ-24 checks `evidenceType` only, so it passes. Fixing this is cheap and helps the FOOPS! score; the open question is whether CQ-24 should then be extended to all literals, with both the old and new figures reported, as CQ-22's extension was.
+- ~~**Language tags on labels and comments**~~ — resolved 2026-09-17: all `rdfs:label` and `rdfs:comment` literals tagged `@en`, the two stale labels removed; CQ-24 left as defined (see changelog). Original note: 36 `rice:` literals carry no `@en` (mostly class and individual `rdfs:comment`, plus 6 labels), and 9 more sit on imported vocabulary terms. Two properties also carry two labels each, one tagged and one not: `annotatedAs` ("annotated as", "classified as"@en) and `annotationOf` ("annotation of", "classifies"@en). CQ-24 checks `evidenceType` only, so it passes. Fixing this is cheap and helps the FOOPS! score; the open question is whether CQ-24 should then be extended to all literals, with both the old and new figures reported, as CQ-22's extension was.
 - **Severity → action triage: questions for the domain expert.** The six assertions removed on 2026-09-15 (see changelog) are open questions, not facts. Which action does each juknis category warrant? In particular, does *ringan* (already above the control threshold) call for monitoring or for control? Does the answer differ between diseases and pests? If the expert confirms a mapping, re-add it with `rice:evidenceType "expert-elicited"` and the elicitation date (identity kept in the gitignored notes). CQ-13 stays FAIL until then.
 - ~~**CQ-01 denominator includes abiotic disorders**~~ — resolved 2026-09-15: denominator corrected to exclude diseases with an abiotic cause; 7/9 PASS, uncorrected 7/15 reported alongside (see changelog and `CQ_SPARQL_Documentation.md`).
 - ~~**BBPOPT (2022) citation could not be verified**~~ — resolved 2026-09-15: triage removed, `Crop_Sanitation requires Harvest_Stage` re-sourced to IRRI, SeverityLevel aligned to the 2021 juknis as comments (see changelog). Original note: 7 assertions (the severity → ManagementAction triage: `Low_Severity recommends No_Action_Needed`, `Medium_Severity recommends Monitoring` and `Field_Inspection`, `High_Severity recommends Preventive_Action` and `Immediate_Intervention`, `Critical_Severity recommends Immediate_Intervention`; and `Crop_Sanitation requires Harvest_Stage`) cite "BBPOPT (2022). Pedoman Pengamatan dan Pengendalian OPT Tanaman Padi" with the BBPOPT homepage as source, which returns 403. Searched 2026-09-15: no document of that title was found. The closest official document, *Petunjuk Teknis Pengamatan dan Pelaporan OPT dan DPI* (Direktorat Perlindungan Tanaman Pangan, 2018; Kepdirjen TP No. 36/HK.310/C/3/2018), defines attack-intensity categories — ringan, sedang, berat, puso, with percentage bands (Tables 4–5) — and control thresholds per pest (Lampiran 3), but **does not map a category to a specific action** and does not mention sanitation at harvest. The triage assertions are therefore unsupported by any document found so far; decision pending (re-source, remodel on the juknis categories, or remove).

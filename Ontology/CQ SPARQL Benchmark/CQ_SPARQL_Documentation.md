@@ -1,7 +1,7 @@
 # Rice MMKG 0.7.0-dev — SPARQL Competency Question Documentation
 
 **Ontology:** `Rice MMKG.rdf` (owl:versionInfo 0.7.0-dev; last release v0.6.2)  
-**Triples:** 67,863 asserted / 163,301 after OWL RL materialisation (+95,438 triples)  
+**Triples:** 67,861 asserted / 163,297 after OWL RL materialisation (+95,436 triples)  
 **Benchmark Execution:** 2026-09-15  
 **Overall Result:** 21 PASS / 2 PARTIAL / 1 FAIL / 1 DOCUMENTED (24 scored + 1 documented = 25 CQs)
 **Pass Rate:** 87.5% (21/24 scored CQs); v0.6.2: 95.8% (23/24)
