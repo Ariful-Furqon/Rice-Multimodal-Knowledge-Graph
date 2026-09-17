@@ -129,6 +129,7 @@ individuals already in `Rice MMKG.rdf`. Checked 2026-08-04.
 | `Magnaporthe_Oryzae` | Pathogen | [`Pyricularia oryzae`](http://aims.fao.org/aos/agrovoc/c_16025) | `skos:exactMatch` | Implemented in v2.4 | AGROVOC prefLabel is the anamorph name; `Magnaporthe oryzae` is a `skos:altLabel` on the same concept. |
 | `Xanthomonas_Oryzae` | Pathogen | [`Xanthomonas oryzae`](http://aims.fao.org/aos/agrovoc/c_24383) | `skos:exactMatch` | Implemented in v2.4 | Direct label match. |
 | `Bipolaris_Oryzae` | Pathogen | [`Cochliobolus miyabeanus`](http://aims.fao.org/aos/agrovoc/c_34512) | `skos:exactMatch` | Implemented in v2.7 | AGROVOC's own altLabel list could not confirm this synonymy; resolved 2026-08-07 using a citation from NCBI Taxonomy — see [`NCBI_Taxonomy_alignment.md`](NCBI_Taxonomy_alignment.md). |
+| `Rhizoctonia_Solani` | Pathogen | [`Rhizoctonia solani`](http://aims.fao.org/aos/agrovoc/c_33858) | `skos:exactMatch` | Implemented in 0.7.0-dev (2026-09-17) | Exact prefLabel match via the AGROVOC REST search; the teleomorph *Thanatephorus cucumeris* is a separate concept (c_35179) and is not mapped |
 | `Brown_Planthopper` | Pest | [`Nilaparvata lugens`](http://aims.fao.org/aos/agrovoc/c_25204) | `skos:exactMatch` | Implemented in v2.4 | AGROVOC prefLabel is the scientific name; `brown planthopper` is a `skos:altLabel` on the same concept — direct common-name confirmation. |
 | `Stem_Borer` | Pest | [`stem eating insects`](http://aims.fao.org/aos/agrovoc/c_7389) | `skos:closeMatch` | Implemented | Generic pest-group concept (`skos:altLabel` "stem borers"). In v0.5/v0.6, `Scirpophaga_Incertulas` was merged into `Stem_Borer` as altLabel, and mapped directly to NCBI Taxonomy TaxID 72366. |
 | `Leaf_Folder` | Pest | [`Cnaphalocrocis medinalis`](http://aims.fao.org/aos/agrovoc/c_30305) | `skos:exactMatch` | Implemented in v2.7 | AGROVOC had no altLabel confirming the common name; resolved 2026-08-07 using a citation from NCBI Taxonomy — see [`NCBI_Taxonomy_alignment.md`](NCBI_Taxonomy_alignment.md). |
@@ -293,6 +294,7 @@ literature evidence and provenance.
 | `Leaf_Spot` | `skos:closeMatch` | Muhammad Ariful Furqon | AGROVOC SPARQL endpoint (singular/plural grammatical-form check) | 2026-08-04 |
 | `Wilting` | `skos:exactMatch` | Muhammad Ariful Furqon | AGROVOC SPARQL endpoint | 2026-08-04 |
 | `Bipolaris_Oryzae` | `skos:exactMatch` | Muhammad Ariful Furqon | NCBI Taxonomy citation — see `NCBI_Taxonomy_alignment.md` | 2026-08-07 |
+| `Rhizoctonia_Solani` | `skos:exactMatch` | Muhammad Ariful Furqon | AGROVOC REST API (search and concept data, c_33858) | 2026-09-17 |
 | `Leaf_Folder` | `skos:exactMatch` | Muhammad Ariful Furqon | NCBI Taxonomy citation — see `NCBI_Taxonomy_alignment.md` | 2026-08-07 |
 | `Reproductive_Stage` | `skos:exactMatch` | Muhammad Ariful Furqon | AGROVOC REST search API | 2026-08-22 |
 | `Tillering_Stage` | `skos:closeMatch` | Muhammad Ariful Furqon | AGROVOC REST search API | 2026-08-22 |

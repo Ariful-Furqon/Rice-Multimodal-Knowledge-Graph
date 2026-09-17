@@ -87,6 +87,7 @@ against that response rather than assumed.
 | `Rice_Tungro_Spherical_Virus` | Pathogen | [Rice tungro spherical virus, TaxID 35287](http://purl.obolibrary.org/obo/NCBITaxon_35287) | `skos:exactMatch` | Implemented | Exact literal label match. |
 | `Stem_Borer` (`Scirpophaga_Incertulas`) | Pest | [Scirpophaga incertulas, TaxID 72366](http://purl.obolibrary.org/obo/NCBITaxon_72366) | `skos:exactMatch` | Implemented | Exact literal label match. In v0.5/v0.6, `Scirpophaga_Incertulas` was merged into canonical `Stem_Borer` as altLabel, with TaxID 72366 attached directly. |
 | `Sclerophthora_Macrospora` | Pathogen | [Sclerophthora macrospora, TaxID 467176](http://purl.obolibrary.org/obo/NCBITaxon_467176) | `skos:exactMatch` | Implemented | Exact literal label match; carefully distinguished from the unrelated "Sclerophthora macrospora virus A/B" entries also returned. |
+| `Rhizoctonia_Solani` | Pathogen | [Rhizoctonia solani, TaxID 456999](http://purl.obolibrary.org/obo/NCBITaxon_456999) | `skos:exactMatch` | Implemented in 0.7.0-dev (2026-09-17) | Exact scientific-name match, rank species; the pathogen of sheath blight per the IRRI fact sheet |
 | `Xanthomonas_Oryzicola` | Pathogen | [Xanthomonas oryzae pv. oryzicola, TaxID 129394](http://purl.obolibrary.org/obo/NCBITaxon_129394) | `skos:exactMatch` | Implemented | Exact literal label match, pathovar spelling verified. AGROVOC's `c_330601` (same organism, prefLabel "Xanthomonas oryzae pv. oryzicola") is available too but is *not* used to align the `Bacterial_Leaf_Streak` **disease** individual — see `AGROVOC_alignment.md` round 5's reconfirmed-local-only note on that entity. |
 | `Hispa` | Pest | [Dicladispa armigera, TaxID 111238](http://purl.obolibrary.org/obo/NCBITaxon_111238) | `skos:exactMatch` | Implemented | AGROVOC's initial round found no relevant concept for "hispa" (search hits for *hispanica* were rejected as invalid) — same NCBI-as-fallback pattern already established for `Bipolaris_Oryzae`/`Leaf_Folder`. Common name "rice hispa" confirmed via species identity, binomial spelling verified against the OLS4 response. |
 
@@ -102,6 +103,7 @@ against that response rather than assumed.
 | `Rice_Tungro_Spherical_Virus` | `skos:exactMatch` | Muhammad Ariful Furqon | EBI OLS4 (ncbitaxon) | 2026-08-22 |
 | `Scirpophaga_Incertulas` | `skos:exactMatch` | Muhammad Ariful Furqon | EBI OLS4 (ncbitaxon) | 2026-08-22 |
 | `Sclerophthora_Macrospora` | `skos:exactMatch` | Muhammad Ariful Furqon | EBI OLS4 (ncbitaxon) | 2026-08-22 |
+| `Rhizoctonia_Solani` | `skos:exactMatch` | Muhammad Ariful Furqon | NCBI Taxonomy E-utils (esummary, TaxID 456999) | 2026-09-17 |
 | `Xanthomonas_Oryzicola` | `skos:exactMatch` | Muhammad Ariful Furqon | EBI OLS4 (ncbitaxon) | 2026-08-22 |
 | `Hispa` | `skos:exactMatch` | Muhammad Ariful Furqon | EBI OLS4 (ncbitaxon) | 2026-08-22 |
 

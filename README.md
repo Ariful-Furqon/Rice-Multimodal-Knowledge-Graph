@@ -11,7 +11,7 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 ### Core Design Principles
 
 - **Observation is kept separate from domain knowledge.** An `ImageObservation`'s raw dataset label (`annotatedAs`) is never conflated with curated symptom/cause/treatment relations (`captures`, `causes`, `indicatedBy`, ...) — what was recorded by computer vision is distinct from what is concluded by domain knowledge.
-- **Every domain-level assertion is traceable.** All 347 populated domain triples (`causes`, `indicatedBy`, `occursIn`, `controlledBy`, `preventedBy`, `increaseRiskOf`, `vulnerableTo`, `recommends`, `requires`, `transmits`, `affectsPlantPart`, `partOf`, `hasTransmissionMode`, `hasManagementCategory`, `varietyOf`) are reified with `owl:Axiom` and carry `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType` — **100% provenance coverage as of v0.6.1**, checked by CQ-22 (assertions without an axiom) as well as CQ-21 (axioms without a source). v0.6 fell two assertions short of this; see the v0.6.1 note in [`Ontology_Overview.md`](Ontology/Ontology_Overview.md).
+- **Every domain-level assertion is traceable.** All 348 populated domain triples (`causes`, `indicatedBy`, `occursIn`, `controlledBy`, `preventedBy`, `increaseRiskOf`, `vulnerableTo`, `recommends`, `requires`, `transmits`, `affectsPlantPart`, `partOf`, `hasTransmissionMode`, `hasManagementCategory`, `varietyOf`) are reified with `owl:Axiom` and carry `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType` — **100% provenance coverage as of v0.6.1**, checked by CQ-22 (assertions without an axiom) as well as CQ-21 (axioms without a source). v0.6 fell two assertions short of this; see the v0.6.1 note in [`Ontology_Overview.md`](Ontology/Ontology_Overview.md).
 - **Formal reasoning & falsifiable Competency Questions.** Evaluated under automated Description Logic (HermiT/Pellet) and rule-based (OWL RL) reasoning across 25 schema-level Competency Questions without permissive `OPTIONAL` clauses.
 
 ### Metadata Snapshot
@@ -19,7 +19,7 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 - **Namespace:** `https://w3id.org/ricemmkg#` — permanent identifier, live since 2026-09-16; version IRIs `https://w3id.org/ricemmkg/<version>` (releases up to v0.6.2 used `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#`)
 - **Format:** OWL/XML (`.rdf`), fully compatible with [Protégé](https://protege.stanford.edu/)
 - **Version:** `0.7.0-dev` on `main` (in development; last release `v0.6.2`, 2026-09-15; git tags `v0.6.1`, `v0.6.2`; v0.6 released 2026-09-03) — actively progressing toward the **ESWC 2027 Resource Track** (see [`Ontology/riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md))
-- **Triples:** **68,049** asserted triples / **163,684** materialised triples under OWL RL (+95,635 inferred triples); v0.6.2: 66,802 / 161,447
+- **Triples:** **68,064** asserted triples / **163,715** materialised triples under OWL RL (+95,651 inferred triples); v0.6.2: 66,802 / 161,447
 - **Reasoner Consistency:** **100% Consistent** in HermiT & Pellet (0 unsatisfiable classes, 0 disjointness conflicts)
 
 ---
@@ -37,7 +37,7 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 | `Dataset` (`dcat:Dataset`) | 1 | Metadata individual for the Paddy Doctor image collection |
 | `Disease` | 9 | Diagnostic entities & damage conditions (including `Deadheart`, Bacterial Leaf Blight, Rice Blast, Tungro) |
 | `Pest` | 7 | Insect pests and vectors (Stem Borer, Leaf Folder, Brown Planthopper, Armyworm, Rice Bug, Hispa, Green Leafhopper) |
-| `Pathogen` | 8 | Microbial causal agents (Magnaporthe Oryzae, Xanthomonas pathovars, RTBV, RTSV) |
+| `Pathogen` | 9 | Microbial causal agents (Magnaporthe Oryzae, Rhizoctonia solani, Xanthomonas pathovars, RTBV, RTSV) |
 | `Plant` | 1 | The host crop (*Oryza sativa*) |
 | `HealthStatus` | 1 | Non-disease reference baseline (`Normal_Health`) |
 | `Symptom` | 27 | Visual symptoms (Leaf Rolling, Dead Tiller, White Ear, Brown Lesion, Wilting, etc.) |
@@ -60,8 +60,8 @@ Relations connect the domain entities with defined domains, ranges, and inverse 
 
 ### Individuals & Provenance
 
-- **10,562 named individuals**: 10,407 `ImageObservation` instances, 1 dataset metadata individual, plus 154 domain entities (0.7.0-dev).
-- **347 reified domain axioms** over 347 domain assertions: every assertion backed by an `owl:Axiom` record with `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType`. Source URIs: CABI Compendium 242 (as `doi.org/10.1079/cabicompendium.*` DOIs), IRRI Rice Knowledge Bank 88, Mackill & Khush (2018) 3, AGROVOC 4, IRAC 2, Plant Ontology 2, Wang et al. (2022) 2, Bagariang et al. (2021) 2, Biswas et al. (2021) 1, FAO 1. The 15 resistance assessments carry the same three annotations on the assessment itself.
+- **10,563 named individuals**: 10,407 `ImageObservation` instances, 1 dataset metadata individual, plus 155 domain entities (0.7.0-dev).
+- **348 reified domain axioms** over 348 domain assertions: every assertion backed by an `owl:Axiom` record with `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType`. Source URIs: CABI Compendium 242 (as `doi.org/10.1079/cabicompendium.*` DOIs), IRRI Rice Knowledge Bank 89, Mackill & Khush (2018) 3, AGROVOC 4, IRAC 2, Plant Ontology 2, Wang et al. (2022) 2, Bagariang et al. (2021) 2, Biswas et al. (2021) 1, FAO 1. The 15 resistance assessments carry the same three annotations on the assessment itself.
 - **Vector transmission mode (0.7.0-dev):** both tungro viruses are recorded as semi-persistently transmitted (`hasTransmissionMode`), citing Wang et al. (2022).
 - **Abiotic causes (0.7.0-dev):** nitrogen, phosphorus, potassium and zinc deficiency, and on the excess side iron toxicity and salinity, are modelled as `AbioticFactor`s that cause disorders, with symptoms from the IRRI Rice Knowledge Bank fact sheets — so abiotic factors, like pathogens, end at a Disease.
 - **Varieties (0.7.0-dev):** `IR64`, `Angke` and `Conde` (bred from IR64), `Ciherang`, `Inpari_32` and `Inpari_33`. Each reported grade is a `ResistanceAssessment` naming the variety, the disease or pest, the grade (resistant, moderately resistant, susceptible), the tested biotype, race or population, the year and its own source — 15 assessments from Mackill & Khush (2018), Bagariang et al. (2021) and Biswas et al. (2021). Conflicting grades stay side by side, and a resistance that broke down shows as assessments from different years.
@@ -93,7 +93,7 @@ The local Paddy Doctor image dataset is excluded from Git (`/Data/`). Folder lab
 Rice MMKG incorporates an automated verification harness (`cq_sparql_benchmark.py`) based on **25 Competency Questions** structured across:
 - **Reasoning Depth (L1–L4):** L1 Factual (1-hop), L2 Contextual (multi-criteria joins), L3 Causal (multi-hop chains), L4 Inferential (OWL RL deduction).
 - **Knowledge Dimensions (D1–D3):** D1 Agronomic/Symbolic, D2 Cross-modal Grounding, D3 Provenance & External Alignment.
-- **Evaluation Modes:** `coverage` (≥ 50%, an author-set convention; verdicts also reported at 40–80% — 22 / 21 / 20 / 17 / 15 PASS), `negative` (0 violations), `entailment` (entailed > asserted), `documented` (declared extension point).
+- **Evaluation Modes:** `coverage` (≥ 50%, an author-set convention; verdicts also reported at 40–80% — 22 / 21 / 20 / 17 / 16 PASS), `negative` (0 violations), `entailment` (entailed > asserted), `documented` (declared extension point).
 
 ### Benchmark Summary (0.7.0-dev)
 

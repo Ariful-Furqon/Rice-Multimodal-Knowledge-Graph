@@ -90259,4 +90259,23 @@
     <dcterms:bibliographicCitation xml:lang="en">Bagariang, W., Murdita, W., Suwarman &amp; Imroni, A. (2021). Resistance Evaluation of Some Rice Varieties by Feeding Activity of Brown Planthopper Population in Java. SEAS (Sustainable Environment Agricultural Science), 5(2), 79-87. https://doi.org/10.22225/seas.5.2.3913.79-87 (accessed 2026-09-17).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rhizoctonia_Solani">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Pathogen"/>
+    <rice:causes rdf:resource="https://w3id.org/ricemmkg#Sheath_Blight"/>
+    <rdfs:comment xml:lang="en">Soil-borne basidiomycete fungus causing sheath blight of rice (IRRI Rice Knowledge Bank). Rhizoctonia solani is the anamorph name; its teleomorph Thanatephorus cucumeris (AGROVOC c_35179) names the CABI datasheet already cited for sheath blight risk factors. NCBI Taxonomy 456999, EPPO RHIZSO and AGROVOC c_33858 all use Rhizoctonia solani.</rdfs:comment>
+    <rdfs:label xml:lang="en">Rhizoctonia solani</rdfs:label>
+    <rice:eppoCode>RHIZSO</rice:eppoCode>
+    <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_33858"/>
+    <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_456999"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070rhizoctoniacauses">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rhizoctonia_Solani"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#causes"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Sheath_Blight"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/sheath-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Sheath blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/sheath-blight (accessed 2026-09-17).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
 </rdf:RDF>

@@ -55,13 +55,13 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **68,049** (asserted) / **163,684** (OWL RL) | 0.7.0-dev. +95,635 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Total triples** | **68,064** (asserted) / **163,715** (OWL RL) | 0.7.0-dev. +95,651 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
 | **Named classes** | 23 | 20 primitive (incl. `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment` and `ResistanceLevel`, 0.7.0-dev) + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class (`SymptomaticObservation`) |
 | **Object properties** | 36 | All declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `assessedVariety`/`hasResistanceAssessment`, `assessedAgainst`, `hasResistanceLevel` (0.7.0-dev) |
 | **Datatype properties** | 8 | All declared with explicit domain and range; `testedPopulation`, `testedLocation`, `reportedYear` added in 0.7.0-dev |
 | **Annotation properties** | 14 | Includes `rice:evidenceType`, PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
-| **Named individuals** | **10,562** | 10,407 image individuals + 1 dataset metadata + 154 domain entities (10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 6 `AbioticFactor`, 6 `Variety`, 15 `ResistanceAssessment`, 3 `ResistanceLevel`) |
-| **`owl:Axiom` (provenance)** | **347** | **347 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev); the 15 `ResistanceAssessment` individuals carry their provenance directly. v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
+| **Named individuals** | **10,563** | 10,407 image individuals + 1 dataset metadata + 155 domain entities (10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 6 `AbioticFactor`, 6 `Variety`, 15 `ResistanceAssessment`, 3 `ResistanceLevel`) |
+| **`owl:Axiom` (provenance)** | **348** | **348 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev); the 15 `ResistanceAssessment` individuals carry their provenance directly. v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (19 classes; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment` and `ResistanceLevel` added in 0.7.0-dev) |
 | **Reasoner Consistency** | **Consistent** | 0.7.0-dev checked in **HermiT** on 2026-09-17 with `-k` on a space-free copy, with injected-contradiction controls (`Rice` as Plant + Disease; `Leaf_Blade` as PlantPart + Disease; `Semi_Persistent` as TransmissionMode + Disease; `Chemical_Control_Category` as ManagementCategory + Disease; `Zinc_Deficiency` as AbioticFactor + Pathogen; `Salinity` as AbioticFactor + Pathogen; `IR64` as Variety + Disease; a `ResistanceAssessment` also typed Variety; `assessedAgainst` a Treatment) that all report inconsistent; v0.6 verified in HermiT & Pellet |
@@ -74,7 +74,7 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 ### Per-class individual counts
 
-The 10,562 individuals in the knowledge graph are categorized by domain layer:
+The 10,563 individuals in the knowledge graph are categorized by domain layer:
 
 | Domain Category | Class Name | Count | Type / Description |
 |---|---|---:|---|
@@ -83,7 +83,7 @@ The 10,562 individuals in the knowledge graph are categorized by domain layer:
 | | `Observation` | 0 | Abstract root observation superclass |
 | **Defined Class** | `SymptomaticObservation` | *(1,442)* | Defined class (`captures some Symptom`), populated via OWL reasoning |
 | **Dataset Metadata** | `Dataset` (`dcat:Dataset`) | 1 | `PaddyDoctorDataset` metadata individual |
-| **Biotic Agents & Host** | `Pathogen` | 8 | Viral, bacterial, fungal, oomycete agents |
+| **Biotic Agents & Host** | `Pathogen` | 9 | Viral, bacterial, fungal, oomycete agents; `Rhizoctonia_Solani` added in 0.7.0-dev |
 | | `Pest` | 7 | Insect pests and vector organisms (`Scirpophaga_Incertulas` merged into `Stem_Borer`) |
 | | `TransmissionMode` | 1 | `Semi_Persistent` (vector transmission mode of both tungro viruses); 0.7.0-dev |
 | | `Disease` | 15 | Biotic disease & damage condition classes (including `Deadheart`), plus 4 nutrient-deficiency disorders and the iron toxicity and salinity disorders (0.7.0-dev) |
@@ -101,7 +101,7 @@ The 10,562 individuals in the knowledge graph are categorized by domain layer:
 | | `ManagementAction` | 5 | Operational actions (Immediate Intervention, Monitoring, etc.) |
 | | `ManagementCategory` | 4 | Control-method categories from AGROVOC: chemical, biological, cultural, host plant resistance; 0.7.0-dev |
 | | `SeverityLevel` | 4 | Low, Medium, High, and Critical; each annotated with the matching attack-intensity category (ringan, sedang, berat, puso) of the 2021 Indonesian pest-observation juknis. No severity → action mapping since 0.7.0-dev |
-| **Total Named Individuals** | | **10,562** | *(10,407 images + 1 dataset + 154 domain entities)* |
+| **Total Named Individuals** | | **10,563** | *(10,407 images + 1 dataset + 155 domain entities)* |
 
 ---
 
@@ -116,7 +116,7 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | | `sourceDatasetLabel` | 10 | `Disease ⊔ Pest ⊔ HealthStatus` → `xsd:string` | Dataset vocabulary mapping |
 | **Etiology & Susceptibility** | `vulnerableTo` | 55 | `Plant ⊔ GrowthStage` → `Disease ⊔ Pest` | CABI CPC (55); variety susceptibility moved to `ResistanceAssessment` (0.7.0-dev) |
 | | `occursIn` | 41 | `Disease ⊔ Pest ⊔ HealthStatus` → `GrowthStage` | IRRI RKB / Ou (1985) |
-| | `causes` | 14 | `Pathogen ⊔ AbioticFactor` → `Disease` | CABI / Ham / Hibino; IRRI nutrient and toxicity fact sheets (6, 0.7.0-dev) |
+| | `causes` | 15 | `Pathogen ⊔ AbioticFactor` → `Disease` | CABI / Ham / Hibino; IRRI nutrient and toxicity fact sheets (6, 0.7.0-dev); IRRI sheath blight fact sheet (1, 0.7.0-dev) |
 | | `transmits` | 2 | `Pest` → `Pathogen` | CABI / Hibino (1996) |
 | | `hasTransmissionMode` | 2 | `Pathogen` → `TransmissionMode` | Wang et al. (2022); 0.7.0-dev |
 | **Symptomatology & Risk Factors**| `indicatedBy` | 70 | `Disease ⊔ Pest` → `Symptom` | IRRI Rice Doctor / CABI / IRAC (2025); IRRI nutrient fact sheets (19) and toxicity fact sheets (8), 0.7.0-dev |
@@ -129,7 +129,7 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | | `requires` | 5 | `Treatment` → `GrowthStage` | IRRI RKB (`Crop_Sanitation requires Harvest_Stage` re-sourced from BBPOPT to the IRRI tungro sheet in 0.7.0-dev) |
 | | `hasManagementCategory` | 6 | `Treatment` → `ManagementCategory` | IRRI RKB (2) / AGROVOC definitions (4, `ontology-derived`); 0.7.0-dev |
 | **Variety** | `varietyOf` | 6 | `Variety` → `Plant` | Mackill & Khush (2018) (3); Bagariang et al. (2021) (2); Biswas et al. (2021) (1); 0.7.0-dev |
-| **Total domain assertions** | | **347** | *(0.7.0-dev, measured 2026-09-17 with rdflib; plus 10,407 `annotatedAs`, 1,442 `captures`, 10 `sourceDatasetLabel`, 15 `eppoCode`, and 15 `ResistanceAssessment` individuals — 15 each of `assessedVariety`, `assessedAgainst`, `hasResistanceLevel` — whose provenance sits on the individual: Mackill & Khush 10, Bagariang et al. 4, Biswas et al. 1)* | **347 / 347 reified** |
+| **Total domain assertions** | | **348** | *(0.7.0-dev, measured 2026-09-17 with rdflib; plus 10,407 `annotatedAs`, 1,442 `captures`, 10 `sourceDatasetLabel`, 15 `eppoCode`, and 15 `ResistanceAssessment` individuals — 15 each of `assessedVariety`, `assessedAgainst`, `hasResistanceLevel` — whose provenance sits on the individual: Mackill & Khush 10, Bagariang et al. 4, Biswas et al. 1)* | **348 / 348 reified** |
 
 > *Note on inverse properties:* All twelve inverse directions (`indicates`, `detectedBy`, `causedBy`, `prevents`, `controls`, `threatens`, etc.) and `detects` are declared in the schema for reasoning/querying symmetry.
 
@@ -153,13 +153,25 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | 0.7.0-dev (BBPOPT source resolved, + iron toxicity, salinity) | 2026-09-15 | 67,708 (163,011 OWL RL) | 20 | 30 | 10,538 | 341 axioms / 341 assertions |
 | 0.7.0-dev (+ `Variety`: IR64, Angke, Conde) | 2026-09-16 | 67,859 (163,293 OWL RL) | 21 | 35 | 10,541 | 353 axioms / 353 assertions |
 | 0.7.0-dev (w3id namespace, language tags) | 2026-09-17 | 67,861 (163,297 OWL RL) | 21 | 35 | 10,541 | 353 axioms / 353 assertions |
-| **0.7.0-dev (+ `ResistanceAssessment`, varieties round 2 — in development)** | **2026-09-17** | **68,049** (163,684 OWL RL) | **23** | **36** | **10,562** | **347 axioms / 347 assertions + 15 assessments** |
+| 0.7.0-dev (+ `ResistanceAssessment`, varieties round 2) | 2026-09-17 | 68,049 (163,684 OWL RL) | 23 | 36 | 10,562 | 347 axioms / 347 assertions + 15 assessments |
+| **0.7.0-dev (+ `Rhizoctonia_Solani` — in development)** | **2026-09-17** | **68,064** (163,715 OWL RL) | **23** | **36** | **10,563** | **348 axioms / 348 assertions + 15 assessments** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-09-17: 0.7.0-dev — `Rhizoctonia_Solani`, the pathogen of sheath blight
+
+Closes an aetiology gap: `Sheath_Blight` was the one biotic disease with no causal pathogen. Pre-patch file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-rhizoctonia.rdf`.
+
+- **Source:** IRRI Rice Knowledge Bank, sheath blight fact sheet — "Sheath blight is a fungal disease caused by *Rhizoctonia solani*." (read live 2026-09-17). The CABI datasheet already cited for sheath blight risk factors is filed under the teleomorph *Thanatephorus cucumeris*.
+- **Added:** Pathogen `Rhizoctonia_Solani` with `causes Sheath_Blight` (1 reified axiom, `literature-curated`); `eppoCode` `RHIZSO`; `skos:exactMatch` AGROVOC `c_33858` and NCBI Taxonomy `456999` (species) — all three checked live 2026-09-17 against EPPO GD, the AGROVOC REST API and NCBI E-utilities.
+- **Why now:** the 80% column of the new threshold-sensitivity table made the gap visible (CQ-01 at 7/9 = 78%). The assertion was added because the source states it; `Deadheart`, the other uncovered disease, stays uncovered — it is a pest-damage syndrome and has no pathogen.
+- **Checks:** 348 axioms = 348 domain assertions; all structural checks pass; HermiT consistent, control inconsistent.
+- **Benchmark:** verdicts unchanged at **21 PASS / 2 PARTIAL / 1 FAIL / 1 DOC**. CQ-01 7/9 → **8/9**; CQ-15 169 → 170; CQ-21 → **348/348**; CQ-23 18/30 → 19/31 (a new pathogen enters its denominator already aligned). Sensitivity at 80%: 15 → **16** PASS. Elicited CQ-A01 lists 9 disease–pathogen pairs instead of 8; all elicited statuses unchanged (9 / 8 / 2).
+- **Result:** 68,064 asserted / 163,715 OWL RL triples.
 
 ### 2026-09-17: 0.7.0-dev — varietal resistance as `ResistanceAssessment`; Ciherang, Inpari 32 and Inpari 33
 

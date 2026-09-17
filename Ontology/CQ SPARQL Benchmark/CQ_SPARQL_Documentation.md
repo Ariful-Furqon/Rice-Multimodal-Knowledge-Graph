@@ -1,7 +1,7 @@
 # Rice MMKG 0.7.0-dev — SPARQL Competency Question Documentation
 
 **Ontology:** `Rice MMKG.rdf` (owl:versionInfo 0.7.0-dev; last release v0.6.2)  
-**Triples:** 68,049 asserted / 163,684 after OWL RL materialisation (+95,635 triples)  
+**Triples:** 68,064 asserted / 163,715 after OWL RL materialisation (+95,651 triples)  
 **Benchmark Execution:** 2026-09-17  
 **Overall Result:** 21 PASS / 2 PARTIAL / 1 FAIL / 1 DOCUMENTED (24 scored + 1 documented = 25 CQs)
 **Pass Rate:** 87.5% (21/24 scored CQs); v0.6.2: 95.8% (23/24)
@@ -18,6 +18,7 @@
 > **Then** `Variety` was added (IR64, Angke, Conde; 12 assertions citing Mackill & Khush 2018), with `varietyOf`, `resistantTo` and `moderatelyResistantTo` added to CQ-22's checked list. CQ-21 → **353/353**; all verdicts unchanged (21 / 2 / 1 / 1). Varieties are neither diseases nor pests, so no coverage denominator moved.
 > **Then** the namespace moved to `https://w3id.org/ricemmkg#` (2026-09-17). Every answer of both instruments is identical to the previous run, compared field by field (timings and truncated row samples aside); only the triple counts moved (+4, all in the ontology header).
 > **Then** varietal resistance became `ResistanceAssessment` individuals (2026-09-17): `resistantTo` and `moderatelyResistantTo` were removed from the schema and from CQ-22's property list, 9 round-1 axioms left and 3 `varietyOf` axioms came in, so CQ-21 → **347/347**. CQ-22 gained a third branch for assessments missing their source, citation or evidence type, since an assessment carries its provenance on itself rather than on an axiom; it reports 0 violations in both the previous and the extended form, and a control file with one source removed reports exactly 1. All verdicts unchanged (21 / 2 / 1 / 1).
+> **Then** `Rhizoctonia_Solani` was added as the pathogen of sheath blight (IRRI fact sheet; 2026-09-17): CQ-01 7/9 → **8/9**, CQ-15 → 170, CQ-21 → **348/348**, CQ-23 → 19/31. Verdicts unchanged; at the 80% sensitivity threshold PASS rises from 15 to 16.
 
 > **v0.6.1 Patch Note (2026-09-14):**  
 > Three domain assertions gained or received provenance and one literal was tagged: `Stem_Borer indicatedBy Dead_Tiller` and `Stem_Borer indicatedBy White_Ear` (present since v0.6 but never reified) now carry `owl:Axiom` records citing IRAC (2025); `Nephotettix_Virescens controlledBy Resistant_Variety` was added, citing Gallagher et al. (2002); and the one untagged `rice:evidenceType` literal is now `@en`. CQ-10 and CQ-24 move from FAIL to PASS. The CQ-10 fix deliberately departs from the action item planned in v0.6 (`controlledBy Vector_Control`): FAO and IRRI both report that insecticide control of the green leafhopper often fails to control tungro and recommend resistant varieties instead, so asserting vector control only to satisfy the CQ would not have been supported by the literature. Pre-patch file: `Ontology/Backup/Rice MMKG.backup-v0.6-pre-v0.6.1.rdf`.
@@ -83,7 +84,7 @@ The 50% threshold is an **author-set convention** — a majority of the class is
 
 | CQ | Coverage | 40% | 50% | 60% | 70% | 80% |
 |---|---|---|---|---|---|---|
-| CQ-01 | 7/9 (78%) | PASS | PASS | PASS | PASS | PARTIAL |
+| CQ-01 | 8/9 (89%) | PASS | PASS | PASS | PASS | PASS |
 | CQ-02 | 21/22 (95%) | PASS | PASS | PASS | PASS | PASS |
 | CQ-03 | 17/22 (77%) | PASS | PASS | PASS | PASS | PARTIAL |
 | CQ-04 | 39/39 (100%) | PASS | PASS | PASS | PASS | PASS |
@@ -97,11 +98,11 @@ The 50% threshold is an **author-set convention** — a majority of the class is
 | CQ-16 | 8643/8643 (100%) | PASS | PASS | PASS | PASS | PASS |
 | CQ-17 | 10/10 (100%) | PASS | PASS | PASS | PASS | PASS |
 | CQ-18 | 1/39 (3%) | PARTIAL | PARTIAL | PARTIAL | PARTIAL | PARTIAL |
-| CQ-21 | 347/347 (100%) | PASS | PASS | PASS | PASS | PASS |
-| CQ-23 | 18/30 (60%) | PASS | PASS | PASS | PARTIAL | PARTIAL |
-| **PASS (24 scored)** | | **22** (91.7%) | **21** (87.5%) | **20** (83.3%) | **17** (70.8%) | **15** (62.5%) |
+| CQ-21 | 348/348 (100%) | PASS | PASS | PASS | PASS | PASS |
+| CQ-23 | 19/31 (61%) | PASS | PASS | PASS | PARTIAL | PARTIAL |
+| **PASS (24 scored)** | | **22** (91.7%) | **21** (87.5%) | **20** (83.3%) | **17** (70.8%) | **16** (66.7%) |
 
-**Reading.** Between 40% and 60% the pass rate moves by one CQ either way (CQ-12 at 41%, CQ-05 at 59%). At 70% three more CQs drop to PARTIAL (CQ-08 and CQ-11 at 67%, CQ-23 at 60%), and at 80% CQ-01 and CQ-03 follow. Small denominators make single verdicts fragile — CQ-08 has 3 members and CQ-09 one — so the raw ratio should be read alongside each label.
+**Reading.** Between 40% and 60% the pass rate moves by one CQ either way (CQ-12 at 41%, CQ-05 at 59%). At 70% three more CQs drop to PARTIAL (CQ-08 and CQ-11 at 67%, CQ-23 at 60%), and at 80% CQ-03 follows (CQ-01 held at 80% from 2026-09-17, when sheath blight got its pathogen: 8/9 = 89%). Small denominators make single verdicts fragile — CQ-08 has 3 members and CQ-09 one — so the raw ratio should be read alongside each label.
 
 ---
 
@@ -109,7 +110,7 @@ The 50% threshold is an **author-set convention** — a majority of the class is
 
 | CQ ID | Depth | Dim | Mode | Result | Measurement | Summary |
 |:---:|:---:|:---:|:---:|:---:|:---:|---|
-| **CQ-01** | L1 | D1 | `coverage`   | **PASS**       | 7/9 (78%)            | Rice diseases with causal pathogens (numerator and denominator corrected in 0.7.0-dev; uncorrected denominator: 7/15; v0.6.2: 7/9) |
+| **CQ-01** | L1 | D1 | `coverage`   | **PASS**       | 8/9 (89%)            | Rice diseases with causal pathogens (numerator and denominator corrected in 0.7.0-dev; uncorrected denominator: 7/15; v0.6.2: 7/9) |
 | **CQ-02** | L1 | D1 | `coverage`   | **PASS**       | 21/22 (95%)          | Diseases/pests with observable symptoms (v0.6.2: 15/16) |
 | **CQ-03** | L1 | D1 | `coverage`   | **PASS**       | 17/22 (77%)          | Diseases/pests with control treatments (v0.6.2: 16/16; v0.6: 15/16) |
 | **CQ-04** | L1 | D1 | `coverage`   | **PASS**       | 39/39 (100%)         | Symptoms attached to domain entities (zero orphan; v0.6.2: 27/27) |
@@ -123,15 +124,15 @@ The 50% threshold is an **author-set convention** — a majority of the class is
 | **CQ-12** | L3 | D1 | `coverage`   | **PARTIAL**    | 9/22 (41%)           | Diseases/pests recommending concrete `ManagementAction` (v0.6.2: 9/16, PASS) |
 | **CQ-13** | L2 | D1 | `coverage`   | **FAIL**       | 0/4 (0%)             | Total triage: Every `SeverityLevel` maps to an action (unsourced mapping removed in 0.7.0-dev; v0.6.2: 4/4) |
 | **CQ-14** | L4 | D1 | `entailment` | **PASS**       | 0 -> 1,442 rows      | OWL classification: `SymptomaticObservation` defined class |
-| **CQ-15** | L4 | D1 | `entailment` | **PASS**       | 0 -> 169 rows        | Bidirectional query capability via inverse properties (v0.6: 133) |
+| **CQ-15** | L4 | D1 | `entailment` | **PASS**       | 0 -> 170 rows        | Bidirectional query capability via inverse properties (v0.6: 133) |
 | **CQ-16** | L3 | D2 | `coverage`   | **PASS**       | 8,643/8,643 (100%)   | Multimodal grounding: Image -> Class -> Symptom & Treatment |
 | **CQ-17** | L2 | D2 | `coverage`   | **PASS**       | 10/10 (100%)         | Dataset annotation labels typed as OWL domain classes |
 | **CQ-18** | L1 | D2 | `coverage`   | **PARTIAL**    | 1/39 (3%)            | Direct visual grounding of symptoms (`rice:captures`) |
 | **CQ-19** | L1 | D2 | `negative`   | **PASS**       | 0 violations         | Media layer integrity: Content URL & dataset provenance |
 | **CQ-20** | L1 | D2 | `documented` | **DOC**        | 0 individuals        | Sensor observation population (Phase 3 extension point) |
-| **CQ-21** | L4 | D3 | `coverage`   | **PASS**       | 347/347 (100%)       | Reified domain axioms with source URI and citation (v0.6.2: 256/256; v0.6: 253/253) |
+| **CQ-21** | L4 | D3 | `coverage`   | **PASS**       | 348/348 (100%)       | Reified domain axioms with source URI and citation (v0.6.2: 256/256; v0.6: 253/253) |
 | **CQ-22** | L4 | D3 | `negative`   | **PASS**       | 0 violations         | Domain assertions without an axiom, or axioms with incomplete provenance (extended 2026-09-14; v0.6: 2) |
-| **CQ-23** | L4 | D3 | `coverage`   | **PASS**       | 18/30 (60%)          | Biological entities aligned to EPPO / AGROVOC / NCBI |
+| **CQ-23** | L4 | D3 | `coverage`   | **PASS**       | 19/31 (61%)          | Biological entities aligned to EPPO / AGROVOC / NCBI |
 | **CQ-24** | L4 | D3 | `negative`   | **PASS**       | 0 violations         | Literal hygiene: Uniform language tags (`@en`) on `evidenceType` (v0.6: 1) |
 | **CQ-25** | L4 | D1 | `negative`   | **PASS**       | 0 violations         | Class disjointness: Entailed overlap between `Symptom` & `Disease` |
 
@@ -141,7 +142,7 @@ The 50% threshold is an **author-set convention** — a majority of the class is
 
 ### Section A: Agronomic / Symbolic Domain (D1)
 
-#### CQ-01 | L1 x D1 | coverage | PASS (7/9 diseases, 78%)
+#### CQ-01 | L1 x D1 | coverage | PASS (8/9 diseases, 89%)
 **Question:** Which rice diseases have an identified causal pathogen?
 **Rationale:** Aetiological completeness. A disease without a causal agent cannot support downstream causal inference.
 **Numerator Query (corrected 2026-09-15, 0.7.0-dev):**
@@ -163,9 +164,9 @@ SELECT DISTINCT ?d WHERE { ?d a rice:Disease .
 SELECT DISTINCT ?d WHERE { ?d a rice:Disease }
 ```
 **Why corrected:** the question asks for a causal *pathogen*, which cannot exist for a disorder caused by an abiotic factor. With the original denominator, every abiotic disorder counted as a gap: 7/13 after the four nutrient disorders, and 7/15 (PARTIAL) after iron toxicity and salinity. That figure measured the modelling pattern, not missing knowledge. The exclusion is a criterion, so future abiotic disorders are excluded without naming them. The question text is unchanged. CQ-03, CQ-11 and CQ-12 were deliberately not corrected: their questions (control, risk-to-remedy chain, management action) apply to abiotic disorders too.  
-**Result (0.7.0-dev, corrected):** 7 covered / 9 total (77.8%) — PASS  
-**Result (0.7.0-dev, original denominator):** 7 covered / 15 total (46.7%) — PARTIAL  
-**Uncovered entities (2):** `rice:Deadheart` (a damage syndrome caused by a pest), `rice:Sheath_Blight`.  
+**Result (0.7.0-dev, corrected):** 8 covered / 9 total (88.9%) — PASS (7/9 before `Rhizoctonia_Solani causes Sheath_Blight` was added on 2026-09-17)  
+**Result (0.7.0-dev, original denominator):** 8 covered / 15 total (53.3%) — PASS (7/15, PARTIAL, before that addition)  
+**Uncovered entities (1):** `rice:Deadheart` (a damage syndrome caused by a pest, so it has no pathogen by nature).  
 **v0.6.2:** 7/9 (77.8%), uncovered `Deadheart`, `Sheath_Blight`; both forms of the denominator give the same set on v0.6.x, because no `AbioticFactor` existed.
 
 ---
@@ -400,7 +401,7 @@ SELECT DISTINCT ?o WHERE { ?o a rice:SymptomaticObservation }
 
 ---
 
-#### CQ-15 | L4 x D1 | entailment | PASS (0 asserted -> 169 entailed)
+#### CQ-15 | L4 x D1 | entailment | PASS (0 asserted -> 170 entailed)
 **Question:** Can the KG be queried in the inverse direction (e.g. `causedBy`, `indicates`, `controls`) via OWL inverse inference?
 **Rationale:** Robustness under bidirectional query formulations without duplicate manual assertions.
 **Query:**
@@ -409,7 +410,7 @@ SELECT ?x ?y WHERE {
   { ?x rice:causedBy ?y } UNION { ?x rice:indicates ?y } UNION
   { ?x rice:hasOccurrenceOf ?y } UNION { ?x rice:controls ?y } }
 ```
-**Result (0.7.0-dev):** 0 on asserted graph -> **169 on materialised graph (+169 gain)** — PASS; the gain grows with the 0.7.0-dev assertions on properties that have a declared inverse. **v0.6.1/v0.6.2:** 134 (v0.6: 133; the added `controlledBy` contributes one `controls` inverse).
+**Result (0.7.0-dev):** 0 on asserted graph -> **170 on materialised graph (+170 gain)** — PASS; the gain grows with the 0.7.0-dev assertions on properties that have a declared inverse. **v0.6.1/v0.6.2:** 134 (v0.6: 133; the added `controlledBy` contributes one `controls` inverse).
 
 ---
 
@@ -494,7 +495,7 @@ SELECT DISTINCT ?o WHERE { ?o a rice:SensorObservation }
 
 ### Section C: Provenance & Alignment Layer (D3)
 
-#### CQ-21 | L4 x D3 | coverage | PASS (347/347 axioms, 100%)
+#### CQ-21 | L4 x D3 | coverage | PASS (348/348 axioms, 100%)
 **Question:** Which reified domain assertions carry both an authoritative source URI and a bibliographic citation?
 **Rationale:** Scientific defensibility & provenance completeness.
 **Scope limit:** the denominator is the set of axioms, so CQ-21 measures whether existing axioms carry a source — never whether every assertion has an axiom. An unreified assertion is invisible to it; CQ-22 covers that case.
@@ -507,7 +508,7 @@ SELECT DISTINCT ?ax WHERE {
 ```sparql
 SELECT DISTINCT ?ax WHERE { ?ax a owl:Axiom }
 ```
-**Result:** 347 covered / 347 total (100.0%) — PASS. Source URIs by host: CABI (doi.org) 242, IRRI Rice Knowledge Bank 88, Mackill & Khush 2018 (doi.org) 3, AGROVOC 4, IRAC 2, Plant Ontology 2, Wang et al. 2022 (doi.org) 2, Bagariang et al. 2021 (doi.org) 2, Biswas et al. 2021 (doi.org) 1, FAO 1. The 15 `ResistanceAssessment` individuals are not axioms and are outside this count; CQ-22 checks them. BBPOPT 0 (the 7 BBPOPT axioms of v0.6.2 were removed or re-sourced in 0.7.0-dev).  
+**Result:** 348 covered / 348 total (100.0%) — PASS. Source URIs by host: CABI (doi.org) 242, IRRI Rice Knowledge Bank 89, Mackill & Khush 2018 (doi.org) 3, AGROVOC 4, IRAC 2, Plant Ontology 2, Wang et al. 2022 (doi.org) 2, Bagariang et al. 2021 (doi.org) 2, Biswas et al. 2021 (doi.org) 1, FAO 1. The 15 `ResistanceAssessment` individuals are not axioms and are outside this count; CQ-22 checks them. BBPOPT 0 (the 7 BBPOPT axioms of v0.6.2 were removed or re-sourced in 0.7.0-dev).  
 **v0.6.2:** 256/256 (CABI 242, BBPOPT 7, IRRI 4, IRAC 2, FAO 1).  
 **v0.6:** 253/253 (100%) — which hid the two unreified `Stem_Borer` assertions reported by CQ-22.
 
@@ -562,7 +563,7 @@ SELECT ?ax WHERE {
 
 ---
 
-#### CQ-23 | L4 x D3 | coverage | PASS (18/30 entities, 60%)
+#### CQ-23 | L4 x D3 | coverage | PASS (19/31 entities, 61%)
 **Question:** Which biological entities are aligned to external vocabularies (EPPO, AGROVOC, or NCBI Taxonomy)?
 **Rationale:** Semantic interoperability & FAIR data compliance.
 **Numerator Query:**
@@ -575,7 +576,7 @@ SELECT DISTINCT ?e WHERE {
 ```sparql
 SELECT DISTINCT ?e WHERE { { ?e a rice:Disease } UNION { ?e a rice:Pathogen } UNION { ?e a rice:Pest } }
 ```
-**Result (0.7.0-dev):** 18 covered / 30 total (60.0%) — PASS; PARTIAL from a 70% threshold  
+**Result (0.7.0-dev):** 19 covered / 31 total (61.3%) — PASS; PARTIAL from a 70% threshold. `Rhizoctonia_Solani` (2026-09-17) entered covered, with EPPO, AGROVOC and NCBI identifiers; before it, 18/30.  
 **Uncovered entities (12):** `Bacterial_Leaf_Blight`, `Bacterial_Leaf_Streak`, `Bacterial_Panicle_Blight`, `Brown_Spot`, `Deadheart`, `Sheath_Blight`, and the six abiotic disorders (`Iron_Toxicity_Disorder`, `Nitrogen_Deficiency_Disorder`, `Phosphorus_Deficiency_Disorder`, `Potassium_Deficiency_Disorder`, `Salinity_Disorder`, `Zinc_Deficiency_Disorder`), which carry no `eppoCode`, `skos:exactMatch` or `skos:closeMatch`  
 **v0.6.2:** 18/24 (75.0%), the first six uncovered.
 
@@ -615,7 +616,7 @@ SELECT DISTINCT ?x WHERE {
 | **CQ-22** | ✅ **RESOLVED** | Extended query found 2 domain assertions with no provenance axiom | v0.6.1: `Stem_Borer indicatedBy Dead_Tiller` / `White_Ear` reified, citing IRAC (2025) |
 | **CQ-24** | ✅ **RESOLVED** | One untagged literal on `rice:evidenceType` | v0.6.1: tagged `"literature-curated"@en` |
 | **CQ-12** | ⚠️ **PARTIAL**| 9/22 after the six abiotic disorders (four deficiencies, iron toxicity, salinity) entered the denominator (0.7.0-dev) | Add `recommends` only where a source states a management action for the disorder; not added to clear the threshold |
-| **CQ-01** | ✅ **CORRECTED** | Numerator counted abiotic causes as pathogens once `AbioticFactor` could `causes` | 0.7.0-dev: numerator requires `?p a rice:Pathogen`; denominator excludes diseases with an `AbioticFactor` cause (7/9, PASS; uncorrected 7/15) |
+| **CQ-01** | ✅ **CORRECTED** | Numerator counted abiotic causes as pathogens once `AbioticFactor` could `causes` | 0.7.0-dev: numerator requires `?p a rice:Pathogen`; denominator excludes diseases with an `AbioticFactor` cause (7/9, PASS; uncorrected 7/15). Sheath blight's pathogen added 2026-09-17: 8/9 (uncorrected 8/15) |
 | **CQ-18** | ⚠️ **PARTIAL**| Only 1/39 symptoms visually grounded | Annotate image dataset at symptom level (`captures` relation) (Phase 3) |
 | **CQ-20** | 📋 **DOC** | 0 sensor observations | Ingest IoT sensor telemetry as `SensorObservation` instances (Phase 3) |
 
