@@ -167,7 +167,7 @@ Phase 6: Resource Paper & Submission → v1.0 (Weeks 11–14: mid Nov – early 
      - *Reusability & FAIR* — w3id PURL, documentation, Zenodo DOI, AgroPortal, maintenance plan, FOOPS! score.
      - *Evaluation* — benchmark CQs, elicited CQs with measured answerability against a frozen baseline, DL consistency, expert agreement.
   2. **Reproducibility package:** the `CQ Screening/scripts/` and `reports/` directories are currently gitignored, which undercuts the reproducibility claim — publish them; add a single runner and an environment lockfile.
-  3. **Method statements the paper must make:** the two elicitation rounds; LLM-assisted, human-adjudicated grouping (and the source-model conflict of interest); the 50% coverage threshold as an author convention; CQ-22's 2026-09-14 extension with both results reported; the correction of the originally published v0.6 figures.
+  3. **Method statements the paper must make:** the two elicitation rounds; LLM-assisted, human-adjudicated grouping (and the source-model conflict of interest); the 50% coverage threshold as an author convention, with the 40–80% sensitivity table (PASS 22 / 21 / 20 / 17 / 15 of 24); CQ-22's 2026-09-14 extension with both results reported; the correction of the originally published v0.6 figures.
   4. Internal and advisor review; submission.
 - **Deliverables:** submitted manuscript; release-tagged public repository.
 

@@ -10,7 +10,7 @@
 > `PlantPart` (8 individuals), `affectsPlantPart` (27 assertions, citing IRRI Rice Knowledge Bank fact sheets) and `partOf` (2 assertions, from the Plant Ontology) were added. Verdicts are unchanged. Two measurements move because the new assertions are reified: CQ-21 256/256 → **285/285**, and CQ-22 now also checks `affectsPlantPart` and `partOf` (still 0 violations). The new property was added to CQ-22's list rather than left out, so that the extension could not pass CQ-22 by omission. All other results are identical to v0.6.2. See the 0.7.0-dev entry in `Ontology_Overview.md`.  
 > **Then** `TransmissionMode` (1 individual) and `hasTransmissionMode` (2 assertions, citing Wang et al. 2022) were added; CQ-21 → **287/287**, `hasTransmissionMode` added to CQ-22's list (0 violations), verdicts unchanged.  
 > **Then** `ManagementCategory` (4 individuals, AGROVOC) and `hasManagementCategory` (6 assertions, citing IRRI or AGROVOC definitions) were added; CQ-21 → **293/293**, `hasManagementCategory` added to CQ-22's list (0 violations), verdicts unchanged.  
-> **Then** `AbioticFactor` was added: four nutrient deficiencies (N, P, K, Zn) that `causes` four new disorder individuals typed `Disease`, citing the IRRI nutrient fact sheets. The Disease and Disease ∪ Pest denominators grew (9 → 13, 16 → 20), so several coverage figures moved, and **CQ-12 fell to PARTIAL (9/20)** because no source gives the disorders a ManagementAction. **CQ-01's numerator was corrected** to require `?p a rice:Pathogen`: `causes` now also has abiotic subjects, and the unfiltered query reported 11/13 by counting them as pathogens. On every earlier version the two forms return identical results. The matrix below shows 0.7.0-dev figures; per-CQ sections not otherwise marked still record their v0.6.x measurements — the generated `CQ_SPARQL_Benchmark_Report.md` has the current values and uncovered entities for all 25.  
+> **Then** `AbioticFactor` was added: four nutrient deficiencies (N, P, K, Zn) that `causes` four new disorder individuals typed `Disease`, citing the IRRI nutrient fact sheets. The Disease and Disease ∪ Pest denominators grew (9 → 13, 16 → 20), so several coverage figures moved, and **CQ-12 fell to PARTIAL (9/20)** because no source gives the disorders a ManagementAction. **CQ-01's numerator was corrected** to require `?p a rice:Pathogen`: `causes` now also has abiotic subjects, and the unfiltered query reported 11/13 by counting them as pathogens. On every earlier version the two forms return identical results. The matrix and the per-CQ sections show 0.7.0-dev figures (sections brought up to date 2026-09-17, with the v0.6.2 values kept as history lines); the generated `CQ_SPARQL_Benchmark_Report.md` has the current values and uncovered entities for all 25.  
 > **Then** the unverified BBPOPT source was resolved and iron toxicity and salinity were added:
 > - **CQ-13 → FAIL (0/4).** The six severity → ManagementAction assertions were removed: no document supports them, and the 2021 Indonesian juknis contradicts one of them. The CQ was not edited.
 > - **CQ-01 fell to PARTIAL (7/15), then its denominator was corrected (approved 2026-09-15).** The two new disorders had entered the Disease denominator, and an abiotic disorder has no pathogen by construction. The denominator now excludes any disease caused by an `AbioticFactor` (a criterion, not a list of names). Result: **7/9, PASS**; the uncorrected form gives 7/15 (PARTIAL), and both are reported. Only CQ-01 was corrected: CQ-03, CQ-11 and CQ-12 still count abiotic disorders, because control, risk-to-remedy and management actions do apply to them.
@@ -76,6 +76,32 @@ Each CQ is positioned along two orthogonal axes: **Reasoning Depth (L1–L4)** a
 | `documented` | (not scored) | Declared extension point (e.g. sensor data), kept visible |
 
 > **Key rule:** Mandatory hops are written **without `OPTIONAL`**. Using `OPTIONAL` on tested hops makes CQs unfalsifiable by always returning rows from anchor classes.
+
+### Sensitivity to the Coverage Threshold (added 2026-09-17)
+
+The 50% threshold is an **author-set convention** — a majority of the class is reached — not a published standard; CQ-based evaluation methods treat a CQ as answered or not and give no numeric cut-off to cite. The runner therefore also reports every `coverage` verdict at 40–80% (`SENSITIVITY_THRESHOLDS` in `cq_sparql_benchmark.py`, written to the report and to `sensitivity` in the JSON). The headline result stays at 50%. Only the 16 `coverage` CQs can change; the other modes keep their verdicts.
+
+| CQ | Coverage | 40% | 50% | 60% | 70% | 80% |
+|---|---|---|---|---|---|---|
+| CQ-01 | 7/9 (78%) | PASS | PASS | PASS | PASS | PARTIAL |
+| CQ-02 | 21/22 (95%) | PASS | PASS | PASS | PASS | PASS |
+| CQ-03 | 17/22 (77%) | PASS | PASS | PASS | PASS | PARTIAL |
+| CQ-04 | 39/39 (100%) | PASS | PASS | PASS | PASS | PASS |
+| CQ-05 | 13/22 (59%) | PASS | PASS | PARTIAL | PARTIAL | PARTIAL |
+| CQ-06 | 6/7 (86%) | PASS | PASS | PASS | PASS | PASS |
+| CQ-08 | 2/3 (67%) | PASS | PASS | PASS | PARTIAL | PARTIAL |
+| CQ-09 | 1/1 (100%) | PASS | PASS | PASS | PASS | PASS |
+| CQ-11 | 10/15 (67%) | PASS | PASS | PASS | PARTIAL | PARTIAL |
+| CQ-12 | 9/22 (41%) | PASS | PARTIAL | PARTIAL | PARTIAL | PARTIAL |
+| CQ-13 | 0/4 (0%) | FAIL | FAIL | FAIL | FAIL | FAIL |
+| CQ-16 | 8643/8643 (100%) | PASS | PASS | PASS | PASS | PASS |
+| CQ-17 | 10/10 (100%) | PASS | PASS | PASS | PASS | PASS |
+| CQ-18 | 1/39 (3%) | PARTIAL | PARTIAL | PARTIAL | PARTIAL | PARTIAL |
+| CQ-21 | 347/347 (100%) | PASS | PASS | PASS | PASS | PASS |
+| CQ-23 | 18/30 (60%) | PASS | PASS | PASS | PARTIAL | PARTIAL |
+| **PASS (24 scored)** | | **22** (91.7%) | **21** (87.5%) | **20** (83.3%) | **17** (70.8%) | **15** (62.5%) |
+
+**Reading.** Between 40% and 60% the pass rate moves by one CQ either way (CQ-12 at 41%, CQ-05 at 59%). At 70% three more CQs drop to PARTIAL (CQ-08 and CQ-11 at 67%, CQ-23 at 60%), and at 80% CQ-01 and CQ-03 follow. Small denominators make single verdicts fragile — CQ-08 has 3 members and CQ-09 one — so the raw ratio should be read alongside each label.
 
 ---
 
@@ -144,7 +170,7 @@ SELECT DISTINCT ?d WHERE { ?d a rice:Disease }
 
 ---
 
-#### CQ-02 | L1 x D1 | coverage | PASS (15/16 disease/pest, 94%)
+#### CQ-02 | L1 x D1 | coverage | PASS (21/22 disease/pest, 95%)
 **Question:** Which diseases and pests have at least one observable symptom?
 **Rationale:** Diagnosability. Without a symptom link, an entity is invisible to symptom-driven diagnostic inference.
 **Numerator Query:**
@@ -157,12 +183,13 @@ SELECT DISTINCT ?e WHERE {
 ```sparql
 SELECT DISTINCT ?e WHERE { { ?e a rice:Disease } UNION { ?e a rice:Pest } }
 ```
-**Result:** 15 covered / 16 total (93.8%) — PASS  
-**Uncovered entities (1):** `rice:Nephotettix_Virescens`
+**Result (0.7.0-dev):** 21 covered / 22 total (95.5%) — PASS  
+**Uncovered entities (1):** `rice:Nephotettix_Virescens`  
+**v0.6.2:** 15/16 (93.8%), same uncovered entity; the six abiotic disorders entered with their symptoms.
 
 ---
 
-#### CQ-03 | L1 x D1 | coverage | PASS (16/16 disease/pest, 100%)
+#### CQ-03 | L1 x D1 | coverage | PASS (17/22 disease/pest, 77%)
 **Question:** Which diseases and pests have at least one control treatment?
 **Rationale:** Actionability. The KG must not diagnose what it cannot advise on.
 **Numerator Query:**
@@ -175,12 +202,14 @@ SELECT DISTINCT ?e WHERE {
 ```sparql
 SELECT DISTINCT ?e WHERE { { ?e a rice:Disease } UNION { ?e a rice:Pest } }
 ```
-**Result:** 16 covered / 16 total (100.0%) — PASS  
+**Result (0.7.0-dev):** 17 covered / 22 total (77.3%) — PASS  
+**Uncovered entities (5):** `Iron_Toxicity_Disorder`, `Nitrogen_Deficiency_Disorder`, `Phosphorus_Deficiency_Disorder`, `Potassium_Deficiency_Disorder`, `Salinity_Disorder` — IRRI gives fertilizer rates or prevention (`preventedBy Water_Management`) for these, not a control treatment; only zinc deficiency has one (`Zinc_Fertilizer_Application`).  
+**v0.6.2:** 16/16 (100%).  
 **v0.6:** 15/16 (93.8%), uncovered `rice:Nephotettix_Virescens`; closed in v0.6.1 by `controlledBy Resistant_Variety` (see CQ-10).
 
 ---
 
-#### CQ-04 | L1 x D1 | coverage | PASS (27/27 symptoms, 100%)
+#### CQ-04 | L1 x D1 | coverage | PASS (39/39 symptoms, 100%)
 **Question:** Which symptoms are attached to at least one disease or pest?
 **Rationale:** Detects orphan symptoms — vocabulary declared but never utilized in diagnostic patterns.
 **Numerator Query:**
@@ -191,11 +220,11 @@ SELECT DISTINCT ?s WHERE { ?s a rice:Symptom . ?e rice:indicatedBy ?s }
 ```sparql
 SELECT DISTINCT ?s WHERE { ?s a rice:Symptom }
 ```
-**Result:** 27 covered / 27 total (100.0%) — PASS. Zero orphan vocabulary.
+**Result (0.7.0-dev):** 39 covered / 39 total (100.0%) — PASS. Zero orphan vocabulary; the 12 symptoms added for the abiotic disorders are all attached. **v0.6.2:** 27/27.
 
 ---
 
-#### CQ-05 | L2 x D1 | coverage | PASS (13/16 disease/pest, 81%)
+#### CQ-05 | L2 x D1 | coverage | PASS (13/22 disease/pest, 59%)
 **Question:** For which diseases/pests can we state both the growth stage of occurrence AND an environmental factor raising their risk?
 **Rationale:** Multi-criteria contextualisation. Both joins are mandatory (no `OPTIONAL`), measuring true co-population.
 **Numerator Query:**
@@ -209,8 +238,9 @@ SELECT DISTINCT ?e WHERE {
 ```sparql
 SELECT DISTINCT ?e WHERE { { ?e a rice:Disease } UNION { ?e a rice:Pest } }
 ```
-**Result:** 13 covered / 16 total (81.2%) — PASS (88 instantiations)  
-**Uncovered entities (3):** `rice:Leaf_Folder`, `rice:Nephotettix_Virescens`, `rice:Rice_Bug`
+**Result (0.7.0-dev):** 13 covered / 22 total (59.1%) — PASS (88 instantiations); PARTIAL from a 60% threshold (see the sensitivity table)  
+**Uncovered entities (9):** `rice:Leaf_Folder`, `rice:Nephotettix_Virescens`, `rice:Rice_Bug`, and the six abiotic disorders (`Iron_Toxicity_Disorder`, `Nitrogen_Deficiency_Disorder`, `Phosphorus_Deficiency_Disorder`, `Potassium_Deficiency_Disorder`, `Salinity_Disorder`, `Zinc_Deficiency_Disorder`), which have no growth stage of occurrence  
+**v0.6.2:** 13/16 (81.2%), uncovered `Leaf_Folder`, `Nephotettix_Virescens`, `Rice_Bug`.
 
 ---
 
@@ -246,7 +276,7 @@ SELECT DISTINCT ?g ?e WHERE {
 
 ---
 
-#### CQ-08 | L2 x D1 | coverage | PASS (1/2 preventive treatments, 50%)
+#### CQ-08 | L2 x D1 | coverage | PASS (2/3 preventive treatments, 67%)
 **Question:** Which preventive treatments carry an explicit growth-stage prerequisite for application?
 **Rationale:** Operational validity. Preventive advice without stage timing cannot be executed in the field.
 **Numerator Query:**
@@ -258,8 +288,9 @@ SELECT DISTINCT ?t WHERE {
 ```sparql
 SELECT DISTINCT ?t WHERE { ?e rice:preventedBy ?t }
 ```
-**Result:** 1 covered / 2 total (50.0%) — PASS  
-**Uncovered entities (1):** `rice:Seed_Treatment`
+**Result (0.7.0-dev):** 2 covered / 3 total (66.7%) — PASS; PARTIAL from a 70% threshold. With three members, one assertion moves the verdict.  
+**Uncovered entities (1):** `rice:Seed_Treatment`  
+**v0.6.2:** 1/2 (50.0%) — PASS exactly at the threshold.
 
 ---
 
@@ -300,7 +331,7 @@ SELECT DISTINCT ?v WHERE {
 
 ---
 
-#### CQ-11 | L3 x D1 | coverage | PASS (9/9 diseases, 100%)
+#### CQ-11 | L3 x D1 | coverage | PASS (10/15 diseases, 67%)
 **Question:** For which diseases is the full risk-to-remedy chain traversable: env factor -> disease -> symptom -> treatment?
 **Rationale:** Complete 4-hop decision-support path required by advisory applications.
 **Numerator Query:**
@@ -315,7 +346,9 @@ SELECT DISTINCT ?d WHERE {
 ```sparql
 SELECT DISTINCT ?d WHERE { ?d a rice:Disease }
 ```
-**Result:** 9 covered / 9 total (100.0%) — PASS (277 instantiations)
+**Result (0.7.0-dev):** 10 covered / 15 total (66.7%) — PASS (293 instantiations); PARTIAL from a 70% threshold  
+**Uncovered entities (5):** `Iron_Toxicity_Disorder`, `Nitrogen_Deficiency_Disorder`, `Phosphorus_Deficiency_Disorder`, `Potassium_Deficiency_Disorder`, `Salinity_Disorder` — each lacks at least the control treatment the chain ends in (see CQ-03); zinc deficiency is the one abiotic disorder that completes it.  
+**v0.6.2:** 9/9 (100%), 277 instantiations.
 
 ---
 
@@ -367,7 +400,7 @@ SELECT DISTINCT ?o WHERE { ?o a rice:SymptomaticObservation }
 
 ---
 
-#### CQ-15 | L4 x D1 | entailment | PASS (0 asserted -> 134 entailed)
+#### CQ-15 | L4 x D1 | entailment | PASS (0 asserted -> 169 entailed)
 **Question:** Can the KG be queried in the inverse direction (e.g. `causedBy`, `indicates`, `controls`) via OWL inverse inference?
 **Rationale:** Robustness under bidirectional query formulations without duplicate manual assertions.
 **Query:**
@@ -376,7 +409,7 @@ SELECT ?x ?y WHERE {
   { ?x rice:causedBy ?y } UNION { ?x rice:indicates ?y } UNION
   { ?x rice:hasOccurrenceOf ?y } UNION { ?x rice:controls ?y } }
 ```
-**Result:** 0 on asserted graph -> **134 on materialised graph (+134 gain)** — PASS (v0.6: 133; the added `controlledBy` contributes one `controls` inverse)
+**Result (0.7.0-dev):** 0 on asserted graph -> **169 on materialised graph (+169 gain)** — PASS; the gain grows with the 0.7.0-dev assertions on properties that have a declared inverse. **v0.6.1/v0.6.2:** 134 (v0.6: 133; the added `controlledBy` contributes one `controls` inverse).
 
 ---
 
@@ -418,7 +451,7 @@ SELECT DISTINCT ?e WHERE { ?img rice:annotatedAs ?e }
 
 ---
 
-#### CQ-18 | L1 x D2 | coverage | PARTIAL (1/27 symptoms, 4%)
+#### CQ-18 | L1 x D2 | coverage | PARTIAL (1/39 symptoms, 3%)
 **Question:** Which symptoms are grounded in direct visual evidence (`captures` relation)?
 **Rationale:** Distinguishes an MMKG from a text ontology with images attached. Highlights the symptom-level grounding gap.
 **Numerator Query:**
@@ -429,8 +462,8 @@ SELECT DISTINCT ?s WHERE { ?s a rice:Symptom . ?o rice:captures ?s }
 ```sparql
 SELECT DISTINCT ?s WHERE { ?s a rice:Symptom }
 ```
-**Result:** 1 covered / 27 total (3.7%) — **PARTIAL** (grounded symptom: `Dead_Tiller`)  
-> **Roadmap Target (Phase 3):** Populate per-symptom visual annotations for the remaining 26 symptoms.
+**Result (0.7.0-dev):** 1 covered / 39 total (2.6%) — **PARTIAL** (grounded symptom: `Dead_Tiller`); the denominator grew with the 12 abiotic-disorder symptoms. **v0.6.2:** 1/27 (3.7%).  
+> **Roadmap Target (Phase 3):** Populate per-symptom visual annotations for the remaining 38 symptoms, from the expert image annotation.
 
 ---
 
@@ -529,7 +562,7 @@ SELECT ?ax WHERE {
 
 ---
 
-#### CQ-23 | L4 x D3 | coverage | PASS (18/24 entities, 75%)
+#### CQ-23 | L4 x D3 | coverage | PASS (18/30 entities, 60%)
 **Question:** Which biological entities are aligned to external vocabularies (EPPO, AGROVOC, or NCBI Taxonomy)?
 **Rationale:** Semantic interoperability & FAIR data compliance.
 **Numerator Query:**
@@ -542,8 +575,9 @@ SELECT DISTINCT ?e WHERE {
 ```sparql
 SELECT DISTINCT ?e WHERE { { ?e a rice:Disease } UNION { ?e a rice:Pathogen } UNION { ?e a rice:Pest } }
 ```
-**Result:** 18 covered / 24 total (75.0%) — PASS  
-**Uncovered entities (6):** `Bacterial_Leaf_Blight`, `Bacterial_Leaf_Streak`, `Bacterial_Panicle_Blight`, `Brown_Spot`, `Deadheart`, `Sheath_Blight`
+**Result (0.7.0-dev):** 18 covered / 30 total (60.0%) — PASS; PARTIAL from a 70% threshold  
+**Uncovered entities (12):** `Bacterial_Leaf_Blight`, `Bacterial_Leaf_Streak`, `Bacterial_Panicle_Blight`, `Brown_Spot`, `Deadheart`, `Sheath_Blight`, and the six abiotic disorders (`Iron_Toxicity_Disorder`, `Nitrogen_Deficiency_Disorder`, `Phosphorus_Deficiency_Disorder`, `Potassium_Deficiency_Disorder`, `Salinity_Disorder`, `Zinc_Deficiency_Disorder`), which carry no `eppoCode`, `skos:exactMatch` or `skos:closeMatch`  
+**v0.6.2:** 18/24 (75.0%), the first six uncovered.
 
 ---
 
@@ -580,9 +614,9 @@ SELECT DISTINCT ?x WHERE {
 | **CQ-10** | ✅ **RESOLVED** | `Nephotettix_Virescens` lacked a control treatment | v0.6.1: `controlledBy Resistant_Variety`, citing Gallagher et al. (2002) — not the planned `Vector_Control`, which the literature does not support for tungro |
 | **CQ-22** | ✅ **RESOLVED** | Extended query found 2 domain assertions with no provenance axiom | v0.6.1: `Stem_Borer indicatedBy Dead_Tiller` / `White_Ear` reified, citing IRAC (2025) |
 | **CQ-24** | ✅ **RESOLVED** | One untagged literal on `rice:evidenceType` | v0.6.1: tagged `"literature-curated"@en` |
-| **CQ-12** | ⚠️ **PARTIAL**| 9/20 after four nutrient-deficiency disorders entered the denominator (0.7.0-dev) | Add `recommends` only where a source states a management action for the disorder; not added to clear the threshold |
-| **CQ-01** | ✅ **CORRECTED** | Numerator counted abiotic causes as pathogens once `AbioticFactor` could `causes` | 0.7.0-dev: numerator requires `?p a rice:Pathogen` (7/13, PASS) |
-| **CQ-18** | ⚠️ **PARTIAL**| Only 1/27 symptoms visually grounded | Annotate image dataset at symptom level (`captures` relation) (Phase 3) |
+| **CQ-12** | ⚠️ **PARTIAL**| 9/22 after the six abiotic disorders (four deficiencies, iron toxicity, salinity) entered the denominator (0.7.0-dev) | Add `recommends` only where a source states a management action for the disorder; not added to clear the threshold |
+| **CQ-01** | ✅ **CORRECTED** | Numerator counted abiotic causes as pathogens once `AbioticFactor` could `causes` | 0.7.0-dev: numerator requires `?p a rice:Pathogen`; denominator excludes diseases with an `AbioticFactor` cause (7/9, PASS; uncorrected 7/15) |
+| **CQ-18** | ⚠️ **PARTIAL**| Only 1/39 symptoms visually grounded | Annotate image dataset at symptom level (`captures` relation) (Phase 3) |
 | **CQ-20** | 📋 **DOC** | 0 sensor observations | Ingest IoT sensor telemetry as `SensorObservation` instances (Phase 3) |
 
 ---

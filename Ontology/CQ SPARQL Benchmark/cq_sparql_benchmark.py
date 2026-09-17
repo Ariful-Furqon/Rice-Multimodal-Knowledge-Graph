@@ -31,6 +31,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 # Coverage threshold above which a relation is considered adequately populated.
 # Stated as an explicit design decision so results are reproducible.
 COVERAGE_THRESHOLD = 0.50
+# The 50% cut-off is an author-set convention (a majority of the class is
+# reached), not a published standard, so verdicts are also reported at these
+# alternative thresholds. The headline result always uses COVERAGE_THRESHOLD.
+SENSITIVITY_THRESHOLDS = (0.40, 0.50, 0.60, 0.70, 0.80)
 
 LEVELS = {
     "L1": "Factual - single-hop retrieval",
@@ -413,6 +417,26 @@ def first_col(rows):
     return {short(r[0]) for r in rows}
 
 
+def coverage_status(ratio, threshold):
+    return "PASS" if ratio >= threshold else "FAIL" if ratio == 0 else "PARTIAL"
+
+
+def sensitivity(results):
+    """Outcome counts and per-CQ coverage verdicts at each alternative threshold.
+    Only coverage CQs can change; the other modes keep their status."""
+    scored = [r for r in results if r["status"] != "DOCUMENTED"]
+    out = []
+    for th in SENSITIVITY_THRESHOLDS:
+        per_cq = {r["id"]: coverage_status(r["ratio"], th)
+                  for r in scored if r["mode"] == "coverage" and "ratio" in r}
+        statuses = [per_cq.get(r["id"], r["status"]) for r in scored]
+        tally = {st: statuses.count(st) for st in ("PASS", "PARTIAL", "FAIL", "ERROR")}
+        out.append({"threshold": th, "tally": tally,
+                    "pass_rate": tally["PASS"] / len(scored) if scored else 0.0,
+                    "coverage_status": per_cq})
+    return out
+
+
 def evaluate(cq, g_asserted, g_entailed):
     t0 = time.perf_counter()
     out = {"id": cq["id"], "level": cq["level"], "dim": cq["dim"],
@@ -426,8 +450,7 @@ def evaluate(cq, g_asserted, g_entailed):
             ratio = len(have) / len(total) if total else 0.0
             out.update(covered=len(have), total=len(total), ratio=ratio,
                        missing=sorted(total - have), unit=cq.get("unit", "item"))
-            out["status"] = ("PASS" if ratio >= COVERAGE_THRESHOLD
-                             else "FAIL" if ratio == 0 else "PARTIAL")
+            out["status"] = coverage_status(ratio, COVERAGE_THRESHOLD)
             if "detail" in cq:
                 rows = select(g_entailed, cq["detail"])
                 out["detail_rows"] = [[short(c) for c in r] for r in rows[:12]]
@@ -520,6 +543,28 @@ def write_report(meta, results):
         A(f"| {st} | {tally[st]} | {tally[st]/len(scored)*100:.0f}% |")
     A(f"| **Scored total** | **{len(scored)}** | **100%** |")
     A(f"| *(documented, unscored)* | *{len(results)-len(scored)}* | - |")
+    A("")
+    sens = sensitivity(results)
+    A("### Sensitivity to the coverage threshold")
+    A("")
+    A(f"The {meta['coverage_threshold']:.0%} coverage threshold is an author-set "
+      "convention (a majority of the class is reached), not a published standard. "
+      "Only `coverage` CQs depend on it; the table shows how their verdicts and "
+      "the overall pass rate move if it is set elsewhere. The headline result "
+      f"above uses {meta['coverage_threshold']:.0%}.")
+    A("")
+    A("| CQ | Coverage | " + " | ".join(f"{s['threshold']:.0%}" for s in sens) + " |")
+    A("|---|---|" + "---|" * len(sens))
+    for r in results:
+        if r["mode"] != "coverage" or "ratio" not in r:
+            continue
+        A(f"| {r['id']} | {r['covered']}/{r['total']} ({r['ratio']*100:.0f}%) | " +
+          " | ".join(s["coverage_status"][r["id"]] for s in sens) + " |")
+    A("| **PASS (all scored CQs)** | | " +
+      " | ".join(f"**{s['tally']['PASS']}/{len(scored)}** ({s['pass_rate']*100:.1f}%)"
+                 for s in sens) + " |")
+    A("| PARTIAL / FAIL | | " +
+      " | ".join(f"{s['tally']['PARTIAL']} / {s['tally']['FAIL']}" for s in sens) + " |")
     A("")
     A("### Result matrix")
     A("")
@@ -639,7 +684,9 @@ def main():
             "entailed_triples": n_entailed,
             "reasoning_seconds": round(reason_s, 1),
             "coverage_threshold": COVERAGE_THRESHOLD}
-    JSON_OUT.write_text(json.dumps({"meta": meta, "results": results},
+    sens = sensitivity(results)
+    JSON_OUT.write_text(json.dumps({"meta": meta, "results": results,
+                                    "sensitivity": sens},
                                    indent=2, ensure_ascii=False), encoding="utf-8")
     write_report(meta, results)
 
@@ -648,6 +695,9 @@ def main():
     for st in ("PASS", "PARTIAL", "FAIL", "ERROR"):
         n = sum(1 for r in scored if r["status"] == st)
         print(f"  {st:<9} {n}/{len(scored)}")
+    print("-" * 64)
+    print("  Threshold sensitivity (PASS count):  " + "  ".join(
+        f"{s['threshold']:.0%}: {s['tally']['PASS']}" for s in sens))
     print("=" * 64)
     print(f"Report: {REPORT_OUT}")
 

@@ -93,7 +93,7 @@ The local Paddy Doctor image dataset is excluded from Git (`/Data/`). Folder lab
 Rice MMKG incorporates an automated verification harness (`cq_sparql_benchmark.py`) based on **25 Competency Questions** structured across:
 - **Reasoning Depth (L1–L4):** L1 Factual (1-hop), L2 Contextual (multi-criteria joins), L3 Causal (multi-hop chains), L4 Inferential (OWL RL deduction).
 - **Knowledge Dimensions (D1–D3):** D1 Agronomic/Symbolic, D2 Cross-modal Grounding, D3 Provenance & External Alignment.
-- **Evaluation Modes:** `coverage` (≥ 50%), `negative` (0 violations), `entailment` (entailed > asserted), `documented` (declared extension point).
+- **Evaluation Modes:** `coverage` (≥ 50%, an author-set convention; verdicts also reported at 40–80% — 22 / 21 / 20 / 17 / 15 PASS), `negative` (0 violations), `entailment` (entailed > asserted), `documented` (declared extension point).
 
 ### Benchmark Summary (0.7.0-dev)
 
