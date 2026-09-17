@@ -16,12 +16,12 @@ Construction, evaluation, and publication roadmap for the **ESWC 2027 Resource T
 | Metric / Dimension | Current State (v0.6.2) | Comparator (RiceDO) | Target for Submission |
 |---|---|---|---|
 | **Ontology Version** | **`0.6.2`** | `1.0` | `1.0` (release tagged for submission) |
-| **Asserted Triples** | **66,802** (0.7.0-dev: 67,861) | ~1,200 | Grows with symptom-level image grounding; no fixed triple target |
-| **Materialised Triples (OWL RL)** | **161,447** (+94,645 triples; 0.7.0-dev: 163,297) | — | Re-measured at release |
+| **Asserted Triples** | **66,802** (0.7.0-dev: 68,049) | ~1,200 | Grows with symptom-level image grounding; no fixed triple target |
+| **Materialised Triples (OWL RL)** | **161,447** (+94,645 triples; 0.7.0-dev: 163,684) | — | Re-measured at release |
 | **Modalities** | Populated: text-curated domain layer + **10,407** image observations. Declared but empty: `SensorObservation`. Not modelled: genomic | Text only | **Open — decided at the Phase 3 checkpoint.** Candidates: sensor (if data can be obtained), genomic (raised by expert feedback) |
 | **Symptom-level image grounding** | `captures` on 1,442 images, all to one symptom (CQ-18: 1/27) | 0 | Multiple symptoms grounded from expert annotation (see Phase 3) |
-| **Domain-Level Assertions** | **256 assertions, 256 reified axioms (100% cited)**; 0.7.0-dev: 353 / 353 (12 variety axioms added 2026-09-16; the 7 unverifiable BBPOPT axioms removed or re-sourced) | 18 diseases | 100% literature-grounded, checked by CQ-21 + extended CQ-22 |
-| **Reasoner Consistency** | **Consistent (HermiT, 2026-09-14, with an injected-contradiction control)**; 0.7.0-dev re-checked 2026-09-15 with two controls | Verified | Consistent at release, re-checked after every schema change |
+| **Domain-Level Assertions** | **256 assertions, 256 reified axioms (100% cited)**; 0.7.0-dev: 347 / 347 plus 15 self-cited resistance assessments (the 7 unverifiable BBPOPT axioms removed or re-sourced; round-1 variety links became assessments 2026-09-17) | 18 diseases | 100% literature-grounded, checked by CQ-21 + extended CQ-22 |
+| **Reasoner Consistency** | **Consistent (HermiT, 2026-09-14, with an injected-contradiction control)**; 0.7.0-dev re-checked 2026-09-17 with controls for every new class | Verified | Consistent at release, re-checked after every schema change |
 | **Competency Questions** | **25 benchmark CQs** (v0.6.2: 23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC; 0.7.0-dev: 21 / 2 / 1 / 1 — CQ-12 PARTIAL after abiotic disorders entered its denominator, CQ-13 FAIL after the unsourced severity triage was removed, CQ-01 denominator corrected to exclude abiotic disorders with both figures reported); **19 of 25 elicited CQs** queried (v0.6.2: 7 answer, 10 partial, 2 no answer; 0.7.0-dev: 9 / 8 / 2 after CQ-A02 and CQ-A07 were answered) | Qualitative CQs | Both instruments re-run against the tagged v0.6 baseline |
 | **Permanent URI (PURL)** | **`https://w3id.org/ricemmkg#`** — live since 2026-09-16; namespace rewritten in 0.7.0-dev | `purl.org/ricedo` | Done; HTML documentation behind it in Phase 5 |
 | **FAIR Score (FOOPS!)** | 0.7275 (v0.5 schema-only baseline, 2026-08-22; main gap: no PURL) | — | **> 0.85**, measured once on the release |
@@ -201,7 +201,8 @@ Phase 6: Resource Paper & Submission (Weeks 11–14: mid Nov – early Dec)
 - [x] **BBPOPT source and abiotic excess** (2026-09-15, 0.7.0-dev) — triage removed, Crop_Sanitation re-sourced, iron toxicity and salinity added; CQ-13 FAIL.
 - [ ] **Ask the expert for the severity → action mapping** (per juknis category; diseases vs pests) — CQ-13 stays FAIL until answered.
 - [x] **CQ-01 denominator** (2026-09-15) — abiotic disorders excluded by criterion; 7/9, uncorrected 7/15 reported. Paper must state this correction alongside the numerator fix.
-- [x] **Variety schema, round 1** (2026-09-16, 0.7.0-dev) — Variety with IR64, Angke and Conde from Mackill & Khush (2018); resistantTo/moderatelyResistantTo; vulnerableTo widened to varieties. Round 2 (Ciherang, Inpari) needs per-paper reading.
+- [x] **Variety schema, round 1** (2026-09-16, 0.7.0-dev) — Variety with IR64, Angke and Conde from Mackill & Khush (2018); resistantTo/moderatelyResistantTo; vulnerableTo widened to varieties (all superseded 2026-09-17).
+- [x] **Varieties, round 2** (2026-09-17, 0.7.0-dev) — `ResistanceAssessment` (variety, target, grade, population, location, year, own source) replaces the binary links; Ciherang, Inpari 32, Inpari 33 from Bagariang et al. (2021) and Biswas et al. (2021); 15 assessments. Round 3 waits for the official variety descriptions.
 - [ ] **Remaining expert points:** pathogen groups (CQ-A01), variety-specific treatment (choosing a resistant variety, or different dosage per variety?), insect vs vertebrate pests, weeds in or out of scope, Pest → Disease endpoint.
 - [ ] **Send to experts:** Stage 5 questionnaire; image annotation **deferred to last** (2026-09-15), but out by mid-October.
 - [ ] **Re-check presentation slides** — they still quote pre-fix v0.6 figures.

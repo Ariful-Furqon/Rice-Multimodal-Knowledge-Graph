@@ -14747,7 +14747,7 @@
   </rdf:Description>
   <rdf:Description rdf:nodeID="Nf76e8c32bb964021b28a9eae6f273410">
     <rdf:first rdf:resource="https://w3id.org/ricemmkg#Plant"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:rest rdf:nodeID="Nv070varietythreatens"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_bacterial_leaf_streak_107051">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -88556,7 +88556,7 @@
   </rdf:Description>
   <rdf:Description rdf:nodeID="Nb613b7bad1cf4bc5b9410a25ba7ee1c0">
     <rdf:first rdf:resource="https://w3id.org/ricemmkg#Plant"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:rest rdf:nodeID="Nv070varietyvuln"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="N3e5a1f0b6e7b4db895af4078239a27a2">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -89830,13 +89830,17 @@
     <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Salinity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity (accessed 2026-09-15).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070varietyvuln">
+    <rdf:first rdf:resource="https://w3id.org/ricemmkg#Variety"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
   <rdf:Description rdf:nodeID="Nv070disjointvariety">
     <rdf:first rdf:resource="https://w3id.org/ricemmkg#Variety"/>
-    <rdf:rest rdf:nodeID="Nv070disjointassessment"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#Variety">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">A named cultivar of rice, such as IR64. A variety inherits the crop's biology but differs in its reaction to pests, diseases and abiotic stress, which is why treatment advice can be variety-specific. Resistance and susceptibility are recorded as ResistanceAssessment individuals, one per reported assessment with its own source, population and year, because resistance holds only for the population and period a source studied and can break down, as IR64's replacement over tungro susceptibility shows. Only varieties supported by a cited source are populated.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A named cultivar of rice, such as IR64. A variety inherits the crop's biology but differs in its reaction to pests, diseases and abiotic stress, which is why treatment advice can be variety-specific. Resistance and susceptibility are recorded as the cited source reports them, for the pest population and period it studied: resistance can break down, as IR64's replacement over tungro susceptibility shows. Only varieties supported by a cited source are populated.</rdfs:comment>
     <rdfs:label xml:lang="en">Variety</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#varietyOf">
@@ -89857,12 +89861,45 @@
     <rdfs:comment xml:lang="en">Inverse of varietyOf.</rdfs:comment>
     <rdfs:label xml:lang="en">has variety</rdfs:label>
   </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#resistantTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/ricemmkg#resistedBy"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#Variety"/>
+    <rdfs:range rdf:nodeID="N3dd104eee7984b30b747e2995d52100f"/>
+    <rdfs:comment xml:lang="en">The variety resists the disease or pest, as reported by the cited source for the population and period it studied. The counterpart of vulnerableTo, which records susceptibility.</rdfs:comment>
+    <rdfs:label xml:lang="en">resistant to</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#resistedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/ricemmkg#resistantTo"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <rdfs:domain rdf:nodeID="N3dd104eee7984b30b747e2995d52100f"/>
+    <rdfs:range rdf:resource="https://w3id.org/ricemmkg#Variety"/>
+    <rdfs:comment xml:lang="en">Inverse of resistantTo.</rdfs:comment>
+    <rdfs:label xml:lang="en">resisted by</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#moderatelyResistantTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="https://w3id.org/ricemmkg#resistantTo"/>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#Variety"/>
+    <rdfs:range rdf:nodeID="N3dd104eee7984b30b747e2995d52100f"/>
+    <rdfs:comment xml:lang="en">Partial resistance: the source grades the variety's reaction as moderate rather than resistant. A sub-property of resistantTo, so a query for resistance also returns these.</rdfs:comment>
+    <rdfs:label xml:lang="en">moderately resistant to</rdfs:label>
+  </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#IR64">
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#Variety"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdfs:comment xml:lang="en">Semidwarf indica rice variety bred at IRRI and released in the Philippines in 1985; grown on over 10 million ha and widely planted in Indonesia. Mackill and Khush (2018) report the traits IRRI listed at release and what later field experience showed, including the tungro susceptibility that displaced it in the Philippines and Indonesia. Resistance of a variety holds for the pest populations and period a source reports; it is not a timeless property.</rdfs:comment>
     <rdfs:label xml:lang="en">IR64</rdfs:label>
     <rice:varietyOf rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+    <rice:resistantTo rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <rice:resistantTo rdf:resource="https://w3id.org/ricemmkg#Nephotettix_Virescens"/>
+    <rice:resistantTo rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
+    <rice:moderatelyResistantTo rdf:resource="https://w3id.org/ricemmkg#Rice_Blast_Disease"/>
+    <rice:moderatelyResistantTo rdf:resource="https://w3id.org/ricemmkg#Stem_Borer"/>
+    <rice:vulnerableTo rdf:resource="https://w3id.org/ricemmkg#Rice_Tungro_Disease"/>
+    <rice:vulnerableTo rdf:resource="https://w3id.org/ricemmkg#Iron_Toxicity_Disorder"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#Angke">
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#Variety"/>
@@ -89870,6 +89907,7 @@
     <rdfs:comment xml:lang="en">Indonesian rice variety developed by pyramiding bacterial blight resistance genes into IR64 (Mackill and Khush 2018).</rdfs:comment>
     <rdfs:label xml:lang="en">Angke</rdfs:label>
     <rice:varietyOf rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+    <rice:resistantTo rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#Conde">
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#Variety"/>
@@ -89877,12 +89915,76 @@
     <rdfs:comment xml:lang="en">Indonesian rice variety developed by pyramiding bacterial blight resistance genes into IR64 (Mackill and Khush 2018).</rdfs:comment>
     <rdfs:label xml:lang="en">Conde</rdfs:label>
     <rice:varietyOf rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+    <rice:resistantTo rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="Nv070var01ir64varietyo">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#IR64"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#varietyOf"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070var02ir64resistan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#IR64"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#resistantTo"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070var03ir64resistan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#IR64"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#resistantTo"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Nephotettix_Virescens"/>
+    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070var04ir64resistan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#IR64"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#resistantTo"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
+    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070var05ir64moderate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#IR64"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#moderatelyResistantTo"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Rice_Blast_Disease"/>
+    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070var06ir64moderate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#IR64"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#moderatelyResistantTo"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Stem_Borer"/>
+    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070var07ir64vulnerab">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#IR64"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#vulnerableTo"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Rice_Tungro_Disease"/>
+    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070var08ir64vulnerab">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#IR64"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#vulnerableTo"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Iron_Toxicity_Disorder"/>
     <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
     <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
@@ -89896,6 +89998,15 @@
     <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070var10angkeresistan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Angke"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#resistantTo"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
+    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
   <rdf:Description rdf:nodeID="Nv070var11condevarietyo">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Conde"/>
@@ -89905,358 +90016,17 @@
     <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070disjointassessment">
-    <rdf:first rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdf:rest rdf:nodeID="Nv070disjointlevel"/>
+  <rdf:Description rdf:nodeID="Nv070var12conderesistan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Conde"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#resistantTo"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
+    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070disjointlevel">
-    <rdf:first rdf:resource="https://w3id.org/ricemmkg#ResistanceLevel"/>
+  <rdf:Description rdf:nodeID="Nv070varietythreatens">
+    <rdf:first rdf:resource="https://w3id.org/ricemmkg#Variety"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#ResistanceAssessment">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">One reported assessment of a variety's reaction to a disease, disorder or pest: the variety, the target, the graded reaction, and where known the tested biotype or race, the population's origin and the year of the report. Each assessment carries its own dcterms:source, citation and evidence type. Assessments are not merged: two sources that grade the same variety differently are kept side by side, and a resistance that later broke down shows as assessments with different years.</rdfs:comment>
-    <rdfs:label xml:lang="en">Resistance Assessment</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#ResistanceLevel">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">The reaction grade a source gives a variety. Only the grades the cited sources use are populated.</rdfs:comment>
-    <rdfs:label xml:lang="en">Resistance Level</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#assessedVariety">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <owl:inverseOf rdf:resource="https://w3id.org/ricemmkg#hasResistanceAssessment"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdfs:range rdf:resource="https://w3id.org/ricemmkg#Variety"/>
-    <rdfs:comment xml:lang="en">The variety whose reaction the assessment records.</rdfs:comment>
-    <rdfs:label xml:lang="en">assessed variety</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasResistanceAssessment">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <owl:inverseOf rdf:resource="https://w3id.org/ricemmkg#assessedVariety"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#Variety"/>
-    <rdfs:range rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdfs:comment xml:lang="en">Inverse of assessedVariety.</rdfs:comment>
-    <rdfs:label xml:lang="en">has resistance assessment</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#assessedAgainst">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdfs:range rdf:nodeID="N3dd104eee7984b30b747e2995d52100f"/>
-    <rdfs:comment xml:lang="en">The disease, disorder or pest the variety was assessed against.</rdfs:comment>
-    <rdfs:label xml:lang="en">assessed against</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasResistanceLevel">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdfs:range rdf:resource="https://w3id.org/ricemmkg#ResistanceLevel"/>
-    <rdfs:comment xml:lang="en">The reaction grade the source gives.</rdfs:comment>
-    <rdfs:label xml:lang="en">has resistance level</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#testedPopulation">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">The pest biotype, pathogen race or field population the variety was tested against, as the source names it. Absent when the source does not say.</rdfs:comment>
-    <rdfs:label xml:lang="en">tested population</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#testedLocation">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">Where the tested population comes from, as the source states it. Absent when the source does not say.</rdfs:comment>
-    <rdfs:label xml:lang="en">tested location</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#reportedYear">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    <rdfs:comment xml:lang="en">Year of the report the assessment comes from. When the cited source quotes an earlier report, the year of that earlier report (e.g. IRRI 1986 quoted by Mackill and Khush 2018).</rdfs:comment>
-    <rdfs:label xml:lang="en">reported year</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Resistant_Reaction">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ResistanceLevel"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">The source grades the variety's reaction to the target as resistant.</rdfs:comment>
-    <rdfs:label xml:lang="en">resistant</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Moderately_Resistant_Reaction">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ResistanceLevel"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">The source grades the variety's reaction as moderately resistant: partial resistance.</rdfs:comment>
-    <rdfs:label xml:lang="en">moderately resistant</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Susceptible_Reaction">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ResistanceLevel"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">The source grades the variety as susceptible to the target.</rdfs:comment>
-    <rdfs:label xml:lang="en">susceptible</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Ciherang">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Variety"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Indonesian rice variety, described by Biswas et al. (2021) as widespread in Indonesia and susceptible to bacterial blight.</rdfs:comment>
-    <rdfs:label xml:lang="en">Ciherang</rdfs:label>
-    <rice:varietyOf rdf:resource="https://w3id.org/ricemmkg#Rice"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070var201ciherangvarietyo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Ciherang"/>
-    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#varietyOf"/>
-    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Rice"/>
-    <dcterms:source rdf:resource="https://doi.org/10.3390/plants10102048"/>
-    <dcterms:bibliographicCitation xml:lang="en">Biswas, P.L., Nath, U.K., Ghosal, S., Goswami, G., Uddin, M.S., Ali, O.M., Latef, A.A.H.A., Laing, A.M., Gao, Y.-M. &amp; Hossain, A. (2021). Introgression of Bacterial Blight Resistance Genes in the Rice Cultivar Ciherang: Response against Xanthomonas oryzae pv. oryzae in the F6 Generation. Plants, 10(10), 2048. https://doi.org/10.3390/plants10102048 (accessed 2026-09-17).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Inpari_32">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Variety"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Indonesian rice variety of the Inpari series, tested against Javanese brown planthopper populations by Bagariang et al. (2021).</rdfs:comment>
-    <rdfs:label xml:lang="en">Inpari 32</rdfs:label>
-    <rice:varietyOf rdf:resource="https://w3id.org/ricemmkg#Rice"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070var202inpari32varietyo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Inpari_32"/>
-    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#varietyOf"/>
-    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Rice"/>
-    <dcterms:source rdf:resource="https://doi.org/10.22225/seas.5.2.3913.79-87"/>
-    <dcterms:bibliographicCitation xml:lang="en">Bagariang, W., Murdita, W., Suwarman &amp; Imroni, A. (2021). Resistance Evaluation of Some Rice Varieties by Feeding Activity of Brown Planthopper Population in Java. SEAS (Sustainable Environment Agricultural Science), 5(2), 79-87. https://doi.org/10.22225/seas.5.2.3913.79-87 (accessed 2026-09-17).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Inpari_33">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Variety"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Indonesian rice variety of the Inpari series, tested against Javanese brown planthopper populations by Bagariang et al. (2021).</rdfs:comment>
-    <rdfs:label xml:lang="en">Inpari 33</rdfs:label>
-    <rice:varietyOf rdf:resource="https://w3id.org/ricemmkg#Rice"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nv070var203inpari33varietyo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Inpari_33"/>
-    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#varietyOf"/>
-    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Rice"/>
-    <dcterms:source rdf:resource="https://doi.org/10.22225/seas.5.2.3913.79-87"/>
-    <dcterms:bibliographicCitation xml:lang="en">Bagariang, W., Murdita, W., Suwarman &amp; Imroni, A. (2021). Resistance Evaluation of Some Rice Varieties by Feeding Activity of Brown Planthopper Population in Java. SEAS (Sustainable Environment Agricultural Science), 5(2), 79-87. https://doi.org/10.22225/seas.5.2.3913.79-87 (accessed 2026-09-17).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#RA_IR64_Brown_Planthopper_Biotypes_1_3_1986">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Traits IRRI (1986) listed for IR64 at its release, as reported by Mackill and Khush (2018).</rdfs:comment>
-    <rdfs:label xml:lang="en">IR64: resistant to brown planthopper (IRRI 1986, biotypes 1 and 3)</rdfs:label>
-    <rice:assessedVariety rdf:resource="https://w3id.org/ricemmkg#IR64"/>
-    <rice:assessedAgainst rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
-    <rice:hasResistanceLevel rdf:resource="https://w3id.org/ricemmkg#Resistant_Reaction"/>
-    <rice:testedPopulation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">biotypes 1 and 3</rice:testedPopulation>
-    <rice:reportedYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1986</rice:reportedYear>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#RA_IR64_Brown_Planthopper_Biotype_2_1986">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Traits IRRI (1986) listed for IR64 at its release, as reported by Mackill and Khush (2018).</rdfs:comment>
-    <rdfs:label xml:lang="en">IR64: moderately resistant to brown planthopper (IRRI 1986, biotype 2)</rdfs:label>
-    <rice:assessedVariety rdf:resource="https://w3id.org/ricemmkg#IR64"/>
-    <rice:assessedAgainst rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
-    <rice:hasResistanceLevel rdf:resource="https://w3id.org/ricemmkg#Moderately_Resistant_Reaction"/>
-    <rice:testedPopulation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">biotype 2</rice:testedPopulation>
-    <rice:reportedYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1986</rice:reportedYear>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#RA_IR64_Green_Leafhopper_1986">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Traits IRRI (1986) listed for IR64 at its release, as reported by Mackill and Khush (2018). The source names the green leafhopper (GLH).</rdfs:comment>
-    <rdfs:label xml:lang="en">IR64: resistant to green leafhopper (IRRI 1986)</rdfs:label>
-    <rice:assessedVariety rdf:resource="https://w3id.org/ricemmkg#IR64"/>
-    <rice:assessedAgainst rdf:resource="https://w3id.org/ricemmkg#Nephotettix_Virescens"/>
-    <rice:hasResistanceLevel rdf:resource="https://w3id.org/ricemmkg#Resistant_Reaction"/>
-    <rice:reportedYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1986</rice:reportedYear>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#RA_IR64_Bacterial_Leaf_Blight_1986">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Traits IRRI (1986) listed for IR64 at its release, as reported by Mackill and Khush (2018).</rdfs:comment>
-    <rdfs:label xml:lang="en">IR64: resistant to bacterial leaf blight (IRRI 1986)</rdfs:label>
-    <rice:assessedVariety rdf:resource="https://w3id.org/ricemmkg#IR64"/>
-    <rice:assessedAgainst rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
-    <rice:hasResistanceLevel rdf:resource="https://w3id.org/ricemmkg#Resistant_Reaction"/>
-    <rice:reportedYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1986</rice:reportedYear>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#RA_IR64_Rice_Blast_1986">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Traits IRRI (1986) listed for IR64 at its release, as reported by Mackill and Khush (2018).</rdfs:comment>
-    <rdfs:label xml:lang="en">IR64: moderately resistant to rice blast (IRRI 1986)</rdfs:label>
-    <rice:assessedVariety rdf:resource="https://w3id.org/ricemmkg#IR64"/>
-    <rice:assessedAgainst rdf:resource="https://w3id.org/ricemmkg#Rice_Blast_Disease"/>
-    <rice:hasResistanceLevel rdf:resource="https://w3id.org/ricemmkg#Moderately_Resistant_Reaction"/>
-    <rice:reportedYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1986</rice:reportedYear>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#RA_IR64_Stem_Borer_1986">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Traits IRRI (1986) listed for IR64 at its release, as reported by Mackill and Khush (2018).</rdfs:comment>
-    <rdfs:label xml:lang="en">IR64: moderately resistant to stem borer (IRRI 1986)</rdfs:label>
-    <rice:assessedVariety rdf:resource="https://w3id.org/ricemmkg#IR64"/>
-    <rice:assessedAgainst rdf:resource="https://w3id.org/ricemmkg#Stem_Borer"/>
-    <rice:hasResistanceLevel rdf:resource="https://w3id.org/ricemmkg#Moderately_Resistant_Reaction"/>
-    <rice:reportedYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1986</rice:reportedYear>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#RA_IR64_Tungro_2018">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Mackill and Khush (2018): "IR64 is susceptible to tungro disease"; the susceptibility led to its replacement in the Philippines in the early 2000s.</rdfs:comment>
-    <rdfs:label xml:lang="en">IR64: susceptible to tungro (Mackill and Khush 2018)</rdfs:label>
-    <rice:assessedVariety rdf:resource="https://w3id.org/ricemmkg#IR64"/>
-    <rice:assessedAgainst rdf:resource="https://w3id.org/ricemmkg#Rice_Tungro_Disease"/>
-    <rice:hasResistanceLevel rdf:resource="https://w3id.org/ricemmkg#Susceptible_Reaction"/>
-    <rice:reportedYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2018</rice:reportedYear>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#RA_IR64_Iron_Toxicity_2018">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Mackill and Khush (2018): "It is also susceptible to Fe toxicity".</rdfs:comment>
-    <rdfs:label xml:lang="en">IR64: susceptible to iron toxicity (Mackill and Khush 2018)</rdfs:label>
-    <rice:assessedVariety rdf:resource="https://w3id.org/ricemmkg#IR64"/>
-    <rice:assessedAgainst rdf:resource="https://w3id.org/ricemmkg#Iron_Toxicity_Disorder"/>
-    <rice:hasResistanceLevel rdf:resource="https://w3id.org/ricemmkg#Susceptible_Reaction"/>
-    <rice:reportedYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2018</rice:reportedYear>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#RA_Angke_Bacterial_Leaf_Blight_2018">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Angke was developed by pyramiding bacterial blight resistance genes into IR64 (Mackill and Khush 2018).</rdfs:comment>
-    <rdfs:label xml:lang="en">Angke: resistant to bacterial leaf blight (Mackill and Khush 2018)</rdfs:label>
-    <rice:assessedVariety rdf:resource="https://w3id.org/ricemmkg#Angke"/>
-    <rice:assessedAgainst rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
-    <rice:hasResistanceLevel rdf:resource="https://w3id.org/ricemmkg#Resistant_Reaction"/>
-    <rice:reportedYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2018</rice:reportedYear>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#RA_Conde_Bacterial_Leaf_Blight_2018">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Conde was developed by pyramiding bacterial blight resistance genes into IR64 (Mackill and Khush 2018).</rdfs:comment>
-    <rdfs:label xml:lang="en">Conde: resistant to bacterial leaf blight (Mackill and Khush 2018)</rdfs:label>
-    <rice:assessedVariety rdf:resource="https://w3id.org/ricemmkg#Conde"/>
-    <rice:assessedAgainst rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
-    <rice:hasResistanceLevel rdf:resource="https://w3id.org/ricemmkg#Resistant_Reaction"/>
-    <rice:reportedYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2018</rice:reportedYear>
-    <dcterms:source rdf:resource="https://doi.org/10.1186/s12284-018-0208-3"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mackill, D.J. &amp; Khush, G.S. (2018). IR64: a high-quality and high-yielding mega variety. Rice, 11, 18. https://doi.org/10.1186/s12284-018-0208-3 (accessed 2026-09-16).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#RA_Ciherang_Bacterial_Leaf_Blight_2021">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Biswas et al. (2021): the recipient parent Ciherang "showed susceptibility against all the tested races".</rdfs:comment>
-    <rdfs:label xml:lang="en">Ciherang: susceptible to bacterial leaf blight (Biswas et al. 2021)</rdfs:label>
-    <rice:assessedVariety rdf:resource="https://w3id.org/ricemmkg#Ciherang"/>
-    <rice:assessedAgainst rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
-    <rice:hasResistanceLevel rdf:resource="https://w3id.org/ricemmkg#Susceptible_Reaction"/>
-    <rice:testedPopulation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Xanthomonas oryzae pv. oryzae races C5 (GD1358), P6 (PX099) and V</rice:testedPopulation>
-    <rice:reportedYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021</rice:reportedYear>
-    <dcterms:source rdf:resource="https://doi.org/10.3390/plants10102048"/>
-    <dcterms:bibliographicCitation xml:lang="en">Biswas, P.L., Nath, U.K., Ghosal, S., Goswami, G., Uddin, M.S., Ali, O.M., Latef, A.A.H.A., Laing, A.M., Gao, Y.-M. &amp; Hossain, A. (2021). Introgression of Bacterial Blight Resistance Genes in the Rice Cultivar Ciherang: Response against Xanthomonas oryzae pv. oryzae in the F6 Generation. Plants, 10(10), 2048. https://doi.org/10.3390/plants10102048 (accessed 2026-09-17).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#RA_IR64_Brown_Planthopper_Java_2021">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Honeydew test; Bagariang et al. (2021) group IR64 with the moderately resistant varieties.</rdfs:comment>
-    <rdfs:label xml:lang="en">IR64: moderately resistant to brown planthopper (Bagariang et al. 2021, Java)</rdfs:label>
-    <rice:assessedVariety rdf:resource="https://w3id.org/ricemmkg#IR64"/>
-    <rice:assessedAgainst rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
-    <rice:hasResistanceLevel rdf:resource="https://w3id.org/ricemmkg#Moderately_Resistant_Reaction"/>
-    <rice:testedPopulation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Brown planthopper populations collected from Karawang (West Java), Pekalongan and Kendal (Central Java)</rice:testedPopulation>
-    <rice:testedLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Java, Indonesia</rice:testedLocation>
-    <rice:reportedYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021</rice:reportedYear>
-    <dcterms:source rdf:resource="https://doi.org/10.22225/seas.5.2.3913.79-87"/>
-    <dcterms:bibliographicCitation xml:lang="en">Bagariang, W., Murdita, W., Suwarman &amp; Imroni, A. (2021). Resistance Evaluation of Some Rice Varieties by Feeding Activity of Brown Planthopper Population in Java. SEAS (Sustainable Environment Agricultural Science), 5(2), 79-87. https://doi.org/10.22225/seas.5.2.3913.79-87 (accessed 2026-09-17).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#RA_Ciherang_Brown_Planthopper_Java_2021">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Honeydew test; Bagariang et al. (2021) group Ciherang with the moderately resistant varieties.</rdfs:comment>
-    <rdfs:label xml:lang="en">Ciherang: moderately resistant to brown planthopper (Bagariang et al. 2021, Java)</rdfs:label>
-    <rice:assessedVariety rdf:resource="https://w3id.org/ricemmkg#Ciherang"/>
-    <rice:assessedAgainst rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
-    <rice:hasResistanceLevel rdf:resource="https://w3id.org/ricemmkg#Moderately_Resistant_Reaction"/>
-    <rice:testedPopulation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Brown planthopper populations collected from Karawang (West Java), Pekalongan and Kendal (Central Java)</rice:testedPopulation>
-    <rice:testedLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Java, Indonesia</rice:testedLocation>
-    <rice:reportedYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021</rice:reportedYear>
-    <dcterms:source rdf:resource="https://doi.org/10.22225/seas.5.2.3913.79-87"/>
-    <dcterms:bibliographicCitation xml:lang="en">Bagariang, W., Murdita, W., Suwarman &amp; Imroni, A. (2021). Resistance Evaluation of Some Rice Varieties by Feeding Activity of Brown Planthopper Population in Java. SEAS (Sustainable Environment Agricultural Science), 5(2), 79-87. https://doi.org/10.22225/seas.5.2.3913.79-87 (accessed 2026-09-17).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#RA_Inpari_32_Brown_Planthopper_Java_2021">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Honeydew test; Bagariang et al. (2021) group Inpari 32 with the moderately resistant varieties.</rdfs:comment>
-    <rdfs:label xml:lang="en">Inpari 32: moderately resistant to brown planthopper (Bagariang et al. 2021, Java)</rdfs:label>
-    <rice:assessedVariety rdf:resource="https://w3id.org/ricemmkg#Inpari_32"/>
-    <rice:assessedAgainst rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
-    <rice:hasResistanceLevel rdf:resource="https://w3id.org/ricemmkg#Moderately_Resistant_Reaction"/>
-    <rice:testedPopulation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Brown planthopper populations collected from Karawang (West Java), Pekalongan and Kendal (Central Java)</rice:testedPopulation>
-    <rice:testedLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Java, Indonesia</rice:testedLocation>
-    <rice:reportedYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021</rice:reportedYear>
-    <dcterms:source rdf:resource="https://doi.org/10.22225/seas.5.2.3913.79-87"/>
-    <dcterms:bibliographicCitation xml:lang="en">Bagariang, W., Murdita, W., Suwarman &amp; Imroni, A. (2021). Resistance Evaluation of Some Rice Varieties by Feeding Activity of Brown Planthopper Population in Java. SEAS (Sustainable Environment Agricultural Science), 5(2), 79-87. https://doi.org/10.22225/seas.5.2.3913.79-87 (accessed 2026-09-17).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#RA_Inpari_33_Brown_Planthopper_Java_2021">
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Honeydew test; Bagariang et al. (2021) group Inpari 33 with the moderately resistant varieties.</rdfs:comment>
-    <rdfs:label xml:lang="en">Inpari 33: moderately resistant to brown planthopper (Bagariang et al. 2021, Java)</rdfs:label>
-    <rice:assessedVariety rdf:resource="https://w3id.org/ricemmkg#Inpari_33"/>
-    <rice:assessedAgainst rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
-    <rice:hasResistanceLevel rdf:resource="https://w3id.org/ricemmkg#Moderately_Resistant_Reaction"/>
-    <rice:testedPopulation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Brown planthopper populations collected from Karawang (West Java), Pekalongan and Kendal (Central Java)</rice:testedPopulation>
-    <rice:testedLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Java, Indonesia</rice:testedLocation>
-    <rice:reportedYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021</rice:reportedYear>
-    <dcterms:source rdf:resource="https://doi.org/10.22225/seas.5.2.3913.79-87"/>
-    <dcterms:bibliographicCitation xml:lang="en">Bagariang, W., Murdita, W., Suwarman &amp; Imroni, A. (2021). Resistance Evaluation of Some Rice Varieties by Feeding Activity of Brown Planthopper Population in Java. SEAS (Sustainable Environment Agricultural Science), 5(2), 79-87. https://doi.org/10.22225/seas.5.2.3913.79-87 (accessed 2026-09-17).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
 </rdf:RDF>

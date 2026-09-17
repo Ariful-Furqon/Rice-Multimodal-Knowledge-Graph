@@ -324,7 +324,11 @@ CQS = [
                      "to both CQ-21 and CQ-22, and v0.6 carried two such "
                      "assertions while both reported full provenance. Runs on "
                      "the asserted graph, since materialised inverses are never "
-                     "reified and would all count as violations.",
+                     "reified and would all count as violations. Extended "
+                     "again on 2026-09-17: ResistanceAssessment individuals "
+                     "carry their provenance on the individual itself rather "
+                     "than on an axiom, so an assessment missing its source, "
+                     "citation or evidence type is reported too.",
         "num": PREFIX + """SELECT ?item ?problem WHERE {
   {
     ?item a owl:Axiom .
@@ -337,8 +341,7 @@ CQS = [
                 rice:controlledBy rice:preventedBy rice:increaseRiskOf
                 rice:vulnerableTo rice:recommends rice:requires
                 rice:affectsPlantPart rice:partOf rice:hasTransmissionMode
-                rice:hasManagementCategory rice:varietyOf rice:resistantTo
-                rice:moderatelyResistantTo }
+                rice:hasManagementCategory rice:varietyOf }
     ?s ?p ?o .
     FILTER NOT EXISTS { ?ax owl:annotatedSource ?s ;
                             owl:annotatedProperty ?p ;
@@ -346,6 +349,13 @@ CQS = [
     BIND (CONCAT(STRAFTER(STR(?s), "#"), " ", STRAFTER(STR(?p), "#"), " ",
                  STRAFTER(STR(?o), "#")) AS ?item)
     BIND ("assertion without provenance" AS ?problem)
+  } UNION {
+    ?a a rice:ResistanceAssessment .
+    FILTER ( NOT EXISTS { ?a dcterms:source ?s } ||
+             NOT EXISTS { ?a dcterms:bibliographicCitation ?c } ||
+             NOT EXISTS { ?a rice:evidenceType ?e } )
+    BIND (STRAFTER(STR(?a), "#") AS ?item)
+    BIND ("assessment with incomplete provenance" AS ?problem)
   }
 }""",
     },

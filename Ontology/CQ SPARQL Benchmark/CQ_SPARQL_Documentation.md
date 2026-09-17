@@ -1,8 +1,8 @@
 # Rice MMKG 0.7.0-dev — SPARQL Competency Question Documentation
 
 **Ontology:** `Rice MMKG.rdf` (owl:versionInfo 0.7.0-dev; last release v0.6.2)  
-**Triples:** 67,861 asserted / 163,297 after OWL RL materialisation (+95,436 triples)  
-**Benchmark Execution:** 2026-09-15  
+**Triples:** 68,049 asserted / 163,684 after OWL RL materialisation (+95,635 triples)  
+**Benchmark Execution:** 2026-09-17  
 **Overall Result:** 21 PASS / 2 PARTIAL / 1 FAIL / 1 DOCUMENTED (24 scored + 1 documented = 25 CQs)
 **Pass Rate:** 87.5% (21/24 scored CQs); v0.6.2: 95.8% (23/24)
 
@@ -17,6 +17,7 @@
 > - **Other figures:** CQ-12 9/22, CQ-08 2/3, CQ-21 **341/341**.
 > **Then** `Variety` was added (IR64, Angke, Conde; 12 assertions citing Mackill & Khush 2018), with `varietyOf`, `resistantTo` and `moderatelyResistantTo` added to CQ-22's checked list. CQ-21 → **353/353**; all verdicts unchanged (21 / 2 / 1 / 1). Varieties are neither diseases nor pests, so no coverage denominator moved.
 > **Then** the namespace moved to `https://w3id.org/ricemmkg#` (2026-09-17). Every answer of both instruments is identical to the previous run, compared field by field (timings and truncated row samples aside); only the triple counts moved (+4, all in the ontology header).
+> **Then** varietal resistance became `ResistanceAssessment` individuals (2026-09-17): `resistantTo` and `moderatelyResistantTo` were removed from the schema and from CQ-22's property list, 9 round-1 axioms left and 3 `varietyOf` axioms came in, so CQ-21 → **347/347**. CQ-22 gained a third branch for assessments missing their source, citation or evidence type, since an assessment carries its provenance on itself rather than on an axiom; it reports 0 violations in both the previous and the extended form, and a control file with one source removed reports exactly 1. All verdicts unchanged (21 / 2 / 1 / 1).
 
 > **v0.6.1 Patch Note (2026-09-14):**  
 > Three domain assertions gained or received provenance and one literal was tagged: `Stem_Borer indicatedBy Dead_Tiller` and `Stem_Borer indicatedBy White_Ear` (present since v0.6 but never reified) now carry `owl:Axiom` records citing IRAC (2025); `Nephotettix_Virescens controlledBy Resistant_Variety` was added, citing Gallagher et al. (2002); and the one untagged `rice:evidenceType` literal is now `@en`. CQ-10 and CQ-24 move from FAIL to PASS. The CQ-10 fix deliberately departs from the action item planned in v0.6 (`controlledBy Vector_Control`): FAO and IRRI both report that insecticide control of the green leafhopper often fails to control tungro and recommend resistant varieties instead, so asserting vector control only to satisfy the CQ would not have been supported by the literature. Pre-patch file: `Ontology/Backup/Rice MMKG.backup-v0.6-pre-v0.6.1.rdf`.
@@ -102,7 +103,7 @@ Each CQ is positioned along two orthogonal axes: **Reasoning Depth (L1–L4)** a
 | **CQ-18** | L1 | D2 | `coverage`   | **PARTIAL**    | 1/39 (3%)            | Direct visual grounding of symptoms (`rice:captures`) |
 | **CQ-19** | L1 | D2 | `negative`   | **PASS**       | 0 violations         | Media layer integrity: Content URL & dataset provenance |
 | **CQ-20** | L1 | D2 | `documented` | **DOC**        | 0 individuals        | Sensor observation population (Phase 3 extension point) |
-| **CQ-21** | L4 | D3 | `coverage`   | **PASS**       | 353/353 (100%)       | Reified domain axioms with source URI and citation (v0.6.2: 256/256; v0.6: 253/253) |
+| **CQ-21** | L4 | D3 | `coverage`   | **PASS**       | 347/347 (100%)       | Reified domain axioms with source URI and citation (v0.6.2: 256/256; v0.6: 253/253) |
 | **CQ-22** | L4 | D3 | `negative`   | **PASS**       | 0 violations         | Domain assertions without an axiom, or axioms with incomplete provenance (extended 2026-09-14; v0.6: 2) |
 | **CQ-23** | L4 | D3 | `coverage`   | **PASS**       | 18/30 (60%)          | Biological entities aligned to EPPO / AGROVOC / NCBI |
 | **CQ-24** | L4 | D3 | `negative`   | **PASS**       | 0 violations         | Literal hygiene: Uniform language tags (`@en`) on `evidenceType` (v0.6: 1) |
@@ -460,7 +461,7 @@ SELECT DISTINCT ?o WHERE { ?o a rice:SensorObservation }
 
 ### Section C: Provenance & Alignment Layer (D3)
 
-#### CQ-21 | L4 x D3 | coverage | PASS (353/353 axioms, 100%)
+#### CQ-21 | L4 x D3 | coverage | PASS (347/347 axioms, 100%)
 **Question:** Which reified domain assertions carry both an authoritative source URI and a bibliographic citation?
 **Rationale:** Scientific defensibility & provenance completeness.
 **Scope limit:** the denominator is the set of axioms, so CQ-21 measures whether existing axioms carry a source — never whether every assertion has an axiom. An unreified assertion is invisible to it; CQ-22 covers that case.
@@ -473,7 +474,7 @@ SELECT DISTINCT ?ax WHERE {
 ```sparql
 SELECT DISTINCT ?ax WHERE { ?ax a owl:Axiom }
 ```
-**Result:** 353 covered / 353 total (100.0%) — PASS. Source URIs by host: CABI (doi.org) 242, IRRI Rice Knowledge Bank 88, Mackill & Khush 2018 (doi.org) 12, AGROVOC 4, IRAC 2, Plant Ontology 2, Wang et al. 2022 (doi.org) 2, FAO 1. BBPOPT 0 (the 7 BBPOPT axioms of v0.6.2 were removed or re-sourced in 0.7.0-dev).  
+**Result:** 347 covered / 347 total (100.0%) — PASS. Source URIs by host: CABI (doi.org) 242, IRRI Rice Knowledge Bank 88, Mackill & Khush 2018 (doi.org) 3, AGROVOC 4, IRAC 2, Plant Ontology 2, Wang et al. 2022 (doi.org) 2, Bagariang et al. 2021 (doi.org) 2, Biswas et al. 2021 (doi.org) 1, FAO 1. The 15 `ResistanceAssessment` individuals are not axioms and are outside this count; CQ-22 checks them. BBPOPT 0 (the 7 BBPOPT axioms of v0.6.2 were removed or re-sourced in 0.7.0-dev).  
 **v0.6.2:** 256/256 (CABI 242, BBPOPT 7, IRRI 4, IRAC 2, FAO 1).  
 **v0.6:** 253/253 (100%) — which hid the two unreified `Stem_Borer` assertions reported by CQ-22.
 
@@ -481,7 +482,7 @@ SELECT DISTINCT ?ax WHERE { ?ax a owl:Axiom }
 
 #### CQ-22 | L4 x D3 | negative | PASS (0 violations)
 **Question:** Are there domain assertions with missing or incomplete provenance — either no reified axiom at all, or an axiom missing its source, citation or evidence type?
-**Rationale:** Integrity constraint complementing CQ-21. **Extended 2026-09-14.** The original form (below) inspected only axioms that exist, so an assertion with no axiom was invisible to both provenance CQs. Runs on the asserted graph: materialised inverses are never reified and would all count as violations.
+**Rationale:** Integrity constraint complementing CQ-21. **Extended 2026-09-14.** The original form (below) inspected only axioms that exist, so an assertion with no axiom was invisible to both provenance CQs. Runs on the asserted graph: materialised inverses are never reified and would all count as violations. **Extended again 2026-09-17:** a third branch reports `ResistanceAssessment` individuals missing their source, citation or evidence type, because an assessment carries its provenance on itself; `rice:varietyOf` is in the property list, and `rice:resistantTo`/`rice:moderatelyResistantTo` left it with the properties themselves.
 **Query (current):**
 ```sparql
 SELECT ?item ?problem WHERE {
@@ -496,7 +497,7 @@ SELECT ?item ?problem WHERE {
                 rice:controlledBy rice:preventedBy rice:increaseRiskOf
                 rice:vulnerableTo rice:recommends rice:requires
                 rice:affectsPlantPart rice:partOf rice:hasTransmissionMode
-                rice:hasManagementCategory }
+                rice:hasManagementCategory rice:varietyOf }
     ?s ?p ?o .
     FILTER NOT EXISTS { ?ax owl:annotatedSource ?s ;
                             owl:annotatedProperty ?p ;
@@ -504,6 +505,13 @@ SELECT ?item ?problem WHERE {
     BIND (CONCAT(STRAFTER(STR(?s), "#"), " ", STRAFTER(STR(?p), "#"), " ",
                  STRAFTER(STR(?o), "#")) AS ?item)
     BIND ("assertion without provenance" AS ?problem)
+  } UNION {
+    ?a a rice:ResistanceAssessment .
+    FILTER ( NOT EXISTS { ?a dcterms:source ?s } ||
+             NOT EXISTS { ?a dcterms:bibliographicCitation ?c } ||
+             NOT EXISTS { ?a rice:evidenceType ?e } )
+    BIND (STRAFTER(STR(?a), "#") AS ?item)
+    BIND ("assessment with incomplete provenance" AS ?problem)
   }
 }
 ```
@@ -516,6 +524,7 @@ SELECT ?ax WHERE {
            NOT EXISTS { ?ax rice:evidenceType ?e } ) }
 ```
 **Result:** 0 violations — PASS. `rice:affectsPlantPart`, `rice:partOf`, `rice:hasTransmissionMode` and `rice:hasManagementCategory` were added to the property list in 0.7.0-dev together with the properties themselves.  
+**Assessment branch (2026-09-17):** 0 violations on 0.7.0-dev; a control copy with the `dcterms:source` of `RA_Inpari_33_Brown_Planthopper_Java_2021` removed reports exactly that assessment.  
 **On the released v0.6 file:** original query 0 violations (PASS); current query **2 violations (FAIL)** — `Stem_Borer indicatedBy Dead_Tiller` and `Stem_Borer indicatedBy White_Ear`, both reified in v0.6.1 citing IRAC (2025). Both results are reported; the original is not retracted.
 
 ---

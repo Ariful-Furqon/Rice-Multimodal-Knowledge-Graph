@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated": "2026-09-17 14:59",
+    "generated": "2026-09-17 15:24",
     "ontology": "Rice MMKG.rdf",
-    "asserted_triples": 67861,
-    "entailed_triples": 163297,
-    "reasoning_seconds": 34.1,
+    "asserted_triples": 68049,
+    "entailed_triples": 163684,
+    "reasoning_seconds": 58.8,
     "coverage_threshold": 0.5
   },
   "results": [
@@ -24,7 +24,7 @@
       ],
       "unit": "disease",
       "status": "PASS",
-      "ms": 184.9
+      "ms": 216.9
     },
     {
       "id": "CQ-02",
@@ -41,7 +41,7 @@
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 14.6
+      "ms": 27.3
     },
     {
       "id": "CQ-03",
@@ -62,7 +62,7 @@
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 8.6
+      "ms": 21.3
     },
     {
       "id": "CQ-04",
@@ -77,7 +77,7 @@
       "missing": [],
       "unit": "symptom",
       "status": "PASS",
-      "ms": 4.9
+      "ms": 10.6
     },
     {
       "id": "CQ-05",
@@ -116,11 +116,6 @@
         [
           "rice:Flowering_Stage",
           "rice:Bacterial_Panicle_Blight",
-          "rice:High_Night_Temperature"
-        ],
-        [
-          "rice:Flowering_Stage",
-          "rice:Bacterial_Panicle_Blight",
           "rice:High_Temperature"
         ],
         [
@@ -130,13 +125,18 @@
         ],
         [
           "rice:Flowering_Stage",
-          "rice:Brown_Planthopper",
-          "rice:Excessive_Nitrogen"
+          "rice:Bacterial_Panicle_Blight",
+          "rice:High_Night_Temperature"
         ],
         [
           "rice:Flowering_Stage",
           "rice:Brown_Planthopper",
           "rice:High_Temperature"
+        ],
+        [
+          "rice:Flowering_Stage",
+          "rice:Brown_Planthopper",
+          "rice:Excessive_Nitrogen"
         ],
         [
           "rice:Flowering_Stage",
@@ -161,7 +161,7 @@
         [
           "rice:Maturity_Stage",
           "rice:Bacterial_Panicle_Blight",
-          "rice:High_Night_Temperature"
+          "rice:High_Temperature"
         ]
       ],
       "detail_vars": [
@@ -170,7 +170,7 @@
         "f"
       ],
       "detail_total": 88,
-      "ms": 40.5
+      "ms": 83.3
     },
     {
       "id": "CQ-06",
@@ -187,7 +187,7 @@
       ],
       "unit": "growth stage",
       "status": "PASS",
-      "ms": 6.3
+      "ms": 13.0
     },
     {
       "id": "CQ-07",
@@ -199,7 +199,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 7.8
+      "ms": 14.6
     },
     {
       "id": "CQ-08",
@@ -216,7 +216,7 @@
       ],
       "unit": "preventive treatment",
       "status": "PASS",
-      "ms": 4.3
+      "ms": 8.9
     },
     {
       "id": "CQ-09",
@@ -234,12 +234,12 @@
       "detail_rows": [
         [
           "rice:Nephotettix_Virescens",
-          "rice:Rice_Tungro_Bacilliform_Virus",
+          "rice:Rice_Tungro_Spherical_Virus",
           "rice:Rice_Tungro_Disease"
         ],
         [
           "rice:Nephotettix_Virescens",
-          "rice:Rice_Tungro_Spherical_Virus",
+          "rice:Rice_Tungro_Bacilliform_Virus",
           "rice:Rice_Tungro_Disease"
         ]
       ],
@@ -249,7 +249,7 @@
         "d"
       ],
       "detail_total": 2,
-      "ms": 7.2
+      "ms": 16.5
     },
     {
       "id": "CQ-10",
@@ -261,7 +261,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 2.8
+      "ms": 6.2
     },
     {
       "id": "CQ-11",
@@ -285,75 +285,75 @@
       "detail_rows": [
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Wilting",
-          "rice:Water_Management"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Wilting",
-          "rice:Resistant_Variety"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Wilting",
-          "rice:Crop_Sanitation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Wilting",
-          "rice:Crop_Rotation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Yellow_Leaf",
-          "rice:Water_Management"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Yellow_Leaf",
-          "rice:Resistant_Variety"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Yellow_Leaf",
-          "rice:Crop_Sanitation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Yellow_Leaf",
-          "rice:Crop_Rotation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Leaf_Rolling",
-          "rice:Water_Management"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
+          "rice:Poor_Soil_Drainage",
           "rice:Leaf_Rolling",
           "rice:Resistant_Variety"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
+          "rice:Poor_Soil_Drainage",
           "rice:Leaf_Rolling",
           "rice:Crop_Sanitation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
+          "rice:Poor_Soil_Drainage",
           "rice:Leaf_Rolling",
           "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Leaf_Rolling",
+          "rice:Water_Management"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Wilting",
+          "rice:Resistant_Variety"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Wilting",
+          "rice:Crop_Sanitation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Wilting",
+          "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Wilting",
+          "rice:Water_Management"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Yellow_Leaf",
+          "rice:Resistant_Variety"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Yellow_Leaf",
+          "rice:Crop_Sanitation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Yellow_Leaf",
+          "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Yellow_Leaf",
+          "rice:Water_Management"
         ]
       ],
       "detail_vars": [
@@ -363,7 +363,7 @@
         "t"
       ],
       "detail_total": 293,
-      "ms": 1177.2
+      "ms": 2182.1
     },
     {
       "id": "CQ-12",
@@ -392,7 +392,7 @@
       ],
       "unit": "disease/pest",
       "status": "PARTIAL",
-      "ms": 9.4
+      "ms": 15.8
     },
     {
       "id": "CQ-13",
@@ -415,7 +415,7 @@
       "detail_rows": [],
       "detail_vars": [],
       "detail_total": 0,
-      "ms": 7.8
+      "ms": 13.8
     },
     {
       "id": "CQ-14",
@@ -428,7 +428,7 @@
       "entailed": 1442,
       "gain": 1442,
       "status": "PASS",
-      "ms": 25.6
+      "ms": 36.7
     },
     {
       "id": "CQ-15",
@@ -441,7 +441,7 @@
       "entailed": 169,
       "gain": 169,
       "status": "PASS",
-      "ms": 9.6
+      "ms": 20.8
     },
     {
       "id": "CQ-16",
@@ -456,7 +456,7 @@
       "missing": [],
       "unit": "diagnostic image",
       "status": "PASS",
-      "ms": 3382.3
+      "ms": 4972.2
     },
     {
       "id": "CQ-17",
@@ -471,7 +471,7 @@
       "missing": [],
       "unit": "annotated class",
       "status": "PASS",
-      "ms": 882.8
+      "ms": 1119.2
     },
     {
       "id": "CQ-18",
@@ -525,7 +525,7 @@
       ],
       "unit": "symptom",
       "status": "PARTIAL",
-      "ms": 27.7
+      "ms": 43.4
     },
     {
       "id": "CQ-19",
@@ -537,7 +537,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 1435.1
+      "ms": 2451.8
     },
     {
       "id": "CQ-20",
@@ -548,7 +548,7 @@
       "rationale": "Declared extension point. Recorded as a measurement, not scored, so the roadmap gap stays visible without inflating or deflating the pass rate.",
       "count": 0,
       "status": "DOCUMENTED",
-      "ms": 2.0
+      "ms": 3.7
     },
     {
       "id": "CQ-21",
@@ -557,13 +557,13 @@
       "mode": "coverage",
       "question": "Which reified domain assertions carry both an authoritative source URI and a bibliographic citation?",
       "rationale": "Provenance completeness - the scientific-defensibility claim of the KG.",
-      "covered": 353,
-      "total": 353,
+      "covered": 347,
+      "total": 347,
       "ratio": 1.0,
       "missing": [],
       "unit": "reified axiom",
       "status": "PASS",
-      "ms": 23.5
+      "ms": 33.1
     },
     {
       "id": "CQ-22",
@@ -571,11 +571,11 @@
       "dim": "D3",
       "mode": "negative",
       "question": "Are there domain assertions with missing or incomplete provenance - either no reified axiom at all, or an axiom missing its source, citation or evidence type?",
-      "rationale": "Integrity constraint complementing CQ-21. Extended on 2026-09-14: the original form checked only axioms that exist, so an assertion with no axiom at all was invisible to both CQ-21 and CQ-22, and v0.6 carried two such assertions while both reported full provenance. Runs on the asserted graph, since materialised inverses are never reified and would all count as violations.",
+      "rationale": "Integrity constraint complementing CQ-21. Extended on 2026-09-14: the original form checked only axioms that exist, so an assertion with no axiom at all was invisible to both CQ-21 and CQ-22, and v0.6 carried two such assertions while both reported full provenance. Runs on the asserted graph, since materialised inverses are never reified and would all count as violations. Extended again on 2026-09-17: ResistanceAssessment individuals carry their provenance on the individual itself rather than on an axiom, so an assessment missing its source, citation or evidence type is reported too.",
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 290.5
+      "ms": 570.9
     },
     {
       "id": "CQ-23",
@@ -603,7 +603,7 @@
       ],
       "unit": "biological entity",
       "status": "PASS",
-      "ms": 11.4
+      "ms": 21.1
     },
     {
       "id": "CQ-24",
@@ -615,7 +615,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 15.5
+      "ms": 32.9
     },
     {
       "id": "CQ-25",
@@ -627,7 +627,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 4.7
+      "ms": 4.4
     }
   ]
 }

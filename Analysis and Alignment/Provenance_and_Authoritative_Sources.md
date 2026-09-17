@@ -45,9 +45,11 @@ Counts are by the host of each axiom's `dcterms:source` URI. An axiom has exactl
 | **IRRI Rice Knowledge Bank** | Field symptomatology, growth stages, IPM guidance | `http://www.knowledgebank.irri.org/...` | **4** |
 | **IRAC** (Insecticide Resistance Action Committee) | Stem borer damage symptoms (deadheart, whitehead) | `https://irac-online.org/documents/yellow-rice-stem-borer-irm/` | **2** |
 | **FAO / International Rice Commission** | Tungro vector management (resistant varieties) | `https://www.fao.org/4/y6159t/y6159t02.htm` | **1** |
-| **Mackill & Khush (2018)**, Rice 11:18 | Variety reactions: IR64's resistances, its tungro and iron-toxicity susceptibility, and the Indonesian varieties Angke and Conde bred from it | `https://doi.org/10.1186/s12284-018-0208-3` | **12** (0.7.0-dev, 2026-09-16) |
+| **Mackill & Khush (2018)**, Rice 11:18 | Variety reactions: IR64's resistances, its tungro and iron-toxicity susceptibility, and the Indonesian varieties Angke and Conde bred from it | `https://doi.org/10.1186/s12284-018-0208-3` | **3** (`varietyOf`; 12 on 2026-09-16, of which 9 became resistance assessments on 2026-09-17) + **10 assessments** |
+| **Bagariang et al. (2021)**, SEAS 5(2):79–87 | Brown planthopper reaction of IR64, Ciherang, Inpari 32 and Inpari 33 against Javanese populations | `https://doi.org/10.22225/seas.5.2.3913.79-87` | **2** (`varietyOf`, 0.7.0-dev) + **4 assessments** |
+| **Biswas et al. (2021)**, Plants 10:2048 | Ciherang's susceptibility to bacterial blight races | `https://doi.org/10.3390/plants10102048` | **1** (`varietyOf`, 0.7.0-dev) + **1 assessment** |
 | **Wang et al. (2022)** | Vector transmission mode of both tungro viruses | DOI | **2** (0.7.0-dev) |
-| **Total** | | | **256** in v0.6.2; **353** in 0.7.0-dev (IRRI rises to 88 with the fact-sheet rounds, AGROVOC 4 and Plant Ontology 2 join as `ontology-derived`) |
+| **Total** | | | **256** in v0.6.2; **347** in 0.7.0-dev (IRRI rises to 88 with the fact-sheet rounds, AGROVOC 4 and Plant Ontology 2 join as `ontology-derived`), plus **15** `ResistanceAssessment` individuals that carry `dcterms:source`, citation and evidence type on themselves |
 
 ### CABI datasheets cited
 
