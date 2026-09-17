@@ -119,15 +119,15 @@ Our six-phase development roadmap toward the **ESWC 2027 Resource Track** is det
 
 1. **Phase 1: Functional & Reasoning Evaluation (Weeks 1–2, Sept) — [done: v0.6.1]**  
    25 benchmark CQs (95.8% pass rate, 0 FAIL), 19 of 25 elicited CQs queried against a frozen baseline, HermiT consistency, OWL RL materialisation.
-2. **Phase 2: Namespace & Release Scaffolding (Weeks 3–4, Sept)**  
-   Register the w3id PURL and rewrite the namespace early, before more artefacts embed the old IRIs; close the maintenance plan; send the expert questionnaire and image annotation sample.
-3. **Phase 3: Modality Checkpoint, Grounding & Schema → v0.7 (Weeks 5–8, Late Sept & Oct)**  
+2. **Phase 2: Namespace & Release Scaffolding → v0.7 (Weeks 3–4, Sept)**  
+   Register the w3id PURL and rewrite the namespace early, before more artefacts embed the old IRIs; close the maintenance plan; send the expert questionnaire and image annotation sample; release v0.7.0.
+3. **Phase 3: Modality Checkpoint, Grounding & Schema → v0.8 (Weeks 5–8, Late Sept & Oct)**  
    Decide whether sensor and genomic data enter the submission (open decision); symptom-level image grounding from expert annotation; literature-backed schema (plant part, transmission mode, management category).
-4. **Phase 4: Expert Validation & Analysis (Late Oct & Early Nov)**  
+4. **Phase 4: Expert Validation & Analysis → v0.9 with Phase 5 (Late Oct & Early Nov)**  
    Ordinal agreement (weighted κ / Krippendorff's α) on the elicited CQs, independent second screener, separate roadmap-tier instrument.
-5. **Phase 5: Availability & FAIR Finalisation (Early–Mid Nov)**  
+5. **Phase 5: Availability & FAIR Finalisation → v0.9 (Early–Mid Nov)**  
    pyLODE/Widoco documentation at the PURL, FOOPS!/OOPS!, Zenodo DOI and AgroPortal for the final release.
-6. **Phase 6: Resource Paper & Submission (Mid Nov – Early Dec)**  
+6. **Phase 6: Resource Paper & Submission → v1.0 (Mid Nov – Early Dec)**  
    Manuscript, reproducibility package, submission to ESWC 2027.
 
 ---

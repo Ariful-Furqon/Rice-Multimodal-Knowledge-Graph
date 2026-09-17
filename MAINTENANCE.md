@@ -47,7 +47,7 @@ Each version number names exactly one content state: a change is never folded si
 
 ## Release cadence
 
-- **Minor releases follow project milestones** — v0.7 when the schema extensions and expert image annotations are integrated, v1.0 for the ESWC 2027 submission.
+- **Minor releases follow the phases of the ESWC plan** (decided 2026-09-17): **v0.7** closes Phase 2 (namespace and release scaffolding), **v0.8** closes Phase 3 (multimodal: modality checkpoint, grounding, schema), **v0.9** closes Phases 4 and 5 (expert validation and FAIR finalisation), and **v1.0** is the version submitted to ESWC 2027.
 - **Patch releases are made whenever a verified correction is ready**, with no fixed schedule.
 - After submission, releases continue as needed rather than on a fixed calendar.
 

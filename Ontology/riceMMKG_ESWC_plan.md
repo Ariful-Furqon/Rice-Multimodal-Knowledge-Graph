@@ -35,6 +35,8 @@ Construction, evaluation, and publication roadmap for the **ESWC 2027 Resource T
 
 **Why the order changed (2026-09-14).** The original Phase 2 bundled everything FAIR-related into late September. Most of it — HTML documentation, the Zenodo DOI, AgroPortal, the FOOPS! score — describes a *finished* release, so doing it before the modality and schema work means redoing it. The exception is the **namespace**: every IRI is embedded in both SPARQL scripts, their reports, the questionnaire data, any new image annotations, embeddings, and the paper's examples, and w3id registration waits on an external pull-request review. That part gets *more* expensive the longer it waits, so it stays early; the rest moves to just before submission. Phase 3 now starts with the work that is needed whichever modalities are chosen (image grounding, literature-backed schema) and puts an explicit **modality checkpoint** on sensor and genomic data at its start, since those depend on data sources that are not yet secured.
 
+**Release map (decided 2026-09-17).** Each phase closes with a minor release: **v0.7** at the end of Phase 2 (namespace and the literature-backed schema built so far), **v0.8** at the end of Phase 3 (multimodal: modality checkpoint, grounding and the modules it admits), **v0.9** at the end of Phases 4 and 5 together (expert validation results and the FAIR-finalised release), and **v1.0** as the version submitted with the paper. Patch releases (`0.7.1`, …) may come in between for verified corrections.
+
 Expert-facing work starts now even though its analysis comes later, because expert turnaround is the longest wait in the plan.
 
 ```
@@ -45,14 +47,15 @@ Phase 1: Functional & Reasoning Evaluation (Weeks 1–2, Sept) — [DONE: v0.6.1
    └── Frozen baseline: git tag elicited-baseline-v0.6                     [DONE]
           │
           ▼
-Phase 2: Namespace & Release Scaffolding (Weeks 3–4, Sept: 15–28 Sep) — [NEXT]
+Phase 2: Namespace & Release Scaffolding → v0.7 (Weeks 3–4, Sept: 15–28 Sep) — [IN PROGRESS]
    ├── Confirm w3id segment; open w3id.org pull request
    ├── Rewrite namespace as its own commit; re-run HermiT + both benchmarks
    ├── Close maintenance-plan TODOs (affiliation, release cadence)
-   └── Send Stage 5 questionnaire + 250-image annotation sample to experts   (starts Phase 4 clock)
+   ├── Send Stage 5 questionnaire + 250-image annotation sample to experts   (starts Phase 4 clock)
+   └── Release v0.7.0 (tag v0.7.0; w3id version IRI goes live)
           │
           ▼
-Phase 3: Modality Checkpoint, Grounding & Schema → v0.7 (Weeks 5–8: 29 Sep – 26 Oct)
+Phase 3: Modality Checkpoint, Grounding & Schema → v0.8 (Weeks 5–8: 29 Sep – 26 Oct)
    ├── Checkpoint (start of Phase 3): sensor and genomic — data source secured? in or roadmap?
    ├── Schema from literature: PlantPart, transmission mode, management category
    ├── Ingest expert image annotations: captures (more symptoms), organ, severity
@@ -61,20 +64,20 @@ Phase 3: Modality Checkpoint, Grounding & Schema → v0.7 (Weeks 5–8: 29 Sep �
    └── Optional: embedding experiment across the populated modalities
           │
           ▼
-Phase 4: Expert Validation & Analysis (returns by late Oct; analysis Weeks 9–10: 27 Oct – 9 Nov)
+Phase 4: Expert Validation & Analysis → v0.9 with Phase 5 (returns by late Oct; analysis Weeks 9–10: 27 Oct – 9 Nov)
    ├── Stage 7 re-proposal rate wired into Stage 6 before returns are analysed
    ├── Stage 6: weighted κ / ordinal α, convergence vs relevance
    ├── Independent second screener on ~20% of Stages 1, 3, 4
    └── Tier B roadmap instrument, reported separately
           │
           ▼
-Phase 5: Availability & FAIR Finalisation (Weeks 10–11: 3 – 16 Nov)
+Phase 5: Availability & FAIR Finalisation → v0.9 (Weeks 10–11: 3 – 16 Nov)
    ├── pyLODE / Widoco documentation at the PURL, content negotiation live
    ├── FOOPS! + OOPS! on the release
    └── Zenodo DOI + AgroPortal submission for the tagged release
           │
           ▼
-Phase 6: Resource Paper & Submission (Weeks 11–14: mid Nov – early Dec)
+Phase 6: Resource Paper & Submission → v1.0 (Weeks 11–14: mid Nov – early Dec)
    ├── Manuscript per ESWC Resource Track criteria
    ├── Reproducibility package (scripts un-ignored, runner, lockfile)
    └── Internal/advisor review and submission
@@ -96,7 +99,7 @@ Phase 6: Resource Paper & Submission (Weeks 11–14: mid Nov – early Dec)
 
 ---
 
-### Phase 2: Namespace & Release Scaffolding (15–28 Sep)
+### Phase 2: Namespace & Release Scaffolding → v0.7 (15–28 Sep)
 *Objective: fix the identifiers everything else will cite, and start every long external wait.*
 
 - **Activities:**
@@ -106,11 +109,12 @@ Phase 6: Resource Paper & Submission (Weeks 11–14: mid Nov – early Dec)
   4. ~~**Maintenance plan:** resolve the two open TODOs and publish it in the repository.~~ **Done 2026-09-15:** `MAINTENANCE.md` at the repository root (supersedes the Worklog draft) — both creators affiliated with JAIST, contact via GitHub Issues, minor releases per milestone plus patch releases, MAJOR.MINOR.PATCH versioning with permanent tags, release checklist.
   5. **Start the expert clock:** send the Stage 5 questionnaire (`CQ Screening/reports/cq_stage5_questionnaire.md`) and the 250-image stratified annotation sample. Keep `cq_stage5_key.csv` away from raters; the repository history still contains it.
      **Re-scheduled 2026-09-15:** ontology development comes first and the image annotation is done **last**, after CQ validation. Consequence: CQ-18, A14, A15, A16, A18 and A21 stay partial until then, and annotations must still be integrated before the Phase 5 freeze (3 Nov), so the package should go out by mid-October at the latest. Before sending, the annotation template (`Worklog/RiceMMKG_v0.5_worklog/reports/annotation_sample.csv`, symptom column only) needs organ and severity columns and an annotation guide.
-- **Deliverables:** merged w3id PR; namespace-rewritten ontology with unchanged verification results; published maintenance plan; questionnaire and annotation sample sent.
+  6. **Release v0.7.0:** follow the `MAINTENANCE.md` checklist (`owl:versionInfo` `0.7.0`, measured statistics, HermiT with control, both CQ instruments compared against `v0.6.2`), then tag `v0.7.0` so `https://w3id.org/ricemmkg/0.7.0` resolves.
+- **Deliverables:** merged w3id PR; namespace-rewritten ontology with unchanged verification results; published maintenance plan; questionnaire and annotation sample sent; **v0.7.0 tagged**.
 
 ---
 
-### Phase 3: Modality Checkpoint, Grounding & Schema → v0.7 (29 Sep – 26 Oct)
+### Phase 3: Modality Checkpoint, Grounding & Schema → v0.8 (29 Sep – 26 Oct)
 *Objective: decide which further modalities enter the submission, and close the gaps the two CQ instruments measured.*
 
 - **Modality checkpoint (start of Phase 3):** for **sensor** and **genomic** data separately, answer: is a real data source secured and linkable to the existing entities (varieties, diseases, growth stages, images)? Can it be modelled, populated and covered by CQs before the Phase 5 freeze? If yes, it enters the submission as a populated module; if not, it stays roadmap and is described as such in the paper. A modality with a declared but empty class is never claimed. Genomic scope should follow the expert's input — to be recorded here once clarified.
@@ -126,11 +130,11 @@ Phase 6: Resource Paper & Submission (Weeks 11–14: mid Nov – early Dec)
   4. **If the checkpoint admits sensor and/or genomic data:** model the module, ingest the real data, link it to existing entities, add or activate the relevant CQs (Tier B elicited CQs become measurable; benchmark CQ-20 stops being `documented`), re-check HermiT.
   5. **Optional:** an embedding experiment across whichever modalities are populated. Useful as a usage demonstration, not required by the resource claim; drop it first if time runs short.
 - **Waits for expert ratings:** the six elicited CQs with no concept in the ontology (A08, A09, A12, A14 in part, A20, A25) are not modelled until their relevance is rated.
-- **Deliverables:** v0.7 ontology; before/after tables for both CQ instruments; consistency log.
+- **Deliverables:** v0.8 ontology (tag `v0.8.0`); before/after tables for both CQ instruments; consistency log. Expert image annotations that arrive after the v0.8 cut go into v0.9.
 
 ---
 
-### Phase 4: Expert Validation & Analysis (returns by late Oct; analysis 27 Oct – 9 Nov)
+### Phase 4: Expert Validation & Analysis → v0.9 with Phase 5 (returns by late Oct; analysis 27 Oct – 9 Nov)
 *Objective: independent human evidence for the CQ set and the screening procedure.*
 
 - **Activities:**
@@ -143,18 +147,18 @@ Phase 6: Resource Paper & Submission (Weeks 11–14: mid Nov – early Dec)
 
 ---
 
-### Phase 5: Availability & FAIR Finalisation (3 – 16 Nov)
+### Phase 5: Availability & FAIR Finalisation → v0.9 (3 – 16 Nov)
 *Objective: publish the release the paper describes, once its content is final.*
 
 - **Activities:**
   1. Generate **pyLODE** or **Widoco** documentation from the release and serve it at the PURL; switch content negotiation from the interim target to HTML / RDF.
   2. Run **FOOPS!** and **OOPS!** on the release; target FOOPS! > 0.85 (baseline 0.7275, mostly lost on the missing PURL, which Phase 2 fixes).
-  3. Tag the release; deposit to **Zenodo** (DOI) from the prepared manifest; submit to **AgroPortal** from the prepared draft.
+  3. Integrate the Phase 4 outcomes (expert-elicited assertions, annotations not yet in v0.8), tag **`v0.9.0`**; deposit to **Zenodo** (DOI) from the prepared manifest; submit to **AgroPortal** from the prepared draft. v1.0 is later added as a new version of the same Zenodo record.
 - **Deliverables:** live documentation at the PURL; FOOPS!/OOPS! reports; Zenodo DOI; AgroPortal entry.
 
 ---
 
-### Phase 6: Resource Paper & Submission (mid Nov – early Dec)
+### Phase 6: Resource Paper & Submission → v1.0 (mid Nov – early Dec)
 *Objective: prepare and submit the manuscript.*
 
 - **Activities:**
