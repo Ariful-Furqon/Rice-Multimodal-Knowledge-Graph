@@ -167,7 +167,7 @@ because they were rewritten to avoid depending on the direct type:
 
 ```sparql
 # CQ1 — no "a Observation" needed; classifiedAs already implies it via domain
-PREFIX rice: <http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#>
+PREFIX rice: <https://w3id.org/ricemmkg#>
 SELECT (COUNT(?obs) AS ?n) WHERE {
   ?obs rice:classifiedAs rice:Rice_Blast_Disease .
 }

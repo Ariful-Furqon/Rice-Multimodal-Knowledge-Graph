@@ -29,9 +29,9 @@ and keeps two things deliberately separate:
   is typed `Symptom`). This cleanly satisfies the `SymptomaticObservation`
   defined class while eliminating class disjointness collisions with `Disease`.
 
-**Namespace:** `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#`
-(prefix `rice:`) — not yet dereferenceable; a `w3id.org` permanent
-identifier is planned but not registered.
+**Namespace:** `https://w3id.org/ricemmkg#` (prefix `rice:`) — a w3id.org permanent identifier, registered
+on 2026-09-16 (perma-id/w3id.org#6697) and used since 0.7.0-dev. Releases up to v0.6.2
+used `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#`; their version IRIs `https://w3id.org/ricemmkg/0.6.1` and `/0.6.2` resolve to those files.
 
 **Design philosophy (current, post-cleanup):** every class holds
 individuals and every asserted property holds assertions, with one
@@ -55,7 +55,7 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **67,859** (asserted) / **163,293** (OWL RL) | 0.7.0-dev. +95,434 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Total triples** | **67,863** (asserted) / **163,301** (OWL RL) | 0.7.0-dev. +95,438 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
 | **Named classes** | 21 | 18 primitive (incl. `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor` and `Variety`, 0.7.0-dev) + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class (`SymptomaticObservation`) |
 | **Object properties** | 35 | All declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `resistantTo`/`resistedBy`, `moderatelyResistantTo` (0.7.0-dev) |
 | **Datatype properties** | 5 | All declared with explicit domain and range |
@@ -151,13 +151,27 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | 0.7.0-dev (+ ManagementCategory, label/mapping fixes) | 2026-09-15 | 67,200 (162,043 OWL RL) | 19 | 30 | 10,511 | 293 axioms / 293 assertions |
 | 0.7.0-dev (+ AbioticFactor, literal hygiene) | 2026-09-15 | 67,588 (162,775 OWL RL) | 20 | 30 | 10,531 | 330 axioms / 330 assertions |
 | 0.7.0-dev (BBPOPT source resolved, + iron toxicity, salinity) | 2026-09-15 | 67,708 (163,011 OWL RL) | 20 | 30 | 10,538 | 341 axioms / 341 assertions |
-| **0.7.0-dev (+ `Variety`: IR64, Angke, Conde — in development)** | **2026-09-16** | **67,859** (163,293 OWL RL) | **21** | **35** | **10,541** | **353 axioms / 353 assertions** |
+| 0.7.0-dev (+ `Variety`: IR64, Angke, Conde) | 2026-09-16 | 67,859 (163,293 OWL RL) | 21 | 35 | 10,541 | 353 axioms / 353 assertions |
+| **0.7.0-dev (w3id namespace — in development)** | **2026-09-17** | **67,863** (163,301 OWL RL) | **21** | **35** | **10,541** | **353 axioms / 353 assertions** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-09-17: 0.7.0-dev — namespace moved to `https://w3id.org/ricemmkg#`
+
+The w3id.org registration (perma-id/w3id.org#6697) was merged on 2026-09-16 and its redirects were checked with `curl` on 2026-09-17, so the namespace was rewritten, as a commit of its own. Pre-rewrite file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-namespace.rdf`.
+
+- **Rewritten:** every term IRI `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#X` → `https://w3id.org/ricemmkg#X` (44,959 occurrences); the ontology IRI → `https://w3id.org/ricemmkg`; `owl:versionIRI` → `https://w3id.org/ricemmkg/0.7.0`, the IRI the release will carry, which resolves once tag `v0.7.0` exists (`…/0.7.0-dev` would never resolve: the redirect rule accepts numeric versions only). `owl:versionInfo` stays `0.7.0-dev`.
+- **Added:** `owl:priorVersion <https://w3id.org/ricemmkg/0.6.2>`, which already resolves; `vann:preferredNamespaceUri`, declared as an annotation property; one sentence in the header comment that names the old namespace — now its only occurrence in the file.
+- **Method:** text substitution with the expected count of every target checked before writing — not a load-and-re-serialise — so the diff touches only lines that carry an IRI, and the two CRLF documents kept their line endings.
+- **Also updated:** `RICE_NS` in both CQ scripts; the SPARQL/Turtle prefix lines in five documents; the namespace descriptions in `README.md`, `MAINTENANCE.md` and this file; the ESWC plan.
+- **Not rewritten:** `Backup/` (historical snapshots), `patch_assertions.rdf` (a rejected draft), and the gitignored `Worklog/` — its annotation-sample scripts need the new namespace when the image annotation is run.
+- **Checks:** 67,863 asserted triples (+4, all in the header: `owl:priorVersion`, `vann:preferredNamespaceUri`, and the property's two-triple declaration) / 163,301 OWL RL; no IRI left in the old namespace; 353 axioms = 353 domain assertions, none unreified, orphaned, duplicated or incomplete; 15 inverse pairs with matching domain and range; 0 domain/range violations; 0 individuals in two disjoint core classes. HermiT consistent, `-U` lists only `owl:Nothing`, control (`IR64` as Variety + Disease) inconsistent.
+- **Answers unchanged:** both CQ instruments were compared field by field with the committed results — identical, apart from timings and the order of truncated row samples. Benchmark **21 PASS / 2 PARTIAL / 1 FAIL / 1 DOC**; elicited 9 / 8 / 2.
+- **Redirect limitations** carried to Open items: GitHub raw serves the file as `text/plain`, and the root IRI resolves to the development file on `main`.
 
 ### 2026-09-16: 0.7.0-dev — `Variety`: IR64 and two Indonesian varieties bred from it
 
@@ -618,7 +632,7 @@ assertions, verified with no duplicates and no orphans. Triples: 67,236 →
 - **Image URL resolvability:** `schema:contentUrl` holds relative paths
   that don't dereference. Three options written up, none chosen. See
   `Worklog/RiceMMKG_cleanup_worklog/contenturl_base.md`.
-- **Permanent identifier:** `w3id.org` path segment to be registered for PURL minting.
+- ~~**Permanent identifier**~~ — `https://w3id.org/ricemmkg` registered 2026-09-16 and the namespace rewritten in 0.7.0-dev (see changelog). **Still open:** raw.githubusercontent.com serves the ontology as `text/plain` rather than `application/rdf+xml`, and the root IRI resolves to the development file on `main` rather than the latest release; both are to be settled with the HTML documentation in Phase 5.
 - **Version status:** `0.7.0-dev` in `Rice MMKG.rdf` (as of 2026-09-15). Tags `v0.6.1` (commit `1d13542`) and `v0.6.2` mark the last two releases; the final number of the next release is set when it is tagged.
 - **Competency Questions (CQs) Benchmark:** 25 CQs benchmarked via `cq_sparql_benchmark.py`: 0.7.0-dev scores 87.5% (21 PASS / 2 PARTIAL / 1 FAIL / 1 DOC); v0.6.1/v0.6.2 scored 95.8% (23 / 1 / 0 / 1). Full documentation in `CQ_SPARQL_Documentation.md`.
 - **Automated Reasoner verified:** OWL RL deductive closure via Python `owlrl` (+95,187 triples) and HermiT consistency on 0.7.0-dev (with verified control cases).

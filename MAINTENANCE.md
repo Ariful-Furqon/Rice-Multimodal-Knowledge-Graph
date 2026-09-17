@@ -29,7 +29,7 @@ Useful things to include: the IRI of the term involved, the version (`owl:versio
 
 ## Identifiers
 
-- **Namespace:** `https://w3id.org/ricemmkg#` — registration pending ([perma-id/w3id.org#6697](https://github.com/perma-id/w3id.org/pull/6697)). Until the registration is merged and the namespace has been rewritten, the ontology still uses `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#`.
+- **Namespace:** `https://w3id.org/ricemmkg#` — registered through [perma-id/w3id.org#6697](https://github.com/perma-id/w3id.org/pull/6697), merged 2026-09-16, and used by the ontology since 0.7.0-dev. Releases up to v0.6.2 used `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#`.
 - **Version IRIs:** `https://w3id.org/ricemmkg/<version>` redirect to the ontology file at git tag `v<version>`.
 - **Redirect configuration:** `w3id/ricemmkg/` in this repository mirrors the files registered at w3id.org; changes are made here first and then submitted to w3id.org.
 

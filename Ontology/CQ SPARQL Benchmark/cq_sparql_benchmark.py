@@ -14,7 +14,7 @@ JSON_OUT   = SCRIPT_DIR / "cq_sparql_benchmark_results.json"
 
 assert ONTOLOGY.exists(), f"Ontology not found: {ONTOLOGY}"
 
-RICE_NS = "http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#"
+RICE_NS = "https://w3id.org/ricemmkg#"
 
 PREFIX = f"""
 PREFIX rice: <{RICE_NS}>

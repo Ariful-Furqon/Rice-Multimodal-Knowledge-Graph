@@ -16,14 +16,14 @@ Construction, evaluation, and publication roadmap for the **ESWC 2027 Resource T
 | Metric / Dimension | Current State (v0.6.2) | Comparator (RiceDO) | Target for Submission |
 |---|---|---|---|
 | **Ontology Version** | **`0.6.2`** | `1.0` | `1.0` (release tagged for submission) |
-| **Asserted Triples** | **66,802** (0.7.0-dev: 67,859) | ~1,200 | Grows with symptom-level image grounding; no fixed triple target |
-| **Materialised Triples (OWL RL)** | **161,447** (+94,645 triples; 0.7.0-dev: 163,293) | — | Re-measured at release |
+| **Asserted Triples** | **66,802** (0.7.0-dev: 67,863) | ~1,200 | Grows with symptom-level image grounding; no fixed triple target |
+| **Materialised Triples (OWL RL)** | **161,447** (+94,645 triples; 0.7.0-dev: 163,301) | — | Re-measured at release |
 | **Modalities** | Populated: text-curated domain layer + **10,407** image observations. Declared but empty: `SensorObservation`. Not modelled: genomic | Text only | **Open — decided at the Phase 3 checkpoint.** Candidates: sensor (if data can be obtained), genomic (raised by expert feedback) |
 | **Symptom-level image grounding** | `captures` on 1,442 images, all to one symptom (CQ-18: 1/27) | 0 | Multiple symptoms grounded from expert annotation (see Phase 3) |
 | **Domain-Level Assertions** | **256 assertions, 256 reified axioms (100% cited)**; 0.7.0-dev: 353 / 353 (12 variety axioms added 2026-09-16; the 7 unverifiable BBPOPT axioms removed or re-sourced) | 18 diseases | 100% literature-grounded, checked by CQ-21 + extended CQ-22 |
 | **Reasoner Consistency** | **Consistent (HermiT, 2026-09-14, with an injected-contradiction control)**; 0.7.0-dev re-checked 2026-09-15 with two controls | Verified | Consistent at release, re-checked after every schema change |
 | **Competency Questions** | **25 benchmark CQs** (v0.6.2: 23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC; 0.7.0-dev: 21 / 2 / 1 / 1 — CQ-12 PARTIAL after abiotic disorders entered its denominator, CQ-13 FAIL after the unsourced severity triage was removed, CQ-01 denominator corrected to exclude abiotic disorders with both figures reported); **19 of 25 elicited CQs** queried (v0.6.2: 7 answer, 10 partial, 2 no answer; 0.7.0-dev: 9 / 8 / 2 after CQ-A02 and CQ-A07 were answered) | Qualitative CQs | Both instruments re-run against the tagged v0.6 baseline |
-| **Permanent URI (PURL)** | Local namespace (`.../riceMMKG#`) | `purl.org/ricedo` | `w3id.org/<segment>` live — **segment to confirm** (`ricemmkg` or `rice-mmkg`) |
+| **Permanent URI (PURL)** | **`https://w3id.org/ricemmkg#`** — live since 2026-09-16; namespace rewritten in 0.7.0-dev | `purl.org/ricedo` | Done; HTML documentation behind it in Phase 5 |
 | **FAIR Score (FOOPS!)** | 0.7275 (v0.5 schema-only baseline, 2026-08-22; main gap: no PURL) | — | **> 0.85**, measured once on the release |
 | **Registry Findability** | GitHub repository | IEEE DataPort | **AgroPortal** entry + **Zenodo DOI** for the release |
 | **Online Documentation** | Markdown documentation | — | **pyLODE / Widoco** at the PURL |
@@ -102,7 +102,7 @@ Phase 6: Resource Paper & Submission (Weeks 11–14: mid Nov – early Dec)
 - **Activities:**
   1. **Decide the w3id segment** (`ricemmkg` or `rice-mmkg`) — it cannot change after anything is published under it.
   2. **w3id PURL registration:** pull request to `github.com/perma-id/w3id.org` using the prepared `.htaccess` (`Worklog/RiceMMKG_v0.5_worklog/reports/w3id_config/`). Content negotiation can point at the GitHub raw file until Phase 5 documentation exists.
-  3. **Namespace rewrite:** run `rewrite_namespace.py` as a **separate commit**. It re-serialises the whole file, so its diff is unreadable by design; verify instead by triple count, HermiT, and both CQ instruments returning the same results as before the rewrite. Update the `PREFIX` blocks in both scripts and in `CQ_SPARQL_Documentation.md`.
+  3. **Namespace rewrite:** done 2026-09-17 as a **separate commit**, by text substitution rather than re-serialisation, so the diff touches only the lines that carry an IRI; verified by triple count, HermiT, and both CQ instruments returning the same results as before.
   4. ~~**Maintenance plan:** resolve the two open TODOs and publish it in the repository.~~ **Done 2026-09-15:** `MAINTENANCE.md` at the repository root (supersedes the Worklog draft) — both creators affiliated with JAIST, contact via GitHub Issues, minor releases per milestone plus patch releases, MAJOR.MINOR.PATCH versioning with permanent tags, release checklist.
   5. **Start the expert clock:** send the Stage 5 questionnaire (`CQ Screening/reports/cq_stage5_questionnaire.md`) and the 250-image stratified annotation sample. Keep `cq_stage5_key.csv` away from raters; the repository history still contains it.
      **Re-scheduled 2026-09-15:** ontology development comes first and the image annotation is done **last**, after CQ validation. Consequence: CQ-18, A14, A15, A16, A18 and A21 stay partial until then, and annotations must still be integrated before the Phase 5 freeze (3 Nov), so the package should go out by mid-October at the latest. Before sending, the annotation template (`Worklog/RiceMMKG_v0.5_worklog/reports/annotation_sample.csv`, symptom column only) needs organ and severity columns and an annotation guide.
@@ -190,8 +190,8 @@ Phase 6: Resource Paper & Submission (Weeks 11–14: mid Nov – early Dec)
 - [ ] **Scout sensor and genomic data sources** (availability, licence, linkability to existing entities) so the Phase 3 checkpoint can decide on evidence.
 - [x] **Decide w3id segment** — `ricemmkg`, maintainer @Ariful-Furqon (2026-09-15).
 - [x] **Open w3id.org pull request** — [perma-id/w3id.org#6697](https://github.com/perma-id/w3id.org/pull/6697), files mirrored in `w3id/ricemmkg/` (2026-09-15). Tags `v0.6.1` and `v0.6.2` pushed so version IRIs resolve.
-- [ ] **Wait for merge**, then check the redirects with `curl` (browser, RDF client, `/0.6.1`).
-- [ ] **Namespace rewrite** as a separate commit after the merge; re-run HermiT and both CQ instruments.
+- [x] **Wait for merge** — merged 2026-09-16 by dgarijo; redirects checked with `curl` on 2026-09-17 (browser → repository, RDF client → raw file, `/0.6.1` and `/0.6.2` → tagged files).
+- [x] **Namespace rewrite** (2026-09-17, 0.7.0-dev) — own commit; HermiT and both CQ instruments re-run with unchanged results.
 - [x] **Maintenance plan** — `MAINTENANCE.md` (2026-09-15): both creators affiliated with JAIST, contact via GitHub Issues, minor releases per milestone plus patch releases as corrections are verified.
 - [x] **PlantPart schema** (2026-09-15, 0.7.0-dev) — see Phase 3, activity 1.
 - [x] **Transmission mode for vectors** (2026-09-15, 0.7.0-dev) — CQ-A02 answers.

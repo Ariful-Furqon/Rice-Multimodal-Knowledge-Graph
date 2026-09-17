@@ -149,7 +149,7 @@ Extended 2026-09-14. Runs on the asserted graph.
 ```sparql
 PREFIX owl:     <http://www.w3.org/2002/07/owl#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX rice:    <http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#>
+PREFIX rice:    <https://w3id.org/ricemmkg#>
 
 SELECT ?item ?problem WHERE {
   {
@@ -176,7 +176,7 @@ SELECT ?item ?problem WHERE {
 
 ### CQ-24 | L4 × D3 | Literal hygiene (PASS: 0 violations)
 ```sparql
-PREFIX rice: <http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#>
+PREFIX rice: <https://w3id.org/ricemmkg#>
 
 SELECT ?ax ?v WHERE {
   ?ax rice:evidenceType ?v .

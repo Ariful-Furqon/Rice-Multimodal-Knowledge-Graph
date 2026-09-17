@@ -63,7 +63,7 @@ JSON_OUT = SCRIPT_DIR / "elicited_cq_sparql_results.json"
 
 assert ONTOLOGY.exists(), f"Ontology not found: {ONTOLOGY}"
 
-RICE_NS = "http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#"
+RICE_NS = "https://w3id.org/ricemmkg#"
 
 # Release label substituted for {V} in CQ notes, query labels and report text.
 # Set in main() from owl:versionInfo, so a run against a later release never

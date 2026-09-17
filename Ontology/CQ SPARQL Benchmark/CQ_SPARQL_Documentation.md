@@ -1,7 +1,7 @@
 # Rice MMKG 0.7.0-dev — SPARQL Competency Question Documentation
 
 **Ontology:** `Rice MMKG.rdf` (owl:versionInfo 0.7.0-dev; last release v0.6.2)  
-**Triples:** 67,859 asserted / 163,293 after OWL RL materialisation (+95,434 triples)  
+**Triples:** 67,863 asserted / 163,301 after OWL RL materialisation (+95,438 triples)  
 **Benchmark Execution:** 2026-09-15  
 **Overall Result:** 21 PASS / 2 PARTIAL / 1 FAIL / 1 DOCUMENTED (24 scored + 1 documented = 25 CQs)
 **Pass Rate:** 87.5% (21/24 scored CQs); v0.6.2: 95.8% (23/24)
@@ -16,6 +16,7 @@
 > - **CQ-01 fell to PARTIAL (7/15), then its denominator was corrected (approved 2026-09-15).** The two new disorders had entered the Disease denominator, and an abiotic disorder has no pathogen by construction. The denominator now excludes any disease caused by an `AbioticFactor` (a criterion, not a list of names). Result: **7/9, PASS**; the uncorrected form gives 7/15 (PARTIAL), and both are reported. Only CQ-01 was corrected: CQ-03, CQ-11 and CQ-12 still count abiotic disorders, because control, risk-to-remedy and management actions do apply to them.
 > - **Other figures:** CQ-12 9/22, CQ-08 2/3, CQ-21 **341/341**.
 > **Then** `Variety` was added (IR64, Angke, Conde; 12 assertions citing Mackill & Khush 2018), with `varietyOf`, `resistantTo` and `moderatelyResistantTo` added to CQ-22's checked list. CQ-21 → **353/353**; all verdicts unchanged (21 / 2 / 1 / 1). Varieties are neither diseases nor pests, so no coverage denominator moved.
+> **Then** the namespace moved to `https://w3id.org/ricemmkg#` (2026-09-17). Every answer of both instruments is identical to the previous run, compared field by field (timings and truncated row samples aside); only the triple counts moved (+4, all in the ontology header).
 
 > **v0.6.1 Patch Note (2026-09-14):**  
 > Three domain assertions gained or received provenance and one literal was tagged: `Stem_Borer indicatedBy Dead_Tiller` and `Stem_Borer indicatedBy White_Ear` (present since v0.6 but never reified) now carry `owl:Axiom` records citing IRAC (2025); `Nephotettix_Virescens controlledBy Resistant_Variety` was added, citing Gallagher et al. (2002); and the one untagged `rice:evidenceType` literal is now `@en`. CQ-10 and CQ-24 move from FAIL to PASS. The CQ-10 fix deliberately departs from the action item planned in v0.6 (`controlledBy Vector_Control`): FAO and IRRI both report that insecticide control of the green leafhopper often fails to control tungro and recommend resistant varieties instead, so asserting vector control only to satisfy the CQ would not have been supported by the literature. Pre-patch file: `Ontology/Backup/Rice MMKG.backup-v0.6-pre-v0.6.1.rdf`.
@@ -34,7 +35,7 @@
 ## Prefix Block
 
 ```sparql
-PREFIX rice:    <http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#>
+PREFIX rice:    <https://w3id.org/ricemmkg#>
 PREFIX owl:     <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>

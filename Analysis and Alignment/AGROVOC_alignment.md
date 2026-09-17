@@ -250,7 +250,7 @@ The three rows marked **Implemented in v2.2** are now present in
 `Rice MMKG.rdf`. Keep the mapping triple separate from the dataset label:
 
 ```turtle
-@prefix riceMMKG: <http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#> .
+@prefix riceMMKG: <https://w3id.org/ricemmkg#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 riceMMKG:Rice_Blast_Disease
