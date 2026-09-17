@@ -89229,6 +89229,7 @@
     <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Stunted_Growth"/>
     <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Yellowish_Green_Leaf"/>
     <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Reduced_Tillering"/>
+    <rice:controlledBy rdf:resource="https://w3id.org/ricemmkg#Nitrogen_Fertilizer_Application"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#Phosphorus_Deficiency">
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#AbioticFactor"/>
@@ -90276,6 +90277,21 @@
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Sheath_Blight"/>
     <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/sheath-blight"/>
     <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Sheath blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/sheath-blight (accessed 2026-09-17).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Nitrogen_Fertilizer_Application">
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Treatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Application of nitrogen fertilizer, with the need judged from leaf color and crop appearance (e.g. with the Leaf Color Chart): about 40-50 kg N/ha as inorganic fertilizer for every ton of additional grain yield; sources include urea, ammonium sulfate and diammonium phosphate, with farmyard manure and compost partly meeting the requirement (IRRI nitrogen fact sheet).</rdfs:comment>
+    <rdfs:label xml:lang="en">nitrogen fertilizer application</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070nfertilizercontrols">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Nitrogen_Deficiency_Disorder"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#controlledBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Nitrogen_Fertilizer_Application"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/item/nitrogen"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Nitrogen (N). Rice Knowledge Bank fact sheet (nutrient management). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/item/nitrogen (accessed 2026-09-17).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
 </rdf:RDF>

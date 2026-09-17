@@ -16,11 +16,11 @@ Construction, evaluation, and publication roadmap for the **ESWC 2027 Resource T
 | Metric / Dimension | Current State (v0.6.2) | Comparator (RiceDO) | Target for Submission |
 |---|---|---|---|
 | **Ontology Version** | **`0.6.2`** | `1.0` | `1.0` (release tagged for submission) |
-| **Asserted Triples** | **66,802** (0.7.0-dev: 68,064) | ~1,200 | Grows with symptom-level image grounding; no fixed triple target |
-| **Materialised Triples (OWL RL)** | **161,447** (+94,645 triples; 0.7.0-dev: 163,715) | — | Re-measured at release |
+| **Asserted Triples** | **66,802** (0.7.0-dev: 68,076) | ~1,200 | Grows with symptom-level image grounding; no fixed triple target |
+| **Materialised Triples (OWL RL)** | **161,447** (+94,645 triples; 0.7.0-dev: 163,738) | — | Re-measured at release |
 | **Modalities** | Populated: text-curated domain layer + **10,407** image observations. Declared but empty: `SensorObservation`. Not modelled: genomic | Text only | **Open — decided at the Phase 3 checkpoint.** Candidates: sensor (if data can be obtained), genomic (raised by expert feedback) |
 | **Symptom-level image grounding** | `captures` on 1,442 images, all to one symptom (CQ-18: 1/27) | 0 | Multiple symptoms grounded from expert annotation (see Phase 3) |
-| **Domain-Level Assertions** | **256 assertions, 256 reified axioms (100% cited)**; 0.7.0-dev: 348 / 348 plus 15 self-cited resistance assessments (the 7 unverifiable BBPOPT axioms removed or re-sourced; round-1 variety links became assessments 2026-09-17) | 18 diseases | 100% literature-grounded, checked by CQ-21 + extended CQ-22 |
+| **Domain-Level Assertions** | **256 assertions, 256 reified axioms (100% cited)**; 0.7.0-dev: 349 / 349 plus 15 self-cited resistance assessments (the 7 unverifiable BBPOPT axioms removed or re-sourced; round-1 variety links became assessments 2026-09-17) | 18 diseases | 100% literature-grounded, checked by CQ-21 + extended CQ-22 |
 | **Reasoner Consistency** | **Consistent (HermiT, 2026-09-14, with an injected-contradiction control)**; 0.7.0-dev re-checked 2026-09-17 with controls for every new class | Verified | Consistent at release, re-checked after every schema change |
 | **Competency Questions** | **25 benchmark CQs** (v0.6.2: 23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC; 0.7.0-dev: 21 / 2 / 1 / 1 — CQ-12 PARTIAL after abiotic disorders entered its denominator, CQ-13 FAIL after the unsourced severity triage was removed, CQ-01 denominator corrected to exclude abiotic disorders with both figures reported); **19 of 25 elicited CQs** queried (v0.6.2: 7 answer, 10 partial, 2 no answer; 0.7.0-dev: 9 / 8 / 2 after CQ-A02 and CQ-A07 were answered) | Qualitative CQs | Both instruments re-run against the tagged v0.6 baseline |
 | **Permanent URI (PURL)** | **`https://w3id.org/ricemmkg#`** — live since 2026-09-16; namespace rewritten in 0.7.0-dev | `purl.org/ricedo` | Done; HTML documentation behind it in Phase 5 |
@@ -167,7 +167,7 @@ Phase 6: Resource Paper & Submission → v1.0 (Weeks 11–14: mid Nov – early 
      - *Reusability & FAIR* — w3id PURL, documentation, Zenodo DOI, AgroPortal, maintenance plan, FOOPS! score.
      - *Evaluation* — benchmark CQs, elicited CQs with measured answerability against a frozen baseline, DL consistency, expert agreement.
   2. **Reproducibility package:** the `CQ Screening/scripts/` and `reports/` directories are currently gitignored, which undercuts the reproducibility claim — publish them; add a single runner and an environment lockfile.
-  3. **Method statements the paper must make:** the two elicitation rounds; LLM-assisted, human-adjudicated grouping (and the source-model conflict of interest); the 50% coverage threshold as an author convention, with the 40–80% sensitivity table (PASS 22 / 21 / 20 / 17 / 16 of 24); CQ-22's 2026-09-14 extension with both results reported; the correction of the originally published v0.6 figures.
+  3. **Method statements the paper must make:** the two elicitation rounds; LLM-assisted, human-adjudicated grouping (and the source-model conflict of interest); the 50% coverage threshold as an author convention, with the 40–80% sensitivity table (PASS 22 / 21 / 20 / 18 / 17 of 24); CQ-22's 2026-09-14 extension with both results reported; the correction of the originally published v0.6 figures.
   4. Internal and advisor review; submission.
 - **Deliverables:** submitted manuscript; release-tagged public repository.
 

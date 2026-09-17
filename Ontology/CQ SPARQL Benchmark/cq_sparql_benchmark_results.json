@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated": "2026-09-17 17:22",
+    "generated": "2026-09-17 17:30",
     "ontology": "Rice MMKG.rdf",
-    "asserted_triples": 68064,
-    "entailed_triples": 163715,
-    "reasoning_seconds": 24.6,
+    "asserted_triples": 68076,
+    "entailed_triples": 163738,
+    "reasoning_seconds": 25.1,
     "coverage_threshold": 0.5
   },
   "results": [
@@ -23,7 +23,7 @@
       ],
       "unit": "disease",
       "status": "PASS",
-      "ms": 82.0
+      "ms": 95.8
     },
     {
       "id": "CQ-02",
@@ -40,7 +40,7 @@
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 9.9
+      "ms": 11.0
     },
     {
       "id": "CQ-03",
@@ -49,19 +49,18 @@
       "mode": "coverage",
       "question": "Which diseases and pests have at least one control treatment?",
       "rationale": "Actionability. The KG must not diagnose what it cannot advise on.",
-      "covered": 17,
+      "covered": 18,
       "total": 22,
-      "ratio": 0.7727272727272727,
+      "ratio": 0.8181818181818182,
       "missing": [
         "rice:Iron_Toxicity_Disorder",
-        "rice:Nitrogen_Deficiency_Disorder",
         "rice:Phosphorus_Deficiency_Disorder",
         "rice:Potassium_Deficiency_Disorder",
         "rice:Salinity_Disorder"
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 8.2
+      "ms": 10.3
     },
     {
       "id": "CQ-04",
@@ -76,7 +75,7 @@
       "missing": [],
       "unit": "symptom",
       "status": "PASS",
-      "ms": 3.7
+      "ms": 5.0
     },
     {
       "id": "CQ-05",
@@ -105,11 +104,16 @@
         [
           "rice:Flowering_Stage",
           "rice:Bacterial_Leaf_Streak",
-          "rice:High_Temperature"
+          "rice:High_Humidity"
         ],
         [
           "rice:Flowering_Stage",
           "rice:Bacterial_Leaf_Streak",
+          "rice:High_Temperature"
+        ],
+        [
+          "rice:Flowering_Stage",
+          "rice:Bacterial_Panicle_Blight",
           "rice:High_Humidity"
         ],
         [
@@ -124,8 +128,8 @@
         ],
         [
           "rice:Flowering_Stage",
-          "rice:Bacterial_Panicle_Blight",
-          "rice:High_Humidity"
+          "rice:Brown_Planthopper",
+          "rice:High_Temperature"
         ],
         [
           "rice:Flowering_Stage",
@@ -134,8 +138,8 @@
         ],
         [
           "rice:Flowering_Stage",
-          "rice:Brown_Planthopper",
-          "rice:High_Temperature"
+          "rice:Rice_Blast_Disease",
+          "rice:High_Humidity"
         ],
         [
           "rice:Flowering_Stage",
@@ -144,7 +148,7 @@
         ],
         [
           "rice:Flowering_Stage",
-          "rice:Rice_Blast_Disease",
+          "rice:Sheath_Blight",
           "rice:High_Humidity"
         ],
         [
@@ -153,14 +157,9 @@
           "rice:Poor_Soil_Drainage"
         ],
         [
-          "rice:Flowering_Stage",
-          "rice:Sheath_Blight",
-          "rice:High_Humidity"
-        ],
-        [
           "rice:Maturity_Stage",
           "rice:Bacterial_Panicle_Blight",
-          "rice:High_Temperature"
+          "rice:High_Humidity"
         ]
       ],
       "detail_vars": [
@@ -169,7 +168,7 @@
         "f"
       ],
       "detail_total": 88,
-      "ms": 30.3
+      "ms": 39.7
     },
     {
       "id": "CQ-06",
@@ -186,7 +185,7 @@
       ],
       "unit": "growth stage",
       "status": "PASS",
-      "ms": 4.8
+      "ms": 5.8
     },
     {
       "id": "CQ-07",
@@ -198,7 +197,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 5.5
+      "ms": 5.3
     },
     {
       "id": "CQ-08",
@@ -215,7 +214,7 @@
       ],
       "unit": "preventive treatment",
       "status": "PASS",
-      "ms": 3.1
+      "ms": 2.9
     },
     {
       "id": "CQ-09",
@@ -248,7 +247,7 @@
         "d"
       ],
       "detail_total": 2,
-      "ms": 5.4
+      "ms": 7.3
     },
     {
       "id": "CQ-10",
@@ -260,7 +259,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 2.2
+      "ms": 3.3
     },
     {
       "id": "CQ-11",
@@ -269,12 +268,11 @@
       "mode": "coverage",
       "question": "For which diseases is the full risk-to-remedy chain traversable: environmental factor -> disease -> symptom -> treatment?",
       "rationale": "End-to-end decision-support path. This is the query an advisory application actually needs to answer.",
-      "covered": 10,
+      "covered": 11,
       "total": 15,
-      "ratio": 0.6666666666666666,
+      "ratio": 0.7333333333333333,
       "missing": [
         "rice:Iron_Toxicity_Disorder",
-        "rice:Nitrogen_Deficiency_Disorder",
         "rice:Phosphorus_Deficiency_Disorder",
         "rice:Potassium_Deficiency_Disorder",
         "rice:Salinity_Disorder"
@@ -284,75 +282,75 @@
       "detail_rows": [
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Yellow_Leaf",
-          "rice:Resistant_Variety"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Yellow_Leaf",
-          "rice:Crop_Rotation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Yellow_Leaf",
-          "rice:Crop_Sanitation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Yellow_Leaf",
-          "rice:Water_Management"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Wilting",
-          "rice:Resistant_Variety"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Wilting",
-          "rice:Crop_Rotation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Wilting",
-          "rice:Crop_Sanitation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Wilting",
-          "rice:Water_Management"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Dry_Leaf_Tip",
-          "rice:Resistant_Variety"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
+          "rice:High_Humidity",
           "rice:Dry_Leaf_Tip",
           "rice:Crop_Rotation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
+          "rice:High_Humidity",
+          "rice:Dry_Leaf_Tip",
+          "rice:Water_Management"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
           "rice:Dry_Leaf_Tip",
           "rice:Crop_Sanitation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
+          "rice:High_Humidity",
           "rice:Dry_Leaf_Tip",
+          "rice:Resistant_Variety"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Leaf_Rolling",
+          "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Leaf_Rolling",
           "rice:Water_Management"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Leaf_Rolling",
+          "rice:Crop_Sanitation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Leaf_Rolling",
+          "rice:Resistant_Variety"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Wilting",
+          "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Wilting",
+          "rice:Water_Management"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Wilting",
+          "rice:Crop_Sanitation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Wilting",
+          "rice:Resistant_Variety"
         ]
       ],
       "detail_vars": [
@@ -361,8 +359,8 @@
         "s",
         "t"
       ],
-      "detail_total": 293,
-      "ms": 873.0
+      "detail_total": 296,
+      "ms": 929.8
     },
     {
       "id": "CQ-12",
@@ -391,7 +389,7 @@
       ],
       "unit": "disease/pest",
       "status": "PARTIAL",
-      "ms": 5.5
+      "ms": 6.3
     },
     {
       "id": "CQ-13",
@@ -414,7 +412,7 @@
       "detail_rows": [],
       "detail_vars": [],
       "detail_total": 0,
-      "ms": 4.8
+      "ms": 4.7
     },
     {
       "id": "CQ-14",
@@ -427,7 +425,7 @@
       "entailed": 1442,
       "gain": 1442,
       "status": "PASS",
-      "ms": 15.4
+      "ms": 17.8
     },
     {
       "id": "CQ-15",
@@ -437,10 +435,10 @@
       "question": "Can the KG be queried in the inverse direction, e.g. disease -> causedBy -> pathogen and symptom -> indicates -> disease?",
       "rationale": "14 of 26 object properties are declared as owl:inverseOf but never asserted. Query robustness depends on materialising them.",
       "asserted": 0,
-      "entailed": 170,
-      "gain": 170,
+      "entailed": 171,
+      "gain": 171,
       "status": "PASS",
-      "ms": 9.9
+      "ms": 6.8
     },
     {
       "id": "CQ-16",
@@ -455,7 +453,7 @@
       "missing": [],
       "unit": "diagnostic image",
       "status": "PASS",
-      "ms": 2004.2
+      "ms": 1990.8
     },
     {
       "id": "CQ-17",
@@ -470,7 +468,7 @@
       "missing": [],
       "unit": "annotated class",
       "status": "PASS",
-      "ms": 409.9
+      "ms": 419.3
     },
     {
       "id": "CQ-18",
@@ -524,7 +522,7 @@
       ],
       "unit": "symptom",
       "status": "PARTIAL",
-      "ms": 15.4
+      "ms": 15.6
     },
     {
       "id": "CQ-19",
@@ -536,7 +534,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 935.6
+      "ms": 900.8
     },
     {
       "id": "CQ-20",
@@ -547,7 +545,7 @@
       "rationale": "Declared extension point. Recorded as a measurement, not scored, so the roadmap gap stays visible without inflating or deflating the pass rate.",
       "count": 0,
       "status": "DOCUMENTED",
-      "ms": 1.4
+      "ms": 1.5
     },
     {
       "id": "CQ-21",
@@ -556,13 +554,13 @@
       "mode": "coverage",
       "question": "Which reified domain assertions carry both an authoritative source URI and a bibliographic citation?",
       "rationale": "Provenance completeness - the scientific-defensibility claim of the KG.",
-      "covered": 348,
-      "total": 348,
+      "covered": 349,
+      "total": 349,
       "ratio": 1.0,
       "missing": [],
       "unit": "reified axiom",
       "status": "PASS",
-      "ms": 13.4
+      "ms": 13.2
     },
     {
       "id": "CQ-22",
@@ -574,7 +572,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 217.6
+      "ms": 211.5
     },
     {
       "id": "CQ-23",
@@ -602,7 +600,7 @@
       ],
       "unit": "biological entity",
       "status": "PASS",
-      "ms": 8.1
+      "ms": 7.5
     },
     {
       "id": "CQ-24",
@@ -614,7 +612,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 14.2
+      "ms": 12.0
     },
     {
       "id": "CQ-25",
@@ -626,7 +624,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 1.6
+      "ms": 1.5
     }
   ],
   "sensitivity": [
@@ -717,12 +715,12 @@
     {
       "threshold": 0.7,
       "tally": {
-        "PASS": 17,
-        "PARTIAL": 6,
+        "PASS": 18,
+        "PARTIAL": 5,
         "FAIL": 1,
         "ERROR": 0
       },
-      "pass_rate": 0.7083333333333334,
+      "pass_rate": 0.75,
       "coverage_status": {
         "CQ-01": "PASS",
         "CQ-02": "PASS",
@@ -732,7 +730,7 @@
         "CQ-06": "PASS",
         "CQ-08": "PARTIAL",
         "CQ-09": "PASS",
-        "CQ-11": "PARTIAL",
+        "CQ-11": "PASS",
         "CQ-12": "PARTIAL",
         "CQ-13": "FAIL",
         "CQ-16": "PASS",
@@ -745,16 +743,16 @@
     {
       "threshold": 0.8,
       "tally": {
-        "PASS": 16,
-        "PARTIAL": 7,
+        "PASS": 17,
+        "PARTIAL": 6,
         "FAIL": 1,
         "ERROR": 0
       },
-      "pass_rate": 0.6666666666666666,
+      "pass_rate": 0.7083333333333334,
       "coverage_status": {
         "CQ-01": "PASS",
         "CQ-02": "PASS",
-        "CQ-03": "PARTIAL",
+        "CQ-03": "PASS",
         "CQ-04": "PASS",
         "CQ-05": "PARTIAL",
         "CQ-06": "PASS",
