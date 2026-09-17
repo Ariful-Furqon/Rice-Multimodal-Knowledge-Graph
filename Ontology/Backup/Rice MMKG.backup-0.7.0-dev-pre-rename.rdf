@@ -19044,7 +19044,7 @@
     <dcterms:bibliographicCitation xml:lang="en">Back, M. (2012). Thanatephorus cucumeris (many names, depending on host). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.47203 / IRRI (2020). Rice Doctor: Sheath Blight.</dcterms:bibliographicCitation>
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.47203"/>
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Sheath_Blight"/>
-    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath_Lesion"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Stem_Rot_Symptom"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_blast_102649">
@@ -40125,11 +40125,11 @@
     <rdfs:label xml:lang="en">Paddy Doctor image: normal/109151.jpg</rdfs:label>
     <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#PaddyDoctorDataset"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Sheath_Lesion">
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Stem_Rot_Symptom">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
     <rdfs:label xml:lang="en">leaf sheath lesion</rdfs:label>
-    <rdfs:comment xml:lang="en">Oval or ellipsoidal greenish-grey lesions on the leaf sheath, initially just above the soil or water level, later grey-white with brown margins, as described for sheath blight in the IRRI Rice Knowledge Bank fact sheet (accessed 2026-09-15). Labelled "Stem Rot Symptom" until 0.7.0-dev: stem rot is a separate rice disease whose early lesions on the outer leaf sheath resemble these. Its IRI was Stem_Rot_Symptom until 0.7.0-dev; it was renamed together with the move to the w3id namespace, before any term had been published under that namespace, so no deprecation was needed.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Oval or ellipsoidal greenish-grey lesions on the leaf sheath, initially just above the soil or water level, later grey-white with brown margins, as described for sheath blight in the IRRI Rice Knowledge Bank fact sheet (accessed 2026-09-15). Labelled "Stem Rot Symptom" until 0.7.0-dev: stem rot is a separate rice disease whose early lesions on the outer leaf sheath resemble these. The IRI is unchanged pending a deprecation policy.</rdfs:comment>
     <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_hispa_107495">
@@ -45165,7 +45165,7 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#Disease"/>
     <rice:controlledBy rdf:resource="https://w3id.org/ricemmkg#Fungicide_Application"/>
-    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath_Lesion"/>
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Stem_Rot_Symptom"/>
     <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Wilting"/>
     <rice:occursIn rdf:resource="https://w3id.org/ricemmkg#Flowering_Stage"/>
     <rice:occursIn rdf:resource="https://w3id.org/ricemmkg#Maturity_Stage"/>
@@ -88854,7 +88854,7 @@
   </rdf:Description>
   <rdf:Description rdf:nodeID="Nv070pp17stemrotsymptomleafsheath">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath_Lesion"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Stem_Rot_Symptom"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
     <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/sheath-blight"/>

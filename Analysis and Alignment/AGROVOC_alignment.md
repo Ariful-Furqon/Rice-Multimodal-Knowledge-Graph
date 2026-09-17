@@ -173,7 +173,7 @@ phrases with no single-concept AGROVOC equivalent.
 | `Empty_Grain` | Symptom | No candidate found | — | Local-only / gap | Searched "grain sterility," "unfilled grain," "empty grain"; no match. |
 | `Hopper_Burn` | Symptom | No candidate found | — | Local-only / gap | Searched "hopperburn" and "hopper burn"; no match. |
 | `Leaf_Rolling` | Symptom | No candidate found | — | Local-only / gap | — |
-| `Stem_Rot_Symptom` | Symptom | No candidate found | — | Local-only / gap | Relabelled "leaf sheath lesion" on 2026-09-15 (the old label named a different disease); not yet re-searched under the new label. |
+| `Leaf_Sheath_Lesion` (IRI `Stem_Rot_Symptom` until 0.7.0-dev) | Symptom | No candidate found | — | Local-only / gap | Relabelled "leaf sheath lesion" on 2026-09-15 (the old label named a different disease); not yet re-searched under the new label. |
 | `Yellow_Leaf` | Symptom | No candidate found | — | Local-only / gap | Searched "leaf yellowing" and "yellowing"; no match. |
 | `Excessive_Nitrogen` | EnvironmentalFactor | No candidate found | — | Local-only / gap | — |
 | `High_Humidity` | EnvironmentalFactor | [`relative humidity`](http://aims.fao.org/aos/agrovoc/c_6496) — rejected, state-vs-quantity mismatch | Not applied (AGROVOC) | Resolved via Planteome | AGROVOC concept is the measured climate quantity, not the qualitative state — category mismatch. Matched instead to Planteome's `humidity exposure` (PECO:0007197) as `skos:closeMatch`; see [`Planteome_alignment.md`](Planteome_alignment.md). |
@@ -360,7 +360,7 @@ literature evidence and provenance.
     not yet been checked against Planteome.
 11. Seven Symptom individuals have no AGROVOC candidate at all and stay
     local-only against AGROVOC: `Chewed_Leaf`, `Dry_Leaf_Tip`, `Empty_Grain`,
-    `Hopper_Burn`, `Leaf_Rolling`, `Stem_Rot_Symptom`, `Yellow_Leaf`.
+    `Hopper_Burn`, `Leaf_Rolling`, `Leaf_Sheath_Lesion` (then `Stem_Rot_Symptom`), `Yellow_Leaf`.
     `Excessive_Nitrogen` (EnvironmentalFactor) is also local-only against
     AGROVOC. One lead against a different source: a 2026-08-17 Planteome
     probe surfaced `TO:0000085` "leaf rolling response" as a promising

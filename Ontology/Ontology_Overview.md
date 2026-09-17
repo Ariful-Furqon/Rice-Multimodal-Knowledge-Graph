@@ -160,6 +160,14 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 
 <!-- Newest first. -->
 
+### 2026-09-17: 0.7.0-dev — `Stem_Rot_Symptom` renamed `Leaf_Sheath_Lesion`
+
+Pre-rename file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-rename.rdf`.
+
+- **Why now:** the individual was relabelled "leaf sheath lesion" on 2026-09-15, because stem rot is a different disease, but its IRI kept the old name pending a deprecation policy. The namespace rewrite had just replaced every IRI, and nothing had been published under `https://w3id.org/ricemmkg#` yet, so no one can hold a reference to `https://w3id.org/ricemmkg#Stem_Rot_Symptom`: the IRI was renamed outright, with no `owl:deprecated` stub. Releases up to v0.6.2 keep the old name in the old namespace.
+- **Changed:** 4 IRI occurrences — the individual, `Sheath_Blight indicatedBy` it, and the two axioms that reify its assertions (that one and its `affectsPlantPart`); the individual's comment now records the former IRI; the AGROVOC register rows; the Open item is closed.
+- **Checks:** triple counts unchanged (67,863 / 163,301); no IRI named `Stem_Rot_Symptom` left; all structural checks and HermiT as for the namespace rewrite. Both CQ instruments give identical answers once the old name is mapped to the new one — the name appears only in CQ-18's list of symptoms without a grounded image.
+
 ### 2026-09-17: 0.7.0-dev — namespace moved to `https://w3id.org/ricemmkg#`
 
 The w3id.org registration (perma-id/w3id.org#6697) was merged on 2026-09-16 and its redirects were checked with `curl` on 2026-09-17, so the namespace was rewritten, as a commit of its own. Pre-rewrite file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-namespace.rdf`.
@@ -649,7 +657,7 @@ assertions, verified with no duplicates and no orphans. Triples: 67,236 →
 - **Six treatments without a management category** — `Fungicide_Application` (only indirect evidence for "chemical"), `Water_Management` (physical per IRRI vs cultural per AGROVOC), `Seed_Treatment` (chemical or physical depending on method), `Neem_Based_Pesticide` (biopesticide vs plant-derived chemical), `Vector_Control` (spans categories), `Good_Agricultural_Practice` (unused). Each needs a source that places it, or — for the mixed ones — a split into separate treatments.
 - ~~**`Biological_Control` (Treatment) and `Biological_Control_Category` both map to AGROVOC c_918**~~ — resolved 2026-09-15: the Treatment's mapping downgraded to `closeMatch`; only the category keeps `exactMatch`.
 - **`Excessive_Tillering` has no organ** — waiting for a readable source on rice downy mildew (IRRI has no fact sheet; Lee et al. 2003 could not be read).
-- ~~**`Stem_Rot_Symptom` on `Sheath_Blight`**~~ — relabelled "leaf sheath lesion" on 2026-09-15 (see changelog). **Still open:** the IRI itself still reads `Stem_Rot_Symptom`; renaming it needs a deprecation policy (e.g. `owl:deprecated` plus a replacement IRI), best decided together with the w3id namespace rewrite.
+- ~~**`Stem_Rot_Symptom` on `Sheath_Blight`**~~ — relabelled "leaf sheath lesion" on 2026-09-15 (see changelog). The IRI was renamed to `Leaf_Sheath_Lesion` on 2026-09-17, right after the namespace rewrite and before anything was published under the new namespace, so no deprecation was needed (see changelog).
 - **`Wilting` on `Sheath_Blight`, `Rice_Blast_Disease`, `Bacterial_Panicle_Blight`** — not mentioned by IRRI; the cited CABI datasheets return 403. Re-check when a readable source is found; not shown to be wrong.
 - ~~**Immediate Action Items for v0.6.1**~~ — done 2026-09-14; see the v0.6.1 changelog entry.
 - ~~**`provenance_axioms.rdf` has drifted**~~ — archived 2026-09-14 to `Backup/provenance_axioms.archived-2026-09-14.rdf`. `Rice MMKG.rdf` is the single source of truth; do not merge the archived file back (see the v0.6.2 entry).
