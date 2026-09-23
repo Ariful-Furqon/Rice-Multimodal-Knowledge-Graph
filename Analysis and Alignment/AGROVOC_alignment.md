@@ -373,3 +373,17 @@ literature evidence and provenance.
     `Treatment` have now been checked at least once. Remaining classes
     (`HealthStatus`, `Observation`, `SeverityLevel`) are process/provenance
     or internal-scale types not expected to have AGROVOC equivalents.
+13. Re-checked 2026-09-17 against the live AGROVOC REST search (exact and
+    prefix queries), because CQ-23 lists these as unaligned:
+    - `Bacterial_Leaf_Blight`: "Bacterial leaf blight" exists only as an
+      altLabel of the pathogen concept `c_24383` (Xanthomonas oryzae); the
+      disease-vs-pathogen rule above still excludes it.
+    - `Bacterial_Leaf_Streak`, `Bacterial_Panicle_Blight`, `Brown_Spot`,
+      `Sheath_Blight`, `Deadheart`: still no concept.
+    - The six abiotic disorders (`Nitrogen_`, `Phosphorus_`, `Potassium_`,
+      `Zinc_Deficiency_Disorder`, `Iron_Toxicity_Disorder`,
+      `Salinity_Disorder`): no specific concept. Only generic ones exist —
+      `c_34868` nutrient deficiencies, `c_4849` mineral deficiencies,
+      `c_2154` deficiency diseases, `c_7826` toxicity — and `c_6751`
+      salinity is the soil property, not the disorder. These would be
+      `skos:broadMatch` at most, which CQ-23 does not count; not implemented.

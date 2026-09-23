@@ -116,12 +116,12 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | | `sourceDatasetLabel` | 10 | `Disease ⊔ Pest ⊔ HealthStatus` → `xsd:string` | Dataset vocabulary mapping |
 | **Etiology & Susceptibility** | `vulnerableTo` | 55 | `Plant ⊔ GrowthStage` → `Disease ⊔ Pest` | CABI CPC (55); variety susceptibility moved to `ResistanceAssessment` (0.7.0-dev) |
 | | `occursIn` | 41 | `Disease ⊔ Pest ⊔ HealthStatus` → `GrowthStage` | IRRI RKB / Ou (1985) |
-| | `causes` | 15 | `Pathogen ⊔ AbioticFactor` → `Disease` | CABI / Ham / Hibino; IRRI nutrient and toxicity fact sheets (6, 0.7.0-dev); IRRI sheath blight fact sheet (1, 0.7.0-dev) |
+| | `causes` | 16 | `Pathogen ⊔ AbioticFactor ⊔ Pest` → `Disease` | CABI / Ham / Hibino; IRRI nutrient and toxicity fact sheets (6, 0.7.0-dev); IRRI sheath blight fact sheet (1, 0.7.0-dev); IRAC (2025) for `Stem_Borer causes Deadheart` (1, 0.7.0-dev) |
 | | `transmits` | 2 | `Pest` → `Pathogen` | CABI / Hibino (1996) |
 | | `hasTransmissionMode` | 2 | `Pathogen` → `TransmissionMode` | Wang et al. (2022); 0.7.0-dev |
 | **Symptomatology & Risk Factors**| `indicatedBy` | 70 | `Disease ⊔ Pest` → `Symptom` | IRRI Rice Doctor / CABI / IRAC (2025); IRRI nutrient fact sheets (19) and toxicity fact sheets (8), 0.7.0-dev |
 | | `increaseRiskOf` | 34 | `EnvironmentalFactor` → `Disease ⊔ Pest` | CABI CPC (29) / IRRI RKB (5) |
-| **Plant Anatomy** | `affectsPlantPart` | 39 | `Symptom` → `PlantPart` | IRRI Rice Knowledge Bank fact sheets (13 pest/disease + 4 nutrient + 3 toxicity) |
+| **Plant Anatomy** | `affectsPlantPart` | 40 | `Symptom` → `PlantPart` | IRRI Rice Knowledge Bank fact sheets (13 pest/disease + 4 nutrient + 3 toxicity); CABI downy mildew datasheet (1, 0.7.0-dev) — every `Symptom` now carries a plant part |
 | | `partOf` | 2 | `PlantPart` → `PlantPart` | Plant Ontology via EBI OLS4 (`ontology-derived`) |
 | **Control & Management** | `controlledBy` | 45 | `Disease ⊔ Pest` → `Treatment` | CABI (41) / Gallagher et al. (2002, FAO) (1); IRRI zinc fact sheet (2) and nitrogen fact sheet (1), 0.7.0-dev |
 | | `recommends` | 17 | `Disease ⊔ Pest ⊔ SeverityLevel` → `ManagementAction` | CABI; the 6 severity → action assertions were removed in 0.7.0-dev (unsourced) |
@@ -129,7 +129,7 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | | `requires` | 5 | `Treatment` → `GrowthStage` | IRRI RKB (`Crop_Sanitation requires Harvest_Stage` re-sourced from BBPOPT to the IRRI tungro sheet in 0.7.0-dev) |
 | | `hasManagementCategory` | 6 | `Treatment` → `ManagementCategory` | IRRI RKB (2) / AGROVOC definitions (4, `ontology-derived`); 0.7.0-dev |
 | **Variety** | `varietyOf` | 6 | `Variety` → `Plant` | Mackill & Khush (2018) (3); Bagariang et al. (2021) (2); Biswas et al. (2021) (1); 0.7.0-dev |
-| **Total domain assertions** | | **349** | *(0.7.0-dev, measured 2026-09-17 with rdflib; plus 10,407 `annotatedAs`, 1,442 `captures`, 10 `sourceDatasetLabel`, 15 `eppoCode`, and 15 `ResistanceAssessment` individuals — 15 each of `assessedVariety`, `assessedAgainst`, `hasResistanceLevel` — whose provenance sits on the individual: Mackill & Khush 10, Bagariang et al. 4, Biswas et al. 1)* | **349 / 349 reified** |
+| **Total domain assertions** | | **351** | *(0.7.0-dev, measured 2026-09-23 with rdflib; plus 10,407 `annotatedAs`, 1,442 `captures`, 10 `sourceDatasetLabel`, 15 `eppoCode`, and 15 `ResistanceAssessment` individuals — 15 each of `assessedVariety`, `assessedAgainst`, `hasResistanceLevel` — whose provenance sits on the individual: Mackill & Khush 10, Bagariang et al. 4, Biswas et al. 1)* | **349 / 349 reified** |
 
 > *Note on inverse properties:* All twelve inverse directions (`indicates`, `detectedBy`, `causedBy`, `prevents`, `controls`, `threatens`, etc.) and `detects` are declared in the schema for reasoning/querying symmetry.
 
@@ -155,13 +155,31 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | 0.7.0-dev (w3id namespace, language tags) | 2026-09-17 | 67,861 (163,297 OWL RL) | 21 | 35 | 10,541 | 353 axioms / 353 assertions |
 | 0.7.0-dev (+ `ResistanceAssessment`, varieties round 2) | 2026-09-17 | 68,049 (163,684 OWL RL) | 23 | 36 | 10,562 | 347 axioms / 347 assertions + 15 assessments |
 | 0.7.0-dev (+ `Rhizoctonia_Solani`) | 2026-09-17 | 68,064 (163,715 OWL RL) | 23 | 36 | 10,563 | 348 axioms / 348 assertions + 15 assessments |
-| **0.7.0-dev (+ nitrogen fertilizer — in development)** | **2026-09-17** | **68,076** (163,738 OWL RL) | **23** | **36** | **10,564** | **349 axioms / 349 assertions + 15 assessments** |
+| 0.7.0-dev (+ nitrogen fertilizer) | 2026-09-17 | 68,076 (163,738 OWL RL) | 23 | 36 | 10,564 | 349 axioms / 349 assertions + 15 assessments |
+| **0.7.0-dev (pest–damage level fix, expert CQ return — in development)** | **2026-09-23** | **68,097** (163,779 OWL RL) | **23** | **36** | **10,564** | **351 axioms / 351 assertions + 15 assessments** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-09-23: 0.7.0-dev — pests become causes; five corrections from the first expert CQ return
+
+The Stage 5 competency-question questionnaire came back from its first domain expert on 2026-09-20 (one of three; see `Analysis and Alignment/Expert_Input_2026-09-20_CQ_Validation.md`). He rated relevance 4.52 and clarity 4.00 on average and spent his objections on wording, with one exception: on item 15 he asked that the vocabulary stay at one level — *"Jika menyebut Hama = Patogen, Jika Menyebut Gejala (untuk Penyakit) = Serangan (Untuk Hama)"*. Reading the file against that produced four more defects. None of these needed a new source. Pre-patch file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-expert-cq-feedback.rdf`.
+
+- **Pests can now cause.** `causes` had `rdfs:domain Pathogen ⊔ AbioticFactor`, so a pest was a causal dead end while five pests carried `indicatedBy` symptoms directly — the level inconsistency the expert named, and the same "all causes end at Disease" point the 2026-09-14 schema review raised (its point 9, until now Open). `Pest` was added to the union, which widens **both** `causes`' domain and `causedBy`' range: the two share one bnode (`Nv070pathogenorabioticfactor`), so the pair cannot be half-widened — the failure mode that made the ontology inconsistent during the `Variety` work.
+- **Added:** `Stem_Borer causes Deadheart` (1 reified axiom, `literature-curated`). Source: IRAC (2025), *Rice Stem Borer, Scirpophaga incertulas: Sustainable Control Strategies in Asia*, read live 2026-09-23 — "the central leaf whorl does not unfold, turns brownish and dries off [...] This condition is known as 'dead heart'". The same document is already the cited source for `Stem_Borer indicatedBy Dead_Tiller`.
+- **This reverses a v0.5 decision, deliberately.** On 2026-08-22 the merge of the duplicated `Scirpophaga_Incertulas` dropped its `causes Deadheart` triple "in favour of the correct `Stem_Borer indicatedBy Deadheart`", and `rice:causes` was declared exclusively `Pathogen → Disease`. That declaration was about **vectors**: a leafhopper does not cause tungro, it transmits the viruses that do, which is why `transmits` exists. A borer larva destroying the growing point is not a vector relation, it is the cause of the damage. And the replacement triple did not survive v0.6, which retyped `Deadheart` from `Symptom` to `Disease`; `indicatedBy` has range `Symptom`, so the link was dropped and never replaced. Since v0.6 the ontology has described `Deadheart` in prose as "caused by yellow stem borer" while asserting nothing of the kind.
+- **Fixed — a comment that contradicted its own individual.** `Deadheart`'s `rdfs:comment` still read "It remains a Symptom in the ontology, rather than being incorrectly promoted to a Disease", three weeks after v0.6 typed it `Disease`. Rewritten to state the modelling and to record that the earlier text was wrong.
+- **Fixed — five stale boilerplate comments.** `Hispa`, `Bacterial_Leaf_Streak`, `Bacterial_Panicle_Blight`, `Downy_Mildew` and `Rice_Tungro_Disease` each still carried "No causal, symptom, or treatment assertions are added until they are supported by a cited domain source" while carrying between four and five kinds of cited assertion. The sentence now says what is true.
+- **Added — three scientific names as `skos:altLabel`:** `Hispa` → *Dicladispa armigera*, `Brown_Planthopper` → *Nilaparvata lugens*, `Leaf_Folder` → *Cnaphalocrocis medinalis*. The expert asked three times for Latin names; each of these was already verified in `Analysis and Alignment/NCBI_Taxonomy_alignment.md` / `AGROVOC_alignment.md` and asserted as a `skos:exactMatch`, so this restates a checked mapping as a readable label, following `Stem_Borer` → *Scirpophaga incertulas*. No new identifier was looked up or invented.
+- **Added — `Excessive_Tillering affectsPlantPart Tiller`** (1 reified axiom), the last `Symptom` with no plant part. Cited to the CABI *Sclerophthora macrospora* datasheet already carrying the symptom's own assertion. All 40 symptoms now carry a plant part, which is what item 3 of the questionnaire ("say which plant part") asks the co-occurrence query to be able to do.
+- **Not done — severity.** The expert rated the severity CQ 5/5 and asked on item 20 for the text-vs-image question to be tied to severity. `severityScore` is declared and used zero times; the six severity → action assertions were removed in 0.7.0-dev as unsourced, and one rating does not supply the missing scale. CQ-13 stays FAIL.
+- **Not done — image annotation.** 3,217 `hispa` image triples still say `annotatedAs Hispa`, the organism, for pictures of feeding damage. That is what the dataset label says, and `sourceDatasetLabel` records the mapping deliberately; changing it is an annotation decision, not a schema fix.
+- **Checks:** 351 axioms = 351 domain assertions; 0 unreified, orphan or duplicate axioms; every axiom carries source, citation and evidence type; 0 domain/range violations; 0 individuals in two disjoint core classes. HermiT consistent with only `owl:Nothing` unsatisfiable; control (`Hispa` typed `Pest` and `Disease`) inconsistent.
+- **Benchmark:** verdicts unchanged at **21 PASS / 2 PARTIAL / 1 FAIL / 1 DOC**; sensitivity unchanged (40%: 22, 50%: 21, 60%: 20, 70%: 18, 80%: 17). CQ-15 171 → **172** entailed (the new `causes` triple yields its `causedBy` inverse); CQ-21 349/349 → **351/351**. The elicited-CQ report is unchanged apart from timings and the triple counts in its header (17 implemented / 6 work plan / 2 no-answer).
+- **Result:** 68,097 asserted / 163,779 OWL RL triples.
 
 ### 2026-09-17: 0.7.0-dev — nitrogen fertilizer controls nitrogen deficiency
 

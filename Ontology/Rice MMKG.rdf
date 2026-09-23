@@ -6114,7 +6114,7 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#Disease"/>
     <rice:sourceDatasetLabel>bacterial_leaf_streak</rice:sourceDatasetLabel>
-    <rdfs:comment xml:lang="en">Disease entity introduced from the Paddy Doctor dataset label. No causal, symptom, or treatment assertions are added until they are supported by a cited domain source.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Disease entity introduced from the Paddy Doctor dataset label. Causal, symptom and treatment assertions have since been added; each carries its own cited source in an owl:Axiom annotation.</rdfs:comment>
     <rdfs:label xml:lang="en">Bacterial Leaf Streak</rdfs:label>
     <rice:recommends rdf:resource="https://w3id.org/ricemmkg#Monitoring"/>
     <rice:controlledBy rdf:resource="https://w3id.org/ricemmkg#Crop_Sanitation"/>
@@ -6535,7 +6535,7 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#Disease"/>
     <rice:sourceDatasetLabel>tungro</rice:sourceDatasetLabel>
-    <rdfs:comment xml:lang="en">Disease entity introduced from the Paddy Doctor dataset label. No causal, symptom, or treatment assertions are added until they are supported by a cited domain source.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Disease entity introduced from the Paddy Doctor dataset label. Causal, symptom and treatment assertions have since been added; each carries its own cited source in an owl:Axiom annotation.</rdfs:comment>
     <rdfs:label xml:lang="en">Rice Tungro Disease</rdfs:label>
     <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_34137"/>
     <rice:occursIn rdf:resource="https://w3id.org/ricemmkg#Vegetative_Stage"/>
@@ -8531,7 +8531,7 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#Disease"/>
     <rice:sourceDatasetLabel>bacterial_panicle_blight</rice:sourceDatasetLabel>
-    <rdfs:comment xml:lang="en">Disease entity introduced from the Paddy Doctor dataset label. No causal, symptom, or treatment assertions are added until they are supported by a cited domain source.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Disease entity introduced from the Paddy Doctor dataset label. Causal, symptom and treatment assertions have since been added; each carries its own cited source in an owl:Axiom annotation.</rdfs:comment>
     <rdfs:label xml:lang="en">Bacterial Panicle Blight</rdfs:label>
     <rice:controlledBy rdf:resource="https://w3id.org/ricemmkg#Seed_Treatment"/>
     <rice:controlledBy rdf:resource="https://w3id.org/ricemmkg#Crop_Rotation"/>
@@ -8722,7 +8722,7 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#Disease"/>
     <rice:sourceDatasetLabel>downy_mildew</rice:sourceDatasetLabel>
-    <rdfs:comment xml:lang="en">Disease entity introduced from the Paddy Doctor dataset label. AGROVOC c_10450 ("downy mildews") is a genus-spanning plant-pathology concept with no host-specific narrower term and no scope note restricting it to rice; mapped as skos:closeMatch, not exactMatch, because the local entity is scoped to the rice disease observed in Paddy Doctor images while the AGROVOC concept covers downy mildew across all host plants. No causal, symptom, or treatment assertions are added until they are supported by a cited domain source.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Disease entity introduced from the Paddy Doctor dataset label. AGROVOC c_10450 ("downy mildews") is a genus-spanning plant-pathology concept with no host-specific narrower term and no scope note restricting it to rice; mapped as skos:closeMatch, not exactMatch, because the local entity is scoped to the rice disease observed in Paddy Doctor images while the AGROVOC concept covers downy mildew across all host plants. Causal, symptom and treatment assertions have since been added; each carries its own cited source in an owl:Axiom annotation.</rdfs:comment>
     <rdfs:label xml:lang="en">Downy Mildew</rdfs:label>
     <skos:closeMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_10450"/>
     <rice:controlledBy rdf:resource="https://w3id.org/ricemmkg#Water_Management"/>
@@ -10699,6 +10699,7 @@
     <rice:recommends rdf:resource="https://w3id.org/ricemmkg#Biological_Control"/>
     <rdfs:comment xml:lang="en">NCBI Taxonomy (TaxID 437488) lists "rice leaffolder" as the GenbankCommonName for Cnaphalocrocis medinalis (the AGROVOC c_30305 concept) — direct common-name confirmation that resolves the citation gap flagged during the AGROVOC-only review.</rdfs:comment>
     <rdfs:label xml:lang="en">Leaf Folder</rdfs:label>
+    <skos:altLabel>Cnaphalocrocis medinalis</skos:altLabel>
     <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_30305"/>
     <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_437488"/>
     <rice:eppoCode>CNAPME</rice:eppoCode>
@@ -17582,9 +17583,10 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#Pest"/>
     <rice:sourceDatasetLabel>hispa</rice:sourceDatasetLabel>
-    <rdfs:comment xml:lang="en">Pest entity introduced from the Paddy Doctor dataset label. No causal, symptom, or treatment assertions are added until they are supported by a cited domain source.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Pest entity introduced from the Paddy Doctor dataset label. Symptom, treatment and growth-stage assertions have since been added; each carries its own cited source in an owl:Axiom annotation.</rdfs:comment>
     <rdfs:comment xml:lang="en">Damage caused by the hispa beetle Dicladispa armigera. Adults scrape the upper leaf surface; larvae mine the leaf tissue, causing white streaks and browning tips.</rdfs:comment>
     <rdfs:label xml:lang="en">Hispa</rdfs:label>
+    <skos:altLabel>Dicladispa armigera</skos:altLabel>
     <rice:occursIn rdf:resource="https://w3id.org/ricemmkg#Vegetative_Stage"/>
     <rice:occursIn rdf:resource="https://w3id.org/ricemmkg#Tillering_Stage"/>
     <rice:controlledBy rdf:resource="https://w3id.org/ricemmkg#Neem_Based_Pesticide"/>
@@ -27688,7 +27690,7 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#Disease"/>
     <rice:sourceDatasetLabel>dead_heart</rice:sourceDatasetLabel>
-    <rdfs:comment xml:lang="en">Paddy Doctor includes this as an image class. It remains a Symptom in the ontology, rather than being incorrectly promoted to a Disease.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Paddy Doctor includes this as an image class. Modelled as a Disease individual - the condition caused by Stem Borer larvae boring into the stem - rather than as a Symptom: it is what Dead_Tiller, Reduced_Tillering and White_Ear indicate, and rice:indicatedBy is defined on Disease and Pest, not on Symptom. An earlier version of this comment asserted the opposite and contradicted the individual's own rdf:type.</rdfs:comment>
     <rdfs:label xml:lang="en">Deadheart</rdfs:label>
     <rice:recommends rdf:resource="https://w3id.org/ricemmkg#Immediate_Intervention"/>
     <rice:recommends rdf:resource="https://w3id.org/ricemmkg#Monitoring"/>
@@ -66507,6 +66509,7 @@
     <rice:recommends rdf:resource="https://w3id.org/ricemmkg#Insecticide_Application"/>
     <rice:eppoCode>NILALU</rice:eppoCode>
     <rdfs:label xml:lang="en">Brown Planthopper</rdfs:label>
+    <skos:altLabel>Nilaparvata lugens</skos:altLabel>
     <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_25204"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_downy_mildew_102837">
@@ -89125,6 +89128,10 @@
   </rdf:Description>
   <rdf:Description rdf:nodeID="Nv070pathogenorabioticfactor2">
     <rdf:first rdf:resource="https://w3id.org/ricemmkg#AbioticFactor"/>
+    <rdf:rest rdf:nodeID="Nv070pathogenorabioticfactor3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070pathogenorabioticfactor3">
+    <rdf:first rdf:resource="https://w3id.org/ricemmkg#Pest"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="Nv070disjointabioticfactor">
@@ -90292,6 +90299,30 @@
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Nitrogen_Fertilizer_Application"/>
     <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/item/nitrogen"/>
     <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Nitrogen (N). Rice Knowledge Bank fact sheet (nutrient management). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/item/nitrogen (accessed 2026-09-17).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Stem_Borer">
+    <rice:causes rdf:resource="https://w3id.org/ricemmkg#Deadheart"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070stemborercausesdeadheart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Stem_Borer"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#causes"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Deadheart"/>
+    <dcterms:source rdf:resource="https://irac-online.org/documents/yellow-rice-stem-borer-irm/"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRAC (2025). Rice Stem Borer, Scirpophaga incertulas (yellow rice stem borer): Sustainable Control Strategies in Asia. Insecticide Resistance Action Committee, May 2025, Version 2. https://irac-online.org/documents/yellow-rice-stem-borer-irm/ (accessed 2026-09-23). "The initial boring and feeding by larvae in the leaf sheath cause broad, longitudinal, whitish, discoloured areas at feeding sites [...] the central leaf whorl does not unfold, turns brownish and dries off [...] This condition is known as 'dead heart' and the affected tillers dry out without bearing panicles."</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Excessive_Tillering">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Tiller"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070excessivetilleringpart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Excessive_Tillering"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Tiller"/>
+    <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.49243"/>
+    <dcterms:bibliographicCitation xml:lang="en">CABI (2019). Sclerophthora macrospora (downy mildew). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.49243 / Ou, S. H. (1985). Rice Diseases (2nd ed.). CAB International.</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
 </rdf:RDF>

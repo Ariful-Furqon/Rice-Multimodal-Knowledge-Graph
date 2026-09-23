@@ -1,0 +1,26 @@
+﻿item_no,cq_id,level,dim,category,n_models,benchmark_corroborated,v06_status,question,relevance_n,relevance_mean,relevance_sd,relevance_min,relevance_max,relevance_E1,clarity_n,clarity_mean,clarity_sd,clarity_min,clarity_max,clarity_E1
+1,CQ-A22,L3,D2,crossmodal,3,yes,answerable,Which disease described in the literature matches the symptoms annotated in an image showing water-soaked streaks?,1,1.0,,1,1,1,1,1.0,,1,1,1
+2,CQ-A12,L2,D3,image,1,no,needs new schema/data,On which conditions do model-generated and expert image annotations disagree?,1,4.0,,4,4,4,1,4.0,,4,4,4
+3,CQ-A19,L2,D2,image,2,no,needs new schema/data,Which symptoms co-occur on the same plant within a single image?,1,5.0,,5,5,5,1,2.0,,2,2,2
+4,CQ-A11,L1,D3,image,1,yes,needs new schema/data,"Who or what produced the annotation of a given image, and with what confidence?",1,4.0,,4,4,4,1,4.0,,4,4,4
+5,CQ-A21,L2,D2,crossmodal,3,yes,answerable,"Which symptoms described in the literature have supporting image evidence, and which do not?",1,5.0,,5,5,5,1,5.0,,5,5,5
+6,CQ-A23,L3,D2,crossmodal,1,yes,answerable,Which treatment does the literature prescribe for a condition identified from an image as Sheath Blight?,1,5.0,,5,5,5,1,2.0,,2,2,2
+7,CQ-A02,L3,D1,text,5,yes,answerable,"Which vector species transmits Rice Tungro Bacilliform Virus, and by which transmission mode?",1,5.0,,5,5,5,1,2.0,,2,2,2
+8,CQ-A01,L1,D1,text,5,yes,answerable,"Which pathogen causes Rice Blast, and to which taxonomic group (fungus, bacterium, virus) does it belong?",1,5.0,,5,5,5,1,5.0,,5,5,5
+9,CQ-A13,L2,D2,image,2,no,answerable,"How many images exist for each condition, plant organ, and capture type (field versus close-up)?",1,5.0,,5,5,5,1,5.0,,5,5,5
+10,CQ-A10,L1,D2,image,5,no,answerable,Which images are annotated as showing Hispa damage?,1,3.0,,3,3,3,1,3.0,,3,3,3
+11,CQ-A05,L1,D1,text,1,yes,answerable,Which environmental conditions are reported to favour Sheath Blight?,1,5.0,,5,5,5,1,4.0,,4,4,4
+12,CQ-A18,L1,D2,image,3,no,needs new schema/data,How severe is the damage recorded in a given image?,1,5.0,,5,5,5,1,5.0,,5,5,5
+13,CQ-A06,L1,D1,text,1,yes,answerable,At which growth stages is Brown Planthopper reported as most damaging?,1,5.0,,5,5,5,1,5.0,,5,5,5
+14,CQ-A03,L2,D1,text,3,yes,answerable,"Which symptoms does Bacterial Leaf Blight produce, on which plant organ, and at which growth stage?",1,5.0,,5,5,5,1,5.0,,5,5,5
+15,CQ-A16,L3,D2,image,3,no,answerable,Which disease or pest is best supported by the visual evidence in an image showing brown lesions on the leaf blade?,1,4.0,,4,4,4,1,2.0,,2,2,2
+16,CQ-A04,L3,D1,text,5,no,answerable,"Which diseases share symptoms with Brown Spot, and which symptoms discriminate between them?",1,5.0,,5,5,5,1,5.0,,5,5,5
+17,CQ-A17,L3,D2,image,4,no,answerable,Which visual features separate Brown Spot from Rice Blast?,1,5.0,,5,5,5,1,5.0,,5,5,5
+18,CQ-A09,L3,D1,text,1,no,needs new schema/data,"Which features distinguish a nutritional disorder such as zinc deficiency from Rice Blast, when the visible symptoms are similar?",1,5.0,,5,5,5,1,5.0,,5,5,5
+19,CQ-A15,L1,D2,image,2,yes,answerable,Which visible symptoms are annotated in a given image?,1,5.0,,5,5,5,1,5.0,,5,5,5
+20,CQ-A25,L3,D3,crossmodal,1,no,needs new schema/data,Where does a written assessment of leaf damage disagree with an assessment derived from the image of the same leaf?,1,3.0,,3,3,3,1,2.0,,2,2,2
+21,CQ-A20,L1,D2,image,1,no,needs new schema/data,Which growth stage is visually manifest in a whole-canopy image?,1,5.0,,5,5,5,1,5.0,,5,5,5
+22,CQ-A24,L1,D2,image,1,no,needs new schema/data,"Which images are explicitly annotated as showing a healthy plant with no visible symptoms, and which organ or plant view does each show?",1,4.0,,4,4,4,1,4.0,,4,4,4
+23,CQ-A14,L1,D2,image,4,no,needs new schema/data,"Which plant organ (leaf, sheath, stem, panicle) is depicted in a given image?",1,5.0,,5,5,5,1,5.0,,5,5,5
+24,CQ-A07,L2,D1,text,5,yes,answerable,"Which control measures are recommended for Stem Borer, of which management category (chemical, biological, cultural), and on which source authority?",1,5.0,,5,5,5,1,5.0,,5,5,5
+25,CQ-A08,L1,D1,text,1,no,needs new schema/data,Which natural enemies are documented as predators or parasitoids of Brown Planthopper?,1,5.0,,5,5,5,1,5.0,,5,5,5

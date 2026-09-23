@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated": "2026-09-17 17:30",
+    "generated": "2026-09-23 13:33",
     "ontology": "Rice MMKG.rdf",
-    "asserted_triples": 68076,
-    "entailed_triples": 163738,
-    "reasoning_seconds": 25.1,
+    "asserted_triples": 68097,
+    "entailed_triples": 163779,
+    "reasoning_seconds": 43.7,
     "coverage_threshold": 0.5
   },
   "results": [
@@ -23,7 +23,7 @@
       ],
       "unit": "disease",
       "status": "PASS",
-      "ms": 95.8
+      "ms": 156.9
     },
     {
       "id": "CQ-02",
@@ -40,7 +40,7 @@
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 11.0
+      "ms": 23.9
     },
     {
       "id": "CQ-03",
@@ -60,7 +60,7 @@
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 10.3
+      "ms": 17.3
     },
     {
       "id": "CQ-04",
@@ -75,7 +75,7 @@
       "missing": [],
       "unit": "symptom",
       "status": "PASS",
-      "ms": 5.0
+      "ms": 7.7
     },
     {
       "id": "CQ-05",
@@ -104,16 +104,11 @@
         [
           "rice:Flowering_Stage",
           "rice:Bacterial_Leaf_Streak",
-          "rice:High_Humidity"
-        ],
-        [
-          "rice:Flowering_Stage",
-          "rice:Bacterial_Leaf_Streak",
           "rice:High_Temperature"
         ],
         [
           "rice:Flowering_Stage",
-          "rice:Bacterial_Panicle_Blight",
+          "rice:Bacterial_Leaf_Streak",
           "rice:High_Humidity"
         ],
         [
@@ -128,6 +123,11 @@
         ],
         [
           "rice:Flowering_Stage",
+          "rice:Bacterial_Panicle_Blight",
+          "rice:High_Humidity"
+        ],
+        [
+          "rice:Flowering_Stage",
           "rice:Brown_Planthopper",
           "rice:High_Temperature"
         ],
@@ -139,16 +139,11 @@
         [
           "rice:Flowering_Stage",
           "rice:Rice_Blast_Disease",
-          "rice:High_Humidity"
-        ],
-        [
-          "rice:Flowering_Stage",
-          "rice:Rice_Blast_Disease",
           "rice:Low_Rainfall"
         ],
         [
           "rice:Flowering_Stage",
-          "rice:Sheath_Blight",
+          "rice:Rice_Blast_Disease",
           "rice:High_Humidity"
         ],
         [
@@ -157,9 +152,14 @@
           "rice:Poor_Soil_Drainage"
         ],
         [
+          "rice:Flowering_Stage",
+          "rice:Sheath_Blight",
+          "rice:High_Humidity"
+        ],
+        [
           "rice:Maturity_Stage",
           "rice:Bacterial_Panicle_Blight",
-          "rice:High_Humidity"
+          "rice:High_Temperature"
         ]
       ],
       "detail_vars": [
@@ -168,7 +168,7 @@
         "f"
       ],
       "detail_total": 88,
-      "ms": 39.7
+      "ms": 59.7
     },
     {
       "id": "CQ-06",
@@ -185,7 +185,7 @@
       ],
       "unit": "growth stage",
       "status": "PASS",
-      "ms": 5.8
+      "ms": 11.6
     },
     {
       "id": "CQ-07",
@@ -197,7 +197,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 5.3
+      "ms": 12.7
     },
     {
       "id": "CQ-08",
@@ -214,7 +214,7 @@
       ],
       "unit": "preventive treatment",
       "status": "PASS",
-      "ms": 2.9
+      "ms": 9.3
     },
     {
       "id": "CQ-09",
@@ -232,12 +232,12 @@
       "detail_rows": [
         [
           "rice:Nephotettix_Virescens",
-          "rice:Rice_Tungro_Spherical_Virus",
+          "rice:Rice_Tungro_Bacilliform_Virus",
           "rice:Rice_Tungro_Disease"
         ],
         [
           "rice:Nephotettix_Virescens",
-          "rice:Rice_Tungro_Bacilliform_Virus",
+          "rice:Rice_Tungro_Spherical_Virus",
           "rice:Rice_Tungro_Disease"
         ]
       ],
@@ -247,7 +247,7 @@
         "d"
       ],
       "detail_total": 2,
-      "ms": 7.3
+      "ms": 14.2
     },
     {
       "id": "CQ-10",
@@ -259,7 +259,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 3.3
+      "ms": 5.3
     },
     {
       "id": "CQ-11",
@@ -282,74 +282,74 @@
       "detail_rows": [
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Dry_Leaf_Tip",
+          "rice:Poor_Soil_Drainage",
+          "rice:Wilting",
+          "rice:Water_Management"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Wilting",
           "rice:Crop_Rotation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
+          "rice:Poor_Soil_Drainage",
+          "rice:Wilting",
+          "rice:Crop_Sanitation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Wilting",
+          "rice:Resistant_Variety"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
           "rice:Dry_Leaf_Tip",
           "rice:Water_Management"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
+          "rice:Poor_Soil_Drainage",
+          "rice:Dry_Leaf_Tip",
+          "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
           "rice:Dry_Leaf_Tip",
           "rice:Crop_Sanitation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
+          "rice:Poor_Soil_Drainage",
           "rice:Dry_Leaf_Tip",
           "rice:Resistant_Variety"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Leaf_Rolling",
-          "rice:Crop_Rotation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Leaf_Rolling",
+          "rice:Poor_Soil_Drainage",
+          "rice:Yellow_Leaf",
           "rice:Water_Management"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Leaf_Rolling",
-          "rice:Crop_Sanitation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Leaf_Rolling",
-          "rice:Resistant_Variety"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Wilting",
+          "rice:Poor_Soil_Drainage",
+          "rice:Yellow_Leaf",
           "rice:Crop_Rotation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Wilting",
-          "rice:Water_Management"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Wilting",
+          "rice:Poor_Soil_Drainage",
+          "rice:Yellow_Leaf",
           "rice:Crop_Sanitation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:High_Humidity",
-          "rice:Wilting",
+          "rice:Poor_Soil_Drainage",
+          "rice:Yellow_Leaf",
           "rice:Resistant_Variety"
         ]
       ],
@@ -360,7 +360,7 @@
         "t"
       ],
       "detail_total": 296,
-      "ms": 929.8
+      "ms": 1543.4
     },
     {
       "id": "CQ-12",
@@ -389,7 +389,7 @@
       ],
       "unit": "disease/pest",
       "status": "PARTIAL",
-      "ms": 6.3
+      "ms": 9.4
     },
     {
       "id": "CQ-13",
@@ -412,7 +412,7 @@
       "detail_rows": [],
       "detail_vars": [],
       "detail_total": 0,
-      "ms": 4.7
+      "ms": 8.3
     },
     {
       "id": "CQ-14",
@@ -425,7 +425,7 @@
       "entailed": 1442,
       "gain": 1442,
       "status": "PASS",
-      "ms": 17.8
+      "ms": 22.0
     },
     {
       "id": "CQ-15",
@@ -435,10 +435,10 @@
       "question": "Can the KG be queried in the inverse direction, e.g. disease -> causedBy -> pathogen and symptom -> indicates -> disease?",
       "rationale": "14 of 26 object properties are declared as owl:inverseOf but never asserted. Query robustness depends on materialising them.",
       "asserted": 0,
-      "entailed": 171,
-      "gain": 171,
+      "entailed": 172,
+      "gain": 172,
       "status": "PASS",
-      "ms": 6.8
+      "ms": 11.3
     },
     {
       "id": "CQ-16",
@@ -453,7 +453,7 @@
       "missing": [],
       "unit": "diagnostic image",
       "status": "PASS",
-      "ms": 1990.8
+      "ms": 3138.9
     },
     {
       "id": "CQ-17",
@@ -468,7 +468,7 @@
       "missing": [],
       "unit": "annotated class",
       "status": "PASS",
-      "ms": 419.3
+      "ms": 601.2
     },
     {
       "id": "CQ-18",
@@ -522,7 +522,7 @@
       ],
       "unit": "symptom",
       "status": "PARTIAL",
-      "ms": 15.6
+      "ms": 21.5
     },
     {
       "id": "CQ-19",
@@ -534,7 +534,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 900.8
+      "ms": 1216.7
     },
     {
       "id": "CQ-20",
@@ -545,7 +545,7 @@
       "rationale": "Declared extension point. Recorded as a measurement, not scored, so the roadmap gap stays visible without inflating or deflating the pass rate.",
       "count": 0,
       "status": "DOCUMENTED",
-      "ms": 1.5
+      "ms": 2.2
     },
     {
       "id": "CQ-21",
@@ -554,13 +554,13 @@
       "mode": "coverage",
       "question": "Which reified domain assertions carry both an authoritative source URI and a bibliographic citation?",
       "rationale": "Provenance completeness - the scientific-defensibility claim of the KG.",
-      "covered": 349,
-      "total": 349,
+      "covered": 351,
+      "total": 351,
       "ratio": 1.0,
       "missing": [],
       "unit": "reified axiom",
       "status": "PASS",
-      "ms": 13.2
+      "ms": 20.9
     },
     {
       "id": "CQ-22",
@@ -572,7 +572,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 211.5
+      "ms": 314.1
     },
     {
       "id": "CQ-23",
@@ -600,7 +600,7 @@
       ],
       "unit": "biological entity",
       "status": "PASS",
-      "ms": 7.5
+      "ms": 12.7
     },
     {
       "id": "CQ-24",
@@ -612,7 +612,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 12.0
+      "ms": 18.7
     },
     {
       "id": "CQ-25",
@@ -624,7 +624,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 1.5
+      "ms": 2.7
     }
   ],
   "sensitivity": [
