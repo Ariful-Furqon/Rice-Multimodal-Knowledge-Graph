@@ -1,13 +1,21 @@
 # Rice MMKG — Master Plan Toward ESWC 2027
 
 Construction, evaluation, and publication roadmap for the **ESWC 2027 Resource Track**.  
-**Current Milestone:** Rice MMKG **v0.6.2** released (2026-09-15; v0.6.1 2026-09-14; v0.6 released 2026-09-03); **0.7.0-dev** in development (PlantPart added 2026-09-15).  
+**Current Milestone:** Rice MMKG **v0.6.2** released (2026-09-15; v0.6.1 2026-09-14; v0.6 released 2026-09-03); **0.7.0-dev** in development (latest: PathogenGroup and Pest as a cause, 2026-09-23).  
 **Abstract / Paper Deadline:** Late November – early December.  
-**Plan revised:** 2026-09-14 — phases re-ordered and re-scoped; see §2.
+**Plan revised:** 2026-09-14 — phases re-ordered and re-scoped; see §2. **2026-09-23** — multimodal audit added and Phase 3 re-centred on multimodal enhancement; see the audit below and Phase 3.
 
 > **Figures corrected 2026-09-14.** The v0.6 numbers first recorded in this plan (66,874 / 161,568 triples, 265 axioms, "100% cited") were measured before the v0.6 inconsistency fix. The released v0.6 file measures 66,780 / 161,416 triples with 253 axioms over 255 domain assertions. The snapshot below is v0.6.2 (same figures as v0.6.1; v0.6.2 changed only source URIs and citation text).
 
 > **Modality scope — open decision (2026-09-14).** The submission is **not** limited to text + image. Sensor data stays in the plan if it can be obtained, and expert feedback has raised **genomic** data as a further modality. Neither is decided yet: the decision point is in Phase 3. What is released today is a text-curated domain layer plus 10,407 image observations; `SensorObservation` is declared but empty, and no genomic entities exist. Whatever is decided, a declared-but-empty modality cannot be claimed as part of the resource. The CQ screening's Tier A / Tier B split (CQs without / with sensor or genomic requirements) stays as an instrument design, and the two tiers are never pooled into one agreement statistic.
+
+> **Multimodal audit (2026-09-23, measured on 0.7.0-dev).** The multimodal side is the weakest part of the resource, and a Resource Track reviewer will see it first.
+> - **Only one modality is populated.** 10,407 `ImageObservation`s; `TextualReport` 0, `SensorObservation` 0, genomic not modelled. The text-curated layer is domain knowledge with citations, not a text *observation* modality.
+> - **No image says more than its dataset label.** Every image carries exactly `annotatedAs` (the Paddy Doctor class), `contentUrl`, `wasDerivedFrom` and a label. The 1,442 `captures` all point to one symptom, `Dead_Tiller`, and are derived from the `dead_heart` label, not observed.
+> - **The per-image schema exists but is empty.** `severityScore`, `observationDate`, `confidenceScore`, `annotationOf` and `capturedBy` are declared and used 0 times.
+> - **The fusion result does not rest on image content.** The IKRL-style PoC (71.1% vs 62.6% plain CNN; single seed, frozen backbone) gains from class-level graph structure (Route B), which per-image grounding would have to confirm.
+>
+> Consequence: today the "MM" in the name is carried by a label-to-concept link. Phase 3 is re-centred on turning that into per-image evidence (workstreams M1–M4 below). Whatever it achieves is what the paper claims; declared-but-empty classes are still never claimed.
 
 ---
 
@@ -19,15 +27,15 @@ Construction, evaluation, and publication roadmap for the **ESWC 2027 Resource T
 | **Asserted Triples** | **66,802** (0.7.0-dev: 68,204) | ~1,200 | Grows with symptom-level image grounding; no fixed triple target |
 | **Materialised Triples (OWL RL)** | **161,447** (+94,645 triples; 0.7.0-dev: 163,957) | — | Re-measured at release |
 | **Modalities** | Populated: text-curated domain layer + **10,407** image observations. Declared but empty: `SensorObservation`. Not modelled: genomic | Text only | **Open — decided at the Phase 3 checkpoint.** Candidates: sensor (if data can be obtained), genomic (raised by expert feedback) |
-| **Symptom-level image grounding** | `captures` on 1,442 images, all to one symptom (CQ-18: 1/27) | 0 | Multiple symptoms grounded from expert annotation (see Phase 3) |
+| **Symptom-level image grounding** | `captures` on 1,442 images, all to one symptom and derived from the dataset label (CQ-18: 1/27); per-image severity, date, confidence: 0 | 0 | Per-image symptoms, organ, stage and severity from expert annotation, extended by model-assisted annotation with confidence (Phase 3, M1–M2) |
 | **Domain-Level Assertions** | **256 assertions, 256 reified axioms (100% cited)**; 0.7.0-dev: 360 / 360 plus 15 self-cited resistance assessments (the 7 unverifiable BBPOPT axioms removed or re-sourced; round-1 variety links became assessments 2026-09-17) | 18 diseases | 100% literature-grounded, checked by CQ-21 + extended CQ-22 |
 | **Reasoner Consistency** | **Consistent (HermiT, 2026-09-14, with an injected-contradiction control)**; 0.7.0-dev re-checked 2026-09-17 with controls for every new class | Verified | Consistent at release, re-checked after every schema change |
-| **Competency Questions** | **25 benchmark CQs** (v0.6.2: 23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC; 0.7.0-dev: 21 / 2 / 1 / 1 — CQ-12 PARTIAL after abiotic disorders entered its denominator, CQ-13 FAIL after the unsourced severity triage was removed, CQ-01 denominator corrected to exclude abiotic disorders with both figures reported); **19 of 25 elicited CQs** queried (v0.6.2: 7 answer, 10 partial, 2 no answer; 0.7.0-dev: 9 / 8 / 2 after CQ-A02 and CQ-A07 were answered) | Qualitative CQs | Both instruments re-run against the tagged v0.6 baseline |
+| **Competency Questions** | **25 benchmark CQs** (v0.6.2: 23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC; 0.7.0-dev: 21 / 2 / 1 / 1 — CQ-12 PARTIAL after abiotic disorders entered its denominator, CQ-13 FAIL after the unsourced severity triage was removed, CQ-01 denominator corrected to exclude abiotic disorders with both figures reported); **19 of 25 elicited CQs** queried (v0.6.2: 7 answer, 10 partial, 2 no answer; 0.7.0-dev: 10 / 7 / 2 after CQ-A02, CQ-A07 and CQ-A01 were answered) | Qualitative CQs | Both instruments re-run against the tagged v0.6 baseline |
 | **Permanent URI (PURL)** | **`https://w3id.org/ricemmkg#`** — live since 2026-09-16; namespace rewritten in 0.7.0-dev | `purl.org/ricedo` | Done; HTML documentation behind it in Phase 5 |
 | **FAIR Score (FOOPS!)** | 0.7275 (v0.5 schema-only baseline, 2026-08-22; main gap: no PURL) | — | **> 0.85**, measured once on the release |
 | **Registry Findability** | GitHub repository | IEEE DataPort | **AgroPortal** entry + **Zenodo DOI** for the release |
 | **Online Documentation** | Markdown documentation | — | **pyLODE / Widoco** at the PURL |
-| **Expert Validation** | Stage 5 CQ questionnaire ready (25 items, Indonesian); 250-image annotation sample prepared | 5 experts (95.2%) | Returns analysed with weighted κ (2 raters) or ordinal Krippendorff's α (3+) |
+| **Expert Validation** | Stage 5 CQ questionnaire: **1 of 3 returned** (2026-09-20; relevance 4.52, clarity 4.00; agreement undefined with one rater); 250-image annotation package built 2026-09-17, not yet sent | 5 experts (95.2%) | Returns analysed with weighted κ (2 raters) or ordinal Krippendorff's α (3+) |
 
 ---
 
@@ -55,13 +63,14 @@ Phase 2: Namespace & Release Scaffolding → v0.7 (Weeks 3–4, Sept: 15–28 Se
    └── Release v0.7.0 (tag v0.7.0; w3id version IRI goes live)
           │
           ▼
-Phase 3: Modality Checkpoint, Grounding & Schema → v0.8 (Weeks 5–8: 29 Sep – 26 Oct)
+Phase 3: Multimodal Enhancement → v0.8 (Weeks 5–8: 29 Sep – 26 Oct)
    ├── Checkpoint (start of Phase 3): sensor and genomic — data source secured? in or roadmap?
-   ├── Schema from literature: PlantPart, transmission mode, management category
-   ├── Ingest expert image annotations: captures (more symptoms), organ, severity
-   ├── If chosen: sensor and/or genomic module (schema + real data + CQs)
+   ├── M1 Expert image grounding: 250 images → symptoms, organ, stage, severity per image
+   ├── M2 Model-assisted annotation: scale M1 to the 10,407 images, with confidence and provenance
+   ├── M3 Per-image metadata: variety and plant age, if the Paddy Doctor metadata confirms them
+   ├── M4 If admitted: sensor / genomic / textual-report module (schema + real data + CQs)
    ├── Re-run both CQ instruments against the v0.6 baseline tag
-   └── Optional: embedding experiment across the populated modalities
+   └── Fusion experiment re-run on per-image content (multiple seeds)
           │
           ▼
 Phase 4: Expert Validation & Analysis → v0.9 with Phase 5 (returns by late Oct; analysis Weeks 9–10: 27 Oct – 9 Nov)
@@ -108,14 +117,23 @@ Phase 6: Resource Paper & Submission → v1.0 (Weeks 11–14: mid Nov – early 
   3. **Namespace rewrite:** done 2026-09-17 as a **separate commit**, by text substitution rather than re-serialisation, so the diff touches only the lines that carry an IRI; verified by triple count, HermiT, and both CQ instruments returning the same results as before.
   4. ~~**Maintenance plan:** resolve the two open TODOs and publish it in the repository.~~ **Done 2026-09-15:** `MAINTENANCE.md` at the repository root (supersedes the Worklog draft) — both creators affiliated with JAIST, contact via GitHub Issues, minor releases per milestone plus patch releases, MAJOR.MINOR.PATCH versioning with permanent tags, release checklist.
   5. **Start the expert clock:** send the Stage 5 questionnaire (`CQ Screening/reports/cq_stage5_questionnaire.md`) and the 250-image stratified annotation sample. Keep `cq_stage5_key.csv` away from raters; the repository history still contains it.
+     **Stage 5 status (2026-09-23):** questionnaire sent; 1 of 3 returned on 2026-09-20 and ingested as rater E1.
+     **Proposed 2026-09-23 (not yet decided):** send the image annotation package now rather than last. The reason for deferring it — CQ validation first — is met by the first return, and the multimodal audit shows image grounding is the resource's largest gap; every week it waits shortens the time to integrate annotations before v0.8.
      **Re-scheduled 2026-09-15:** ontology development comes first and the image annotation is done **last**, after CQ validation. Consequence: CQ-18, A14, A15, A16, A18 and A21 stay partial until then, and annotations must still be integrated before the Phase 5 freeze (3 Nov), so the package should go out by mid-October at the latest. Before sending, the annotation template (`Worklog/RiceMMKG_v0.5_worklog/reports/annotation_sample.csv`, symptom column only) needs organ and severity columns and an annotation guide.
   6. **Release v0.7.0:** follow the `MAINTENANCE.md` checklist (`owl:versionInfo` `0.7.0`, measured statistics, HermiT with control, both CQ instruments compared against `v0.6.2`), then tag `v0.7.0` so `https://w3id.org/ricemmkg/0.7.0` resolves.
 - **Deliverables:** merged w3id PR; namespace-rewritten ontology with unchanged verification results; published maintenance plan; questionnaire and annotation sample sent; **v0.7.0 tagged**.
 
 ---
 
-### Phase 3: Modality Checkpoint, Grounding & Schema → v0.8 (29 Sep – 26 Oct)
-*Objective: decide which further modalities enter the submission, and close the gaps the two CQ instruments measured.*
+### Phase 3: Multimodal Enhancement → v0.8 (29 Sep – 26 Oct)
+*Objective: turn the label-to-concept link into per-image evidence, decide which further modalities enter the submission, and close the gaps the two CQ instruments measured. See the multimodal audit at the top of this plan.*
+
+- **Multimodal workstreams (added 2026-09-23), in priority order:**
+  - **M1 — Expert image grounding.** Import the 250-image annotation (`Worklog/Expert_Package_2026-09/`) into `captures` (more symptoms), organ per image, view, growth stage and `severityScore`, each annotation with its annotator and date. Needs the xlsx importer (the old `apply_symptom_annotations.py` reads the old CSV format and namespace). Serves CQ-18, CQ-A14, A15, A16, A18, A21. This is the only workstream that yields *observed* per-image content, so it goes first.
+  - **M2 — Model-assisted annotation.** Use M1 as the gold set to evaluate a model annotator, then annotate the remaining images with `confidenceScore` and the model as annotator. Model annotations stay separate from expert ones in the same way `annotatedAs` stays separate from `captures`: a prediction is never promoted to domain truth. Stage 5 items 2 and 4 (model vs expert annotation; who annotated, with what confidence) ask exactly this, and E1 rated both 4/4. Report the agreement between model and expert on the 250 images; without it M2 is not claimed.
+  - **M3 — Per-image metadata.** To verify first: the Paddy Doctor release is believed to ship per-image **variety** and **plant age (days)**; the local copy has the images only. If confirmed, link each image to a `Variety` and, via age, to a growth stage. This answers E1's proposed question on plant age and part of CQ-A21 without annotation effort. Do not assert any of it before the metadata file is in hand and cited.
+  - **M4 — Further modalities, through the checkpoint.** Sensor and genomic as below. Also `TextualReport`, declared and empty: it enters only with a real, citable text source (e.g. farmer or extension reports), never with text written for the purpose.
+  - **Fusion re-run.** Repeat the IKRL-vs-CNN comparison with several seeds, and once M1–M3 exist, with per-image graph content (Route A). Remains a usage demonstration, not part of the resource claim; dropped first if time runs short.
 
 - **Modality checkpoint (start of Phase 3):** for **sensor** and **genomic** data separately, answer: is a real data source secured and linkable to the existing entities (varieties, diseases, growth stages, images)? Can it be modelled, populated and covered by CQs before the Phase 5 freeze? If yes, it enters the submission as a populated module; if not, it stays roadmap and is described as such in the paper. A modality with a declared but empty class is never claimed. Genomic scope should follow the expert's input — to be recorded here once clarified.
 - **Activities:**
@@ -125,10 +143,10 @@ Phase 6: Resource Paper & Submission → v1.0 (Weeks 11–14: mid Nov – early 
      - ~~management category and source authority for control measures (CQ-A07).~~ **Done 2026-09-15 (0.7.0-dev):** source authority was already in the provenance axioms (query fixed); `ManagementCategory` (4 AGROVOC categories) and `hasManagementCategory` on 6 treatments; 6 others left uncategorised for lack of a clear source. CQ-A07 now **answers**.
      - **Added 2026-09-15 from domain-expert feedback (0.7.0-dev):** abiotic causes — `AbioticFactor` (N, P, K, Zn deficiency) causing four nutritional disorders, from the IRRI nutrient fact sheets. `causes` domain widened to Pathogen ⊔ AbioticFactor; benchmark CQ-01 numerator corrected to count pathogens only. CQ-12 now PARTIAL (9/20): the disorders have no sourced ManagementAction.
      - **Added 2026-09-15 (0.7.0-dev):** excess side — iron toxicity and salinity from the IRRI toxicity fact sheets (both also in the 2021 Indonesian juknis). Same day, the unverifiable BBPOPT (2022) source was resolved: the six severity → action assertions were removed (no guideline maps a category to an action; kept as expert questions), `Crop_Sanitation requires Harvest_Stage` re-sourced to IRRI. CQ-01 denominator then corrected to exclude abiotic disorders (7/9; uncorrected 7/15, both reported). Benchmark 21 / 2 / 1 / 1: CQ-13 FAIL.
-  2. **Expert image annotation → graph:** from the 250-image sample, add `captures` to further symptoms (CQ-18, CQ-A15, A16, A21), organ per image (CQ-A14), and severity per image (CQ-A18). None of these can be derived from Paddy Doctor labels or literature — they must come from annotators.
+  2. **Expert image annotation → graph (= M1 above):** from the 250-image sample, add `captures` to further symptoms (CQ-18, CQ-A15, A16, A21), organ per image (CQ-A14), and severity per image (CQ-A18). None of these can be derived from Paddy Doctor labels or literature — they must come from annotators.
   3. **Re-measure:** run `cq_sparql_benchmark.py` and `elicited_cq_sparql.py`, compare against `elicited-baseline-v0.6`, re-check HermiT. Never edit a CQ because its query returns little.
   4. **If the checkpoint admits sensor and/or genomic data:** model the module, ingest the real data, link it to existing entities, add or activate the relevant CQs (Tier B elicited CQs become measurable; benchmark CQ-20 stops being `documented`), re-check HermiT.
-  5. **Optional:** an embedding experiment across whichever modalities are populated. Useful as a usage demonstration, not required by the resource claim; drop it first if time runs short.
+  5. **Optional:** an embedding experiment across whichever modalities are populated (= the fusion re-run above). Useful as a usage demonstration, not required by the resource claim; drop it first if time runs short.
 - **Waits for expert ratings:** the six elicited CQs with no concept in the ontology (A08, A09, A12, A14 in part, A20, A25) are not modelled until their relevance is rated.
 - **Deliverables:** v0.8 ontology (tag `v0.8.0`); before/after tables for both CQ instruments; consistency log. Expert image annotations that arrive after the v0.8 cut go into v0.9.
 
@@ -207,6 +225,10 @@ Phase 6: Resource Paper & Submission → v1.0 (Weeks 11–14: mid Nov – early 
 - [x] **CQ-01 denominator** (2026-09-15) — abiotic disorders excluded by criterion; 7/9, uncorrected 7/15 reported. Paper must state this correction alongside the numerator fix.
 - [x] **Variety schema, round 1** (2026-09-16, 0.7.0-dev) — Variety with IR64, Angke and Conde from Mackill & Khush (2018); resistantTo/moderatelyResistantTo; vulnerableTo widened to varieties (all superseded 2026-09-17).
 - [x] **Varieties, round 2** (2026-09-17, 0.7.0-dev) — `ResistanceAssessment` (variety, target, grade, population, location, year, own source) replaces the binary links; Ciherang, Inpari 32, Inpari 33 from Bagariang et al. (2021) and Biswas et al. (2021); 15 assessments. Round 3 waits for the official variety descriptions.
-- [ ] **Remaining expert points:** pathogen groups (CQ-A01), variety-specific treatment (choosing a resistant variety, or different dosage per variety?), insect vs vertebrate pests, weeds in or out of scope, Pest → Disease endpoint.
-- [ ] **Send to experts:** Stage 5 questionnaire; image annotation **deferred to last** (2026-09-15), but out by mid-October.
-- [ ] **Re-check presentation slides** — they still quote pre-fix v0.6 figures.
+- [x] **Pathogen groups and Pest → Disease** (2026-09-23, 0.7.0-dev) — `PathogenGroup` from NCBI lineages, CQ-A01 answers; `causes` widened to Pest, `Stem_Borer causes Deadheart` (IRAC 2025).
+- [ ] **Remaining expert points:** variety-specific treatment (choosing a resistant variety, or different dosage per variety?), insect vs vertebrate pests, weeds in or out of scope, pathogen groups with no rice pathogen yet (nematodes, protozoa, rickettsia, viroids).
+- [x] **Stage 5 questionnaire sent** — 1 of 3 returned (2026-09-20); two more returns needed before any agreement figure exists.
+- [ ] **Decide: send the image annotation package now** (proposed 2026-09-23) instead of last; at the latest by mid-October.
+- [ ] **M1 importer** — xlsx → graph, new namespace, annotator and date on each annotation.
+- [ ] **M3 check** — obtain and cite the Paddy Doctor per-image metadata (variety, age); assert nothing before.
+- [ ] **Re-check presentation slides** — they still quote pre-fix v0.6 figures; the 2026-09-23 deck says "40 of 40 symptoms", but the file has 39 `Symptom` individuals (all 39 carry a plant part).
