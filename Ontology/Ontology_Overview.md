@@ -119,6 +119,7 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | | `causes` | 16 | `Pathogen ⊔ AbioticFactor ⊔ Pest` → `Disease` | CABI / Ham / Hibino; IRRI nutrient and toxicity fact sheets (6, 0.7.0-dev); IRRI sheath blight fact sheet (1, 0.7.0-dev); IRAC (2025) for `Stem_Borer causes Deadheart` (1, 0.7.0-dev) |
 | | `transmits` | 2 | `Pest` → `Pathogen` | CABI / Hibino (1996) |
 | | `hasTransmissionMode` | 2 | `Pathogen` → `TransmissionMode` | Wang et al. (2022); 0.7.0-dev |
+| | `hasPathogenGroup` | 9 | `Pathogen` → `PathogenGroup` | NCBI Taxonomy lineages read live 2026-09-23 (`ontology-derived`); 0.7.0-dev |
 | **Symptomatology & Risk Factors**| `indicatedBy` | 70 | `Disease ⊔ Pest` → `Symptom` | IRRI Rice Doctor / CABI / IRAC (2025); IRRI nutrient fact sheets (19) and toxicity fact sheets (8), 0.7.0-dev |
 | | `increaseRiskOf` | 34 | `EnvironmentalFactor` → `Disease ⊔ Pest` | CABI CPC (29) / IRRI RKB (5) |
 | **Plant Anatomy** | `affectsPlantPart` | 40 | `Symptom` → `PlantPart` | IRRI Rice Knowledge Bank fact sheets (13 pest/disease + 4 nutrient + 3 toxicity); CABI downy mildew datasheet (1, 0.7.0-dev) — every `Symptom` now carries a plant part |
@@ -129,7 +130,7 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | | `requires` | 5 | `Treatment` → `GrowthStage` | IRRI RKB (`Crop_Sanitation requires Harvest_Stage` re-sourced from BBPOPT to the IRRI tungro sheet in 0.7.0-dev) |
 | | `hasManagementCategory` | 6 | `Treatment` → `ManagementCategory` | IRRI RKB (2) / AGROVOC definitions (4, `ontology-derived`); 0.7.0-dev |
 | **Variety** | `varietyOf` | 6 | `Variety` → `Plant` | Mackill & Khush (2018) (3); Bagariang et al. (2021) (2); Biswas et al. (2021) (1); 0.7.0-dev |
-| **Total domain assertions** | | **351** | *(0.7.0-dev, measured 2026-09-23 with rdflib; plus 10,407 `annotatedAs`, 1,442 `captures`, 10 `sourceDatasetLabel`, 15 `eppoCode`, and 15 `ResistanceAssessment` individuals — 15 each of `assessedVariety`, `assessedAgainst`, `hasResistanceLevel` — whose provenance sits on the individual: Mackill & Khush 10, Bagariang et al. 4, Biswas et al. 1)* | **349 / 349 reified** |
+| **Total domain assertions** | | **360** | *(0.7.0-dev, measured 2026-09-23 with rdflib; plus 10,407 `annotatedAs`, 1,442 `captures`, 10 `sourceDatasetLabel`, 15 `eppoCode`, and 15 `ResistanceAssessment` individuals — 15 each of `assessedVariety`, `assessedAgainst`, `hasResistanceLevel` — whose provenance sits on the individual: Mackill & Khush 10, Bagariang et al. 4, Biswas et al. 1)* | **349 / 349 reified** |
 
 > *Note on inverse properties:* All twelve inverse directions (`indicates`, `detectedBy`, `causedBy`, `prevents`, `controls`, `threatens`, etc.) and `detects` are declared in the schema for reasoning/querying symmetry.
 
@@ -156,13 +157,29 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | 0.7.0-dev (+ `ResistanceAssessment`, varieties round 2) | 2026-09-17 | 68,049 (163,684 OWL RL) | 23 | 36 | 10,562 | 347 axioms / 347 assertions + 15 assessments |
 | 0.7.0-dev (+ `Rhizoctonia_Solani`) | 2026-09-17 | 68,064 (163,715 OWL RL) | 23 | 36 | 10,563 | 348 axioms / 348 assertions + 15 assessments |
 | 0.7.0-dev (+ nitrogen fertilizer) | 2026-09-17 | 68,076 (163,738 OWL RL) | 23 | 36 | 10,564 | 349 axioms / 349 assertions + 15 assessments |
-| **0.7.0-dev (pest–damage level fix, expert CQ return — in development)** | **2026-09-23** | **68,097** (163,779 OWL RL) | **23** | **36** | **10,564** | **351 axioms / 351 assertions + 15 assessments** |
+| 0.7.0-dev (pest–damage level fix, expert CQ return) | 2026-09-23 | 68,097 (163,779 OWL RL) | 23 | 36 | 10,564 | 351 axioms / 351 assertions + 15 assessments |
+| **0.7.0-dev (+ `PathogenGroup` — in development)** | **2026-09-23** | **68,204** (163,957 OWL RL) | **24** | **37** | **10,568** | **360 axioms / 360 assertions + 15 assessments** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-09-23: 0.7.0-dev — `PathogenGroup`: the half of CQ-A01 nothing could answer
+
+`CQ-A01` — *which pathogen causes this disease, and to which taxonomic group does it belong* — is the most converged requirement in the whole elicitation: five of six models proposed it and all five made it their question number one. The domain expert rated it **5/5 on both scales** on 2026-09-20. It nevertheless ran as **partial – schema**, and the report said why in one line: *"v0.7.0-dev types every pathogen as rice:Pathogen and nothing more, so there is no taxonomic group to return"*. The 2026-09-14 schema review had asked for the same thing (its point 6, until now Open). Pre-patch file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-pathogengroup.rdf`.
+
+- **Class `PathogenGroup`** with four individuals — `Fungus_Group`, `Bacterium_Group`, `Virus_Group`, `Oomycete_Group` — and **`hasPathogenGroup`** (`Pathogen` → `PathogenGroup`, no inverse, mirroring `hasManagementCategory`). The class joined the core `AllDisjointClasses` axiom, now 20 classes.
+- **Only populated groups exist.** The nematodes, protozoa, rickettsia and viroids the expert listed on 2026-09-14 have no individual, because the graph holds no such pathogen. Virus and oomycete, which his list omitted, do exist here and are created.
+- **Nine assertions, each read off a lineage rather than out of prose.** Every `hasPathogenGroup` axiom cites the NCBI Taxonomy record of the pathogen itself, fetched live through E-utilities `efetch` on 2026-09-23, with `evidenceType` `ontology-derived`. *Sclerophthora macrospora* lands in `Oomycete_Group` on the strength of its lineage `Eukaryota; Sar; Stramenopiles; Oomycota` — a water mould, not a true fungus, which is the distinction worth having a class for.
+- **`PathogenGroup` is not one taxonomic rank, and the class comment says so.** NCBI puts Fungi at kingdom, Bacteria at domain, Viruses at an acellular root and Oomycota at phylum. This is the grouping plant pathology uses; pretending it is a rank would be tidier and false.
+- **Alignment.** Each group individual carries `skos:exactMatch` to both AGROVOC and NCBI Taxonomy, all eight identifiers checked live the same day and recorded in the two registers (AGROVOC round 7, NCBI round 3).
+- **Wired into the checks, not just the file.** `rice:hasPathogenGroup` was added to CQ-22's property list — a domain property left out of that list is invisible to the provenance check, which is the exact failure the 2026-09-14 extension was written for. CQ-A01's queries now return the group.
+- **Two pathogens were read but not aligned.** `Magnaporthe_Oryzae` and `Xanthomonas_Oryzae` have no NCBITaxon `exactMatch`; TaxIDs 318829 and 347 were read live to derive their group and are cited as the source, but asserting the alignment is a register decision and is listed as one.
+- **Checks:** 360 axioms = 360 domain assertions; 0 unreified, orphan or duplicate; every axiom complete; 0 domain/range violations; 0 individuals in two disjoint classes. HermiT consistent with only `owl:Nothing` unsatisfiable; control (`Fungus_Group` typed both `PathogenGroup` and `Pathogen`, exercising the new disjointness) inconsistent.
+- **Benchmark:** verdicts unchanged at **21 PASS / 2 PARTIAL / 1 FAIL / 1 DOC**, sensitivity unchanged. The movement is in the elicited set: **CQ-A01 goes from `partial – schema` to `answers`**, so the elicited tally reads **10 full / 7 partial / 2 empty** (was 9 / 8 / 2) and partial–schema drops from 7 to 6. CQ-23 stays 19/31: alignment coverage there already counted every organism through its EPPO code.
+- **Result:** 68,204 asserted / 163,957 OWL RL triples.
 
 ### 2026-09-23: 0.7.0-dev — pests become causes; five corrections from the first expert CQ return
 

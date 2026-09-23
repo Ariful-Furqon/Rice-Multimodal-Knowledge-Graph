@@ -96,18 +96,24 @@ CQS = [
                 "proposed it, and all five made it their own question number "
                 "one. The benchmark asks the coverage form of the same "
                 "relation - how many diseases have any pathogen - never the "
-                "answer form.",
-        "partial_kind": "schema",
-        "partial": "{V} types every pathogen as rice:Pathogen and nothing "
-                   "more, so there is no taxonomic group to return; the "
-                   "closest available identity is the external alignment",
+                "answer form. The group half went unanswered until "
+                "rice:PathogenGroup was added on 2026-09-23.",
         "queries": [
-            ("Causal pathogen of Rice Blast, with its external identity",
-             """SELECT ?pathogen ?eppo_code ?external_alignment WHERE {
+            ("Causal pathogen of Rice Blast, its taxonomic group and its "
+             "external identity",
+             """SELECT ?pathogen ?group ?eppo_code ?external_alignment WHERE {
   rice:Rice_Blast_Disease rice:causedBy ?pathogen .
+  OPTIONAL { ?pathogen rice:hasPathogenGroup ?group }
   OPTIONAL { ?pathogen rice:eppoCode ?eppo_code }
   OPTIONAL { ?pathogen skos:exactMatch ?external_alignment }
 }"""),
+            ("Every pathogen with its taxonomic group - the group half of the "
+             "question, which {V} answers from the NCBI Taxonomy lineage",
+             """SELECT ?pathogen ?group WHERE {
+  ?pathogen a rice:Pathogen .
+  OPTIONAL { ?pathogen rice:hasPathogenGroup ?group }
+}
+ORDER BY ?group ?pathogen"""),
             ("Every disease with its causal pathogen - the answer form of "
              "benchmark CQ-01",
              """SELECT ?disease ?pathogen WHERE {

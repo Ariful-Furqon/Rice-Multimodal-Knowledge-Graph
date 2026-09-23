@@ -91,6 +91,29 @@ against that response rather than assumed.
 | `Xanthomonas_Oryzicola` | Pathogen | [Xanthomonas oryzae pv. oryzicola, TaxID 129394](http://purl.obolibrary.org/obo/NCBITaxon_129394) | `skos:exactMatch` | Implemented | Exact literal label match, pathovar spelling verified. AGROVOC's `c_330601` (same organism, prefLabel "Xanthomonas oryzae pv. oryzicola") is available too but is *not* used to align the `Bacterial_Leaf_Streak` **disease** individual — see `AGROVOC_alignment.md` round 5's reconfirmed-local-only note on that entity. |
 | `Hispa` | Pest | [Dicladispa armigera, TaxID 111238](http://purl.obolibrary.org/obo/NCBITaxon_111238) | `skos:exactMatch` | Implemented | AGROVOC's initial round found no relevant concept for "hispa" (search hits for *hispanica* were rejected as invalid) — same NCBI-as-fallback pattern already established for `Bipolaris_Oryzae`/`Leaf_Folder`. Common name "rice hispa" confirmed via species identity, binomial spelling verified against the OLS4 response. |
 
+## PathogenGroup alignment (round 3)
+
+Checked 2026-09-23 with NCBI E-utilities `efetch` (`db=taxonomy`). Two uses in
+one pass: the four `PathogenGroup` individuals were aligned, and the group of
+each of the nine `Pathogen` individuals was **derived** from that pathogen's
+own lineage — the lineage string is the source cited on every
+`rice:hasPathogenGroup` axiom, with `evidenceType` `ontology-derived`.
+
+| Rice MMKG entity | Type | NCBI candidate | Relation | Status | Decision note |
+|---|---|---|---|---|---|
+| `Fungus_Group` | PathogenGroup | [Fungi, TaxID 4751](http://purl.obolibrary.org/obo/NCBITaxon_4751) | `skos:exactMatch` | Implemented | Rank: kingdom. |
+| `Bacterium_Group` | PathogenGroup | [Bacteria, TaxID 2](http://purl.obolibrary.org/obo/NCBITaxon_2) | `skos:exactMatch` | Implemented | Rank: domain. |
+| `Virus_Group` | PathogenGroup | [Viruses, TaxID 10239](http://purl.obolibrary.org/obo/NCBITaxon_10239) | `skos:exactMatch` | Implemented | Rank: acellular root; no lineage. |
+| `Oomycete_Group` | PathogenGroup | [Oomycota, TaxID 4762](http://purl.obolibrary.org/obo/NCBITaxon_4762) | `skos:exactMatch` | Implemented | Rank: phylum; lineage `Eukaryota; Sar; Stramenopiles`, i.e. not Fungi. |
+
+**Two pathogens were read without being aligned.** `Magnaporthe_Oryzae` and
+`Xanthomonas_Oryzae` carry only an AGROVOC `exactMatch`; their group was read
+from TaxID 318829 (*Pyricularia oryzae*, the anamorph name NCBI uses, already
+an `skos:altLabel` on the individual) and TaxID 347 respectively, and those
+records are cited as the source of the group assertion. **No `skos:exactMatch`
+was added for either** — that is an alignment decision of the kind this
+register records per entity, and it is listed under next review actions.
+
 ## Decision log
 
 | Entity | Relation | Reviewer | Source | Date |
@@ -109,11 +132,21 @@ against that response rather than assumed.
 
 ## Next review actions
 
-1. Resolve `Rice_Bug`: decide species-vs-genus scope, and reconcile the
+1. **Decide `Armyworm`** (new, 2026-09-23): AGROVOC c_30262 *Mythimna
+   separata* plus NCBITaxon 271217 are proposed and not applied; the EPPO code
+   `PSEDSE` already on the individual is the synonym *Pseudaletia separata* of
+   the same species, so two identifiers agree. See the AGROVOC register's
+   round-2 re-check.
+2. **Decide `Magnaporthe_Oryzae` and `Xanthomonas_Oryzae`** (new, 2026-09-23):
+   TaxIDs 318829 and 347 were read live for the `hasPathogenGroup` assertions
+   but not asserted as `skos:exactMatch`. 318829's scientific name is the
+   anamorph *Pyricularia oryzae*, the same dual-nomenclature question AGROVOC
+   c_16025 raised.
+3. Resolve `Rice_Bug`: decide species-vs-genus scope, and reconcile the
    `Leptocorisa oratoria` (NCBI) vs. `Leptocorisa oratorius` (AGROVOC)
    spelling discrepancy — flag the discrepancy back to the AGROVOC register
    if AGROVOC's own concept label turns out to need a correction request.
-2. As of round 2 (2026-08-22) this register covers ten Pest/Pathogen
+4. As of round 2 (2026-08-22) this register covers ten Pest/Pathogen
    entities: the original three AGROVOC could not resolve on its own, plus
    seven organisms added in the 2026-08-21 domain-graph enrichment that
    had no prior alignment of any kind. Other `Pathogen`/`Pest` individuals
@@ -121,7 +154,7 @@ against that response rather than assumed.
    and were not re-checked here — a full NCBI cross-check of all
    `Pathogen`/`Pest` individuals has not been done and is optional future
    work, not a known gap.
-3. `GrowthStage`, `Treatment`, `ManagementAction`, `Symptom`, and
+5. `GrowthStage`, `Treatment`, `ManagementAction`, `Symptom`, and
    `EnvironmentalFactor` entities are out of scope for NCBI Taxonomy (it
    only covers organisms) — their "needs domain review" items remain
    tracked in `AGROVOC_alignment.md` only.

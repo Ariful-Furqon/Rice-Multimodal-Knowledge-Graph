@@ -245,6 +245,52 @@ Checked 2026-09-15 through the AGROVOC REST API (`/search`, `/narrower`, `/broad
 
 **AGROVOC was also used as a provenance source**, not only for alignment: four `hasManagementCategory` assertions (`Trichoderma_Application`, `Resistant_Variety`, `Crop_Rotation`, `Crop_Sanitation`) cite the AGROVOC definition of their category with `evidenceType` `ontology-derived`. The hierarchy itself was checked first and does **not** place any treatment concept under a control category (crop rotation → *cropping systems*; pesticide application and seed treatment → *activities*; neem extracts → *plant extracts*), so no membership was inferred from `skos:broader`.
 
+## PathogenGroup alignment (round 7)
+
+Checked 2026-09-23 through the AGROVOC REST `/search` endpoint for the four
+`PathogenGroup` individuals added in 0.7.0-dev. Every one is a top-level
+taxonomic group, so the label match is unambiguous; each was cross-checked
+against NCBI Taxonomy the same day (see `NCBI_Taxonomy_alignment.md`).
+
+| Rice MMKG entity | Type | AGROVOC concept | Relation | Status | Decision note |
+|---|---|---|---|---|---|
+| `Fungus_Group` | PathogenGroup | [`Fungi`](http://aims.fao.org/aos/agrovoc/c_3145) | `skos:exactMatch` | Implemented | Exact prefLabel match. |
+| `Bacterium_Group` | PathogenGroup | [`Bacteria`](http://aims.fao.org/aos/agrovoc/c_765) | `skos:exactMatch` | Implemented | Exact prefLabel match. |
+| `Virus_Group` | PathogenGroup | [`viruses`](http://aims.fao.org/aos/agrovoc/c_8262) | `skos:exactMatch` | Implemented | prefLabel is lower-case plural; same referent. |
+| `Oomycete_Group` | PathogenGroup | [`Oomycetes`](http://aims.fao.org/aos/agrovoc/c_35506) | `skos:exactMatch` | Implemented | Exact prefLabel match. AGROVOC keeps Oomycetes separate from Fungi, which is the distinction the individual exists to record. |
+
+**Rank caveat, recorded rather than smoothed over.** The four groups sit at four
+different levels — NCBI gives Fungi a kingdom, Bacteria a domain, Viruses an
+acellular root and Oomycota a phylum. `PathogenGroup` is the grouping plant
+pathology uses, not one taxonomic rank, and the class comment says so.
+
+## Round 2 re-check (2026-09-23): `Armyworm` and `Rice_Bug` still not applied
+
+Both were re-queried on 2026-09-23 while closing the last two organisms with no
+SKOS mapping of any kind. New evidence was found for each, and **neither
+mapping was applied** — both sit behind a review gate this register set
+deliberately.
+
+- **`Armyworm`.** AGROVOC *does* hold [`Mythimna separata`](http://aims.fao.org/aos/agrovoc/c_30262),
+  the species the individual's own `rdfs:comment` names, so the round-2 note
+  "no suitable candidate found" is too strong: what is missing is a common-name
+  confirmation, not a concept. NCBI TaxID 271217 gives `GenbankCommonName`
+  "northern armyworm" and lists *Pseudaletia separata* as a synonym — which is
+  the name behind `PSEDSE`, the EPPO code already asserted on the individual,
+  so two independent identifiers agree on the species. **Proposed:**
+  `skos:exactMatch` c_30262 plus NCBITaxon 271217 and `skos:altLabel`
+  "Mythimna separata". **Not applied:** round 2 recorded "do not guess; keep
+  local-only", and upgrading it is a review decision, not a lookup.
+- **`Rice_Bug`.** AGROVOC holds the species
+  [`Leptocorisa oratorius`](http://aims.fao.org/aos/agrovoc/c_30653), not only
+  the genus `c_4277` — the earlier search matched the genus because of how the
+  endpoint ranks labels. The two open questions from round 2 are unchanged:
+  species-vs-genus scope for a generically named local entity, and the
+  `oratoria` (NCBI) vs `oratorius` (AGROVOC, EPPO `LEPROR`) spelling, which
+  NCBI records as a misspelling of the same species. **Not applied.** An
+  AI-assisted lookup on 2026-08-22 proposed exactly this mapping and was
+  rejected for these reasons; a second automated proposal is not new evidence.
+
 ## Implemented mapping pattern
 
 The three rows marked **Implemented in v2.2** are now present in
@@ -326,7 +372,18 @@ literature evidence and provenance.
    see decision log and updated table row above.
 3. Continue recording source, reviewer, and date in the decision log above for
    every new mapping decision.
-4. The seven remaining `Local-only / gap` entities from the Paddy Doctor set
+4. **Re-attempted 2026-09-23 and answered: AGROVOC does not index these
+   diseases.** Direct `/search` queries return zero results for "sheath
+   blight", "brown spot" and "zinc deficiency"; "bacterial leaf blight"
+   returns only an `altLabel` on the *pathogen* concept `Xanthomonas oryzae`
+   (c_24383), which `Xanthomonas_Oryzae` already holds — mapping the disease
+   there would be a category error. AGROVOC largely indexes organisms rather
+   than disease entities, so 12 of 15 `Disease` individuals have no candidate
+   as a matter of vocabulary coverage, not of unfinished work. This is the
+   answer to give if the low disease-alignment ratio is queried; a disease
+   vocabulary (EPPO GD codes, or a disease ontology) is the place to look
+   next, not a further AGROVOC pass.
+5. The seven remaining `Local-only / gap` entities from the Paddy Doctor set
    (`Bacterial_Leaf_Blight`, `Bacterial_Leaf_Streak`,
    `Bacterial_Panicle_Blight`, `Brown_Spot`, `Hispa`, `Deadheart`,
    `Normal_Health`) have no direct AGROVOC candidate on record. Note that in v0.6,

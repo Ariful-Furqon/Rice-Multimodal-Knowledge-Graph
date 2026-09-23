@@ -89919,6 +89919,10 @@
   </rdf:Description>
   <rdf:Description rdf:nodeID="Nv070disjointlevel">
     <rdf:first rdf:resource="https://w3id.org/ricemmkg#ResistanceLevel"/>
+    <rdf:rest rdf:nodeID="Nv070disjointpathogengroup"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070disjointpathogengroup">
+    <rdf:first rdf:resource="https://w3id.org/ricemmkg#PathogenGroup"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#ResistanceAssessment">
@@ -90324,5 +90328,158 @@
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.49243"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2019). Sclerophthora macrospora (downy mildew). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.49243 / Ou, S. H. (1985). Rice Diseases (2nd ed.). CAB International.</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#PathogenGroup">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">The broad group of organism a pathogen belongs to, as plant pathology uses the term: fungus, bacterium, virus, oomycete. It is a practitioner's grouping, not one taxonomic rank - NCBI places Fungi at kingdom, Bacteria at domain, Viruses at an acellular root and Oomycota at phylum - and the class exists because the most converged competency question in the elicitation (CQ-A01, proposed by five of six models and rated 5/5 by the domain expert on 2026-09-20) asks which group a pathogen belongs to. Only groups with a pathogen in them are created: the nematodes, protozoa, rickettsia and viroids named in the 2026-09-14 expert review have no individual because the knowledge graph holds no such pathogen.</rdfs:comment>
+    <rdfs:label xml:lang="en">Pathogen Group</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasPathogenGroup">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#Pathogen"/>
+    <rdfs:range rdf:resource="https://w3id.org/ricemmkg#PathogenGroup"/>
+    <rdfs:comment xml:lang="en">Relates a Pathogen to its taxonomic group. Each assertion is read off the NCBI Taxonomy lineage of that pathogen, so it is ontology-derived and carries the taxonomy record it was read from as its source.</rdfs:comment>
+    <rdfs:label xml:lang="en">has pathogen group</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Fungus_Group">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#PathogenGroup"/>
+    <rdfs:comment xml:lang="en">Fungi (NCBI Taxonomy 4751, kingdom). The group a plant pathologist means by 'jamur'.</rdfs:comment>
+    <rdfs:label xml:lang="en">Fungus</rdfs:label>
+    <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4751"/>
+    <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_3145"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterium_Group">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#PathogenGroup"/>
+    <rdfs:comment xml:lang="en">Bacteria (NCBI Taxonomy 2, domain).</rdfs:comment>
+    <rdfs:label xml:lang="en">Bacterium</rdfs:label>
+    <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_2"/>
+    <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_765"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Virus_Group">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#PathogenGroup"/>
+    <rdfs:comment xml:lang="en">Viruses (NCBI Taxonomy 10239, acellular root).</rdfs:comment>
+    <rdfs:label xml:lang="en">Virus</rdfs:label>
+    <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_10239"/>
+    <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_8262"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Oomycete_Group">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#PathogenGroup"/>
+    <rdfs:comment xml:lang="en">Oomycota (NCBI Taxonomy 4762, phylum). Water moulds are stramenopiles, not true fungi, although they cause fungus-like diseases and are managed as such - which is the distinction this class exists to keep.</rdfs:comment>
+    <rdfs:label xml:lang="en">Oomycete</rdfs:label>
+    <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4762"/>
+    <skos:exactMatch rdf:resource="http://aims.fao.org/aos/agrovoc/c_35506"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bipolaris_Oryzae">
+    <rice:hasPathogenGroup rdf:resource="https://w3id.org/ricemmkg#Fungus_Group"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070pathogengroup01">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bipolaris_Oryzae"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#hasPathogenGroup"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Fungus_Group"/>
+    <dcterms:source rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_101162"/>
+    <dcterms:bibliographicCitation xml:lang="en">NCBI Taxonomy: Bipolaris oryzae, TaxID 101162. Lineage: cellular organisms; Eukaryota; Opisthokonta; Fungi; Dikarya; Ascomycota. Retrieved live via NCBI E-utilities efetch (db=taxonomy) on 2026-09-23.</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">ontology-derived</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Magnaporthe_Oryzae">
+    <rice:hasPathogenGroup rdf:resource="https://w3id.org/ricemmkg#Fungus_Group"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070pathogengroup02">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Magnaporthe_Oryzae"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#hasPathogenGroup"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Fungus_Group"/>
+    <dcterms:source rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_318829"/>
+    <dcterms:bibliographicCitation xml:lang="en">NCBI Taxonomy: Pyricularia oryzae, TaxID 318829. Lineage: cellular organisms; Eukaryota; Opisthokonta; Fungi; Dikarya; Ascomycota. Retrieved live via NCBI E-utilities efetch (db=taxonomy) on 2026-09-23.</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">ontology-derived</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rhizoctonia_Solani">
+    <rice:hasPathogenGroup rdf:resource="https://w3id.org/ricemmkg#Fungus_Group"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070pathogengroup03">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rhizoctonia_Solani"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#hasPathogenGroup"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Fungus_Group"/>
+    <dcterms:source rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_456999"/>
+    <dcterms:bibliographicCitation xml:lang="en">NCBI Taxonomy: Rhizoctonia solani, TaxID 456999. Lineage: cellular organisms; Eukaryota; Opisthokonta; Fungi; Dikarya; Basidiomycota. Retrieved live via NCBI E-utilities efetch (db=taxonomy) on 2026-09-23.</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">ontology-derived</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Burkholderia_Glumae">
+    <rice:hasPathogenGroup rdf:resource="https://w3id.org/ricemmkg#Bacterium_Group"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070pathogengroup04">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Burkholderia_Glumae"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#hasPathogenGroup"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Bacterium_Group"/>
+    <dcterms:source rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_337"/>
+    <dcterms:bibliographicCitation xml:lang="en">NCBI Taxonomy: Burkholderia glumae, TaxID 337. Lineage: cellular organisms; Bacteria; Pseudomonadati; Pseudomonadota; Betaproteobacteria. Retrieved live via NCBI E-utilities efetch (db=taxonomy) on 2026-09-23.</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">ontology-derived</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Xanthomonas_Oryzae">
+    <rice:hasPathogenGroup rdf:resource="https://w3id.org/ricemmkg#Bacterium_Group"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070pathogengroup05">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Xanthomonas_Oryzae"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#hasPathogenGroup"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Bacterium_Group"/>
+    <dcterms:source rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_347"/>
+    <dcterms:bibliographicCitation xml:lang="en">NCBI Taxonomy: Xanthomonas oryzae, TaxID 347. Lineage: cellular organisms; Bacteria; Pseudomonadati; Pseudomonadota; Gammaproteobacteria. Retrieved live via NCBI E-utilities efetch (db=taxonomy) on 2026-09-23.</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">ontology-derived</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Xanthomonas_Oryzicola">
+    <rice:hasPathogenGroup rdf:resource="https://w3id.org/ricemmkg#Bacterium_Group"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070pathogengroup06">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Xanthomonas_Oryzicola"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#hasPathogenGroup"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Bacterium_Group"/>
+    <dcterms:source rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_129394"/>
+    <dcterms:bibliographicCitation xml:lang="en">NCBI Taxonomy: Xanthomonas oryzae pv. oryzicola, TaxID 129394. Lineage: cellular organisms; Bacteria; Pseudomonadati; Pseudomonadota; Gammaproteobacteria. Retrieved live via NCBI E-utilities efetch (db=taxonomy) on 2026-09-23.</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">ontology-derived</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rice_Tungro_Bacilliform_Virus">
+    <rice:hasPathogenGroup rdf:resource="https://w3id.org/ricemmkg#Virus_Group"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070pathogengroup07">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Tungro_Bacilliform_Virus"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#hasPathogenGroup"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Virus_Group"/>
+    <dcterms:source rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_10654"/>
+    <dcterms:bibliographicCitation xml:lang="en">NCBI Taxonomy: Rice tungro bacilliform virus, TaxID 10654. Lineage: Viruses; Riboviria; Pararnavirae; Artverviricota; Revtraviricetes; Ortervirales; Caulimoviridae. Retrieved live via NCBI E-utilities efetch (db=taxonomy) on 2026-09-23.</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">ontology-derived</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rice_Tungro_Spherical_Virus">
+    <rice:hasPathogenGroup rdf:resource="https://w3id.org/ricemmkg#Virus_Group"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070pathogengroup08">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Tungro_Spherical_Virus"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#hasPathogenGroup"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Virus_Group"/>
+    <dcterms:source rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_35287"/>
+    <dcterms:bibliographicCitation xml:lang="en">NCBI Taxonomy: Rice tungro spherical virus, TaxID 35287. Lineage: Viruses; Riboviria; Orthornavirae; Pisuviricota; Pisoniviricetes; Picornavirales; Secoviridae. Retrieved live via NCBI E-utilities efetch (db=taxonomy) on 2026-09-23.</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">ontology-derived</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Sclerophthora_Macrospora">
+    <rice:hasPathogenGroup rdf:resource="https://w3id.org/ricemmkg#Oomycete_Group"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nv070pathogengroup09">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Sclerophthora_Macrospora"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#hasPathogenGroup"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Oomycete_Group"/>
+    <dcterms:source rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_467176"/>
+    <dcterms:bibliographicCitation xml:lang="en">NCBI Taxonomy: Sclerophthora macrospora, TaxID 467176. Lineage: cellular organisms; Eukaryota; Sar; Stramenopiles; Oomycota; Peronosporomycetes. Retrieved live via NCBI E-utilities efetch (db=taxonomy) on 2026-09-23.</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">ontology-derived</rice:evidenceType>
   </rdf:Description>
 </rdf:RDF>

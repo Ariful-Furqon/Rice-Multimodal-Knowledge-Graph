@@ -329,7 +329,7 @@ CQS = [
                      "assertions while both reported full provenance. Runs on "
                      "the asserted graph, since materialised inverses are never "
                      "reified and would all count as violations. Extended "
-                     "again on 2026-09-17: ResistanceAssessment individuals "
+                     "again on 2026-09-23: rice:hasPathogenGroup joined the list - a property left out of it is invisible to this check, which is the failure mode the 2026-09-14 extension was written for. Extended again on 2026-09-17: ResistanceAssessment individuals "
                      "carry their provenance on the individual itself rather "
                      "than on an axiom, so an assessment missing its source, "
                      "citation or evidence type is reported too.",
@@ -345,7 +345,8 @@ CQS = [
                 rice:controlledBy rice:preventedBy rice:increaseRiskOf
                 rice:vulnerableTo rice:recommends rice:requires
                 rice:affectsPlantPart rice:partOf rice:hasTransmissionMode
-                rice:hasManagementCategory rice:varietyOf }
+                rice:hasManagementCategory rice:varietyOf
+                rice:hasPathogenGroup }
     ?s ?p ?o .
     FILTER NOT EXISTS { ?ax owl:annotatedSource ?s ;
                             owl:annotatedProperty ?p ;
