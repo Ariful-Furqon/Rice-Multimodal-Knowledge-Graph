@@ -18,7 +18,7 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 
 - **Namespace:** `https://w3id.org/ricemmkg#` — permanent identifier, live since 2026-09-16; version IRIs `https://w3id.org/ricemmkg/<version>` (releases up to v0.6.2 used `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#`)
 - **Format:** OWL/XML (`.rdf`), fully compatible with [Protégé](https://protege.stanford.edu/)
-- **Version:** `0.7.0-dev` on `main` (in development; last release `v0.6.2`, 2026-09-15; git tags `v0.6.1`, `v0.6.2`; v0.6 released 2026-09-03) — actively progressing toward the **ESWC 2027 Resource Track** (see [`Ontology/riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md))
+- **Version:** `0.7.0-dev` on `main` (in development; last release `v0.6.2`, 2026-09-15; git tags `v0.6.1`, `v0.6.2`; v0.6 released 2026-09-03) — target venue under review (ESWC 2027 dropped on 2026-09-29; see [Roadmap](#roadmap))
 - **Triples:** **68,204** asserted triples / **163,957** materialised triples under OWL RL (+95,753 inferred triples); v0.6.2: 66,802 / 161,447
 - **Reasoner Consistency:** **100% Consistent** in HermiT & Pellet (0 unsatisfiable classes, 0 disjointness conflicts)
 
@@ -35,7 +35,7 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 | `SensorObservation` | 0 | Declared scaffolding for microclimate & IoT sensor telemetry (Phase 3) |
 | `Observation` | 0 | Abstract root observation superclass |
 | `Dataset` (`dcat:Dataset`) | 1 | Metadata individual for the Paddy Doctor image collection |
-| `Disease` | 9 | Diagnostic entities & damage conditions (including `Deadheart`, Bacterial Leaf Blight, Rice Blast, Tungro) |
+| `Disease` | 15 | 9 biotic diseases & damage conditions (including `Deadheart`, Bacterial Leaf Blight, Rice Blast, Tungro, Sheath Blight) and 6 abiotic disorders (N, P, K, Zn deficiency, iron toxicity, salinity; 0.7.0-dev) |
 | `Pest` | 7 | Insect pests and vectors (Stem Borer, Leaf Folder, Brown Planthopper, Armyworm, Rice Bug, Hispa, Green Leafhopper) |
 | `Pathogen` | 9 | Microbial causal agents (Magnaporthe Oryzae, Rhizoctonia solani, Xanthomonas pathovars, RTBV, RTSV) |
 | `Plant` | 1 | The host crop (*Oryza sativa*) |
@@ -86,6 +86,31 @@ The local Paddy Doctor image dataset is excluded from Git (`/Data/`). Folder lab
 | `dead_heart` | `Deadheart` | Disease (Damage condition) | `Dead_Tiller` (Symptom, 1,442 images) |
 | `normal` | `Normal_Health` | HealthStatus | — (reference baseline) |
 
+`Deadheart` is the tiller damage left by stem borers; its 1,442 images are the only images tied to `Stem_Borer`, and only indirectly.
+
+### Modality Coverage & Data Gaps (0.7.0-dev)
+
+Images currently cover 8 of the 15 `Disease` individuals and 1 of the 7 `Pest` individuals (`Hispa`). The ontology conditions without any image are:
+
+| Class | Without images |
+|---|---|
+| `Pest` | `Armyworm`, `Brown_Planthopper`, `Leaf_Folder`, `Nephotettix_Virescens`, `Rice_Bug`, `Stem_Borer` |
+| `Disease` | `Sheath_Blight`; all 6 abiotic disorders (N, P, K, Zn deficiency, iron toxicity, salinity) |
+
+Candidate sources under evaluation (licence and access not yet verified for all; none has been imported):
+
+| Gap | Candidate sources |
+|---|---|
+| Per-image content beyond the label | Expert image annotation; YOLO-RLD lesion boxes; Paddy Doctor variety / age metadata |
+| Pest images | Paddy Doctor full and pest sets (leaf roller, stem borers); IP102 |
+| Abiotic disorders, sheath blight | None found yet — expert annotation is the only route so far |
+| Second imaging modality | IMPaCT-UAV-MsRGB (multispectral + RGB, no disease labels) |
+| Text | Kisan Call Centre farmer queries (access currently blocked) |
+| Environment / occurrence / genes | NASA POWER; Rice Disease Risk Assessment table; GBIF; UniProtKB; Oryzabase |
+| Comparison with an existing ontology | RiceDO v2 + TreatO v2 |
+
+Sources under CC BY-SA would go into a separate module brought in through `owl:imports`, so the core stays CC BY 4.0.
+
 ---
 
 ## Competency Question (CQ) SPARQL Benchmark
@@ -113,9 +138,17 @@ v0.6.1 and v0.6.2 score 23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC. In 0.7.0-dev CQ-12
 
 ---
 
-## Roadmap Toward ESWC 2027
+## Roadmap
 
-Our six-phase development roadmap toward the **ESWC 2027 Resource Track** is detailed in [`Ontology/riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md) (revised 2026-09-14):
+**Status (2026-09-30):** ESWC 2027 is no longer the target venue, and a new one has not been chosen. The six phases below were planned against the ESWC 2027 Resource Track; their order still holds, but dates in Phases 4–6 will be re-planned once the venue is set. Details: [`Ontology/riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md) (revised 2026-09-14).
+
+**Next steps:**
+1. Collect the candidate datasets, starting with pest images, and verify licence and access.
+2. Analyse them: classes, image counts, and which ontology individuals they match.
+3. Map them to the current ontology, including a `Deadheart` → `Stem_Borer` link.
+4. Send the expert annotation package to cover abiotic disorders and sheath blight.
+
+The original six phases:
 
 1. **Phase 1: Functional & Reasoning Evaluation (Weeks 1–2, Sept) — [done: v0.6.1]**  
    25 benchmark CQs (95.8% pass rate, 0 FAIL), 19 of 25 elicited CQs queried against a frozen baseline, HermiT consistency, OWL RL materialisation.
@@ -128,34 +161,7 @@ Our six-phase development roadmap toward the **ESWC 2027 Resource Track** is det
 5. **Phase 5: Availability & FAIR Finalisation → v0.9 (Early–Mid Nov)**  
    pyLODE/Widoco documentation at the PURL, FOOPS!/OOPS!, Zenodo DOI and AgroPortal for the final release.
 6. **Phase 6: Resource Paper & Submission → v1.0 (Mid Nov – Early Dec)**  
-   Manuscript, reproducibility package, submission to ESWC 2027.
-
----
-
-## Repository Contents
-
-```
-MAINTENANCE.md                   # Maintainers, contact, versioning and release process
-w3id/ricemmkg/                   # w3id.org redirect files (.htaccess, README.md)
-Ontology/
-  Rice MMKG.rdf                  # Master ontology file (OWL/XML), 0.7.0-dev
-  Rice MMKG.properties           # Protégé project preferences
-  Ontology_Overview.md           # Comprehensive structure, statistics, and full changelog
-  riceMMKG_ESWC_plan.md          # 5-phase master roadmap toward ESWC 2027 submission
-  Backup/                        # Preserved backups (v0.2 through v0.6 pre-v0.6.1)
-  CQ SPARQL Benchmark/
-    cq_sparql_benchmark.py       # Automated Python/rdflib/owlrl benchmark runner
-    cq_sparql_benchmark_results.json # Full machine-readable test results
-    CQ_SPARQL_Benchmark_Report.md    # Formatted execution benchmark report
-    CQ_SPARQL_Documentation.md      # Standalone CQ documentation with all 25 SPARQL queries
-Analysis and Alignment/
-    AGROVOC_alignment.md         # Vocabulary alignment to FAO AGROVOC
-    NCBI_Taxonomy_alignment.md   # Organism-level alignment to NCBI Taxonomy
-    Planteome_alignment.md       # Environmental factor alignment to Plant Ontologies
-    PaddyDoctor_Dataset_Analysis.md # Dataset profile and ingestion strategy
-Data/                            # Local image dataset (gitignored)
-Worklog/                         # Internal cleanup and task logs (gitignored)
-```
+   Manuscript, reproducibility package, submission (venue to be decided).
 
 ---
 
