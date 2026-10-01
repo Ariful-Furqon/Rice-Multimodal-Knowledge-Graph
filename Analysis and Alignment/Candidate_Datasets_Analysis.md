@@ -72,7 +72,4 @@
 | Pests | 1/7 | 3/7 |
 | Diseases | 8/15 | 9/15 |
 
-## Open Questions for Authors
-- Can we get an explicit licence for the Paddy Doctor pest set?
-- Is there a way to access the metadata for the IEEE DataPort full dataset without a subscription?
-- Are the Kaggle/Roboflow nutrient deficiency datasets verified by agronomists?
+
