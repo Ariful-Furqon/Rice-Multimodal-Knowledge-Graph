@@ -22,16 +22,18 @@
   - normal 2,405
   - Varieties (10): `45` 10,978 (68%) · KarnatakaPonni 1,404 · Ponni 975 · AtchayaPonni 706 · Zonal 649 · AndraPonni 615 · Onthanel 585 · IR20 235 · Surya 42 · RR 36
   - Age: 45–80 days (17 distinct values)
-- **Overlap with Kaggle subset (already in ontology as `PaddyDoctor_*`, 10,407 images):** no byte-identical files (Kaggle is re-encoded). A dHash check matched **7,505** IEEE images to Kaggle images. Kaggle `dead_heart` (1,442) = IEEE black + white + yellow stem borer merged. **11** matches have different labels in the two releases (`Worklog/PaddyDoctor_IEEE_import/output/kaggle_label_conflicts.csv`).
-- **Mapping to Rice MMKG:**
-  - 7 diseases + hispa + normal → same targets as the Kaggle import (exact)
-  - black/white/yellow_stem_borer → `Stem_Borer` (broad) + `captures Dead_Tiller`
-  - leaf_roller → `Leaf_Folder` (close; confirm with expert)
-  - variety → new `Variety` individuals (none exist yet). `45` is assumed to be ADT 45 (UNVERIFIED). Zonal, Onthanel and RR are unresolved.
-  - age → `plantAgeDays` (proposed property). Not mapped to `GrowthStage`, because stage depends on variety duration.
-- **Gap closed:** Pests with images 1/7 → 3/7 (`Stem_Borer`, `Leaf_Folder`, plus existing `Hispa`). Adds variety and age context to every image. No new diseases.
-- **Issues:** Taxonomy granularity (3 stem borers → 1 individual); variety codes need verification; class imbalance across varieties (variety 45 dominates).
-- **Artefacts:** `Worklog/PaddyDoctor_IEEE_import/` (`scripts/map_paddydoctor_ieee.py`, `scripts/phash_overlap.py`, `output/label_mapping.csv`, `output/variety_mapping.csv`, `output/paddydoctor_ieee.ttl`). The TTL is a separate module and has not been merged into `Rice MMKG.rdf`.
+- **Overlap with the former Kaggle subset (10,407 images):** no byte-identical files (Kaggle is re-encoded). A dHash crosswalk matched 10,065 of the Kaggle images to IEEE images. 2 have label conflicts and 340 have no IEEE match. Kaggle `dead_heart` (1,442) = IEEE black + white + yellow stem borer merged.
+- **Status: IMPORTED 2026-10-03.** All Kaggle ImageObservations were replaced by the 16,225 IEEE images (see `Worklog/PaddyDoctor_IEEE_import/SUMMARY.md`). HermiT: consistent.
+- **Mapping applied:**
+  - 7 diseases + hispa + normal → same targets as the Kaggle import
+  - yellow_stem_borer → `Stem_Borer` (= *S. incertulas*) + `captures Dead_Tiller`
+  - black / white_stem_borer → NOT mapped to `Stem_Borer` (species differ; group-vs-individual decision still open). They keep `annotatedAs Deadheart` + `captures Dead_Tiller`.
+  - leaf_roller → `Leaf_Folder` (accepted)
+  - variety → `ofVariety` for 6 resolved names (Karnataka/Atchaya/Andhra Ponni, Ponni, IR20, Surya; 3,977 images). Codes `45`, Zonal, Onthanel and RR are not implemented.
+  - age → `plantAgeDays` on all images. Not mapped to `GrowthStage`.
+- **Gap closed:** Pests with images 1/7 → 3/7 (`Hispa`, `Stem_Borer`, `Leaf_Folder`). No new diseases.
+- **Issues:** Variety code `45` (68% of images) is unresolved; 9 images in the expert package have no IEEE counterpart; class imbalance across varieties.
+- **Artefacts:** `Worklog/PaddyDoctor_IEEE_import/` (`SUMMARY.md`, `scripts/apply_replace_kaggle.py`, `scripts/build_crosswalk.py`, `output/kaggle_to_ieee_crosswalk.csv`).
 
 ## 2. Paddy Doctor pest set
 - **Identity:** Paddy Doctor: Open Dataset and Automated Pest Identification Using Pre-trained Deep Learning Models (ICLR 2024 Workshop). Authors: Petchiammal A., Pandarasamy Arjunan.
