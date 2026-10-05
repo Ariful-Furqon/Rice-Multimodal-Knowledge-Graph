@@ -19,8 +19,9 @@ In Rice MMKG v0.6.1, **all 256 domain relation assertions are reified** via `owl
 
 ```
 Layer 1: Dataset & Media Provenance (W3C PROV-O & Schema.org)
-   └── 10,407 ImageObservations ──[prov:wasDerivedFrom]──> PaddyDoctorDataset (dcat:Dataset)
-   └── 10,407 ImageObservations ──[schema:contentUrl]───> Relative image paths
+   └── 16,225 ImageObservations ──[prov:wasDerivedFrom]──> PaddyDoctorDataset (dcat:Dataset)
+   └──  1,106 ImageObservations ──[prov:wasDerivedFrom]──> DhanShomadhanDataset (dcat:Dataset)
+   └── 17,331 ImageObservations ──[schema:contentUrl]───> Relative image paths
 
 Layer 2: Axiom-Level Literature Grounding (OWL 2 Axiom Reification)
    └── 256 Domain Triples ──[owl:Axiom]──┬──[dcterms:source]──────────────> Source URI (DOI where one exists)
@@ -49,7 +50,9 @@ Counts are by the host of each axiom's `dcterms:source` URI. An axiom has exactl
 | **Bagariang et al. (2021)**, SEAS 5(2):79–87 | Brown planthopper reaction of IR64, Ciherang, Inpari 32 and Inpari 33 against Javanese populations | `https://doi.org/10.22225/seas.5.2.3913.79-87` | **2** (`varietyOf`, 0.7.0-dev) + **4 assessments** |
 | **Biswas et al. (2021)**, Plants 10:2048 | Ciherang's susceptibility to bacterial blight races | `https://doi.org/10.3390/plants10102048` | **1** (`varietyOf`, 0.7.0-dev) + **1 assessment** |
 | **Wang et al. (2022)** | Vector transmission mode of both tungro viruses | DOI | **2** (0.7.0-dev) |
-| **Total** | | | **256** in v0.6.2; **349** in 0.7.0-dev (IRRI rises to 90 with the fact-sheet rounds, AGROVOC 4 and Plant Ontology 2 join as `ontology-derived`), plus **15** `ResistanceAssessment` individuals that carry `dcterms:source`, citation and evidence type on themselves |
+| **IRRI Rice Doctor factsheet, Lucid key server** | Leaf scald: causal fungus, zonate lesion symptom, nitrogen risk factor, control (the IRRI Rice Knowledge Bank page was unreachable on 2026-10-05; the same IRRI factsheet is served by the Rice Doctor key) | `https://keyserver.lucidcentral.org/.../Scald.htm` | **8** (0.7.0-dev, 2026-10-05) |
+| **Paddy Doctor dataset** (Petchiammal et al., IEEE DataPort) | Variety names recorded in `metadata.csv`; `evidenceType` `dataset-derived` | `https://doi.org/10.21227/hz4v-af08` | **6** (`varietyOf`, 0.7.0-dev, 2026-10-05) |
+| **Total** | | | **256** in v0.6.2; **349** in 0.7.0-dev (IRRI rises to 90 with the fact-sheet rounds, AGROVOC 4 and Plant Ontology 2 join as `ontology-derived`); **360** with `hasPathogenGroup` (2026-09-23); **375** on 2026-10-05 (leaf scald 9, Paddy Doctor varieties 6). Plus **15** `ResistanceAssessment` individuals that carry `dcterms:source`, citation and evidence type on themselves |
 
 ### CABI datasheets cited
 

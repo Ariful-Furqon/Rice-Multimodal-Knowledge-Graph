@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated": "2026-10-04 10:54",
+    "generated": "2026-10-05 21:08",
     "ontology": "Rice MMKG.rdf",
-    "asserted_triples": 140699,
-    "entailed_triples": 289734,
-    "reasoning_seconds": 226.6,
+    "asserted_triples": 148656,
+    "entailed_triples": 306729,
+    "reasoning_seconds": 56.9,
     "coverage_threshold": 0.5
   },
   "results": [
@@ -15,15 +15,15 @@
       "mode": "coverage",
       "question": "Which rice diseases have an identified causal pathogen?",
       "rationale": "Aetiological completeness. A disease without a causal agent cannot support any downstream causal query.",
-      "covered": 8,
-      "total": 9,
-      "ratio": 0.8888888888888888,
+      "covered": 9,
+      "total": 10,
+      "ratio": 0.9,
       "missing": [
         "rice:Deadheart"
       ],
       "unit": "disease",
       "status": "PASS",
-      "ms": 522.8
+      "ms": 69.1
     },
     {
       "id": "CQ-02",
@@ -32,15 +32,15 @@
       "mode": "coverage",
       "question": "Which diseases and pests have at least one observable symptom?",
       "rationale": "Diagnosability. Without a symptom link an entity is invisible to field-observation-driven inference.",
-      "covered": 21,
-      "total": 22,
-      "ratio": 0.9545454545454546,
+      "covered": 22,
+      "total": 23,
+      "ratio": 0.9565217391304348,
       "missing": [
         "rice:Nephotettix_Virescens"
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 51.1
+      "ms": 10.4
     },
     {
       "id": "CQ-03",
@@ -49,9 +49,9 @@
       "mode": "coverage",
       "question": "Which diseases and pests have at least one control treatment?",
       "rationale": "Actionability. The KG must not diagnose what it cannot advise on.",
-      "covered": 18,
-      "total": 22,
-      "ratio": 0.8181818181818182,
+      "covered": 19,
+      "total": 23,
+      "ratio": 0.8260869565217391,
       "missing": [
         "rice:Iron_Toxicity_Disorder",
         "rice:Phosphorus_Deficiency_Disorder",
@@ -60,7 +60,7 @@
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 29.0
+      "ms": 6.7
     },
     {
       "id": "CQ-04",
@@ -69,13 +69,13 @@
       "mode": "coverage",
       "question": "Which symptoms are attached to at least one disease or pest?",
       "rationale": "Detects orphan symptoms - vocabulary declared but never used in a diagnostic pattern.",
-      "covered": 39,
-      "total": 39,
+      "covered": 40,
+      "total": 40,
       "ratio": 1.0,
       "missing": [],
       "unit": "symptom",
       "status": "PASS",
-      "ms": 16.7
+      "ms": 3.9
     },
     {
       "id": "CQ-05",
@@ -85,11 +85,12 @@
       "question": "For which diseases/pests can we state both the growth stage of occurrence and an environmental factor raising their risk?",
       "rationale": "Multi-criteria contextualisation. Both joins are mandatory (no OPTIONAL), so the CQ measures real co-population of occursIn and increaseRiskOf.",
       "covered": 13,
-      "total": 22,
-      "ratio": 0.5909090909090909,
+      "total": 23,
+      "ratio": 0.5652173913043478,
       "missing": [
         "rice:Iron_Toxicity_Disorder",
         "rice:Leaf_Folder",
+        "rice:Leaf_Scald",
         "rice:Nephotettix_Virescens",
         "rice:Nitrogen_Deficiency_Disorder",
         "rice:Phosphorus_Deficiency_Disorder",
@@ -119,12 +120,12 @@
         [
           "rice:Flowering_Stage",
           "rice:Bacterial_Panicle_Blight",
-          "rice:High_Temperature"
+          "rice:High_Night_Temperature"
         ],
         [
           "rice:Flowering_Stage",
           "rice:Bacterial_Panicle_Blight",
-          "rice:High_Night_Temperature"
+          "rice:High_Temperature"
         ],
         [
           "rice:Flowering_Stage",
@@ -149,12 +150,12 @@
         [
           "rice:Flowering_Stage",
           "rice:Sheath_Blight",
-          "rice:Poor_Soil_Drainage"
+          "rice:High_Humidity"
         ],
         [
           "rice:Flowering_Stage",
           "rice:Sheath_Blight",
-          "rice:High_Humidity"
+          "rice:Poor_Soil_Drainage"
         ],
         [
           "rice:Maturity_Stage",
@@ -168,7 +169,7 @@
         "f"
       ],
       "detail_total": 88,
-      "ms": 143.3
+      "ms": 31.6
     },
     {
       "id": "CQ-06",
@@ -185,7 +186,7 @@
       ],
       "unit": "growth stage",
       "status": "PASS",
-      "ms": 26.2
+      "ms": 5.5
     },
     {
       "id": "CQ-07",
@@ -197,7 +198,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 15.2
+      "ms": 330.4
     },
     {
       "id": "CQ-08",
@@ -214,7 +215,7 @@
       ],
       "unit": "preventive treatment",
       "status": "PASS",
-      "ms": 12.0
+      "ms": 9.1
     },
     {
       "id": "CQ-09",
@@ -247,7 +248,7 @@
         "d"
       ],
       "detail_total": 2,
-      "ms": 31.2
+      "ms": 10.1
     },
     {
       "id": "CQ-10",
@@ -259,7 +260,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 12.2
+      "ms": 3.8
     },
     {
       "id": "CQ-11",
@@ -268,9 +269,9 @@
       "mode": "coverage",
       "question": "For which diseases is the full risk-to-remedy chain traversable: environmental factor -> disease -> symptom -> treatment?",
       "rationale": "End-to-end decision-support path. This is the query an advisory application actually needs to answer.",
-      "covered": 11,
-      "total": 15,
-      "ratio": 0.7333333333333333,
+      "covered": 12,
+      "total": 16,
+      "ratio": 0.75,
       "missing": [
         "rice:Iron_Toxicity_Disorder",
         "rice:Phosphorus_Deficiency_Disorder",
@@ -282,74 +283,74 @@
       "detail_rows": [
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Wilting",
-          "rice:Crop_Rotation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
+          "rice:High_Humidity",
           "rice:Wilting",
           "rice:Water_Management"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
+          "rice:High_Humidity",
           "rice:Wilting",
           "rice:Crop_Sanitation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
+          "rice:High_Humidity",
+          "rice:Wilting",
+          "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
           "rice:Wilting",
           "rice:Resistant_Variety"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Yellow_Leaf",
-          "rice:Crop_Rotation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Yellow_Leaf",
+          "rice:High_Humidity",
+          "rice:Leaf_Rolling",
           "rice:Water_Management"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Yellow_Leaf",
+          "rice:High_Humidity",
+          "rice:Leaf_Rolling",
           "rice:Crop_Sanitation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Yellow_Leaf",
+          "rice:High_Humidity",
+          "rice:Leaf_Rolling",
+          "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Leaf_Rolling",
           "rice:Resistant_Variety"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Dry_Leaf_Tip",
-          "rice:Crop_Rotation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Dry_Leaf_Tip",
+          "rice:High_Humidity",
+          "rice:Yellow_Leaf",
           "rice:Water_Management"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Dry_Leaf_Tip",
+          "rice:High_Humidity",
+          "rice:Yellow_Leaf",
           "rice:Crop_Sanitation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Dry_Leaf_Tip",
+          "rice:High_Humidity",
+          "rice:Yellow_Leaf",
+          "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:High_Humidity",
+          "rice:Yellow_Leaf",
           "rice:Resistant_Variety"
         ]
       ],
@@ -359,8 +360,8 @@
         "s",
         "t"
       ],
-      "detail_total": 296,
-      "ms": 5709.4
+      "detail_total": 299,
+      "ms": 1094.7
     },
     {
       "id": "CQ-12",
@@ -370,13 +371,14 @@
       "question": "For which diseases and pests does the KG reach the management layer, i.e. recommend a concrete ManagementAction?",
       "rationale": "Tests that diagnosis terminates in an operational decision. Note the direction of rice:recommends in this KG is entity -> action, not action -> treatment.",
       "covered": 9,
-      "total": 22,
-      "ratio": 0.4090909090909091,
+      "total": 23,
+      "ratio": 0.391304347826087,
       "missing": [
         "rice:Armyworm",
         "rice:Brown_Planthopper",
         "rice:Iron_Toxicity_Disorder",
         "rice:Leaf_Folder",
+        "rice:Leaf_Scald",
         "rice:Nephotettix_Virescens",
         "rice:Nitrogen_Deficiency_Disorder",
         "rice:Phosphorus_Deficiency_Disorder",
@@ -389,7 +391,7 @@
       ],
       "unit": "disease/pest",
       "status": "PARTIAL",
-      "ms": 14.7
+      "ms": 5.7
     },
     {
       "id": "CQ-13",
@@ -412,7 +414,7 @@
       "detail_rows": [],
       "detail_vars": [],
       "detail_total": 0,
-      "ms": 12.3
+      "ms": 4.7
     },
     {
       "id": "CQ-14",
@@ -425,7 +427,7 @@
       "entailed": 2544,
       "gain": 2544,
       "status": "PASS",
-      "ms": 57.5
+      "ms": 22.3
     },
     {
       "id": "CQ-15",
@@ -435,10 +437,10 @@
       "question": "Can the KG be queried in the inverse direction, e.g. disease -> causedBy -> pathogen and symptom -> indicates -> disease?",
       "rationale": "14 of 26 object properties are declared as owl:inverseOf but never asserted. Query robustness depends on materialising them.",
       "asserted": 0,
-      "entailed": 172,
-      "gain": 172,
+      "entailed": 177,
+      "gain": 177,
       "status": "PASS",
-      "ms": 41.0
+      "ms": 6.6
     },
     {
       "id": "CQ-16",
@@ -447,13 +449,13 @@
       "mode": "coverage",
       "question": "Which image observations can be grounded all the way to an agronomic recommendation: image -> annotated class -> symptom and treatment?",
       "rationale": "The central multimodal claim of the KG. The denominator is restricted to images annotated with a Disease or Pest: images labelled with a HealthStatus (healthy plants) correctly have no symptom or treatment, and including them would understate grounding by a fixed 17%.",
-      "covered": 13820,
-      "total": 13820,
+      "covered": 14926,
+      "total": 14926,
       "ratio": 1.0,
       "missing": [],
       "unit": "diagnostic image",
       "status": "PASS",
-      "ms": 18441.7
+      "ms": 3337.1
     },
     {
       "id": "CQ-17",
@@ -462,13 +464,13 @@
       "mode": "coverage",
       "question": "Which annotated classes of the image corpus are typed as a domain entity (Disease, Pest or HealthStatus)?",
       "rationale": "Checks that dataset labels were reconciled with the ontology rather than left as free-floating individuals.",
-      "covered": 12,
-      "total": 12,
+      "covered": 14,
+      "total": 14,
       "ratio": 1.0,
       "missing": [],
       "unit": "annotated class",
       "status": "PASS",
-      "ms": 4024.2
+      "ms": 775.6
     },
     {
       "id": "CQ-18",
@@ -478,8 +480,8 @@
       "question": "Which symptoms are grounded in visual evidence, i.e. captured by at least one image observation?",
       "rationale": "Symptom-level visual grounding is what distinguishes an MMKG from a text ontology with images bolted on. Expected to expose the sharpest gap in the current release.",
       "covered": 1,
-      "total": 39,
-      "ratio": 0.02564102564102564,
+      "total": 40,
+      "ratio": 0.025,
       "missing": [
         "rice:Black_Root",
         "rice:Brown_Leaf_Tip",
@@ -518,11 +520,12 @@
         "rice:Yellow_Orange_Discoloration",
         "rice:Yellow_Stripe",
         "rice:Yellowish_Brown_Leaf_Margin",
-        "rice:Yellowish_Green_Leaf"
+        "rice:Yellowish_Green_Leaf",
+        "rice:Zonate_Leaf_Lesion"
       ],
       "unit": "symptom",
       "status": "PARTIAL",
-      "ms": 77.6
+      "ms": 26.4
     },
     {
       "id": "CQ-19",
@@ -534,7 +537,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 6971.6
+      "ms": 1482.0
     },
     {
       "id": "CQ-20",
@@ -545,7 +548,7 @@
       "rationale": "Declared extension point. Recorded as a measurement, not scored, so the roadmap gap stays visible without inflating or deflating the pass rate.",
       "count": 0,
       "status": "DOCUMENTED",
-      "ms": 3.6
+      "ms": 2.0
     },
     {
       "id": "CQ-21",
@@ -554,13 +557,13 @@
       "mode": "coverage",
       "question": "Which reified domain assertions carry both an authoritative source URI and a bibliographic citation?",
       "rationale": "Provenance completeness - the scientific-defensibility claim of the KG.",
-      "covered": 360,
-      "total": 360,
+      "covered": 375,
+      "total": 375,
       "ratio": 1.0,
       "missing": [],
       "unit": "reified axiom",
       "status": "PASS",
-      "ms": 42.6
+      "ms": 15.1
     },
     {
       "id": "CQ-22",
@@ -569,35 +572,10 @@
       "mode": "negative",
       "question": "Are there domain assertions with missing or incomplete provenance - either no reified axiom at all, or an axiom missing its source, citation or evidence type?",
       "rationale": "Integrity constraint complementing CQ-21. Extended on 2026-09-14: the original form checked only axioms that exist, so an assertion with no axiom at all was invisible to both CQ-21 and CQ-22, and v0.6 carried two such assertions while both reported full provenance. Runs on the asserted graph, since materialised inverses are never reified and would all count as violations. Extended again on 2026-09-23: rice:hasPathogenGroup joined the list - a property left out of it is invisible to this check, which is the failure mode the 2026-09-14 extension was written for. Extended again on 2026-09-17: ResistanceAssessment individuals carry their provenance on the individual itself rather than on an axiom, so an assessment missing its source, citation or evidence type is reported too.",
-      "violations": 6,
-      "examples": [
-        [
-          "Karnataka_Ponni varietyOf Rice",
-          "assertion without provenance"
-        ],
-        [
-          "Ponni varietyOf Rice",
-          "assertion without provenance"
-        ],
-        [
-          "Atchaya_Ponni varietyOf Rice",
-          "assertion without provenance"
-        ],
-        [
-          "Andhra_Ponni varietyOf Rice",
-          "assertion without provenance"
-        ],
-        [
-          "IR20 varietyOf Rice",
-          "assertion without provenance"
-        ],
-        [
-          "Surya varietyOf Rice",
-          "assertion without provenance"
-        ]
-      ],
-      "status": "FAIL",
-      "ms": 1082.1
+      "violations": 0,
+      "examples": [],
+      "status": "PASS",
+      "ms": 223.2
     },
     {
       "id": "CQ-23",
@@ -606,9 +584,9 @@
       "mode": "coverage",
       "question": "Which biological entities (disease, pathogen, pest) are aligned to an external vocabulary (EPPO, AGROVOC or NCBI Taxonomy)?",
       "rationale": "Interoperability. Written as a coverage measure rather than an OPTIONAL projection, which would report success even when every alignment column is null.",
-      "covered": 19,
-      "total": 31,
-      "ratio": 0.6129032258064516,
+      "covered": 20,
+      "total": 33,
+      "ratio": 0.6060606060606061,
       "missing": [
         "rice:Bacterial_Leaf_Blight",
         "rice:Bacterial_Leaf_Streak",
@@ -616,6 +594,7 @@
         "rice:Brown_Spot",
         "rice:Deadheart",
         "rice:Iron_Toxicity_Disorder",
+        "rice:Leaf_Scald",
         "rice:Nitrogen_Deficiency_Disorder",
         "rice:Phosphorus_Deficiency_Disorder",
         "rice:Potassium_Deficiency_Disorder",
@@ -625,7 +604,7 @@
       ],
       "unit": "biological entity",
       "status": "PASS",
-      "ms": 42.7
+      "ms": 7.9
     },
     {
       "id": "CQ-24",
@@ -637,7 +616,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 58.8
+      "ms": 12.4
     },
     {
       "id": "CQ-25",
@@ -649,7 +628,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 8.7
+      "ms": 1.6
     }
   ],
   "sensitivity": [
@@ -657,8 +636,8 @@
       "threshold": 0.4,
       "tally": {
         "PASS": 21,
-        "PARTIAL": 1,
-        "FAIL": 2,
+        "PARTIAL": 2,
+        "FAIL": 1,
         "ERROR": 0
       },
       "pass_rate": 0.875,
@@ -672,7 +651,7 @@
         "CQ-08": "PASS",
         "CQ-09": "PASS",
         "CQ-11": "PASS",
-        "CQ-12": "PASS",
+        "CQ-12": "PARTIAL",
         "CQ-13": "FAIL",
         "CQ-16": "PASS",
         "CQ-17": "PASS",
@@ -684,12 +663,12 @@
     {
       "threshold": 0.5,
       "tally": {
-        "PASS": 20,
+        "PASS": 21,
         "PARTIAL": 2,
-        "FAIL": 2,
+        "FAIL": 1,
         "ERROR": 0
       },
-      "pass_rate": 0.8333333333333334,
+      "pass_rate": 0.875,
       "coverage_status": {
         "CQ-01": "PASS",
         "CQ-02": "PASS",
@@ -712,12 +691,12 @@
     {
       "threshold": 0.6,
       "tally": {
-        "PASS": 19,
+        "PASS": 20,
         "PARTIAL": 3,
-        "FAIL": 2,
+        "FAIL": 1,
         "ERROR": 0
       },
-      "pass_rate": 0.7916666666666666,
+      "pass_rate": 0.8333333333333334,
       "coverage_status": {
         "CQ-01": "PASS",
         "CQ-02": "PASS",
@@ -740,12 +719,12 @@
     {
       "threshold": 0.7,
       "tally": {
-        "PASS": 17,
+        "PASS": 18,
         "PARTIAL": 5,
-        "FAIL": 2,
+        "FAIL": 1,
         "ERROR": 0
       },
-      "pass_rate": 0.7083333333333334,
+      "pass_rate": 0.75,
       "coverage_status": {
         "CQ-01": "PASS",
         "CQ-02": "PASS",
@@ -768,12 +747,12 @@
     {
       "threshold": 0.8,
       "tally": {
-        "PASS": 16,
+        "PASS": 17,
         "PARTIAL": 6,
-        "FAIL": 2,
+        "FAIL": 1,
         "ERROR": 0
       },
-      "pass_rate": 0.6666666666666666,
+      "pass_rate": 0.7083333333333334,
       "coverage_status": {
         "CQ-01": "PASS",
         "CQ-02": "PASS",

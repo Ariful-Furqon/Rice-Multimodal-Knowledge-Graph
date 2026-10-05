@@ -42519,8 +42519,9 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#FieldLocation">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">FieldLocation</rdfs:label>
-    <rdfs:comment xml:lang="en">A spatial geographic location.</rdfs:comment>
+    <rdfs:label xml:lang="en">Field Location</rdfs:label>
+    <rdfs:comment xml:lang="en">A geographic point (WGS84 latitude and longitude) at which an observation was made, such as a field plot or a fixed monitoring point.</rdfs:comment>
+    <skos:closeMatch rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_hispa_PDD07207">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -60864,9 +60865,7 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:subClassOf rdf:resource="https://w3id.org/ricemmkg#Observation"/>
     <rdfs:label xml:lang="en">Sensor Observation</rdfs:label>
-    <rdfs:label xml:lang="en">SensorObservation</rdfs:label>
     <rdfs:comment xml:lang="en">An Observation channel: a measurement captured by an environmental sensor (e.g. temperature, humidity, soil pH), relatable to an EnvironmentalFactor via captures. No individuals populated yet -- added to match the conceptual schema ahead of sensor data ingestion, per the deferred-design roadmap in Worklog/RiceMMKG_v0.4-minimal_worklog/deferred_design.md.</rdfs:comment>
-    <rdfs:comment xml:lang="en">A tabular or numerical observation from IoT or field sensors.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_tungro_PDD12909">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -66956,8 +66955,8 @@
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#Observation">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:comment xml:lang="en">A recorded piece of evidence about the crop or its environment, captured through a particular modality such as an image, sensor reading, or human report.</rdfs:comment>
-    <rdfs:comment xml:lang="en">General class for all types of data observations.</rdfs:comment>
     <rdfs:label xml:lang="en">Observation</rdfs:label>
+    <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_tungro_PDD13473">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -73817,9 +73816,10 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasHumidity">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:label xml:lang="en">hasHumidity</rdfs:label>
-    <rdfs:comment xml:lang="en">Recorded humidity.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#Observation"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">relative humidity (%)</rdfs:label>
+    <rdfs:comment xml:lang="en">Relative humidity of the air, in percent.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_blast_PDD02320">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -87782,9 +87782,11 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#recordedAtDate">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:label xml:lang="en">recordedAtDate</rdfs:label>
-    <rdfs:comment xml:lang="en">Date and time the observation was recorded.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#Observation"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label xml:lang="en">recorded at date</rdfs:label>
+    <rdfs:comment xml:lang="en">Date and time the observation was recorded. For values aggregated over a window (e.g. weekly), the start of the window.</rdfs:comment>
+    <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/resultTime"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_leaf_roller_PDD09411">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -117737,9 +117739,10 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasPotassiumLevel">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:label xml:lang="en">hasPotassiumLevel</rdfs:label>
-    <rdfs:comment xml:lang="en">Soil Potassium (K) level.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#Observation"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">available soil potassium (kg/ha)</rdfs:label>
+    <rdfs:comment xml:lang="en">Plant-available soil potassium (K) from a soil test, in kilograms per hectare.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_blast_PDD04355">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -126533,9 +126536,10 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasNitrogenLevel">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:label xml:lang="en">hasNitrogenLevel</rdfs:label>
-    <rdfs:comment xml:lang="en">Soil Nitrogen (N) level.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#Observation"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">available soil nitrogen (kg/ha)</rdfs:label>
+    <rdfs:comment xml:lang="en">Plant-available soil nitrogen (N) from a soil test, in kilograms per hectare.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_hispa_PDD07874">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -152717,9 +152721,10 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasNDVI">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:label xml:lang="en">hasNDVI</rdfs:label>
-    <rdfs:comment xml:lang="en">Normalized Difference Vegetation Index.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#RemoteSensingObservation"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">NDVI</rdfs:label>
+    <rdfs:comment xml:lang="en">Normalized Difference Vegetation Index, (NIR - Red) / (NIR + Red). Unitless, between -1 and 1.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_blast_PDD02898">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -163012,8 +163017,10 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasSpatialLocation">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">hasSpatialLocation</rdfs:label>
-    <rdfs:comment xml:lang="en">Links an observation or field to its geographic location.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#Observation"/>
+    <rdfs:range rdf:resource="https://w3id.org/ricemmkg#FieldLocation"/>
+    <rdfs:label xml:lang="en">has spatial location</rdfs:label>
+    <rdfs:comment xml:lang="en">Links an observation to the geographic location at which it was made.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#DhanShomadhan_Rice_Blast_Disease_rb_wb_124">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -169053,9 +169060,10 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasPhosphorusLevel">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:label xml:lang="en">hasPhosphorusLevel</rdfs:label>
-    <rdfs:comment xml:lang="en">Soil Phosphorus (P) level.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#Observation"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">available soil phosphorus (kg/ha)</rdfs:label>
+    <rdfs:comment xml:lang="en">Plant-available soil phosphorus (P) from a soil test, in kilograms per hectare.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_tungro_PDD12549">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -178333,9 +178341,10 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasSoilPH">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:label xml:lang="en">hasSoilPH</rdfs:label>
-    <rdfs:comment xml:lang="en">Soil pH level.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#Observation"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">soil pH</rdfs:label>
+    <rdfs:comment xml:lang="en">Soil pH. Unitless, 0 to 14.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_blast_PDD03389">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -179417,9 +179426,10 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasRainfall">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:label xml:lang="en">hasRainfall</rdfs:label>
-    <rdfs:comment xml:lang="en">Recorded rainfall.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#Observation"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">rainfall (mm)</rdfs:label>
+    <rdfs:comment xml:lang="en">Accumulated rainfall in millimetres over the observation window.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_blast_PDD03382">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -184602,9 +184612,9 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#RemoteSensingObservation">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">RemoteSensingObservation</rdfs:label>
-    <rdfs:comment xml:lang="en">An observation derived from satellite or drone multispectral sensors.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="https://w3id.org/ricemmkg#Observation"/>
+    <rdfs:label xml:lang="en">Remote Sensing Observation</rdfs:label>
+    <rdfs:comment xml:lang="en">An Observation channel: a value derived from satellite or UAV (drone) imagery over a field or monitoring point, such as a vegetation index. No individuals populated yet.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#Black_Root">
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
@@ -184643,9 +184653,10 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasTemperature">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:label xml:lang="en">hasTemperature</rdfs:label>
-    <rdfs:comment xml:lang="en">Recorded temperature.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#Observation"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">air temperature (°C)</rdfs:label>
+    <rdfs:comment xml:lang="en">Air temperature in degrees Celsius.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:nodeID="Ne7f8663fc6604b4d9d10412c5960e73b">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -184818,5 +184829,21 @@
     <dcterms:source rdf:resource="https://doi.org/10.21227/hz4v-af08"/>
     <dcterms:bibliographicCitation xml:lang="en">Petchiammal, A., Briskline Kiruba, S., Murugan, D., &amp; Pandarasamy, A. (2022). Paddy Doctor: A visual image dataset for automated paddy disease classification and benchmarking. IEEE DataPort. https://doi.org/10.21227/hz4v-af08 (metadata.csv, variety column).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">dataset-derived</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasLatitude">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#FieldLocation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">latitude</rdfs:label>
+    <rdfs:comment xml:lang="en">WGS84 latitude in decimal degrees.</rdfs:comment>
+    <skos:closeMatch rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#lat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasLongitude">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#FieldLocation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">longitude</rdfs:label>
+    <rdfs:comment xml:lang="en">WGS84 longitude in decimal degrees.</rdfs:comment>
+    <skos:closeMatch rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#long"/>
   </rdf:Description>
 </rdf:RDF>

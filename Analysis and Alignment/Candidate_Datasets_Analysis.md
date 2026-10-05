@@ -5,9 +5,9 @@
 | Dataset | Modality | Access | Licence | Redistribution allowed? | Gap closed | Recommendation |
 |---|---|---|---|---|---|---|
 | Paddy Doctor full (IEEE DataPort) | image + metadata (variety, age) | Downloaded (`Data/paddy-doctor-diseases/`) | CC BY 4.0 | Yes | Pests: 1/7 → 3/7 (+ variety & age metadata) | **Import** (revised 2026-10-03) |
-| Paddy Doctor pest set | image | Open | Unverified (assumed open) | Unverified | Pests: 1/7 → 3/7 | Import |
+| Paddy Doctor pest set | image | **Not downloaded.** `Data/candidates/paddydoctor_pest_set/` is the paddydoc GitHub *code* repository (notebooks, Apache-2.0 for code), with no pest images (checked 2026-10-05) | UNVERIFIED for the images | UNVERIFIED | Pests: no change until the images are found (its three stem borers and leaf roller duplicate classes already imported from the IEEE release) | Later: locate the image release |
 | IP102 | image | Open (Kaggle/GitHub) | Not stated (research only) | No | Pests: 1/7 → 5/7 | Later |
-| Dhan-Shomadhan | image | Open (Mendeley) | CC BY 4.0 | Yes | Diseases: 8/15 → 9/15 | Import |
+| Dhan-Shomadhan | image | Downloaded (`Data/dhan-shomadhan/`) | CC BY 4.0 (Mendeley page, checked 2026-10-05) | Yes | Diseases with images: 8/15 → 10/16 (`Sheath_Blight`, and the new `Leaf_Scald`) | **Imported 2026-10-04**, completed 2026-10-05 |
 | Roboflow Rice Nutrient Deficiency | image | Registration (Roboflow/Kaggle) | Unverified | Unverified | Diseases: 9/15 → 12/15 | Later |
 
 ## 1. Paddy Doctor full + metadata.csv (IEEE DataPort)
@@ -37,8 +37,8 @@
 
 ## 2. Paddy Doctor pest set
 - **Identity:** Paddy Doctor: Open Dataset and Automated Pest Identification Using Pre-trained Deep Learning Models (ICLR 2024 Workshop). Authors: Petchiammal A., Pandarasamy Arjunan.
-- **Access:** Open download (GitHub repository cloned).
-- **Licence:** UNVERIFIED (assumed open source based on paper, but exact licence text not found).
+- **Access:** UNVERIFIED. The folder `Data/candidates/paddydoctor_pest_set/` turned out on 2026-10-05 to be the paddydoc GitHub *code* repository: notebooks (`cnn.ipynb`, `vgg16.ipynb`, …), Jekyll site pages and an Apache-2.0 `LICENSE` for the code. It contains no pest images, and its `dataset.md` describes the 13-class disease dataset, not the pest set. The 6,062 / 17-class figures below are from the paper and were not checked against data.
+- **Licence:** UNVERIFIED for the images. Apache-2.0 covers only the repository code.
 - **Content:** 6,062 images, 17 classes (16 pest + 1 normal).
 - **Mapping to Rice MMKG:**
   - Black/White/Yellow Stem Borer -> `Stem_Borer` (close)
@@ -61,14 +61,24 @@
 - **Issues:** Web-scraped dataset (label noise, duplicates), long-tailed distribution, no explicit open licence for redistribution.
 
 ## Priority 2. Dhan-Shomadhan
-- **Identity:** Dhan-Shomadhan dataset (Mendeley Data).
-- **Access:** Open download (registration may be required on Mendeley).
-- **Licence:** CC BY 4.0. Redistribution allowed: Yes.
-- **Content:** 1,106 images across 5 diseases (Brown Spot, Leaf Scald, Rice Blast, Rice Tungro, Sheath Blight). Field and white backgrounds.
-- **Mapping to Rice MMKG:**
-  - Sheath Blight -> `Sheath_Blight` (exact)
-- **Gap closed:** Diseases with images: 8/15 → 9/15.
-- **Issues:** Small class sizes (~200 images for Sheath Blight).
+- **Identity:** Hossain, M. F., Abujar, S., Noori, S. R. H., & Hossain, S. A. (2021). *Dhan-Shomadhan: A Dataset of Rice Leaf Disease Classification for Bangladeshi Local Rice.* Mendeley Data, V1, 6 April 2021. DOI 10.17632/znsxdctwtt.1. Daffodil International University; images from the Dhaka Division, Bangladesh.
+- **Access:** Open download. Local copy: `Data/candidates/dhan_shomadhan/` (source) and `Data/dhan-shomadhan/` (renamed per class).
+- **Licence:** CC BY 4.0, read on the Mendeley page on 2026-10-05. Redistribution allowed: Yes.
+- **Content:** 1,106 images across 5 diseases, on field and white backgrounds. Class folder names are misspelled in the source ("Browon Spot", "Leaf Scaled", "Rice Turgro", "Shath Blight").
+- **Mapping to Rice MMKG (applied):**
+
+  | Source class | Images | `annotatedAs` |
+  |---|---:|---|
+  | Rice Blast | 272 | `Rice_Blast_Disease` (exact) |
+  | Rice Tungro | 195 | `Rice_Tungro_Disease` (exact) |
+  | Brown Spot | 139 | `Brown_Spot` (exact) |
+  | Sheath Blight | 283 | `Sheath_Blight` (exact) |
+  | Leaf Scald | 217 | `Leaf_Scald` (new individual, exact) |
+
+  The background goes in `environmentCondition` ("Field Background" / "White Background").
+- **Gap closed:** Diseases with images: 8/15 → 10/16. `Sheath_Blight` gets its first images. `Leaf_Scald` is a disease the ontology did not have, so the denominator also grows.
+- **Status: IMPORTED 2026-10-04** (commit `0307244`), completed 2026-10-05: dataset metadata (DOI, citation, licence URI), `environmentCondition` declared, and `Leaf_Scald` given its pathogen, symptom, controls and provenance. See `Worklog/2026-10-05_antigravity_review/SUMMARY.md`.
+- **Issues:** Small classes (139–283 images). No overlap check with Paddy Doctor was run; overlap is unlikely, since the two datasets come from different countries.
 
 ## Priority 2. Roboflow / Kaggle Rice Nutrient Deficiency
 - **Identity:** Rice Disease and Nutrient Deficiency Dataset (Roboflow Universe / Kaggle).
@@ -83,9 +93,58 @@
 - **Issues:** UNVERIFIED licence, potential synthetic data or poor label quality.
 
 ## Updated Coverage Table
-| Category | Images Before | Images After (Recommended Imports) |
+| Category | Before (Kaggle only) | Now (2026-10-05: Paddy Doctor IEEE + Dhan-Shomadhan) |
 |---|---|---|
-| Pests | 1/7 | 3/7 |
-| Diseases | 8/15 | 9/15 |
+| Pests | 1/7 | 3/7 (`Hispa`, `Stem_Borer`, `Leaf_Folder`) |
+| Diseases | 8/15 | 10/16 (adds `Sheath_Blight` and the new `Leaf_Scald`) |
+
+Black and white stem borer images (1,779) stay `annotatedAs Deadheart` until decision 5 of the 2026-09-30 meeting.
+
+## Candidates uploaded to `Data/candidates/` (reviewed 2026-10-05)
+
+These files were in `Data/candidates/` but had no entry above. They were profiled locally on 2026-10-05. None closes an image gap. Three of them could feed the sensor / remote-sensing / field schema added on 2026-10-04.
+
+| Dataset (local file) | Modality | Licence (as found locally) | Rice-specific? | Fits Rice MMKG | Recommendation |
+|---|---|---|---|---|---|
+| Rice Disease Risk Assessment v1.0 (`Rice Disease Risk Assessment Dataset v1.0.zip`) | tabular soil + weather, georeferenced plots | CC BY 4.0 (`LICENSE.txt`, `CITATION.cff`) | Yes | `SensorObservation` + `FieldLocation` (pH, N, P, K, temperature, humidity, rainfall) | **Import first, as field observations** |
+| AgriVision Maharashtra (`AgriVision_Maharashtra_ML_Features_GSMaP_2017_2025.csv` + sampling points + `DATA_DICTIONARY.csv`) | weekly NDVI (satellite), GSMaP rainfall, temperature at 167 points | **not stated** | No (cropland points, crop not recorded) | `RemoteSensingObservation` + `FieldLocation` | Later: ask for source and licence |
+| IRDD (`Main Folder.zip`) | image | **not stated** in the zip | Yes | `Brown_Spot` only | Drop for now |
+| RidgeNet public subset (`RidgeDataset.zip`) | UAV RGB + segmentation masks | per IEEE DataPort record (not in zip) | No (farmland ridges, China) | none | Drop (out of scope) |
+| Crop Classification (`Crop_Classification_dataset.xlsx`) | tabular Sentinel-2 bands + indices + soil | **not stated** | Partly (¼ rice) | weak | Drop: provenance unknown, likely synthetic |
+| Crop Recommendation (`Crop_recommendation.xlsx`, `Crop Recommendation dataset.zip`) | tabular N, P, K, pH, weather → crop | **not stated** | No (22 crops) | none | Drop |
+| Fertilizer Prediction (`Fertilizer Prediction.csv`) | tabular | **not stated** | No (11 crops) | none | Drop: synthetic |
+| AgriSense Synthetic (`AgriSense_Synthetic_Dataset.zip`) | tabular, synthetic by its own README | — | No (tomato, potato, wheat, cotton) | none | Drop |
+| RiceDO v2 + TreatO v2 (`*.owl.zip`) | OWL ontologies (OWL/XML) | not stated in the files | Yes | comparator, not data | Use for alignment / comparison (task item A4) |
+
+### Rice Disease Risk Assessment v1.0
+- **Identity:** Tripathy, S. K. (2026). *Rice Disease Risk Assessment Dataset v1.0.* KIIT Deemed to be University, Bhubaneswar. `CITATION.cff` has an empty `doi` field; the curation notes give IEEE DataPort DOI 10.21227/jdj9-x485 (UNVERIFIED against the record).
+- **Licence:** CC BY 4.0, from the bundled `LICENSE.txt`.
+- **Content (verified):** 236 rows, one per plot, from 3 farms (Riverdale 117, Sunrise 66, Greenfield 53) around 18.72–18.81 °N, 84.12–84.20 °E (Ganjam district, Odisha). Columns: plot ID, farm, lat/long, pH (5.50–7.13), EC (0.20–0.89 dS/m), organic carbon (0.40–0.75 %), available N (169–312 kg/ha), P (7.8–33.8 kg/ha), K (289–346 kg/ha), temperature (26.2–33.8 °C), humidity (58–95 %), rainfall (20–276 mm), and `Disease_Risk` (Low 89 / Medium 76 / High 71).
+- **Mapping:** each row → one `SensorObservation` with `hasSpatialLocation` to a `FieldLocation` (`hasLatitude`, `hasLongitude`). The values map to `hasSoilPH`, `hasNitrogenLevel`, `hasPhosphorusLevel`, `hasPotassiumLevel`, `hasTemperature`, `hasHumidity` and `hasRainfall`; the units match the property definitions. EC and organic carbon have no property yet.
+- **Gap closed:** first `SensorObservation` individuals. CQ-20 would move from 0.
+- **Issues:**
+  - `Disease_Risk` does not name a disease, so it cannot link to any `Disease` individual. Keep it as a literal or leave it out.
+  - No observation date.
+  - EC ≤ 0.89 dS/m, so no row is saline: the dataset does not give `Salinity_Disorder` any evidence.
+
+### AgriVision Maharashtra
+- **Content (verified):** 33,655 weekly rows, 2017-01-01 to 2025-12-17, at 167 points in 31 Maharashtra districts. The points were chosen by agricultural grid sampling at ≥ 50 % cropland. Per week: NDVI, GSMaP rainfall (mm) and temperature (°C), plus lag, rolling and seasonal features engineered for an NDVI-forecast model.
+- **Issues:**
+  - The crop at each point is not recorded, so nothing ties a row to rice.
+  - No author, source or licence in the files.
+  - Most columns are model features, not observations. Only NDVI, rainfall and temperature are raw.
+- **Mapping if cleared:** `RemoteSensingObservation` (`hasNDVI`, `recordedAtDate` = `Week_Start`) and `SensorObservation` (`hasRainfall`, `hasTemperature`), each with a `FieldLocation`.
+
+### IRDD (Indian Rice Disease Dataset), local `Main Folder.zip`
+- **Content (verified):** `CSV_File.xlsx` lists 73 images, all `BrownSpot`, with capture time (Morning 27, Noon 25, Evening 21). The zip holds 72 JPEGs: 68 unique and 3 groups of byte-identical duplicates. One listed image is missing.
+- **Issues:** single class already well covered (1,396 brown spot images); no licence in the zip; duplicates.
+
+### Other files
+- **RidgeNet subset:** 200 UAV images (2048 × 2048) + 200 ridge masks, labelled by field type, season and flight altitude. The README defers licence and citation to the IEEE DataPort record. There are no rice or disease labels.
+- **Crop Classification:** 50,020 rows with four perfectly balanced crops (rice, maize, coconut, sugarcane, ≈12,500 each) and stress levels. Band values mix reflectance (0–1) with raw digital numbers (up to 5,762) in the same columns, and the source is unknown. Treat as synthetic.
+- **Crop Recommendation:** 2,200 rows, exactly 100 per crop for 22 crops. The second zip is a train/test split of another crop table. Neither has a disease or rice-specific signal.
+- **Fertilizer Prediction:** 100,000 rows over 11 crops (9,103 "Paddy") with near-uniform class counts, consistent with a synthetic set.
+- **AgriSense:** its README states it is synthetic ("This is not real farm data") and covers no rice.
+- **RiceDO v2 / TreatO v2:** OWL/XML, ontology IRIs `http://purl.org/ricedo` and `http://purl.org/treato` (dated 20-03-2021), 250 and 104 declarations, with opaque IDs (`RiceDO_000001`, …). They are the comparator listed as task item A4. rdflib cannot read OWL/XML, so a comparison needs owlready2 or the OWL API.
 
 
