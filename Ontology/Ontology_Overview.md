@@ -55,12 +55,12 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **148,656** (asserted) / **306,729** (OWL RL) | 0.7.0-dev, measured 2026-10-05. +158,073 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Total triples** | **152,755** (asserted) / **314,753** (OWL RL) | 0.7.0-dev, measured 2026-10-05. +161,998 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
 | **Named classes** | 23 | 20 primitive (incl. `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment` and `ResistanceLevel`, 0.7.0-dev) + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class (`SymptomaticObservation`) |
 | **Object properties** | 39 | All declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `assessedVariety`/`hasResistanceAssessment`, `assessedAgainst`, `hasResistanceLevel`, `ofVariety`, `hasSpatialLocation` (0.7.0-dev) |
-| **Datatype properties** | 22 | `testedPopulation`, `testedLocation`, `reportedYear`, `plantAgeDays`, `sourceLabel`, `environmentCondition`, the sensor / remote-sensing measurements, `recordedAtDate`, `hasLatitude` and `hasLongitude` added in 0.7.0-dev |
+| **Datatype properties** | 24 | `testedPopulation`, `testedLocation`, `reportedYear`, `plantAgeDays`, `sourceLabel`, `environmentCondition`, the sensor / remote-sensing measurements, `recordedAtDate`, `hasLatitude`, `hasLongitude`, `hasElectricalConductivity` and `hasOrganicCarbon` added in 0.7.0-dev |
 | **Annotation properties** | 14 | Includes `rice:evidenceType`, PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
-| **Named individuals** | **17,502** | 17,331 image individuals (Paddy Doctor 16,225, Dhan-Shomadhan 1,106) + 2 dataset metadata + 169 domain entities (10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 4 `PathogenGroup`, 6 `AbioticFactor`, 12 `Variety`, 15 `ResistanceAssessment`, 3 `ResistanceLevel`) |
+| **Named individuals** | **17,873** | 17,331 image individuals (Paddy Doctor 16,225, Dhan-Shomadhan 1,106) + 186 sensor observations + 184 field locations + 3 dataset metadata + 169 domain entities (10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 4 `PathogenGroup`, 6 `AbioticFactor`, 12 `Variety`, 15 `ResistanceAssessment`, 3 `ResistanceLevel`) |
 | **`owl:Axiom` (provenance)** | **375** | **375 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev); the 15 `ResistanceAssessment` individuals carry their provenance directly. v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (19 classes; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment` and `ResistanceLevel` added in 0.7.0-dev) |
@@ -79,7 +79,8 @@ The 10,564 individuals in the knowledge graph are categorized by domain layer:
 | Domain Category | Class Name | Count | Type / Description |
 |---|---|---:|---|
 | **Observation Modality** | `ImageObservation` | 17,331 | Field images: Paddy Doctor 16,225, Dhan-Shomadhan 1,106 |
-| | `SensorObservation` | 0 | Scaffolding for multimodal sensor feeds |
+| | `SensorObservation` | 186 | Plot soil and weather values, Rice Disease Risk Assessment v1.0 (2026-10-05) |
+| | `FieldLocation` | 184 | WGS84 points of those plots |
 | | `RemoteSensingObservation` | 0 | Scaffolding for satellite / UAV values such as NDVI (0.7.0-dev) |
 | | `Observation` | 0 | Abstract root observation superclass |
 | **Defined Class** | `SymptomaticObservation` | *(2,544)* | Defined class (`captures some Symptom`), populated via OWL reasoning |
@@ -102,7 +103,7 @@ The 10,564 individuals in the knowledge graph are categorized by domain layer:
 | | `ManagementAction` | 5 | Operational actions (Immediate Intervention, Monitoring, etc.) |
 | | `ManagementCategory` | 4 | Control-method categories from AGROVOC: chemical, biological, cultural, host plant resistance; 0.7.0-dev |
 | | `SeverityLevel` | 4 | Low, Medium, High, and Critical; each annotated with the matching attack-intensity category (ringan, sedang, berat, puso) of the 2021 Indonesian pest-observation juknis. No severity → action mapping since 0.7.0-dev |
-| **Total Named Individuals** | | **17,502** | *(17,331 images + 2 datasets + 169 domain entities)* |
+| **Total Named Individuals** | | **17,873** | *(17,331 images + 186 sensor observations + 184 locations + 3 datasets + 169 domain entities)* |
 
 ---
 
@@ -160,7 +161,7 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | 0.7.0-dev (+ nitrogen fertilizer) | 2026-09-17 | 68,076 (163,738 OWL RL) | 23 | 36 | 10,564 | 349 axioms / 349 assertions + 15 assessments |
 | 0.7.0-dev (pest–damage level fix, expert CQ return) | 2026-09-23 | 68,097 (163,779 OWL RL) | 23 | 36 | 10,564 | 351 axioms / 351 assertions + 15 assessments |
 | 0.7.0-dev (+ `PathogenGroup`) | 2026-09-23 | 68,204 (163,957 OWL RL) | 24 | 37 | 10,568 | 360 axioms / 360 assertions + 15 assessments |
-| **0.7.0-dev (Paddy Doctor IEEE, Dhan-Shomadhan, `Leaf_Scald`, sensor schema — in development)** | **2026-10-05** | **148,656** (306,729 OWL RL) | **26** | **39** | **17,502** | **375 axioms / 375 assertions + 15 assessments** |
+| **0.7.0-dev (Paddy Doctor IEEE, Dhan-Shomadhan, `Leaf_Scald`, sensor schema + data — in development)** | **2026-10-05** | **152,755** (314,753 OWL RL) | **26** | **39** | **17,873** | **375 axioms / 375 assertions + 15 assessments** |
 
 ---
 
@@ -168,7 +169,7 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 
 <!-- Newest first. -->
 
-### 2026-10-03 to 2026-10-05: 0.7.0-dev — Paddy Doctor IEEE release, Dhan-Shomadhan, `Leaf_Scald`, sensor schema; review of the 2026-10-04 Antigravity session
+### 2026-10-03 to 2026-10-05: 0.7.0-dev — Paddy Doctor IEEE release, Dhan-Shomadhan, `Leaf_Scald`, sensor schema and first sensor data; review of the 2026-10-04 Antigravity session
 
 The image layer grew from 10,407 to **17,331** images in two imports. A review on 2026-10-05 of the commits made on 2026-10-04 by the Antigravity agent found one reversed user decision, one new CQ-22 failure, and several incomplete additions. All are fixed below. The review record is in `Worklog/2026-10-05_antigravity_review/SUMMARY.md`.
 
@@ -178,9 +179,10 @@ The image layer grew from 10,407 to **17,331** images in two imports. A review o
 - **`Leaf_Scald` (new `Disease`) completed.** It entered with the Dhan-Shomadhan import as a bare label. Now: pathogen `Microdochium_Albescens` (EPPO RHYNOR; NCBITaxon 1682384; IRRI's *M. oryzae* is a synonym), `Fungus_Group`; new symptom `Zonate_Leaf_Lesion` on `Leaf_Blade`; `controlledBy` resistant variety, seed treatment and crop sanitation; `preventedBy` resistant variety; `Excessive_Nitrogen increaseRiskOf Leaf_Scald`. Eight axioms cite the IRRI Rice Doctor scald factsheet and one cites NCBI Taxonomy. `occursIn` is not asserted: the source says only "late in the season".
 - **CQ-22 back to PASS.** The six new `varietyOf Rice` assertions had no `owl:Axiom`. Each now has one, citing the Paddy Doctor DOI with `evidenceType` `dataset-derived`, a value the `evidenceType` definition already names.
 - **Sensor and remote-sensing schema (2026-10-04, tidied 2026-10-05).** `RemoteSensingObservation`, `FieldLocation`, `hasSpatialLocation`, `recordedAtDate` and eight measurement properties (`hasNDVI`, `hasTemperature`, `hasHumidity`, `hasRainfall`, `hasSoilPH`, `hasNitrogenLevel`, `hasPhosphorusLevel`, `hasPotassiumLevel`) were declared without domains or units. They now have domains (`RemoteSensingObservation` for NDVI, `Observation` otherwise), units in labels and comments, and `hasLatitude`/`hasLongitude` on `FieldLocation`. `Observation`, `FieldLocation`, `recordedAtDate`, `hasLatitude` and `hasLongitude` are `skos:closeMatch` to SOSA or WGS84 terms. A duplicate label and two duplicate comments on `Observation` and `SensorObservation` were removed. There are still no individuals. Script: `Worklog/2026-10-05_antigravity_review/scripts/fix_sensor_schema.py`.
+- **First sensor observations: Rice Disease Risk Assessment v1.0 (2026-10-05).** 186 `SensorObservation` individuals from plots on three farms in Ganjam, Odisha (Tripathy 2026, IEEE DataPort DOI 10.21227/jdj9-x485, CC BY 4.0). Each carries soil pH, EC, organic carbon, available N/P/K, temperature, humidity and rainfall, and a `FieldLocation` (184 distinct points) via `hasSpatialLocation`. The source's risk class (`Low` / `Medium` / `High Risk`) is kept verbatim in `sourceLabel`; it names no disease, so no link to `Disease` or `EnvironmentalFactor` is asserted. **50 of the 236 rows have "CTGAN" in their Plot_ID, i.e. synthetic, and were not imported.** Neither the dataset documentation nor the DataPort page mentions it. The source gives no sampling date or method. New properties `hasElectricalConductivity` (dS/m) and `hasOrganicCarbon` (%). Script: `Worklog/2026-10-05_antigravity_review/scripts/import_rice_disease_risk.py`. CQ-20 (documented) goes from 0 to 186; no scored CQ moves.
 - **Checks:** 375 axioms = 375 domain assertions, every axiom complete. HermiT (owlready2 0.51, Java 21) consistent with 0 unsatisfiable classes, run without the injected-contradiction controls of earlier rounds.
-- **Benchmark:** **21 PASS / 2 PARTIAL / 1 FAIL / 1 DOC**. CQ-22 back to PASS. CQ-01 9/10, CQ-02 22/23, CQ-03 19/23, CQ-11 12/16, CQ-16 14,926/14,926, CQ-17 14/14, CQ-21 375/375, CQ-23 20/33. CQ-12 falls to 9/23 (39%), PARTIAL at the 40% threshold only.
-- **Result:** 148,656 asserted / 306,729 OWL RL triples.
+- **Benchmark:** **21 PASS / 2 PARTIAL / 1 FAIL / 1 DOC** (CQ-20 documents 186). CQ-22 back to PASS. CQ-01 9/10, CQ-02 22/23, CQ-03 19/23, CQ-11 12/16, CQ-16 14,926/14,926, CQ-17 14/14, CQ-21 375/375, CQ-23 20/33. CQ-12 falls to 9/23 (39%), PARTIAL at the 40% threshold only.
+- **Result:** 152,755 asserted / 314,753 OWL RL triples.
 
 ### 2026-09-23: 0.7.0-dev — `PathogenGroup`: the half of CQ-A01 nothing could answer
 

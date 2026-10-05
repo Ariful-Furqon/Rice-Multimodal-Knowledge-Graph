@@ -106,7 +106,7 @@ These files were in `Data/candidates/` but had no entry above. They were profile
 
 | Dataset (local file) | Modality | Licence (as found locally) | Rice-specific? | Fits Rice MMKG | Recommendation |
 |---|---|---|---|---|---|
-| Rice Disease Risk Assessment v1.0 (`Rice Disease Risk Assessment Dataset v1.0.zip`) | tabular soil + weather, georeferenced plots | CC BY 4.0 (`LICENSE.txt`, `CITATION.cff`) | Yes | `SensorObservation` + `FieldLocation` (pH, N, P, K, temperature, humidity, rainfall) | **Import first, as field observations** |
+| Rice Disease Risk Assessment v1.0 (`Rice Disease Risk Assessment Dataset v1.0.zip`) | tabular soil + weather, georeferenced plots | CC BY 4.0 (`LICENSE.txt`, DataPort page) | Yes | `SensorObservation` + `FieldLocation` | **Imported 2026-10-05**: 186 real rows; 50 CTGAN-synthetic rows excluded |
 | AgriVision Maharashtra (`AgriVision_Maharashtra_ML_Features_GSMaP_2017_2025.csv` + sampling points + `DATA_DICTIONARY.csv`) | weekly NDVI (satellite), GSMaP rainfall, temperature at 167 points | **not stated** | No (cropland points, crop not recorded) | `RemoteSensingObservation` + `FieldLocation` | Later: ask for source and licence |
 | IRDD (`Main Folder.zip`) | image | **not stated** in the zip | Yes | `Brown_Spot` only | Drop for now |
 | RidgeNet public subset (`RidgeDataset.zip`) | UAV RGB + segmentation masks | per IEEE DataPort record (not in zip) | No (farmland ridges, China) | none | Drop (out of scope) |
@@ -117,11 +117,12 @@ These files were in `Data/candidates/` but had no entry above. They were profile
 | RiceDO v2 + TreatO v2 (`*.owl.zip`) | OWL ontologies (OWL/XML) | not stated in the files | Yes | comparator, not data | Use for alignment / comparison (task item A4) |
 
 ### Rice Disease Risk Assessment v1.0
-- **Identity:** Tripathy, S. K. (2026). *Rice Disease Risk Assessment Dataset v1.0.* KIIT Deemed to be University, Bhubaneswar. `CITATION.cff` has an empty `doi` field; the curation notes give IEEE DataPort DOI 10.21227/jdj9-x485 (UNVERIFIED against the record).
+- **Identity:** Tripathy, S. K. (2026). *Rice Disease Risk Assessment Dataset v1.0.* IEEE DataPort, published 21 July 2026, DOI 10.21227/jdj9-x485 (resolved 2026-10-05). KIIT Deemed to be University, Bhubaneswar. DataPort access is *subscription required*, although the licence is CC BY 4.0; the local copy came from the zip.
 - **Licence:** CC BY 4.0, from the bundled `LICENSE.txt`.
 - **Content (verified):** 236 rows, one per plot, from 3 farms (Riverdale 117, Sunrise 66, Greenfield 53) around 18.72–18.81 °N, 84.12–84.20 °E (Ganjam district, Odisha). Columns: plot ID, farm, lat/long, pH (5.50–7.13), EC (0.20–0.89 dS/m), organic carbon (0.40–0.75 %), available N (169–312 kg/ha), P (7.8–33.8 kg/ha), K (289–346 kg/ha), temperature (26.2–33.8 °C), humidity (58–95 %), rainfall (20–276 mm), and `Disease_Risk` (Low 89 / Medium 76 / High 71).
 - **Mapping:** each row → one `SensorObservation` with `hasSpatialLocation` to a `FieldLocation` (`hasLatitude`, `hasLongitude`). The values map to `hasSoilPH`, `hasNitrogenLevel`, `hasPhosphorusLevel`, `hasPotassiumLevel`, `hasTemperature`, `hasHumidity` and `hasRainfall`; the units match the property definitions. EC and organic carbon have no property yet.
-- **Gap closed:** first `SensorObservation` individuals. CQ-20 would move from 0.
+- **Synthetic rows (found 2026-10-05):** 50 of the 236 rows have a Plot_ID containing `CTGAN` (Greenfield 3, Riverdale 32, Sunrise 15), i.e. generated with a conditional tabular GAN. Neither the README, the description PDF nor the DataPort page says so. 15 of the real rows merge two or three plots (`Riverdale_10,11`, `Riverdale_57,58,59`, …), and three plots share one coordinate.
+- **Status: IMPORTED 2026-10-05.** 186 non-synthetic rows → 186 `SensorObservation` + 184 `FieldLocation`; new properties `hasElectricalConductivity`, `hasOrganicCarbon`; risk class in `sourceLabel`. Script: `Worklog/2026-10-05_antigravity_review/scripts/import_rice_disease_risk.py`. CQ-20 0 → 186.
 - **Issues:**
   - `Disease_Risk` does not name a disease, so it cannot link to any `Disease` individual. Keep it as a literal or leave it out.
   - No observation date.
