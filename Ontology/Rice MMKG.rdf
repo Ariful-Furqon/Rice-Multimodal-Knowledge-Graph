@@ -167911,9 +167911,14 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#DhanShomadhanDataset">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:source rdf:resource="https://doi.org/10.17632/znsxdctwtt.1"/>
+    <dcterms:identifier>10.17632/znsxdctwtt.1</dcterms:identifier>
+    <dcterms:title xml:lang="en">Dhan-Shomadhan: A Dataset of Rice Leaf Disease Classification for Bangladeshi Local Rice</dcterms:title>
+    <rdfs:comment xml:lang="en">Mendeley Data, version 1 (6 April 2021). 1,106 images of five rice leaf diseases from the Dhaka Division, Bangladesh, on field and white backgrounds. Imported 2026-10-04.</rdfs:comment>
     <rdfs:label xml:lang="en">Dhan-Shomadhan Dataset</rdfs:label>
-    <schema1:license>CC BY 4.0</schema1:license>
+    <dcterms:bibliographicCitation xml:lang="en">Hossain, M. F., Abujar, S., Noori, S. R. H., &amp; Hossain, S. A. (2021). Dhan-Shomadhan: A Dataset of Rice Leaf Disease Classification for Bangladeshi Local Rice. Mendeley Data, V1. https://doi.org/10.17632/znsxdctwtt.1</dcterms:bibliographicCitation>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_bacterial_leaf_blight_PDD00035">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -170466,6 +170471,7 @@
     <rice:increaseRiskOf rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
     <rice:increaseRiskOf rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
     <rdfs:label xml:lang="en">Excessive Nitrogen</rdfs:label>
+    <rice:increaseRiskOf rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_hispa_PDD07504">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -182314,7 +182320,12 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#Disease"/>
     <rdfs:label xml:lang="en">Leaf Scald</rdfs:label>
-    <rice:evidenceType xml:lang="en">dataset-inferred</rice:evidenceType>
+    <rdfs:comment xml:lang="en">Fungal leaf disease of rice caused by Microdochium albescens (syn. Microdochium oryzae). Develops late in the season on mature leaves; favoured by wet weather, high nitrogen fertilization and close spacing (IRRI Rice Doctor). Added 2026-10-04 with the Dhan-Shomadhan import ("Leaf Scaled" class).</rdfs:comment>
+    <rice:controlledBy rdf:resource="https://w3id.org/ricemmkg#Resistant_Variety"/>
+    <rice:controlledBy rdf:resource="https://w3id.org/ricemmkg#Seed_Treatment"/>
+    <rice:controlledBy rdf:resource="https://w3id.org/ricemmkg#Crop_Sanitation"/>
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Zonate_Leaf_Lesion"/>
+    <rice:preventedBy rdf:resource="https://w3id.org/ricemmkg#Resistant_Variety"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_normal_PDD11127">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -184647,5 +184658,165 @@
   <rdf:Description rdf:nodeID="N9e8e12c458984209b636649a5c03427e">
     <rdf:first rdf:resource="https://w3id.org/ricemmkg#Pest"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#environmentCondition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">environment condition</rdfs:label>
+    <rdfs:comment xml:lang="en">Background against which an image was taken, as recorded by the source dataset (Dhan-Shomadhan: "Field Background" or "White Background").</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Microdochium_Albescens">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Pathogen"/>
+    <rice:causes rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <rice:hasPathogenGroup rdf:resource="https://w3id.org/ricemmkg#Fungus_Group"/>
+    <rdfs:label xml:lang="en">Microdochium Albescens</rdfs:label>
+    <rdfs:comment xml:lang="en">Causal fungus of rice leaf scald. IRRI Rice Doctor names it Microdochium oryzae; EPPO (RHYNOR) and NCBI Taxonomy (TaxID 1682384) both give Microdochium albescens as the accepted name, with Microdochium oryzae, Monographella albescens, Gerlachia oryzae and Rhynchosporium oryzae as synonyms.</rdfs:comment>
+    <rice:eppoCode>RHYNOR</rice:eppoCode>
+    <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_1682384"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Zonate_Leaf_Lesion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">zonate leaf lesion</rdfs:label>
+    <rdfs:comment xml:lang="en">Zonate lesions of alternating light tan and dark brown starting from leaf tips or edges; affected areas dry out, giving the leaf a scalded appearance. Diagnostic for leaf scald (IRRI Rice Doctor).</rdfs:comment>
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ax_20261005_01">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Microdochium_Albescens"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#causes"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <dcterms:source rdf:resource="https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Factsheet - Scald. Rice Doctor. International Rice Research Institute, with the Australian Centre for International Agricultural Research and The University of Queensland. https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm (accessed 2026-10-05). "Leaf scald is a fungal disease caused by Microdochium oryzae."</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ax_20261005_02">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Microdochium_Albescens"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#hasPathogenGroup"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Fungus_Group"/>
+    <dcterms:source rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_1682384"/>
+    <dcterms:bibliographicCitation xml:lang="en">NCBI Taxonomy: Microdochium albescens, TaxID 1682384. Lineage: cellular organisms; Eukaryota; Opisthokonta; Fungi; Dikarya; Ascomycota; saccharomyceta; Pezizomycotina; leotiomyceta; sordariomyceta; Sordariomycetes; Xylariomycetidae; Xylariales; Microdochiaceae; Microdochium. Retrieved live via NCBI E-utilities efetch (db=taxonomy) on 2026-10-05.</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">ontology-derived</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ax_20261005_03">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Zonate_Leaf_Lesion"/>
+    <dcterms:source rdf:resource="https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Factsheet - Scald. Rice Doctor. International Rice Research Institute, with the Australian Centre for International Agricultural Research and The University of Queensland. https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm (accessed 2026-10-05). "Leaf scald is a fungal disease caused by Microdochium oryzae."</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ax_20261005_04">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Zonate_Leaf_Lesion"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Factsheet - Scald. Rice Doctor. International Rice Research Institute, with the Australian Centre for International Agricultural Research and The University of Queensland. https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm (accessed 2026-10-05). "Leaf scald is a fungal disease caused by Microdochium oryzae."</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ax_20261005_05">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Excessive_Nitrogen"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#increaseRiskOf"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <dcterms:source rdf:resource="https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Factsheet - Scald. Rice Doctor. International Rice Research Institute, with the Australian Centre for International Agricultural Research and The University of Queensland. https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm (accessed 2026-10-05). "Leaf scald is a fungal disease caused by Microdochium oryzae."</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ax_20261005_06">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#controlledBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Resistant_Variety"/>
+    <dcterms:source rdf:resource="https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Factsheet - Scald. Rice Doctor. International Rice Research Institute, with the Australian Centre for International Agricultural Research and The University of Queensland. https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm (accessed 2026-10-05). "Leaf scald is a fungal disease caused by Microdochium oryzae."</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ax_20261005_07">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#controlledBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Seed_Treatment"/>
+    <dcterms:source rdf:resource="https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Factsheet - Scald. Rice Doctor. International Rice Research Institute, with the Australian Centre for International Agricultural Research and The University of Queensland. https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm (accessed 2026-10-05). "Leaf scald is a fungal disease caused by Microdochium oryzae."</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ax_20261005_08">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#controlledBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Crop_Sanitation"/>
+    <dcterms:source rdf:resource="https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Factsheet - Scald. Rice Doctor. International Rice Research Institute, with the Australian Centre for International Agricultural Research and The University of Queensland. https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm (accessed 2026-10-05). "Leaf scald is a fungal disease caused by Microdochium oryzae."</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ax_20261005_09">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#preventedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Resistant_Variety"/>
+    <dcterms:source rdf:resource="https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Factsheet - Scald. Rice Doctor. International Rice Research Institute, with the Australian Centre for International Agricultural Research and The University of Queensland. https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm (accessed 2026-10-05). "Leaf scald is a fungal disease caused by Microdochium oryzae."</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ax_20261005_10">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Ponni"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#varietyOf"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+    <dcterms:source rdf:resource="https://doi.org/10.21227/hz4v-af08"/>
+    <dcterms:bibliographicCitation xml:lang="en">Petchiammal, A., Briskline Kiruba, S., Murugan, D., &amp; Pandarasamy, A. (2022). Paddy Doctor: A visual image dataset for automated paddy disease classification and benchmarking. IEEE DataPort. https://doi.org/10.21227/hz4v-af08 (metadata.csv, variety column).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">dataset-derived</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ax_20261005_11">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#IR20"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#varietyOf"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+    <dcterms:source rdf:resource="https://doi.org/10.21227/hz4v-af08"/>
+    <dcterms:bibliographicCitation xml:lang="en">Petchiammal, A., Briskline Kiruba, S., Murugan, D., &amp; Pandarasamy, A. (2022). Paddy Doctor: A visual image dataset for automated paddy disease classification and benchmarking. IEEE DataPort. https://doi.org/10.21227/hz4v-af08 (metadata.csv, variety column).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">dataset-derived</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ax_20261005_12">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Surya"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#varietyOf"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+    <dcterms:source rdf:resource="https://doi.org/10.21227/hz4v-af08"/>
+    <dcterms:bibliographicCitation xml:lang="en">Petchiammal, A., Briskline Kiruba, S., Murugan, D., &amp; Pandarasamy, A. (2022). Paddy Doctor: A visual image dataset for automated paddy disease classification and benchmarking. IEEE DataPort. https://doi.org/10.21227/hz4v-af08 (metadata.csv, variety column).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">dataset-derived</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ax_20261005_13">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Karnataka_Ponni"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#varietyOf"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+    <dcterms:source rdf:resource="https://doi.org/10.21227/hz4v-af08"/>
+    <dcterms:bibliographicCitation xml:lang="en">Petchiammal, A., Briskline Kiruba, S., Murugan, D., &amp; Pandarasamy, A. (2022). Paddy Doctor: A visual image dataset for automated paddy disease classification and benchmarking. IEEE DataPort. https://doi.org/10.21227/hz4v-af08 (metadata.csv, variety column).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">dataset-derived</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ax_20261005_14">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Atchaya_Ponni"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#varietyOf"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+    <dcterms:source rdf:resource="https://doi.org/10.21227/hz4v-af08"/>
+    <dcterms:bibliographicCitation xml:lang="en">Petchiammal, A., Briskline Kiruba, S., Murugan, D., &amp; Pandarasamy, A. (2022). Paddy Doctor: A visual image dataset for automated paddy disease classification and benchmarking. IEEE DataPort. https://doi.org/10.21227/hz4v-af08 (metadata.csv, variety column).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">dataset-derived</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ax_20261005_15">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Andhra_Ponni"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#varietyOf"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+    <dcterms:source rdf:resource="https://doi.org/10.21227/hz4v-af08"/>
+    <dcterms:bibliographicCitation xml:lang="en">Petchiammal, A., Briskline Kiruba, S., Murugan, D., &amp; Pandarasamy, A. (2022). Paddy Doctor: A visual image dataset for automated paddy disease classification and benchmarking. IEEE DataPort. https://doi.org/10.21227/hz4v-af08 (metadata.csv, variety column).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">dataset-derived</rice:evidenceType>
   </rdf:Description>
 </rdf:RDF>
