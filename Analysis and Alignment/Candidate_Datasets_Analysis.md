@@ -108,12 +108,12 @@ These files were in `Data/candidates/` but had no entry above. They were profile
 |---|---|---|---|---|---|
 | Rice Disease Risk Assessment v1.0 (`Rice Disease Risk Assessment Dataset v1.0.zip`) | tabular soil + weather, georeferenced plots | CC BY 4.0 (`LICENSE.txt`, DataPort page) | Yes | `SensorObservation` + `FieldLocation` | **Imported 2026-10-05**: 186 real rows; 50 CTGAN-synthetic rows excluded |
 | AgriVision Maharashtra (`AgriVision_Maharashtra_ML_Features_GSMaP_2017_2025.csv` + sampling points + `DATA_DICTIONARY.csv`) | weekly NDVI (satellite), GSMaP rainfall, temperature at 167 points | **not stated** | No (cropland points, crop not recorded) | `RemoteSensingObservation` + `FieldLocation` | Later: ask for source and licence |
-| IRDD (`Main Folder.zip`) | image | **not stated** in the zip | Yes | `Brown_Spot` only | Drop for now |
-| RidgeNet public subset (`RidgeDataset.zip`) | UAV RGB + segmentation masks | per IEEE DataPort record (not in zip) | No (farmland ridges, China) | none | Drop (out of scope) |
-| Crop Classification (`Crop_Classification_dataset.xlsx`) | tabular Sentinel-2 bands + indices + soil | **not stated** | Partly (¼ rice) | weak | Drop: provenance unknown, likely synthetic |
-| Crop Recommendation (`Crop_recommendation.xlsx`, `Crop Recommendation dataset.zip`) | tabular N, P, K, pH, weather → crop | **not stated** | No (22 crops) | none | Drop |
-| Fertilizer Prediction (`Fertilizer Prediction.csv`) | tabular | **not stated** | No (11 crops) | none | Drop: synthetic |
-| AgriSense Synthetic (`AgriSense_Synthetic_Dataset.zip`) | tabular, synthetic by its own README | — | No (tomato, potato, wheat, cotton) | none | Drop |
+| IRDD (`Main Folder.zip`) | image | **not stated** in the zip | Yes | `Brown_Spot` only | Dropped; local file deleted 2026-10-06 |
+| RidgeNet public subset (`RidgeDataset.zip`) | UAV RGB + segmentation masks | per IEEE DataPort record (not in zip) | No (farmland ridges, China) | none | Dropped; local file deleted 2026-10-06 |
+| Crop Classification (`Crop_Classification_dataset.xlsx`) | tabular Sentinel-2 bands + indices + soil | **not stated** | Partly (¼ rice) | weak | Dropped (provenance unknown, likely synthetic); local file deleted 2026-10-06 |
+| Crop Recommendation (`Crop_recommendation.xlsx`, `Crop Recommendation dataset.zip`) | tabular N, P, K, pH, weather → crop | **not stated** | No (22 crops) | none | Dropped; local files deleted 2026-10-06 |
+| Fertilizer Prediction (`Fertilizer Prediction.csv`) | tabular | **not stated** | No (11 crops) | none | Dropped (synthetic); local file deleted 2026-10-06 |
+| AgriSense Synthetic (`AgriSense_Synthetic_Dataset.zip`) | tabular, synthetic by its own README | — | No (tomato, potato, wheat, cotton) | none | Dropped; local file deleted 2026-10-06 |
 | RiceDO v2 + TreatO v2 (`*.owl.zip`) | OWL ontologies (OWL/XML) | not stated in the files | Yes | comparator, not data | Use for alignment / comparison (task item A4) |
 
 ### Rice Disease Risk Assessment v1.0
@@ -148,4 +148,20 @@ These files were in `Data/candidates/` but had no entry above. They were profile
 - **AgriSense:** its README states it is synthetic ("This is not real farm data") and covers no rice.
 - **RiceDO v2 / TreatO v2:** OWL/XML, ontology IRIs `http://purl.org/ricedo` and `http://purl.org/treato` (dated 20-03-2021), 250 and 104 declarations, with opaque IDs (`RiceDO_000001`, …). They are the comparator listed as task item A4. rdflib cannot read OWL/XML, so a comparison needs owlready2 or the OWL API.
 
+## IEEE DataPort search (2026-10-06)
 
+Searched IEEE DataPort for rice datasets that could close the open gaps (pest images, abiotic disorders, remote sensing, text). Record pages were read on 2026-10-06; no file was downloaded, so contents are as described on each page. Every record below is *subscription required*, and none states a licence on its page.
+
+| Dataset (DOI) | Modality | Content, per the record page | Fits Rice MMKG | Recommendation |
+|---|---|---|---|---|
+| Multi-Temporal UAV Multispectral Dataset, paddy rice (10.21227/xq3a-8n91) | UAV multispectral, tabular | Boruah, IIT Kharagpur, 2026. One CSV (1.63 MB): 3,901 frame-level observations over 7 flight dates, Kharif 2025, Debra and IIT Kharagpur, West Bengal. NDVI, NDRE, GNDVI, reflectance, flight attitude, solar geometry. No disease or pest label | `RemoteSensingObservation` (`hasNDVI`, `recordedAtDate`); rice-specific, unlike AgriVision | **Download and profile**: best candidate for the empty remote-sensing class. Check licence, and whether frames carry coordinates |
+| YOLO-RLD (10.21227/dgvk-me89) | image + lesion bounding boxes | Zhang. Paddy Doctor images re-annotated in YOLO format; bacterial leaf blight, bacterial leaf streak, blast, brown spot, tungro, plus healthy negatives. Record page returned 403; details from the search index only | Lesion boxes for images already in the graph (CQ-18 symptom grounding), if file names match Paddy Doctor IDs | Later: check licence and ID match. Already listed in the README as a candidate |
+| IMPaCT-UAV-MsRGB | UAV multispectral + RGB | 42,430 raw images (≈415 GB), Vijayawada, Andhra Pradesh, nursery to harvest. No disease labels | `RemoteSensingObservation`, but raw imagery only | Later: too large, and index values would have to be computed |
+| Karnataka Soil (10.21227/nqjf-7784) | tabular soil + climate | 5.31 MB; rice, maize, finger millet, sugarcane; "gathered from different sources" | weak | Drop: provenance unclear, a crop-recommendation table like those already dropped |
+| Semantic-Aware IoT Dataset for Smart Agriculture (10.21227/xnk1-yn46) | tabular | 60,000 *simulated* samples; crop not named | none | Drop: synthetic |
+| Paddy Disease Effected Images (10.21227/xzhf-tk14) | image | "Files have not been uploaded for this dataset" | none | Drop: empty record |
+| Paddy Leaf Disease Detection Project Report (10.21227/xgeh-7321) | PDF report | One PDF; images taken from Kaggle | none | Drop |
+| Paddy crop and weeds digital image dataset (10.21227/w4r4-wg46) | image | 7.77 GB; paddy, grass weeds, broadleaved weeds, sedges; no disease or pest label | none (weeds are not modelled) | Drop: out of scope |
+| Context-Aware Multimodal Augmented PlantVillage (10.21227/9jat-r836) | image + text | 3,900 symptom text prompts, 38 classes, 14 crops; the page does not list the crops, and PlantVillage itself has no rice class | none expected | Drop unless rice is confirmed |
+
+**Result:** IEEE DataPort has no rice pest image set beyond Paddy Doctor, no image set for abiotic disorders, and no rice text corpus. The one new usable lead is the West Bengal UAV multispectral CSV. Pest images for `Brown_Planthopper`, `Armyworm`, `Rice_Bug` and `Nephotettix_Virescens` still have to come from outside DataPort (IP102, or the rice pest dataset of PMC10828557).
