@@ -236,7 +236,7 @@ DataPort's own full-text search was run for `rice`, `paddy`, `oryza`, `planthopp
 
 | Dataset (DOI) | Modality | Content, per the record page | Possible mapping | Recommendation |
 |---|---|---|---|---|
-| Paddy Crop RGB Drone Data (10.21227/jzw5-hk19) | UAV RGB image | Boruah, IIT Kharagpur, 2025 — the author of the UAV multispectral file, and the same two sites (IIT Kharagpur campus and a second West Bengal field). 224 × 224 tiles, 793 MB, labelled `healthy` / `unhealthy` by leaf colour, canopy density and texture; three folders (Internal, Ext1, Ext2). Image count, dates and georeferencing not stated | `ImageObservation` at canopy scale. `healthy` → `Normal_Health`; `unhealthy` names no disease, so it would stay a source label | Later: the only DataPort record that could give the UAV multispectral flights a health label, if dates and fields can be matched. Ask the author |
+| Paddy Crop RGB Drone Data (10.21227/jzw5-hk19) | UAV RGB image | Boruah, IIT Kharagpur, 2025 — the author of the UAV multispectral file, and the same two sites (IIT Kharagpur campus and a second West Bengal field). 224 × 224 tiles, 793 MB, labelled `healthy` / `unhealthy` by leaf colour, canopy density and texture; three folders (Internal, Ext1, Ext2). Image count, dates and georeferencing not stated | `ImageObservation` at canopy scale. `healthy` → `Normal_Health`; `unhealthy` names no disease, so it would stay a source label | **Checked locally 2026-10-07: not suitable** (see below). Tiles carry no date, coordinate or frame reference, so they cannot be matched to the multispectral flights |
 | Data_Tanaman_Padi_Indonesia_2018-2023 (10.21227/xqkt-z292) | Tabular | Erlin, 2024. Province × year: harvested area, production, rainfall, humidity, temperature; from BPS and BMKG. 8.58 KB | none: no pest, disease or variety variable | Drop. For Indonesian context, BPS and BMKG are the sources to cite directly |
 | RiceDO Version 2 (10.21227/5ndq-4222) and TreatO Version 2 (10.21227/5016-aw09) | OWL ontology | Jearanaiwongkul, Anutariya, Racharak, Andres, 2021. These are the two `*.owl.zip` files already in `Data/candidates/` | comparator (task item A4) | Keep. Origin of the local files now identified; licence not stated on either record |
 | IP102_3CLASS (10.21227/62dp-k165) | Image | Subset of IP102: rice leaf roller, grub, *Prodenia litura*. 98 MB | `Leaf_Folder` only, already covered | Drop |
@@ -244,3 +244,13 @@ DataPort's own full-text search was run for `rice`, `paddy`, `oryza`, `planthopp
 | Zizania and Apple Image Dataset (10.21227/xaqb-kc20) | Image | Zizania (wild rice stem, a vegetable) quality grading | none | Drop: not *Oryza* |
 
 **Result:** the search is now exhausted for these terms. DataPort holds no further rice dataset with a disease, pest or symptom label beyond Paddy Doctor, IRDD and the blocked YOLO-RLD record.
+
+### Paddy Crop RGB Drone Data (checked 2026-10-07, `D:\MMKG Data\Paddy Crop RGB Drone Data\`)
+- **Content (verified, archives read without extracting):** 11,650 unique JPEG tiles of 224 × 224 pixels in three sets, each split into `Healthy` and `Unhealthy`: InternalData 4,494 / 4,166 · EXT1 873 / 931 · EXT2 595 / 591. `EXT1.zip` contains all three sets; `InternalData.zip` and `EXT2.zip` are byte-identical subsets of it. No file is in both a `Healthy` and an `Unhealthy` folder.
+- **Metadata:** none. The archives hold no README, no table, and the tiles have no EXIF (no date, no GPS). File names are running numbers (`h_image01.jpg`, `u_image997.jpg`). The README listed on the record page is not in the download.
+- **What the labels show (48 random tiles viewed):** `Unhealthy` covers sparse canopy with soil or water visible, weed patches and uneven stands, as well as yellowing; `Healthy` covers dense canopy of varying colour, including yellow-green and heading canopy. The label is a canopy-condition judgement, not a diagnosis. Neighbouring tiles of one frame are present, so many tiles are near-duplicates.
+- **Fit:**
+  - Link to the UAV multispectral file: not possible. Nothing ties a tile to a field, flight date or frame.
+  - `Healthy` → `Normal_Health` would be the only mapping; `Unhealthy` names no `Disease`, `Pest` or `Symptom`, and mixes crop stage and weeds with stress.
+  - Canopy tiles are a different scale from the leaf images in the graph, but without location or date they add no context either.
+- **Recommendation:** do not import. Useful only if the author can supply the tile-to-frame mapping and the flight dates.
