@@ -229,3 +229,18 @@ Both were downloaded outside the repository, to `D:\MMKG Data\` (not on OneDrive
   - No disease, pest or stress label.
 - **Licence:** not stated; the data card says "follow the final license inserted by the authors before publication".
 - **Recommendation:** do not import now. It is the better remote-sensing candidate (rice-specific, calibrated, dated, georeferenced), but it would still sit apart from the disease layer. Keep as a candidate alongside the UAV file.
+
+## IEEE DataPort search, round 3: site search (2026-10-07)
+
+DataPort's own full-text search was run for `rice`, `paddy`, `oryza`, `planthopper`, `stem borer`, `rice blast` and `rice pest`, across all categories and not only the *Agriculture* tag. It returned 188 distinct records; those not already listed above were read on their record pages. All are *subscription required* with no licence stated. `planthopper` returns nothing.
+
+| Dataset (DOI) | Modality | Content, per the record page | Possible mapping | Recommendation |
+|---|---|---|---|---|
+| Paddy Crop RGB Drone Data (10.21227/jzw5-hk19) | UAV RGB image | Boruah, IIT Kharagpur, 2025 — the author of the UAV multispectral file, and the same two sites (IIT Kharagpur campus and a second West Bengal field). 224 × 224 tiles, 793 MB, labelled `healthy` / `unhealthy` by leaf colour, canopy density and texture; three folders (Internal, Ext1, Ext2). Image count, dates and georeferencing not stated | `ImageObservation` at canopy scale. `healthy` → `Normal_Health`; `unhealthy` names no disease, so it would stay a source label | Later: the only DataPort record that could give the UAV multispectral flights a health label, if dates and fields can be matched. Ask the author |
+| Data_Tanaman_Padi_Indonesia_2018-2023 (10.21227/xqkt-z292) | Tabular | Erlin, 2024. Province × year: harvested area, production, rainfall, humidity, temperature; from BPS and BMKG. 8.58 KB | none: no pest, disease or variety variable | Drop. For Indonesian context, BPS and BMKG are the sources to cite directly |
+| RiceDO Version 2 (10.21227/5ndq-4222) and TreatO Version 2 (10.21227/5016-aw09) | OWL ontology | Jearanaiwongkul, Anutariya, Racharak, Andres, 2021. These are the two `*.owl.zip` files already in `Data/candidates/` | comparator (task item A4) | Keep. Origin of the local files now identified; licence not stated on either record |
+| IP102_3CLASS (10.21227/62dp-k165) | Image | Subset of IP102: rice leaf roller, grub, *Prodenia litura*. 98 MB | `Leaf_Folder` only, already covered | Drop |
+| Rice and Wheat crop yield prophesy (10.21227/bcpj-af28) | Tabular | Water level, temperature, humidity, nitrogen, yield; no place, period or source | none | Drop: provenance unknown |
+| Zizania and Apple Image Dataset (10.21227/xaqb-kc20) | Image | Zizania (wild rice stem, a vegetable) quality grading | none | Drop: not *Oryza* |
+
+**Result:** the search is now exhausted for these terms. DataPort holds no further rice dataset with a disease, pest or symptom label beyond Paddy Doctor, IRDD and the blocked YOLO-RLD record.
