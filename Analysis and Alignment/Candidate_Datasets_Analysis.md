@@ -189,8 +189,8 @@ All 24 listing pages of the DataPort *Agriculture* topic tag (about 230 records)
 
 | Dataset (DOI) | Modality | Content, per the record page | Possible mapping | Recommendation |
 |---|---|---|---|---|
-| ROSE, Real Observation SITS Evaluation (10.21227/h63f-wd44) | Satellite time series (Sentinel-2) | Gao, AIR-CAS, 2026. 1,271 georeferenced 128 × 128 chips on the 10 m grid, Jiangsu, autumn crop season 2025; 10 bands with acquisition dates; labels rice / maize / other; "phenology metadata" provided. 13.95 GB | `RemoteSensingObservation` + `FieldLocation`; the phenology metadata could tie an observation to a `GrowthStage`, which the UAV file cannot | **Best remote-sensing lead.** Download only if the phenology field turns out to be per sample and per date; NDVI has to be computed from B08 and B04 |
-| LeafNet (10.21227/epxf-hr31) | Image + text | Nguyen Quoc et al., 2025. 186,000+ leaf images, 97 disease classes, 22 crop species, with disease symptom descriptions "curated from reputable sources". 10.95 GB. The page does not list the species | Text modality: symptom descriptions per disease class, comparable with the `indicatedBy` assertions | **Best text lead**, but only if rice is among the 22 species. Check the companion paper before downloading |
+| ROSE, Real Observation SITS Evaluation (10.21227/h63f-wd44) | Satellite time series (Sentinel-2) | Gao, AIR-CAS, 2026. 1,271 georeferenced 128 × 128 chips on the 10 m grid, Jiangsu, autumn crop season 2025; 10 bands with acquisition dates; labels rice / maize / other; "phenology metadata" provided. 13.95 GB | `RemoteSensingObservation` + `FieldLocation`; the phenology metadata could tie an observation to a `GrowthStage`, which the UAV file cannot | **Checked locally 2026-10-07: not suitable for now** (see below). Phenology is a county-level calendar, not per sample |
+| LeafNet (10.21227/epxf-hr31) | Image + text | Nguyen Quoc et al., 2025. 186,000+ leaf images, 97 disease classes, 22 crop species, with disease symptom descriptions "curated from reputable sources". 10.95 GB. The page does not list the species | Text modality: symptom descriptions per disease class, comparable with the `indicatedBy` assertions | **Checked locally 2026-10-07: not a text modality** (see below). Rice is included, but the text is one sentence per class |
 | Solar Insecticidal Lamps IoT (10.21227/9mqx-vd10) | Sensor + pest counts | Li, Shu et al., Nanjing Agricultural University. 16.7 M rows, Nov 2023 – Feb 2024: insect-kill pulse counts, air temperature, humidity, light. Crop, location and insect species not stated | `SensorObservation`; kill counts would need a new property and name no `Pest` | Later: ask the authors for crop and site. Winter months, so few rice pests expected |
 | Insecticidal Counting, one lamp and two cameras (10.21227/p189-v183) | Video + counts | Same group. Aug – Oct 2021, about 178 GB of video plus a count table. Crop and species not stated | as above | Drop: size, and no species |
 | RMPS, Rupnagar Maize Paddy Sugarcane (10.21227/rfed-3z84) | Satellite (PlanetScope, 3 m) | 32 scenes, May – Nov 2023, Rupnagar, Punjab; crop-type ground truth. 23.79 GB | `RemoteSensingObservation`, crop type only | Drop: raw scenes, PlanetScope redistribution terms, no label beyond crop |
@@ -205,3 +205,27 @@ All 24 listing pages of the DataPort *Agriculture* topic tag (about 230 records)
 Two records already held locally were identified by this pass: AgriVision Maharashtra, and the ridge-segmentation UAV set (dropped).
 
 **Result:** no DataPort record supplies a new modality that maps into the domain layer as it stands. Two are worth a closer look, ROSE (remote sensing with phenology) and LeafNet (image + text), and both depend on a detail the record page does not give. DataPort has no rice text corpus, no pest occurrence series with species, and no weather series tied to a rice disease.
+
+## Local check of ROSE and LeafNet (2026-10-07)
+
+Both were downloaded outside the repository, to `D:\MMKG Data\` (not on OneDrive), and inspected there. Neither was imported.
+
+### LeafNet (`D:\MMKG Data\LeafNet\`)
+- **Content (verified):** 97 class folders and `class_description.json` (97 entries: class name, crop, disease name, one description).
+- **Rice:** 8 classes, 13,107 images — Healthy 3,347 · Leaf Blast 3,005 · Brown Spot 2,897 · Hispa 1,981 · Bacterial Blight 827 · Leaf Scald 358 · Narrow Brown Spot 353 · Leaf Smut 339.
+- **Text:** one short sentence per class, so 8 sentences for rice (e.g. leaf scald: "zonate lesions of alternating light tan and dark brown from tips or edges…"). There is no per-image text. The record says the descriptions were curated from "UME, NIH, and published studies"; no sentence carries its own source.
+- **Images:** file names follow a `<class> (<n>).jpg` pattern, which points to a re-packaged public collection, not an original field campaign. No per-image origin, date, location or licence. Overlap with Paddy Doctor and Dhan-Shomadhan was not tested (the local copies of those are OneDrive placeholders).
+- **Fit:**
+  - As a text modality: no. Eight class-level sentences are not a corpus, and without a traceable source they cannot back an `indicatedBy` assertion under the provenance rule.
+  - As images: six of the eight classes are already covered. Leaf Smut and Narrow Brown Spot would be new `Disease` individuals, each needing a sourced pathogen and symptoms first.
+- **Recommendation:** do not import. Useful only as a pointer: if Narrow Brown Spot or Leaf Smut are wanted, find the original image release.
+
+### ROSE (`D:\MMKG Data\ROSE\`)
+- **Content (verified from the core archive):** 1,271 chips of 1.28 km × 1.28 km in 21 Jiangsu counties (31.40–34.81 °N, 116.45–120.76 °E); 1,176 contain rice pixels and 898 are rice-majority. 79,256 sample–overpass pairs on 129 dates, 2025-05-15 to 2025-11-29. Ten Sentinel-2 L2A bands as real surface reflectance (scale 0.0001), with cloud validity masks. The 12 tile archives (about 14 GB) were not opened.
+- **Phenology:** `county_crop_broad_phenology_calendar.csv` is per county and per ten-day period, with four phases (sowing, growth, maturity, harvest). The data card states it is "not … plot-level phenology ground truth".
+- **Fit:**
+  - `RemoteSensingObservation` + `FieldLocation` would work, and reflectance is properly calibrated, unlike the UAV file. NDVI would have to be computed per chip and date over rice pixels only.
+  - `GrowthStage`: only by joining a chip's county and date to the calendar. "maturity" and "harvest" match `Maturity_Stage` and `Harvest_Stage`; "growth" spans seedling to flowering and matches no single stage. The link would be a derived estimate, not something the source asserts per field.
+  - No disease, pest or stress label.
+- **Licence:** not stated; the data card says "follow the final license inserted by the authors before publication".
+- **Recommendation:** do not import now. It is the better remote-sensing candidate (rice-specific, calibrated, dated, georeferenced), but it would still sit apart from the disease layer. Keep as a candidate alongside the UAV file.
