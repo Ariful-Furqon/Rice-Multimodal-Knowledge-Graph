@@ -265,23 +265,32 @@ CQS = [
     {
         "id": "CQ-17", "level": "L2", "dim": "D2", "mode": "coverage",
         "question": "Which annotated classes of the image corpus are typed as a "
-                    "domain entity (Disease, Pest or HealthStatus)?",
+                    "domain entity (Disease, Pest, HealthStatus or Symptom)?",
         "rationale": "Checks that dataset labels were reconciled with the ontology "
-                     "rather than left as free-floating individuals.",
+                     "rather than left as free-floating individuals. Extended on "
+                     "2026-10-13 to admit Symptom: the range of annotatedAs has "
+                     "always included it, and the first images labelled with a "
+                     "symptom (White_Ear) were otherwise counted as unreconciled.",
         "num": PREFIX + """SELECT DISTINCT ?e WHERE {
   ?img rice:annotatedAs ?e .
-  { ?e a rice:Disease } UNION { ?e a rice:Pest } UNION { ?e a rice:HealthStatus } }""",
+  { ?e a rice:Disease } UNION { ?e a rice:Pest } UNION { ?e a rice:HealthStatus }
+  UNION { ?e a rice:Symptom } }""",
         "den": PREFIX + "SELECT DISTINCT ?e WHERE { ?img rice:annotatedAs ?e }",
         "unit": "annotated class",
     },
     {
         "id": "CQ-18", "level": "L1", "dim": "D2", "mode": "coverage",
         "question": "Which symptoms are grounded in visual evidence, i.e. captured "
-                    "by at least one image observation?",
+                    "by, or given as the label of, at least one image observation?",
         "rationale": "Symptom-level visual grounding is what distinguishes an MMKG "
                      "from a text ontology with images bolted on. Expected to expose "
-                     "the sharpest gap in the current release.",
-        "num": PREFIX + "SELECT DISTINCT ?s WHERE { ?s a rice:Symptom . ?o rice:captures ?s }",
+                     "the sharpest gap in the current release. Extended on "
+                     "2026-10-13: an image whose dataset label is itself a symptom "
+                     "(annotatedAs) now counts beside the captures relation, which "
+                     "such a label does not produce.",
+        "num": PREFIX + """SELECT DISTINCT ?s WHERE {
+  ?s a rice:Symptom .
+  { ?o rice:captures ?s } UNION { ?o a rice:ImageObservation ; rice:annotatedAs ?s } }""",
         "den": PREFIX + "SELECT DISTINCT ?s WHERE { ?s a rice:Symptom }",
         "unit": "symptom",
     },
@@ -399,6 +408,24 @@ CQS = [
         "num": PREFIX + """SELECT DISTINCT ?x WHERE {
   ?x a rice:Symptom . ?x a rice:Disease }""",
         "on_entailed": True,
+    },
+    {
+        "id": "CQ-26", "level": "L2", "dim": "D2", "mode": "coverage",
+        "question": "Which pests are monitored over time and place, i.e. detected "
+                    "by at least one trap observation that carries a catch count, "
+                    "a start and an end of its window, and a location?",
+        "rationale": "Added on 2026-10-13 with the first light-trap data. Trap "
+                     "catches are the only channel that records how many of a pest "
+                     "were present, where and when; the other 25 questions do not "
+                     "touch it. The denominator is every Pest, so the result shows "
+                     "how few pests have monitoring data.",
+        "num": PREFIX + """SELECT DISTINCT ?p WHERE {
+  ?p a rice:Pest .
+  ?o a rice:TrapObservation ; rice:detects ?p ; rice:hasCatchCount ?n ;
+     rice:recordedAtDate ?from ; rice:recordedUntilDate ?to ;
+     rice:hasSpatialLocation ?loc }""",
+        "den": PREFIX + "SELECT DISTINCT ?p WHERE { ?p a rice:Pest }",
+        "unit": "pest",
     },
 ]
 

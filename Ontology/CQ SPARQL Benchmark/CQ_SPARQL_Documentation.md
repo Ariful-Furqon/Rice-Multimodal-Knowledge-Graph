@@ -6,6 +6,12 @@
 **Overall Result:** 21 PASS / 2 PARTIAL / 1 FAIL / 1 DOCUMENTED (24 scored + 1 documented = 25 CQs)
 **Pass Rate:** 87.5% (21/24 scored CQs); v0.6.2: 95.8% (23/24)
 
+> **Benchmark revision (2026-10-13). The rest of this document describes the benchmark as executed on 2026-09-17; current figures are in `CQ_SPARQL_Benchmark_Report.md`.**  
+> **CQ-17** now also counts an annotated class typed as `Symptom` (`UNION { ?e a rice:Symptom }`); 19/19.  
+> **CQ-18** now also counts a symptom that is the direct label of an image (`UNION { ?o a rice:ImageObservation ; rice:annotatedAs ?s }`); 2/40, PARTIAL.  
+> **CQ-26** is new (L2 x D2, coverage): pests detected by at least one `TrapObservation` with `hasCatchCount`, `recordedAtDate`, `recordedUntilDate` and `hasSpatialLocation`, over all pests; 1/7 (14%), PARTIAL.  
+> Result on 0.7.0-dev (302,494 asserted / 588,836 OWL RL triples): **21 PASS / 3 PARTIAL / 1 FAIL / 1 DOCUMENTED** (25 scored + 1 documented = 26 CQs), pass rate 84.0%.
+
 > **0.7.0-dev Note (2026-09-15):**  
 > `PlantPart` (8 individuals), `affectsPlantPart` (27 assertions, citing IRRI Rice Knowledge Bank fact sheets) and `partOf` (2 assertions, from the Plant Ontology) were added. Verdicts are unchanged. Two measurements move because the new assertions are reified: CQ-21 256/256 → **285/285**, and CQ-22 now also checks `affectsPlantPart` and `partOf` (still 0 violations). The new property was added to CQ-22's list rather than left out, so that the extension could not pass CQ-22 by omission. All other results are identical to v0.6.2. See the 0.7.0-dev entry in `Ontology_Overview.md`.  
 > **Then** `TransmissionMode` (1 individual) and `hasTransmissionMode` (2 assertions, citing Wang et al. 2022) were added; CQ-21 → **287/287**, `hasTransmissionMode` added to CQ-22's list (0 violations), verdicts unchanged.  

@@ -65,7 +65,7 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (19 classes; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment` and `ResistanceLevel` added in 0.7.0-dev) |
 | **Reasoner Consistency** | **Consistent** | 0.7.0-dev checked in **HermiT** on 2026-09-17 with `-k` on a space-free copy, with injected-contradiction controls (`Rice` as Plant + Disease; `Leaf_Blade` as PlantPart + Disease; `Semi_Persistent` as TransmissionMode + Disease; `Chemical_Control_Category` as ManagementCategory + Disease; `Zinc_Deficiency` as AbioticFactor + Pathogen; `Salinity` as AbioticFactor + Pathogen; `IR64` as Variety + Disease; a `ResistanceAssessment` also typed Variety; `assessedAgainst` a Treatment) that all report inconsistent; v0.6 verified in HermiT & Pellet |
-| **Competency Questions (CQ)** | **21 PASS / 2 PARTIAL / 1 FAIL / 1 DOC** | **87.5% pass rate** across 24 scored CQs (25 total). CQ-13 FAIL: the unsourced severity → action triage was removed. CQ-12 PARTIAL: six abiotic disorders entered its denominator. CQ-01 denominator corrected to exclude abiotic disorders (7/9; uncorrected 7/15). v0.6.1/v0.6.2: 23 / 1 / 0 / 1; released v0.6: 21 / 1 / 2 / 1 |
+| **Competency Questions (CQ)** | **21 PASS / 3 PARTIAL / 1 FAIL / 1 DOC** | **84.0% pass rate** across 25 scored CQs (26 total; CQ-26 added and CQ-17/CQ-18 extended on 2026-10-13, before that 21 / 2 / 1 / 1 over 24). CQ-13 FAIL: the unsourced severity → action triage was removed. CQ-12 PARTIAL: six abiotic disorders entered its denominator. CQ-26 PARTIAL: one pest of seven has trap observations. CQ-01 denominator corrected to exclude abiotic disorders (7/9; uncorrected 7/15). v0.6.1/v0.6.2: 23 / 1 / 0 / 1; released v0.6: 21 / 1 / 2 / 1 |
 | **`skos:exactMatch` / `closeMatch` / `broadMatch`** | 42 / 23 / 1 | Mapped to AGROVOC / NCBI Taxonomy / Planteome (PECO, PO) and BFO, verified against live APIs |
 | **`TODO` literals remaining** | **0** | **100% resolved (dataset metadata & EPPO codes verified)** |
 | **Properties with no declared domain/range** | 0 / 0 | 100% coverage |
@@ -174,6 +174,16 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-10-13: 0.7.0-dev — Benchmark revision: symptom labels and trap observations are now measured
+
+Three things added on 2026-10-13 were invisible to the benchmark: images labelled with a symptom, and the trap observations. Two questions were extended and one was added (approved 2026-10-13). The ontology file is unchanged.
+
+- **CQ-17 extended:** an annotated class typed as `Symptom` now counts as reconciled, beside `Disease`, `Pest` and `HealthStatus`. The range of `annotatedAs` has always included `Symptom`. 18/19 → **19/19**.
+- **CQ-18 extended:** a symptom counts as visually grounded if an observation `captures` it or an image is `annotatedAs` it. 1/40 → **2/40** (`White_Ear` joins); still PARTIAL.
+- **CQ-26 added** (L2, D2, coverage): which pests are detected by at least one trap observation with a catch count, a start and an end of its window, and a location? **1/7 (14%), PARTIAL**: only `Brown_Planthopper`.
+- **Headline:** 21 PASS / 2 PARTIAL / 1 FAIL / 1 DOC over 24 scored questions → **21 PASS / 3 PARTIAL / 1 FAIL / 1 DOC over 25** (26 questions in all). Pass rate 87.5% → **84.0%**. The fall comes from the new question alone; no earlier verdict changed.
+- **Comparability:** results before this date used the earlier definitions of CQ-17 and CQ-18 and had no CQ-26. `CQ_SPARQL_Documentation.md` still describes the benchmark as of 2026-09-17, apart from a dated note on this revision.
 
 ### 2026-10-13: 0.7.0-dev — Light-trap catches: a third observation channel
 
