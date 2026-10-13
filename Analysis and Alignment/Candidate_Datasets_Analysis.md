@@ -373,3 +373,28 @@ Three archives were downloaded and inspected; the others were judged from the re
 - No image set for `Armyworm`, `Nephotettix_Virescens` or `Rice_Bug` that can be used; queries for *Leptocorisa* and *Nephotettix* return nothing.
 - No images for nitrogen, phosphorus or zinc deficiency, iron toxicity or salinity apart from the two sets above.
 - No audio, video or English text resource linked to rice diseases.
+
+## Zenodo search for other modalities (2026-10-13)
+
+A second pass on Mendeley Data with 22 queries for non-image data (incidence surveys, light traps, pest counts with weather, resistance screening, pathogen isolates, field trials) returned nothing usable. Zenodo was then searched through its API (`https://zenodo.org/api/records`, datasets with rice or paddy in the title, 18 queries by modality). Records are at `https://zenodo.org/records/<id>`. Five small records were downloaded to `D:\MMKG Data\` (folders ending in "(Zenodo)") and inspected.
+
+### Inspected locally
+
+| Dataset | Id | Licence | Finding | Recommendation |
+|---|---|---|---|---|
+| Brown planthopper light-trap catches, China | `7630245` | CC0 | 11,567 rows: 229 trap sites with coordinates (109.98–122.06 °E, 24.14–34.89 °N), 1977–2019, six periods of five or six days in July, number caught. Source: national plant protection network (NATESC). No zero counts, so periods without a catch are probably absent rather than zero. A second sheet gives 42 annual totals for two regions. | **Best candidate.** A new kind of observation (trap count) for a pest that has images since today. Needs one count property and a period instead of a date. |
+| Weekly pest surveillance, Midsayap, Philippines | `21972083` | CC BY 4.0 | 366 weekly rows, 2018–2024, one station: light-trap counts of rice black bug (*Scotinophara coarctata*) and white stemborer (*Scirpophaga innotata*), with temperature, humidity, rainfall, wind and soil wetness from NASA POWER, and moon phase. Some dates disagree with their month and week columns. | **Candidate.** Weather columns match `hasTemperature`, `hasHumidity`, `hasRainfall`. White stemborer maps to `Stem_Borer`; rice black bug is not in the ontology (`Rice_Bug` is *Leptocorisa oratorius*). Weather is reanalysis, not measured at the trap. |
+| Landraces screened for brown planthopper resistance | `4450234` | CC BY 4.0 | 218 landraces plus checks Swarna and Ptb33: damage scores (0–9) in free-choice, no-choice and field screening over 2016–2018, insects per plant, and biochemical values for 42 of them. | Later. Fits `ResistanceAssessment`, but against a pest, and adds 220 varieties nothing else refers to. |
+| Hyperspectral index for bacterial leaf blight severity | `20805751` | CC BY 4.0 | About 90 plots: disease index, a spectral index and band values. No coordinates, dates or varieties per row. | Later. Too little context per row. |
+| Rice Pest Dataset (Vietnam) | `10442124` | CC BY 4.0 | 3,159 images; class names and five-digit file names are those of IP102. Adds life-stage folders (adult, egg, larva). | **Drop.** A subset of IP102, see section 4. |
+
+### Judged from the record (not downloaded)
+
+| Dataset | Id | Size | What it would add | Recommendation |
+|---|---|---|---|---|
+| RGB and NDVI images for nitrogen deficiency across growth stages (Tanzania) | `17983378` | 19.6 GB | 5,000 RGB and 5,000 NDVI images, four nitrogen rates (T0 none, T1 half, T2 recommended, T3 150 %), 40–90 days after planting, variety SARO 5. | **Candidate.** First images for an abiotic disorder with a growth stage. T0 with its NDVI set is 5.7 GB. The label is the treatment, not a diagnosis. |
+| Light-trap images of rice black bug and white stemborer | `20066074` | 1.0 GB | Annotated trap images, four classes (species by sex). Same authors as the Midsayap table. | Later, together with the Midsayap table if rice black bug is added. |
+| Hyperspectral images under salinity stress | `6515000` | 39.4 GB | Whole-plant hyperspectral images of four lines at EC 9 dS/m, CC0. | Later. Laboratory phenotyping; very large. |
+| Proximal sensing of bacterial blight resistance | `10398370` | — | The record holds a poster only. | Not suitable. |
+
+Not found on Zenodo either: audio, video, text or question-answer data on rice diseases, and images of `Armyworm`, `Nephotettix_Virescens` or `Rice_Bug`.
