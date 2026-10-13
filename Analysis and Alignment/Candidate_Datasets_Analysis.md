@@ -425,3 +425,43 @@ Downloaded by the user to `D:\MMKG Data\`; folder names are the record titles, c
 - **Content (48 photos viewed):** single hills from above on dry red soil. The plants are green; no yellowing is evident at thumbnail size. The second set is raw red-green-NIR frames from a MAPIR Survey3, not NDVI values.
 - **Limits:** the label is the fertiliser treatment (no nitrogen applied). Nothing in the files shows that a given plant is deficient, and no growth stage can be attached per image.
 - **Recommendation: not suitable.** The remaining treatments (T1–T3, 14 GB) do not need to be downloaded.
+
+## Search for abiotic disorders (2026-10-13)
+
+Target: images or other observations for the six abiotic disorders (nitrogen, phosphorus, potassium and zinc deficiency, iron toxicity, salinity), none of which has an image in the graph. Twelve queries each on Zenodo (full text, not title only), Figshare, Harvard Dataverse, DataCite and Hugging Face, and on Kaggle through its public listing API; one web search. Nothing was downloaded.
+
+### Images
+
+| Dataset | Where | Licence | Covers | Finding | Recommendation |
+|---|---|---|---|---|---|
+| Nutrient-Deficiency-Symptoms-in-Rice (W. Raksarikon) | Kaggle `guy007/nutrientdeficiencysymptomsinrice`, 1.0 GB | **Unknown** (as listed by Kaggle) | N, P, K | The set used by most papers on the topic; a 2024 IEEE Access paper reports 1,155 leaf images in three classes. Deficiency was produced by withholding one nutrient. | **Blocked on licence.** Worth asking the owner; nothing else covers phosphorus. |
+| Rice Disease Image Dataset (Netrokona) | Mendeley `jw7hp6r5gj` | CC BY 4.0 | K | Checked above: 500 photos of detached leaves, plausible symptoms, no expert validation. | Candidate after expert confirmation. |
+| Nitrogen deficiency for rice crop | Kaggle `myominhtet/…` | CC BY 4.0 | N | A copy of the Sambalpur University leaf-colour-chart patches (Mendeley `gzm5pxntyv`), already dropped. | Drop. |
+| RGB and NDVI, four nitrogen rates (Tanzania) | Zenodo `17983378` | CC BY 4.0 | N | Checked above: label is the treatment; no visible symptom. | Not suitable. |
+| Hyperspectral images under salinity | Zenodo `6515000`, 39 GB | CC0 | Salinity | Whole plants of four lines in the laboratory. | Later. |
+
+No image set was found for zinc deficiency or iron toxicity.
+
+### Other kinds of data
+
+| Dataset | Where | Licence | Covers | Content | Recommendation |
+|---|---|---|---|---|---|
+| Abiotic stress maps for rice (STRASA / AfricaRice) | Harvard Dataverse `10.7910/DVN/SPDA4S`, `TVDZ4Q`, `SBQ9OJ`, `XZYV58` | CC0 | Iron toxicity, salinity | Tables and rasters for Africa: area of rainfed lowland rice on soils with high iron content, probability of saline or sodic soil. | Candidate for a later risk-map layer; regional, not per field. |
+| Salinity tolerance loci, high-throughput phenotyping | Zenodo `4936155`, 154 MB | CC0 | Salinity | Growth and transpiration of 553 genotypes under salt, with genotype data. | Later. Fits variety tolerance, not observation. |
+| Leaf colour chart and SPAD against leaf nitrogen, jasmine rice (Thailand) | Harvard Dataverse `10.7910/DVN/XK5NOP` | CC0 | N | Field experiment files from 2003 in several formats. | Later. Supports a threshold for nitrogen status, no images. |
+| Phenotyping for zinc deficiency tolerance (JIRCAS) | Harvard Dataverse `10.7910/DVN/M7KJWA` | CC0 stated | Zn | One table; the file itself is access-restricted (HTTP 403). | Blocked on access. |
+| Raman spectroscopy of salinity and N, P, K deficiency; of aluminium and iron toxicity | Figshare `13127093`, `19770646` | CC BY 4.0 | N, P, K, salinity, iron toxicity | Supplementary PDF of each paper; no spectra as data files. | Not suitable as data; the papers are sources for the text pilot. |
+| Thermal imaging of rice drip-irrigated with saline water | Figshare `21545945` | CC BY 4.0 | Salinity | Figures of the article, not an image set. | Not suitable. |
+
+### Local check and import of the Kaggle N/P/K set (2026-10-13)
+
+- **Files (verified):** 1,156 JPEG, no two identical: nitrogen 440, phosphorus 333, potassium 383. Each is a crop of one leaf (long, narrow frames).
+- **Metadata:** every photo is from an Apple iPhone 11 on 30 May, 1, 2, 4 or 18 June 2020; 906 carry GPS, all at one position (14.565 N, 100.499 E, central Thailand).
+- **Content (64 photos viewed):** leaves on the plant, with yellowing (nitrogen) or drying and discoloured tips and margins (phosphorus, potassium).
+- **Status: IMPORTED 2026-10-13 on the user's decision, with the licence open.** Kaggle lists the licence as "Unknown"; the user is asking the owner. `NutrientDeficiencyKaggleDataset` has no `dcterms:license` and states the situation in `dcterms:rights`; the files are in the local `Data/nutrient-deficiency-kaggle/` only. All photos carry `recordedAtDate`, 906 a location rounded to 0.01 degree. **To be removed if permission is refused.**
+- **Netrokona potassium class: IMPORTED 2026-10-13 on the user's decision, without expert confirmation.** 500 photos in `Data/netrokona-rice/`, `annotatedAs Potassium_Deficiency_Disorder`; `NetrokonaRiceDataset` states that the label is not validated and why the other seven classes were left out.
+- Diseases with images: 10/16 to 13/16. Script: `Worklog/2026-10-13_abiotic_import/scripts/import_abiotic.py`.
+
+### Result
+
+An openly licensed image set for the abiotic disorders does not exist in these repositories. The realistic routes are: the licence of the Kaggle N/P/K set (three disorders at once), expert confirmation of the Netrokona potassium class, or symptom figures taken from CC BY papers during the text pilot.

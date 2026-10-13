@@ -55,12 +55,12 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **170,179** (asserted) / **351,766** (OWL RL) | 0.7.0-dev, measured 2026-10-13. +181,587 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Total triples** | **185,514** (asserted) / **383,806** (OWL RL) | 0.7.0-dev, measured 2026-10-13. +198,292 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
 | **Named classes** | 23 | 20 primitive (incl. `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment` and `ResistanceLevel`, 0.7.0-dev) + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class (`SymptomaticObservation`) |
 | **Object properties** | 39 | All declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `assessedVariety`/`hasResistanceAssessment`, `assessedAgainst`, `hasResistanceLevel`, `ofVariety`, `hasSpatialLocation` (0.7.0-dev) |
 | **Datatype properties** | 24 | `testedPopulation`, `testedLocation`, `reportedYear`, `plantAgeDays`, `sourceLabel`, `environmentCondition`, the sensor / remote-sensing measurements, `recordedAtDate`, `hasLatitude`, `hasLongitude`, `hasElectricalConductivity` and `hasOrganicCarbon` added in 0.7.0-dev |
 | **Annotation properties** | 14 | Includes `rice:evidenceType`, PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
-| **Named individuals** | **20,038** | 19,493 image individuals (Paddy Doctor 16,225, Dhan-Shomadhan 1,106, YUKE-WBC 66, stem borer symptom images 2,096) + 186 sensor observations + 185 field locations + 5 dataset metadata + 169 domain entities (10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 4 `PathogenGroup`, 6 `AbioticFactor`, 12 `Variety`, 15 `ResistanceAssessment`, 3 `ResistanceLevel`) |
+| **Named individuals** | **21,697** | 21,149 image individuals (Paddy Doctor 16,225, Dhan-Shomadhan 1,106, YUKE-WBC 66, stem borer symptom images 2,096, Kaggle nutrient deficiency 1,156, Netrokona potassium 500) + 186 sensor observations + 186 field locations + 7 dataset metadata + 169 domain entities (10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 4 `PathogenGroup`, 6 `AbioticFactor`, 12 `Variety`, 15 `ResistanceAssessment`, 3 `ResistanceLevel`) |
 | **`owl:Axiom` (provenance)** | **375** | **375 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev); the 15 `ResistanceAssessment` individuals carry their provenance directly. v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (19 classes; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment` and `ResistanceLevel` added in 0.7.0-dev) |
@@ -78,13 +78,13 @@ The 10,564 individuals in the knowledge graph are categorized by domain layer:
 
 | Domain Category | Class Name | Count | Type / Description |
 |---|---|---:|---|
-| **Observation Modality** | `ImageObservation` | 19,493 | Paddy Doctor 16,225, Dhan-Shomadhan 1,106, YUKE-WBC 66, stem borer symptom images 2,096 |
+| **Observation Modality** | `ImageObservation` | 21,149 | Paddy Doctor 16,225, Dhan-Shomadhan 1,106, YUKE-WBC 66, stem borer symptom images 2,096, Kaggle nutrient deficiency 1,156, Netrokona potassium 500 |
 | | `SensorObservation` | 186 | Plot soil and weather values, Rice Disease Risk Assessment v1.0 (2026-10-05) |
-| | `FieldLocation` | 185 | WGS84 points of those plots (184) and one approximate location of the YUKE-WBC photos |
+| | `FieldLocation` | 186 | WGS84 points of those plots (184) and one approximate location each for the YUKE-WBC and the Kaggle nutrient deficiency photos |
 | | `RemoteSensingObservation` | 0 | Scaffolding for satellite / UAV values such as NDVI (0.7.0-dev) |
 | | `Observation` | 0 | Abstract root observation superclass |
 | **Defined Class** | `SymptomaticObservation` | *(2,544)* | Defined class (`captures some Symptom`), populated via OWL reasoning |
-| **Dataset Metadata** | `Dataset` (`dcat:Dataset`) | 5 | `PaddyDoctorDataset`, `DhanShomadhanDataset`, `RiceDiseaseRiskDataset`, `YukeWbcDataset`, `StemBorerSymptomDataset` |
+| **Dataset Metadata** | `Dataset` (`dcat:Dataset`) | 7 | `PaddyDoctorDataset`, `DhanShomadhanDataset`, `RiceDiseaseRiskDataset`, `YukeWbcDataset`, `StemBorerSymptomDataset`, `NutrientDeficiencyKaggleDataset` (no licence stated), `NetrokonaRiceDataset` |
 | **Biotic Agents & Host** | `Pathogen` | 10 | Viral, bacterial, fungal, oomycete agents; `Rhizoctonia_Solani` and `Microdochium_Albescens` added in 0.7.0-dev |
 | | `Pest` | 7 | Insect pests and vector organisms (`Scirpophaga_Incertulas` merged into `Stem_Borer`) |
 | | `TransmissionMode` | 1 | `Semi_Persistent` (vector transmission mode of both tungro viruses); 0.7.0-dev |
@@ -103,7 +103,7 @@ The 10,564 individuals in the knowledge graph are categorized by domain layer:
 | | `ManagementAction` | 5 | Operational actions (Immediate Intervention, Monitoring, etc.) |
 | | `ManagementCategory` | 4 | Control-method categories from AGROVOC: chemical, biological, cultural, host plant resistance; 0.7.0-dev |
 | | `SeverityLevel` | 4 | Low, Medium, High, and Critical; each annotated with the matching attack-intensity category (ringan, sedang, berat, puso) of the 2021 Indonesian pest-observation juknis. No severity → action mapping since 0.7.0-dev |
-| **Total Named Individuals** | | **20,038** | *(19,493 images + 186 sensor observations + 185 locations + 5 datasets + 169 domain entities)* |
+| **Total Named Individuals** | | **21,697** | *(21,149 images + 186 sensor observations + 186 locations + 7 datasets + 169 domain entities)* |
 
 ---
 
@@ -113,7 +113,7 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 
 | Category | Property | Assertions | Domain → Range | Provenance Backing |
 |---|---|---:|---|---|
-| **Dataset & Observation Layer** | `annotatedAs` | 19,493 | `ImageObservation` → `Disease ⊔ Pest ⊔ HealthStatus ⊔ Symptom` | Raw dataset labels |
+| **Dataset & Observation Layer** | `annotatedAs` | 21,149 | `ImageObservation` → `Disease ⊔ Pest ⊔ HealthStatus ⊔ Symptom` | Raw dataset labels |
 | | `captures` | 2,544 | `ImageObservation` → `Symptom` | Visual evidence links |
 | | `sourceDatasetLabel` | 10 | `Disease ⊔ Pest ⊔ HealthStatus` → `xsd:string` | Dataset vocabulary mapping |
 | **Etiology & Susceptibility** | `vulnerableTo` | 55 | `Plant ⊔ GrowthStage` → `Disease ⊔ Pest` | CABI CPC (55); variety susceptibility moved to `ResistanceAssessment` (0.7.0-dev) |
@@ -132,7 +132,7 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | | `requires` | 5 | `Treatment` → `GrowthStage` | IRRI RKB (`Crop_Sanitation requires Harvest_Stage` re-sourced from BBPOPT to the IRRI tungro sheet in 0.7.0-dev) |
 | | `hasManagementCategory` | 6 | `Treatment` → `ManagementCategory` | IRRI RKB (2) / AGROVOC definitions (4, `ontology-derived`); 0.7.0-dev |
 | **Variety** | `varietyOf` | 12 | `Variety` → `Plant` | Mackill & Khush (2018) (3); Bagariang et al. (2021) (2); Biswas et al. (2021) (1); Paddy Doctor metadata (6, `dataset-derived`); 0.7.0-dev |
-| **Total domain assertions** | | **375** | *(0.7.0-dev, measured 2026-10-13 with rdflib; plus 19,493 `annotatedAs`, 2,544 `captures`, 3,977 `ofVariety`, 10 `sourceDatasetLabel`, 17 `eppoCode`, and 15 `ResistanceAssessment` individuals — 15 each of `assessedVariety`, `assessedAgainst`, `hasResistanceLevel` — whose provenance sits on the individual: Mackill & Khush 10, Bagariang et al. 4, Biswas et al. 1)* | **375 / 375 reified** |
+| **Total domain assertions** | | **375** | *(0.7.0-dev, measured 2026-10-13 with rdflib; plus 21,149 `annotatedAs`, 2,544 `captures`, 3,977 `ofVariety`, 10 `sourceDatasetLabel`, 17 `eppoCode`, and 15 `ResistanceAssessment` individuals — 15 each of `assessedVariety`, `assessedAgainst`, `hasResistanceLevel` — whose provenance sits on the individual: Mackill & Khush 10, Bagariang et al. 4, Biswas et al. 1)* | **375 / 375 reified** |
 
 > *Note on inverse properties:* All twelve inverse directions (`indicates`, `detectedBy`, `causedBy`, `prevents`, `controls`, `threatens`, etc.) and `detects` are declared in the schema for reasoning/querying symmetry.
 
@@ -163,13 +163,28 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | 0.7.0-dev (+ `PathogenGroup`) | 2026-09-23 | 68,204 (163,957 OWL RL) | 24 | 37 | 10,568 | 360 axioms / 360 assertions + 15 assessments |
 | 0.7.0-dev (Paddy Doctor IEEE, Dhan-Shomadhan, `Leaf_Scald`, sensor schema + data) | 2026-10-05 | 152,755 (314,753 OWL RL) | 26 | 39 | 17,873 | 375 axioms / 375 assertions + 15 assessments |
 | 0.7.0-dev (+ YUKE-WBC brown planthopper images) | 2026-10-13 | 153,402 (316,114 OWL RL) | 26 | 39 | 17,941 | 375 axioms / 375 assertions + 15 assessments |
-| **0.7.0-dev (+ stem borer symptom images — in development)** | **2026-10-13** | **170,179** (351,766 OWL RL) | **26** | **39** | **20,038** | **375 axioms / 375 assertions + 15 assessments** |
+| 0.7.0-dev (+ stem borer symptom images) | 2026-10-13 | 170,179 (351,766 OWL RL) | 26 | 39 | 20,038 | 375 axioms / 375 assertions + 15 assessments |
+| **0.7.0-dev (+ nutrient deficiency images — in development)** | **2026-10-13** | **185,514** (383,806 OWL RL) | **26** | **39** | **21,697** | **375 axioms / 375 assertions + 15 assessments** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-10-13: 0.7.0-dev — First images of abiotic disorders (nitrogen, phosphorus, potassium)
+
+None of the six abiotic disorders had an image. A search of six repositories on 2026-10-13 found no openly licensed image set; two sources were imported the same day on the maintainer's decision, each with a stated limit. Pre-import file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-abiotic.rdf`.
+
+- **Source 1, licence not stated:** Raksarikon, W. (2021). *Nutrient-Deficiency-Symptoms-in-Rice*. Kaggle, `guy007/nutrientdeficiencysymptomsinrice`. Kaggle lists the licence as "Unknown". Permission is being requested. `NutrientDeficiencyKaggleDataset` therefore carries **no `dcterms:license`**; the status is written in `dcterms:rights`, and the image files are held locally only. **If permission is refused, these 1,156 observations must be removed.**
+- **Source 2:** Raki, N. S., et al. (2026). *Rice Disease Image Dataset*. Mendeley Data, V1, doi:10.17632/jw7hp6r5gj.1, CC BY 4.0. Only the potassium class was taken; the labels of the other seven classes are doubtful. **The label has no expert validation**, neither by the depositors nor here.
+- **Added:** 1,656 `ImageObservation` individuals. Kaggle: nitrogen 440 → `Nitrogen_Deficiency_Disorder`, phosphorus 333 → `Phosphorus_Deficiency_Disorder`, potassium 383 → `Potassium_Deficiency_Disorder`, files in `Data/nutrient-deficiency-kaggle/`. Netrokona: potassium 500 → `Potassium_Deficiency_Disorder`, files in `Data/netrokona-rice/`.
+- **Date and place (Kaggle only):** all 1,156 photos carry `recordedAtDate` from EXIF (five days between 30 May and 18 June 2020); 906 carry a `hasSpatialLocation`, one `FieldLocation` rounded to 0.01° (14.57 °N, 100.50 °E, central Thailand).
+- **What the Kaggle label means:** each deficiency was produced by withholding one nutrient, so the label names the treatment under which the symptom developed.
+- **No schema change and no new domain assertion.** 375 axioms = 375 domain assertions, unchanged.
+- **Checks:** HermiT (owlready2, Java 21) consistent, 0 unsatisfiable classes. Every `contentUrl` of the new images resolves to a file.
+- **Benchmark:** verdicts unchanged at **21 PASS / 2 PARTIAL / 1 FAIL / 1 DOC**. CQ-17 15/16 → **18/19**. CQ-16 15,431/15,431 (100%) → **15,871/17,087 (93%)**, still PASS: the 1,216 phosphorus and potassium images are not grounded to a recommendation, because `Phosphorus_Deficiency_Disorder` and `Potassium_Deficiency_Disorder` have symptoms but no `controlledBy` treatment in the curated layer. Only `Nitrogen_Deficiency_Disorder` has one. This is a gap in the domain knowledge that the new images expose, not an error of the import; it was left open because a treatment needs a cited source.
+- **Result:** 185,514 asserted / 383,806 OWL RL triples. Diseases with images 10/16 → **13/16**; still without: zinc deficiency, iron toxicity, salinity.
 
 ### 2026-10-13: 0.7.0-dev — Stem borer symptom images: first images annotated with a symptom
 

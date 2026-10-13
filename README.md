@@ -6,7 +6,7 @@ An OWL 2 ontology and multimodal knowledge graph modeling rice diseases, pests, 
 
 ## Overview
 
-Rice MMKG links agronomic, pathological, and entomological knowledge about rice cultivation into a single queryable graph, connecting what is *observed* (currently: 19,493 images from four datasets and 186 plot-level soil and weather observations; remote-sensing and field/text reports are declared extension points) to its *cause* (pathogens, pests, environmental stressors) and the *response* (treatments, management actions), contextualised by crop growth stage and severity level.
+Rice MMKG links agronomic, pathological, and entomological knowledge about rice cultivation into a single queryable graph, connecting what is *observed* (currently: 21,149 images from six datasets and 186 plot-level soil and weather observations; remote-sensing and field/text reports are declared extension points) to its *cause* (pathogens, pests, environmental stressors) and the *response* (treatments, management actions), contextualised by crop growth stage and severity level.
 
 ### Core Design Principles
 
@@ -19,7 +19,7 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 - **Namespace:** `https://w3id.org/ricemmkg#` — permanent identifier, live since 2026-09-16; version IRIs `https://w3id.org/ricemmkg/<version>` (releases up to v0.6.2 used `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#`)
 - **Format:** OWL/XML (`.rdf`), fully compatible with [Protégé](https://protege.stanford.edu/)
 - **Version:** `0.7.0-dev` on `main` (in development; last release `v0.6.2`, 2026-09-15; git tags `v0.6.1`, `v0.6.2`; v0.6 released 2026-09-03) — target venue under review (ESWC 2027 dropped on 2026-09-29; see [Roadmap](#roadmap))
-- **Triples:** **170,179** asserted triples / **351,766** materialised triples under OWL RL (measured 2026-10-13); the rise from 68,204 is the Paddy Doctor IEEE release, Dhan-Shomadhan images, the first sensor observations, the YUKE-WBC planthopper images and the stem borer symptom images; v0.6.2: 66,802 / 161,447
+- **Triples:** **185,514** asserted triples / **383,806** materialised triples under OWL RL (measured 2026-10-13); the rise from 68,204 is the Paddy Doctor IEEE release, Dhan-Shomadhan images, the first sensor observations, the YUKE-WBC planthopper images, the stem borer symptom images and the nutrient deficiency images; v0.6.2: 66,802 / 161,447
 - **Reasoner Consistency:** **100% Consistent** in HermiT & Pellet (0 unsatisfiable classes, 0 disjointness conflicts)
 
 ---
@@ -30,13 +30,13 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 
 | Class | Individuals | Description |
 |---|---:|---|
-| `ImageObservation` | 19,493 | Paddy Doctor IEEE DataPort release 16,225, Dhan-Shomadhan 1,106, YUKE-WBC brown planthopper 66, stem borer symptom images 2,096 (both 2026-10-13) |
+| `ImageObservation` | 21,149 | Paddy Doctor IEEE DataPort release 16,225, Dhan-Shomadhan 1,106, YUKE-WBC brown planthopper 66, stem borer symptom images 2,096, nutrient deficiency images 1,156 (Kaggle, licence not stated, permission requested) and 500 (Netrokona, potassium, label not expert-validated); the last four added 2026-10-13 |
 | `SymptomaticObservation` | *(2,544 materialised)* | Defined class (`Observation that captures some Symptom`) — populated via OWL reasoning |
 | `SensorObservation` | 186 | Plot soil tests (pH, EC, organic carbon, N, P, K) and weather, Rice Disease Risk Assessment v1.0, Odisha (2026-10-05) |
-| `FieldLocation` | 185 | WGS84 points of the sensor observations (184), and one approximate location of the YUKE-WBC photos |
+| `FieldLocation` | 186 | WGS84 points of the sensor observations (184), and one approximate location each for the YUKE-WBC and the Kaggle nutrient deficiency photos |
 | `RemoteSensingObservation` | 0 | Declared scaffolding for satellite / UAV values such as NDVI (0.7.0-dev) |
 | `Observation` | 0 | Abstract root observation superclass |
-| `Dataset` (`dcat:Dataset`) | 5 | Metadata individuals for the Paddy Doctor, Dhan-Shomadhan, YUKE-WBC and stem borer symptom image collections and the Rice Disease Risk Assessment table |
+| `Dataset` (`dcat:Dataset`) | 7 | Metadata individuals for the Paddy Doctor, Dhan-Shomadhan, YUKE-WBC, stem borer symptom, Kaggle nutrient deficiency and Netrokona image collections and the Rice Disease Risk Assessment table |
 | `Disease` | 16 | 10 biotic diseases & damage conditions (including `Deadheart`, Bacterial Leaf Blight, Rice Blast, Tungro, Sheath Blight, Leaf Scald) and 6 abiotic disorders (N, P, K, Zn deficiency, iron toxicity, salinity; 0.7.0-dev) |
 | `Pest` | 7 | Insect pests and vectors (Stem Borer, Leaf Folder, Brown Planthopper, Armyworm, Rice Bug, Hispa, Green Leafhopper) |
 | `Pathogen` | 10 | Microbial causal agents (Magnaporthe Oryzae, Rhizoctonia solani, Xanthomonas pathovars, Microdochium albescens, RTBV, RTSV) |
@@ -62,7 +62,7 @@ Relations connect the domain entities with defined domains, ranges, and inverse 
 
 ### Individuals & Provenance
 
-- **20,038 named individuals**: 19,493 `ImageObservation` instances, 186 `SensorObservation` instances, 185 `FieldLocation`s, 5 dataset metadata individuals, plus 169 domain entities (0.7.0-dev).
+- **21,697 named individuals**: 21,149 `ImageObservation` instances, 186 `SensorObservation` instances, 186 `FieldLocation`s, 7 dataset metadata individuals, plus 169 domain entities (0.7.0-dev).
 - **375 reified domain axioms** over 375 domain assertions: every assertion backed by an `owl:Axiom` record with `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType`. Source URIs: CABI Compendium 243 (as `doi.org/10.1079/cabicompendium.*` DOIs), IRRI Rice Knowledge Bank / Rice Doctor 98, NCBI Taxonomy 10, Paddy Doctor dataset 6, Mackill & Khush (2018) 3, AGROVOC 4, IRAC 3, Plant Ontology 2, Wang et al. (2022) 2, Bagariang et al. (2021) 2, Biswas et al. (2021) 1, FAO 1. The 15 resistance assessments carry the same three annotations on the assessment itself.
 - **Vector transmission mode (0.7.0-dev):** both tungro viruses are recorded as semi-persistently transmitted (`hasTransmissionMode`), citing Wang et al. (2022).
 - **Abiotic causes (0.7.0-dev):** nitrogen, phosphorus, potassium and zinc deficiency, and on the excess side iron toxicity and salinity, are modelled as `AbioticFactor`s that cause disorders, with symptoms from the IRRI Rice Knowledge Bank fact sheets — so abiotic factors, like pathogens, end at a Disease.
@@ -92,12 +92,12 @@ The local Paddy Doctor image dataset is excluded from Git (`/Data/`). Folder lab
 
 ### Modality Coverage & Data Gaps (0.7.0-dev)
 
-Images currently cover 10 of the 16 `Disease` individuals and 4 of the 7 `Pest` individuals (`Hispa`, `Stem_Borer`, `Leaf_Folder`, `Brown_Planthopper`), as of 2026-10-13. The ontology conditions without any image are:
+Images currently cover 13 of the 16 `Disease` individuals and 4 of the 7 `Pest` individuals (`Hispa`, `Stem_Borer`, `Leaf_Folder`, `Brown_Planthopper`), as of 2026-10-13. The ontology conditions without any image are:
 
 | Class | Without images |
 |---|---|
 | `Pest` | `Armyworm`, `Nephotettix_Virescens`, `Rice_Bug` |
-| `Disease` | All 6 abiotic disorders (N, P, K, Zn deficiency, iron toxicity, salinity) |
+| `Disease` | 3 abiotic disorders: Zn deficiency, iron toxicity, salinity. (N, P and K deficiency have images since 2026-10-13; the Kaggle source has no stated licence and the Netrokona potassium labels are not expert-validated) |
 
 Candidate sources under evaluation (licence and access not yet verified for all; none has been imported):
 
