@@ -340,3 +340,36 @@ Downloaded by the user to `D:\MMKG Data\` and inspected there. Record pages open
 ### Pleiades Neo Klaten (`…\Pleiades Neo Klaten, segmentasi fenologi sawah\`)
 - 56 image patches and 56 masks as GeoTIFF (2.1 MB each), plus one `.aux.xml`. The rasters could not be opened with the Python libraries installed here, so band layout, georeferencing and class shares were not checked.
 - **Recommendation:** later, unchanged: the terms allow research and non-commercial use only.
+
+## Mendeley Data search (2026-10-13)
+
+Searched through the site's own search API (`https://data.mendeley.com/api/research-data/search?query=…&type=DATASET`), limited to datasets hosted on Mendeley Data. 60 queries (diseases, each pest, each abiotic disorder, spectral, UAV, thermal, sensor, weather, soil, audio, video, text, QA, growth stage, variety), first 30 to 50 results each; from the first 40 queries, 241 distinct records mention rice or paddy, 180 of them in the title. Records are at `https://data.mendeley.com/datasets/<id>`. Every record below is CC BY 4.0. `Dhan-Shomadhan` (`znsxdctwtt`), already imported, is hosted here.
+
+Three archives were downloaded and inspected; the others were judged from the record and its small files only.
+
+### Inspected locally
+
+| Dataset | Id | Finding | Recommendation |
+|---|---|---|---|
+| Paddy Field Pest Image Dataset | `y5hwbhrn5m` | Record says 22,108 smartphone photos from Bangladesh, labelled by entomologists. The archive holds 2,557 "raw" images (416 × 416) plus two augmented copies. The images are collected from the web: site watermarks (a stock-photo agency, Chinese portals), museum specimens, studio shots. The `Rice Bug` folder shows weevils, not *Leptocorisa*; `Green Leafhoppers` mixes several leafhopper species. | **Drop.** Labels do not match the ontology's pests and the depositor cannot license third-party photos. |
+| Nitrogen Deficiency of Rice Crop | `gzm5pxntyv` | 5,790 images in four leaf-colour-chart classes (`swap1`–`swap4`). Each is a leaf segment of about 100 × 100 px on white; one class has 63 distinct files among 1,203. | **Drop.** Colour patches, no plant or field context; the classes are colour levels, not a diagnosis. |
+| Rice Disease Image Dataset (Netrokona University) | `jw7hp6r5gj` | 4,000 images, 224 × 224, 500 per class, detached leaves on white paper. The `Potassium_Fertilizer_Deficiency` class shows yellow-orange margins and tip necrosis, consistent with the disorder. Other labels are doubtful: the README describes "Bacterial Blight" by discoloured grains, and `Rice_Ear_Borer` shows leaves with chewed margins. No expert validation is stated. | **Candidate, potassium class only**, and only after an expert confirms it. It is the only image source found for any of the six abiotic disorders. |
+
+### Judged from the record (not downloaded)
+
+| Dataset | Id | Size | What it would add | Recommendation |
+|---|---|---|---|---|
+| Proximal multispectral dataset for brown spot (Colombia) | `nz8bhz7j9t` | 6.2 GB | 2,772 captures of five bands plus RGB (DJI P4 Multispectral, 30–45 cm above the canopy), labelled healthy or brown spot by agronomists. A new modality tied to a disease already in the graph. | **Best candidate.** Download and check; needs band-level properties. The README describes the authors' code, not the files. |
+| Symptom-labelled stem borer images (Bangladesh) | `hnfjs42d5g` | 1.7 GB | 2,096 original field photos labelled Healthy, Dead Heart or White Head, confirmed by an agricultural expert, with two named locations and a collection period. Labels are symptoms, and `Deadheart` exists as a `Symptom`. | **Candidate.** Would be the first images annotated with a symptom rather than a disease or pest. |
+| RiceLeafDiseaseBD | `86s4jzj2m4` | 5.6 GB | 9,769 photos, six classes, 21,460 lesion boxes, varieties BRRI dhan28 and dhan29. The record promises variety, severity and growth stage per image, but the metadata table published beside the archive has only file names and sizes. | Later. Classes are already covered; boxes have no place in the schema yet. |
+| Sheath blight severity | `489spnkhp5` | 4.4 GB | Field photos in six severity levels. | Later. `SeverityLevel` exists; the grading scale is not named in the record. |
+| Rice leaf disease, nine classes | `n8jpkpfz5p` | 2.1 GB | 6,758 images incl. Leaf Scald, Narrow Brown Spot, Neck Blast, Sheath Blight. | Later. More images for covered classes only. |
+| MINCERnet temperature and humidity in paddies | `9wjgpxbns8` | 3 MB | Canopy micro-meteorology from several countries. | Not suitable. No disease or pest observation attached. |
+| Bengali QA for rice cultivation and disease | `nt8wgnk2jk` | 2 MB | 4,848 rows, 3,348 of them disease questions. Checked: Bengali only, and rows are paraphrases of a smaller set of questions. | Not suitable. |
+| Visible-thermal rice field, multispectral Sri Lanka, UAV yield Vietnam, RiceTagosodes, bird acoustics | `9xg52j8tmw`, `h8s5mn52j6`, `j9v6bxbg7z`, `rpth9tp4rh`, `p6m5tmr477` | — | New modalities, but none carries a link to a disease, pest or growth stage in the graph (*Tagosodes orizicolus* is an American pest that is not in the ontology). | Not suitable. |
+
+### What the search did not find
+
+- No image set for `Armyworm`, `Nephotettix_Virescens` or `Rice_Bug` that can be used; queries for *Leptocorisa* and *Nephotettix* return nothing.
+- No images for nitrogen, phosphorus or zinc deficiency, iron toxicity or salinity apart from the two sets above.
+- No audio, video or English text resource linked to rice diseases.
