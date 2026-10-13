@@ -230098,4 +230098,40 @@
     <rice:sourceLabel>Potassium Fertilizer Deficiency</rice:sourceLabel>
     <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#NetrokonaRiceDataset"/>
   </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Phosphorus_Fertilizer_Application">
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Treatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Application of phosphorus fertilizer, at a rate based on the yield goal and the soil P status: all of it incorporated before the last soil puddling before transplanting, or topdressed within 10-15 days after direct seeding (IRRI phosphorus fact sheet).</rdfs:comment>
+    <rdfs:label xml:lang="en">phosphorus fertilizer application</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Phosphorus_Deficiency_Disorder">
+    <rice:controlledBy rdf:resource="https://w3id.org/ricemmkg#Phosphorus_Fertilizer_Application"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Npktreatmentphosphorus20261013">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Phosphorus_Deficiency_Disorder"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#controlledBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Phosphorus_Fertilizer_Application"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/item/phosphorus"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Phosphorus (P). Rice Knowledge Bank fact sheet (nutrient management). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/item/phosphorus (accessed 2026-10-13).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Potassium_Fertilizer_Application">
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Treatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Application of potassium fertilizer, at a rate based on the yield target and the soil K status: small rates all incorporated before the last soil puddling before transplanting or topdressed within 10-15 days after direct seeding; above 30 kg K2O/ha, half basal and half at early panicle initiation. The most common source is muriate of potash; rice straw is also rich in K (IRRI potassium fact sheet).</rdfs:comment>
+    <rdfs:label xml:lang="en">potassium fertilizer application</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Potassium_Deficiency_Disorder">
+    <rice:controlledBy rdf:resource="https://w3id.org/ricemmkg#Potassium_Fertilizer_Application"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Npktreatmentpotassiumk20261013">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Potassium_Deficiency_Disorder"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#controlledBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Potassium_Fertilizer_Application"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/item/potassium-k"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Potassium (K). Rice Knowledge Bank fact sheet (nutrient management). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/item/potassium-k (accessed 2026-10-13).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+  </rdf:Description>
 </rdf:RDF>
