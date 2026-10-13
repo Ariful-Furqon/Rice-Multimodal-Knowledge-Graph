@@ -55,12 +55,12 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **185,538** (asserted) / **383,852** (OWL RL) | 0.7.0-dev, measured 2026-10-13. +198,314 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Total triples** | **302,494** (asserted) / **588,836** (OWL RL) | 0.7.0-dev, measured 2026-10-13. +286,342 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
 | **Named classes** | 23 | 20 primitive (incl. `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment` and `ResistanceLevel`, 0.7.0-dev) + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class (`SymptomaticObservation`) |
 | **Object properties** | 39 | All declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `assessedVariety`/`hasResistanceAssessment`, `assessedAgainst`, `hasResistanceLevel`, `ofVariety`, `hasSpatialLocation` (0.7.0-dev) |
-| **Datatype properties** | 24 | `testedPopulation`, `testedLocation`, `reportedYear`, `plantAgeDays`, `sourceLabel`, `environmentCondition`, the sensor / remote-sensing measurements, `recordedAtDate`, `hasLatitude`, `hasLongitude`, `hasElectricalConductivity` and `hasOrganicCarbon` added in 0.7.0-dev |
+| **Datatype properties** | 26 | `hasCatchCount`, `recordedUntilDate`, `testedPopulation`, `testedLocation`, `reportedYear`, `plantAgeDays`, `sourceLabel`, `environmentCondition`, the sensor / remote-sensing measurements, `recordedAtDate`, `hasLatitude`, `hasLongitude`, `hasElectricalConductivity` and `hasOrganicCarbon` added in 0.7.0-dev |
 | **Annotation properties** | 14 | Includes `rice:evidenceType`, PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
-| **Named individuals** | **21,699** | 21,149 image individuals (Paddy Doctor 16,225, Dhan-Shomadhan 1,106, YUKE-WBC 66, stem borer symptom images 2,096, Kaggle nutrient deficiency 1,156, Netrokona potassium 500) + 186 sensor observations + 186 field locations + 7 dataset metadata + 171 domain entities (10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 4 `PathogenGroup`, 6 `AbioticFactor`, 12 `Variety`, 15 `ResistanceAssessment`, 3 `ResistanceLevel`) |
+| **Named individuals** | **33,462** | 21,149 image individuals (Paddy Doctor 16,225, Dhan-Shomadhan 1,106, YUKE-WBC 66, stem borer symptom images 2,096, Kaggle nutrient deficiency 1,156, Netrokona potassium 500) + 11,533 trap observations + 186 sensor observations + 415 field locations + 8 dataset metadata + 171 domain entities (10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 4 `PathogenGroup`, 6 `AbioticFactor`, 12 `Variety`, 15 `ResistanceAssessment`, 3 `ResistanceLevel`) |
 | **`owl:Axiom` (provenance)** | **377** | **377 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev); the 15 `ResistanceAssessment` individuals carry their provenance directly. v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (19 classes; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment` and `ResistanceLevel` added in 0.7.0-dev) |
@@ -80,11 +80,12 @@ The 10,564 individuals in the knowledge graph are categorized by domain layer:
 |---|---|---:|---|
 | **Observation Modality** | `ImageObservation` | 21,149 | Paddy Doctor 16,225, Dhan-Shomadhan 1,106, YUKE-WBC 66, stem borer symptom images 2,096, Kaggle nutrient deficiency 1,156, Netrokona potassium 500 |
 | | `SensorObservation` | 186 | Plot soil and weather values, Rice Disease Risk Assessment v1.0 (2026-10-05) |
-| | `FieldLocation` | 186 | WGS84 points of those plots (184) and one approximate location each for the YUKE-WBC and the Kaggle nutrient deficiency photos |
+| | `TrapObservation` | 11,533 | Light-trap catches of brown planthopper, 229 stations in China, 1977–2019 (2026-10-13) |
+| | `FieldLocation` | 415 | WGS84 points of those plots (184), the light-trap stations (229) and one approximate location each for the YUKE-WBC and the Kaggle nutrient deficiency photos |
 | | `RemoteSensingObservation` | 0 | Scaffolding for satellite / UAV values such as NDVI (0.7.0-dev) |
 | | `Observation` | 0 | Abstract root observation superclass |
 | **Defined Class** | `SymptomaticObservation` | *(2,544)* | Defined class (`captures some Symptom`), populated via OWL reasoning |
-| **Dataset Metadata** | `Dataset` (`dcat:Dataset`) | 7 | `PaddyDoctorDataset`, `DhanShomadhanDataset`, `RiceDiseaseRiskDataset`, `YukeWbcDataset`, `StemBorerSymptomDataset`, `NutrientDeficiencyKaggleDataset` (no licence stated), `NetrokonaRiceDataset` |
+| **Dataset Metadata** | `Dataset` (`dcat:Dataset`) | 8 | `PaddyDoctorDataset`, `DhanShomadhanDataset`, `RiceDiseaseRiskDataset`, `YukeWbcDataset`, `StemBorerSymptomDataset`, `NutrientDeficiencyKaggleDataset` (no licence stated), `NetrokonaRiceDataset`, `BphLightTrapDataset` |
 | **Biotic Agents & Host** | `Pathogen` | 10 | Viral, bacterial, fungal, oomycete agents; `Rhizoctonia_Solani` and `Microdochium_Albescens` added in 0.7.0-dev |
 | | `Pest` | 7 | Insect pests and vector organisms (`Scirpophaga_Incertulas` merged into `Stem_Borer`) |
 | | `TransmissionMode` | 1 | `Semi_Persistent` (vector transmission mode of both tungro viruses); 0.7.0-dev |
@@ -103,7 +104,7 @@ The 10,564 individuals in the knowledge graph are categorized by domain layer:
 | | `ManagementAction` | 5 | Operational actions (Immediate Intervention, Monitoring, etc.) |
 | | `ManagementCategory` | 4 | Control-method categories from AGROVOC: chemical, biological, cultural, host plant resistance; 0.7.0-dev |
 | | `SeverityLevel` | 4 | Low, Medium, High, and Critical; each annotated with the matching attack-intensity category (ringan, sedang, berat, puso) of the 2021 Indonesian pest-observation juknis. No severity → action mapping since 0.7.0-dev |
-| **Total Named Individuals** | | **21,699** | *(21,149 images + 186 sensor observations + 186 locations + 7 datasets + 171 domain entities)* |
+| **Total Named Individuals** | | **33,462** | *(21,149 images + 11,533 trap observations + 186 sensor observations + 415 locations + 8 datasets + 171 domain entities)* |
 
 ---
 
@@ -165,13 +166,29 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | 0.7.0-dev (+ YUKE-WBC brown planthopper images) | 2026-10-13 | 153,402 (316,114 OWL RL) | 26 | 39 | 17,941 | 375 axioms / 375 assertions + 15 assessments |
 | 0.7.0-dev (+ stem borer symptom images) | 2026-10-13 | 170,179 (351,766 OWL RL) | 26 | 39 | 20,038 | 375 axioms / 375 assertions + 15 assessments |
 | 0.7.0-dev (+ nutrient deficiency images) | 2026-10-13 | 185,514 (383,806 OWL RL) | 26 | 39 | 21,697 | 375 axioms / 375 assertions + 15 assessments |
-| **0.7.0-dev (+ P and K treatment — in development)** | **2026-10-13** | **185,538** (383,852 OWL RL) | **26** | **39** | **21,699** | **377 axioms / 377 assertions + 15 assessments** |
+| 0.7.0-dev (+ P and K treatment) | 2026-10-13 | 185,538 (383,852 OWL RL) | 26 | 39 | 21,699 | 377 axioms / 377 assertions + 15 assessments |
+| **0.7.0-dev (+ light-trap catches, `TrapObservation` — in development)** | **2026-10-13** | **302,494** (588,836 OWL RL) | **27** | **39** | **33,462** | **377 axioms / 377 assertions + 15 assessments** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-10-13: 0.7.0-dev — Light-trap catches: a third observation channel
+
+Observations so far were images and plot-level sensor values. A search of Zenodo on 2026-10-13 found a CC0 table of light-trap catches of brown planthopper, a pest that has had images since the same day. Schema and import were approved and applied on 2026-10-13. Pre-import file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-bph-light-trap.rdf`.
+
+- **Source:** Lv, H., Zeng, J., Zhang, Y., & Hu, G. (2023). Data from: *Changing patterns of the East Asian monsoon drive shifts in migration and abundance of a globally important rice pest*. Dryad, doi:10.5061/dryad.gxd2547qv, CC0 1.0. Catches at county plant protection stations in South and East China, reported to NATESC.
+- **Schema (1 class, 2 datatype properties):** `TrapObservation` ⊑ `Observation`; `hasCatchCount` (`xsd:integer`); `recordedUntilDate` (`xsd:dateTime`, end of an aggregation window, whose start is `recordedAtDate`). `xsd:dateTime` was used rather than `xsd:date`, which is outside the OWL 2 datatype map.
+- **First use of `detects`:** each observation `detects Brown_Planthopper`. A trap catch is a direct observation of the organism, which is what `detects` was declared for; `annotatedAs` stays reserved for dataset labels.
+- **Added:** 11,533 `TrapObservation` individuals from 229 sites (1977–2019, six periods of five or six days in July), each with count, window, site and source label; 229 `FieldLocation` individuals; `BphLightTrapDataset`. The table is copied to `Data/bph-light-trap/`.
+- **Left out:** 34 rows of 17 site-year-periods that occur more than once with different counts; the sheet of annual regional totals.
+- **Read with care:** the source has no row with a count of zero, so a missing period means not recorded. The source label "20-25 Jul" is read as 21–25 July and kept in `sourceLabel`. Positions are those of the stations, to 0.01°.
+- **No new domain assertion.** 377 axioms = 377 domain assertions, unchanged.
+- **Checks:** HermiT (owlready2, Java 21) consistent, 0 unsatisfiable classes. Every observation has count, window and an existing location.
+- **Benchmark:** verdicts unchanged at **21 PASS / 2 PARTIAL / 1 FAIL / 1 DOC**, and no measurement moved: none of the 25 questions asks about trap observations, `detects` or catch counts. The new channel is therefore not yet covered by the benchmark; a question on monitoring observations with place and period is still to be written.
+- **Result:** 302,494 asserted / 588,836 OWL RL triples; 33,462 named individuals. The graph grows by 63% in asserted triples.
 
 ### 2026-10-13: 0.7.0-dev — Treatment of phosphorus and potassium deficiency
 
