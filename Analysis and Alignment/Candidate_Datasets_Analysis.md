@@ -398,3 +398,29 @@ A second pass on Mendeley Data with 22 queries for non-image data (incidence sur
 | Proximal sensing of bacterial blight resistance | `10398370` | — | The record holds a poster only. | Not suitable. |
 
 Not found on Zenodo either: audio, video, text or question-answer data on rice diseases, and images of `Armyworm`, `Nephotettix_Virescens` or `Rice_Bug`.
+
+## Local check of three downloads (2026-10-13)
+
+Downloaded by the user to `D:\MMKG Data\`; folder names are the record titles, cut short by the browser.
+
+### Symptom-labelled stem borer images (Mendeley `hnfjs42d5g`)
+- **Files (verified):** 2,096 original JPEG, 475 × 635, no two identical: Healthy 1,106, Dead Heart 439, White Head 551. The archive also holds 14,672 augmented copies, which were not unpacked.
+- **Metadata:** no EXIF on any file. Date (January–March 2025) and the two locations (Magura and Jessore, Bangladesh) exist only in the record text, not per image.
+- **Content (64 photos viewed):** field photos. Dead Heart shows a dried central shoot among green tillers; White Head shows erect, white, unfilled panicles. Both match the symptom.
+- **Mapping:** Dead Heart → `Deadheart`, which already has 1,779 images from Paddy Doctor. White Head → `White_Ear`, a `Symptom` with no image; `annotatedAs` already admits symptoms in its range.
+- **Recommendation: import.** The 551 White Head photos would be the first images annotated with a symptom individual. Dead Heart and Healthy add a second source for classes already covered.
+
+### Proximal multispectral brown spot (Mendeley `nz8bhz7j9t`)
+- **Files (verified):** 236 captures per class, 472 in all, each one RGB JPEG and five 16-bit TIFF bands (1600 × 1300), readable with PIL. The record states 2,772 sets and over 13,000 TIFF files; the archives hold 2,360 TIFF files.
+- **Metadata:** every capture is from 25 October 2025. Diseased: 11:58–12:28, a strip about 70 m long at 5.159 °N, 72.400 °W. Healthy: 12:30–12:53, 192 captures from a second plot about 170 m away and 44 from the end of the first strip.
+- **Content (20 captures viewed, one pair at full size):** canopy views from close range. Brown lesions are visible on the leaves of the diseased capture. The diseased plot is a dense ripening crop; the healthy plot is a younger, flooded crop at heading with standing water in the frame.
+- **Limits:** the class is the plot. Disease is confounded with growth stage and background, so band differences between the classes cannot be read as an effect of the disease (raw NIR/red ratio is higher in the diseased sample because the healthy frames contain water). The TIFF values are raw digital numbers, not reflectance.
+- **Mapping:** would be the first individuals of `RemoteSensingObservation`, `annotatedAs Brown_Spot` or the healthy status, with date and one `FieldLocation` per plot. The schema has `hasNDVI` but no way to point at band files.
+- **Recommendation: candidate.** Sound as a small, dated, located multispectral record of brown spot; not sound as evidence of a spectral signature. Needs a decision on how band files are referenced.
+
+### RGB and NDVI images for nitrogen deficiency (Zenodo `17983378`), T0 only
+- **Files (verified):** `T0` 1,467 JPEG; `T0_NDVI` 1,288 JPEG plus macOS resource files.
+- **Metadata:** RGB photos come from a Google Pixel 6 (819) and a GoPro HERO9 (648) on three days, 6, 7 and 16 September 2025, at 6.848 °S, 37.655 °E (Morogoro, Tanzania); the record names a GoPro Hero 10 and a span of 40–90 days after planting. The near-infrared files carry a camera clock that was never set (January and February 2021) and GPS 0, 0.
+- **Content (48 photos viewed):** single hills from above on dry red soil. The plants are green; no yellowing is evident at thumbnail size. The second set is raw red-green-NIR frames from a MAPIR Survey3, not NDVI values.
+- **Limits:** the label is the fertiliser treatment (no nitrogen applied). Nothing in the files shows that a given plant is deficient, and no growth stage can be attached per image.
+- **Recommendation: not suitable.** The remaining treatments (T1–T3, 14 GB) do not need to be downloaded.
