@@ -278,3 +278,65 @@ DataPort's full-text search was run again with 23 modality terms (hyperspectral,
 - **Text quality:** questions and answers are machine-generated. Evidence is given as chunk identifiers (`<paper>__<section>__s7_e7`), and the source text of those chunks is not in the per-paper files; some training records carry `[TEXT NOT FOUND]` in place of evidence.
 - **Fit:** none. The text is about research methods, not about symptoms, causes or treatments, so it overlaps none of the domain relations. Generated answers could not serve as a source in any case.
 - **Recommendation:** do not import. This closes the text modality on DataPort: there is no rice disease or pest text there.
+
+## BRIN data repository (RIN Dataverse, data.brin.go.id), searched 2026-10-09
+
+The repository is a Dataverse 6.3 instance with an open search API. 42 queries in Indonesian and English (padi, hama padi, penyakit padi, wereng, blas, tungro, penggerek batang, walang sangit, citra satelit, NDVI, drone, sensor tanah, genom padi, and others) returned 2,135 distinct datasets; 155 mention rice in the title, description or keywords. About 100 of those are 2018 deposits of LIPI publications (a PDF plus its tables and figures). Metadata and licence were read through the API for ten datasets; two were sampled.
+
+| Dataset (handle `20.500.12690/RIN/…`) | Modality | Content | Licence | Possible mapping | Recommendation |
+|---|---|---|---|---|---|
+| **Alat Pengidentifikasi Wereng Batang Coklat, YUKE-WBC** (`Y9TDVS`) | Image | Suwarningsih, BRIN, 2025. 297 photos (189 MB) of brown planthopper, *Nilaparvata lugens*, on rice stems; taken Feb–May 2025 in Sleman, Bantul and Kulon Progo, Yogyakarta. No per-image label file: the whole set is one class | CC0 1.0, files open | `ImageObservation` `annotatedAs` `Brown_Planthopper`, the first images for that pest (pests with images 3/7 → 4/7) | **Imported 2026-10-13**: 66 images, one per shooting sequence (see the local check below) |
+| **Dataset Fenologi Padi Kabupaten Indramayu, Sentinel-1, 2024** (`QPZZVX`) | Remote sensing (SAR) + field survey | Hendriawan Nur, BRIN, 2025. One table, 5,007 rows × 26 columns: 353 surveyed field points in 26 sub-districts, each with coordinates, planting date, visit date, variety, land type, days after planting, phenology phase, and Sentinel-1 values (VV, VH, RPI, RVI, NDPI, API) on 36 ten-day image dates in 2024 | "Custom", no text given | `RemoteSensingObservation` + `FieldLocation`, with a field-level link to `GrowthStage` and to `Variety` (Ciherang 174 points, Inpari 32 72 points — both already in the graph) | **Best remote-sensing candidate**: the first one with a link into the domain layer. Blocked on the licence; ask the author |
+| Analisis Ketahanan Padi Gogo dan Padi Sawah terhadap Empat Ras Blas (`1KEJYI`) | Tabular + paper | LIPI, 2018. Reaction of 22 lines and varieties to blast races 033, 073, 133 and 173; PDF and three tables | CC0 1.0 | `ResistanceAssessment` against `Rice_Blast_Disease`, with the race in `testedPopulation` | Later: fits the existing pattern, but most lines are local accessions that would be new `Variety` individuals |
+| Pleiades Neo Klaten, segmentasi fenologi sawah (`LZLZBO`) | Satellite image patches | BRIN, 2026. 56 patches of 512 × 512 at 30 cm, Klaten 2022, pixel masks for vegetative and generative phase | Research and non-commercial use, attribution to BRIN | `RemoteSensingObservation` with a two-phase label | Later: non-commercial terms do not fit a CC BY 4.0 graph |
+| Sentinel-1 komposit 15-harian, fase pertumbuhan padi nasional 2025 (`DBPYL5`) | Satellite rasters | BRIN, 2025. Three national composites, 511 MB | CC BY-NC-ND 4.0, files restricted | — | Drop: restricted and no-derivatives |
+| Penggunaan Atraktan … Walang Sangit (`GD0DZY`) and other 2018 LIPI deposits on rice pests and diseases (stem borer bioassay `UFAVE8`, anti-*Xanthomonas* bacteria `OAOUCB` / `1DNX7A`, stem borer mtDNA `W71PED`) | Text (paper PDF) + tables | Indonesian-language papers with their tables | CC0 1.0 | Source text for the planned extraction from research papers; `Rice_Bug` and `Stem_Borer` are covered | Later: add to the paper pool of the extraction pilot |
+| Pleiades Subang / Yogyakarta paddy-field sets (`OUHCXF`, `EQI8DR`, `9M5DU2`), seed image sets (five, 2023), rice yield gap (`QAPWFQ`), nitrogen-rate data (`5WHYLN`) | Image / tabular | Land-cover masks, seed photos, yield and fertiliser data | mixed | none: no pest, disease, symptom or growth-stage link | Drop |
+
+### YUKE-WBC, sample check
+Ten of the 297 files were downloaded to the scratchpad and viewed. They are phone photos (720 × 1280 to 4000 × 2250), most with EXIF, showing one to about ten planthoppers on the lower stem and leaf sheath of rice plants; several plants stand in buckets or pots, so "field" in the description is not true of every photo. File names fall into four groups (`IMG_2025…` 186, `20250217_…` 73, `WhatsApp Image…` 22, `wbc_N` 16); one file is a resized copy of another. Species identity rests on the dataset description; nothing in the files confirms it per image.
+
+### Indramayu phenology table, profile
+- No missing values. 353 distinct points; a point has between 1 and 169 rows (median 13).
+- Phase is a function of days after planting: Early Vegetative 0–19, Vegetative 1 20–39, Vegetative 2 40–64, Generative 1 65–90, Generative 2 91–120, Bare / Harvest 121–130. Days after planting come from the surveyed planting date, so the phase is field-level, not a regional calendar.
+- Varieties: Ciherang, Inpari 32 HDB, Inpari 42, Gilirang and "Lain-lain" (other, 105 points).
+- Values are SAR backscatter and indices, not NDVI, so `hasNDVI` does not apply; new measurement properties would be needed.
+- The accompanying `.docx` holds only a link line, no description.
+
+## Local check of four BRIN datasets (2026-10-13)
+
+Downloaded by the user to `D:\MMKG Data\` and inspected there. Record pages open at `https://data.brin.go.id/dataset.xhtml?persistentId=hdl:20.500.12690/RIN/<code>`; the `hdl.handle.net` form of the six 2018 LIPI deposits redirects to the retired `data.lipi.go.id` and fails.
+
+### YUKE-WBC (`D:\MMKG Data\YUKE-WBC\`)
+- **Files (verified):** 297 JPEG, 189 MB, no byte-identical duplicates. One file (`20250217_103139_resized.jpg`) is a crop of its neighbour.
+- **Four groups by origin:**
+  - 186 `IMG_2025…` — Xiaomi M2103K19G, 4, 14 and 15 Feb 2025, no GPS.
+  - 73 `20250217_…` — Samsung SM-A515F, 17 Feb 2025, all with GPS at one spot, 7.8333 °S, 110.4057 °E (Yogyakarta).
+  - 22 `WhatsApp Image 2025-05-05…` — no EXIF.
+  - 16 `wbc_N.jpeg` — no EXIF. Three carry a burnt-in caption naming farmer groups in Karanglewas, Banyumas (Central Java), with coordinates near 7.40 °S, 109.19 °E and 2024 dates.
+- **Bursts:** the 259 timestamped photos fall into about 30 sequences (gap over 30 s) or 51 (gap over 10 s). Within a sequence the same insect is photographed repeatedly from one position; 596 photo pairs are near-identical by perceptual hash. The set holds a few dozen distinct scenes, not 297.
+- **Content (90 photos viewed on three contact sheets):** every photo viewed shows at least one planthopper. Most are on the lower stem or leaf sheath of rice standing in a tub, tyre planter or bucket; one sequence shows the insect on cloth and on the planter rim, two photos on a mesh screen. Several `wbc_N` photos show pale nymphs in groups.
+- **Mismatch with the description:** it says the data were collected in paddy fields across Sleman, Bantul and Kulon Progo. The GPS-tagged photos come from a single point, the plants are mostly in containers, and three photos are captioned Banyumas, 2024.
+- **Species:** nothing in the files identifies the insects per image. The nymph photos and the captioned Banyumas photos in particular cannot be assigned to *N. lugens* from the files.
+- **Licence:** CC0 1.0 on the dataset. The captioned photos look like third-party field reports; whether the depositor could release them is not stated.
+- **Recommendation:** import, with three conditions — keep the burst structure visible (either one photo per sequence, or all photos with a sequence identifier); leave out or flag the 16 `wbc_N` files until their origin is clear; and record that species identity is as asserted by the depositor.
+- **Status: IMPORTED 2026-10-13** (decision of the same day: one photo per sequence, `wbc_N` files held out).
+  - Sequences: photos from one camera no more than 10 s apart, with neighbouring sequences merged when their frames are near-identical; the 22 message-app copies have no timestamp and each counts as its own sequence. 280 photos → 72 sequences; the sharpest photo of each was taken.
+  - Six sequences were left out after viewing at full size: two show a plant base with no insect, one a shed skin, one a dark insect that is not recognisably a planthopper, one a spider-like arthropod, one a stem base in water.
+  - Result: 66 `ImageObservation` individuals `annotatedAs Brown_Planthopper`, files in `Data/yuke-wbc/`; 44 carry `recordedAtDate`, 30 a location. The GPS position is stored as one `FieldLocation` rounded to 0.01° (7.83 °S, 110.41 °E), because all tagged photos come from a single spot that is not a field.
+  - `YukeWbcDataset` is a `dcat:Dataset` with the CC0 licence, the `data.brin.go.id` record as source, and a comment stating the selection rule, the exclusions and the mismatch with the depositor's description.
+  - Pests with images: 3/7 → 4/7. Scripts: `Worklog/2026-10-13_yuke_wbc_import/scripts/` (`select_yuke_wbc.py`, `import_yuke_wbc.py`).
+
+### Fenologi padi Indramayu (`…\Fenologi padi Indramayu, Sentinel-1, 2024\`)
+- Same table as profiled on 2026-10-09 (5,007 × 26, here as `.csv`), plus the `.docx` that holds only a link line. Nothing new; still blocked on the "Custom" licence.
+
+### Ketahanan padi terhadap empat ras blas (`…\Ketahanan padi terhadap empat ras blas\`)
+- **Files:** the paper (PDF), one figure, three tables as `.xlsx`.
+- **Content:** Table 1 lists 21 entries with origin (breeding lines of BB Padi Bogor, national varieties such as Situ Patenggang and Danau Gaung, and local varieties from Lampung, Sukabumi, Banten, Garut, Cianjur and Bali). Table 2 gives 18 upland entries and Table 3 four lowland entries, each with a score and a reaction (T resistant, AT moderately resistant, R susceptible) against blast races 033, 073, 133 and 173.
+- **Quality:** the tables are OCR output. Names differ between tables (`Bll908F-TB-2` / `B1190SF-TB-2`), four rows of Table 2 are collapsed into one cell, and digits are misread (`I`, `s`). They must be re-read against the PDF before use.
+- **Mapping:** up to 88 `ResistanceAssessment` individuals against `Rice_Blast_Disease`, race in `testedPopulation`; the three grades match the three `ResistanceLevel` individuals. All 22 entries would be new `Variety` individuals.
+- **Recommendation:** later. CC0 and a good fit for the pattern, but it needs manual transcription and adds varieties that nothing else in the graph refers to.
+
+### Pleiades Neo Klaten (`…\Pleiades Neo Klaten, segmentasi fenologi sawah\`)
+- 56 image patches and 56 masks as GeoTIFF (2.1 MB each), plus one `.aux.xml`. The rasters could not be opened with the Python libraries installed here, so band layout, georeferencing and class shares were not checked.
+- **Recommendation:** later, unchanged: the terms allow research and non-commercial use only.

@@ -189691,4 +189691,787 @@
     <rice:sourceLabel>Medium Risk</rice:sourceLabel>
     <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#RiceDiseaseRiskDataset"/>
   </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbcDataset">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
+    <dcterms:source rdf:resource="https://data.brin.go.id/dataset.xhtml?persistentId=hdl:20.500.12690/RIN/Y9TDVS"/>
+    <dcterms:identifier>hdl:20.500.12690/RIN/Y9TDVS</dcterms:identifier>
+    <dcterms:title xml:lang="id">Alat Pengidentifikasi Wereng Batang Coklat (YUKE-WBC)</dcterms:title>
+    <rdfs:label xml:lang="en">YUKE-WBC Dataset</rdfs:label>
+    <rdfs:comment xml:lang="en">RIN Dataverse (BRIN), version 2. 297 phone photos of brown planthopper (Nilaparvata lugens) on rice, 259 taken on 4, 14, 15 and 17 February 2025 and the rest undated (22 are message-app copies named 5 May 2025). The photos are bursts of the same scene, so one photo per shooting sequence was imported on 2026-10-13: 66 images. Left out: 6 sequences in which no planthopper could be recognised, 16 files named wbc_N.jpeg whose origin is unclear (three carry a caption from Banyumas, Central Java, dated 2024), and one resized copy. Species identity is as stated by the depositor; the files carry no per-image label. The description names paddy fields in Sleman, Bantul and Kulon Progo (Yogyakarta), but most plants stand in containers and every GPS-tagged photo comes from one spot, stored here rounded to 0.01 degree.</rdfs:comment>
+    <dcterms:bibliographicCitation xml:lang="en">Suwarningsih, W. (2025). Alat Pengidentifikasi Wereng Batang Coklat (YUKE-WBC). RIN Dataverse, V2. https://hdl.handle.net/20.500.12690/RIN/Y9TDVS</dcterms:bibliographicCitation>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#FieldLocation"/>
+    <rdfs:label xml:lang="en">Approximate location 7.83 S, 110.41 E</rdfs:label>
+    <rdfs:comment xml:lang="en">Photo GPS position rounded to 0.01 degree (about 1 km).</rdfs:comment>
+    <rice:hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-7.83</rice:hasLatitude>
+    <rice:hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">110.41</rice:hasLongitude>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_IMG_20250204_095420">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/IMG_20250204_095420.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: IMG_20250204_095420.jpg</rdfs:label>
+    <dcterms:identifier>IMG_20250204_095420.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 5 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-04T09:54:21</rice:recordedAtDate>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_IMG_20250214_094546">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/IMG_20250214_094546.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: IMG_20250214_094546.jpg</rdfs:label>
+    <dcterms:identifier>IMG_20250214_094546.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 14 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-14T09:45:46</rice:recordedAtDate>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_IMG_20250215_110725">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/IMG_20250215_110725.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: IMG_20250215_110725.jpg</rdfs:label>
+    <dcterms:identifier>IMG_20250215_110725.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 33 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-15T11:07:25</rice:recordedAtDate>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_IMG_20250215_110844">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/IMG_20250215_110844.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: IMG_20250215_110844.jpg</rdfs:label>
+    <dcterms:identifier>IMG_20250215_110844.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 20 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-15T11:08:44</rice:recordedAtDate>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_IMG_20250215_111042">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/IMG_20250215_111042.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: IMG_20250215_111042.jpg</rdfs:label>
+    <dcterms:identifier>IMG_20250215_111042.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 2 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-15T11:10:42</rice:recordedAtDate>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_IMG_20250215_111119">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/IMG_20250215_111119.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: IMG_20250215_111119.jpg</rdfs:label>
+    <dcterms:identifier>IMG_20250215_111119.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 21 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-15T11:11:19</rice:recordedAtDate>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_IMG_20250215_111427">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/IMG_20250215_111427.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: IMG_20250215_111427.jpg</rdfs:label>
+    <dcterms:identifier>IMG_20250215_111427.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 7 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-15T11:14:27</rice:recordedAtDate>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_IMG_20250215_111944">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/IMG_20250215_111944.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: IMG_20250215_111944.jpg</rdfs:label>
+    <dcterms:identifier>IMG_20250215_111944.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-15T11:19:44</rice:recordedAtDate>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_IMG_20250215_112007">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/IMG_20250215_112007.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: IMG_20250215_112007.jpg</rdfs:label>
+    <dcterms:identifier>IMG_20250215_112007.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-15T11:20:08</rice:recordedAtDate>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_IMG_20250215_112128">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/IMG_20250215_112128.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: IMG_20250215_112128.jpg</rdfs:label>
+    <dcterms:identifier>IMG_20250215_112128.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 30 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-15T11:21:28</rice:recordedAtDate>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_IMG_20250215_112204">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/IMG_20250215_112204.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: IMG_20250215_112204.jpg</rdfs:label>
+    <dcterms:identifier>IMG_20250215_112204.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-15T11:22:04</rice:recordedAtDate>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_IMG_20250215_112255">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/IMG_20250215_112255.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: IMG_20250215_112255.jpg</rdfs:label>
+    <dcterms:identifier>IMG_20250215_112255.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 15 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-15T11:22:55</rice:recordedAtDate>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_IMG_20250215_113027">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/IMG_20250215_113027.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: IMG_20250215_113027.jpg</rdfs:label>
+    <dcterms:identifier>IMG_20250215_113027.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-15T11:30:27</rice:recordedAtDate>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_IMG_20250215_113111_1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/IMG_20250215_113111_1.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: IMG_20250215_113111_1.jpg</rdfs:label>
+    <dcterms:identifier>IMG_20250215_113111_1.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 16 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-15T11:31:12</rice:recordedAtDate>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_103139">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_103139.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_103139.jpg</rdfs:label>
+    <dcterms:identifier>20250217_103139.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T10:31:39</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_103206">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_103206.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_103206.jpg</rdfs:label>
+    <dcterms:identifier>20250217_103206.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 5 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T10:32:07</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_104550">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_104550.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_104550.jpg</rdfs:label>
+    <dcterms:identifier>20250217_104550.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 3 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T10:45:50</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_104603">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_104603.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_104603.jpg</rdfs:label>
+    <dcterms:identifier>20250217_104603.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T10:46:03</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_104743">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_104743.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_104743.jpg</rdfs:label>
+    <dcterms:identifier>20250217_104743.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T10:47:43</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_104801">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_104801.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_104801.jpg</rdfs:label>
+    <dcterms:identifier>20250217_104801.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 2 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T10:48:01</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_105021">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_105021.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_105021.jpg</rdfs:label>
+    <dcterms:identifier>20250217_105021.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 2 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T10:50:22</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_105109">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_105109.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_105109.jpg</rdfs:label>
+    <dcterms:identifier>20250217_105109.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 4 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T10:51:10</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_110300">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_110300.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_110300.jpg</rdfs:label>
+    <dcterms:identifier>20250217_110300.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 5 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T11:03:01</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_110338">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_110338.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_110338.jpg</rdfs:label>
+    <dcterms:identifier>20250217_110338.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 3 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T11:03:38</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_110404">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_110404.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_110404.jpg</rdfs:label>
+    <dcterms:identifier>20250217_110404.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T11:04:04</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_110618">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_110618.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_110618.jpg</rdfs:label>
+    <dcterms:identifier>20250217_110618.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 3 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T11:06:19</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_110713">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_110713.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_110713.jpg</rdfs:label>
+    <dcterms:identifier>20250217_110713.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 2 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T11:07:13</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_110734">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_110734.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_110734.jpg</rdfs:label>
+    <dcterms:identifier>20250217_110734.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 4 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T11:07:35</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_110755">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_110755.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_110755.jpg</rdfs:label>
+    <dcterms:identifier>20250217_110755.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 3 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T11:07:56</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_124753">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_124753.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_124753.jpg</rdfs:label>
+    <dcterms:identifier>20250217_124753.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 4 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T12:47:53</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_124817">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_124817.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_124817.jpg</rdfs:label>
+    <dcterms:identifier>20250217_124817.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 3 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T12:48:18</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_124921">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_124921.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_124921.jpg</rdfs:label>
+    <dcterms:identifier>20250217_124921.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T12:49:22</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_125159">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_125159.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_125159.jpg</rdfs:label>
+    <dcterms:identifier>20250217_125159.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 2 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T12:51:59</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_125256">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_125256.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_125256.jpg</rdfs:label>
+    <dcterms:identifier>20250217_125256.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 2 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T12:52:56</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_125338">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_125338.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_125338.jpg</rdfs:label>
+    <dcterms:identifier>20250217_125338.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 3 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T12:53:39</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_125354">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_125354.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_125354.jpg</rdfs:label>
+    <dcterms:identifier>20250217_125354.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T12:53:54</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_125433">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_125433.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_125433.jpg</rdfs:label>
+    <dcterms:identifier>20250217_125433.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 7 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T12:54:33</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_125459">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_125459.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_125459.jpg</rdfs:label>
+    <dcterms:identifier>20250217_125459.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 2 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T12:54:59</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_125831">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_125831.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_125831.jpg</rdfs:label>
+    <dcterms:identifier>20250217_125831.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T12:58:31</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_125849">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_125849.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_125849.jpg</rdfs:label>
+    <dcterms:identifier>20250217_125849.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T12:58:49</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_125914">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_125914.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_125914.jpg</rdfs:label>
+    <dcterms:identifier>20250217_125914.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T12:59:14</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_125934">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_125934.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_125934.jpg</rdfs:label>
+    <dcterms:identifier>20250217_125934.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rdfs:comment xml:lang="en">Sharpest of 2 photos taken in one shooting sequence; the others were not imported.</rdfs:comment>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T12:59:34</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_130034">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_130034.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_130034.jpg</rdfs:label>
+    <dcterms:identifier>20250217_130034.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T13:00:35</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_20250217_130046">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/20250217_130046.jpg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: 20250217_130046.jpg</rdfs:label>
+    <dcterms:identifier>20250217_130046.jpg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-17T13:00:46</rice:recordedAtDate>
+    <rice:hasSpatialLocation rdf:resource="https://w3id.org/ricemmkg#YukeWbc_Location_7_83S_110_41E"/>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_25_03">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.25.03.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.25.03.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.25.03.jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_25_04">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.25.04.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.25.04.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.25.04.jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_26_47">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.26.47.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.26.47.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.26.47.jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_26_48">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.26.48.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.26.48.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.26.48.jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_27_25_1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.27.25_1.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.27.25_1.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.27.25 (1).jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_27_25">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.27.25.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.27.25.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.27.25.jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_29_25">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.29.25.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.29.25.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.29.25.jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_29_26">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.29.26.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.29.26.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.29.26.jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_29_27">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.29.27.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.29.27.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.29.27.jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_29_28_1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.29.28_1.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.29.28_1.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.29.28 (1).jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_29_28">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.29.28.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.29.28.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.29.28.jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_29_29_1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.29.29_1.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.29.29_1.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.29.29 (1).jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_29_29">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.29.29.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.29.29.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.29.29.jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_29_30_1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.29.30_1.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.29.30_1.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.29.30 (1).jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_29_30">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.29.30.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.29.30.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.29.30.jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_29_31">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.29.31.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.29.31.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.29.31.jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_29_32_1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.29.32_1.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.29.32_1.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.29.32 (1).jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_29_32">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.29.32.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.29.32.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.29.32.jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_29_33">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.29.33.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.29.33.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.29.33.jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_29_34_1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.29.34_1.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.29.34_1.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.29.34 (1).jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_29_34">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.29.34.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.29.34.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.29.34.jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#YukeWbc_WhatsApp_Image_2025_05_05_at_10_29_35">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
+    <rice:annotatedAs rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <schema1:contentUrl>Data/yuke-wbc/WhatsApp_Image_2025_05_05_at_10.29.35.jpeg</schema1:contentUrl>
+    <rdfs:label xml:lang="en">YUKE-WBC image: WhatsApp_Image_2025_05_05_at_10.29.35.jpeg</rdfs:label>
+    <dcterms:identifier>WhatsApp Image 2025-05-05 at 10.29.35.jpeg</dcterms:identifier>
+    <rice:sourceLabel>Wereng Batang Coklat</rice:sourceLabel>
+    <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#YukeWbcDataset"/>
+  </rdf:Description>
 </rdf:RDF>

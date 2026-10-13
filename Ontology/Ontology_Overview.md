@@ -55,12 +55,12 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **152,755** (asserted) / **314,753** (OWL RL) | 0.7.0-dev, measured 2026-10-05. +161,998 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Total triples** | **153,402** (asserted) / **316,114** (OWL RL) | 0.7.0-dev, measured 2026-10-13. +162,712 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
 | **Named classes** | 23 | 20 primitive (incl. `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment` and `ResistanceLevel`, 0.7.0-dev) + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class (`SymptomaticObservation`) |
 | **Object properties** | 39 | All declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `assessedVariety`/`hasResistanceAssessment`, `assessedAgainst`, `hasResistanceLevel`, `ofVariety`, `hasSpatialLocation` (0.7.0-dev) |
 | **Datatype properties** | 24 | `testedPopulation`, `testedLocation`, `reportedYear`, `plantAgeDays`, `sourceLabel`, `environmentCondition`, the sensor / remote-sensing measurements, `recordedAtDate`, `hasLatitude`, `hasLongitude`, `hasElectricalConductivity` and `hasOrganicCarbon` added in 0.7.0-dev |
 | **Annotation properties** | 14 | Includes `rice:evidenceType`, PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
-| **Named individuals** | **17,873** | 17,331 image individuals (Paddy Doctor 16,225, Dhan-Shomadhan 1,106) + 186 sensor observations + 184 field locations + 3 dataset metadata + 169 domain entities (10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 4 `PathogenGroup`, 6 `AbioticFactor`, 12 `Variety`, 15 `ResistanceAssessment`, 3 `ResistanceLevel`) |
+| **Named individuals** | **17,941** | 17,397 image individuals (Paddy Doctor 16,225, Dhan-Shomadhan 1,106, YUKE-WBC 66) + 186 sensor observations + 185 field locations + 4 dataset metadata + 169 domain entities (10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 4 `PathogenGroup`, 6 `AbioticFactor`, 12 `Variety`, 15 `ResistanceAssessment`, 3 `ResistanceLevel`) |
 | **`owl:Axiom` (provenance)** | **375** | **375 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev); the 15 `ResistanceAssessment` individuals carry their provenance directly. v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (19 classes; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment` and `ResistanceLevel` added in 0.7.0-dev) |
@@ -78,13 +78,13 @@ The 10,564 individuals in the knowledge graph are categorized by domain layer:
 
 | Domain Category | Class Name | Count | Type / Description |
 |---|---|---:|---|
-| **Observation Modality** | `ImageObservation` | 17,331 | Field images: Paddy Doctor 16,225, Dhan-Shomadhan 1,106 |
+| **Observation Modality** | `ImageObservation` | 17,397 | Paddy Doctor 16,225, Dhan-Shomadhan 1,106, YUKE-WBC 66 |
 | | `SensorObservation` | 186 | Plot soil and weather values, Rice Disease Risk Assessment v1.0 (2026-10-05) |
-| | `FieldLocation` | 184 | WGS84 points of those plots |
+| | `FieldLocation` | 185 | WGS84 points of those plots (184) and one approximate location of the YUKE-WBC photos |
 | | `RemoteSensingObservation` | 0 | Scaffolding for satellite / UAV values such as NDVI (0.7.0-dev) |
 | | `Observation` | 0 | Abstract root observation superclass |
 | **Defined Class** | `SymptomaticObservation` | *(2,544)* | Defined class (`captures some Symptom`), populated via OWL reasoning |
-| **Dataset Metadata** | `Dataset` (`dcat:Dataset`) | 1 | `PaddyDoctorDataset` metadata individual |
+| **Dataset Metadata** | `Dataset` (`dcat:Dataset`) | 4 | `PaddyDoctorDataset`, `DhanShomadhanDataset`, `RiceDiseaseRiskDataset`, `YukeWbcDataset` |
 | **Biotic Agents & Host** | `Pathogen` | 10 | Viral, bacterial, fungal, oomycete agents; `Rhizoctonia_Solani` and `Microdochium_Albescens` added in 0.7.0-dev |
 | | `Pest` | 7 | Insect pests and vector organisms (`Scirpophaga_Incertulas` merged into `Stem_Borer`) |
 | | `TransmissionMode` | 1 | `Semi_Persistent` (vector transmission mode of both tungro viruses); 0.7.0-dev |
@@ -103,7 +103,7 @@ The 10,564 individuals in the knowledge graph are categorized by domain layer:
 | | `ManagementAction` | 5 | Operational actions (Immediate Intervention, Monitoring, etc.) |
 | | `ManagementCategory` | 4 | Control-method categories from AGROVOC: chemical, biological, cultural, host plant resistance; 0.7.0-dev |
 | | `SeverityLevel` | 4 | Low, Medium, High, and Critical; each annotated with the matching attack-intensity category (ringan, sedang, berat, puso) of the 2021 Indonesian pest-observation juknis. No severity → action mapping since 0.7.0-dev |
-| **Total Named Individuals** | | **17,873** | *(17,331 images + 186 sensor observations + 184 locations + 3 datasets + 169 domain entities)* |
+| **Total Named Individuals** | | **17,941** | *(17,397 images + 186 sensor observations + 185 locations + 4 datasets + 169 domain entities)* |
 
 ---
 
@@ -113,7 +113,7 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 
 | Category | Property | Assertions | Domain → Range | Provenance Backing |
 |---|---|---:|---|---|
-| **Dataset & Observation Layer** | `annotatedAs` | 17,331 | `ImageObservation` → `Disease ⊔ Pest ⊔ HealthStatus` | Raw dataset labels |
+| **Dataset & Observation Layer** | `annotatedAs` | 17,397 | `ImageObservation` → `Disease ⊔ Pest ⊔ HealthStatus` | Raw dataset labels |
 | | `captures` | 2,544 | `ImageObservation` → `Symptom` | Visual evidence links |
 | | `sourceDatasetLabel` | 10 | `Disease ⊔ Pest ⊔ HealthStatus` → `xsd:string` | Dataset vocabulary mapping |
 | **Etiology & Susceptibility** | `vulnerableTo` | 55 | `Plant ⊔ GrowthStage` → `Disease ⊔ Pest` | CABI CPC (55); variety susceptibility moved to `ResistanceAssessment` (0.7.0-dev) |
@@ -132,7 +132,7 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | | `requires` | 5 | `Treatment` → `GrowthStage` | IRRI RKB (`Crop_Sanitation requires Harvest_Stage` re-sourced from BBPOPT to the IRRI tungro sheet in 0.7.0-dev) |
 | | `hasManagementCategory` | 6 | `Treatment` → `ManagementCategory` | IRRI RKB (2) / AGROVOC definitions (4, `ontology-derived`); 0.7.0-dev |
 | **Variety** | `varietyOf` | 12 | `Variety` → `Plant` | Mackill & Khush (2018) (3); Bagariang et al. (2021) (2); Biswas et al. (2021) (1); Paddy Doctor metadata (6, `dataset-derived`); 0.7.0-dev |
-| **Total domain assertions** | | **375** | *(0.7.0-dev, measured 2026-10-05 with rdflib; plus 17,331 `annotatedAs`, 2,544 `captures`, 3,977 `ofVariety`, 10 `sourceDatasetLabel`, 17 `eppoCode`, and 15 `ResistanceAssessment` individuals — 15 each of `assessedVariety`, `assessedAgainst`, `hasResistanceLevel` — whose provenance sits on the individual: Mackill & Khush 10, Bagariang et al. 4, Biswas et al. 1)* | **375 / 375 reified** |
+| **Total domain assertions** | | **375** | *(0.7.0-dev, measured 2026-10-13 with rdflib; plus 17,397 `annotatedAs`, 2,544 `captures`, 3,977 `ofVariety`, 10 `sourceDatasetLabel`, 17 `eppoCode`, and 15 `ResistanceAssessment` individuals — 15 each of `assessedVariety`, `assessedAgainst`, `hasResistanceLevel` — whose provenance sits on the individual: Mackill & Khush 10, Bagariang et al. 4, Biswas et al. 1)* | **375 / 375 reified** |
 
 > *Note on inverse properties:* All twelve inverse directions (`indicates`, `detectedBy`, `causedBy`, `prevents`, `controls`, `threatens`, etc.) and `detects` are declared in the schema for reasoning/querying symmetry.
 
@@ -161,13 +161,29 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | 0.7.0-dev (+ nitrogen fertilizer) | 2026-09-17 | 68,076 (163,738 OWL RL) | 23 | 36 | 10,564 | 349 axioms / 349 assertions + 15 assessments |
 | 0.7.0-dev (pest–damage level fix, expert CQ return) | 2026-09-23 | 68,097 (163,779 OWL RL) | 23 | 36 | 10,564 | 351 axioms / 351 assertions + 15 assessments |
 | 0.7.0-dev (+ `PathogenGroup`) | 2026-09-23 | 68,204 (163,957 OWL RL) | 24 | 37 | 10,568 | 360 axioms / 360 assertions + 15 assessments |
-| **0.7.0-dev (Paddy Doctor IEEE, Dhan-Shomadhan, `Leaf_Scald`, sensor schema + data — in development)** | **2026-10-05** | **152,755** (314,753 OWL RL) | **26** | **39** | **17,873** | **375 axioms / 375 assertions + 15 assessments** |
+| 0.7.0-dev (Paddy Doctor IEEE, Dhan-Shomadhan, `Leaf_Scald`, sensor schema + data) | 2026-10-05 | 152,755 (314,753 OWL RL) | 26 | 39 | 17,873 | 375 axioms / 375 assertions + 15 assessments |
+| **0.7.0-dev (+ YUKE-WBC brown planthopper images — in development)** | **2026-10-13** | **153,402** (316,114 OWL RL) | **26** | **39** | **17,941** | **375 axioms / 375 assertions + 15 assessments** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-10-13: 0.7.0-dev — YUKE-WBC: first images of brown planthopper
+
+`Brown_Planthopper` had symptoms, risk factors and treatments but no image. A search of the BRIN data repository (RIN Dataverse) on 2026-10-09 found a CC0 photo set; it was imported on 2026-10-13 after a local check. Pre-import file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-yuke-wbc.rdf`.
+
+- **Source:** Suwarningsih, W. (2025). *Alat Pengidentifikasi Wereng Batang Coklat (YUKE-WBC)*. RIN Dataverse, V2, hdl:20.500.12690/RIN/Y9TDVS, CC0 1.0. 297 phone photos.
+- **One photo per shooting sequence.** The photos are bursts: the same insect photographed repeatedly from one position. Photos from one camera no more than 10 s apart form a sequence, and neighbouring sequences with near-identical frames are merged; 280 photos give 72 sequences, and the sharpest photo of each was taken. Importing all 297 would have counted a few dozen scenes several times over.
+- **Left out:** six sequences in which no planthopper could be recognised when viewed at full size (plant base only, a shed skin, a dark insect, a spider-like arthropod); 16 files named `wbc_N.jpeg`, whose origin is unclear (three carry a caption from Banyumas, Central Java, dated 2024); one resized copy.
+- **Added:** 66 `ImageObservation` individuals, `annotatedAs Brown_Planthopper`, files in `Data/yuke-wbc/`. 44 carry `recordedAtDate` from EXIF and 30 a `hasSpatialLocation`. `YukeWbcDataset` (`dcat:Dataset`) holds the licence, source, citation and the selection rule.
+- **Location kept coarse.** Every GPS-tagged photo comes from one spot, and the plants mostly stand in containers, although the description of the dataset names paddy fields in three Yogyakarta districts. The position is stored as one `FieldLocation` rounded to 0.01° (7.83 °S, 110.41 °E); the mismatch is stated in the dataset comment.
+- **Species as stated by the depositor.** The files carry no per-image label. `sourceLabel` records "Wereng Batang Coklat", and the dataset comment says identity was not verified independently.
+- **No schema change and no new domain assertion.** 375 axioms = 375 domain assertions, unchanged.
+- **Checks:** HermiT (owlready2, Java 21) consistent, 0 unsatisfiable classes. Every `contentUrl` of the new images resolves to a file.
+- **Benchmark:** verdicts unchanged at **21 PASS / 2 PARTIAL / 1 FAIL / 1 DOC**. CQ-16 14,926/14,926 → **14,992/14,992**; CQ-17 14/14 → **15/15** (a fourth pest gains images). Pests with images 3/7 → **4/7**.
+- **Result:** 153,402 asserted / 316,114 OWL RL triples.
 
 ### 2026-10-03 to 2026-10-05: 0.7.0-dev — Paddy Doctor IEEE release, Dhan-Shomadhan, `Leaf_Scald`, sensor schema and first sensor data; review of the 2026-10-04 Antigravity session
 
