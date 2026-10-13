@@ -409,6 +409,7 @@ Downloaded by the user to `D:\MMKG Data\`; folder names are the record titles, c
 - **Content (64 photos viewed):** field photos. Dead Heart shows a dried central shoot among green tillers; White Head shows erect, white, unfilled panicles. Both match the symptom.
 - **Mapping:** Dead Heart → `Deadheart`, which already has 1,779 images from Paddy Doctor. White Head → `White_Ear`, a `Symptom` with no image; `annotatedAs` already admits symptoms in its range.
 - **Recommendation: import.** The 551 White Head photos would be the first images annotated with a symptom individual. Dead Heart and Healthy add a second source for classes already covered.
+- **Status: IMPORTED 2026-10-13**, all three classes, originals only. 2,096 `ImageObservation` individuals in `Data/stem-borer-bd/`: 551 `annotatedAs White_Ear`, 439 `Deadheart`, 1,106 `Normal_Health`. `StemBorerSymptomDataset` records the licence, the DOI, the citation, and that date and site are known for the collection only, not per image. No schema change. Script: `Worklog/2026-10-13_stem_borer_import/scripts/import_stem_borer.py`.
 
 ### Proximal multispectral brown spot (Mendeley `nz8bhz7j9t`)
 - **Files (verified):** 236 captures per class, 472 in all, each one RGB JPEG and five 16-bit TIFF bands (1600 × 1300), readable with PIL. The record states 2,772 sets and over 13,000 TIFF files; the archives hold 2,360 TIFF files.
