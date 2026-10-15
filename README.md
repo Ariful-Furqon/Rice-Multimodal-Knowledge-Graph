@@ -1,18 +1,18 @@
 # Rice MMKG — Rice Multimodal Knowledge Graph
 
-An OWL 2 ontology and multimodal knowledge graph modeling rice diseases, pests, pathogens, symptoms, environmental factors, growth stages, treatments, and management actions — populated from a large public image dataset, with sensor and text modalities designed in as declared extension points.
+An OWL 2 ontology and multimodal knowledge graph modeling rice diseases, pests, pathogens, symptoms, environmental factors, growth stages, treatments, and management actions — populated from public image, sensor, light-trap and multispectral datasets, with text reports as a declared extension point.
 
 ![Rice MMKG diagram](RiceMMKG.png)
 
 ## Overview
 
-Rice MMKG links agronomic, pathological, and entomological knowledge about rice cultivation into a single queryable graph, connecting what is *observed* (currently: 21,149 images from six datasets, 186 plot-level soil and weather observations 11,533 light-trap catches of brown planthopper and 472 multispectral captures of brown spot; field/text reports are a declared extension point) to its *cause* (pathogens, pests, environmental stressors) and the *response* (treatments, management actions), contextualised by crop growth stage and severity level.
+Rice MMKG links agronomic, pathological, and entomological knowledge about rice cultivation into a single queryable graph, connecting what is *observed* (currently: 21,149 images from six datasets, 186 plot-level soil and weather observations, 11,533 light-trap catches of brown planthopper and 472 multispectral captures of brown spot; field/text reports are a declared extension point) to its *cause* (pathogens, pests, environmental stressors) and the *response* (treatments, management actions), contextualised by crop growth stage and severity level.
 
 ### Core Design Principles
 
 - **Observation is kept separate from domain knowledge.** An `ImageObservation`'s raw dataset label (`annotatedAs`) is never conflated with curated symptom/cause/treatment relations (`captures`, `causes`, `indicatedBy`, ...) — what was recorded by computer vision is distinct from what is concluded by domain knowledge.
 - **Every domain-level assertion is traceable.** All 377 populated domain triples (`causes`, `indicatedBy`, `occursIn`, `controlledBy`, `preventedBy`, `increaseRiskOf`, `vulnerableTo`, `recommends`, `requires`, `transmits`, `affectsPlantPart`, `partOf`, `hasTransmissionMode`, `hasManagementCategory`, `varietyOf`, `hasPathogenGroup`) are reified with `owl:Axiom` and carry `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType` — **100% provenance coverage as of v0.6.1**, checked by CQ-22 (assertions without an axiom) as well as CQ-21 (axioms without a source). v0.6 fell two assertions short of this; see the v0.6.1 note in [`Ontology_Overview.md`](Ontology/Ontology_Overview.md).
-- **Formal reasoning & falsifiable Competency Questions.** Evaluated under automated Description Logic (HermiT/Pellet) and rule-based (OWL RL) reasoning across 25 schema-level Competency Questions without permissive `OPTIONAL` clauses.
+- **Formal reasoning & falsifiable Competency Questions.** Evaluated under automated Description Logic (HermiT/Pellet) and rule-based (OWL RL) reasoning across 27 schema-level Competency Questions without permissive `OPTIONAL` clauses.
 
 ### Metadata Snapshot
 
@@ -26,7 +26,9 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 
 ## Ontology Structure
 
-### Classes (16)
+### Classes (29)
+
+28 classes in the `rice:` namespace and `dcat:Dataset`. The table lists the observation layer and the main domain classes; the others are `AbioticFactor` (6 individuals), `PlantPart` (10), `ManagementCategory` (4), `PathogenGroup` (4), `TransmissionMode` (1), `Variety` (12), `ResistanceAssessment` (15) and `ResistanceLevel` (3). Counts measured 2026-10-15.
 
 | Class | Individuals | Description |
 |---|---:|---|
@@ -44,23 +46,29 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 | `Pathogen` | 10 | Microbial causal agents (Magnaporthe Oryzae, Rhizoctonia solani, Xanthomonas pathovars, Microdochium albescens, RTBV, RTSV) |
 | `Plant` | 1 | The host crop (*Oryza sativa*) |
 | `HealthStatus` | 1 | Non-disease reference baseline (`Normal_Health`) |
-| `Symptom` | 27 | Visual symptoms (Leaf Rolling, Dead Tiller, White Ear, Brown Lesion, Wilting, etc.) |
+| `Symptom` | 40 | Visual symptoms (Leaf Rolling, Dead Tiller, White Ear, Brown Lesion, Wilting, etc.) |
 | `GrowthStage` | 7 | Rice phenological stages (Seedling, Tillering, Vegetative, Reproductive, Flowering, Maturity, Harvest) |
 | `EnvironmentalFactor` | 9 | Predisposing weather & field conditions (High Humidity, Waterlogged Soil, Dense Canopy, etc.) |
 | `SeverityLevel` | 4 | Severity levels (Low, Medium, High, Critical), each annotated with the matching attack-intensity category of the 2021 Indonesian pest-observation guideline; no severity → action mapping is asserted (0.7.0-dev) |
 | `Treatment` | 16 | Practical interventions (Fungicide/Insecticide Application, Biological Control, Resistant Variety, Crop Rotation, and fertilizer application for N, P, K and Zn) |
 | `ManagementAction` | 5 | Operational actions (Field Inspection, Monitoring, Immediate Intervention, Preventive Action, No Action Needed) |
 
-### Object Properties (26)
+### Object Properties (41)
 
-Relations connect the domain entities with defined domains, ranges, and inverse pairs:
-`causes`/`causedBy`, `transmits`/`transmittedBy`, `threatens`, `indicates`/`indicatedBy`, `controls`/`controlledBy`, `prevents`/`preventedBy`, `recommends`/`recommendedFor`, `requires`/`requiredFor`, `captures`/`capturedBy`, `detects`/`detectedBy`, `occursIn`, `hasOccurrenceOf`, `increaseRiskOf`/`riskIncreasedBy`, `vulnerableTo`, `annotatedAs`/`annotationOf`.
+All declared with a domain and a range; inverse pairs share them in reverse.
+
+- **Domain relations:** `causes`/`causedBy`, `transmits`/`transmittedBy`, `threatens`, `indicates`/`indicatedBy`, `controls`/`controlledBy`, `prevents`/`preventedBy`, `recommends`/`recommendedFor`, `requires`/`requiredFor`, `occursIn`, `hasOccurrenceOf`, `increaseRiskOf`/`riskIncreasedBy`, `vulnerableTo`, `affectsPlantPart`, `partOf`, `hasTransmissionMode`, `hasManagementCategory`, `hasPathogenGroup`.
+- **Varieties and resistance:** `varietyOf`/`hasVariety`, `assessedVariety`/`hasResistanceAssessment`, `assessedAgainst`, `hasResistanceLevel`, `ofVariety`.
+- **Observation layer:** `annotatedAs`/`annotationOf`, `captures`/`capturedBy`, `detects`/`detectedBy`, `hasSpatialLocation`, `hasBandImage`, `ofBand`.
 
 *Epidemiological distinction:* `causes` is strictly scoped to `Pathogen → Disease`, while insect vector transmission is modeled through `transmits`/`transmittedBy` (`Pest → Pathogen`), enabling explicit graph traversal from vector to pathogen to disease.
 
-### Datatype Properties (5)
+### Datatype Properties (27)
 
-`confidenceScore`, `severityScore`, `interventionThreshold`, `observationDate`, `sourceDatasetLabel`
+- **Observation values:** `recordedAtDate`, `recordedUntilDate`, `hasCatchCount`, `plantAgeDays`, `environmentCondition`, `sourceLabel`; soil and weather `hasSoilPH`, `hasElectricalConductivity`, `hasOrganicCarbon`, `hasNitrogenLevel`, `hasPhosphorusLevel`, `hasPotassiumLevel`, `hasTemperature`, `hasHumidity`, `hasRainfall`; `hasNDVI`.
+- **Places and bands:** `hasLatitude`, `hasLongitude`, `centreWavelengthNm`.
+- **Assessments and labels:** `testedPopulation`, `testedLocation`, `reportedYear`, `sourceDatasetLabel`.
+- **Declared, not yet used:** `confidenceScore`, `severityScore`, `interventionThreshold`, `observationDate`, `hasNDVI`.
 
 ### Individuals & Provenance
 
@@ -75,22 +83,25 @@ Relations connect the domain entities with defined domains, ranges, and inverse 
 
 ### Paddy Doctor Dataset Alignment
 
-The local Paddy Doctor image dataset is excluded from Git (`/Data/`). Folder labels are cleanly preserved via `sourceDatasetLabel`/`annotatedAs`.
+The Paddy Doctor IEEE DataPort release (16,225 images) is the largest source; like every image set it is excluded from Git (`/Data/`). Each image keeps its folder label in `sourceLabel`; the entity it is `annotatedAs` is shown below.
 
-| Paddy Doctor Label | Rice MMKG Entity | Semantic Type in v0.6 | Observed Symptom (`captures`) |
-|---|---|---|---|
-| `bacterial_leaf_blight` | `Bacterial_Leaf_Blight` | Disease | — (class-level annotation) |
-| `bacterial_leaf_streak` | `Bacterial_Leaf_Streak` | Disease | — (class-level annotation) |
-| `bacterial_panicle_blight` | `Bacterial_Panicle_Blight` | Disease | — (class-level annotation) |
-| `blast` | `Rice_Blast_Disease` | Disease | — (class-level annotation) |
-| `brown_spot` | `Brown_Spot` | Disease | — (class-level annotation) |
-| `downy_mildew` | `Downy_Mildew` | Disease | — (class-level annotation) |
-| `tungro` | `Rice_Tungro_Disease` | Disease | — (class-level annotation) |
-| `hispa` | `Hispa` | Pest | — (class-level annotation) |
-| `dead_heart` | `Deadheart` | Disease (Damage condition) | `Dead_Tiller` (Symptom, 1,442 images) |
-| `normal` | `Normal_Health` | HealthStatus | — (reference baseline) |
+| Paddy Doctor label | Images | Rice MMKG entity | Type | Observed symptom (`captures`) |
+|---|---:|---|---|---|
+| `normal` | 2,405 | `Normal_Health` | HealthStatus | — (reference baseline) |
+| `blast` | 2,351 | `Rice_Blast_Disease` | Disease | — |
+| `hispa` | 2,151 | `Hispa` | Pest | — |
+| `tungro` | 1,951 | `Rice_Tungro_Disease` | Disease | — |
+| `white_stem_borer` | 1,273 | `Deadheart` | Disease (damage condition) | `Dead_Tiller` |
+| `brown_spot` | 1,257 | `Brown_Spot` | Disease | — |
+| `leaf_roller` | 1,095 | `Leaf_Folder` | Pest | — |
+| `downy_mildew` | 868 | `Downy_Mildew` | Disease | — |
+| `yellow_stem_borer` | 765 | `Stem_Borer` | Pest | `Dead_Tiller` |
+| `bacterial_leaf_blight` | 648 | `Bacterial_Leaf_Blight` | Disease | — |
+| `black_stem_borer` | 506 | `Deadheart` | Disease (damage condition) | `Dead_Tiller` |
+| `bacterial_leaf_streak` | 505 | `Bacterial_Leaf_Streak` | Disease | — |
+| `bacterial_panicle_blight` | 450 | `Bacterial_Panicle_Blight` | Disease | — |
 
-`Deadheart` is the tiller damage left by stem borers; its 1,442 images are the only images tied to `Stem_Borer`, and only indirectly.
+The 2,544 stem borer images (white, black and yellow) carry the only `captures` assertions in the graph, all to `Dead_Tiller`. White and black stem borer images stay `annotatedAs Deadheart` until decision 5 of the 2026-09-30 meeting. Images of the other sets are listed under `ImageObservation` above.
 
 ### Modality Coverage & Data Gaps (0.7.0-dev)
 
@@ -101,16 +112,16 @@ Images currently cover 13 of the 16 `Disease` individuals and 4 of the 7 `Pest` 
 | `Pest` | `Armyworm`, `Nephotettix_Virescens`, `Rice_Bug` |
 | `Disease` | 3 abiotic disorders: Zn deficiency, iron toxicity, salinity. (N, P and K deficiency have images since 2026-10-13; the Kaggle source has no stated licence and the Netrokona potassium labels are not expert-validated) |
 
-Candidate sources under evaluation (licence and access not yet verified for all; none has been imported):
+Every source checked so far, with the outcome and the reason, is recorded in [`Candidate_Datasets_Analysis.md`](Analysis%20and%20Alignment/Candidate_Datasets_Analysis.md): IEEE DataPort, the BRIN data repository, Mendeley Data, Zenodo, Figshare, Harvard Dataverse and Kaggle, searched 2026-10-05 to 2026-10-13. What remains open:
 
-| Gap | Candidate sources |
+| Gap or open point | Status (2026-10-15) |
 |---|---|
-| Per-image content beyond the label | Expert image annotation; YOLO-RLD lesion boxes; Paddy Doctor variety / age metadata |
-| Pest images | Paddy Doctor full and pest sets (leaf roller, stem borers); IP102 |
-| Abiotic disorders, sheath blight | None found yet — expert annotation is the only route so far |
-| Second imaging modality | IMPaCT-UAV-MsRGB (multispectral + RGB, no disease labels) |
-| Text | Kisan Call Centre farmer queries (access currently blocked) |
-| Environment / occurrence / genes | NASA POWER; Rice Disease Risk Assessment table; GBIF; UniProtKB; Oryzabase |
+| Pest images: `Armyworm`, `Nephotettix_Virescens`, `Rice_Bug` | No usable source. A Mendeley pest set labelling these turned out to be collected from the web, with weevils filed as rice bug; IP102 is also web-collected |
+| Abiotic disorders: Zn deficiency, iron toxicity, salinity | No image set found; symptom figures from CC BY papers are the remaining route |
+| Licence or label to confirm | Kaggle N/P/K images (licence not stated, permission requested; to be removed if refused); Netrokona potassium labels and YUKE-WBC species (expert confirmation) |
+| Candidates not yet imported | Weekly pest surveillance with weather, Midsayap, Philippines (needs `Scotinophara coarctata` as a new pest); brown planthopper resistance of 218 landraces; Sentinel-1 phenology table, Indramayu (licence "Custom"); UAV multispectral time series (no disease labels) |
+| Per-image content beyond the label | Expert image annotation; lesion boxes (RiceLeafDiseaseBD, Mendeley) |
+| Text | No ready dataset; extraction from CC BY papers planned |
 | Comparison with an existing ontology | RiceDO v2 + TreatO v2 |
 
 Sources under CC BY-SA would go into a separate module brought in through `owl:imports`, so the core stays CC BY 4.0.

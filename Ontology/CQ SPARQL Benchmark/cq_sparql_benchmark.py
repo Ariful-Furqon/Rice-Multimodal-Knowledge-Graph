@@ -427,6 +427,24 @@ CQS = [
         "den": PREFIX + "SELECT DISTINCT ?p WHERE { ?p a rice:Pest }",
         "unit": "pest",
     },
+    {
+        "id": "CQ-27", "level": "L2", "dim": "D2", "mode": "coverage",
+        "question": "Which diseases have spectral evidence, i.e. are the label of "
+                    "at least one remote-sensing observation that carries a date, "
+                    "a location and band images of known wavelength?",
+        "rationale": "Added on 2026-10-14 with the first remote-sensing "
+                     "observations. Band images are the only evidence beyond "
+                     "visible light; the other 26 questions do not touch them. The "
+                     "denominator is every Disease, so the result shows how few "
+                     "diseases have spectral data.",
+        "num": PREFIX + """SELECT DISTINCT ?d WHERE {
+  ?d a rice:Disease .
+  ?o a rice:RemoteSensingObservation ; rice:annotatedAs ?d ;
+     rice:recordedAtDate ?t ; rice:hasSpatialLocation ?loc ; rice:hasBandImage ?img .
+  ?img rice:ofBand ?band . ?band rice:centreWavelengthNm ?nm }""",
+        "den": PREFIX + "SELECT DISTINCT ?d WHERE { ?d a rice:Disease }",
+        "unit": "disease",
+    },
 ]
 
 
