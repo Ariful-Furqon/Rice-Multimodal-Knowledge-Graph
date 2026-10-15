@@ -55,12 +55,12 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **302,494** (asserted) / **588,836** (OWL RL) | 0.7.0-dev, measured 2026-10-13. +286,342 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Total triples** | **321,451** (asserted) / **622,504** (OWL RL) | 0.7.0-dev, measured 2026-10-14. +301,053 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
 | **Named classes** | 23 | 20 primitive (incl. `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment` and `ResistanceLevel`, 0.7.0-dev) + 1 scaffolding + 1 `dcat:Dataset` + 1 defined class (`SymptomaticObservation`) |
-| **Object properties** | 39 | All declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `assessedVariety`/`hasResistanceAssessment`, `assessedAgainst`, `hasResistanceLevel`, `ofVariety`, `hasSpatialLocation` (0.7.0-dev) |
-| **Datatype properties** | 26 | `hasCatchCount`, `recordedUntilDate`, `testedPopulation`, `testedLocation`, `reportedYear`, `plantAgeDays`, `sourceLabel`, `environmentCondition`, the sensor / remote-sensing measurements, `recordedAtDate`, `hasLatitude`, `hasLongitude`, `hasElectricalConductivity` and `hasOrganicCarbon` added in 0.7.0-dev |
+| **Object properties** | 41 | `hasBandImage` and `ofBand` added 2026-10-14. All declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `assessedVariety`/`hasResistanceAssessment`, `assessedAgainst`, `hasResistanceLevel`, `ofVariety`, `hasSpatialLocation` (0.7.0-dev) |
+| **Datatype properties** | 27 | `centreWavelengthNm`, `hasCatchCount`, `recordedUntilDate`, `testedPopulation`, `testedLocation`, `reportedYear`, `plantAgeDays`, `sourceLabel`, `environmentCondition`, the sensor / remote-sensing measurements, `recordedAtDate`, `hasLatitude`, `hasLongitude`, `hasElectricalConductivity` and `hasOrganicCarbon` added in 0.7.0-dev |
 | **Annotation properties** | 14 | Includes `rice:evidenceType`, PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
-| **Named individuals** | **33,462** | 21,149 image individuals (Paddy Doctor 16,225, Dhan-Shomadhan 1,106, YUKE-WBC 66, stem borer symptom images 2,096, Kaggle nutrient deficiency 1,156, Netrokona potassium 500) + 11,533 trap observations + 186 sensor observations + 415 field locations + 8 dataset metadata + 171 domain entities (10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 4 `PathogenGroup`, 6 `AbioticFactor`, 12 `Variety`, 15 `ResistanceAssessment`, 3 `ResistanceLevel`) |
+| **Named individuals** | **36,303** | 21,149 image individuals (Paddy Doctor 16,225, Dhan-Shomadhan 1,106, YUKE-WBC 66, stem borer symptom images 2,096, Kaggle nutrient deficiency 1,156, Netrokona potassium 500) + 11,533 trap observations + 472 remote-sensing observations + 2,360 band images + 186 sensor observations + 418 field locations + 9 dataset metadata + 176 domain entities (5 `SpectralBand`, 10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 4 `PathogenGroup`, 6 `AbioticFactor`, 12 `Variety`, 15 `ResistanceAssessment`, 3 `ResistanceLevel`) |
 | **`owl:Axiom` (provenance)** | **377** | **377 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev); the 15 `ResistanceAssessment` individuals carry their provenance directly. v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (19 classes; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment` and `ResistanceLevel` added in 0.7.0-dev) |
@@ -81,11 +81,13 @@ The 10,564 individuals in the knowledge graph are categorized by domain layer:
 | **Observation Modality** | `ImageObservation` | 21,149 | Paddy Doctor 16,225, Dhan-Shomadhan 1,106, YUKE-WBC 66, stem borer symptom images 2,096, Kaggle nutrient deficiency 1,156, Netrokona potassium 500 |
 | | `SensorObservation` | 186 | Plot soil and weather values, Rice Disease Risk Assessment v1.0 (2026-10-05) |
 | | `TrapObservation` | 11,533 | Light-trap catches of brown planthopper, 229 stations in China, 1977–2019 (2026-10-13) |
-| | `FieldLocation` | 415 | WGS84 points of those plots (184), the light-trap stations (229) and one approximate location each for the YUKE-WBC and the Kaggle nutrient deficiency photos |
-| | `RemoteSensingObservation` | 0 | Scaffolding for satellite / UAV values such as NDVI (0.7.0-dev) |
+| | `FieldLocation` | 418 | WGS84 points of those plots (184), the light-trap stations (229), the multispectral captures (3) and one approximate location each for the YUKE-WBC and the Kaggle nutrient deficiency photos |
+| | `RemoteSensingObservation` | 472 | Close-range multispectral captures of brown spot and healthy rice (2026-10-14); no NDVI stored |
+| | `BandImage` | 2,360 | One image file per spectral band of a capture; part of an observation, not an observation |
+| | `SpectralBand` | 5 | Bands of the DJI P4 Multispectral camera: 450, 560, 650, 730, 840 nm |
 | | `Observation` | 0 | Abstract root observation superclass |
 | **Defined Class** | `SymptomaticObservation` | *(2,544)* | Defined class (`captures some Symptom`), populated via OWL reasoning |
-| **Dataset Metadata** | `Dataset` (`dcat:Dataset`) | 8 | `PaddyDoctorDataset`, `DhanShomadhanDataset`, `RiceDiseaseRiskDataset`, `YukeWbcDataset`, `StemBorerSymptomDataset`, `NutrientDeficiencyKaggleDataset` (no licence stated), `NetrokonaRiceDataset`, `BphLightTrapDataset` |
+| **Dataset Metadata** | `Dataset` (`dcat:Dataset`) | 9 | `PaddyDoctorDataset`, `DhanShomadhanDataset`, `RiceDiseaseRiskDataset`, `YukeWbcDataset`, `StemBorerSymptomDataset`, `NutrientDeficiencyKaggleDataset` (no licence stated), `NetrokonaRiceDataset`, `BphLightTrapDataset`, `BrownSpotMultispectralDataset` |
 | **Biotic Agents & Host** | `Pathogen` | 10 | Viral, bacterial, fungal, oomycete agents; `Rhizoctonia_Solani` and `Microdochium_Albescens` added in 0.7.0-dev |
 | | `Pest` | 7 | Insect pests and vector organisms (`Scirpophaga_Incertulas` merged into `Stem_Borer`) |
 | | `TransmissionMode` | 1 | `Semi_Persistent` (vector transmission mode of both tungro viruses); 0.7.0-dev |
@@ -104,7 +106,7 @@ The 10,564 individuals in the knowledge graph are categorized by domain layer:
 | | `ManagementAction` | 5 | Operational actions (Immediate Intervention, Monitoring, etc.) |
 | | `ManagementCategory` | 4 | Control-method categories from AGROVOC: chemical, biological, cultural, host plant resistance; 0.7.0-dev |
 | | `SeverityLevel` | 4 | Low, Medium, High, and Critical; each annotated with the matching attack-intensity category (ringan, sedang, berat, puso) of the 2021 Indonesian pest-observation juknis. No severity → action mapping since 0.7.0-dev |
-| **Total Named Individuals** | | **33,462** | *(21,149 images + 11,533 trap observations + 186 sensor observations + 415 locations + 8 datasets + 171 domain entities)* |
+| **Total Named Individuals** | | **36,303** | *(21,149 images + 11,533 trap observations + 472 remote-sensing observations + 2,360 band images + 186 sensor observations + 418 locations + 9 datasets + 176 domain entities)* |
 
 ---
 
@@ -167,13 +169,31 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | 0.7.0-dev (+ stem borer symptom images) | 2026-10-13 | 170,179 (351,766 OWL RL) | 26 | 39 | 20,038 | 375 axioms / 375 assertions + 15 assessments |
 | 0.7.0-dev (+ nutrient deficiency images) | 2026-10-13 | 185,514 (383,806 OWL RL) | 26 | 39 | 21,697 | 375 axioms / 375 assertions + 15 assessments |
 | 0.7.0-dev (+ P and K treatment) | 2026-10-13 | 185,538 (383,852 OWL RL) | 26 | 39 | 21,699 | 377 axioms / 377 assertions + 15 assessments |
-| **0.7.0-dev (+ light-trap catches, `TrapObservation` — in development)** | **2026-10-13** | **302,494** (588,836 OWL RL) | **27** | **39** | **33,462** | **377 axioms / 377 assertions + 15 assessments** |
+| 0.7.0-dev (+ light-trap catches, `TrapObservation`) | 2026-10-13 | 302,494 (588,836 OWL RL) | 27 | 39 | 33,462 | 377 axioms / 377 assertions + 15 assessments |
+| **0.7.0-dev (+ multispectral captures, `SpectralBand`, `BandImage` — in development)** | **2026-10-14** | **321,451** (622,504 OWL RL) | **29** | **41** | **36,303** | **377 axioms / 377 assertions + 15 assessments** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-10-14: 0.7.0-dev — Multispectral captures of brown spot: first `RemoteSensingObservation` individuals
+
+`RemoteSensingObservation` had been declared without individuals. A multispectral set found on Mendeley Data on 2026-10-13 was imported on 2026-10-14 after a local check; schema and handling of the files were approved the same day. Pre-import file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-brown-spot-multispectral.rdf`.
+
+- **Source:** Chaparro, J. E. (2026). *A High-Resolution Proximal Multispectral Dataset for Early Detection of Brown Spot (Bipolaris oryzae) in Tropical Rice Crops*. Mendeley Data, V1, doi:10.17632/nz8bhz7j9t.1, CC BY 4.0. DJI P4 Multispectral camera held 30–45 cm above the canopy, Casanare, Colombia.
+- **Schema (2 classes, 2 object properties, 1 datatype property):** `SpectralBand` and `BandImage`; `hasBandImage` (`Observation` → `BandImage`), `ofBand` (`BandImage` → `SpectralBand`, functional); `centreWavelengthNm`. Five `SpectralBand` individuals: blue 450, green 560, red 650, red edge 730, near infrared 840 nm.
+- **`RemoteSensingObservation` widened:** its comment named values derived from satellite or UAV imagery only; it now covers a record made by an optical or radar sensor from a satellite, a UAV or at close range, holding band images or a derived value.
+- **Added:** 472 `RemoteSensingObservation` individuals (236 `annotatedAs Brown_Spot`, 236 `Normal_Health`), each with capture time, a location, its RGB image and five `BandImage` individuals (2,360 in all); 3 `FieldLocation` individuals (positions grouped to 0.001°); `BrownSpotMultispectralDataset`.
+- **Design choices:** a capture is typed `RemoteSensingObservation` only, not `ImageObservation`, so image statistics and CQ-16 are unaffected; a `BandImage` is a part of an observation, not an observation. The band of each file was read from the metadata of the file, not from its name.
+- **Files:** the RGB images are in `Data/brown-spot-multispectral/` (0.4 GB). The band files (10 GB) stay on the disk of the maintainer; their `contentUrl` is an absolute local path and does not resolve elsewhere.
+- **Read with care:** the label is that of the plot. The diseased captures come from a dense ripening crop, most healthy ones from a younger flooded crop about 170 m away, all on one day; differences between the classes are not evidence of a spectral signature of the disease. The record states 2,772 captures; the archives hold 472.
+- **`hasNDVI` not filled:** the band files hold raw sensor values, not reflectance. They carry the irradiance metadata needed for calibration.
+- **No new domain assertion.** 377 axioms = 377 domain assertions, unchanged.
+- **Checks:** HermiT (owlready2, Java 21) consistent, 0 unsatisfiable classes. Every capture has five band images covering the five bands; every referenced file exists.
+- **Benchmark:** verdicts unchanged at **21 PASS / 3 PARTIAL / 1 FAIL / 1 DOC**, and no measurement moved: none of the 26 questions asks about remote-sensing observations or band images. A question on which diseases have spectral observations is still to be written.
+- **Result:** 321,451 asserted / 622,504 OWL RL triples; 36,303 named individuals.
 
 ### 2026-10-13: 0.7.0-dev — Benchmark revision: symptom labels and trap observations are now measured
 
