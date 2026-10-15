@@ -158,6 +158,8 @@ Measured 2026-10-15. CQ-17 and CQ-18 were extended and CQ-26 was added on 2026-1
 
 **Status (2026-09-30):** ESWC 2027 is no longer the target venue, and a new one has not been chosen. The six phases below were planned against the ESWC 2027 Resource Track; their order still holds, but dates in Phases 4–6 will be re-planned once the venue is set. Details: [`Ontology/riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md) (revised 2026-09-14).
 
+**Status (2026-10-16): data collection frozen** at the state tagged `data-freeze-2026-10` (nine sources, four observation channels; 321,451 asserted triples; benchmark 21 PASS / 4 PARTIAL / 1 FAIL / 1 DOC). A new source is admitted only if it closes a gap listed in the open points above. Still running meanwhile: the Kaggle licence request, expert checks of the Netrokona and YUKE-WBC labels, and decision 5 on the stem borer images. Work moves to ontology mapping, starting with the comparison with RiceDO v2 and TreatO v2; text extraction follows after mapping.
+
 **Next steps:**
 1. Collect the candidate datasets, starting with pest images, and verify licence and access.
 2. Analyse them: classes, image counts, and which ontology individuals they match.
