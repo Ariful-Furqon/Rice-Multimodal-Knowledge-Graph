@@ -65,7 +65,7 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (19 classes; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment` and `ResistanceLevel` added in 0.7.0-dev) |
 | **Reasoner Consistency** | **Consistent** | 0.7.0-dev checked in **HermiT** on 2026-09-17 with `-k` on a space-free copy, with injected-contradiction controls (`Rice` as Plant + Disease; `Leaf_Blade` as PlantPart + Disease; `Semi_Persistent` as TransmissionMode + Disease; `Chemical_Control_Category` as ManagementCategory + Disease; `Zinc_Deficiency` as AbioticFactor + Pathogen; `Salinity` as AbioticFactor + Pathogen; `IR64` as Variety + Disease; a `ResistanceAssessment` also typed Variety; `assessedAgainst` a Treatment) that all report inconsistent; v0.6 verified in HermiT & Pellet |
-| **Competency Questions (CQ)** | **21 PASS / 3 PARTIAL / 1 FAIL / 1 DOC** | **84.0% pass rate** across 25 scored CQs (26 total; CQ-26 added and CQ-17/CQ-18 extended on 2026-10-13, before that 21 / 2 / 1 / 1 over 24). CQ-13 FAIL: the unsourced severity → action triage was removed. CQ-12 PARTIAL: six abiotic disorders entered its denominator. CQ-26 PARTIAL: one pest of seven has trap observations. CQ-01 denominator corrected to exclude abiotic disorders (7/9; uncorrected 7/15). v0.6.1/v0.6.2: 23 / 1 / 0 / 1; released v0.6: 21 / 1 / 2 / 1 |
+| **Competency Questions (CQ)** | **21 PASS / 4 PARTIAL / 1 FAIL / 1 DOC** | **80.8% pass rate** across 26 scored CQs (27 total; CQ-27 added on 2026-10-15; CQ-26 added and CQ-17/CQ-18 extended on 2026-10-13, before that 21 / 2 / 1 / 1 over 24). CQ-13 FAIL: the unsourced severity → action triage was removed. CQ-12 PARTIAL: six abiotic disorders entered its denominator. CQ-26 PARTIAL: one pest of seven has trap observations. CQ-27 PARTIAL: one disease of 16 has spectral evidence. CQ-01 denominator corrected to exclude abiotic disorders (7/9; uncorrected 7/15). v0.6.1/v0.6.2: 23 / 1 / 0 / 1; released v0.6: 21 / 1 / 2 / 1 |
 | **`skos:exactMatch` / `closeMatch` / `broadMatch`** | 42 / 23 / 1 | Mapped to AGROVOC / NCBI Taxonomy / Planteome (PECO, PO) and BFO, verified against live APIs |
 | **`TODO` literals remaining** | **0** | **100% resolved (dataset metadata & EPPO codes verified)** |
 | **Properties with no declared domain/range** | 0 / 0 | 100% coverage |
@@ -177,6 +177,15 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-10-15: 0.7.0-dev — CQ-27 added; documentation brought up to date
+
+The 472 multispectral captures imported on 2026-10-14 were not measured by any question. The ontology file is unchanged.
+
+- **CQ-27 added** (L2, D2, coverage): which diseases are the label of at least one `RemoteSensingObservation` with a date, a location and band images whose `SpectralBand` has a centre wavelength? **1/16 (6%), PARTIAL**: only `Brown_Spot`. The denominator is every `Disease`, so the result shows how few diseases have spectral data.
+- **Headline:** 21 PASS / 3 PARTIAL / 1 FAIL / 1 DOC over 25 → **21 PASS / 4 PARTIAL / 1 FAIL / 1 DOC over 26** (27 questions in all). Pass rate 84.0% → **80.8%**; no earlier verdict changed. Threshold sensitivity (PASS at 40/50/60/70/80%): 21 / 21 / 20 / 18 / 17.
+- **README brought in line with the ontology** (counts measured 2026-10-15): the opening line no longer says the graph is populated from one image dataset; classes 16 → 29, object properties 26 → 41, datatype properties 5 → 27 (five declared but unused); `Symptom` 27 → 40; the Paddy Doctor table now describes the IEEE release (13 labels, 16,225 images) instead of the Kaggle release of v0.6; the list of candidate sources, which said nothing had been imported, is replaced by the points still open.
+- **This file:** the "Named classes" row read 23 although the version table already gave 26; it now reads 29.
 
 ### 2026-10-14: 0.7.0-dev — Multispectral captures of brown spot: first `RemoteSensingObservation` individuals
 

@@ -130,7 +130,7 @@ Sources under CC BY-SA would go into a separate module brought in through `owl:i
 
 ## Competency Question (CQ) SPARQL Benchmark
 
-Rice MMKG incorporates an automated verification harness (`cq_sparql_benchmark.py`) based on **26 Competency Questions** structured across:
+Rice MMKG incorporates an automated verification harness (`cq_sparql_benchmark.py`) based on **27 Competency Questions** structured across:
 - **Reasoning Depth (L1–L4):** L1 Factual (1-hop), L2 Contextual (multi-criteria joins), L3 Causal (multi-hop chains), L4 Inferential (OWL RL deduction).
 - **Knowledge Dimensions (D1–D3):** D1 Agronomic/Symbolic, D2 Cross-modal Grounding, D3 Provenance & External Alignment.
 - **Evaluation Modes:** `coverage` (≥ 50%, an author-set convention; verdicts also reported at 40–80% — 21 / 21 / 20 / 18 / 17 PASS), `negative` (0 violations), `entailment` (entailed > asserted), `documented` (declared extension point).
@@ -139,15 +139,15 @@ Rice MMKG incorporates an automated verification harness (`cq_sparql_benchmark.p
 
 ```
 ================================================================
-  PASS      21 / 25  (84.0% Pass Rate)
-  PARTIAL    3 / 25  (CQ-12 Management Layer: 39%; CQ-18 Symptom Visual Grounding: 5%;
-                      CQ-26 Pest Monitoring: 14%)
-  FAIL       1 / 25  (CQ-13 Severity Triage: 0%)
-  DOC        1 / 26  (CQ-20 Sensor Observation Count)
+  PASS      21 / 26  (80.8% Pass Rate)
+  PARTIAL    4 / 26  (CQ-12 Management Layer: 39%; CQ-18 Symptom Visual Grounding: 5%;
+                      CQ-26 Pest Monitoring: 14%; CQ-27 Spectral Evidence: 6%)
+  FAIL       1 / 26  (CQ-13 Severity Triage: 0%)
+  DOC        1 / 27  (CQ-20 Sensor Observation Count)
 ================================================================
 ```
 
-Measured 2026-10-13. CQ-17 and CQ-18 were extended and CQ-26 was added on that date, so the figures are not directly comparable with earlier ones (see the changelog in [`Ontology_Overview.md`](Ontology/Ontology_Overview.md)). CQ-13 fails because the unsourced severity-to-action triage was removed. v0.6.1 and v0.6.2 score 23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC. In 0.7.0-dev CQ-12 fell to PARTIAL when four nutrient-deficiency disorders — sourced, but with no ManagementAction in their source — joined its denominator; it was not lifted by adding unsupported assertions. The released v0.6 file scores 21 PASS / 1 PARTIAL / 2 FAIL / 1 DOC (CQ-10, CQ-24). Under the extended CQ-22 (2026-09-14), which also flags domain assertions carrying no provenance axiom, v0.6 has a third failure: two `Stem_Borer indicatedBy` assertions were never reified. v0.6.1 fixes all three.
+Measured 2026-10-15. CQ-17 and CQ-18 were extended and CQ-26 was added on 2026-10-13, and CQ-27 (diseases with spectral evidence; only `Brown_Spot` of 16) on 2026-10-15, so the figures are not directly comparable with earlier ones (see the changelog in [`Ontology_Overview.md`](Ontology/Ontology_Overview.md)). CQ-13 fails because the unsourced severity-to-action triage was removed. v0.6.1 and v0.6.2 score 23 PASS / 1 PARTIAL / 0 FAIL / 1 DOC. In 0.7.0-dev CQ-12 fell to PARTIAL when four nutrient-deficiency disorders — sourced, but with no ManagementAction in their source — joined its denominator; it was not lifted by adding unsupported assertions. The released v0.6 file scores 21 PASS / 1 PARTIAL / 2 FAIL / 1 DOC (CQ-10, CQ-24). Under the extended CQ-22 (2026-09-14), which also flags domain assertions carrying no provenance axiom, v0.6 has a third failure: two `Stem_Borer indicatedBy` assertions were never reified. v0.6.1 fixes all three.
 
 - Complete documentation with exact SPARQL queries: [`Ontology/CQ SPARQL Benchmark/CQ_SPARQL_Documentation.md`](Ontology/CQ%20SPARQL%20Benchmark/CQ_SPARQL_Documentation.md)
 - Automated execution report: [`Ontology/CQ SPARQL Benchmark/CQ_SPARQL_Benchmark_Report.md`](Ontology/CQ%20SPARQL%20Benchmark/CQ_SPARQL_Benchmark_Report.md)

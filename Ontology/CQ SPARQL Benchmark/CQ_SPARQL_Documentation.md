@@ -12,6 +12,10 @@
 > **CQ-26** is new (L2 x D2, coverage): pests detected by at least one `TrapObservation` with `hasCatchCount`, `recordedAtDate`, `recordedUntilDate` and `hasSpatialLocation`, over all pests; 1/7 (14%), PARTIAL.  
 > Result on 0.7.0-dev (302,494 asserted / 588,836 OWL RL triples): **21 PASS / 3 PARTIAL / 1 FAIL / 1 DOCUMENTED** (25 scored + 1 documented = 26 CQs), pass rate 84.0%.
 
+> **CQ-27 added (2026-10-15).**
+> **CQ-27** (L2 x D2, coverage): diseases that are the label (`annotatedAs`) of at least one `RemoteSensingObservation` with `recordedAtDate`, `hasSpatialLocation` and a `hasBandImage` whose `ofBand` has a `centreWavelengthNm`, over all diseases; 1/16 (6%), PARTIAL (`Brown_Spot`).
+> Result on 0.7.0-dev (321,451 asserted / 622,504 OWL RL triples): **21 PASS / 4 PARTIAL / 1 FAIL / 1 DOCUMENTED** (26 scored + 1 documented = 27 CQs), pass rate 80.8%.
+
 > **0.7.0-dev Note (2026-09-15):**  
 > `PlantPart` (8 individuals), `affectsPlantPart` (27 assertions, citing IRRI Rice Knowledge Bank fact sheets) and `partOf` (2 assertions, from the Plant Ontology) were added. Verdicts are unchanged. Two measurements move because the new assertions are reified: CQ-21 256/256 → **285/285**, and CQ-22 now also checks `affectsPlantPart` and `partOf` (still 0 violations). The new property was added to CQ-22's list rather than left out, so that the extension could not pass CQ-22 by omission. All other results are identical to v0.6.2. See the 0.7.0-dev entry in `Ontology_Overview.md`.  
 > **Then** `TransmissionMode` (1 individual) and `hasTransmissionMode` (2 assertions, citing Wang et al. 2022) were added; CQ-21 → **287/287**, `hasTransmissionMode` added to CQ-22's list (0 violations), verdicts unchanged.  

@@ -655,7 +655,7 @@
       "dim": "D2",
       "mode": "coverage",
       "question": "Which diseases have spectral evidence, i.e. are the label of at least one remote-sensing observation that carries a date, a location and band images of known wavelength?",
-      "rationale": "Added on 2026-10-14 with the first remote-sensing observations. Band images are the only evidence beyond visible light; the other 26 questions do not touch them. The denominator is every Disease, so the result shows how few diseases have spectral data.",
+      "rationale": "Added on 2026-10-15 for the first remote-sensing observations. Band images are the only evidence beyond visible light; the other 26 questions do not touch them. The denominator is every Disease, so the result shows how few diseases have spectral data.",
       "covered": 1,
       "total": 16,
       "ratio": 0.0625,

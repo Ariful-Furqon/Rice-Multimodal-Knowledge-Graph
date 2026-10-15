@@ -437,7 +437,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Question.** Which diseases have spectral evidence, i.e. are the label of at least one remote-sensing observation that carries a date, a location and band images of known wavelength?
 
-**Why this CQ.** Added on 2026-10-14 with the first remote-sensing observations. Band images are the only evidence beyond visible light; the other 26 questions do not touch them. The denominator is every Disease, so the result shows how few diseases have spectral data.
+**Why this CQ.** Added on 2026-10-15 for the first remote-sensing observations. Band images are the only evidence beyond visible light; the other 26 questions do not touch them. The denominator is every Disease, so the result shows how few diseases have spectral data.
 
 **Measurement.** 1 of 16 disease covered - 6.2% (94.1 ms).
 
