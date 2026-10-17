@@ -1,6 +1,6 @@
 # Elicited Competency Questions - SPARQL Results
 
-Generated 2026-09-23 14:17 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 68,204 asserted triples, 163,957 after OWL RL materialisation (22.7s).
+Generated 2026-10-17 21:38 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 321,451 asserted triples, 622,504 after OWL RL materialisation (151.0s).
 
 **19 of the 25 elicited Tier A CQs are queried here** - every one for which RiceMMKG v0.7.0-dev has at least the concept the question turns on. Answerability is measured, not predicted: the Stage 3 `v06_status` column is not used. The remaining 6 ask for a concept v0.7.0-dev does not have at all and are the v0.7 work plan; the status table at the end lists each with its reason.
 
@@ -63,7 +63,7 @@ SELECT ?pathogen ?group ?eppo_code ?external_alignment WHERE {
 }
 ```
 
-1 row(s) in 65.6 ms.
+1 row(s) in 164.8 ms.
 
 | pathogen | group | eppo_code | external_alignment |
 |---|---|---|---|
@@ -79,7 +79,7 @@ SELECT ?pathogen ?group WHERE {
 ORDER BY ?group ?pathogen
 ```
 
-9 row(s) in 3.4 ms.
+10 row(s) in 11.3 ms.
 
 | pathogen | group |
 |---|---|
@@ -88,10 +88,10 @@ ORDER BY ?group ?pathogen
 | rice:Xanthomonas_Oryzicola | rice:Bacterium_Group |
 | rice:Bipolaris_Oryzae | rice:Fungus_Group |
 | rice:Magnaporthe_Oryzae | rice:Fungus_Group |
+| rice:Microdochium_Albescens | rice:Fungus_Group |
 | rice:Rhizoctonia_Solani | rice:Fungus_Group |
 | rice:Sclerophthora_Macrospora | rice:Oomycete_Group |
-| rice:Rice_Tungro_Bacilliform_Virus | rice:Virus_Group |
-| *… 1 more rows* | |
+| *… 2 more rows* | |
 
 **Every disease with its causal pathogen - the answer form of benchmark CQ-01**
 
@@ -103,7 +103,7 @@ SELECT ?disease ?pathogen WHERE {
 ORDER BY ?disease
 ```
 
-9 row(s) in 2.2 ms.
+10 row(s) in 6.1 ms.
 
 | disease | pathogen |
 |---|---|
@@ -112,10 +112,10 @@ ORDER BY ?disease
 | rice:Bacterial_Panicle_Blight | rice:Burkholderia_Glumae |
 | rice:Brown_Spot | rice:Bipolaris_Oryzae |
 | rice:Downy_Mildew | rice:Sclerophthora_Macrospora |
+| rice:Leaf_Scald | rice:Microdochium_Albescens |
 | rice:Rice_Blast_Disease | rice:Magnaporthe_Oryzae |
 | rice:Rice_Tungro_Disease | rice:Rice_Tungro_Bacilliform_Virus |
-| rice:Rice_Tungro_Disease | rice:Rice_Tungro_Spherical_Virus |
-| *… 1 more rows* | |
+| *… 2 more rows* | |
 
 ### CQ-A02 - Which vector species transmits Rice Tungro Bacilliform Virus, and by which transmission mode?
 
@@ -134,7 +134,7 @@ SELECT ?vector ?agent ?mode ?disease WHERE {
 ORDER BY ?vector ?agent
 ```
 
-2 row(s) in 3.4 ms.
+2 row(s) in 10.8 ms.
 
 | vector | agent | mode | disease |
 |---|---|---|---|
@@ -160,7 +160,7 @@ SELECT ?symptom ?plant_part ?stage_of_disease WHERE {
 ORDER BY ?symptom ?plant_part ?stage_of_disease
 ```
 
-12 row(s) in 3.9 ms.
+12 row(s) in 13.4 ms.
 
 | symptom | plant_part | stage_of_disease |
 |---|---|---|
@@ -193,14 +193,14 @@ GROUP BY ?other
 ORDER BY DESC(?shared_symptoms)
 ```
 
-4 row(s) in 5.8 ms.
+4 row(s) in 20.1 ms.
 
 | other | shared_symptoms |
 |---|---|
 | rice:Rice_Blast_Disease | 3 |
 | rice:Bacterial_Panicle_Blight | 2 |
-| rice:Sheath_Blight | 1 |
 | rice:Bacterial_Leaf_Blight | 1 |
+| rice:Sheath_Blight | 1 |
 
 **Symptoms that discriminate Brown Spot from Rice Blast**
 
@@ -219,7 +219,7 @@ SELECT ?symptom ?present_only_in WHERE {
 ORDER BY ?present_only_in ?symptom
 ```
 
-3 row(s) in 7.6 ms.
+3 row(s) in 24.9 ms.
 
 | symptom | present_only_in |
 |---|---|
@@ -242,7 +242,7 @@ SELECT ?condition WHERE {
 ORDER BY ?condition
 ```
 
-2 row(s) in 1.8 ms.
+2 row(s) in 5.0 ms.
 
 | condition |
 |---|
@@ -259,7 +259,7 @@ GROUP BY ?condition
 ORDER BY DESC(?entities) ?condition
 ```
 
-9 row(s) in 4.3 ms.
+9 row(s) in 12.3 ms.
 
 | condition | entities |
 |---|---|
@@ -267,9 +267,9 @@ ORDER BY DESC(?entities) ?condition
 | rice:High_Temperature | 7 |
 | rice:Poor_Soil_Drainage | 5 |
 | rice:Low_Rainfall | 4 |
+| rice:Excessive_Nitrogen | 3 |
 | rice:Waterlogged_Soil | 3 |
 | rice:Dense_Canopy | 2 |
-| rice:Excessive_Nitrogen | 2 |
 | rice:High_Night_Temperature | 1 |
 | *… 1 more rows* | |
 
@@ -290,7 +290,7 @@ SELECT ?stage WHERE {
 ORDER BY ?stage
 ```
 
-2 row(s) in 1.8 ms.
+2 row(s) in 5.5 ms.
 
 | stage |
 |---|
@@ -320,7 +320,7 @@ SELECT ?treatment ?category ?source ?citation WHERE {
 ORDER BY ?treatment
 ```
 
-2 row(s) in 4.4 ms.
+2 row(s) in 16.0 ms.
 
 | treatment | category | source | citation |
 |---|---|---|---|
@@ -343,19 +343,19 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-1594 row(s) in 29.4 ms.
+2151 row(s) in 120.9 ms.
 
 | image | url |
 |---|---|
-| rice:PaddyDoctor_hispa_100003 | Data/PaddyDoctor/hispa/100003.jpg |
-| rice:PaddyDoctor_hispa_100005 | Data/PaddyDoctor/hispa/100005.jpg |
-| rice:PaddyDoctor_hispa_100010 | Data/PaddyDoctor/hispa/100010.jpg |
-| rice:PaddyDoctor_hispa_100051 | Data/PaddyDoctor/hispa/100051.jpg |
-| rice:PaddyDoctor_hispa_100052 | Data/PaddyDoctor/hispa/100052.jpg |
-| rice:PaddyDoctor_hispa_100061 | Data/PaddyDoctor/hispa/100061.jpg |
-| rice:PaddyDoctor_hispa_100072 | Data/PaddyDoctor/hispa/100072.jpg |
-| rice:PaddyDoctor_hispa_100077 | Data/PaddyDoctor/hispa/100077.jpg |
-| *… 1,586 more rows* | |
+| rice:PaddyDoctor_hispa_PDD06586 | Data/paddy-doctor-diseases/hispa/PDD06586.jpg |
+| rice:PaddyDoctor_hispa_PDD06587 | Data/paddy-doctor-diseases/hispa/PDD06587.jpg |
+| rice:PaddyDoctor_hispa_PDD06588 | Data/paddy-doctor-diseases/hispa/PDD06588.jpg |
+| rice:PaddyDoctor_hispa_PDD06589 | Data/paddy-doctor-diseases/hispa/PDD06589.jpg |
+| rice:PaddyDoctor_hispa_PDD06590 | Data/paddy-doctor-diseases/hispa/PDD06590.jpg |
+| rice:PaddyDoctor_hispa_PDD06591 | Data/paddy-doctor-diseases/hispa/PDD06591.jpg |
+| rice:PaddyDoctor_hispa_PDD06592 | Data/paddy-doctor-diseases/hispa/PDD06592.jpg |
+| rice:PaddyDoctor_hispa_PDD06593 | Data/paddy-doctor-diseases/hispa/PDD06593.jpg |
+| *… 2,143 more rows* | |
 
 ### CQ-A11 - Who or what produced a given image annotation, and with what confidence?
 
@@ -382,11 +382,11 @@ WHERE {
 }
 ```
 
-1 row(s) in 151.2 ms.
+1 row(s) in 1590.8 ms.
 
 | image | condition | dataset | title | source | confidence |
 |---|---|---|---|---|---|
-| rice:PaddyDoctor_bacterial_leaf_blight_100023 | rice:Bacterial_Leaf_Blight | rice:PaddyDoctorDataset | Paddy Doctor: A Visual Dataset for Rice Disease and Pest Identification | https://www.kaggle.com/competitions/paddy-disease-classification | None |
+| rice:DhanShomadhan_Brown_Spot_bs_wb_0 | rice:Brown_Spot | rice:DhanShomadhanDataset | Dhan-Shomadhan: A Dataset of Rice Leaf Disease Classification for Bangladeshi Local Rice | https://doi.org/10.17632/znsxdctwtt.1 | None |
 
 **How many image annotations carry a source dataset, and how many a confidence score**
 
@@ -401,11 +401,11 @@ WHERE {
 }
 ```
 
-1 row(s) in 691.4 ms.
+1 row(s) in 4613.7 ms.
 
 | images | with_source_dataset | with_confidence |
 |---|---|---|
-| 10407 | 10407 | 0 |
+| 21149 | 21149 | 0 |
 
 ### CQ-A13 - How is the image corpus distributed across conditions and entity types?
 
@@ -428,19 +428,19 @@ GROUP BY ?condition ?type
 ORDER BY DESC(?images)
 ```
 
-10 row(s) in 4213.3 ms.
+19 row(s) in 24828.0 ms.
 
 | condition | type | images |
 |---|---|---|
-| rice:Normal_Health | rice:HealthStatus | 1764 |
-| rice:Rice_Blast_Disease | rice:Disease | 1738 |
-| rice:Hispa | rice:Pest | 1594 |
-| rice:Deadheart | rice:Disease | 1442 |
-| rice:Rice_Tungro_Disease | rice:Disease | 1088 |
-| rice:Brown_Spot | rice:Disease | 965 |
-| rice:Downy_Mildew | rice:Disease | 620 |
-| rice:Bacterial_Leaf_Blight | rice:Disease | 479 |
-| *… 2 more rows* | | |
+| rice:Normal_Health | rice:HealthStatus | 3511 |
+| rice:Rice_Blast_Disease | rice:Disease | 2623 |
+| rice:Deadheart | rice:Disease | 2218 |
+| rice:Hispa | rice:Pest | 2151 |
+| rice:Rice_Tungro_Disease | rice:Disease | 2146 |
+| rice:Brown_Spot | rice:Disease | 1396 |
+| rice:Leaf_Folder | rice:Pest | 1095 |
+| rice:Potassium_Deficiency_Disorder | rice:Disease | 883 |
+| *… 11 more rows* | | |
 
 **Images per source dataset**
 
@@ -452,11 +452,16 @@ SELECT ?dataset (COUNT(?image) AS ?images) WHERE {
 GROUP BY ?dataset
 ```
 
-1 row(s) in 116.6 ms.
+6 row(s) in 262.2 ms.
 
 | dataset | images |
 |---|---|
-| rice:PaddyDoctorDataset | 10407 |
+| rice:PaddyDoctorDataset | 16225 |
+| rice:DhanShomadhanDataset | 1106 |
+| rice:YukeWbcDataset | 66 |
+| rice:StemBorerSymptomDataset | 2096 |
+| rice:NutrientDeficiencyKaggleDataset | 1156 |
+| rice:NetrokonaRiceDataset | 500 |
 
 ### CQ-A15 - Which visible symptoms are annotated in a given image?
 
@@ -475,11 +480,11 @@ SELECT ?image ?symptom WHERE {
 }
 ```
 
-1 row(s) in 23.1 ms.
+1 row(s) in 42.1 ms.
 
 | image | symptom |
 |---|---|
-| rice:PaddyDoctor_dead_heart_100008 | rice:Dead_Tiller |
+| rice:PaddyDoctor_black_stem_borer_PDD01604 | rice:Dead_Tiller |
 
 **How many distinct symptoms the whole image corpus captures**
 
@@ -491,11 +496,11 @@ GROUP BY ?symptom
 ORDER BY DESC(?images)
 ```
 
-1 row(s) in 12.7 ms.
+1 row(s) in 21.2 ms.
 
 | symptom | images |
 |---|---|
-| rice:Dead_Tiller | 1442 |
+| rice:Dead_Tiller | 2544 |
 
 ### CQ-A16 - Which disease or pest is best supported by the visual evidence in a given image?
 
@@ -516,12 +521,12 @@ GROUP BY ?image ?candidate
 ORDER BY DESC(?support) ?candidate
 ```
 
-2 row(s) in 144.6 ms.
+2 row(s) in 80.5 ms.
 
 | image | candidate | support |
 |---|---|---|
-| rice:PaddyDoctor_dead_heart_100008 | rice:Deadheart | 1 |
-| rice:PaddyDoctor_dead_heart_100008 | rice:Stem_Borer | 1 |
+| rice:PaddyDoctor_black_stem_borer_PDD01604 | rice:Deadheart | 1 |
+| rice:PaddyDoctor_black_stem_borer_PDD01604 | rice:Stem_Borer | 1 |
 
 ### CQ-A17 - Which visual features separate Brown Spot from Rice Blast?
 
@@ -550,7 +555,7 @@ SELECT ?condition ?distinguishing_symptom WHERE {
 ORDER BY ?condition ?distinguishing_symptom
 ```
 
-3 row(s) in 6.7 ms.
+3 row(s) in 9.0 ms.
 
 | condition | distinguishing_symptom |
 |---|---|
@@ -568,7 +573,7 @@ SELECT ?shared_symptom WHERE {
 ORDER BY ?shared_symptom
 ```
 
-3 row(s) in 2.2 ms.
+3 row(s) in 2.4 ms.
 
 | shared_symptom |
 |---|
@@ -595,7 +600,7 @@ SELECT ?image ?severity WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 263.9 ms.
+0 row(s) in 623.9 ms.
 
 **What the severity levels are used for in v0.7.0-dev**
 
@@ -607,7 +612,7 @@ SELECT ?severity ?recommends WHERE {
 ORDER BY ?severity
 ```
 
-4 row(s) in 3.2 ms.
+4 row(s) in 3.6 ms.
 
 | severity | recommends |
 |---|---|
@@ -634,7 +639,7 @@ SELECT ?image ?symptom_a ?symptom_b WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 57.8 ms.
+0 row(s) in 107.5 ms.
 
 **How many symptoms each annotated image captures**
 
@@ -648,11 +653,11 @@ GROUP BY ?symptoms_per_image
 ORDER BY ?symptoms_per_image
 ```
 
-1 row(s) in 53.8 ms.
+1 row(s) in 103.9 ms.
 
 | symptoms_per_image | images |
 |---|---|
-| 1 | 1442 |
+| 1 | 2544 |
 
 ### CQ-A21 - Which symptoms described in the literature have supporting image evidence, and which do not?
 
@@ -673,11 +678,11 @@ WHERE {
 GROUP BY ?image_evidence
 ```
 
-2 row(s) in 49.8 ms.
+2 row(s) in 93.4 ms.
 
 | image_evidence | symptoms |
 |---|---|
-| no image evidence | 38 |
+| no image evidence | 39 |
 | has image evidence | 1 |
 
 **The symptoms with no image evidence at all**
@@ -690,7 +695,7 @@ SELECT ?symptom WHERE {
 ORDER BY ?symptom
 ```
 
-38 row(s) in 12.2 ms.
+39 row(s) in 21.8 ms.
 
 | symptom |
 |---|
@@ -702,7 +707,7 @@ ORDER BY ?symptom
 | rice:Dark_Green_Erect_Leaf |
 | rice:Delayed_Maturity |
 | rice:Discolored_Panicle |
-| *… 30 more rows* |
+| *… 31 more rows* |
 
 ### CQ-A22 - Which disease described in the literature matches the condition annotated in a given image?
 
@@ -723,14 +728,14 @@ SELECT ?image ?condition ?symptom ?pathogen WHERE {
 ORDER BY ?symptom
 ```
 
-4 row(s) in 77.7 ms.
+4 row(s) in 185.6 ms.
 
 | image | condition | symptom | pathogen |
 |---|---|---|---|
-| rice:PaddyDoctor_brown_spot_100001 | rice:Brown_Spot | rice:Brown_Lesion | rice:Bipolaris_Oryzae |
-| rice:PaddyDoctor_brown_spot_100001 | rice:Brown_Spot | rice:Grain_Discoloration | rice:Bipolaris_Oryzae |
-| rice:PaddyDoctor_brown_spot_100001 | rice:Brown_Spot | rice:Leaf_Spot | rice:Bipolaris_Oryzae |
-| rice:PaddyDoctor_brown_spot_100001 | rice:Brown_Spot | rice:Wilting | rice:Bipolaris_Oryzae |
+| rice:BrownSpotMS_Diseased_DJI_0120 | rice:Brown_Spot | rice:Brown_Lesion | rice:Bipolaris_Oryzae |
+| rice:BrownSpotMS_Diseased_DJI_0120 | rice:Brown_Spot | rice:Grain_Discoloration | rice:Bipolaris_Oryzae |
+| rice:BrownSpotMS_Diseased_DJI_0120 | rice:Brown_Spot | rice:Leaf_Spot | rice:Bipolaris_Oryzae |
+| rice:BrownSpotMS_Diseased_DJI_0120 | rice:Brown_Spot | rice:Wilting | rice:Bipolaris_Oryzae |
 
 **How many images reach a literature-described condition**
 
@@ -742,11 +747,11 @@ WHERE {
 }
 ```
 
-1 row(s) in 176.5 ms.
+1 row(s) in 401.2 ms.
 
 | images_with_literature |
 |---|
-| 8643 |
+| 17323 |
 
 ### CQ-A23 - Which treatment does the literature prescribe for a condition identified from an image?
 
@@ -767,14 +772,14 @@ SELECT ?image ?condition ?treatment WHERE {
 ORDER BY ?treatment
 ```
 
-4 row(s) in 592.1 ms.
+4 row(s) in 1558.0 ms.
 
 | image | condition | treatment |
 |---|---|---|
-| rice:PaddyDoctor_bacterial_leaf_blight_100023 | rice:Bacterial_Leaf_Blight | rice:Crop_Rotation |
-| rice:PaddyDoctor_bacterial_leaf_blight_100023 | rice:Bacterial_Leaf_Blight | rice:Crop_Sanitation |
-| rice:PaddyDoctor_bacterial_leaf_blight_100023 | rice:Bacterial_Leaf_Blight | rice:Resistant_Variety |
-| rice:PaddyDoctor_bacterial_leaf_blight_100023 | rice:Bacterial_Leaf_Blight | rice:Water_Management |
+| rice:BrownSpotMS_Diseased_DJI_0120 | rice:Brown_Spot | rice:Crop_Rotation |
+| rice:BrownSpotMS_Diseased_DJI_0120 | rice:Brown_Spot | rice:Crop_Sanitation |
+| rice:BrownSpotMS_Diseased_DJI_0120 | rice:Brown_Spot | rice:Fungicide_Application |
+| rice:BrownSpotMS_Diseased_DJI_0120 | rice:Brown_Spot | rice:Resistant_Variety |
 
 **How many images reach at least one treatment**
 
@@ -785,11 +790,11 @@ SELECT (COUNT(DISTINCT ?image) AS ?images_with_treatment) WHERE {
 }
 ```
 
-1 row(s) in 159.4 ms.
+1 row(s) in 317.5 ms.
 
 | images_with_treatment |
 |---|
-| 8643 |
+| 17323 |
 
 ### CQ-A24 - Which images are explicitly annotated as showing no visible symptoms, and which organ or plant view does each represent?
 
@@ -809,19 +814,19 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-1764 row(s) in 33.6 ms.
+3747 row(s) in 77.6 ms.
 
 | image | url |
 |---|---|
-| rice:PaddyDoctor_normal_100002 | Data/PaddyDoctor/normal/100002.jpg |
-| rice:PaddyDoctor_normal_100007 | Data/PaddyDoctor/normal/100007.jpg |
-| rice:PaddyDoctor_normal_100018 | Data/PaddyDoctor/normal/100018.jpg |
-| rice:PaddyDoctor_normal_100025 | Data/PaddyDoctor/normal/100025.jpg |
-| rice:PaddyDoctor_normal_100044 | Data/PaddyDoctor/normal/100044.jpg |
-| rice:PaddyDoctor_normal_100053 | Data/PaddyDoctor/normal/100053.jpg |
-| rice:PaddyDoctor_normal_100065 | Data/PaddyDoctor/normal/100065.jpg |
-| rice:PaddyDoctor_normal_100066 | Data/PaddyDoctor/normal/100066.jpg |
-| *… 1,756 more rows* | |
+| rice:BrownSpotMS_Healthy_DJI_2500 | Data/brown-spot-multispectral/Healthy/DJI_2500.JPG |
+| rice:BrownSpotMS_Healthy_DJI_2510 | Data/brown-spot-multispectral/Healthy/DJI_2510.JPG |
+| rice:BrownSpotMS_Healthy_DJI_2520 | Data/brown-spot-multispectral/Healthy/DJI_2520.JPG |
+| rice:BrownSpotMS_Healthy_DJI_2530 | Data/brown-spot-multispectral/Healthy/DJI_2530.JPG |
+| rice:BrownSpotMS_Healthy_DJI_2540 | Data/brown-spot-multispectral/Healthy/DJI_2540.JPG |
+| rice:BrownSpotMS_Healthy_DJI_2550 | Data/brown-spot-multispectral/Healthy/DJI_2550.JPG |
+| rice:BrownSpotMS_Healthy_DJI_2560 | Data/brown-spot-multispectral/Healthy/DJI_2560.JPG |
+| rice:BrownSpotMS_Healthy_DJI_2570 | Data/brown-spot-multispectral/Healthy/DJI_2570.JPG |
+| *… 3,739 more rows* | |
 
 **Healthy-annotated images that nonetheless capture a symptom - should be zero**
 
@@ -832,7 +837,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?contradictory_images) WHERE {
 }
 ```
 
-1 row(s) in 9.7 ms.
+1 row(s) in 20.5 ms.
 
 | contradictory_images |
 |---|
