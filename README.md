@@ -19,7 +19,7 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 - **Namespace:** `https://w3id.org/ricemmkg#` — permanent identifier, live since 2026-09-16; version IRIs `https://w3id.org/ricemmkg/<version>` (releases up to v0.6.2 used `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#`)
 - **Format:** OWL/XML (`.rdf`), fully compatible with [Protégé](https://protege.stanford.edu/)
 - **Version:** `0.7.0-dev` on `main` (in development; last release `v0.6.2`, 2026-09-15; git tags `v0.6.1`, `v0.6.2`; v0.6 released 2026-09-03) — target venue under review (ESWC 2027 dropped on 2026-09-29; see [Roadmap](#roadmap))
-- **Triples:** **321,469** asserted triples / **622,526** materialised triples under OWL RL (measured 2026-10-19); the rise from 68,204 is the Paddy Doctor IEEE release, Dhan-Shomadhan images, the first sensor observations, the YUKE-WBC planthopper images, the stem borer symptom images, the nutrient deficiency images, the light-trap catches, the multispectral captures and 18 SOSA alignment links; v0.6.2: 66,802 / 161,447
+- **Triples:** **321,492** asserted triples / **622,573** materialised triples under OWL RL (measured 2026-10-19); the rise from 68,204 is the Paddy Doctor IEEE release, Dhan-Shomadhan images, the first sensor observations, the YUKE-WBC planthopper images, the stem borer symptom images, the nutrient deficiency images, the light-trap catches, the multispectral captures and 41 alignment links to SOSA, RiceDO and TreatO; v0.6.2: 66,802 / 161,447
 - **Reasoner Consistency:** **100% Consistent** in HermiT & Pellet (0 unsatisfiable classes, 0 disjointness conflicts)
 
 ---
@@ -79,7 +79,7 @@ All declared with a domain and a range; inverse pairs share them in reverse.
 - **Varieties (0.7.0-dev):** `IR64`, `Angke` and `Conde` (bred from IR64), `Ciherang`, `Inpari_32` and `Inpari_33`. Each reported grade is a `ResistanceAssessment` naming the variety, the disease or pest, the grade (resistant, moderately resistant, susceptible), the tested biotype, race or population, the year and its own source — 15 assessments from Mackill & Khush (2018), Bagariang et al. (2021) and Biswas et al. (2021). Conflicting grades stay side by side, and a resistance that broke down shows as assessments from different years.
 - **Management categories (0.7.0-dev):** treatments are classed as chemical, biological, cultural or host-plant-resistance control (`hasManagementCategory`, categories from AGROVOC) where a source places them unambiguously.
 - **Plant anatomy (0.7.0-dev):** 8 `PlantPart` individuals aligned to the Plant Ontology; each symptom linked to the organ it affects (`affectsPlantPart`), with `partOf` where the Plant Ontology records it.
-- **External Alignment**: 53 `skos:exactMatch`, 29 `skos:closeMatch`, 18 `skos:broadMatch` to AGROVOC, NCBI Taxonomy, Plant Ontology, PECO, BFO, SOSA and WGS84 terms (counted 2026-10-19). The observation layer is aligned to SOSA in [`SOSA_alignment.md`](Analysis%20and%20Alignment/SOSA_alignment.md) (2026-10-19).
+- **External Alignment**: 70 `skos:exactMatch`, 31 `skos:closeMatch`, 18 `skos:broadMatch`, 4 `skos:relatedMatch` to AGROVOC, NCBI Taxonomy, Plant Ontology, PECO, BFO, SOSA, WGS84, RiceDO v2 and TreatO v2 (counted 2026-10-19). The observation layer is aligned to SOSA in [`SOSA_alignment.md`](Analysis%20and%20Alignment/SOSA_alignment.md); the measured comparison with RiceDO and TreatO is in [`RiceDO_TreatO_comparison.md`](Analysis%20and%20Alignment/RiceDO_TreatO_comparison.md) (both 2026-10-19).
 
 ### Paddy Doctor Dataset Alignment
 
@@ -122,7 +122,7 @@ Every source checked so far, with the outcome and the reason, is recorded in [`C
 | Candidates not yet imported | Weekly pest surveillance with weather, Midsayap, Philippines (needs `Scotinophara coarctata` as a new pest); brown planthopper resistance of 218 landraces; Sentinel-1 phenology table, Indramayu (licence "Custom"); UAV multispectral time series (no disease labels) |
 | Per-image content beyond the label | Expert image annotation; lesion boxes (RiceLeafDiseaseBD, Mendeley) |
 | Text | No ready dataset; extraction from CC BY papers planned |
-| Comparison with an existing ontology | RiceDO v2 + TreatO v2 |
+| Comparison with an existing ontology | Done for RiceDO v2 + TreatO v2 (2026-10-19): 23 mappings applied; TreatO's product–disease links not imported (no source per axiom; licence not stated in the files) |
 
 Sources under CC BY-SA would go into a separate module brought in through `owl:imports`, so the core stays CC BY 4.0.
 
@@ -133,7 +133,7 @@ Sources under CC BY-SA would go into a separate module brought in through `owl:i
 Rice MMKG incorporates an automated verification harness (`cq_sparql_benchmark.py`) based on **27 Competency Questions** structured across:
 - **Reasoning Depth (L1–L4):** L1 Factual (1-hop), L2 Contextual (multi-criteria joins), L3 Causal (multi-hop chains), L4 Inferential (OWL RL deduction).
 - **Knowledge Dimensions (D1–D3):** D1 Agronomic/Symbolic, D2 Cross-modal Grounding, D3 Provenance & External Alignment.
-- **Evaluation Modes:** `coverage` (≥ 50%, an author-set convention; verdicts also reported at 40–80% — 21 / 21 / 20 / 18 / 17 PASS), `negative` (0 violations), `entailment` (entailed > asserted), `documented` (declared extension point).
+- **Evaluation Modes:** `coverage` (≥ 50%, an author-set convention; verdicts also reported at 40–80% — 21 / 21 / 20 / 19 / 17 PASS), `negative` (0 violations), `entailment` (entailed > asserted), `documented` (declared extension point).
 
 ### Benchmark Summary (0.7.0-dev)
 

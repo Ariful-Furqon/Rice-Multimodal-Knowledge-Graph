@@ -55,7 +55,7 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **321,469** (asserted) / **622,526** (OWL RL) | 0.7.0-dev, measured 2026-10-19. +301,057 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Total triples** | **321,492** (asserted) / **622,573** (OWL RL) | 0.7.0-dev, measured 2026-10-19. +301,081 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
 | **Named classes** | 29 | 28 in the `rice:` namespace — 27 primitive (incl. `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment`, `ResistanceLevel`, `TrapObservation`, `SpectralBand` and `BandImage`, 0.7.0-dev) and 1 defined class (`SymptomaticObservation`) — plus `dcat:Dataset`. Recounted 2026-10-15; the row read 23 although the version table already gave 26 |
 | **Object properties** | 41 | `hasBandImage` and `ofBand` added 2026-10-14. All declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `assessedVariety`/`hasResistanceAssessment`, `assessedAgainst`, `hasResistanceLevel`, `ofVariety`, `hasSpatialLocation` (0.7.0-dev) |
 | **Datatype properties** | 27 | `centreWavelengthNm`, `hasCatchCount`, `recordedUntilDate`, `testedPopulation`, `testedLocation`, `reportedYear`, `plantAgeDays`, `sourceLabel`, `environmentCondition`, the sensor / remote-sensing measurements, `recordedAtDate`, `hasLatitude`, `hasLongitude`, `hasElectricalConductivity` and `hasOrganicCarbon` added in 0.7.0-dev |
@@ -66,7 +66,7 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (19 classes; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment` and `ResistanceLevel` added in 0.7.0-dev) |
 | **Reasoner Consistency** | **Consistent** | 0.7.0-dev checked in **HermiT** on 2026-09-17 with `-k` on a space-free copy, with injected-contradiction controls (`Rice` as Plant + Disease; `Leaf_Blade` as PlantPart + Disease; `Semi_Persistent` as TransmissionMode + Disease; `Chemical_Control_Category` as ManagementCategory + Disease; `Zinc_Deficiency` as AbioticFactor + Pathogen; `Salinity` as AbioticFactor + Pathogen; `IR64` as Variety + Disease; a `ResistanceAssessment` also typed Variety; `assessedAgainst` a Treatment) that all report inconsistent; v0.6 verified in HermiT & Pellet |
 | **Competency Questions (CQ)** | **21 PASS / 4 PARTIAL / 1 FAIL / 1 DOC** | **80.8% pass rate** across 26 scored CQs (27 total; CQ-27 added on 2026-10-15; CQ-26 added and CQ-17/CQ-18 extended on 2026-10-13, before that 21 / 2 / 1 / 1 over 24). CQ-13 FAIL: the unsourced severity → action triage was removed. CQ-12 PARTIAL: six abiotic disorders entered its denominator. CQ-26 PARTIAL: one pest of seven has trap observations. CQ-27 PARTIAL: one disease of 16 has spectral evidence. CQ-01 denominator corrected to exclude abiotic disorders (7/9; uncorrected 7/15). v0.6.1/v0.6.2: 23 / 1 / 0 / 1; released v0.6: 21 / 1 / 2 / 1 |
-| **`skos:exactMatch` / `closeMatch` / `broadMatch`** | 53 / 29 / 18 | Mapped to AGROVOC / NCBI Taxonomy / Planteome (PECO, PO), BFO, SOSA and WGS84, verified against live APIs. Recounted 2026-10-17 (the row read 42 / 23 / 1); SOSA round 2026-10-19 added 1 `closeMatch` and 17 `broadMatch`. Coverage: pathogens 10/10, plant parts 9/10, diseases 3/16 (AGROVOC has no concept for the others), symptoms 6/40; classes 9/28, properties 17/68 |
+| **`skos:exactMatch` / `closeMatch` / `broadMatch` / `relatedMatch`** | 70 / 31 / 18 / 4 | Mapped to AGROVOC / NCBI Taxonomy / Planteome (PECO, PO), BFO, SOSA, WGS84, RiceDO v2 and TreatO v2, verified against live APIs or the published files. Recounted 2026-10-17 (the row read 42 / 23 / 1); SOSA round 2026-10-19 added 1 `closeMatch` and 17 `broadMatch`; RiceDO/TreatO round the same day 17 `exactMatch`, 2 `closeMatch`, 4 `relatedMatch`. Coverage: pathogens 10/10, plant parts 10/10, diseases 8/16, growth stages 6/7, symptoms 6/40; classes 9/28, properties 17/68 |
 | **`TODO` literals remaining** | **0** | **100% resolved (dataset metadata & EPPO codes verified)** |
 | **Properties with no declared domain/range** | 0 / 0 | 100% coverage |
 
@@ -171,13 +171,25 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | 0.7.0-dev (+ P and K treatment) | 2026-10-13 | 185,538 (383,852 OWL RL) | 26 | 39 | 21,699 | 377 axioms / 377 assertions + 15 assessments |
 | 0.7.0-dev (+ light-trap catches, `TrapObservation`) | 2026-10-13 | 302,494 (588,836 OWL RL) | 27 | 39 | 33,462 | 377 axioms / 377 assertions + 15 assessments |
 | 0.7.0-dev (+ multispectral captures, `SpectralBand`, `BandImage`) | 2026-10-14 | 321,451 (622,504 OWL RL) | 29 | 41 | 36,303 | 377 axioms / 377 assertions + 15 assessments |
-| **0.7.0-dev (+ SOSA alignment of the observation layer — in development)** | **2026-10-19** | **321,469** (622,526 OWL RL) | **29** | **41** | **36,303** | **377 axioms / 377 assertions + 15 assessments** |
+| 0.7.0-dev (+ SOSA alignment of the observation layer) | 2026-10-19 | 321,469 (622,526 OWL RL) | 29 | 41 | 36,303 | 377 axioms / 377 assertions + 15 assessments |
+| **0.7.0-dev (+ RiceDO v2 / TreatO v2 alignment — in development)** | **2026-10-19** | **321,492** (622,573 OWL RL) | **29** | **41** | **36,303** | **377 axioms / 377 assertions + 15 assessments** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-10-19: 0.7.0-dev — measured comparison with RiceDO v2 and TreatO v2; 23 mappings
+
+The comparison with the existing rice disease ontology had been an open point since the ESWC plan. Both OWL files were downloaded from IEEE DataPort (doi:10.21227/5ndq-4222, doi:10.21227/5016-aw09) and read on 2026-10-19; mappings approved and applied the same day. Pre-edit file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-ricedo-alignment.rdf`. Analysis: `Analysis and Alignment/RiceDO_TreatO_comparison.md`.
+
+- **Measured profile:** RiceDO 164 classes, 13 object properties, **0 individuals**; TreatO 66 classes, 8 object properties, 0 individuals. Knowledge is held as class restrictions; **0 of 410 `SubClassOf` axioms carry a source**. Both consistent under HermiT. Their IRIs do not resolve on 2026-10-19 (`purl.org/ricedo` and `purl.org/treato` redirect to an unreachable host; the `PDO_` disease IRIs return 404). RiceDO writes colour sets as intersections (167 `ObjectIntersectionOf`, no union), where a union is almost certainly meant.
+- **Added (23 SKOS triples):** 7 diseases `exactMatch` RiceDO (bacterial leaf blight, bacterial leaf streak, brown spot, leaf scald, blast, tungro, sheath blight); 2 pests `exactMatch` (brown planthopper, green leafhopper); 5 plant parts `exactMatch` and 2 `closeMatch`; 3 growth stages `exactMatch`; 4 treatment terms `relatedMatch` TreatO, because Rice MMKG names practices and TreatO names products.
+- **Not added:** symptom mappings (RiceDO composes symptoms from abnormality, colour and shape classes, so no one-to-one link exists); TreatO's product–disease links, which carry no source per axiom and whose licence the files do not state. `Rice_Bug` (*Leptocorisa*) is not RiceDO's rice black bug (*Scotinophara*).
+- **Coverage:** diseases with an external link **3/16 → 8/16**; plant parts 9/10 → 10/10. Not in RiceDO: the six abiotic disorders, downy mildew, bacterial panicle blight, deadheart; stem borer, leaf folder, hispa, armyworm. In RiceDO, not in Rice MMKG: 11 diseases (e.g. false smut, sheath rot, bakanae) and two pests.
+- **Checks:** HermiT (owlready2, Java 21) consistent, 0 unsatisfiable classes. Benchmark verdicts unchanged, **21 PASS / 4 PARTIAL / 1 FAIL / 1 DOC**; **CQ-23 20/33 → 25/33 (76%)**, so the 70% sensitivity column rises 18 → 19 PASS. CQ-23's question still names EPPO, AGROVOC and NCBI Taxonomy, but its query counts any `exactMatch` or `closeMatch`. Elicited CQs unchanged, 10 / 7 / 2.
+- **Result:** 321,492 asserted / 622,573 OWL RL triples.
 
 ### 2026-10-19: 0.7.0-dev — observation layer aligned to SOSA
 

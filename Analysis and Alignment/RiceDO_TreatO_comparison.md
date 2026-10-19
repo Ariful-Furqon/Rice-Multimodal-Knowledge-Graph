@@ -1,7 +1,7 @@
 # RiceDO v2 and TreatO v2: measured comparison and candidate mappings
 
-**Status:** analysis only (2026-10-19). Nothing has been added to `Rice MMKG.rdf`; the
-candidate mappings below await a decision.
+**Status:** analysed 2026-10-19; the 23 candidate mappings below were approved and applied the
+same day (`Worklog/2026-10-19_ricedo_alignment/scripts/align_ricedo.py`). Decisions 3 and 4 remain open.
 
 ## Sources
 

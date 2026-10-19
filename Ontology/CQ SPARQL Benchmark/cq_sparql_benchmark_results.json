@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated": "2026-10-19 10:16",
+    "generated": "2026-10-19 10:41",
     "ontology": "Rice MMKG.rdf",
-    "asserted_triples": 321469,
-    "entailed_triples": 622526,
-    "reasoning_seconds": 113.7,
+    "asserted_triples": 321492,
+    "entailed_triples": 622573,
+    "reasoning_seconds": 102.2,
     "coverage_threshold": 0.5
   },
   "results": [
@@ -23,7 +23,7 @@
       ],
       "unit": "disease",
       "status": "PASS",
-      "ms": 82.2
+      "ms": 65.3
     },
     {
       "id": "CQ-02",
@@ -40,7 +40,7 @@
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 13.2
+      "ms": 10.1
     },
     {
       "id": "CQ-03",
@@ -58,7 +58,7 @@
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 8.1
+      "ms": 6.9
     },
     {
       "id": "CQ-04",
@@ -73,7 +73,7 @@
       "missing": [],
       "unit": "symptom",
       "status": "PASS",
-      "ms": 5.0
+      "ms": 3.6
     },
     {
       "id": "CQ-05",
@@ -113,17 +113,22 @@
         [
           "rice:Flowering_Stage",
           "rice:Bacterial_Panicle_Blight",
-          "rice:High_Night_Temperature"
-        ],
-        [
-          "rice:Flowering_Stage",
-          "rice:Bacterial_Panicle_Blight",
           "rice:High_Temperature"
         ],
         [
           "rice:Flowering_Stage",
           "rice:Bacterial_Panicle_Blight",
           "rice:High_Humidity"
+        ],
+        [
+          "rice:Flowering_Stage",
+          "rice:Bacterial_Panicle_Blight",
+          "rice:High_Night_Temperature"
+        ],
+        [
+          "rice:Flowering_Stage",
+          "rice:Brown_Planthopper",
+          "rice:High_Temperature"
         ],
         [
           "rice:Flowering_Stage",
@@ -132,8 +137,8 @@
         ],
         [
           "rice:Flowering_Stage",
-          "rice:Brown_Planthopper",
-          "rice:High_Temperature"
+          "rice:Rice_Blast_Disease",
+          "rice:High_Humidity"
         ],
         [
           "rice:Flowering_Stage",
@@ -142,7 +147,7 @@
         ],
         [
           "rice:Flowering_Stage",
-          "rice:Rice_Blast_Disease",
+          "rice:Sheath_Blight",
           "rice:High_Humidity"
         ],
         [
@@ -151,14 +156,9 @@
           "rice:Poor_Soil_Drainage"
         ],
         [
-          "rice:Flowering_Stage",
-          "rice:Sheath_Blight",
-          "rice:High_Humidity"
-        ],
-        [
           "rice:Maturity_Stage",
           "rice:Bacterial_Panicle_Blight",
-          "rice:High_Night_Temperature"
+          "rice:High_Temperature"
         ]
       ],
       "detail_vars": [
@@ -167,7 +167,7 @@
         "f"
       ],
       "detail_total": 88,
-      "ms": 41.7
+      "ms": 31.0
     },
     {
       "id": "CQ-06",
@@ -184,7 +184,7 @@
       ],
       "unit": "growth stage",
       "status": "PASS",
-      "ms": 5.8
+      "ms": 4.6
     },
     {
       "id": "CQ-07",
@@ -196,7 +196,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 6.9
+      "ms": 5.3
     },
     {
       "id": "CQ-08",
@@ -213,7 +213,7 @@
       ],
       "unit": "preventive treatment",
       "status": "PASS",
-      "ms": 4.1
+      "ms": 3.0
     },
     {
       "id": "CQ-09",
@@ -231,12 +231,12 @@
       "detail_rows": [
         [
           "rice:Nephotettix_Virescens",
-          "rice:Rice_Tungro_Bacilliform_Virus",
+          "rice:Rice_Tungro_Spherical_Virus",
           "rice:Rice_Tungro_Disease"
         ],
         [
           "rice:Nephotettix_Virescens",
-          "rice:Rice_Tungro_Spherical_Virus",
+          "rice:Rice_Tungro_Bacilliform_Virus",
           "rice:Rice_Tungro_Disease"
         ]
       ],
@@ -246,7 +246,7 @@
         "d"
       ],
       "detail_total": 2,
-      "ms": 6.7
+      "ms": 5.8
     },
     {
       "id": "CQ-10",
@@ -258,7 +258,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 2.5
+      "ms": 2.3
     },
     {
       "id": "CQ-11",
@@ -281,75 +281,75 @@
       "detail_rows": [
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Dry_Leaf_Tip",
-          "rice:Crop_Sanitation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Dry_Leaf_Tip",
-          "rice:Resistant_Variety"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Dry_Leaf_Tip",
-          "rice:Crop_Rotation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Dry_Leaf_Tip",
-          "rice:Water_Management"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Leaf_Rolling",
-          "rice:Crop_Sanitation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Leaf_Rolling",
-          "rice:Resistant_Variety"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
+          "rice:Excessive_Nitrogen",
           "rice:Leaf_Rolling",
           "rice:Crop_Rotation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
+          "rice:Excessive_Nitrogen",
+          "rice:Leaf_Rolling",
+          "rice:Resistant_Variety"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
           "rice:Leaf_Rolling",
           "rice:Water_Management"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Yellow_Leaf",
+          "rice:Excessive_Nitrogen",
+          "rice:Leaf_Rolling",
           "rice:Crop_Sanitation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Yellow_Leaf",
-          "rice:Resistant_Variety"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
+          "rice:Excessive_Nitrogen",
           "rice:Yellow_Leaf",
           "rice:Crop_Rotation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
+          "rice:Excessive_Nitrogen",
+          "rice:Yellow_Leaf",
+          "rice:Resistant_Variety"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
           "rice:Yellow_Leaf",
           "rice:Water_Management"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
+          "rice:Yellow_Leaf",
+          "rice:Crop_Sanitation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
+          "rice:Wilting",
+          "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
+          "rice:Wilting",
+          "rice:Resistant_Variety"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
+          "rice:Wilting",
+          "rice:Water_Management"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
+          "rice:Wilting",
+          "rice:Crop_Sanitation"
         ]
       ],
       "detail_vars": [
@@ -359,7 +359,7 @@
         "t"
       ],
       "detail_total": 299,
-      "ms": 1434.3
+      "ms": 1077.7
     },
     {
       "id": "CQ-12",
@@ -389,7 +389,7 @@
       ],
       "unit": "disease/pest",
       "status": "PARTIAL",
-      "ms": 7.1
+      "ms": 5.4
     },
     {
       "id": "CQ-13",
@@ -412,7 +412,7 @@
       "detail_rows": [],
       "detail_vars": [],
       "detail_total": 0,
-      "ms": 5.8
+      "ms": 4.6
     },
     {
       "id": "CQ-14",
@@ -425,7 +425,7 @@
       "entailed": 2544,
       "gain": 2544,
       "status": "PASS",
-      "ms": 26.6
+      "ms": 23.5
     },
     {
       "id": "CQ-15",
@@ -438,7 +438,7 @@
       "entailed": 179,
       "gain": 179,
       "status": "PASS",
-      "ms": 7.3
+      "ms": 6.5
     },
     {
       "id": "CQ-16",
@@ -453,7 +453,7 @@
       "missing": [],
       "unit": "diagnostic image",
       "status": "PASS",
-      "ms": 3831.6
+      "ms": 3291.4
     },
     {
       "id": "CQ-17",
@@ -468,7 +468,7 @@
       "missing": [],
       "unit": "annotated class",
       "status": "PASS",
-      "ms": 965.1
+      "ms": 953.0
     },
     {
       "id": "CQ-18",
@@ -522,7 +522,7 @@
       ],
       "unit": "symptom",
       "status": "PARTIAL",
-      "ms": 5219.2
+      "ms": 4641.0
     },
     {
       "id": "CQ-19",
@@ -534,7 +534,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 1810.8
+      "ms": 1683.2
     },
     {
       "id": "CQ-20",
@@ -545,7 +545,7 @@
       "rationale": "Declared extension point. Recorded as a measurement, not scored, so the roadmap gap stays visible without inflating or deflating the pass rate.",
       "count": 186,
       "status": "DOCUMENTED",
-      "ms": 4.6
+      "ms": 3.3
     },
     {
       "id": "CQ-21",
@@ -560,7 +560,7 @@
       "missing": [],
       "unit": "reified axiom",
       "status": "PASS",
-      "ms": 16.2
+      "ms": 15.1
     },
     {
       "id": "CQ-22",
@@ -572,7 +572,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 221.9
+      "ms": 210.6
     },
     {
       "id": "CQ-23",
@@ -581,27 +581,22 @@
       "mode": "coverage",
       "question": "Which biological entities (disease, pathogen, pest) are aligned to an external vocabulary (EPPO, AGROVOC or NCBI Taxonomy)?",
       "rationale": "Interoperability. Written as a coverage measure rather than an OPTIONAL projection, which would report success even when every alignment column is null.",
-      "covered": 20,
+      "covered": 25,
       "total": 33,
-      "ratio": 0.6060606060606061,
+      "ratio": 0.7575757575757576,
       "missing": [
-        "rice:Bacterial_Leaf_Blight",
-        "rice:Bacterial_Leaf_Streak",
         "rice:Bacterial_Panicle_Blight",
-        "rice:Brown_Spot",
         "rice:Deadheart",
         "rice:Iron_Toxicity_Disorder",
-        "rice:Leaf_Scald",
         "rice:Nitrogen_Deficiency_Disorder",
         "rice:Phosphorus_Deficiency_Disorder",
         "rice:Potassium_Deficiency_Disorder",
         "rice:Salinity_Disorder",
-        "rice:Sheath_Blight",
         "rice:Zinc_Deficiency_Disorder"
       ],
       "unit": "biological entity",
       "status": "PASS",
-      "ms": 8.1
+      "ms": 7.5
     },
     {
       "id": "CQ-24",
@@ -613,7 +608,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 12.1
+      "ms": 11.7
     },
     {
       "id": "CQ-25",
@@ -625,7 +620,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 1.6
+      "ms": 1.7
     },
     {
       "id": "CQ-26",
@@ -647,7 +642,7 @@
       ],
       "unit": "pest",
       "status": "PARTIAL",
-      "ms": 887.8
+      "ms": 874.1
     },
     {
       "id": "CQ-27",
@@ -678,7 +673,7 @@
       ],
       "unit": "disease",
       "status": "PARTIAL",
-      "ms": 88.2
+      "ms": 90.0
     }
   ],
   "sensitivity": [
@@ -775,12 +770,12 @@
     {
       "threshold": 0.7,
       "tally": {
-        "PASS": 18,
-        "PARTIAL": 7,
+        "PASS": 19,
+        "PARTIAL": 6,
         "FAIL": 1,
         "ERROR": 0
       },
-      "pass_rate": 0.6923076923076923,
+      "pass_rate": 0.7307692307692307,
       "coverage_status": {
         "CQ-01": "PASS",
         "CQ-02": "PASS",
@@ -797,7 +792,7 @@
         "CQ-17": "PASS",
         "CQ-18": "PARTIAL",
         "CQ-21": "PASS",
-        "CQ-23": "PARTIAL",
+        "CQ-23": "PASS",
         "CQ-26": "PARTIAL",
         "CQ-27": "PARTIAL"
       }
