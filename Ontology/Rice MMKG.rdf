@@ -395326,4 +395326,74 @@
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasNDVI">
     <skos:broadMatch rdf:resource="http://www.w3.org/ns/sosa/hasSimpleResult"/>
   </rdf:Description>
+  <!-- RiceDO / TreatO alignment 2026-10-19 -->
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight">
+    <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/PDO_0000014"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Leaf_Streak">
+    <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/PDO_0000019"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Brown_Spot">
+    <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/PDO_0000033"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Scald">
+    <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/PDO_0000047"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rice_Blast_Disease">
+    <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/PDO_0000031"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rice_Tungro_Disease">
+    <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/PDO_0000131"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Sheath_Blight">
+    <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/PDO_0000051"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Brown_Planthopper">
+    <skos:exactMatch rdf:resource="http://purl.org/ricedo#RiceDO_000121"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Nephotettix_Virescens">
+    <skos:exactMatch rdf:resource="http://purl.org/ricedo#RiceDO_000122"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf">
+    <skos:exactMatch rdf:resource="http://purl.org/ricedo#RiceDO_000016"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Panicle">
+    <skos:exactMatch rdf:resource="http://purl.org/ricedo#RiceDO_000019"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Root">
+    <skos:exactMatch rdf:resource="http://purl.org/ricedo#RiceDO_000020"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Stem">
+    <skos:exactMatch rdf:resource="http://purl.org/ricedo#RiceDO_000023"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Tiller">
+    <skos:exactMatch rdf:resource="http://purl.org/ricedo#RiceDO_000024"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Sheath">
+    <skos:closeMatch rdf:resource="http://purl.org/ricedo#RiceDO_000135"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Panicle_Neck">
+    <skos:closeMatch rdf:resource="http://purl.org/ricedo#RiceDO_000017"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Flowering_Stage">
+    <skos:exactMatch rdf:resource="http://purl.org/ricedo#RiceDO_000027"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Maturity_Stage">
+    <skos:exactMatch rdf:resource="http://purl.org/ricedo#RiceDO_000028"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Tillering_Stage">
+    <skos:exactMatch rdf:resource="http://purl.org/ricedo#RiceDO_000030"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Chemical_Control_Category">
+    <skos:relatedMatch rdf:resource="http://purl.org/treato#TreatO_000002"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Biological_Control_Category">
+    <skos:relatedMatch rdf:resource="http://purl.org/treato#TreatO_000001"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Fungicide_Application">
+    <skos:relatedMatch rdf:resource="http://purl.org/treato#TreatO_000007"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Insecticide_Application">
+    <skos:relatedMatch rdf:resource="http://purl.org/treato#TreatO_000008"/>
+  </rdf:Description>
 </rdf:RDF>
