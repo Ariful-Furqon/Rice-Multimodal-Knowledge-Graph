@@ -178,6 +178,15 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 
 <!-- Newest first. -->
 
+### 2026-10-17 to 2026-10-19: 0.7.0-dev — both CQ instruments rerun on the frozen data; CQ-A21 query follows CQ-18
+
+The ontology file is unchanged since 2026-10-14. Both CQ instruments were run on it to fix the baseline of the data freeze (tag `data-freeze-2026-10`).
+
+- **Benchmark:** identical to 2026-10-15, **21 PASS / 4 PARTIAL / 1 FAIL / 1 DOC**; only query timings differ.
+- **Elicited CQs** (last run 2026-09-23 on 68,204 triples): statuses unchanged, **10 answer / 7 partial / 2 no answer**. Answers grew with the October data: CQ-A01 pathogens 9 → 10, CQ-A10 Hispa images 1,594 → 2,151, CQ-A13 conditions 10 → 19 and source datasets 1 → 6, CQ-A24 healthy images 1,764 → 3,747.
+- **CQ-A21 query aligned with the extended CQ-18.** It counted only `captures` as image evidence, so `White_Ear`, the label of 551 images, was listed as having none, and the two instruments disagreed (2/40 vs 1/40). An image annotated directly with a symptom now counts too; the question is unchanged. Result: **2 of 40 symptoms have image evidence, 38 have none.**
+- **Alignment row recounted:** `skos:exactMatch` / `closeMatch` / `broadMatch` 42 / 23 / 1 → **53 / 28 / 1** (the README already gave the current figures).
+
 ### 2026-10-15: 0.7.0-dev — CQ-27 added; documentation brought up to date
 
 The 472 multispectral captures imported on 2026-10-14 were not measured by any question. The ontology file is unchanged.

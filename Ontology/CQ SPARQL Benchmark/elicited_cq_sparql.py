@@ -252,13 +252,17 @@ ORDER BY DESC(?images)"""),
         "note": "The multimodal grounding question asked as a partition rather "
                 "than a ratio. Benchmark CQ-18 measures the same relation as a "
                 "coverage percentage; this returns the two lists, which is a "
-                "far blunter way of seeing the same thing.",
+                "far blunter way of seeing the same thing. Since 2026-10-19 an "
+                "image annotated directly with a symptom also counts as "
+                "evidence, as in the extended CQ-18 (2026-10-13); the question "
+                "is unchanged, only the query follows it.",
         "queries": [
-            ("Symptoms partitioned by whether any image captures them",
+            ("Symptoms partitioned by whether any image captures them or is annotated with them",
              """SELECT ?image_evidence (COUNT(DISTINCT ?symptom) AS ?symptoms)
 WHERE {
   ?symptom a rice:Symptom .
-  OPTIONAL { ?image rice:captures ?symptom }
+  OPTIONAL { { ?image rice:captures ?symptom }
+             UNION { ?image a rice:ImageObservation ; rice:annotatedAs ?symptom } }
   BIND (IF(BOUND(?image), "has image evidence", "no image evidence")
         AS ?image_evidence)
 }
@@ -267,6 +271,7 @@ GROUP BY ?image_evidence"""),
              """SELECT ?symptom WHERE {
   ?symptom a rice:Symptom .
   FILTER NOT EXISTS { ?image rice:captures ?symptom }
+  FILTER NOT EXISTS { ?image a rice:ImageObservation ; rice:annotatedAs ?symptom }
 }
 ORDER BY ?symptom"""),
         ],
