@@ -60865,7 +60865,7 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:subClassOf rdf:resource="https://w3id.org/ricemmkg#Observation"/>
     <rdfs:label xml:lang="en">Sensor Observation</rdfs:label>
-    <rdfs:comment xml:lang="en">An Observation channel: a measurement captured by an environmental sensor (e.g. temperature, humidity, soil pH), relatable to an EnvironmentalFactor via captures. No individuals populated yet -- added to match the conceptual schema ahead of sensor data ingestion, per the deferred-design roadmap in Worklog/RiceMMKG_v0.4-minimal_worklog/deferred_design.md.</rdfs:comment>
+    <rdfs:comment xml:lang="en">An Observation channel: soil and weather values measured at a field plot (e.g. soil pH, available nutrients, temperature, humidity, rainfall), one property per measured quantity. Populated since 2026-10-05 from the Rice Disease Risk Assessment dataset. Its risk class names no disease, so no captures or detects link is asserted.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_tungro_PDD12909">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -87785,7 +87785,7 @@
     <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#Observation"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
     <rdfs:label xml:lang="en">recorded at date</rdfs:label>
-    <rdfs:comment xml:lang="en">Date and time the observation was recorded. For values aggregated over a window (e.g. weekly), the start of the window.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Date and time the observation was recorded. For values aggregated over a window (e.g. weekly), the start of the window. Mapped as skos:closeMatch to sosa:resultTime, which holds for an instantaneous capture; for a window, SOSA would treat the window as the phenomenon time and its end as the result time.</rdfs:comment>
     <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/resultTime"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_leaf_roller_PDD09411">
@@ -395270,5 +395270,60 @@
     <rice:ofBand rdf:resource="https://w3id.org/ricemmkg#Band_NIR_840"/>
     <schema1:contentUrl>D:/MMKG Data/Brown Spot Multispectral (Mendeley)/Healthy/DJI_4865.TIF</schema1:contentUrl>
     <dcterms:identifier>Healthy/DJI_4865.TIF</dcterms:identifier>
+  </rdf:Description>
+  <!-- SOSA alignment 2026-10-19 -->
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#ImageObservation">
+    <skos:broadMatch rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#SensorObservation">
+    <skos:broadMatch rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#TrapObservation">
+    <skos:broadMatch rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#RemoteSensingObservation">
+    <skos:broadMatch rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#BandImage">
+    <skos:broadMatch rdf:resource="http://www.w3.org/ns/sosa/Result"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasSpatialLocation">
+    <skos:closeMatch rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasBandImage">
+    <skos:broadMatch rdf:resource="http://www.w3.org/ns/sosa/hasResult"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasSoilPH">
+    <skos:broadMatch rdf:resource="http://www.w3.org/ns/sosa/hasSimpleResult"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasElectricalConductivity">
+    <skos:broadMatch rdf:resource="http://www.w3.org/ns/sosa/hasSimpleResult"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasOrganicCarbon">
+    <skos:broadMatch rdf:resource="http://www.w3.org/ns/sosa/hasSimpleResult"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasNitrogenLevel">
+    <skos:broadMatch rdf:resource="http://www.w3.org/ns/sosa/hasSimpleResult"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasPhosphorusLevel">
+    <skos:broadMatch rdf:resource="http://www.w3.org/ns/sosa/hasSimpleResult"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasPotassiumLevel">
+    <skos:broadMatch rdf:resource="http://www.w3.org/ns/sosa/hasSimpleResult"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasTemperature">
+    <skos:broadMatch rdf:resource="http://www.w3.org/ns/sosa/hasSimpleResult"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasHumidity">
+    <skos:broadMatch rdf:resource="http://www.w3.org/ns/sosa/hasSimpleResult"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasRainfall">
+    <skos:broadMatch rdf:resource="http://www.w3.org/ns/sosa/hasSimpleResult"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasCatchCount">
+    <skos:broadMatch rdf:resource="http://www.w3.org/ns/sosa/hasSimpleResult"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasNDVI">
+    <skos:broadMatch rdf:resource="http://www.w3.org/ns/sosa/hasSimpleResult"/>
   </rdf:Description>
 </rdf:RDF>

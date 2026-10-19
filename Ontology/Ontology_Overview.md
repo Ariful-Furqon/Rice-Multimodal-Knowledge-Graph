@@ -55,7 +55,7 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **321,451** (asserted) / **622,504** (OWL RL) | 0.7.0-dev, measured 2026-10-14. +301,053 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Total triples** | **321,469** (asserted) / **622,526** (OWL RL) | 0.7.0-dev, measured 2026-10-19. +301,057 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
 | **Named classes** | 29 | 28 in the `rice:` namespace — 27 primitive (incl. `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment`, `ResistanceLevel`, `TrapObservation`, `SpectralBand` and `BandImage`, 0.7.0-dev) and 1 defined class (`SymptomaticObservation`) — plus `dcat:Dataset`. Recounted 2026-10-15; the row read 23 although the version table already gave 26 |
 | **Object properties** | 41 | `hasBandImage` and `ofBand` added 2026-10-14. All declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `assessedVariety`/`hasResistanceAssessment`, `assessedAgainst`, `hasResistanceLevel`, `ofVariety`, `hasSpatialLocation` (0.7.0-dev) |
 | **Datatype properties** | 27 | `centreWavelengthNm`, `hasCatchCount`, `recordedUntilDate`, `testedPopulation`, `testedLocation`, `reportedYear`, `plantAgeDays`, `sourceLabel`, `environmentCondition`, the sensor / remote-sensing measurements, `recordedAtDate`, `hasLatitude`, `hasLongitude`, `hasElectricalConductivity` and `hasOrganicCarbon` added in 0.7.0-dev |
@@ -66,7 +66,7 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (19 classes; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment` and `ResistanceLevel` added in 0.7.0-dev) |
 | **Reasoner Consistency** | **Consistent** | 0.7.0-dev checked in **HermiT** on 2026-09-17 with `-k` on a space-free copy, with injected-contradiction controls (`Rice` as Plant + Disease; `Leaf_Blade` as PlantPart + Disease; `Semi_Persistent` as TransmissionMode + Disease; `Chemical_Control_Category` as ManagementCategory + Disease; `Zinc_Deficiency` as AbioticFactor + Pathogen; `Salinity` as AbioticFactor + Pathogen; `IR64` as Variety + Disease; a `ResistanceAssessment` also typed Variety; `assessedAgainst` a Treatment) that all report inconsistent; v0.6 verified in HermiT & Pellet |
 | **Competency Questions (CQ)** | **21 PASS / 4 PARTIAL / 1 FAIL / 1 DOC** | **80.8% pass rate** across 26 scored CQs (27 total; CQ-27 added on 2026-10-15; CQ-26 added and CQ-17/CQ-18 extended on 2026-10-13, before that 21 / 2 / 1 / 1 over 24). CQ-13 FAIL: the unsourced severity → action triage was removed. CQ-12 PARTIAL: six abiotic disorders entered its denominator. CQ-26 PARTIAL: one pest of seven has trap observations. CQ-27 PARTIAL: one disease of 16 has spectral evidence. CQ-01 denominator corrected to exclude abiotic disorders (7/9; uncorrected 7/15). v0.6.1/v0.6.2: 23 / 1 / 0 / 1; released v0.6: 21 / 1 / 2 / 1 |
-| **`skos:exactMatch` / `closeMatch` / `broadMatch`** | 53 / 28 / 1 | Mapped to AGROVOC / NCBI Taxonomy / Planteome (PECO, PO), BFO, SOSA and WGS84, verified against live APIs. Recounted 2026-10-17 (the row read 42 / 23 / 1; the README already gave 53 / 28 / 1). Coverage: pathogens 10/10, plant parts 9/10, diseases 3/16 (AGROVOC has no concept for the others), symptoms 6/40; classes 4/28, properties 4/68 |
+| **`skos:exactMatch` / `closeMatch` / `broadMatch`** | 53 / 29 / 18 | Mapped to AGROVOC / NCBI Taxonomy / Planteome (PECO, PO), BFO, SOSA and WGS84, verified against live APIs. Recounted 2026-10-17 (the row read 42 / 23 / 1); SOSA round 2026-10-19 added 1 `closeMatch` and 17 `broadMatch`. Coverage: pathogens 10/10, plant parts 9/10, diseases 3/16 (AGROVOC has no concept for the others), symptoms 6/40; classes 9/28, properties 17/68 |
 | **`TODO` literals remaining** | **0** | **100% resolved (dataset metadata & EPPO codes verified)** |
 | **Properties with no declared domain/range** | 0 / 0 | 100% coverage |
 
@@ -170,13 +170,26 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | 0.7.0-dev (+ nutrient deficiency images) | 2026-10-13 | 185,514 (383,806 OWL RL) | 26 | 39 | 21,697 | 375 axioms / 375 assertions + 15 assessments |
 | 0.7.0-dev (+ P and K treatment) | 2026-10-13 | 185,538 (383,852 OWL RL) | 26 | 39 | 21,699 | 377 axioms / 377 assertions + 15 assessments |
 | 0.7.0-dev (+ light-trap catches, `TrapObservation`) | 2026-10-13 | 302,494 (588,836 OWL RL) | 27 | 39 | 33,462 | 377 axioms / 377 assertions + 15 assessments |
-| **0.7.0-dev (+ multispectral captures, `SpectralBand`, `BandImage` — in development)** | **2026-10-14** | **321,451** (622,504 OWL RL) | **29** | **41** | **36,303** | **377 axioms / 377 assertions + 15 assessments** |
+| 0.7.0-dev (+ multispectral captures, `SpectralBand`, `BandImage`) | 2026-10-14 | 321,451 (622,504 OWL RL) | 29 | 41 | 36,303 | 377 axioms / 377 assertions + 15 assessments |
+| **0.7.0-dev (+ SOSA alignment of the observation layer — in development)** | **2026-10-19** | **321,469** (622,526 OWL RL) | **29** | **41** | **36,303** | **377 axioms / 377 assertions + 15 assessments** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-10-19: 0.7.0-dev — observation layer aligned to SOSA
+
+Of 28 classes and 68 properties, 4 each had an external link, all outside the observation channels added since 2026-10-04. Approved and applied 2026-10-19. Pre-edit file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-sosa-alignment.rdf`. Register: `Analysis and Alignment/SOSA_alignment.md`.
+
+- **SKOS only.** SOSA is not imported and no subclass or subproperty axiom points to it, so the reasoner inherits nothing; target terms were read from the published SOSA and WGS84 files the same day.
+- **Added (18 triples):** the four observation channels `broadMatch sosa:Observation`; `BandImage broadMatch sosa:Result`; `hasBandImage broadMatch sosa:hasResult`; `hasSpatialLocation closeMatch geo:location`; `hasCatchCount`, `hasNDVI` and the nine soil and weather properties `broadMatch sosa:hasSimpleResult`. These are broad, not exact: SOSA holds one observed property per observation, Rice MMKG several values per observation with the quantity in the property name.
+- **Left local, with reasons in the register:** `annotatedAs`, `captures`, `detects` (they merge SOSA's feature of interest and observable property), the spectral-band terms (no SOSA notion of a band), `recordedUntilDate`, and source metadata.
+- **Kept:** `recordedAtDate closeMatch sosa:resultTime`, now with a comment that it holds for instantaneous captures, while for a window SOSA would use the phenomenon time.
+- **Comment corrected:** `SensorObservation` still said it had no individuals and linked to `EnvironmentalFactor` via `captures`; it has 186 individuals and, by design, no such link.
+- **Checks:** HermiT (owlready2, Java 21) consistent, 0 unsatisfiable classes. Benchmark unchanged, **21 PASS / 4 PARTIAL / 1 FAIL / 1 DOC**; elicited CQs unchanged, 10 / 7 / 2.
+- **Result:** 321,469 asserted / 622,526 OWL RL triples; classes with an external link 4/28 → **9/28**, properties 4/68 → **17/68**.
 
 ### 2026-10-17 to 2026-10-19: 0.7.0-dev — both CQ instruments rerun on the frozen data; CQ-A21 query follows CQ-18
 
