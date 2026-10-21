@@ -55,9 +55,9 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **321,492** (asserted) / **622,573** (OWL RL) | 0.7.0-dev, measured 2026-10-19. +301,081 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Total triples** | **321,506** (asserted) / **622,666** (OWL RL) | 0.7.0-dev, measured 2026-10-21. +301,160 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
 | **Named classes** | 29 | 28 in the `rice:` namespace — 27 primitive (incl. `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment`, `ResistanceLevel`, `TrapObservation`, `SpectralBand` and `BandImage`, 0.7.0-dev) and 1 defined class (`SymptomaticObservation`) — plus `dcat:Dataset`. Recounted 2026-10-15; the row read 23 although the version table already gave 26 |
-| **Object properties** | 41 | `hasBandImage` and `ofBand` added 2026-10-14. All declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `assessedVariety`/`hasResistanceAssessment`, `assessedAgainst`, `hasResistanceLevel`, `ofVariety`, `hasSpatialLocation` (0.7.0-dev) |
+| **Object properties** | 42 | `hasBandImage` and `ofBand` added 2026-10-14; `hasAffectedPart` added 2026-10-21, entailed by property chains, range only. All others declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `assessedVariety`/`hasResistanceAssessment`, `assessedAgainst`, `hasResistanceLevel`, `ofVariety`, `hasSpatialLocation` (0.7.0-dev) |
 | **Datatype properties** | 27 | `centreWavelengthNm`, `hasCatchCount`, `recordedUntilDate`, `testedPopulation`, `testedLocation`, `reportedYear`, `plantAgeDays`, `sourceLabel`, `environmentCondition`, the sensor / remote-sensing measurements, `recordedAtDate`, `hasLatitude`, `hasLongitude`, `hasElectricalConductivity` and `hasOrganicCarbon` added in 0.7.0-dev |
 | **Annotation properties** | 14 | Includes `rice:evidenceType`, PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
 | **Named individuals** | **36,303** | 21,149 image individuals (Paddy Doctor 16,225, Dhan-Shomadhan 1,106, YUKE-WBC 66, stem borer symptom images 2,096, Kaggle nutrient deficiency 1,156, Netrokona potassium 500) + 11,533 trap observations + 472 remote-sensing observations + 2,360 band images + 186 sensor observations + 418 field locations + 9 dataset metadata + 176 domain entities (5 `SpectralBand`, 10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 4 `PathogenGroup`, 6 `AbioticFactor`, 12 `Variety`, 15 `ResistanceAssessment`, 3 `ResistanceLevel`) |
@@ -172,13 +172,31 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | 0.7.0-dev (+ light-trap catches, `TrapObservation`) | 2026-10-13 | 302,494 (588,836 OWL RL) | 27 | 39 | 33,462 | 377 axioms / 377 assertions + 15 assessments |
 | 0.7.0-dev (+ multispectral captures, `SpectralBand`, `BandImage`) | 2026-10-14 | 321,451 (622,504 OWL RL) | 29 | 41 | 36,303 | 377 axioms / 377 assertions + 15 assessments |
 | 0.7.0-dev (+ SOSA alignment of the observation layer) | 2026-10-19 | 321,469 (622,526 OWL RL) | 29 | 41 | 36,303 | 377 axioms / 377 assertions + 15 assessments |
-| **0.7.0-dev (+ RiceDO v2 / TreatO v2 alignment — in development)** | **2026-10-19** | **321,492** (622,573 OWL RL) | **29** | **41** | **36,303** | **377 axioms / 377 assertions + 15 assessments** |
+| 0.7.0-dev (+ RiceDO v2 / TreatO v2 alignment) | 2026-10-19 | 321,492 (622,573 OWL RL) | 29 | 41 | 36,303 | 377 axioms / 377 assertions + 15 assessments |
+| **0.7.0-dev (+ `hasAffectedPart` property chain — in development)** | **2026-10-21** | **321,506** (622,666 OWL RL) | **29** | **42** | **36,303** | **377 axioms / 377 assertions + 15 assessments** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-10-21: 0.7.0-dev — `hasAffectedPart`, a disease-level shortcut by property chain
+
+The text pilot of 2026-10-20 (`Worklog/2026-10-20_text_pilot/RESULTS.md`) found a mismatch of levels:
+- IRRI fact sheets state plant parts at the level of the disease ("brown spot infects the leaf sheath");
+- the graph asserts them per symptom (`Disease indicatedBy Symptom`, `Symptom affectsPlantPart PlantPart`).
+
+The symptom layer stays, since image annotation and the CQs depend on it. A derived property bridges the two levels. Approved and applied 2026-10-21. Pre-edit file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-has-affected-part.rdf`. Script: `Worklog/2026-10-21_property_chain/scripts/add_has_affected_part.py`.
+
+- **Axioms:** `rice:hasAffectedPart` (range `PlantPart`) with two property chains:
+  - `indicatedBy ∘ affectsPlantPart ⊑ hasAffectedPart`;
+  - `hasAffectedPart ∘ partOf ⊑ hasAffectedPart`.
+  
+  No triple of it is asserted, and no new fact is curated.
+- **Entailed:** 68 disease/pest–part pairs under OWL RL (rule `prp-spo2`), covering 22 diseases, disorders and pests. 56 come through symptoms, and 12 more reach `Leaf` through `partOf`.
+- **Caveat** (also in the property's comment): `affectsPlantPart` is asserted per symptom, so a symptom shared by several diseases gives each of them its part. 20 of the 56 symptom-derived pairs rest only on symptoms shared by more than two diseases (`Stunted_Growth`, `Reduced_Tillering`, `Wilting`, `Empty_Grain`, `Yellow_Leaf`).
+- **Checks:** HermiT consistent, 0 unsatisfiable classes. 321,506 asserted / 622,666 OWL RL triples.
 
 ### 2026-10-19: 0.7.0-dev — measured comparison with RiceDO v2 and TreatO v2; 23 mappings
 

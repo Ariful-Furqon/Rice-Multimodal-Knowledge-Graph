@@ -395396,4 +395396,19 @@
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#Insecticide_Application">
     <skos:relatedMatch rdf:resource="http://purl.org/treato#TreatO_000008"/>
   </rdf:Description>
+  <!-- hasAffectedPart property chain 2026-10-21 -->
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasAffectedPart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="https://w3id.org/ricemmkg#PlantPart"/>
+    <rdfs:label xml:lang="en">has affected part</rdfs:label>
+    <rdfs:comment xml:lang="en">Relates a disease, disorder or pest to a plant part on which it shows at least one symptom. Not asserted: entailed by the property chains indicatedBy o affectsPlantPart and hasAffectedPart o partOf, so it inherits the symptom-level curation. Because affectsPlantPart is asserted per symptom, a symptom shared by several diseases (e.g. Stunted_Growth) gives each of them its plant part. Added so that disease-level statements in text sources can be compared with and attached to the graph.</rdfs:comment>
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <rdf:Description rdf:about="https://w3id.org/ricemmkg#indicatedBy"/>
+      <rdf:Description rdf:about="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    </owl:propertyChainAxiom>
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasAffectedPart"/>
+      <rdf:Description rdf:about="https://w3id.org/ricemmkg#partOf"/>
+    </owl:propertyChainAxiom>
+  </rdf:Description>
 </rdf:RDF>
