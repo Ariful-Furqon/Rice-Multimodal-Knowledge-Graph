@@ -1,6 +1,6 @@
 # Elicited Competency Questions - SPARQL Results
 
-Generated 2026-10-22 11:25 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 324,616 asserted triples, 628,516 after OWL RL materialisation (138.1s).
+Generated 2026-10-22 14:45 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 324,701 asserted triples, 628,650 after OWL RL materialisation (100.4s).
 
 **19 of the 25 elicited Tier A CQs are queried here** - every one for which RiceMMKG v0.7.0-dev has at least the concept the question turns on. Answerability is measured, not predicted: the Stage 3 `v06_status` column is not used. The remaining 6 ask for a concept v0.7.0-dev does not have at all and are the v0.7 work plan; the status table at the end lists each with its reason.
 
@@ -63,7 +63,7 @@ SELECT ?pathogen ?group ?eppo_code ?external_alignment WHERE {
 }
 ```
 
-1 row(s) in 72.3 ms.
+1 row(s) in 65.2 ms.
 
 | pathogen | group | eppo_code | external_alignment |
 |---|---|---|---|
@@ -103,7 +103,7 @@ SELECT ?disease ?pathogen WHERE {
 ORDER BY ?disease
 ```
 
-10 row(s) in 2.6 ms.
+10 row(s) in 2.3 ms.
 
 | disease | pathogen |
 |---|---|
@@ -134,7 +134,7 @@ SELECT ?vector ?agent ?mode ?disease WHERE {
 ORDER BY ?vector ?agent
 ```
 
-2 row(s) in 7.0 ms.
+2 row(s) in 5.9 ms.
 
 | vector | agent | mode | disease |
 |---|---|---|---|
@@ -160,7 +160,7 @@ SELECT ?symptom ?plant_part ?stage_of_disease WHERE {
 ORDER BY ?symptom ?plant_part ?stage_of_disease
 ```
 
-12 row(s) in 5.6 ms.
+12 row(s) in 4.5 ms.
 
 | symptom | plant_part | stage_of_disease |
 |---|---|---|
@@ -193,7 +193,7 @@ GROUP BY ?other
 ORDER BY DESC(?shared_symptoms)
 ```
 
-4 row(s) in 8.1 ms.
+4 row(s) in 6.6 ms.
 
 | other | shared_symptoms |
 |---|---|
@@ -219,13 +219,15 @@ SELECT ?symptom ?present_only_in WHERE {
 ORDER BY ?present_only_in ?symptom
 ```
 
-3 row(s) in 8.0 ms.
+5 row(s) in 8.2 ms.
 
 | symptom | present_only_in |
 |---|---|
 | rice:Grain_Discoloration | Brown Spot |
 | rice:Neck_Rot | Rice Blast |
+| rice:Node_Lesion | Rice Blast |
 | rice:Panicle_Blast | Rice Blast |
+| rice:White_Ear | Rice Blast |
 
 ### CQ-A05 - Which environmental conditions are reported to favour Sheath Blight?
 
@@ -242,7 +244,7 @@ SELECT ?condition WHERE {
 ORDER BY ?condition
 ```
 
-2 row(s) in 2.4 ms.
+2 row(s) in 1.9 ms.
 
 | condition |
 |---|
@@ -259,7 +261,7 @@ GROUP BY ?condition
 ORDER BY DESC(?entities) ?condition
 ```
 
-9 row(s) in 5.0 ms.
+9 row(s) in 4.7 ms.
 
 | condition | entities |
 |---|---|
@@ -290,7 +292,7 @@ SELECT ?stage WHERE {
 ORDER BY ?stage
 ```
 
-2 row(s) in 1.9 ms.
+2 row(s) in 2.6 ms.
 
 | stage |
 |---|
@@ -320,7 +322,7 @@ SELECT ?treatment ?category ?source ?citation WHERE {
 ORDER BY ?treatment
 ```
 
-2 row(s) in 5.1 ms.
+2 row(s) in 5.0 ms.
 
 | treatment | category | source | citation |
 |---|---|---|---|
@@ -343,7 +345,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-2151 row(s) in 51.0 ms.
+2151 row(s) in 43.3 ms.
 
 | image | url |
 |---|---|
@@ -382,7 +384,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 1030.0 ms.
+1 row(s) in 747.0 ms.
 
 | image | condition | dataset | title | source | confidence |
 |---|---|---|---|---|---|
@@ -401,7 +403,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 1735.0 ms.
+1 row(s) in 1525.3 ms.
 
 | images | with_source_dataset | with_confidence |
 |---|---|---|
@@ -428,7 +430,7 @@ GROUP BY ?condition ?type
 ORDER BY DESC(?images)
 ```
 
-19 row(s) in 11667.6 ms.
+19 row(s) in 8790.2 ms.
 
 | condition | type | images |
 |---|---|---|
@@ -452,7 +454,7 @@ SELECT ?dataset (COUNT(?image) AS ?images) WHERE {
 GROUP BY ?dataset
 ```
 
-6 row(s) in 313.9 ms.
+6 row(s) in 239.7 ms.
 
 | dataset | images |
 |---|---|
@@ -480,7 +482,7 @@ SELECT ?image ?symptom WHERE {
 }
 ```
 
-1 row(s) in 47.1 ms.
+1 row(s) in 41.3 ms.
 
 | image | symptom |
 |---|---|
@@ -496,7 +498,7 @@ GROUP BY ?symptom
 ORDER BY DESC(?images)
 ```
 
-1 row(s) in 23.9 ms.
+1 row(s) in 20.6 ms.
 
 | symptom | images |
 |---|---|
@@ -521,7 +523,7 @@ GROUP BY ?image ?candidate
 ORDER BY DESC(?support) ?candidate
 ```
 
-2 row(s) in 85.7 ms.
+2 row(s) in 66.8 ms.
 
 | image | candidate | support |
 |---|---|---|
@@ -555,13 +557,15 @@ SELECT ?condition ?distinguishing_symptom WHERE {
 ORDER BY ?condition ?distinguishing_symptom
 ```
 
-3 row(s) in 10.2 ms.
+5 row(s) in 7.4 ms.
 
 | condition | distinguishing_symptom |
 |---|---|
 | Brown Spot | rice:Grain_Discoloration |
 | Rice Blast | rice:Neck_Rot |
+| Rice Blast | rice:Node_Lesion |
 | Rice Blast | rice:Panicle_Blast |
+| Rice Blast | rice:White_Ear |
 
 **Symptoms the two share, which therefore cannot separate them**
 
@@ -573,7 +577,7 @@ SELECT ?shared_symptom WHERE {
 ORDER BY ?shared_symptom
 ```
 
-3 row(s) in 2.8 ms.
+3 row(s) in 2.2 ms.
 
 | shared_symptom |
 |---|
@@ -600,7 +604,7 @@ SELECT ?image ?severity WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 784.5 ms.
+0 row(s) in 577.0 ms.
 
 **What the severity levels are used for in v0.7.0-dev**
 
@@ -612,7 +616,7 @@ SELECT ?severity ?recommends WHERE {
 ORDER BY ?severity
 ```
 
-4 row(s) in 5.4 ms.
+4 row(s) in 2.9 ms.
 
 | severity | recommends |
 |---|---|
@@ -639,7 +643,7 @@ SELECT ?image ?symptom_a ?symptom_b WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 145.4 ms.
+0 row(s) in 102.3 ms.
 
 **How many symptoms each annotated image captures**
 
@@ -653,7 +657,7 @@ GROUP BY ?symptoms_per_image
 ORDER BY ?symptoms_per_image
 ```
 
-1 row(s) in 109.2 ms.
+1 row(s) in 90.6 ms.
 
 | symptoms_per_image | images |
 |---|---|
@@ -679,11 +683,11 @@ WHERE {
 GROUP BY ?image_evidence
 ```
 
-2 row(s) in 12412.5 ms.
+2 row(s) in 9387.9 ms.
 
 | image_evidence | symptoms |
 |---|---|
-| no image evidence | 38 |
+| no image evidence | 40 |
 | has image evidence | 2 |
 
 **The symptoms with no image evidence at all**
@@ -697,7 +701,7 @@ SELECT ?symptom WHERE {
 ORDER BY ?symptom
 ```
 
-38 row(s) in 6641.9 ms.
+40 row(s) in 4974.7 ms.
 
 | symptom |
 |---|
@@ -709,7 +713,7 @@ ORDER BY ?symptom
 | rice:Dark_Green_Erect_Leaf |
 | rice:Delayed_Maturity |
 | rice:Discolored_Panicle |
-| *… 30 more rows* |
+| *… 32 more rows* |
 
 ### CQ-A22 - Which disease described in the literature matches the condition annotated in a given image?
 
@@ -730,7 +734,7 @@ SELECT ?image ?condition ?symptom ?pathogen WHERE {
 ORDER BY ?symptom
 ```
 
-4 row(s) in 234.2 ms.
+4 row(s) in 183.2 ms.
 
 | image | condition | symptom | pathogen |
 |---|---|---|---|
@@ -749,7 +753,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 412.1 ms.
+1 row(s) in 406.1 ms.
 
 | images_with_literature |
 |---|
@@ -774,7 +778,7 @@ SELECT ?image ?condition ?treatment WHERE {
 ORDER BY ?treatment
 ```
 
-4 row(s) in 2154.0 ms.
+4 row(s) in 1342.4 ms.
 
 | image | condition | treatment |
 |---|---|---|
@@ -792,7 +796,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?images_with_treatment) WHERE {
 }
 ```
 
-1 row(s) in 334.4 ms.
+1 row(s) in 303.1 ms.
 
 | images_with_treatment |
 |---|
@@ -816,7 +820,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-3747 row(s) in 83.1 ms.
+3747 row(s) in 68.3 ms.
 
 | image | url |
 |---|---|
@@ -839,7 +843,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?contradictory_images) WHERE {
 }
 ```
 
-1 row(s) in 24.3 ms.
+1 row(s) in 18.7 ms.
 
 | contradictory_images |
 |---|

@@ -138028,7 +138028,7 @@
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#White_Ear">
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Panicle that emerges white and sterile because stem borer larva has cut the stem internally at reproductive stage.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Panicle that emerges white and sterile (whitehead). Caused by stem borer larvae cutting the stem internally at reproductive stage, or by neck and node blast.</rdfs:comment>
     <rdfs:label xml:lang="en">white ear</rdfs:label>
     <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
   </rdf:Description>
@@ -150288,7 +150288,7 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
     <rdfs:label xml:lang="en">empty grain</rdfs:label>
-    <rdfs:comment xml:lang="en">Grain that fails to fill (chaffy grain); a primary yield loss symptom in bacterial panicle blight.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Grain that fails to fill (chaffy grain); a yield-loss symptom of several problems, among them bacterial panicle blight, tungro, rice bug feeding and nutrient deficiencies.</rdfs:comment>
     <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Grain"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_blast_PDD02177">
@@ -172914,7 +172914,7 @@
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#Sterile_Panicle">
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:comment xml:lang="en">Panicles that fail to set grain; result of downy mildew infection at reproductive stage.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Panicles that fail to set grain; seen after downy mildew infection at reproductive stage and in tungro-infected plants.</rdfs:comment>
     <rdfs:label xml:lang="en">sterile panicle</rdfs:label>
     <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
   </rdf:Description>
@@ -399327,5 +399327,123 @@
   <rdf:Description rdf:nodeID="N84286e84a0dc42da858c9539061812c6">
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_zinc-factsheet_p6"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+  </rdf:Description>
+  <!-- curation candidates from text grounding 2026-10-22 -->
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Node_Lesion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">node lesion</rdfs:label>
+    <rdfs:comment xml:lang="en">Blackish to grayish-brown lesion on a stem node, often in a banded pattern; an infected node can break the culm. A symptom of node blast (Magnaporthe oryzae).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Tiller_Death">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">tiller death</rdfs:label>
+    <rdfs:comment xml:lang="en">Young tillers destroyed as a disease spreads from infected sheaths and leaves, as in sheath blight. Unlike dead heart, not caused by a stem borer cutting the central tiller.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rice_Blast_Disease">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#White_Ear"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NtextCuration20261022a1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Blast_Disease"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#White_Ear"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-node-neck"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Blast (node and neck). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-node-neck (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_blast-node-neck_p8"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Found by assertion-to-passage grounding (2026-10-22) as a fact the graph lacked; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Node_Lesion">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Stem"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NtextCuration20261022a2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Node_Lesion"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Stem"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-node-neck"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Blast (node and neck). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-node-neck (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_blast-node-neck_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Found by assertion-to-passage grounding (2026-10-22) as a fact the graph lacked; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rice_Blast_Disease">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Node_Lesion"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NtextCuration20261022a3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Blast_Disease"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Node_Lesion"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-node-neck"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Blast (node and neck). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-node-neck (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_blast-node-neck_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Found by assertion-to-passage grounding (2026-10-22) as a fact the graph lacked; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Tiller_Death">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Tiller"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NtextCuration20261022a4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Tiller_Death"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Tiller"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/sheath-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Sheath blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/sheath-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_sheath-blight_p1"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Found by assertion-to-passage grounding (2026-10-22) as a fact the graph lacked; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Sheath_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Tiller_Death"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NtextCuration20261022a5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Sheath_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Tiller_Death"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/sheath-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Sheath blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/sheath-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_sheath-blight_p1"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Found by assertion-to-passage grounding (2026-10-22) as a fact the graph lacked; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rice_Tungro_Disease">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Empty_Grain"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NtextCuration20261022a6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Tungro_Disease"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Empty_Grain"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p1"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Found by assertion-to-passage grounding (2026-10-22) as a fact the graph lacked; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rice_Tungro_Disease">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Sterile_Panicle"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NtextCuration20261022a7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Tungro_Disease"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Sterile_Panicle"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p14"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Found by assertion-to-passage grounding (2026-10-22) as a fact the graph lacked; approved by the curator.</rdfs:comment>
   </rdf:Description>
 </rdf:RDF>

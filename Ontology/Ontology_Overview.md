@@ -55,13 +55,13 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **324,616** (asserted) / **628,516** (OWL RL) | 0.7.0-dev, measured 2026-10-22. +303,900 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Total triples** | **324,701** (asserted) / **628,650** (OWL RL) | 0.7.0-dev, measured 2026-10-22. +303,949 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
 | **Named classes** | 31 | 30 in the `rice:` namespace — 29 primitive (incl. `TextDocument` and `TextPassage`, 2026-10-22; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment`, `ResistanceLevel`, `TrapObservation`, `SpectralBand` and `BandImage`, 0.7.0-dev) and 1 defined class (`SymptomaticObservation`) — plus `dcat:Dataset`. Recounted 2026-10-15; the row read 23 although the version table already gave 26 |
 | **Object properties** | 44 | `hasBandImage` and `ofBand` added 2026-10-14; `hasAffectedPart` added 2026-10-21, entailed by property chains, range only; `inDocument` and `mentions` (domain only) added 2026-10-22. All others declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `assessedVariety`/`hasResistanceAssessment`, `assessedAgainst`, `hasResistanceLevel`, `ofVariety`, `hasSpatialLocation` (0.7.0-dev) |
 | **Datatype properties** | 32 | `startOffset`, `endOffset`, `textSha256`, `sectionTitle`, `passageText` (text layer, 2026-10-22; `passageText` asserted only in text modules), `centreWavelengthNm`, `hasCatchCount`, `recordedUntilDate`, `testedPopulation`, `testedLocation`, `reportedYear`, `plantAgeDays`, `sourceLabel`, `environmentCondition`, the sensor / remote-sensing measurements, `recordedAtDate`, `hasLatitude`, `hasLongitude`, `hasElectricalConductivity` and `hasOrganicCarbon` added in 0.7.0-dev |
 | **Annotation properties** | 16 | Includes `rice:evidenceType`, `rice:hasEvidencePassage` and `rice:evidencePassageCheck` (2026-10-22), PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
-| **Named individuals** | **36,618** | 19 `TextDocument` + 296 `TextPassage` (2026-10-22); 21,149 image individuals (Paddy Doctor 16,225, Dhan-Shomadhan 1,106, YUKE-WBC 66, stem borer symptom images 2,096, Kaggle nutrient deficiency 1,156, Netrokona potassium 500) + 11,533 trap observations + 472 remote-sensing observations + 2,360 band images + 186 sensor observations + 418 field locations + 9 dataset metadata + 176 domain entities (5 `SpectralBand`, 10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 4 `PathogenGroup`, 6 `AbioticFactor`, 12 `Variety`, 15 `ResistanceAssessment`, 3 `ResistanceLevel`) |
-| **`owl:Axiom` (provenance)** | **377** | **377 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev); the 15 `ResistanceAssessment` individuals carry their provenance directly. v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
+| **Named individuals** | **36,620** | 19 `TextDocument` + 296 `TextPassage` and 2 symptoms (2026-10-22); 21,149 image individuals (Paddy Doctor 16,225, Dhan-Shomadhan 1,106, YUKE-WBC 66, stem borer symptom images 2,096, Kaggle nutrient deficiency 1,156, Netrokona potassium 500) + 11,533 trap observations + 472 remote-sensing observations + 2,360 band images + 186 sensor observations + 418 field locations + 9 dataset metadata + 176 domain entities (5 `SpectralBand`, 10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 4 `PathogenGroup`, 6 `AbioticFactor`, 12 `Variety`, 15 `ResistanceAssessment`, 3 `ResistanceLevel`) |
+| **`owl:Axiom` (provenance)** | **384** | **384 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev); the 15 `ResistanceAssessment` individuals carry their provenance directly. v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (19 classes; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment` and `ResistanceLevel` added in 0.7.0-dev) |
 | **Reasoner Consistency** | **Consistent** | 0.7.0-dev checked in **HermiT** on 2026-09-17 with `-k` on a space-free copy, with injected-contradiction controls (`Rice` as Plant + Disease; `Leaf_Blade` as PlantPart + Disease; `Semi_Persistent` as TransmissionMode + Disease; `Chemical_Control_Category` as ManagementCategory + Disease; `Zinc_Deficiency` as AbioticFactor + Pathogen; `Salinity` as AbioticFactor + Pathogen; `IR64` as Variety + Disease; a `ResistanceAssessment` also typed Variety; `assessedAgainst` a Treatment) that all report inconsistent; v0.6 verified in HermiT & Pellet |
@@ -98,7 +98,7 @@ The 10,564 individuals in the knowledge graph are categorized by domain layer:
 | | `ResistanceLevel` | 3 | `Resistant_Reaction`, `Moderately_Resistant_Reaction`, `Susceptible_Reaction`; 0.7.0-dev |
 | | `HealthStatus` | 1 | `Normal_Health` (healthy reference baseline) |
 | | `Plant` | 1 | `Rice` (*Oryza sativa*) host individual |
-| **Phenotype & Environment** | `Symptom` | 40 | Visual symptoms (lesions, streaks, rotting, discoloration, dead tiller); 9 added in 0.7.0-dev for nutrient deficiencies, 3 for iron toxicity and salinity |
+| **Phenotype & Environment** | `Symptom` | 42 | `Node_Lesion` and `Tiller_Death` added 2026-10-22 from text grounding; Visual symptoms (lesions, streaks, rotting, discoloration, dead tiller); 9 added in 0.7.0-dev for nutrient deficiencies, 3 for iron toxicity and salinity |
 | | `PlantPart` | 10 | Organs on which symptoms appear (Whole_Plant, Tiller, Leaf, Leaf_Blade, Leaf_Sheath, Panicle, Panicle_Neck, Grain, Root, Stem); 0.7.0-dev |
 | | `GrowthStage` | 7 | Rice phenological stages (Seedling, Tillering, Flowering, etc.) |
 | | `EnvironmentalFactor` | 9 | Predisposing weather, canopy, and soil conditions |
@@ -125,9 +125,9 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | | `transmits` | 2 | `Pest` → `Pathogen` | CABI / Hibino (1996) |
 | | `hasTransmissionMode` | 2 | `Pathogen` → `TransmissionMode` | Wang et al. (2022); 0.7.0-dev |
 | | `hasPathogenGroup` | 10 | `Pathogen` → `PathogenGroup` | NCBI Taxonomy lineages read live 2026-09-23 (`ontology-derived`); 0.7.0-dev |
-| **Symptomatology & Risk Factors**| `indicatedBy` | 71 | `Disease ⊔ Pest` → `Symptom` | IRRI Rice Doctor / CABI / IRAC (2025); IRRI nutrient fact sheets (19) and toxicity fact sheets (8), 0.7.0-dev |
+| **Symptomatology & Risk Factors**| `indicatedBy` | 76 | `Disease ⊔ Pest` → `Symptom` | IRRI Rice Doctor / CABI / IRAC (2025); IRRI nutrient fact sheets (19) and toxicity fact sheets (8), 0.7.0-dev |
 | | `increaseRiskOf` | 35 | `EnvironmentalFactor` → `Disease ⊔ Pest` | CABI CPC (29) / IRRI RKB (5) |
-| **Plant Anatomy** | `affectsPlantPart` | 41 | `Symptom` → `PlantPart` | IRRI Rice Knowledge Bank fact sheets (13 pest/disease + 4 nutrient + 3 toxicity); CABI downy mildew datasheet (1, 0.7.0-dev) — every `Symptom` now carries a plant part |
+| **Plant Anatomy** | `affectsPlantPart` | 43 | `Symptom` → `PlantPart` | IRRI Rice Knowledge Bank fact sheets (13 pest/disease + 4 nutrient + 3 toxicity); CABI downy mildew datasheet (1, 0.7.0-dev) — every `Symptom` now carries a plant part |
 | | `partOf` | 2 | `PlantPart` → `PlantPart` | Plant Ontology via EBI OLS4 (`ontology-derived`) |
 | **Control & Management** | `controlledBy` | 50 | `Disease ⊔ Pest` → `Treatment` | CABI (41) / Gallagher et al. (2002, FAO) (1); IRRI zinc fact sheet (2), nitrogen, phosphorus and potassium fact sheets (1 each), 0.7.0-dev |
 | | `recommends` | 17 | `Disease ⊔ Pest ⊔ SeverityLevel` → `ManagementAction` | CABI; the 6 severity → action assertions were removed in 0.7.0-dev (unsourced) |
@@ -135,7 +135,7 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | | `requires` | 5 | `Treatment` → `GrowthStage` | IRRI RKB (`Crop_Sanitation requires Harvest_Stage` re-sourced from BBPOPT to the IRRI tungro sheet in 0.7.0-dev) |
 | | `hasManagementCategory` | 6 | `Treatment` → `ManagementCategory` | IRRI RKB (2) / AGROVOC definitions (4, `ontology-derived`); 0.7.0-dev |
 | **Variety** | `varietyOf` | 12 | `Variety` → `Plant` | Mackill & Khush (2018) (3); Bagariang et al. (2021) (2); Biswas et al. (2021) (1); Paddy Doctor metadata (6, `dataset-derived`); 0.7.0-dev |
-| **Total domain assertions** | | **377** | *(0.7.0-dev, measured 2026-10-13 with rdflib; plus 21,149 `annotatedAs`, 2,544 `captures`, 3,977 `ofVariety`, 10 `sourceDatasetLabel`, 17 `eppoCode`, and 15 `ResistanceAssessment` individuals — 15 each of `assessedVariety`, `assessedAgainst`, `hasResistanceLevel` — whose provenance sits on the individual: Mackill & Khush 10, Bagariang et al. 4, Biswas et al. 1)* | **377 / 377 reified** |
+| **Total domain assertions** | | **384** | *(0.7.0-dev, measured 2026-10-22 after the curation candidates; before that 377 on 2026-10-13 with rdflib; plus 21,149 `annotatedAs`, 2,544 `captures`, 3,977 `ofVariety`, 10 `sourceDatasetLabel`, 17 `eppoCode`, and 15 `ResistanceAssessment` individuals — 15 each of `assessedVariety`, `assessedAgainst`, `hasResistanceLevel` — whose provenance sits on the individual: Mackill & Khush 10, Bagariang et al. 4, Biswas et al. 1)* | **377 / 377 reified** |
 
 > *Note on inverse properties:* All twelve inverse directions (`indicates`, `detectedBy`, `causedBy`, `prevents`, `controls`, `threatens`, etc.) and `detects` are declared in the schema for reasoning/querying symmetry.
 
@@ -174,13 +174,37 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | 0.7.0-dev (+ SOSA alignment of the observation layer) | 2026-10-19 | 321,469 (622,526 OWL RL) | 29 | 41 | 36,303 | 377 axioms / 377 assertions + 15 assessments |
 | 0.7.0-dev (+ RiceDO v2 / TreatO v2 alignment) | 2026-10-19 | 321,492 (622,573 OWL RL) | 29 | 41 | 36,303 | 377 axioms / 377 assertions + 15 assessments |
 | 0.7.0-dev (+ `hasAffectedPart` property chain) | 2026-10-21 | 321,506 (622,666 OWL RL) | 29 | 42 | 36,303 | 377 axioms / 377 assertions + 15 assessments |
-| **0.7.0-dev (+ text layer, IRRI passages as evidence — in development)** | **2026-10-22** | **324,616** (628,516 OWL RL) | **31** | **44** | **36,618** | **377 axioms / 377 assertions + 15 assessments; 77 axioms with an evidence passage** |
+| 0.7.0-dev (+ text layer, IRRI passages as evidence) | 2026-10-22 | 324,616 (628,516 OWL RL) | 31 | 44 | 36,618 | 377 axioms / 377 assertions + 15 assessments; 77 axioms with an evidence passage |
+| **0.7.0-dev (+ 7 assertions found by text grounding — in development)** | **2026-10-22** | **324,701** (628,650 OWL RL) | **31** | **44** | **36,620** | **384 axioms / 384 assertions + 15 assessments; 84 axioms with an evidence passage** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-10-22: 0.7.0-dev — 7 assertions the text grounding found missing; 2 new symptoms
+
+Grounding the entailed `hasAffectedPart` pairs (`Worklog/2026-10-20_text_pilot/RESULTS.md`) turned up statements in the IRRI fact sheets that the graph lacked. The curator reviewed 5 candidates (`out/curation_candidates.csv`) and approved all of them. Pre-edit file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-curation-candidates.rdf`. Script: `Worklog/2026-10-22_text_layer/scripts/add_curation_candidates.py`.
+
+- **New symptoms:**
+  - `Node_Lesion` on `Stem` (node blast);
+  - `Tiller_Death` on `Tiller` (sheath blight). It is kept apart from `Dead_Tiller`, whose comment ties it to stem borers.
+- **New assertions:**
+  - `Rice_Blast_Disease indicatedBy White_Ear`;
+  - `Rice_Blast_Disease indicatedBy Node_Lesion`;
+  - `Sheath_Blight indicatedBy Tiller_Death`;
+  - `Rice_Tungro_Disease indicatedBy Empty_Grain`;
+  - `Rice_Tungro_Disease indicatedBy Sterile_Panicle`;
+  - plus the two `affectsPlantPart` assertions of the new symptoms.
+  
+  Each one has an `owl:Axiom` with its IRRI source, citation, `evidenceType` literature-curated, `hasEvidencePassage` and `evidencePassageCheck` human-reviewed.
+- **Comments generalised:** `White_Ear` (stem borer or neck and node blast), `Empty_Grain` and `Sterile_Panicle`. Each had named a single cause.
+- **Checks:**
+  - HermiT consistent;
+  - 384 axioms = 384 domain assertions, no orphans or duplicates;
+  - benchmark unchanged (21 / 4 / 1 / 1); elicited CQs unchanged (10 / 7 / 2);
+  - 324,701 asserted / 628,650 OWL RL triples.
 
 ### 2026-10-22: 0.7.0-dev — text layer; IRRI passages linked as evidence to 77 curated assertions
 
