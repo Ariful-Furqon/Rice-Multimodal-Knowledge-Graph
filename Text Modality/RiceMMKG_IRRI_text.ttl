@@ -1,0 +1,685 @@
+@prefix rice: <https://w3id.org/ricemmkg#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/ricemmkg/text/irri-rkb> a owl:Ontology ;
+    dcterms:title "Rice MMKG text module: IRRI Rice Knowledge Bank passages"@en ;
+    dcterms:license <https://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    dcterms:rightsHolder "International Rice Research Institute (IRRI)" ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets> ;
+    dcterms:description "Wording of the rice:TextPassage individuals declared in Rice MMKG.rdf, taken from IRRI Rice Knowledge Bank fact sheets (pages saved 2026-10-20). Licensed CC BY-NC-SA 3.0 like the source: attribute IRRI, non-commercial use only, share alike. Offsets and sha256 in the core graph refer to the plain text produced by Text Modality/scripts/irri_to_text.py."@en .
+
+rice:IRRI_RKB_armyworms_p1 rice:passageText """A single armyworm egg mass contains hundreds of eggs. Each female lays 800−1000 eggs during its lifetime of about one week."""@en .
+rice:IRRI_RKB_armyworms_p2 rice:passageText """Armyworm feeds on rice by cutting off leaves and young seedlings at the plant's base. They can also cut off rice panicles from base."""@en .
+rice:IRRI_RKB_armyworms_p3 rice:passageText """Adult armyworms survive better and produce more eggs when the temperature is at 15°C maximum, and when plants are naturally fertilized. Periods of drought followed by heavy rains, and the presence of alternate hosts also sustain the development of armyworms."""@en .
+rice:IRRI_RKB_armyworms_p4 rice:passageText """Armyworms are nocturnal.
+
+The larvae usually feed in the upper portion of the rice canopy on cloudy days or at night; while the adult feeds, mates, and migrates at night and rests in daytime at the base of the plant."""@en .
+rice:IRRI_RKB_armyworms_p5 rice:passageText """In dryland fields, armyworm pupa can be found in the soil or at the base of the rice plants. In wetlands, they pupate on the plants or on grassy areas along the field borders."""@en .
+rice:IRRI_RKB_armyworms_p6 rice:passageText """Check for feeding damage.
+
+Armyworms feed on leaf tips and along leaf margins. When they eat whole leaves, they can remove them completely or leave only the midribs."""@en .
+rice:IRRI_RKB_armyworms_p7 rice:passageText """Armyworm damage can be mistaken for cutworm feeding. The characteristic form of armyworm damage is leaf removal. To confirm, check for the presence of the insect and its egg mass."""@en .
+rice:IRRI_RKB_armyworms_p8 rice:passageText """| |
+
+Armyworm
+
+on emerging panicle | Large sections of leaf blades removed |"""@en .
+rice:IRRI_RKB_armyworms_p9 rice:passageText """The rice armyworm can be a problem at all stages of the rice crop.
+
+Yield losses can occur when the population is high. It becomes very destructive that it can totally damage the host plant."""@en .
+rice:IRRI_RKB_armyworms_p10 rice:passageText """During an outbreak, armyworms become highly abundant and can move in large groups from field to field to feed and attack the crops."""@en .
+rice:IRRI_RKB_armyworms_p11 rice:passageText """Flooding seedbeds is the best defense against armyworms.
+
+To prevent armyworm infestation:
+
+- Establish seedbeds far from large areas of weeds."""@en .
+rice:IRRI_RKB_armyworms_p12 rice:passageText """- Plow fallow land.
+
+- Clean the field and remove weeds.
+
+To control:
+
+- Place ashes in the trenches to make it more difficult for the caterpillars to escape."""@en .
+rice:IRRI_RKB_armyworms_p13 rice:passageText """- Place branches around fields to give armyworms a place to congregate where they are easily collected by hand.
+
+- Avoid killing natural enemies of armyworms such as wasps and spiders."""@en .
+rice:IRRI_RKB_armyworms_p14 rice:passageText """Insecticides should be the last resort for armyworm control.
+
+Content expert: Jo Catindig (email: j.catindig@irri.org)"""@en .
+rice:IRRI_RKB_bacterial-blight_p1 rice:passageText """Bacterial blight is caused by Xanthomonas oryzae pv. oryzae.
+
+It causes wilting of seedlings and yellowing and drying of leaves."""@en .
+rice:IRRI_RKB_bacterial-blight_p2 rice:passageText """The disease is most likely to develop in areas that have weeds and stubbles of infected plants. It can occur in both tropical and temperate environments, particularly in irrigated and rainfed lowland areas. In general, the disease favors temperatures at 25−34°C, with relative humidity above 70%."""@en .
+rice:IRRI_RKB_bacterial-blight_p3 rice:passageText """It is commonly observed when strong winds and continuous heavy rains occur, allowing the disease-causing bacteria to easily spread through ooze droplets on lesions of infected plants."""@en .
+rice:IRRI_RKB_bacterial-blight_p4 rice:passageText """Bacterial blight can be severe in susceptible rice varieties under high nitrogen fertilization."""@en .
+rice:IRRI_RKB_bacterial-blight_p5 rice:passageText """Check for wilting and yellowing of leaves, or wilting of seedlings (also called kresek).
+
+On seedlings, infected leaves turn grayish green and roll up. As the disease progresses, the leaves turn yellow to straw-colored and wilt, leading whole seedlings to dry up and die."""@en .
+rice:IRRI_RKB_bacterial-blight_p6 rice:passageText """Kresek on seedlings may sometimes be confused with early rice stem borer damage.
+
+To distinguish kresek symptoms from stem borer damage, squeeze the lower end of infected seedlings between the fingers. Kresek symptoms should show yellowish bacterial ooze coming out of the cut ends. Unlike plants infested with stem borer, rice plants with kresek are not easily pulled out from soil."""@en .
+rice:IRRI_RKB_bacterial-blight_p7 rice:passageText """| | |
+
+Lesions caused by bacterial blight |
+
+Check for lesions:
+
+- On older plants, lesions usually develop as water-soaked to yellow-orange stripes on leaf blades or leaf tips or on mechanically injured parts of leaves. Lesions have a wavy margin and progress toward the leaf base."""@en .
+rice:IRRI_RKB_bacterial-blight_p8 rice:passageText """- On young lesions, bacterial ooze resembling a milky dew drop can be observed early in the morning. The bacterial ooze later on dries up and becomes small yellowish beads underneath the leaf."""@en .
+rice:IRRI_RKB_bacterial-blight_p9 rice:passageText """| |
+
+Bacterial ooze | Dried up bacterial ooze |
+
+- Old lesions turn yellow to grayish white with black dots due to the growth of various saprophytic fungi. On severely infected leaves, lesions may extend to the leaf sheath."""@en .
+rice:IRRI_RKB_bacterial-blight_p10 rice:passageText """To quickly diagnose bacterial blight on leaf:
+
+- cut a young lesion across and place in a transparent glass container with clear water"""@en .
+rice:IRRI_RKB_bacterial-blight_p11 rice:passageText """- after a few minutes, hold the container against light and observe for thick or turbid liquid coming from the cut end of the leaf"""@en .
+rice:IRRI_RKB_bacterial-blight_p12 rice:passageText """Bacterial blight is one of the most serious diseases of rice. The earlier the disease occurs, the higher the yield loss."""@en .
+rice:IRRI_RKB_bacterial-blight_p13 rice:passageText """Yield loss due to bacterial blight can be as much as 70% when susceptible varieties are grown, in environments favorable to the disease."""@en .
+rice:IRRI_RKB_bacterial-blight_p14 rice:passageText """When plants are infected at booting stage, bacterial blight does not affect yield but results in poor quality grains and a high proportion of broken kernels."""@en .
+rice:IRRI_RKB_bacterial-blight_p15 rice:passageText """Planting resistant varieties has been proven to be the most efficient, most reliable, and cheapest way to control bacterial blight."""@en .
+rice:IRRI_RKB_bacterial-blight_p16 rice:passageText """Other disease control options include:
+
+- Use balanced amounts of plant nutrients, especially nitrogen.
+
+- Ensure good drainage of fields (in conventionally flooded crops) and nurseries."""@en .
+rice:IRRI_RKB_bacterial-blight_p17 rice:passageText """- Keep fields clean. Remove weed hosts and plow under rice stubble, straw, rice ratoons and volunteer seedlings, which can serve as hosts of bacteria."""@en .
+rice:IRRI_RKB_bacterial-blight_p18 rice:passageText """- Allow fallow fields to dry in order to suppress disease agents in the soil and plant residues.
+
+Content experts: CM Vera Cruz (email: c.veracruz@irri.org), I Ona, NP Castilla, and R Opulencia"""@en .
+rice:IRRI_RKB_bacterial-leaf-streak_p1 rice:passageText """Bacterial leaf streak is caused by Xanthomonas oryzae pv. oryzicola.
+
+Infected plants show browning and drying of leaves. Under severe conditions, this could lead to reduced grain weight due to loss of photosynthetic area."""@en .
+rice:IRRI_RKB_bacterial-leaf-streak_p2 rice:passageText """Bacterial leaf streak occurs in areas with high temperature and high humidity.
+
+It is transmitted through seeds and infected stubbles to the next planting season. It can occur in fields where X. oryzae pv. oryzicola bacteria is present on leaves, in the water, or in the debris left after harvest."""@en .
+rice:IRRI_RKB_bacterial-leaf-streak_p3 rice:passageText """Particularly, the disease is common in tropical and subtropical regions of Asia, Africa (including Madagascar), South America, and Australia."""@en .
+rice:IRRI_RKB_bacterial-leaf-streak_p4 rice:passageText """It can affect the plant during early stages, from maximum tillering to panicle initiation. Mature rice plants can easily recover from leaf streak and have minimal grain yield losses."""@en .
+rice:IRRI_RKB_bacterial-leaf-streak_p5 rice:passageText """Check for lesions:
+
+- Symptoms initially appear as small, water-soaked, linear lesions between leaf veins. These streaks are initially dark green and later become light brown to yellowish gray."""@en .
+rice:IRRI_RKB_bacterial-leaf-streak_p6 rice:passageText """- The lesions are translucent when held against the light.
+
+- Entire leaves may become brown and die when the disease is very severe."""@en .
+rice:IRRI_RKB_bacterial-leaf-streak_p7 rice:passageText """- Under humid conditions, yellow droplets of bacterial ooze, which contain masses of bacterial cells, may be observed on the surface of leaves."""@en .
+rice:IRRI_RKB_bacterial-leaf-streak_p8 rice:passageText """| | |
+
+Linear lesions | Enlarged lesions | Water-soaked lesions |
+
+Bacterial leaf streak may be confused with narrow brown spot."""@en .
+rice:IRRI_RKB_bacterial-leaf-streak_p9 rice:passageText """To confirm:
+
+- leaf streak lesions are usually thinner than those of narrow brown spot
+
+- narrow brown spot lesions are not translucent, nor do they produce bacterial ooze"""@en .
+rice:IRRI_RKB_bacterial-leaf-streak_p10 rice:passageText """When the advancing part of the streaks are cut and placed in a glass with water, a mass of bacterial cells can usually be seen oozing out of the leaf, which makes the water turbid after five minutes."""@en .
+rice:IRRI_RKB_bacterial-leaf-streak_p11 rice:passageText """Bacterial leaf streak may also be confused with bacterial blight.
+
+Blight and streak symptoms look the same at the early stage of infection, particularly if lesions of both diseases occur on the same leaf. Tests (i.e., biochemical, pathogenicity, or serological) can be done to identify the disease."""@en .
+rice:IRRI_RKB_bacterial-leaf-streak_p12 rice:passageText """Based on reported cases, yield loss caused by bacterial leaf streak can range from 8−17% in the wet season, and 1−3 % in the dry season."""@en .
+rice:IRRI_RKB_bacterial-leaf-streak_p13 rice:passageText """To prevent and effectively manage bacterial leaf streak:
+
+- Plant resistant varieties.
+
+- Treat seeds with hot water.
+
+- Keep fields clean—remove weed hosts and plow under rice stubble, straw, rice ratoons, and volunteer seedlings, which may be infected by the bacteria."""@en .
+rice:IRRI_RKB_bacterial-leaf-streak_p14 rice:passageText """- Use balanced amounts of plant nutrients, especially nitrogen.
+
+- Ensure good drainage of fields (in conventionally flooded crops) and nurseries."""@en .
+rice:IRRI_RKB_bacterial-leaf-streak_p15 rice:passageText """- Drain the field during severe flood.
+
+- Dry the field during the fallow period to kill the bacteria in the soil and in plant residues."""@en .
+rice:IRRI_RKB_bacterial-leaf-streak_p16 rice:passageText """- In cases of severe infection, when yield may be affected, a copper-based fungicide applied at heading can be effective in controlling the disease."""@en .
+rice:IRRI_RKB_bacterial-leaf-streak_p17 rice:passageText """Content experts: Adam Sparks (email: a.sparks@irri.org), NP Castilla, and CM Vera Cruz"""@en .
+rice:IRRI_RKB_blast-leaf-collar_p1 rice:passageText """Blast is caused by the fungus Magnaporthe oryzae. It can affect all above ground parts of a rice plant: leaf, collar, node, neck, parts of panicle, and sometimes leaf sheath."""@en .
+rice:IRRI_RKB_blast-leaf-collar_p2 rice:passageText """Blast can occur wherever blast spores are present.
+
+It occurs in areas with low soil moisture, frequent and prolonged periods of rain shower, and cool temperature in the daytime. In upland rice, large day-night temperature differences that cause dew formation on leaves and overall cooler temperatures favor the development of the disease."""@en .
+rice:IRRI_RKB_blast-leaf-collar_p3 rice:passageText """Rice can have blast in all growth stages. However, leaf blast incidence tends to lessen as plants mature and develop adult plant resistance to the disease."""@en .
+rice:IRRI_RKB_blast-leaf-collar_p4 rice:passageText """Check the leaf and collar for lesions:
+
+- Initial symptoms appear as white to gray-green lesions or spots, with dark green borders."""@en .
+rice:IRRI_RKB_blast-leaf-collar_p5 rice:passageText """- Older lesions on the leaves are elliptical or spindle-shaped and whitish to gray centers with red to brownish or necrotic border."""@en .
+rice:IRRI_RKB_blast-leaf-collar_p6 rice:passageText """Check for other symptoms:
+
+- Some resemble diamond shape, wide in the center and pointed toward either ends.
+
+- Lesions can enlarge and coalesce, growing together, to kill the entire leaves."""@en .
+rice:IRRI_RKB_blast-leaf-collar_p7 rice:passageText """| | | |
+
+Collar blast | Old lesions | Spindle-shaped lesions | Diamond-shaped lesions |
+
+Blast lesions can commonly be confused with Brown Spot lesions."""@en .
+rice:IRRI_RKB_blast-leaf-collar_p8 rice:passageText """Leaf blast lesions are usually elongated and pointed at each end, while brown spot lesions tend to be more round, brown in color and have a yellow halo surrounding the lesion."""@en .
+rice:IRRI_RKB_blast-leaf-collar_p9 rice:passageText """Rice blast is one of the most destructive diseases of rice. A leaf blast infection can kill seedlings or plants up to the tillering stage. At later growth stages, a severe leaf blast infection reduces leaf area for grain fill, reducing grain yield."""@en .
+rice:IRRI_RKB_blast-leaf-collar_p10 rice:passageText """Leaf blast can kill rice plants at seedling stage and cause yield losses in cases of severe infection."""@en .
+rice:IRRI_RKB_blast-leaf-collar_p11 rice:passageText """The primary control option for blast is to plant resistant varieties. Contact your local agriculture office for up-to-date lists of varieties available."""@en .
+rice:IRRI_RKB_blast-leaf-collar_p12 rice:passageText """Other crop management measures can also be done, such as:
+
+- Adjust planting time. Sow seeds early, when possible, after the onset of the rainy season."""@en .
+rice:IRRI_RKB_blast-leaf-collar_p13 rice:passageText """- Split nitrogen fertilizer application in two or more treatments. Excessive use of fertilizer can increase blast intensity."""@en .
+rice:IRRI_RKB_blast-leaf-collar_p14 rice:passageText """- Flood the field as often as possible.
+
+Silicon fertilizers (e.g., calcium silicate) can be applied to soils that are silicon deficient to reduce blast. However, because of its high cost, silicon should be applied efficiently. Cheap sources of silicon, such as straws of rice genotypes with high silicon content, can be an alternative. Care should be taken to ensure that the straw is free from blast as the fungus can survive on rice straw and the use of infected straw as a silicon source can spread the disease further."""@en .
+rice:IRRI_RKB_blast-leaf-collar_p15 rice:passageText """Systemic fungicides like triazoles and strobilurins can be used judiciously for control to control blast. A fungicide application at heading can be effective in controlling the disease."""@en .
+rice:IRRI_RKB_blast-leaf-collar_p16 rice:passageText """Content experts: Adam Sparks (email: a.sparks@irri.org), NP Castilla, and CM Vera Cruz"""@en .
+rice:IRRI_RKB_blast-node-neck_p1 rice:passageText """Blast is caused by the fungus Magnaporthe oryzae. It can affect all above ground parts of a rice plant: leaf, collar, node, neck, parts of panicle, and sometimes leaf sheath."""@en .
+rice:IRRI_RKB_blast-node-neck_p2 rice:passageText """Node and neck blast commonly occur together and have similar symptoms.
+
+When a node or neck blast infection is present, it can cause plants to develop few or no grains at all."""@en .
+rice:IRRI_RKB_blast-node-neck_p3 rice:passageText """Blast can occur wherever blast spores are present.
+
+It occurs in areas with low soil moisture, frequent and prolonged periods of rain shower, and cool temperature in the daytime. In upland rice, large day-night temperature differences that cause dew formation on leaves and overall cooler temperatures favor the development of the disease."""@en .
+rice:IRRI_RKB_blast-node-neck_p4 rice:passageText """Rice can have blast in all growth stages. However, leaf blast incidence tends to lessen as plants mature and develop adult plant resistance to the disease."""@en .
+rice:IRRI_RKB_blast-node-neck_p5 rice:passageText """Check the nodes and necks for lesions and rotting:
+
+- Node infection occurs in banded pattern.
+
+- Lesions on the node are blackish to grayish brown."""@en .
+rice:IRRI_RKB_blast-node-neck_p6 rice:passageText """- Infected nodes can cause the culm or the part of the plant that holds the panicle to break.
+
+- Lesions on the neck are grayish brown and can cause girdling, making the neck and the panicle fall over."""@en .
+rice:IRRI_RKB_blast-node-neck_p7 rice:passageText """- If infection of the neck occurs before milky stage, no grain is formed, but if infection occurs later, poor quality grains are formed."""@en .
+rice:IRRI_RKB_blast-node-neck_p8 rice:passageText """| | |
+
+Neck blast | Infected panicles | Node blast |
+
+- Neck and node blast can also cause whiteheads or white panicles, similar to stem borer infection."""@en .
+rice:IRRI_RKB_blast-node-neck_p9 rice:passageText """- Whiteheads caused by stem borers can be pulled apart from the plant, the stem will separate at the point where the insect bored into it."""@en .
+rice:IRRI_RKB_blast-node-neck_p10 rice:passageText """- With neck and node blast, tugging on the stem will not result in removal."""@en .
+rice:IRRI_RKB_blast-node-neck_p11 rice:passageText """Rice blast is one of the most destructive diseases of rice. Because neck and node blast affect the panicle directly, yield losses in affected plants are very high."""@en .
+rice:IRRI_RKB_blast-node-neck_p12 rice:passageText """The primary control option for blast is to plant resistant varieties. Contact your local agriculture office for up-to-date lists of varieties available."""@en .
+rice:IRRI_RKB_blast-node-neck_p13 rice:passageText """Other crop management measures can also be done, such as:
+
+- Adjust planting time. Sow seeds early, when possible, after the onset of the rainy season."""@en .
+rice:IRRI_RKB_blast-node-neck_p14 rice:passageText """- Split nitrogen fertilizer application in two or more treatments. Excessive use of fertilizer can increase blast intensity."""@en .
+rice:IRRI_RKB_blast-node-neck_p15 rice:passageText """- Flood the field as often as possible.
+
+Silicon fertilizers (e.g., calcium silicate) can be applied to soils that are silicon deficient to reduce blast. However, because of its high cost, silicon should be applied efficiently. Cheap sources of silicon, such as straws of rice genotypes with high silicon content, can be an alternative."""@en .
+rice:IRRI_RKB_blast-node-neck_p16 rice:passageText """Care should be taken to ensure that the straw is free from blast as the fungus can survive on rice straw and the use of infected straw as a silicon source can spread the disease further."""@en .
+rice:IRRI_RKB_blast-node-neck_p17 rice:passageText """Systemic fungicides like triazoles and strobilurins can be used judiciously for control to control blast. A fungicide application at heading can be effective in controlling the disease in cases where the risk of yield losses is high."""@en .
+rice:IRRI_RKB_blast-node-neck_p18 rice:passageText """Content experts: Adam Sparks (email: a.sparks@irri.org), NP Castilla, and CM Vera Cruz"""@en .
+rice:IRRI_RKB_brown-spot_p1 rice:passageText """Brown spot is a fungal disease that infects the coleoptile, leaves, leaf sheath, panicle branches, glumes, and spikelets."""@en .
+rice:IRRI_RKB_brown-spot_p2 rice:passageText """Its most observable damage is the numerous big spots on the leaves which can kill the whole leaf. When infection occurs in the seed, unfilled grains or spotted or discolored seeds are formed."""@en .
+rice:IRRI_RKB_brown-spot_p3 rice:passageText """The disease can develop in areas with high relative humidity (86−100%) and temperature between 16 and 36°C. It is common in unflooded and nutrient-deficient soil, or in soils that accumulate toxic substances."""@en .
+rice:IRRI_RKB_brown-spot_p4 rice:passageText """For infection to occur, the leaves must be wet for 8−24 hours.
+
+The fungus can survive in the seed for more than four years and can spread from plant to plant through air. Major sources of brown spot in the field include:"""@en .
+rice:IRRI_RKB_brown-spot_p5 rice:passageText """- infected seed, which give rise to infected seedlings
+
+- volunteer rice
+
+- infected rice debris
+
+- weeds
+
+Brown spot can occur at all crop stages, but the infection is most critical during maximum tillering up to the ripening stages of the crop."""@en .
+rice:IRRI_RKB_brown-spot_p6 rice:passageText """Check for lesions:
+
+- Infected seedlings have small, circular, yellow brown or brown lesions that may girdle the coleoptile and distort primary and secondary leaves."""@en .
+rice:IRRI_RKB_brown-spot_p7 rice:passageText """- Starting at tillering stage, lesions can be observed on the leaves. They are initially small, circular, and dark brown to purple-brown."""@en .
+rice:IRRI_RKB_brown-spot_p8 rice:passageText """- Fully developed lesions are circular to oval with a light brown to gray center, surrounded by a reddish brown margin caused by the toxin produced by the fungi."""@en .
+rice:IRRI_RKB_brown-spot_p9 rice:passageText """On susceptible varieties, lesions are 5−14 mm long which can cause leaves to wilt. On resistant varieties, the lesions are brown and pinhead-sized."""@en .
+rice:IRRI_RKB_brown-spot_p10 rice:passageText """| | |
+
+Spots and lesions on leaves |
+
+Lesions on leaf sheaths are similar to those on the leaves. Infected glumes and panicle branches have dark brown to black oval spots or discoloration on the entire surface."""@en .
+rice:IRRI_RKB_brown-spot_p11 rice:passageText """Spikelets can also be infected. Infection of florets leads to incomplete or disrupted grain filling and a reduction in grain quality. The disease-causing fungi can also penetrate grains, causing 'pecky rice', a term used to describe spotting and discoloration of grains."""@en .
+rice:IRRI_RKB_brown-spot_p12 rice:passageText """In certain rice varieties, brown spot lesions can be mistaken for blast lesions. To confirm, check if spots are circular, brownish, and have a gray center surrounded by a reddish margin."""@en .
+rice:IRRI_RKB_brown-spot_p13 rice:passageText """Brown spot causes both quantity and quality losses.
+
+On average, the disease causes 5% yield loss across all lowland rice production in South and Southeast Asia. Severely infected field can have as high as 45% yield loss."""@en .
+rice:IRRI_RKB_brown-spot_p14 rice:passageText """Heavily infected seeds cause seedling blight and lead to 10−58% seedling mortality. It also affects the quality and the number of grains per panicle, and reduces the kernel weight."""@en .
+rice:IRRI_RKB_brown-spot_p15 rice:passageText """In terms of history, Brown spot was considered to be the major factor contributing to the Great Bengal Famine in 1943."""@en .
+rice:IRRI_RKB_brown-spot_p16 rice:passageText """Improving soil fertility is the first step in managing brown spot. To do this:
+
+- monitor soil nutrients regularly
+
+- apply required fertilizers"""@en .
+rice:IRRI_RKB_brown-spot_p17 rice:passageText """- for soils that are low in silicon, apply calcium silicate slag before planting
+
+Fertilizers, however, can be costly and may take many cropping seasons before becoming effective. More economical management options include:"""@en .
+rice:IRRI_RKB_brown-spot_p18 rice:passageText """- Use resistant varieties.
+
+Contact your local agriculture office for up-to-date lists of varieties available.
+
+- Use fungicides (e.g., iprodione, propiconazole, azoxystrobin, trifloxystrobin, and carbendazim) as seed treatments."""@en .
+rice:IRRI_RKB_brown-spot_p19 rice:passageText """- Treat seeds with hot water (53−54°C) for 10−12 minutes before planting, to control primary infection at the seedling stage. To increase effectiveness of treatment, pre-soak seeds in cold water for eight hours."""@en .
+rice:IRRI_RKB_brown-spot_p20 rice:passageText """Content experts: Adam Sparks (email: a.sparks@irri.org), NP Castilla, and CM Vera Cruz"""@en .
+rice:IRRI_RKB_iron-toxicity_p1 rice:passageText """Iron (Fe) toxicity leads to increased polyphenol oxidase activity, leading to the production of oxidized polyphenols. It also causes leaf bronzing and reduced root oxidation power."""@en .
+rice:IRRI_RKB_iron-toxicity_p2 rice:passageText """Fe toxicity occurs on a wide range of soils, but generally in lowland rice soils with permanent flooding during crop growth."""@en .
+rice:IRRI_RKB_iron-toxicity_p3 rice:passageText """It can happen throughout the growth cycle of the crop."""@en .
+rice:IRRI_RKB_iron-toxicity_p4 rice:passageText """Check plants for the following symptoms:
+
+- tiny brown spots on lower leaves starting from tip and spread toward the leaf base or whole leaf colored orange-yellow to brown"""@en .
+rice:IRRI_RKB_iron-toxicity_p5 rice:passageText """- spots combine on leaf interveins and leaves turn orange-brown and die
+
+- leaves narrow but often remain green
+
+- in some varieties, leaf tips become orange-yellow and dry up"""@en .
+rice:IRRI_RKB_iron-toxicity_p6 rice:passageText """- leaves appear purple-brown if Fe toxicity is severe
+
+- stunted growth, extremely limited tillering
+
+- coarse, sparse, damaged root system with a dark brown to black coating on the root surface and many dead roots"""@en .
+rice:IRRI_RKB_iron-toxicity_p7 rice:passageText """- freshly uprooted rice hills often have poor root systems with many black roots
+
+To confirm iron toxicity, send soil and plant sample to lab for Fe toxicity test."""@en .
+rice:IRRI_RKB_iron-toxicity_p8 rice:passageText """Fe toxicity can affect the rice crop throughout its growth cycle."""@en .
+rice:IRRI_RKB_iron-toxicity_p9 rice:passageText """To prevent iron toxicity:
+
+- Plant tolerant varieties.
+
+Contact your local agriculture office for an up-to-date list of available varieties."""@en .
+rice:IRRI_RKB_iron-toxicity_p10 rice:passageText """- In temperate climates where direct seeding is practiced, coat seeds with oxidants (e.g., Ca peroxide at 50−100% of seed weight)"""@en .
+rice:IRRI_RKB_iron-toxicity_p11 rice:passageText """- Delay planting until the peak in Fe2+ concentration has passed (i.e., not less than 10−20 d after flooding)
+
+- Use intermittent irrigation and avoid continuous flooding on poorly drained soils containing a large concentration of Fe and organic matter"""@en .
+rice:IRRI_RKB_iron-toxicity_p12 rice:passageText """- Carry out dry tillage after the rice harvest to enhance Fe oxidation during the fallow period, but this will require machinery (tractor)"""@en .
+rice:IRRI_RKB_iron-toxicity_p13 rice:passageText """To control:
+
+- Balance the use of fertilizers (NPK or NPK + lime)
+
+- Apply sufficient Potassium (K) fertilizer
+
+- Apply lime on acid soils, do not apply excessive amounts of organic matter (manure, straw) on soils containing large amounts of Fe and organic matter and where drainage is poor"""@en .
+rice:IRRI_RKB_iron-toxicity_p14 rice:passageText """- Use urea (less acidifying) instead of ammonium sulfate (more acidifying)
+
+There is currently no practical field management option to treat iron toxicity. Where possible,"""@en .
+rice:IRRI_RKB_iron-toxicity_p15 rice:passageText """- Apply additional K, Phosphorus, and Magnesium fertilizers
+
+- Incorporate lime in the topsoil to raise pH in acid soils"""@en .
+rice:IRRI_RKB_iron-toxicity_p16 rice:passageText """- Incorporate about 100−200 kg MnO2 ha-1 in the topsoil to decrease Fe3+ reduction
+
+- Carry out midseason drainage to remove accumulated Fe2+, at the midtillering stage (25−30 days after planting/sowing)"""@en .
+rice:IRRI_RKB_iron-toxicity_p17 rice:passageText """- Drain the field and keep it free of floodwater (but moist) for about 7−10 days to improve oxygen supply during tillering"""@en .
+rice:IRRI_RKB_iron-toxicity_p18 rice:passageText """Reference:
+
+Dobermann A, Fairhurst T. 2000. Rice: Nutrient disorders & nutrient management. Handbook series. Potash & Phosphate Institute (PPI), Potash & Phosphate Institute of Canada (PPIC) and International Rice Research Institute. 191 p. Content experts: Roland Buresh (r.buresh@irri.org) and James Quilty (j.quilty@irri.org)"""@en .
+rice:IRRI_RKB_nitrogen_p1 rice:passageText """Nitrogen is an essential plant nutrient being a component of amino acids, nucleic acids, nucleotides, chlorophyll, enzymes, and hormones. N promotes rapid plant growth and improves grain yield and grain quality through higher tillering, leaf area development, grain formation, grain filling, and protein synthesis. N is highly mobile within the plant and soil."""@en .
+rice:IRRI_RKB_nitrogen_p2 rice:passageText """Nitrogen is the most limiting element in almost all soils. Thus, proper application of N fertilizers is vital to improve crop growth and grain yields, especially in intensive agricultural systems. Insufficient and/or inappropriate fertilizer N management can be detrimental to crops and the environment. Optimal N management strategies aim at matching fertilizer N supply with actual crop demand, thus maximizing crop N uptake and reducing N losses to the environment."""@en .
+rice:IRRI_RKB_nitrogen_p3 rice:passageText """- Nitrogen deficiency symptoms. Stunted plants with small yellowish green leaves and fewer tillers; lower yield due to less panicles per unit area and less grains per panicle."""@en .
+rice:IRRI_RKB_nitrogen_p4 rice:passageText """- Occurrence of N deficiency. Almost all soils are deficient in N; coarse textured acid soils with low organic matter content (less than 0.5% organic C); acid sulfate, saline, poorly drained, and P-deficient soils with low N mineralization and biological N fixation capacity; calcareous and alkaline soils with low soil organic matter level and a high potential for ammonia volatilization."""@en .
+rice:IRRI_RKB_nitrogen_p5 rice:passageText """- How much N to apply? Inorganic fertilizer is the common source of supplemental N, and it is typically more profitable for farmers than purchased organic N fertilizers. Organic N sources available on-farm such as farmyard manure and compost can be effective and financially attractive in partially meeting the N requirement of rice. Apply 40−50 kg N/ha as inorganic fertilizer for every ton of additional grain yield over yield without N. At optimum levels of nutrition, the rice crop (straw plus grain) takes up around 16 kg N per ton of grain yield (10 kg N in grain + 6 kg N in straw)."""@en .
+rice:IRRI_RKB_nitrogen_p6 rice:passageText """- When to Apply N Fertilizers? Leaf color and crop appearance indicate the plant N status and help determine the need for N fertilizer application. See Fact Sheets on a) Leaf Color Chart (LCC) for crop need-based N management, and b) Nitrogen split applications for growth stage-based N management using the LCC."""@en .
+rice:IRRI_RKB_nitrogen_p7 rice:passageText """- Ammonium sulfate (21% N, 24% S)
+
+- Urea (46% N)
+
+- Diammonium phosphate or DAP (18% N; 44−46% P2O5).
+
+Developed with input from V Balasubramanian and M Bell"""@en .
+rice:IRRI_RKB_phosphorus_p1 rice:passageText """Phosphorous (P) is an essential plant nutrient important for root development, tillering, early flowering, and ripening. It is mobile within the plant, but not in the soil."""@en .
+rice:IRRI_RKB_phosphorus_p2 rice:passageText """- Phosphorous deficiency symptoms. Stunted dark green plants with erect leaves and reduced tillering; thin and spindly stems; delayed maturity (and no flowering at all with severe P deficiency); and high levels of unfilled grains"""@en .
+rice:IRRI_RKB_phosphorus_p3 rice:passageText """- Occurrence of P deficiency. P is often deficient in sandy soils with low organic matter content; calcareous/saline/alkaline soils; degraded lowland soils; volcanic ash soils or acid upland soils with high P fixation capacity; peat soils; and, acid sulfate soils high in active iron and aluminum."""@en .
+rice:IRRI_RKB_phosphorus_p4 rice:passageText """- How much P to apply? At optimum plant nutrition, the rice crop (straw plus grain) takes up around 6.4 kg P2O5 (2.8 kg P) per ton of grain yield (4.4 kg P2O5 in grain and 2.0 kg P2O5 in straw). Recommendations for P are based on yield goal and soil P status (see Table below) as determined by grain yield in P-omission plots (see also Fact Sheet on Nutrient Omission Plot Technique for P and K)."""@en .
+rice:IRRI_RKB_phosphorus_p5 rice:passageText """- When to apply P fertilizers? Incorporate all fertilizer P before the last soil puddling before transplanting or topdress all P within 10−15 days after direct seeding."""@en .
+rice:IRRI_RKB_phosphorus_p6 rice:passageText """P fertilizer sources and fertilizer P2O5 equivalents.
+
+Developed with input from V Balasubramanian, C Witt, RJ Buresh, and M Bell"""@en .
+rice:IRRI_RKB_planthopper_p1 rice:passageText """High population of planthoppers cause leaves to initially turn orange-yellow before becoming brown and dry and this is a condition called hopperburn that kills the plant."""@en .
+rice:IRRI_RKB_planthopper_p2 rice:passageText """BPH can also transmit Rice Ragged Stunt and Rice Grassy Stunt diseases. Neither disease can be cured."""@en .
+rice:IRRI_RKB_planthopper_p3 rice:passageText """Planthoppers can be a problem in rainfed and in irrigated wetland environments. It also occurs in areas with continuous submerged conditions in the field, high shade, and humidity."""@en .
+rice:IRRI_RKB_planthopper_p4 rice:passageText """Closed canopy of the rice plants, densely seeded crops, excessive use of nitrogen, and early season insecticide spraying also favors insect development."""@en .
+rice:IRRI_RKB_planthopper_p5 rice:passageText """Check for the presence of insect:
+
+- crescent-shaped white eggs inserted into the midrib or leaf sheath
+
+- white to brown nymphs"""@en .
+rice:IRRI_RKB_planthopper_p6 rice:passageText """- brown or white adults feeding near the base of tillers
+
+Check the field for:
+
+- hopperburn or yellowing, browning and drying of plant"""@en .
+rice:IRRI_RKB_planthopper_p7 rice:passageText """- ovipositional marks exposing the plant to fungal and bacterial infections
+
+- presence of honeydew and sooty molds in the bases of areas infected"""@en .
+rice:IRRI_RKB_planthopper_p8 rice:passageText """- plants with ragged stunt or grassy stunt virus disease
+
+Hopperburn is similar to the feeding damage or \"bugburn\" caused by the rice black bug. To confirm hopperburn caused by planthoppers, check for the presence of sooty molds at the base of the plant."""@en .
+rice:IRRI_RKB_planthopper_p9 rice:passageText """Hopperburn
+
+The feeding damage caused by planthoppers results in the yellowing of the plants. At high population density, hopperburn or complete drying of the plants is observed. At this level, crop loss may be 100%."""@en .
+rice:IRRI_RKB_planthopper_p10 rice:passageText """In field conditions, plants nearing maturity can have hopperburns if infested with about 400−500 BPH nymphs. In the 1970s and 1980s, BPH was considered a threat to rice production in Asia. BPH also transmit Rice Ragged Stunt and Rice Grassy Stunt viruses.."""@en .
+rice:IRRI_RKB_planthopper_p11 rice:passageText """At a population density of 400−500 nymphs or 200 adults per plant, WBPH can cause complete loss of rice plants. Outbreaks of WBPH were reported in Pakistan in 1978, Malaysia in 1979, and India in 1982, 1984, and 1985."""@en .
+rice:IRRI_RKB_planthopper_p12 rice:passageText """Outbreaks result from pesticides destroying natural enemies (BPH eggs hatch unchecked, and surviving BPH quickly build-up populations to damaging levels), or when longwinged planthoppers are being carried in by the wind."""@en .
+rice:IRRI_RKB_planthopper_p13 rice:passageText """To prevent outbreaks of planthopper:
+
+- Remove weeds from the field and surrounding areas.
+
+- Avoid indiscriminate use of insecticide, which destroys natural enemies."""@en .
+rice:IRRI_RKB_planthopper_p14 rice:passageText """- Use a resistant variety. Contact your local agriculture office for an up-to-date list of available varities.
+
+- Critical numbers: At a density of 1 BPH/stem or less there is still time to act in case the numbers increase."""@en .
+rice:IRRI_RKB_planthopper_p15 rice:passageText """- Look for BPH daily in the seedbed, or weekly in the field, on stems and the water surface. Check each side of the seed bed (or direct-seeded fields). For older rice plants, grasp the plant, bend it over slightly, and gently tap it near the base to see if planthoppers fall onto the water surface. For transplanted rice look at bases of 10 to 20 hills as you cross the field diagonally. There is no need to scout for BPH or WBPH beyond the milk stage."""@en .
+rice:IRRI_RKB_planthopper_p16 rice:passageText """- Use light traps (e.g., an electric bulb or kerosene lamp near a light colored wall or over a pan of water) at night when rice is prone to planthopper attack. Do not place lights near seedbeds or fields. If the light trap is inundated with hundreds of BPH, it's a signal to check your seedbed or field immediately; then scout every day for the next few weeks. If farmers monitor on a daily basis anyway, then a light trap is unnecessary."""@en .
+rice:IRRI_RKB_planthopper_p17 rice:passageText """To control planthoppers:
+
+Mechanical & physical measures
+
+- Flood the seedbed, for a day, so that only the tips of seedlings are exposed will control BPH."""@en .
+rice:IRRI_RKB_planthopper_p18 rice:passageText """- Sweep small seedbeds with a net to remove some BPH (but not eggs), particularly from dry seed beds. At high BPH densities, sweeping will not remove sufficient numbers of BPH from the base of the plant."""@en .
+rice:IRRI_RKB_planthopper_p19 rice:passageText """Biological control
+
+- If natural enemies out-number BPH the risk of hopperburn is low. Even rice already damaged by hopperburn should not be treated with insecticides if natural enemies out-number BPH. Natural enemies of BPH include water striders, mirid bugs, spiders, and various egg parasitoids."""@en .
+rice:IRRI_RKB_planthopper_p20 rice:passageText """Chemical control
+
+Only apply insecticides to the seedbed, for BPH or WBPH, if all of these conditions are met:
+
+- an average of more than one planthopper per stem,"""@en .
+rice:IRRI_RKB_planthopper_p21 rice:passageText """- on average, more planthoppers than natural enemies,
+
+- flooding the seedbed is not an option.
+
+Content expert: Jo Catindig (email: j.catindig@irri.org)"""@en .
+rice:IRRI_RKB_potassium-k_p1 rice:passageText """Potassium (K) is an essential plant nutrient that improves root growth and plant vigor, helps prevent lodging and enhances crop resistance to pests and diseases. Potassium is mobile in the plant and quite mobile in the soil."""@en .
+rice:IRRI_RKB_potassium-k_p2 rice:passageText """Potassium is often the most limiting nutrient after nitrogen (N) in high yielding rice systems. K fertilizer needs to be applied in adequate amounts in most irrigated rice fields. Other nutrients need to be applied in balanced amounts to ensure a good crop response to K fertilizer application and to achieve a healthy and productive crop."""@en .
+rice:IRRI_RKB_potassium-k_p3 rice:passageText """- Potassium deficiency symptoms. Stunted dark green plants with yellowish brown leaf margins and/or older leaves with necrotic tips and margins; leaf symptoms of K deficiency can be confused with that of Tungro disease, but Tungro occurs in patches in a field (not in the whole field) and usually has more pronounced yellow and orange leaves and plant stunting; leaf symptoms often appear in late growth stages; unhealthy or black roots; greater lodging; higher level of unfilled grains; lower grain weight."""@en .
+rice:IRRI_RKB_potassium-k_p4 rice:passageText """- Occurrence of K deficiency. K deficiency occurs in intensively cropped areas with high levels of N and P application. K is often deficient in coarse-textured/sandy soils; acid upland soils; degraded lowland soils; acid sulfate soils; and, organic soils. Note: additions of K from irrigation water can be significant in some areas (e.g. South Vietnam)."""@en .
+rice:IRRI_RKB_potassium-k_p5 rice:passageText """- How much K to apply? At optimum plant nutrition, the rice crop (straw plus in grain) takes up around 19 kg K2O (16 kg K) per ton of grain yield (2.2 kg K2O in grain and 16.8 kg K2O in straw). Recommendations for K are based on yield target and soil K status (see Table on opposite page) as determined by grain yield in K-omission plots (see also Fact Sheet on Nutrient Omission Plot Technique for P and K)."""@en .
+rice:IRRI_RKB_potassium-k_p6 rice:passageText """- When to apply K fertilizer? If fertilizer K rates are small, incorporate all fertilizer K before the last soil puddling before transplanting or topdress all K within 10−15 days after direct seeding. At rates > 30 kg K2O/ha, apply 50% basal and 50% at early panicle initiation. Split K in at least two doses if soil is sandy with leaching. Use of K at flowering increases resistance to lodging and diseases in dense canopies with high yield target, but may not increase yields."""@en .
+rice:IRRI_RKB_potassium-k_p7 rice:passageText """The most common K fertilizer is muriate of potash (MOP) which contains about 50% K or 60% K2O in the form of KCl (30 kg K2O is equal to 50 kg MOP or KCl). Rice straw is rich in K (14.0 kg K or 16.8 kg K2O per ton straw). Note: 1 kg K2O = 0.83 kg K and 1 kg K = 1.2 kg K2O"""@en .
+rice:IRRI_RKB_potassium-k_p8 rice:passageText """Developed with inputs from V Balasubramanian, C Witt, RJ Buresh, and M Bell"""@en .
+rice:IRRI_RKB_rice-bug_p1 rice:passageText """Rice bugs damage rice by sucking out the contents of developing grains from pre-flowering spikelets to soft dough stage, therefore causing unfilled or empty grains and discoloration. Immature and adult rice bugs both feed on rice grains."""@en .
+rice:IRRI_RKB_rice-bug_p2 rice:passageText """High rice bug populations are brought about by factors such as nearby woodlands, extensive weedy areas near rice fields, wild grasses near canals, and staggered rice planting. The insect also becomes active when the monsoonal rains begin. Warm weather, overcast skies, and frequent drizzles favor its population buildup."""@en .
+rice:IRRI_RKB_rice-bug_p3 rice:passageText """The population of the rice bug increases at the end of the rainy season.
+
+Rice bugs are found in all rice environments. They are more common in rainfed and upland rice and prefer the flowering to milky stages of the rice crop."""@en .
+rice:IRRI_RKB_rice-bug_p4 rice:passageText """Adults are active during the late afternoon and early morning. Under bright sunlight, they hide in grassy areas. They are less active during the dry season. In cooler areas, the adults undergo a prolonged development in grasses. They feed on wild hosts for one to two generations before migrating into the rice fields at the flowering stages. The nymphs are found on the rice plant where they blend with the foliage. There, they are often left unnoticed. When disturbed, the nymphs drop to the lower part of the plants and the adults fly within a short distance."""@en .
+rice:IRRI_RKB_rice-bug_p5 rice:passageText """Check the plant for feeding damage, such as
+
+- small or shriveled grains,
+
+- deformed or spotty grains,
+
+- empty grains, and"""@en .
+rice:IRRI_RKB_rice-bug_p6 rice:passageText """- erect panicles.
+
+The symptoms can be confused with the damage caused by nutrient deficiency or flower thrips. To confirm rice bug infestation, check for presence of insect:"""@en .
+rice:IRRI_RKB_rice-bug_p7 rice:passageText """- oval, shiny, and reddish brown eggs along midrib of leaf
+
+- slender and brown-green nymphs and adults feeding on endosperm of rice grains"""@en .
+rice:IRRI_RKB_rice-bug_p8 rice:passageText """- offensive smell"""@en .
+rice:IRRI_RKB_rice-bug_p9 rice:passageText """Both the adults and nymphs feed on grains at the milking stage. They can be serious pests of rice and sometimes reduce yield by as much as 30%."""@en .
+rice:IRRI_RKB_rice-bug_p10 rice:passageText """- Remove weeds from fields and surrounding areas to prevent the multiplication of rice bugs during fallow periods.
+
+- Level fields with even applications of fertilizer and water encourage rice to grow and develop is at the same rate. Planting fields, within a village, at the same time (synchronous planting) also helps reduce rice bug problems."""@en .
+rice:IRRI_RKB_rice-bug_p11 rice:passageText """- Capturing rice bugs, in the early morning or late afternoon, by net can be effective at low rice bug densities, though labor intensive."""@en .
+rice:IRRI_RKB_rice-bug_p12 rice:passageText """- Encourage biological control agents: Some wasps, grasshoppers and spiders attack rice bugs or rice bug eggs. Indiscriminate insecticide use disrupts biological control, resulting in pest resurgence."""@en .
+rice:IRRI_RKB_rice-bug_p13 rice:passageText """For chemical control
+
+Before using a pesticide contact a crop protection specialist for suggestions, guidance, and warnings specific to your situation."""@en .
+rice:IRRI_RKB_rice-bug_p14 rice:passageText """- Begin scouting the field at pre-flowering and continue daily until the hard dough stage. Count rice bugs in the early morning or late afternoon from 20 hills while walking diagonally across a transplanted field. Adults often fly out of the way before you reach the rice plant, so counts may only reveal immature forms. Direct control may be required if there are more than 10 rice bugs/20 hills."""@en .
+rice:IRRI_RKB_rice-bug_p15 rice:passageText """- The choice of insecticide depends on many factors such as the application equipment available, cost of the insecticide, experience of the applicator, or presence of fish. The benefits of using an insecticide must be weighed against the risks to health and the environment."""@en .
+rice:IRRI_RKB_rice-bug_p16 rice:passageText """Content expert: Jo Catindig (email: j.catindig@irri.org)"""@en .
+rice:IRRI_RKB_rice-hispa_p1 rice:passageText """Rice hispa scrapes the upper surface of leaf blades leaving only the lower epidermis.
+
+It also tunnels through the leaf tissues. When damage is severe, plants become less vigorous."""@en .
+rice:IRRI_RKB_rice-hispa_p2 rice:passageText """The presence of grassy weeds in and near rice fields as alternate hosts harbor and encourage the pest to develop. Heavily fertilized field also encourages the damage."""@en .
+rice:IRRI_RKB_rice-hispa_p3 rice:passageText """Heavy rains, especially in premonsoon or earliest monsoon periods, followed by abnormally low precipitation, minimum day-night temperature differential for a number of days, and high RH are favorable for the insect’s abundance."""@en .
+rice:IRRI_RKB_rice-hispa_p4 rice:passageText """The rice hispa is common in rainfed and irrigated wetland environments and is more abundant during the rainy season."""@en .
+rice:IRRI_RKB_rice-hispa_p5 rice:passageText """Check for feeding damage:
+
+- scraping of the upper surface of the leaf blade leaving only the lower epidermis as white streaks parallel to the midrib"""@en .
+rice:IRRI_RKB_rice-hispa_p6 rice:passageText """- irregular translucent white patches that are parallel to the leaf veins caused by tunneling of larvae through leaf tissue causes"""@en .
+rice:IRRI_RKB_rice-hispa_p7 rice:passageText """- withering of damaged leaves
+
+- whitish and membranous leaves
+
+| |
+
+(Photo by Guido Bohne) | Feeding marks of hispa |
+
+Rice field appears burnt when severely infested."""@en .
+rice:IRRI_RKB_rice-hispa_p8 rice:passageText """Hispa feeding damage is similar to feeding marks caused by flea beetles. To confirm cause of damage, check for insect presence, and the characteristic feeding marks:"""@en .
+rice:IRRI_RKB_rice-hispa_p9 rice:passageText """- elongated, clear feeding marks
+
+- white streaks of uneaten lower epidermis between the parallel leaf veins"""@en .
+rice:IRRI_RKB_rice-hispa_p10 rice:passageText """The insect pest is a problem particularly in Bangladesh. Records show that it can infest large areas and causes yield losses of up to 20%."""@en .
+rice:IRRI_RKB_rice-hispa_p11 rice:passageText """A cultural control method that is recommended for the rice hispa is to avoid over fertilizing the field. Close plant spacing results in greater leaf densities that can tolerate higher hispa numbers. To prevent egg laying of the pests, the shoot tips can be cut. Clipping and burying shoots in the mud can reduce grub populations by 75−92%."""@en .
+rice:IRRI_RKB_rice-hispa_p12 rice:passageText """Among the biological control agents, there are small wasps that attack the eggs and larvae. A reduviid bug eats upon the adults. There are three fungal pathogens that attack the adults."""@en .
+rice:IRRI_RKB_rice-hispa_p13 rice:passageText """Content expert: Jo Catindig (email: j.catindig@irri.org)"""@en .
+rice:IRRI_RKB_rice-leaffolder_p1 rice:passageText """Leaffolder caterpillars fold a rice leaf around themselves and attach the leaf margins together with silk strands.
+
+They feed inside the folded leaf creating longitudinal white and transparent streaks on the blade."""@en .
+rice:IRRI_RKB_rice-leaffolder_p2 rice:passageText """Heavy use of fertilizer encourages rapid multiplication of the insect. High humidity and shady areas of the field, as well as the presence of grassy weeds from rice fields and surrounding borders favor the development of the pest."""@en .
+rice:IRRI_RKB_rice-leaffolder_p3 rice:passageText """Expanded rice areas with irrigation systems, multiple rice cropping and insecticide induced resurgences are important factors in the insect’s abundance."""@en .
+rice:IRRI_RKB_rice-leaffolder_p4 rice:passageText """Rice leaffolders occur in all rice environments and are more abundant during the rainy seasons. They are commonly found in shady areas and areas where rice is heavily fertilized. In tropical rice areas, they are active year-round, whereas in temperate countries they are active from May to October. The adults are nocturnal and during the day, they stay under shade to escape predation. Moths fly short distances when disturbed."""@en .
+rice:IRRI_RKB_rice-leaffolder_p5 rice:passageText """Check the plant for the following symptoms:
+
+- longitudinal and transparent whitish streaks on damaged leaves
+
+- tubular folded leaves"""@en .
+rice:IRRI_RKB_rice-leaffolder_p6 rice:passageText """- leaf tips sometimes fastened to the basal part of leaf
+
+- heavily infested fields appear scorched with many folded leaves"""@en .
+rice:IRRI_RKB_rice-leaffolder_p7 rice:passageText """| |
+
+Damaged leaves | Larva folding the leaves |
+
+Also check for presence of insects, particularly during tillering to flowering. Signs include:"""@en .
+rice:IRRI_RKB_rice-leaffolder_p8 rice:passageText """- disc-shaped ovoid eggs laid singly,
+
+- young larvae feeding on the base of the youngest unopened leaves,
+
+- folded leaves enclosing the feeding larvae, and"""@en .
+rice:IRRI_RKB_rice-leaffolder_p9 rice:passageText """- present fecal matter."""@en .
+rice:IRRI_RKB_rice-leaffolder_p10 rice:passageText """The damage caused by leaffolders may be important when it affects more than half of the flag leaf and the next two youngest leaves in each tiller."""@en .
+rice:IRRI_RKB_rice-leaffolder_p11 rice:passageText """At vegetative phase, crops can generally recover from damage; but when leaffolders infest at reproductive phase, the damage can be economically important. High feeding damage on the flag leaves can cause yield loss."""@en .
+rice:IRRI_RKB_rice-leaffolder_p12 rice:passageText """Most early season insecticide use have little or no economic returns. Instead, it can cause ecological disruptions in natural biological control processes, thus enhancing the development of secondary pests, such as planthoppers."""@en .
+rice:IRRI_RKB_rice-leaffolder_p13 rice:passageText """How to manage
+
+To prevent leaffolder outbreaks:
+
+- Use resistant varieties.
+
+Contact your local agriculture office for an up-to-date list of available varieties."""@en .
+rice:IRRI_RKB_rice-leaffolder_p14 rice:passageText """- Follow rice with a different crop, or fallow period.
+
+- Avoid ratooning.
+
+- Flood and plow field after harvesting if possible."""@en .
+rice:IRRI_RKB_rice-leaffolder_p15 rice:passageText """- Remove grassy weeds from fields and borders.
+
+- Reduce density of planting.
+
+- Use balanced fertilizer rates.
+
+Spraying pesticides is not advisable during early crop stages. Many farmers in Asia lack the necessary safety equipment and expertise to use pesticides safely and therefore should not use them. See a crop protection specialist for guidance specific to your situation."""@en .
+rice:IRRI_RKB_rice-leaffolder_p16 rice:passageText """Content expert: Jo Catindig (email: j.catindig@irri.org)"""@en .
+rice:IRRI_RKB_salinity_p1 rice:passageText """Salinity affects the respiration and photosynthesis of plants. It decreases biological N2 fixation and soil nitrogen mineralization."""@en .
+rice:IRRI_RKB_salinity_p2 rice:passageText """Its other effects on rice growth include:
+
+- reduced germination rate
+
+- reduced plant height and tillering
+
+- poor root growth"""@en .
+rice:IRRI_RKB_salinity_p3 rice:passageText """- increased spikelet sterility
+
+It can also lead to excess Sodium (Na) uptake which decreases 1,000-grain weight and total protein content in grain (but does not alter major cooking qualities of rice)."""@en .
+rice:IRRI_RKB_salinity_p4 rice:passageText """The major causes of salinity or sodicity include:
+
+- poor irrigation practice or insufficient irrigation water in seasons/years with low rainfall"""@en .
+rice:IRRI_RKB_salinity_p5 rice:passageText """- high evaporation
+
+Salinity is often associated with alkaline soils in inland areas where evaporation is greater than precipitation."""@en .
+rice:IRRI_RKB_salinity_p6 rice:passageText """- increased level of saline groundwater
+
+- salt water intrusion in coastal areas (e.g., Mekong Delta, coastal India)
+
+Examples of salt-affected soils are:"""@en .
+rice:IRRI_RKB_salinity_p7 rice:passageText """- saline coastal soils (widespread along coasts in many countries)
+
+- saline acid sulfate soils (e.g., Mekong Delta, Vietnam)"""@en .
+rice:IRRI_RKB_salinity_p8 rice:passageText """- neutral to alkaline saline, saline-sodic, and sodic inland soils (e.g., India, Pakistan, Bangladesh)
+
+- acid sandy saline soils (Korat region of northeast Thailand)"""@en .
+rice:IRRI_RKB_salinity_p9 rice:passageText """Symptoms first manifest in the first leaf, followed by the second, and then in the growing leaf.
+
+Check the field for the following symptoms:"""@en .
+rice:IRRI_RKB_salinity_p10 rice:passageText """- tips of affected leaves turn white
+
+- pale, yellow, or yellow-white patches as a result of chlorosis appear on some leaves"""@en .
+rice:IRRI_RKB_salinity_p11 rice:passageText """- plant stunting and reduced tillering
+
+- patchy field growth
+
+Salinity or sodicity may be accompanied by Phosphorus deficiency, Zinc deficiency, Iron deficiency, or Boron toxicity."""@en .
+rice:IRRI_RKB_salinity_p12 rice:passageText """Salinity can be a major problem in localized areas; it tends to occur in low coastal regions and semi-arid inland saline areas. Its damage is important throughout the growth cycle of the crop."""@en .
+rice:IRRI_RKB_salinity_p13 rice:passageText """To prevent the damaging effects of salinity,
+
+- Grow salt-tolerant varieties (e.g., Pobbeli, Indonesia; IR2151, Vietnam; AC69-1, Sri Lanka; IR6, Pakistan; CSR10, India; Bicol, Philippines)."""@en .
+rice:IRRI_RKB_salinity_p14 rice:passageText """Contact your local agriculture office for an up-to-date list of available varieties.
+
+- In rice-upland crop systems, change to double-rice cropping if sufficient water is available and climate allows."""@en .
+rice:IRRI_RKB_salinity_p15 rice:passageText """- Submerge the field for two to four weeks before planting rice. Do not use sodic irrigation water or alternate between sodic and nonsodic irrigation water sources. Leach the soil after planting under intermittent submergence to remove excess salts. Collect and store low saline rainwater for irrigation of dry-season crops (e.g., by establishing reservoirs). In coastal areas, prevent intrusion of salt water."""@en .
+rice:IRRI_RKB_salinity_p16 rice:passageText """- Use fertilizers efficiently.
+
+Where possible,
+
+- In temperate climates where rice is direct seeded, coat seed with oxidants (e.g., Calcium (Ca) peroxide at 100% of seed weight) to improve germination and seedling emergence by increased Ca and Oxygen supply. Alternatively, treat rice seeds with CaCl2 to increase seed Ca2+ concentration."""@en .
+rice:IRRI_RKB_salinity_p17 rice:passageText """- Apply rice straw to recycle Potassium. Apply farmyard manure.
+
+There is currently no practical field management option to treat salinity."""@en .
+rice:IRRI_RKB_salinity_p18 rice:passageText """Reference:
+
+Dobermann A, Fairhurst T. 2000. Rice: Nutrient disorders & nutrient management. Handbook series. Potash & Phosphate Institute (PPI), Potash & Phosphate Institute of Canada (PPIC) and International Rice Research Institute. 191 p. Content experts: Roland Buresh (r.buresh@irri.org) and James Quilty (j.quilty@irri.org)"""@en .
+rice:IRRI_RKB_sheath-blight_p1 rice:passageText """Sheath blight is a fungal disease caused by Rhizoctonia solani. Infected leaves senesce or dry out and die more rapidly, young tillers can also be destroyed."""@en .
+rice:IRRI_RKB_sheath-blight_p2 rice:passageText """As a result, the leaf area of the canopy can significantly be reduced by the disease. This reduction in leaf area, along with the diseased-induced senescence of leaves and young infected tillers are the primary causes of yield reduction."""@en .
+rice:IRRI_RKB_sheath-blight_p3 rice:passageText """Sheath blight occurs in areas with high temperature (28−32°C), high levels of nitrogen fertilizer, and relative humidity of crop canopy from 85−100%."""@en .
+rice:IRRI_RKB_sheath-blight_p4 rice:passageText """Plants are more vulnerable to sheath blight during the rainy season.
+
+High seeding rate or close plant spacing, dense canopy, disease in the soil, sclerotia or infection bodies floating on the water, and growing of high yielding improved varieties also favor disease development."""@en .
+rice:IRRI_RKB_sheath-blight_p5 rice:passageText """Symptoms are usually observed from tillering to milk stage in a rice crop and include the following:
+
+- oval or ellipsoidal greenish gray lesions, usually 1-3 cm long, on the leaf sheath, initially just above the soil or water level in the case of conventionally flooded rice."""@en .
+rice:IRRI_RKB_sheath-blight_p6 rice:passageText """- under favorable conditions, these initial lesions multiply and expand to the upper part of the sheaths, the leaves, and then spread to neighboring tillers belonging to different hills (transplanted rice) or plants (direct-seeded rice)."""@en .
+rice:IRRI_RKB_sheath-blight_p7 rice:passageText """- lesions on the leaves usually have irregular lesions, often with gray-white centers and brown margins as they grow older."""@en .
+rice:IRRI_RKB_sheath-blight_p8 rice:passageText """- in subtropical environments, the disease is mostly initiated by sclerotia (up to two million of which can be produced per square meter in a diseased crop)."""@en .
+rice:IRRI_RKB_sheath-blight_p9 rice:passageText """In tropical ecosystems, however, the role of sclerotia in initiating the disease is uncertain. In any case, the pathogen does not produce aerially dispersed spores; its dispersal is essentially dependent on hyphae running on plant tissues and producing new infections"""@en .
+rice:IRRI_RKB_sheath-blight_p10 rice:passageText """Sheath blight has symptoms similar to stem rot and stemborer infestation. To confirm the cause of disease, check for irregular lesions usually found on the leaf sheaths (initially water-soaked to greenish gray and later becomes grayish white with brown margin). Also check for presence of sclerotia."""@en .
+rice:IRRI_RKB_sheath-blight_p11 rice:passageText """Sheath blight is considered to be an important disease next to rice blast. Rice sheath blight is an increasing concern for rice production especially in intensified production systems."""@en .
+rice:IRRI_RKB_sheath-blight_p12 rice:passageText """In Japan, the disease has caused a yield loss of as high as 20% and affected about 120,000−190,000 hectares. A yield loss of 25% was reported if the flag leaves are infected. In the United States, a yield loss of 50% was reported when susceptible cultivars were planted. Sheath blight has also caused a yield loss of 6% in tropical Asia."""@en .
+rice:IRRI_RKB_sheath-blight_p13 rice:passageText """There is currently no resistant rice variety available for cultivation. The main management options available to minimize sheath blight include:"""@en .
+rice:IRRI_RKB_sheath-blight_p14 rice:passageText """- use a reasonable level of fertilizer adapted to the cropping season.
+
+- use reasoned density of crop establishment (direct seeding or transplanting)."""@en .
+rice:IRRI_RKB_sheath-blight_p15 rice:passageText """- carefully control of weeds, especially on the levees.
+
+- drain rice fields relatively early in the cropping season to reduce sheath blight epidemics."""@en .
+rice:IRRI_RKB_sheath-blight_p16 rice:passageText """- use fungicide to treat seeds.
+
+- improve canopy architecture by reducing seeding rate or providing wider plant spacing."""@en .
+rice:IRRI_RKB_sheath-blight_p17 rice:passageText """Content experts: Adam Sparks (email: a.sparks@irri.org), NP Castilla, and CM Vera Cruz"""@en .
+rice:IRRI_RKB_stem-borer_p1 rice:passageText """Among the stem borers, the pink stem borer is less important. It is polyphagous and prefers sugarcane to rice."""@en .
+rice:IRRI_RKB_stem-borer_p2 rice:passageText """Stem borers can destroy rice at any stage of the plant from seedling to maturity.
+
+They feed upon tillers and causes deadhearts or drying of the central tiller, during vegetative stage; and causes whiteheads at reproductive stage."""@en .
+rice:IRRI_RKB_stem-borer_p3 rice:passageText """The stem borer larvae bore at the base of the plants during the vegetative stage. On older plants, they bore through the upper nodes and feed toward the base."""@en .
+rice:IRRI_RKB_stem-borer_p4 rice:passageText """The yellow stem borer is a pest of deepwater rice. It is found in aquatic environments where there is continuous flooding. Second instar larvae enclose themselves in body leaf wrappings to make tubes and detach themselves from the leaf and falls onto the water surface. They attach themselves to the tiller and bore into the stem."""@en .
+rice:IRRI_RKB_stem-borer_p5 rice:passageText """Striped stem borer is most abundant in temperate countries and in non-flooded areas. Their final instars remain dormant in temperate areas during winter."""@en .
+rice:IRRI_RKB_stem-borer_p6 rice:passageText """The pink stem borer is found in upland rice, which is grown near sugarcane or related grasses. The presence of alternate hosts encourages the pink stem borer to develop, multiply and survive during winter or dry season. Unlike other species of stem borers, the pink stem borer lay bare eggs between the leaf sheath and the stem."""@en .
+rice:IRRI_RKB_stem-borer_p7 rice:passageText """High nitrogenous field favors population buildup of the stem borers. Fields planted later favors more damage by the insect pests that have built up in fields that have been planted earlier. Stubble that remains in the field can harbor stem borer larvae and or pupae."""@en .
+rice:IRRI_RKB_stem-borer_p8 rice:passageText """Check the field for the following damage symptoms:
+
+- Deadhearts or dead tillers that can be easily pulled from the base during the vegetative stages"""@en .
+rice:IRRI_RKB_stem-borer_p9 rice:passageText """- Whiteheads during reproductive stage where the emerging panicles are whitish and unfilled or empty
+
+- Tiny holes on the stems and tillers"""@en .
+rice:IRRI_RKB_stem-borer_p10 rice:passageText """- Frass or fecal matters inside the damaged stems
+
+Deadhearts and whiteheads symptoms may sometimes be confused with damages caused by rats, neck blast, and black bug diseases."""@en .
+rice:IRRI_RKB_stem-borer_p11 rice:passageText """To confirm stem borer damage, visually inspect rice crop for deadhearts in the vegetative stages and whiteheads in reproductive stages. Stems can be pulled and dissected for larvae and pupae for confirmation of stem borer damage."""@en .
+rice:IRRI_RKB_stem-borer_p12 rice:passageText """| |
+
+Stemborer larvae | Whiteheads caused by stemborer |"""@en .
+rice:IRRI_RKB_stem-borer_p13 rice:passageText """Excessive boring through the sheath can destroy the crop. Its damage can reduce the number of reproductive tillers. At late infection, plants develop whiteheads."""@en .
+rice:IRRI_RKB_stem-borer_p14 rice:passageText """- Yellow stemborer damage can lead to about 20% yield loss in early planted rice crops, and 80% in late-planted crops.
+
+- White stemborer is an important pest in rainfed wetland rice. It can cause outbreaks and destroy rice fields."""@en .
+rice:IRRI_RKB_stem-borer_p15 rice:passageText """- Striped stemborer is one of the most important insect pests in Asia. Its damage can be as high as 100% when severe.
+
+- Gold-fringed stemborer can cause yield loss of about 30%."""@en .
+rice:IRRI_RKB_stem-borer_p16 rice:passageText """- Use resistant varieties
+
+- At seedbed and transplanting, handpick and destroy egg masses
+
+- Raise level of irrigation water periodically to submerge the eggs deposited on the lower parts of the plant"""@en .
+rice:IRRI_RKB_stem-borer_p17 rice:passageText """- Before transplanting, cut the leaf-top to reduce carry-over of eggs from the seedbed to the field
+
+- Ensure proper timing of planting and synchronous planting, harvest crops at ground level to remove the larvae in stubble, remove stubble and volunteer rice, plow and flood the field"""@en .
+rice:IRRI_RKB_stem-borer_p18 rice:passageText """- Encourage biological control agents: braconid, eulophid, mymarid, scelionid, chalcid, pteromalid and trichogrammatid wasps, ants, lady beetles, staphylinid beetles, gryllid, green meadow grasshopper, and mirid, phorid and platystomatid flies, bethylid, braconid, elasmid, eulophid, eurytomid and ichneumonid wasps, carabid and lady bird beetles, chloropid fly, gerrid and pentatomid bugs, ants, and mites, earwigs, bird, asilid fly, vespid wasp, dragonflies, damselflies, and spiders"""@en .
+rice:IRRI_RKB_stem-borer_p19 rice:passageText """- Bacteria and fungi also infect the larvae: mermithid nematode, chalcid, elasmid and eulophid
+
+- Apply nitrogen fertilizer in split following the recommended rate and time of application."""@en .
+rice:IRRI_RKB_stem-borer_p20 rice:passageText """Content experts: JLA Catindig and KL Heong"""@en .
+rice:IRRI_RKB_tungro_p1 rice:passageText """Rice tungro disease is caused by the combination of two viruses, which are transmitted by leafhoppers. It causes leaf discoloration, stunted growth, reduced tiller numbers and sterile or partly filled grains."""@en .
+rice:IRRI_RKB_tungro_p2 rice:passageText """Tungro infects cultivated rice, some wild rice relatives and other grassy weeds commonly found in rice paddies."""@en .
+rice:IRRI_RKB_tungro_p3 rice:passageText """Tungro disease viruses are transmitted from one plant to another by leafhoppers that feed on tungro-infected plants. The most efficient vector is the green leafhopper."""@en .
+rice:IRRI_RKB_tungro_p4 rice:passageText """Leafhoppers can acquire the viruses from any part of the infected plant by feeding on it, even for a short time. It can, then, immediately transmit the viruses to other plants within 5−7 days. The viruses do not remain in the leafhopper's body unless it feeds again on an infected plant and re-acquires the viruses."""@en .
+rice:IRRI_RKB_tungro_p5 rice:passageText """Tungro infection can occur during all growth stages of the rice plant. It is most frequently seen during the vegetative phase. Plants are most vulnerable at tillering stage."""@en .
+rice:IRRI_RKB_tungro_p6 rice:passageText """Tungro incidence depends on the availability of the virus sources and vector population. Other than infected rice plants in the farmer's field, other primary sources for tungro, include:"""@en .
+rice:IRRI_RKB_tungro_p7 rice:passageText """- stubble of previous crops
+
+- new growth from infected stubbles that had not been properly plowed under and harrowed effectively"""@en .
+rice:IRRI_RKB_tungro_p8 rice:passageText """- volunteer rice
+
+- infected plants in nearby rice fields
+
+Seedlings raised in nurseries or seedbeds can also be infected with Tungro prior to transplanting and can be a primary source of virus."""@en .
+rice:IRRI_RKB_tungro_p9 rice:passageText """Transplanting seedlings from nurseries in tungro-infected areas has also shown to increase infection rates in the field, particularly, in cases where seedbed is in a tungro-endemic area or when the nursery duration is 5−6 weeks."""@en .
+rice:IRRI_RKB_tungro_p10 rice:passageText """However, this is not believed to be a very strong mechanism in initiating epidemics, because the competitiveness of tungro-infected seedlings is low; they can die rapidly after transplanting."""@en .
+rice:IRRI_RKB_tungro_p11 rice:passageText """Tungro is one of the most damaging and destructive diseases of rice in South and Southeast Asia. In severe cases, Tungro susceptible varieties infected at an early growth stage could have as high as 100% yield loss."""@en .
+rice:IRRI_RKB_tungro_p12 rice:passageText """Once tungro is present in the field, it increases rapidly in young rice plants. Leafhopper vectors prefer to feed on young rice plants. They also acquire tungro viruses more efficiently from younger infected plants."""@en .
+rice:IRRI_RKB_tungro_p13 rice:passageText """Check for presence of leafhoppers.
+
+Check leaves for discoloration.
+
+Yellow or orange-yellow discoloration is noticeable in tungro-infected plants. Discoloration begins from the leaf tip and extends down to the blade or the lower leaf portion. Infected leaves may also show mottled or striped appearance, rust-colored spots, and inter-veinal necrosis."""@en .
+rice:IRRI_RKB_tungro_p14 rice:passageText """| | | |
+
+Tungro-infected plant | Yellowing of leaves | Tungro-infected field | Green leafhopper |
+
+Tungro-infected plants also show symptoms of stunting, delayed flowering which may delay maturity, reduced number of tillers, small and not completely exserted panicles, as well as a higher than normal percentage of sterile panicles or partially filled grains, covered with dark brown blotches."""@en .
+rice:IRRI_RKB_tungro_p15 rice:passageText """The degree of stunting and of leaf discoloration varies with rice varieties, strains of the viruses, the age of the plant when infected, and with the environment. In varieties that carry some resistance to the disease, infected plants exhibit no discoloration or only a mild discoloration that may disappear as the plants mature."""@en .
+rice:IRRI_RKB_tungro_p16 rice:passageText """Tungro symptoms can be mistaken for physiological disorders.
+
+Specifically,
+
+- the yellowing of the plant and its stunted height can be confused as nitrogen and zinc deficiencies and water stress,"""@en .
+rice:IRRI_RKB_tungro_p17 rice:passageText """- pest infestation such as stem borer infestation, plant hopper infestation, and rat damage, and
+
+- other diseases such as grassy stunt virus disease and orange leaf."""@en .
+rice:IRRI_RKB_tungro_p18 rice:passageText """Where available, Tungro can be confirmed using serological tools such as Latex agglutination test, Enzyme Linked Immunosorbent Assays (ELISA) and Rapid Immunofilter Paper Assays (RIPA)."""@en .
+rice:IRRI_RKB_tungro_p19 rice:passageText """Once a rice plant is infected by tungro, it cannot be cured.
+
+Preventive measures are more effective for the control of tungro than direct disease control measures. Using insecticides to control leafhoppers is often not effective, because green leafhoppers continuously move to surrounding fields and spread tungro rapidly in very short feeding times."""@en .
+rice:IRRI_RKB_tungro_p20 rice:passageText """The most practical measures at present, include
+
+- Grow tungro or leafhopper resistant varieties.
+
+This is the most economical means of managing the disease. There are tungro-resistant varieties available for the Philippines, Malaysia, Indonesia, India, and Bangladesh."""@en .
+rice:IRRI_RKB_tungro_p21 rice:passageText """Contact your local agriculture office for up-to-date lists of varieties available.
+
+- Practice synchronous planting with surrounding farms."""@en .
+rice:IRRI_RKB_tungro_p22 rice:passageText """Delayed or late planting, relative to the average date in a given area, makes the field susceptible for Tungro. Late-planted fields also pose a risk to early planting in the next season."""@en .
+rice:IRRI_RKB_tungro_p23 rice:passageText """- Adjust planting times to when green leafhopper are not in season or abundant, if known
+
+- Plow infected stubbles immediately after harvest to reduce inoculum sources and destroy the eggs and breeding sites of green leaf hopper."""@en .
+rice:IRRI_RKB_tungro_p24 rice:passageText """Content experts: Adam Sparks (email: a.sparks@irri.org), NP Castilla, and CM Vera Cruz"""@en .
+rice:IRRI_RKB_zinc-factsheet_p1 rice:passageText """Zinc is an essential plant nutrient required for several biochemical processes in the rice plant, including chlorophyll production and membrane integrity. Thus, Zn deficiencies affect plant color and turgor. Zn is only slightly mobile in the plant and quite immobile in soil."""@en .
+rice:IRRI_RKB_zinc-factsheet_p2 rice:passageText """Zinc limits plant growth when the soil supply of Zn is low or adverse soil
+
+conditions (such as continuous flooding) prevent plant uptake of Zn."""@en .
+rice:IRRI_RKB_zinc-factsheet_p3 rice:passageText """In such cases, Zn needs to be applied as required. Other nutrients need to be applied in balanced amounts to ensure a good crop response to fertilizer Zn application and to achieve a healthy and productive crop."""@en .
+rice:IRRI_RKB_zinc-factsheet_p4 rice:passageText """- Zinc deficiency symptoms: Stunted plants and dusty brown spots on upper leaves; patches of poorly established plants; symptoms appear 2−4 weeks after transplanting; higher levels of empty grains; delayed maturity and lower yields; Zn deficiency leaf symptoms resemble Sulfur (S) and Iron (Fe) deficiency in alkaline soils and iron toxicity in poorly drained organic soils."""@en .
+rice:IRRI_RKB_zinc-factsheet_p5 rice:passageText """- Occurrence of Zn deficiency: Zn deficiency is not very common, but can occur in neutral and calcareous soils; intensively cropped soils; continuously flooded paddy soils or very poorly drained soils; sodic and saline soils; peat soils, soils with high available Phosphorus (P) and Silicon (Si) status; sandy soils; highly weathered, acid, and coarse-textured soils; soils derived from serpentine and laterite; and, leached, old acid sulfate soils with a small concentration of Potassium (K), Magnesium (Mg), and Calcium (Ca)."""@en .
+rice:IRRI_RKB_zinc-factsheet_p6 rice:passageText """- How much Zn to apply? If Zn deficiency symptoms are observed in the field, apply 10−25 kg ZnSO4 · H2O or 20−40 kg ZnSO4 · 7H2O per ha on the soil surface, or dip roots of rice seedlings in a 2−4% ZnO suspension before planting (i.e., 20−40 g ZnO/L water). Rice plants can recover from Zn deficiency if the field is drained - a dry fallow increases the availability of Zn. The crop only requires around 0.05 kg Zn/ha (both straw and grain) per ton of grain yield, but much more Zn fertilizer must be applied because Zn once applied is not very available to the plant."""@en .
+rice:IRRI_RKB_zinc-factsheet_p7 rice:passageText """- When to apply Zn? Apply the Zn fertilizer on the soil surface after last puddling and leveling in the main field or apply Zn fertilizer to the nursery beds 7−8 days before pulling seedlings. The effect of Zn application to soil can last 2−5 crop seasons on all soils except in alkaline soils. In alkaline soils, Zn may need to be applied to each crop. NOTE: Aerating soil—allowing it to dry out—can reduce Zn deficiency."""@en .
+rice:IRRI_RKB_zinc-factsheet_p8 rice:passageText """The commonly used Zn fertilizers are soluble zinc sulfate (23−36% Zn), soluble zinc chloride (48−50% Zn), and insoluble zinc oxide (60−80% Zn)."""@en .
+rice:IRRI_RKB_zinc-factsheet_p9 rice:passageText """Developed with inputs from V Balasubramanian, RJ Buresh and M Bell"""@en .

@@ -1,12 +1,12 @@
 # Rice MMKG — Rice Multimodal Knowledge Graph
 
-An OWL 2 ontology and multimodal knowledge graph modeling rice diseases, pests, pathogens, symptoms, environmental factors, growth stages, treatments, and management actions — populated from public image, sensor, light-trap and multispectral datasets, with text reports as a declared extension point.
+An OWL 2 ontology and multimodal knowledge graph modeling rice diseases, pests, pathogens, symptoms, environmental factors, growth stages, treatments, and management actions — populated from public image, sensor, light-trap and multispectral datasets, and a text layer that links curated assertions to the source passages stating them.
 
 ![Rice MMKG diagram](RiceMMKG.png)
 
 ## Overview
 
-Rice MMKG links agronomic, pathological, and entomological knowledge about rice cultivation into a single queryable graph, connecting what is *observed* (currently: 21,149 images from six datasets, 186 plot-level soil and weather observations, 11,533 light-trap catches of brown planthopper and 472 multispectral captures of brown spot; field/text reports are a declared extension point) to its *cause* (pathogens, pests, environmental stressors) and the *response* (treatments, management actions), contextualised by crop growth stage and severity level.
+Rice MMKG links agronomic, pathological, and entomological knowledge about rice cultivation into a single queryable graph, connecting what is *observed* (currently: 21,149 images from six datasets, 186 plot-level soil and weather observations, 11,533 light-trap catches of brown planthopper and 472 multispectral captures of brown spot; 296 text passages from 19 IRRI Rice Knowledge Bank fact sheets) to its *cause* (pathogens, pests, environmental stressors) and the *response* (treatments, management actions), contextualised by crop growth stage and severity level.
 
 ### Core Design Principles
 
@@ -19,16 +19,16 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 - **Namespace:** `https://w3id.org/ricemmkg#` — permanent identifier, live since 2026-09-16; version IRIs `https://w3id.org/ricemmkg/<version>` (releases up to v0.6.2 used `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#`)
 - **Format:** OWL/XML (`.rdf`), fully compatible with [Protégé](https://protege.stanford.edu/)
 - **Version:** `0.7.0-dev` on `main` (in development; last release `v0.6.2`, 2026-09-15; git tags `v0.6.1`, `v0.6.2`; v0.6 released 2026-09-03) — target venue under review (ESWC 2027 dropped on 2026-09-29; see [Roadmap](#roadmap))
-- **Triples:** **321,506** asserted triples / **622,666** materialised triples under OWL RL (measured 2026-10-21); the rise from 68,204 is the Paddy Doctor IEEE release, Dhan-Shomadhan images, the first sensor observations, the YUKE-WBC planthopper images, the stem borer symptom images, the nutrient deficiency images, the light-trap catches, the multispectral captures and 41 alignment links to SOSA, RiceDO and TreatO; v0.6.2: 66,802 / 161,447
+- **Triples:** **324,616** asserted triples / **628,516** materialised triples under OWL RL (measured 2026-10-22); the rise from 68,204 is the Paddy Doctor IEEE release, Dhan-Shomadhan images, the first sensor observations, the YUKE-WBC planthopper images, the stem borer symptom images, the nutrient deficiency images, the light-trap catches, the multispectral captures and 41 alignment links to SOSA, RiceDO and TreatO; v0.6.2: 66,802 / 161,447
 - **Reasoner Consistency:** **100% Consistent** in HermiT & Pellet (0 unsatisfiable classes, 0 disjointness conflicts)
 
 ---
 
 ## Ontology Structure
 
-### Classes (29)
+### Classes (31)
 
-28 classes in the `rice:` namespace and `dcat:Dataset`. The table lists the observation layer and the main domain classes; the others are `AbioticFactor` (6 individuals), `PlantPart` (10), `ManagementCategory` (4), `PathogenGroup` (4), `TransmissionMode` (1), `Variety` (12), `ResistanceAssessment` (15) and `ResistanceLevel` (3). Counts measured 2026-10-15.
+30 classes in the `rice:` namespace and `dcat:Dataset`. The table lists the observation layer and the main domain classes; the others are `AbioticFactor` (6 individuals), `PlantPart` (10), `ManagementCategory` (4), `PathogenGroup` (4), `TransmissionMode` (1), `Variety` (12), `ResistanceAssessment` (15), `ResistanceLevel` (3), and, in the text layer added 2026-10-22, `TextDocument` (19) and `TextPassage` (296). Counts measured 2026-10-15, text layer 2026-10-22.
 
 | Class | Individuals | Description |
 |---|---:|---|
@@ -53,21 +53,23 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 | `Treatment` | 16 | Practical interventions (Fungicide/Insecticide Application, Biological Control, Resistant Variety, Crop Rotation, and fertilizer application for N, P, K and Zn) |
 | `ManagementAction` | 5 | Operational actions (Field Inspection, Monitoring, Immediate Intervention, Preventive Action, No Action Needed) |
 
-### Object Properties (42)
+### Object Properties (44)
 
-All declared with a domain and a range, except the entailed `hasAffectedPart` (range only); inverse pairs share them in reverse.
+All declared with a domain and a range, except the entailed `hasAffectedPart` (range only) and `mentions` (domain only); inverse pairs share them in reverse.
 
 - **Domain relations:** `causes`/`causedBy`, `transmits`/`transmittedBy`, `threatens`, `indicates`/`indicatedBy`, `controls`/`controlledBy`, `prevents`/`preventedBy`, `recommends`/`recommendedFor`, `requires`/`requiredFor`, `occursIn`, `hasOccurrenceOf`, `increaseRiskOf`/`riskIncreasedBy`, `vulnerableTo`, `affectsPlantPart`, `hasAffectedPart` (entailed by the chains `indicatedBy ∘ affectsPlantPart` and `hasAffectedPart ∘ partOf`, never asserted), `partOf`, `hasTransmissionMode`, `hasManagementCategory`, `hasPathogenGroup`.
 - **Varieties and resistance:** `varietyOf`/`hasVariety`, `assessedVariety`/`hasResistanceAssessment`, `assessedAgainst`, `hasResistanceLevel`, `ofVariety`.
 - **Observation layer:** `annotatedAs`/`annotationOf`, `captures`/`capturedBy`, `detects`/`detectedBy`, `hasSpatialLocation`, `hasBandImage`, `ofBand`.
+- **Text layer:** `inDocument`, `mentions`.
 
 *Epidemiological distinction:* `causes` is strictly scoped to `Pathogen → Disease`, while insect vector transmission is modeled through `transmits`/`transmittedBy` (`Pest → Pathogen`), enabling explicit graph traversal from vector to pathogen to disease.
 
-### Datatype Properties (27)
+### Datatype Properties (32)
 
 - **Observation values:** `recordedAtDate`, `recordedUntilDate`, `hasCatchCount`, `plantAgeDays`, `environmentCondition`, `sourceLabel`; soil and weather `hasSoilPH`, `hasElectricalConductivity`, `hasOrganicCarbon`, `hasNitrogenLevel`, `hasPhosphorusLevel`, `hasPotassiumLevel`, `hasTemperature`, `hasHumidity`, `hasRainfall`; `hasNDVI`.
 - **Places and bands:** `hasLatitude`, `hasLongitude`, `centreWavelengthNm`.
 - **Assessments and labels:** `testedPopulation`, `testedLocation`, `reportedYear`, `sourceDatasetLabel`.
+- **Text layer:** `startOffset`, `endOffset`, `textSha256`, `sectionTitle`; `passageText`, asserted only in text modules. Two annotation properties go with them on `owl:Axiom`: `hasEvidencePassage` and `evidencePassageCheck`.
 - **Declared, not yet used:** `confidenceScore`, `severityScore`, `interventionThreshold`, `observationDate`, `hasNDVI`.
 
 ### Individuals & Provenance
@@ -121,10 +123,10 @@ Every source checked so far, with the outcome and the reason, is recorded in [`C
 | Licence or label to confirm | Kaggle N/P/K images (licence not stated, permission requested; to be removed if refused); Netrokona potassium labels and YUKE-WBC species (expert confirmation) |
 | Candidates not yet imported | Weekly pest surveillance with weather, Midsayap, Philippines (needs `Scotinophara coarctata` as a new pest); brown planthopper resistance of 218 landraces; Sentinel-1 phenology table, Indramayu (licence "Custom"); UAV multispectral time series (no disease labels) |
 | Per-image content beyond the label | Expert image annotation; lesion boxes (RiceLeafDiseaseBD, Mendeley) |
-| Text | No ready dataset; extraction from CC BY papers planned |
+| Text | IRRI Rice Knowledge Bank, 19 fact sheets, 296 passages (2026-10-22). 77 curated assertions carry the passage that states them; the wording is in [`Text Modality/`](Text%20Modality/) under CC BY-NC-SA 3.0. Further text from CC BY papers is still open |
 | Comparison with an existing ontology | Done for RiceDO v2 + TreatO v2 (2026-10-19): 23 mappings applied; TreatO's product–disease links not imported (no source per axiom; licence not stated in the files) |
 
-Sources under CC BY-SA would go into a separate module brought in through `owl:imports`, so the core stays CC BY 4.0.
+Sources under CC BY-SA would go into a separate module brought in through `owl:imports`, so the core stays CC BY 4.0. The IRRI passage wording (CC BY-NC-SA 3.0) is such a module: `Text Modality/RiceMMKG_IRRI_text.ttl`; the core holds only pointers (offsets, sha256) to it.
 
 ---
 

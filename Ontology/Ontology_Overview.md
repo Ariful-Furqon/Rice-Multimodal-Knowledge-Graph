@@ -55,12 +55,12 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **321,506** (asserted) / **622,666** (OWL RL) | 0.7.0-dev, measured 2026-10-21. +301,160 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
-| **Named classes** | 29 | 28 in the `rice:` namespace — 27 primitive (incl. `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment`, `ResistanceLevel`, `TrapObservation`, `SpectralBand` and `BandImage`, 0.7.0-dev) and 1 defined class (`SymptomaticObservation`) — plus `dcat:Dataset`. Recounted 2026-10-15; the row read 23 although the version table already gave 26 |
-| **Object properties** | 42 | `hasBandImage` and `ofBand` added 2026-10-14; `hasAffectedPart` added 2026-10-21, entailed by property chains, range only. All others declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `assessedVariety`/`hasResistanceAssessment`, `assessedAgainst`, `hasResistanceLevel`, `ofVariety`, `hasSpatialLocation` (0.7.0-dev) |
-| **Datatype properties** | 27 | `centreWavelengthNm`, `hasCatchCount`, `recordedUntilDate`, `testedPopulation`, `testedLocation`, `reportedYear`, `plantAgeDays`, `sourceLabel`, `environmentCondition`, the sensor / remote-sensing measurements, `recordedAtDate`, `hasLatitude`, `hasLongitude`, `hasElectricalConductivity` and `hasOrganicCarbon` added in 0.7.0-dev |
-| **Annotation properties** | 14 | Includes `rice:evidenceType`, PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
-| **Named individuals** | **36,303** | 21,149 image individuals (Paddy Doctor 16,225, Dhan-Shomadhan 1,106, YUKE-WBC 66, stem borer symptom images 2,096, Kaggle nutrient deficiency 1,156, Netrokona potassium 500) + 11,533 trap observations + 472 remote-sensing observations + 2,360 band images + 186 sensor observations + 418 field locations + 9 dataset metadata + 176 domain entities (5 `SpectralBand`, 10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 4 `PathogenGroup`, 6 `AbioticFactor`, 12 `Variety`, 15 `ResistanceAssessment`, 3 `ResistanceLevel`) |
+| **Total triples** | **324,616** (asserted) / **628,516** (OWL RL) | 0.7.0-dev, measured 2026-10-22. +303,900 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Named classes** | 31 | 30 in the `rice:` namespace — 29 primitive (incl. `TextDocument` and `TextPassage`, 2026-10-22; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment`, `ResistanceLevel`, `TrapObservation`, `SpectralBand` and `BandImage`, 0.7.0-dev) and 1 defined class (`SymptomaticObservation`) — plus `dcat:Dataset`. Recounted 2026-10-15; the row read 23 although the version table already gave 26 |
+| **Object properties** | 44 | `hasBandImage` and `ofBand` added 2026-10-14; `hasAffectedPart` added 2026-10-21, entailed by property chains, range only; `inDocument` and `mentions` (domain only) added 2026-10-22. All others declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `assessedVariety`/`hasResistanceAssessment`, `assessedAgainst`, `hasResistanceLevel`, `ofVariety`, `hasSpatialLocation` (0.7.0-dev) |
+| **Datatype properties** | 32 | `startOffset`, `endOffset`, `textSha256`, `sectionTitle`, `passageText` (text layer, 2026-10-22; `passageText` asserted only in text modules), `centreWavelengthNm`, `hasCatchCount`, `recordedUntilDate`, `testedPopulation`, `testedLocation`, `reportedYear`, `plantAgeDays`, `sourceLabel`, `environmentCondition`, the sensor / remote-sensing measurements, `recordedAtDate`, `hasLatitude`, `hasLongitude`, `hasElectricalConductivity` and `hasOrganicCarbon` added in 0.7.0-dev |
+| **Annotation properties** | 16 | Includes `rice:evidenceType`, `rice:hasEvidencePassage` and `rice:evidencePassageCheck` (2026-10-22), PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
+| **Named individuals** | **36,618** | 19 `TextDocument` + 296 `TextPassage` (2026-10-22); 21,149 image individuals (Paddy Doctor 16,225, Dhan-Shomadhan 1,106, YUKE-WBC 66, stem borer symptom images 2,096, Kaggle nutrient deficiency 1,156, Netrokona potassium 500) + 11,533 trap observations + 472 remote-sensing observations + 2,360 band images + 186 sensor observations + 418 field locations + 9 dataset metadata + 176 domain entities (5 `SpectralBand`, 10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 4 `PathogenGroup`, 6 `AbioticFactor`, 12 `Variety`, 15 `ResistanceAssessment`, 3 `ResistanceLevel`) |
 | **`owl:Axiom` (provenance)** | **377** | **377 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev); the 15 `ResistanceAssessment` individuals carry their provenance directly. v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (19 classes; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment` and `ResistanceLevel` added in 0.7.0-dev) |
@@ -68,7 +68,7 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 | **Competency Questions (CQ)** | **21 PASS / 4 PARTIAL / 1 FAIL / 1 DOC** | **80.8% pass rate** across 26 scored CQs (27 total; CQ-27 added on 2026-10-15; CQ-26 added and CQ-17/CQ-18 extended on 2026-10-13, before that 21 / 2 / 1 / 1 over 24). CQ-13 FAIL: the unsourced severity → action triage was removed. CQ-12 PARTIAL: six abiotic disorders entered its denominator. CQ-26 PARTIAL: one pest of seven has trap observations. CQ-27 PARTIAL: one disease of 16 has spectral evidence. CQ-01 denominator corrected to exclude abiotic disorders (7/9; uncorrected 7/15). v0.6.1/v0.6.2: 23 / 1 / 0 / 1; released v0.6: 21 / 1 / 2 / 1 |
 | **`skos:exactMatch` / `closeMatch` / `broadMatch` / `relatedMatch`** | 70 / 31 / 18 / 4 | Mapped to AGROVOC / NCBI Taxonomy / Planteome (PECO, PO), BFO, SOSA, WGS84, RiceDO v2 and TreatO v2, verified against live APIs or the published files. Recounted 2026-10-17 (the row read 42 / 23 / 1); SOSA round 2026-10-19 added 1 `closeMatch` and 17 `broadMatch`; RiceDO/TreatO round the same day 17 `exactMatch`, 2 `closeMatch`, 4 `relatedMatch`. Coverage: pathogens 10/10, plant parts 10/10, diseases 8/16, growth stages 6/7, symptoms 6/40; classes 9/28, properties 17/68 |
 | **`TODO` literals remaining** | **0** | **100% resolved (dataset metadata & EPPO codes verified)** |
-| **Properties with no declared domain/range** | 0 / 0 | 100% coverage |
+| **Properties with no declared domain/range** | 1 / 1 | `hasAffectedPart` has no domain (entailed by chains); `mentions` has no range (any domain individual) |
 
 ---
 
@@ -173,13 +173,42 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | 0.7.0-dev (+ multispectral captures, `SpectralBand`, `BandImage`) | 2026-10-14 | 321,451 (622,504 OWL RL) | 29 | 41 | 36,303 | 377 axioms / 377 assertions + 15 assessments |
 | 0.7.0-dev (+ SOSA alignment of the observation layer) | 2026-10-19 | 321,469 (622,526 OWL RL) | 29 | 41 | 36,303 | 377 axioms / 377 assertions + 15 assessments |
 | 0.7.0-dev (+ RiceDO v2 / TreatO v2 alignment) | 2026-10-19 | 321,492 (622,573 OWL RL) | 29 | 41 | 36,303 | 377 axioms / 377 assertions + 15 assessments |
-| **0.7.0-dev (+ `hasAffectedPart` property chain — in development)** | **2026-10-21** | **321,506** (622,666 OWL RL) | **29** | **42** | **36,303** | **377 axioms / 377 assertions + 15 assessments** |
+| 0.7.0-dev (+ `hasAffectedPart` property chain) | 2026-10-21 | 321,506 (622,666 OWL RL) | 29 | 42 | 36,303 | 377 axioms / 377 assertions + 15 assessments |
+| **0.7.0-dev (+ text layer, IRRI passages as evidence — in development)** | **2026-10-22** | **324,616** (628,516 OWL RL) | **31** | **44** | **36,618** | **377 axioms / 377 assertions + 15 assessments; 77 axioms with an evidence passage** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-10-22: 0.7.0-dev — text layer; IRRI passages linked as evidence to 77 curated assertions
+
+The text pilot (`Worklog/2026-10-20_text_pilot/RESULTS.md`) tried two directions.
+- **Forward extraction with the CropKG pipeline** failed: it recovered 2 of 86 curated assertions.
+- **The reverse direction worked:** start from each curated assertion and find the passage of its cited fact sheet that states it.
+
+Applied 2026-10-22. Pre-edit file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-text-layer.rdf`. Script: `Worklog/2026-10-22_text_layer/scripts/add_text_layer.py`.
+
+- **Schema:**
+  - classes `TextDocument` and `TextPassage`;
+  - object properties `inDocument` and `mentions`;
+  - datatype properties `startOffset`, `endOffset`, `textSha256`, `sectionTitle` and `passageText`;
+  - annotation properties `hasEvidencePassage` and `evidencePassageCheck` on `owl:Axiom`.
+- **Individuals:**
+  - 19 `TextDocument`, one per IRRI Rice Knowledge Bank fact sheet, with URL, title and licence (CC BY-NC-SA 3.0);
+  - 296 `TextPassage`, each with offsets into the plain text, a sha256, the section and 411 `mentions` of domain individuals in total.
+- **Licence:** the core holds pointers only; 0 passages' wording occurs in `Rice MMKG.rdf` (checked). The wording is in `Text Modality/RiceMMKG_IRRI_text.ttl` (CC BY-NC-SA 3.0, 302 triples). Raw pages are saved in the gitignored `Data/irri-rkb/raw_2026-10-20/`, and the corpus rebuilds from them byte for byte.
+- **Evidence:** 77 of 88 curated assertions citing these fact sheets now carry `hasEvidencePassage`.
+  - Method: bge-m3 ranking, then qwen2.5:32b verification with a quote that must occur in the passage (verifier v3).
+  - Only links judged correct were kept.
+  - `evidencePassageCheck` records how each link was checked: 42 human-reviewed, 35 LLM-reviewed.
+  - On the reviewed set, the run had recall 0.93 and precision 0.94.
+  - 5 curated assertions are not stated in their cited fact sheet (review 2026-10-22). They keep their source and are listed in the pilot results for follow-up.
+- **Checks:**
+  - HermiT consistent, 0 unsatisfiable classes;
+  - benchmark unchanged (21 PASS / 4 PARTIAL / 1 FAIL / 1 DOC); elicited CQs unchanged (10 / 7 / 2);
+  - 324,616 asserted / 628,516 OWL RL triples.
 
 ### 2026-10-21: 0.7.0-dev — `hasAffectedPart`, a disease-level shortcut by property chain
 

@@ -5,6 +5,8 @@ Rice MMKG is released under a **Dual-Licensing** framework to align with open-so
 1. **Software, Scripts, and Benchmark Tooling:** Licensed under the **MIT License**.
 2. **Ontology Specification, Knowledge Graph Data, and Documentation:** Licensed under the **Creative Commons Attribution 4.0 International (CC BY 4.0)** license.
 
+**Exception: third-party text module.** `Text Modality/RiceMMKG_IRRI_text.ttl` contains wording of IRRI Rice Knowledge Bank fact sheets, © International Rice Research Institute. It is licensed under **CC BY-NC-SA 3.0** (https://creativecommons.org/licenses/by-nc-sa/3.0/), like its source, and is not covered by CC BY 4.0. The core graph (`Ontology/Rice MMKG.rdf`) holds only pointers to these passages (offsets, hashes, titles, section headings), not their wording.
+
 ---
 
 ## Part 1: MIT License (Software, Scripts, and Benchmark Tooling)
