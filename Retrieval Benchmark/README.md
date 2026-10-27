@@ -48,6 +48,10 @@ Data splits and query-time graph for the SIGIR 2027 retrieval experiments. Desig
 
 `scripts/stage1_baselines.py` gives the results in [`results/stage1_results.md`](results/stage1_results.md); see [`design_v2.md`](design_v2.md), section 4.
 
+## Stage 2 and coverage
+
+`scripts/stage2_passages.py` gives the coverage table and the passage-retrieval scores, with and without the KG, in [`results/stage2_results.md`](results/stage2_results.md); see [`design_v2.md`](design_v2.md), section 6. It needs Ollama with `bge-m3`.
+
 ## Rebuild
 
 `make_split.py` needs `rdflib` only. The other two scripts need the GPU environment (`D:\venvs\ricemmkg-retrieval`: torch with CUDA 12.8, transformers, scikit-learn).
@@ -59,6 +63,7 @@ python -I "Retrieval Benchmark/scripts/make_split.py" . Data/retrieval        # 
 python -I "Retrieval Benchmark/scripts/make_split.py" . Data/retrieval        # v2, using capture_groups.csv
 python -I "Retrieval Benchmark/scripts/make_gold.py" .
 <venv>/python -I "Retrieval Benchmark/scripts/stage1_baselines.py" . "Retrieval Benchmark/results"
+<venv>/python -I "Retrieval Benchmark/scripts/stage2_passages.py" . "Retrieval Benchmark/results"
 ```
 
 The first run hashes every image. Files that OneDrive keeps online only are downloaded first. The hashes are cached in `Data/retrieval/md5_cache.csv` and the CLIP features in `Data/retrieval/feats_clip-l14.npz`.

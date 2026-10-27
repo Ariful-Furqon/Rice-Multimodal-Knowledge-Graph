@@ -1,0 +1,649 @@
+{
+ "embed_model": "bge-m3",
+ "kg_weight_dev": {
+  "0": 0.5669673837612769,
+  "0.5": 0.5145732130464955,
+  "1": 0.4437890353920888,
+  "2": 0.32581540596807773,
+  "5": 0.16863289382373353,
+  "10": 0.11138098542678695,
+  "20": 0.07529493407356003,
+  "50": 0.059333795975017346,
+  "100": 0.0527411519777932
+ },
+ "kg_weight": 0,
+ "stage1_test_R@1": {
+  "no_kg": 0.5060700659035726,
+  "kg": 0.5060700659035726,
+  "oracle": 1.0
+ },
+ "intents": {
+  "cause": {
+   "question": "What causes this problem on my rice?",
+   "sections": [
+    "What it does",
+    "Why and where it occurs"
+   ]
+  },
+  "manage": {
+   "question": "How can I control or prevent it?",
+   "sections": [
+    "How to manage",
+    "Management principles"
+   ]
+  },
+  "identify": {
+   "question": "Which symptoms confirm it?",
+   "sections": [
+    "How to identify"
+   ]
+  }
+ },
+ "coverage": {
+  "Bacterial_Leaf_Blight": {
+   "test_photos": 97,
+   "fact_sheet": "IRRI_RKB_bacterial-blight",
+   "cause": {
+    "facts": 1,
+    "facts_with_sentence": 0,
+    "section_passages": 4
+   },
+   "manage": {
+    "facts": 6,
+    "facts_with_sentence": 0,
+    "section_passages": 4
+   },
+   "identify": {
+    "facts": 4,
+    "facts_with_sentence": 0,
+    "section_passages": 7
+   }
+  },
+  "Bacterial_Leaf_Streak": {
+   "test_photos": 68,
+   "fact_sheet": "IRRI_RKB_bacterial-leaf-streak",
+   "cause": {
+    "facts": 1,
+    "facts_with_sentence": 0,
+    "section_passages": 4
+   },
+   "manage": {
+    "facts": 5,
+    "facts_with_sentence": 0,
+    "section_passages": 5
+   },
+   "identify": {
+    "facts": 3,
+    "facts_with_sentence": 0,
+    "section_passages": 7
+   }
+  },
+  "Bacterial_Panicle_Blight": {
+   "test_photos": 61,
+   "fact_sheet": "none",
+   "cause": {
+    "facts": 1,
+    "facts_with_sentence": 0,
+    "section_passages": 0
+   },
+   "manage": {
+    "facts": 5,
+    "facts_with_sentence": 0,
+    "section_passages": 0
+   },
+   "identify": {
+    "facts": 4,
+    "facts_with_sentence": 0,
+    "section_passages": 0
+   }
+  },
+  "Brown_Planthopper": {
+   "test_photos": 0,
+   "fact_sheet": "IRRI_RKB_planthopper",
+   "cause": {
+    "facts": 0,
+    "facts_with_sentence": 0,
+    "section_passages": 4
+   },
+   "manage": {
+    "facts": 3,
+    "facts_with_sentence": 0,
+    "section_passages": 10
+   },
+   "identify": {
+    "facts": 2,
+    "facts_with_sentence": 0,
+    "section_passages": 4
+   }
+  },
+  "Brown_Spot": {
+   "test_photos": 208,
+   "fact_sheet": "IRRI_RKB_brown-spot",
+   "cause": {
+    "facts": 1,
+    "facts_with_sentence": 0,
+    "section_passages": 5
+   },
+   "manage": {
+    "facts": 7,
+    "facts_with_sentence": 0,
+    "section_passages": 5
+   },
+   "identify": {
+    "facts": 4,
+    "facts_with_sentence": 0,
+    "section_passages": 7
+   }
+  },
+  "Downy_Mildew": {
+   "test_photos": 125,
+   "fact_sheet": "none",
+   "cause": {
+    "facts": 1,
+    "facts_with_sentence": 0,
+    "section_passages": 0
+   },
+   "manage": {
+    "facts": 6,
+    "facts_with_sentence": 0,
+    "section_passages": 0
+   },
+   "identify": {
+    "facts": 4,
+    "facts_with_sentence": 0,
+    "section_passages": 0
+   }
+  },
+  "Hispa": {
+   "test_photos": 320,
+   "fact_sheet": "IRRI_RKB_rice-hispa",
+   "cause": {
+    "facts": 0,
+    "facts_with_sentence": 0,
+    "section_passages": 4
+   },
+   "manage": {
+    "facts": 4,
+    "facts_with_sentence": 0,
+    "section_passages": 3
+   },
+   "identify": {
+    "facts": 3,
+    "facts_with_sentence": 0,
+    "section_passages": 5
+   }
+  },
+  "Leaf_Folder": {
+   "test_photos": 156,
+   "fact_sheet": "IRRI_RKB_rice-leaffolder",
+   "cause": {
+    "facts": 0,
+    "facts_with_sentence": 0,
+    "section_passages": 4
+   },
+   "manage": {
+    "facts": 3,
+    "facts_with_sentence": 0,
+    "section_passages": 0
+   },
+   "identify": {
+    "facts": 1,
+    "facts_with_sentence": 0,
+    "section_passages": 5
+   }
+  },
+  "Leaf_Scald": {
+   "test_photos": 33,
+   "fact_sheet": "none",
+   "cause": {
+    "facts": 1,
+    "facts_with_sentence": 0,
+    "section_passages": 0
+   },
+   "manage": {
+    "facts": 4,
+    "facts_with_sentence": 0,
+    "section_passages": 0
+   },
+   "identify": {
+    "facts": 1,
+    "facts_with_sentence": 0,
+    "section_passages": 0
+   }
+  },
+  "Nitrogen_Deficiency_Disorder": {
+   "test_photos": 66,
+   "fact_sheet": "IRRI_RKB_nitrogen",
+   "cause": {
+    "facts": 1,
+    "facts_with_sentence": 0,
+    "section_passages": 0
+   },
+   "manage": {
+    "facts": 1,
+    "facts_with_sentence": 1,
+    "section_passages": 4
+   },
+   "identify": {
+    "facts": 3,
+    "facts_with_sentence": 3,
+    "section_passages": 0
+   }
+  },
+  "Normal_Health": {
+   "test_photos": 414,
+   "fact_sheet": "none",
+   "cause": {
+    "facts": 0,
+    "facts_with_sentence": 0,
+    "section_passages": 0
+   },
+   "manage": {
+    "facts": 0,
+    "facts_with_sentence": 0,
+    "section_passages": 0
+   },
+   "identify": {
+    "facts": 0,
+    "facts_with_sentence": 0,
+    "section_passages": 0
+   }
+  },
+  "Phosphorus_Deficiency_Disorder": {
+   "test_photos": 50,
+   "fact_sheet": "IRRI_RKB_phosphorus",
+   "cause": {
+    "facts": 1,
+    "facts_with_sentence": 1,
+    "section_passages": 0
+   },
+   "manage": {
+    "facts": 1,
+    "facts_with_sentence": 1,
+    "section_passages": 4
+   },
+   "identify": {
+    "facts": 6,
+    "facts_with_sentence": 6,
+    "section_passages": 0
+   }
+  },
+  "Potassium_Deficiency_Disorder": {
+   "test_photos": 57,
+   "fact_sheet": "IRRI_RKB_potassium-k",
+   "cause": {
+    "facts": 1,
+    "facts_with_sentence": 1,
+    "section_passages": 0
+   },
+   "manage": {
+    "facts": 1,
+    "facts_with_sentence": 1,
+    "section_passages": 4
+   },
+   "identify": {
+    "facts": 6,
+    "facts_with_sentence": 6,
+    "section_passages": 0
+   }
+  },
+  "Rice_Blast_Disease": {
+   "test_photos": 383,
+   "fact_sheet": "IRRI_RKB_blast-leaf-collar, IRRI_RKB_blast-node-neck",
+   "cause": {
+    "facts": 1,
+    "facts_with_sentence": 0,
+    "section_passages": 7
+   },
+   "manage": {
+    "facts": 7,
+    "facts_with_sentence": 0,
+    "section_passages": 13
+   },
+   "identify": {
+    "facts": 7,
+    "facts_with_sentence": 2,
+    "section_passages": 11
+   }
+  },
+  "Rice_Tungro_Disease": {
+   "test_photos": 299,
+   "fact_sheet": "IRRI_RKB_tungro",
+   "cause": {
+    "facts": 2,
+    "facts_with_sentence": 0,
+    "section_passages": 10
+   },
+   "manage": {
+    "facts": 5,
+    "facts_with_sentence": 0,
+    "section_passages": 6
+   },
+   "identify": {
+    "facts": 6,
+    "facts_with_sentence": 2,
+    "section_passages": 6
+   }
+  },
+  "Sheath_Blight": {
+   "test_photos": 42,
+   "fact_sheet": "IRRI_RKB_sheath-blight",
+   "cause": {
+    "facts": 1,
+    "facts_with_sentence": 1,
+    "section_passages": 4
+   },
+   "manage": {
+    "facts": 1,
+    "facts_with_sentence": 0,
+    "section_passages": 5
+   },
+   "identify": {
+    "facts": 3,
+    "facts_with_sentence": 1,
+    "section_passages": 6
+   }
+  },
+  "Stem_Borer": {
+   "test_photos": 504,
+   "fact_sheet": "IRRI_RKB_stem-borer",
+   "cause": {
+    "facts": 0,
+    "facts_with_sentence": 0,
+    "section_passages": 6
+   },
+   "manage": {
+    "facts": 3,
+    "facts_with_sentence": 0,
+    "section_passages": 5
+   },
+   "identify": {
+    "facts": 2,
+    "facts_with_sentence": 0,
+    "section_passages": 5
+   }
+  }
+ },
+ "results": {
+  "no_kg": {
+   "cause/section": {
+    "Hit@1": 0.40346653827636014,
+    "Hit@3": 0.46894559460760715,
+    "Hit@10": 0.6321617717862301,
+    "MRR": 0.479431798865146,
+    "nDCG@10": 0.2389396982435066,
+    "Recall@10": 0.22681293990875115,
+    "n": 2077
+   },
+   "cause/fact": {
+    "Hit@1": 0.0,
+    "Hit@3": 0.0,
+    "Hit@10": 0.5436241610738255,
+    "MRR": 0.08453151184817766,
+    "nDCG@10": 0.17149432899089953,
+    "Recall@10": 0.5436241610738255,
+    "n": 149
+   },
+   "manage/section": {
+    "Hit@1": 0.22492836676217765,
+    "Hit@3": 0.32808022922636104,
+    "Hit@10": 0.49283667621776506,
+    "MRR": 0.3162630806616667,
+    "nDCG@10": 0.14415423465806307,
+    "Recall@10": 0.1321584257830676,
+    "n": 2094
+   },
+   "manage/fact": {
+    "Hit@1": 0.0,
+    "Hit@3": 0.0,
+    "Hit@10": 0.3583815028901734,
+    "MRR": 0.09395368308121509,
+    "nDCG@10": 0.15434651214190961,
+    "Recall@10": 0.3583815028901734,
+    "n": 173
+   },
+   "identify/section": {
+    "Hit@1": 0.35050553683196917,
+    "Hit@3": 0.373134328358209,
+    "Hit@10": 0.6172363986519018,
+    "MRR": 0.4157592741729918,
+    "nDCG@10": 0.20788039489573623,
+    "Recall@10": 0.18138819934679346,
+    "n": 2077
+   },
+   "identify/fact": {
+    "Hit@1": 0.31549609810479373,
+    "Hit@3": 0.3756967670011148,
+    "Hit@10": 0.47045707915273133,
+    "MRR": 0.3752361900101095,
+    "nDCG@10": 0.3399780663354256,
+    "Recall@10": 0.4258639910813824,
+    "n": 897
+   }
+  },
+  "kg": {
+   "cause/section": {
+    "Hit@1": 0.4183919114106885,
+    "Hit@3": 0.4684641309581127,
+    "Hit@10": 0.6307173808377468,
+    "MRR": 0.48657294230249776,
+    "nDCG@10": 0.24366383804431854,
+    "Recall@10": 0.23013160006419514,
+    "n": 2077
+   },
+   "cause/fact": {
+    "Hit@1": 0.7651006711409396,
+    "Hit@3": 0.7651006711409396,
+    "Hit@10": 0.7651006711409396,
+    "MRR": 0.7683676687089064,
+    "nDCG@10": 0.7651006711409396,
+    "Recall@10": 0.7651006711409396,
+    "n": 149
+   },
+   "manage/section": {
+    "Hit@1": 0.24068767908309455,
+    "Hit@3": 0.3576886341929322,
+    "Hit@10": 0.49140401146131807,
+    "MRR": 0.3328348074331559,
+    "nDCG@10": 0.1838579109737472,
+    "Recall@10": 0.18378027575735312,
+    "n": 2094
+   },
+   "manage/fact": {
+    "Hit@1": 0.838150289017341,
+    "Hit@3": 0.838150289017341,
+    "Hit@10": 0.838150289017341,
+    "MRR": 0.8392860065479926,
+    "nDCG@10": 0.838150289017341,
+    "Recall@10": 0.838150289017341,
+    "n": 173
+   },
+   "identify/section": {
+    "Hit@1": 0.3895040924410207,
+    "Hit@3": 0.49350024073182475,
+    "Hit@10": 0.6422725084256139,
+    "MRR": 0.477948107683233,
+    "nDCG@10": 0.2441163485056262,
+    "Recall@10": 0.2141767075806556,
+    "n": 2077
+   },
+   "identify/fact": {
+    "Hit@1": 0.47491638795986624,
+    "Hit@3": 0.47491638795986624,
+    "Hit@10": 0.5930880713489409,
+    "MRR": 0.5084186846610029,
+    "nDCG@10": 0.504444287272992,
+    "Recall@10": 0.5484949832775919,
+    "n": 897
+   }
+  },
+  "no_kg_stage1+kg_route": {
+   "cause/section": {
+    "Hit@1": 0.4183919114106885,
+    "Hit@3": 0.4684641309581127,
+    "Hit@10": 0.6307173808377468,
+    "MRR": 0.48657294230249776,
+    "nDCG@10": 0.24366383804431854,
+    "Recall@10": 0.23013160006419514,
+    "n": 2077
+   },
+   "cause/fact": {
+    "Hit@1": 0.7651006711409396,
+    "Hit@3": 0.7651006711409396,
+    "Hit@10": 0.7651006711409396,
+    "MRR": 0.7683676687089064,
+    "nDCG@10": 0.7651006711409396,
+    "Recall@10": 0.7651006711409396,
+    "n": 149
+   },
+   "manage/section": {
+    "Hit@1": 0.24068767908309455,
+    "Hit@3": 0.3576886341929322,
+    "Hit@10": 0.49140401146131807,
+    "MRR": 0.3328348074331559,
+    "nDCG@10": 0.1838579109737472,
+    "Recall@10": 0.18378027575735312,
+    "n": 2094
+   },
+   "manage/fact": {
+    "Hit@1": 0.838150289017341,
+    "Hit@3": 0.838150289017341,
+    "Hit@10": 0.838150289017341,
+    "MRR": 0.8392860065479926,
+    "nDCG@10": 0.838150289017341,
+    "Recall@10": 0.838150289017341,
+    "n": 173
+   },
+   "identify/section": {
+    "Hit@1": 0.3895040924410207,
+    "Hit@3": 0.49350024073182475,
+    "Hit@10": 0.6422725084256139,
+    "MRR": 0.477948107683233,
+    "nDCG@10": 0.2441163485056262,
+    "Recall@10": 0.2141767075806556,
+    "n": 2077
+   },
+   "identify/fact": {
+    "Hit@1": 0.47491638795986624,
+    "Hit@3": 0.47491638795986624,
+    "Hit@10": 0.5930880713489409,
+    "MRR": 0.5084186846610029,
+    "nDCG@10": 0.504444287272992,
+    "Recall@10": 0.5484949832775919,
+    "n": 897
+   }
+  },
+  "oracle+dense": {
+   "cause/section": {
+    "Hit@1": 0.6037554164660568,
+    "Hit@3": 0.8459316321617718,
+    "Hit@10": 1.0,
+    "MRR": 0.7213127908842881,
+    "nDCG@10": 0.4450877341267694,
+    "Recall@10": 0.4708989614141275,
+    "n": 2077
+   },
+   "cause/fact": {
+    "Hit@1": 0.0,
+    "Hit@3": 0.0,
+    "Hit@10": 0.6644295302013423,
+    "MRR": 0.10279313067508883,
+    "nDCG@10": 0.2096041798777661,
+    "Recall@10": 0.6644295302013423,
+    "n": 149
+   },
+   "manage/section": {
+    "Hit@1": 0.6375358166189111,
+    "Hit@3": 0.6814708691499523,
+    "Hit@10": 0.7593123209169055,
+    "MRR": 0.6851002865329513,
+    "nDCG@10": 0.28585084825303847,
+    "Recall@10": 0.20736291724830408,
+    "n": 2094
+   },
+   "manage/fact": {
+    "Hit@1": 0.0,
+    "Hit@3": 0.0,
+    "Hit@10": 0.3815028901734104,
+    "MRR": 0.09939232251370979,
+    "nDCG@10": 0.16430435163493606,
+    "Recall@10": 0.3815028901734104,
+    "n": 173
+   },
+   "identify/section": {
+    "Hit@1": 0.4496870486278286,
+    "Hit@3": 0.5714973519499278,
+    "Hit@10": 0.8155994222436206,
+    "MRR": 0.5331443142709392,
+    "nDCG@10": 0.2966304802233863,
+    "Recall@10": 0.272084279065502,
+    "n": 2077
+   },
+   "identify/fact": {
+    "Hit@1": 0.5261984392419174,
+    "Hit@3": 0.5730211817168339,
+    "Hit@10": 0.5730211817168339,
+    "MRR": 0.5576200503736736,
+    "nDCG@10": 0.4821841069943846,
+    "Recall@10": 0.5730211817168339,
+    "n": 897
+   }
+  },
+  "oracle+kg_route": {
+   "cause/section": {
+    "Hit@1": 0.6239768897448242,
+    "Hit@3": 0.8459316321617718,
+    "Hit@10": 1.0,
+    "MRR": 0.7314235275236719,
+    "nDCG@10": 0.451948226578571,
+    "Recall@10": 0.47595432973381935,
+    "n": 2077
+   },
+   "cause/fact": {
+    "Hit@1": 1.0,
+    "Hit@3": 1.0,
+    "Hit@10": 1.0,
+    "MRR": 1.0,
+    "nDCG@10": 1.0,
+    "Recall@10": 1.0,
+    "n": 149
+   },
+   "manage/section": {
+    "Hit@1": 0.6614135625596944,
+    "Hit@3": 0.7129894937917861,
+    "Hit@10": 0.7593123209169055,
+    "MRR": 0.706494746895893,
+    "nDCG@10": 0.3343139197536191,
+    "Recall@10": 0.2693256679646365,
+    "n": 2094
+   },
+   "manage/fact": {
+    "Hit@1": 1.0,
+    "Hit@3": 1.0,
+    "Hit@10": 1.0,
+    "MRR": 1.0,
+    "nDCG@10": 1.0,
+    "Recall@10": 1.0,
+    "n": 173
+   },
+   "identify/section": {
+    "Hit@1": 0.6138661531054406,
+    "Hit@3": 0.8998555609051516,
+    "Hit@10": 1.0,
+    "MRR": 0.756588027603916,
+    "nDCG@10": 0.40576029147437054,
+    "Recall@10": 0.36033802499859313,
+    "n": 2077
+   },
+   "identify/fact": {
+    "Hit@1": 1.0,
+    "Hit@3": 1.0,
+    "Hit@10": 1.0,
+    "MRR": 1.0,
+    "nDCG@10": 1.0,
+    "Recall@10": 1.0,
+    "n": 897
+   }
+  }
+ }
+}

@@ -188,6 +188,13 @@ def main(root, out_dir):
 
     q = feats[test]
     systems = run_systems(q, feats[train], gold[train])
+    # scores for stage 2 (stage2_passages.py): dev to tune the fusion, test to report
+    dev = split == "dev"
+    dev_sys = run_systems(feats[dev], feats[train], gold[train])
+    np.savez(root / "Data/retrieval/stage1_scores.npz", entities=np.array(entities),
+             dev_images=np.array([r["image"] for r, m in zip(rows, dev) if m]),
+             test_images=np.array([r["image"] for r, m in zip(rows, test) if m]),
+             **{f"dev_{n}": s for n, s in dev_sys.items()}, **{f"test_{n}": s for n, s in systems.items()})
     nearest = (q @ feats[train].T).max(1)
     leak = {f">={t}": float(np.mean(nearest >= t)) for t in (0.95, 0.98, 0.99)}
     print("test images with a train image at CLIP similarity", leak)

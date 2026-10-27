@@ -122,3 +122,44 @@ Local copies are in `D:\Software and Tools\ref-code\`.
    - **Primary:** strict R@k and MRR against the gold.
    - **Graded nDCG@5:** relevance 2 for the gold, 1 for a target linked to it by `causes`. Among the 17 targets no such link exists today, so nDCG@5 currently adds nothing over strict ranking. It will matter for evidence passages.
 5. **Pending expert confirmation:** `annotatedAs` in the ontology is unchanged. Two questions go to the expert: whether stem borers are one group, and whether Deadheart stays a Disease individual.
+
+## 6. Stage 2: from photo and question to passages (first scores, 2026-10-27)
+
+`scripts/stage2_passages.py` gives [`results/stage2_results.md`](results/stage2_results.md).
+
+**Setup:**
+- **Query:** a test image of the main subset plus a question of one of three intents:
+  - cause: "What causes this problem on my rice?"
+  - manage: "How can I control or prevent it?" (IRRI puts control and prevention in one section)
+  - identify: "Which symptoms confirm it?"
+- **Index:** the 296 IRRI passages, embedded with bge-m3 (local Ollama).
+
+**Gold:**
+- **Section gold (main):** the passages of the target's own IRRI fact sheet, in the section that answers the intent. The target → fact sheet map is written by hand, not taken from the graph. It is silver: no person has judged the passages yet.
+- **Fact gold (strict):** the passages linked by `hasEvidencePassage` to the target's facts of that intent. It favours the KG route by construction, so it is reported for coverage only.
+
+**Coverage (facts / facts with a linked sentence / section passages):**
+- **Fact sheets:** 13 of 17 targets have an IRRI sheet. Bacterial panicle blight, downy mildew, leaf scald and normal have none.
+- **Linked sentences:** they exist almost only for symptoms. For cause, 3 targets have one; for manage, only the three nutrient disorders.
+- **Missing sections:** the nutrient sheets have no "identify" or "cause" section, and the leaffolder sheet has no "manage" section.
+- **The gaps show which texts to add next:** CABI or other open sources for cause and control, and fact sheets for the four uncovered targets.
+
+**Stage 1 on the main subset:** linear probe R@1 0.506. Fusing the KG symptom prompts does not help in-source; the weight tuned on dev is 0, so the "kg" stage 1 equals the probe. A real KG stage 1 needs step 2 (VLM symptoms) or graph embeddings (IKRL), not CLIP text prompts.
+
+**Stage 2, section gold (MRR):**
+
+| Stage 1 → stage 2 | cause | manage | identify |
+|---|---:|---:|---:|
+| probe → bge-m3 over all passages (no KG) | 0.479 | 0.316 | 0.416 |
+| probe → KG route (facts → linked passages → cited documents) | 0.487 | 0.333 | 0.478 |
+| gold condition → bge-m3 | 0.721 | 0.685 | 0.533 |
+| gold condition → KG route | 0.731 | 0.706 | 0.757 |
+
+**Reading:**
+1. **Stage 1 is the bottleneck.** With the gold condition, MRR rises by 0.25 to 0.37 for every intent. A wrong condition sends the search to the wrong fact sheet.
+2. **The KG route helps most where the graph has linked sentences.** That is "identify": MRR 0.533 → 0.757 with the gold condition, and 0.416 → 0.478 with the probe. For cause and manage the gain is small, because few cause or control facts have a linked sentence yet. The route then falls back to the documents their facts cite.
+3. **Fact gold is not evidence.** With the gold condition the KG route scores 1.000 on it by construction. It is reported only to show coverage.
+4. **Next:**
+   - link cause and control facts to sentences, adding sources beyond IRRI;
+   - add question text to stage 1 (week 3);
+   - pool the top passages of both systems for human judging, which replaces the silver section gold.
