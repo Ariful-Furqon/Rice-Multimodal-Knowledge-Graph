@@ -60,35 +60,54 @@ Local copies are in `D:\Software and Tools\ref-code\`.
 - **Query:** the image only.
 - **Candidates:** all 17 gold targets (section 5).
 - **Encoder:** CLIP ViT-L/14.
-- **Full table, including per dataset:** [`results/stage1_results.md`](results/stage1_results.md).
+- **Full tables:** [`results/stage1_results.md`](results/stage1_results.md).
 
-**In-distribution test split (2,968 images):**
+**Two protocols:**
+- **In-source:** the test split. The headline "main" subset leaves out the queries of the two single-source datasets, Netrokona and YUKE-WBC. Their images stay in the gallery and their targets stay candidates.
+- **Cross-source:** leave one dataset out. The gallery and the probe use the train split of all *other* datasets. Queries are the held-out dataset's images, for targets that another dataset also has.
 
-| System | R@1 | MRR | Paddy Doctor R@1 |
+**In-source, main subset (2,883 test images; chance R@1 is 0.059):**
+
+| System | R@1 | macro R@1 | MRR |
 |---|---:|---:|---:|
-| CLIP zero-shot, label prompt | 0.107 | 0.249 | 0.135 |
-| CLIP zero-shot, label + KG symptom prompts | 0.036 | 0.206 | 0.032 |
-| Image kNN over train (mean of top 5) | 0.488 | 0.647 | 0.361 |
-| Linear probe on train (supervised reference) | 0.519 | 0.673 | 0.420 |
+| CLIP zero-shot, label prompt | 0.108 | 0.085 | 0.251 |
+| CLIP zero-shot, label + KG symptom prompts | 0.035 | 0.043 | 0.208 |
+| Image kNN over train (mean of top 5) | 0.473 | 0.466 | 0.636 |
+| Linear probe on train (supervised reference) | 0.506 | 0.424 | 0.665 |
 
-Chance R@1 is 0.059.
+**Cross-source, leave one dataset out (pooled 14,093 queries):**
 
-**Cross-dataset (train on Paddy Doctor; query Dhan-Shomadhan blast, brown spot and tungro; 606 images):**
+| System | R@1 | macro R@1 | R@3 | MRR |
+|---|---:|---:|---:|---:|
+| CLIP zero-shot, label prompt | 0.168 | 0.182 | 0.331 | 0.311 |
+| CLIP zero-shot, label + KG symptom prompts | 0.056 | 0.065 | 0.252 | 0.232 |
+| Image kNN | 0.366 | 0.287 | 0.593 | 0.534 |
+| Linear probe | 0.400 | 0.306 | 0.609 | 0.546 |
 
-| System | R@1 | R@3 | MRR |
-|---|---:|---:|---:|
-| CLIP zero-shot, label prompt | 0.094 | 0.201 | 0.221 |
-| CLIP zero-shot, label + KG symptom prompts | 0.157 | 0.474 | 0.402 |
-| Image kNN over Paddy Doctor train | 0.479 | 0.832 | 0.665 |
-| Linear probe on Paddy Doctor train | 0.436 | 0.790 | 0.635 |
+**Per held-out dataset (R@1):**
+
+| Held out | n | Targets | Label | KG prompts | kNN | Probe |
+|---|---:|---|---:|---:|---:|---:|
+| Dhan-Shomadhan | 606 | blast, brown spot, tungro | 0.094 | **0.157** | 0.089 | 0.116 |
+| Netrokona | 500 | potassium | 0.000 | 0.000 | 0.000 | 0.002 |
+| Nutrient Kaggle | 383 | potassium | 0.000 | 0.000 | 0.632 | 0.671 |
+| Paddy Doctor | 10,508 | blast, brown spot, tungro, normal, stem borer | 0.219 | 0.065 | 0.411 | 0.432 |
+| Stem Borer BD | 2,096 | normal, stem borer | 0.005 | 0.007 | 0.264 | 0.372 |
 
 **Reading:**
-1. **Split v1 leaked.** On v1 (19 targets), kNN R@1 was 0.917 and Paddy Doctor 0.924, because burst photos sat in train and test. On v2 it is 0.439 (Paddy Doctor 0.297). With gold v1 it is 0.488, because the stem borer and deadheart confusion is gone. Every number reported from now on uses split v2.
-2. **Generic CLIP text does not know rice symptoms.** Zero-shot is near chance in-distribution. Adding the KG symptom prompts lowers it, because blast and brown spot share "brown lesion", "leaf spot" and "wilting". Symptom matching must therefore happen in step 2, with a VLM and the closed vocabulary, not in the CLIP text space.
-3. **The KG text helps across datasets.** In the cross-dataset test, symptom prompts raise R@3 from 0.201 to 0.474. This is the first sign that graph knowledge transfers where image memory does not.
-4. **There is headroom for step 2.** Image kNN puts the right target in its top 3 for 83% of the cross-dataset queries, but at rank 1 for only 48%. Re-ranking within a short list is exactly step 2's job.
-5. **Confusions to target:** Hispa ↔ Normal, Normal → Leaf folder, Blast ↔ Tungro, Downy mildew → Hispa.
-6. **Dataset shortcut:** Netrokona and YUKE-WBC each hold one label and score up to 1.000. They are reported but not used as evidence.
+1. **Split v1 leaked.** On v1, image kNN reached R@1 0.917, because burst photos sat in train and test. On v2 the main subset gives 0.473. Every number reported from now on uses split v2.
+2. **Image memory is tied to the source.** The source dataset is predicted from the image with 0.993 accuracy (linear probe on CLIP features).
+   - **Single-source datasets:** Netrokona scores R@1 1.000 in-source and 0.000 cross-source, so in-source it is solved by recognising the camera and background, not potassium deficiency. YUKE-WBC (brown planthopper, 66 images) has no second source and cannot be tested fairly. Both are reported but are not evidence.
+   - **Gallery composition decides the answer:** with a Paddy Doctor-only gallery, kNN on Dhan-Shomadhan reaches 0.479. With all other datasets in the gallery it drops to 0.089, because Dhan's white-background leaf photos match the white-background nutrient datasets.
+3. **Generic CLIP text does not know rice symptoms.** In-source, the KG symptom prompts lower zero-shot R@1, because blast and brown spot share "brown lesion", "leaf spot" and "wilting". Symptom matching belongs in step 2 (VLM, closed vocabulary), not in the CLIP text space.
+4. **The one place KG text already leads is the hardest held-out set.** On Dhan-Shomadhan cross-source, KG prompts give R@1 0.157, the best of the four systems. Earlier, with a Paddy Doctor-only gallery, they raised R@3 from 0.201 to 0.474. This is the first sign that graph knowledge transfers where image memory does not.
+5. **There is headroom for step 2.** Cross-source, the best image system has R@3 0.609 but R@1 0.400. Re-ranking a short list with symptoms and context is exactly step 2's job.
+6. **Confusions to target (main):** Hispa ↔ Normal, Normal → Leaf folder, Blast ↔ Tungro, Downy mildew → Hispa.
+
+**Implications for the paper:**
+- **Headline:** report the main in-source subset *and* cross-source, with macro R@1 beside per-image R@1. Paddy Doctor is 82% of the test images.
+- **Checkpoint 1 (15 Nov):** step 2 must raise cross-source R@1, not only in-source R@1.
+- **Data gap:** a second brown planthopper image source is needed. IP102 is the first candidate to check.
 
 ## 5. Gold answer (gold v1, 2026-10-27)
 

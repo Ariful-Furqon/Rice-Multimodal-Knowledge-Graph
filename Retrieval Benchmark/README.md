@@ -29,7 +29,7 @@ Data splits and query-time graph for the SIGIR 2027 retrieval experiments. Desig
 - **Backup:** version 1 is kept outside the repository and is not used.
 
 **Not covered:**
-- **Dataset shortcut:** Netrokona (potassium only) and YUKE-WBC (brown planthopper only) each carry one label. A model can recognise the dataset's camera and background instead of the condition, so their in-dataset scores are not evidence of diagnosis.
+- **Dataset shortcut:** the source dataset is predictable from the image (0.993). Netrokona (potassium only) and YUKE-WBC (brown planthopper only) each carry one label, so their test queries are left out of the headline "main" subset, and cross-source results come from leave-one-dataset-out (`stage1_baselines.py`).
 - **Dhan-Shomadhan backgrounds:** it mixes white-background and field photos. The split is not stratified by background.
 - **Multispectral images:** the 472 multispectral captures (`RemoteSensingObservation`) are not in this split.
 

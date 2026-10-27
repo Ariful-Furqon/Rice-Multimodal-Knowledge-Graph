@@ -5,8 +5,19 @@ targets of Rice MMKG (splits/gold.csv, from make_gold.py: the cause to manage,
 Plan: Ontology/riceMMKG_SIGIR_plan.md, section 4 (step 1) and 5.2.
 Query = the image only; question templates come later (week 3).
 Candidates = all targets, for every dataset (no per-dataset shortlist).
-Metrics: strict R@k and MRR against the gold; nDCG@5 with graded relevance
-(gold 2; a target linked to the gold by `causes` in either direction 1).
+Metrics: strict R@k and MRR against the gold, per image and macro over targets;
+nDCG@5 with graded relevance (gold 2; a target linked to the gold by `causes`
+in either direction 1).
+
+Two protocols:
+- In-source: the test split. The headline ("main") leaves out the queries of
+  the single-source datasets (Netrokona, YUKE-WBC): each holds one label and
+  the source dataset is predictable from the image, so they can be solved by
+  recognising the source. Their images stay in the gallery and their targets
+  stay candidates.
+- Cross-source, leave one dataset out: gallery and probe from the train split
+  of all other datasets; queries are the held-out dataset's images of targets
+  that another dataset also has.
 
 Systems:
 - clip_label:  CLIP zero-shot, one prompt per condition from its label.
@@ -41,6 +52,8 @@ MODEL = "openai/clip-vit-large-patch14"
 KNN_K = 5
 TOP_KS = (1, 3, 5)
 BATCH = 64
+# one label each: a model can score by recognising the source, not the condition
+SINGLE_SOURCE = {"NetrokonaRiceDataset", "YukeWbcDataset"}
 
 
 def local(term):
@@ -109,6 +122,7 @@ def evaluate(scores, gold_idx, rel):
     rank = np.argmax(order == gold_idx[:, None], axis=1) + 1
     out = {f"R@{k}": float(np.mean(rank <= k)) for k in TOP_KS}
     out["MRR"] = float(np.mean(1.0 / rank))
+    out["macroR@1"] = float(np.mean([np.mean(rank[gold_idx == c] == 1) for c in np.unique(gold_idx)]))
     disc = 1.0 / np.log2(np.arange(2, 7))
     gains = (2 ** rel[gold_idx[:, None], order[:, :5]] - 1) @ disc
     ideal = (2 ** (-np.sort(-rel[gold_idx], axis=1)[:, :5]) - 1) @ disc
@@ -178,49 +192,80 @@ def main(root, out_dir):
     leak = {f">={t}": float(np.mean(nearest >= t)) for t in (0.95, 0.98, 0.99)}
     print("test images with a train image at CLIP similarity", leak)
 
-    # cross-dataset: gallery and probe from Paddy Doctor train only; queries are
-    # every Dhan-Shomadhan image whose condition Paddy Doctor also has
     dataset = np.array([r["dataset"] for r in rows])
-    gal = train & (dataset == "PaddyDoctorDataset")
-    shared = set(gold[gal])
-    cq = (dataset == "DhanShomadhanDataset") & np.isin(gold, list(shared))
-    cross_sys = run_systems(feats[cq], feats[gal], gold[gal])
-    cross = {name: evaluate(sc, gold[cq], rel)[0] | {"n": int(cq.sum())} for name, sc in cross_sys.items()}
-    cross_classes = sorted({entities[j] for j in gold[cq]})
+    # shortcut check: how well the source dataset is predicted from the image
+    ds_probe = LogisticRegression(max_iter=3000).fit(feats[train], dataset[train])
+    dataset_id_acc = float(np.mean(ds_probe.predict(q) == dataset[test]))
+    print(f"source dataset predicted from the image: {dataset_id_acc:.3f}")
+
     test_rows = [r for r, t in zip(rows, test) if t]
     datasets = sorted({r["dataset"] for r in test_rows})
     in_core = np.array([r["image"] in core for r in test_rows])
     ds = np.array([r["dataset"] for r in test_rows])
+    main_q = ~np.isin(ds, list(SINGLE_SOURCE))
     g_test = gold[test]
 
     results, confusions = {}, {}
     for name, sc in systems.items():
         res = {}
-        for subset, mask in [("test", np.ones(len(test_rows), bool)), ("test_core", in_core)] + \
-                            [(d, ds == d) for d in datasets]:
+        for subset, mask in [("main", main_q), ("test", np.ones(len(test_rows), bool)),
+                             ("test_core", in_core & main_q)] + [(d, ds == d) for d in datasets]:
             res[subset] = evaluate(sc[mask], g_test[mask], rel)[0] | {"n": int(mask.sum())}
         results[name] = res
-        _, _, top1 = evaluate(sc, g_test, rel)
-        pairs = collections.Counter((entities[a], entities[b]) for a, b in zip(g_test, top1) if a != b)
+        _, _, top1 = evaluate(sc[main_q], g_test[main_q], rel)
+        pairs = collections.Counter((entities[a], entities[b]) for a, b in zip(g_test[main_q], top1) if a != b)
         confusions[name] = [[a, b, n] for (a, b), n in pairs.most_common(8)]
+
+    # cross-source, leave one dataset out: gallery and probe from the train split of
+    # every other dataset; queries are all images of the held-out dataset whose
+    # target the gallery has (a target seen in one source only cannot be tested)
+    lodo, lodo_q, lodo_scores = {}, [], collections.defaultdict(list)
+    for held in sorted(set(dataset)):
+        gal = train & (dataset != held)
+        qm = (dataset == held) & np.isin(gold, np.unique(gold[gal]))
+        if not qm.any():
+            continue
+        sys_scores = run_systems(feats[qm], feats[gal], gold[gal])
+        lodo[held] = {"n": int(qm.sum()), "targets": sorted({entities[j] for j in gold[qm]}),
+                      "results": {n: evaluate(sc, gold[qm], rel)[0] for n, sc in sys_scores.items()}}
+        lodo_q.append(gold[qm])
+        for n, sc in sys_scores.items():
+            lodo_scores[n].append(sc)
+    lodo_gold = np.concatenate(lodo_q)
+    lodo_all = {n: evaluate(np.concatenate(s), lodo_gold, rel)[0] | {"n": len(lodo_gold)}
+                for n, s in lodo_scores.items()}
 
     (out_dir / "stage1_results.json").write_text(json.dumps(
         {"model": MODEL, "entities": entities, "prompts": prompts,
-         "results": results, "top_confusions": confusions,
-         "test_near_duplicate_rate": leak,
-         "cross_dataset": {"train": "PaddyDoctorDataset train", "query": "DhanShomadhanDataset",
-                           "classes": cross_classes, "results": cross}}, indent=1), encoding="utf-8")
+         "single_source_excluded_from_main": sorted(SINGLE_SOURCE),
+         "results": results, "top_confusions_main": confusions,
+         "test_near_duplicate_rate": leak, "dataset_id_accuracy": dataset_id_acc,
+         "leave_one_dataset_out": {"pooled": lodo_all, "per_dataset": lodo}}, indent=1), encoding="utf-8")
 
-    cols = ["test", "test_core"] + datasets
-    lines = ["| System | " + " | ".join(f"{c} R@1" for c in cols) + " | test MRR | test nDCG@5 |",
-             "|---|" + "---:|" * (len(cols) + 2)]
-    for name, res in results.items():
-        lines.append(f"| {name} | " + " | ".join(f"{res[c]['R@1']:.3f}" for c in cols)
-                     + f" | {res['test']['MRR']:.3f} | {res['test']['nDCG@5']:.3f} |")
-    lines += ["", f"Cross-dataset: Paddy Doctor train -> Dhan-Shomadhan ({', '.join(cross_classes)}), "
-                  f"n = {cq.sum()}, candidates = all {len(entities)} targets", "",
-              "| System | R@1 | R@3 | MRR | nDCG@5 |", "|---|---:|---:|---:|---:|"]
-    lines += [f"| {name} | {r['R@1']:.3f} | {r['R@3']:.3f} | {r['MRR']:.3f} | {r['nDCG@5']:.3f} |" for name, r in cross.items()]
+    names = list(systems)
+    lines = [f"In-source: test split, {len(entities)} candidate targets. "
+             f"main = test without the single-source datasets ({', '.join(sorted(SINGLE_SOURCE))}).", "",
+             "| System | main R@1 | main macro R@1 | main MRR | test_core R@1 | all test R@1 |",
+             "|---|---:|---:|---:|---:|---:|"]
+    for n in names:
+        r = results[n]
+        lines.append(f"| {n} | {r['main']['R@1']:.3f} | {r['main']['macroR@1']:.3f} | {r['main']['MRR']:.3f} "
+                     f"| {r['test_core']['R@1']:.3f} | {r['test']['R@1']:.3f} |")
+    lines += ["", "Per dataset (test split, R@1):", "",
+              "| System | " + " | ".join(datasets) + " |", "|---|" + "---:|" * len(datasets)]
+    for n in names:
+        lines.append(f"| {n} | " + " | ".join(f"{results[n][d]['R@1']:.3f}" for d in datasets) + " |")
+    lines += ["", f"Cross-source, leave one dataset out (pooled n = {len(lodo_gold)}):", "",
+              "| System | R@1 | macro R@1 | R@3 | MRR |", "|---|---:|---:|---:|---:|"]
+    for n in names:
+        r = lodo_all[n]
+        lines.append(f"| {n} | {r['R@1']:.3f} | {r['macroR@1']:.3f} | {r['R@3']:.3f} | {r['MRR']:.3f} |")
+    lines += ["", "Per held-out dataset (R@1; targets tested):", "",
+              "| Held out | n | targets | " + " | ".join(names) + " |", "|---|---:|---|" + "---:|" * len(names)]
+    for held, v in lodo.items():
+        lines.append(f"| {held} | {v['n']} | {', '.join(v['targets'])} | "
+                     + " | ".join(f"{v['results'][n]['R@1']:.3f}" for n in names) + " |")
+    lines += ["", f"Source dataset predicted from the image (linear probe): {dataset_id_acc:.3f}"]
     (out_dir / "stage1_results.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print("\n".join(lines))
     for name, c in confusions.items():
