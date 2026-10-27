@@ -6,6 +6,9 @@ Rules (Ontology/riceMMKG_SIGIR_plan.md, section 5.1):
   Multimodal Fusion PoC/ikrl_vs_cnn.py.
 - Byte-identical files (same MD5) form one group and go to the same split, so a
   duplicate cannot sit in train and test at once.
+- If splits/capture_groups.csv exists (capture_groups.py), its groups are used
+  instead: one capture session or burst stays in one split. Version 2,
+  2026-10-27; version 1 used MD5 groups only and leaked burst photos.
 - A stratum with fewer than MIN_STRATUM images goes to train only.
 - A file that carries two different labels stays in train: it has no single gold.
 - test_core: a class-balanced sample of the test split (at most CORE_PER_STRATUM
@@ -96,9 +99,19 @@ def main(root, graph_out):
     for r in rows:
         r["md5"] = md5[r["url"]]
 
+    groups_file = here / "capture_groups.csv"
+    if groups_file.exists():
+        with groups_file.open(encoding="utf-8") as f:
+            capture = {r["image"]: r["group"] for r in csv.DictReader(f)}
+        print(f"grouping by capture session: {len(set(capture.values()))} groups")
+    else:
+        capture = {}
+    for r in rows:
+        r["group"] = capture.get(r["image"], r["md5"])
+
     strata = collections.defaultdict(lambda: collections.defaultdict(list))
     for r in rows:
-        strata[(r["dataset"], r["annotatedAs"])][r["md5"]].append(r)
+        strata[(r["dataset"], r["annotatedAs"])][r["group"]].append(r)
     # a duplicate group spanning strata is assigned once, in its first stratum
     seen = set()
     rng = random.Random(SEED)
@@ -127,7 +140,7 @@ def main(root, graph_out):
         r["split"] = by_md5[r["md5"]]
 
     rows.sort(key=lambda r: (r["dataset"], r["annotatedAs"], r["image"]))
-    fields = ["image", "dataset", "annotatedAs", "split", "md5", "url"]
+    fields = ["image", "dataset", "annotatedAs", "split", "group", "md5", "url"]
     with (here / "images_split.csv").open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()

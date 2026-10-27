@@ -1,0 +1,593 @@
+{
+ "model": "openai/clip-vit-large-patch14",
+ "entities": [
+  "Bacterial_Leaf_Blight",
+  "Bacterial_Leaf_Streak",
+  "Bacterial_Panicle_Blight",
+  "Brown_Planthopper",
+  "Brown_Spot",
+  "Deadheart",
+  "Downy_Mildew",
+  "Hispa",
+  "Leaf_Folder",
+  "Leaf_Scald",
+  "Nitrogen_Deficiency_Disorder",
+  "Normal_Health",
+  "Phosphorus_Deficiency_Disorder",
+  "Potassium_Deficiency_Disorder",
+  "Rice_Blast_Disease",
+  "Rice_Tungro_Disease",
+  "Sheath_Blight",
+  "Stem_Borer",
+  "White_Ear"
+ ],
+ "prompts": {
+  "Bacterial_Leaf_Blight": [
+   "a photo of a rice plant with Bacterial Leaf Blight",
+   "a photo of a rice plant showing dry leaf tip",
+   "a photo of a rice plant showing leaf rolling",
+   "a photo of a rice plant showing wilting",
+   "a photo of a rice plant showing yellow leaf"
+  ],
+  "Bacterial_Leaf_Streak": [
+   "a photo of a rice plant with Bacterial Leaf Streak",
+   "a photo of a rice plant showing yellow leaf",
+   "a photo of a rice plant showing translucent stripe",
+   "a photo of a rice plant showing water-soaked streak"
+  ],
+  "Bacterial_Panicle_Blight": [
+   "a photo of a rice plant with Bacterial Panicle Blight",
+   "a photo of a rice plant showing wilting",
+   "a photo of a rice plant showing discolored panicle",
+   "a photo of a rice plant showing empty grain",
+   "a photo of a rice plant showing grain discoloration"
+  ],
+  "Brown_Planthopper": [
+   "a photo of a rice plant with Brown Planthopper",
+   "a photo of a rice plant showing hopper burn",
+   "a photo of a rice plant showing yellow leaf"
+  ],
+  "Brown_Spot": [
+   "a photo of a rice plant with Brown Spot",
+   "a photo of a rice plant showing brown lesion",
+   "a photo of a rice plant showing leaf spot",
+   "a photo of a rice plant showing wilting",
+   "a photo of a rice plant showing grain discoloration"
+  ],
+  "Deadheart": [
+   "a photo of a rice plant with Deadheart",
+   "a photo of a rice plant showing dead heart",
+   "a photo of a rice plant showing reduced tillering",
+   "a photo of a rice plant showing white ear"
+  ],
+  "Downy_Mildew": [
+   "a photo of a rice plant with Downy Mildew",
+   "a photo of a rice plant showing excessive tillering",
+   "a photo of a rice plant showing sterile panicle",
+   "a photo of a rice plant showing stunted growth",
+   "a photo of a rice plant showing yellow stripe"
+  ],
+  "Hispa": [
+   "a photo of a rice plant with Hispa",
+   "a photo of a rice plant showing brown leaf tip",
+   "a photo of a rice plant showing leaf scratching",
+   "a photo of a rice plant showing white streak"
+  ],
+  "Leaf_Folder": [
+   "a photo of a rice plant with Leaf Folder",
+   "a photo of a rice plant showing leaf rolling"
+  ],
+  "Leaf_Scald": [
+   "a photo of a rice plant with Leaf Scald",
+   "a photo of a rice plant showing zonate leaf lesion"
+  ],
+  "Nitrogen_Deficiency_Disorder": [
+   "a photo of a rice plant with nitrogen deficiency disorder",
+   "a photo of a rice plant showing reduced tillering",
+   "a photo of a rice plant showing stunted growth",
+   "a photo of a rice plant showing yellowish-green leaves"
+  ],
+  "Normal_Health": [
+   "a photo of a healthy rice plant"
+  ],
+  "Phosphorus_Deficiency_Disorder": [
+   "a photo of a rice plant with phosphorus deficiency disorder",
+   "a photo of a rice plant showing dark green erect leaves",
+   "a photo of a rice plant showing delayed maturity",
+   "a photo of a rice plant showing empty grain",
+   "a photo of a rice plant showing reduced tillering",
+   "a photo of a rice plant showing stunted growth",
+   "a photo of a rice plant showing thin, spindly stems"
+  ],
+  "Potassium_Deficiency_Disorder": [
+   "a photo of a rice plant with potassium deficiency disorder",
+   "a photo of a rice plant showing black roots",
+   "a photo of a rice plant showing empty grain",
+   "a photo of a rice plant showing lodging",
+   "a photo of a rice plant showing necrotic leaf tips and margins",
+   "a photo of a rice plant showing stunted growth",
+   "a photo of a rice plant showing yellowish-brown leaf margins"
+  ],
+  "Rice_Blast_Disease": [
+   "a photo of a rice plant with Rice Blast",
+   "a photo of a rice plant showing brown lesion",
+   "a photo of a rice plant showing leaf spot",
+   "a photo of a rice plant showing wilting",
+   "a photo of a rice plant showing neck rot",
+   "a photo of a rice plant showing node lesion",
+   "a photo of a rice plant showing panicle blast",
+   "a photo of a rice plant showing white ear"
+  ],
+  "Rice_Tungro_Disease": [
+   "a photo of a rice plant with Rice Tungro Disease",
+   "a photo of a rice plant showing yellow leaf",
+   "a photo of a rice plant showing empty grain",
+   "a photo of a rice plant showing reduced tillering",
+   "a photo of a rice plant showing sterile panicle",
+   "a photo of a rice plant showing stunted growth",
+   "a photo of a rice plant showing yellow-orange leaf discoloration"
+  ],
+  "Sheath_Blight": [
+   "a photo of a rice plant with Sheath Blight",
+   "a photo of a rice plant showing wilting",
+   "a photo of a rice plant showing leaf sheath lesion",
+   "a photo of a rice plant showing tiller death"
+  ],
+  "Stem_Borer": [
+   "a photo of a rice plant with Stem Borer",
+   "a photo of a rice plant showing dead heart",
+   "a photo of a rice plant showing white ear"
+  ],
+  "White_Ear": [
+   "a photo of a rice plant with white ear"
+  ]
+ },
+ "results": {
+  "clip_label": {
+   "test": {
+    "R@1": 0.09804582210242588,
+    "R@3": 0.2227088948787062,
+    "R@5": 0.3318733153638814,
+    "MRR": 0.2346910497019529,
+    "n": 2968
+   },
+   "test_core": {
+    "R@1": 0.11621621621621622,
+    "R@3": 0.2,
+    "R@5": 0.3108108108108108,
+    "MRR": 0.23688846933428978,
+    "n": 370
+   },
+   "DhanShomadhanDataset": {
+    "R@1": 0.060240963855421686,
+    "R@3": 0.2289156626506024,
+    "R@5": 0.42168674698795183,
+    "MRR": 0.22419390741945666,
+    "n": 166
+   },
+   "NetrokonaRiceDataset": {
+    "R@1": 0.0,
+    "R@3": 0.0,
+    "R@5": 0.0,
+    "MRR": 0.10188566988566988,
+    "n": 75
+   },
+   "NutrientDeficiencyKaggleDataset": {
+    "R@1": 0.0,
+    "R@3": 0.0,
+    "R@5": 0.023121387283236993,
+    "MRR": 0.10419543432124187,
+    "n": 173
+   },
+   "PaddyDoctorDataset": {
+    "R@1": 0.0870345446388515,
+    "R@3": 0.23912068192014357,
+    "R@5": 0.34096007178106774,
+    "MRR": 0.23121858066553447,
+    "n": 2229
+   },
+   "StemBorerSymptomDataset": {
+    "R@1": 0.2571428571428571,
+    "R@3": 0.26666666666666666,
+    "R@5": 0.4603174603174603,
+    "MRR": 0.35558990299591803,
+    "n": 315
+   },
+   "YukeWbcDataset": {
+    "R@1": 0.6,
+    "R@3": 0.6,
+    "R@5": 0.6,
+    "MRR": 0.6282575757575757,
+    "n": 10
+   }
+  },
+  "clip_kg": {
+   "test": {
+    "R@1": 0.04818059299191375,
+    "R@3": 0.20350404312668463,
+    "R@5": 0.37836927223719674,
+    "MRR": 0.21066361618448948,
+    "n": 2968
+   },
+   "test_core": {
+    "R@1": 0.07837837837837838,
+    "R@3": 0.22432432432432434,
+    "R@5": 0.3675675675675676,
+    "MRR": 0.23268220795697578,
+    "n": 370
+   },
+   "DhanShomadhanDataset": {
+    "R@1": 0.1686746987951807,
+    "R@3": 0.5662650602409639,
+    "R@5": 0.8132530120481928,
+    "MRR": 0.405264391683598,
+    "n": 166
+   },
+   "NetrokonaRiceDataset": {
+    "R@1": 0.0,
+    "R@3": 0.0,
+    "R@5": 0.0,
+    "MRR": 0.0855971435971436,
+    "n": 75
+   },
+   "NutrientDeficiencyKaggleDataset": {
+    "R@1": 0.0,
+    "R@3": 0.005780346820809248,
+    "R@5": 0.04046242774566474,
+    "MRR": 0.0992611354605574,
+    "n": 173
+   },
+   "PaddyDoctorDataset": {
+    "R@1": 0.03275011215791835,
+    "R@3": 0.20098698968147152,
+    "R@5": 0.4087034544638852,
+    "MRR": 0.20859627642376016,
+    "n": 2229
+   },
+   "StemBorerSymptomDataset": {
+    "R@1": 0.11746031746031746,
+    "R@3": 0.17777777777777778,
+    "R@5": 0.2,
+    "MRR": 0.20246267522399028,
+    "n": 315
+   },
+   "YukeWbcDataset": {
+    "R@1": 0.5,
+    "R@3": 0.5,
+    "R@5": 0.7,
+    "MRR": 0.5646918767507003,
+    "n": 10
+   }
+  },
+  "knn_image": {
+   "test": {
+    "R@1": 0.4390161725067385,
+    "R@3": 0.735512129380054,
+    "R@5": 0.8487196765498652,
+    "MRR": 0.6141878122252111,
+    "n": 2968
+   },
+   "test_core": {
+    "R@1": 0.5243243243243243,
+    "R@3": 0.7945945945945946,
+    "R@5": 0.8675675675675676,
+    "MRR": 0.6768632268632269,
+    "n": 370
+   },
+   "DhanShomadhanDataset": {
+    "R@1": 0.6626506024096386,
+    "R@3": 0.9216867469879518,
+    "R@5": 0.9819277108433735,
+    "MRR": 0.7942771084337351,
+    "n": 166
+   },
+   "NetrokonaRiceDataset": {
+    "R@1": 1.0,
+    "R@3": 1.0,
+    "R@5": 1.0,
+    "MRR": 1.0,
+    "n": 75
+   },
+   "NutrientDeficiencyKaggleDataset": {
+    "R@1": 0.8554913294797688,
+    "R@3": 1.0,
+    "R@5": 1.0,
+    "MRR": 0.9219653179190751,
+    "n": 173
+   },
+   "PaddyDoctorDataset": {
+    "R@1": 0.2965455361148497,
+    "R@3": 0.6541049798115747,
+    "R@5": 0.8003589053387169,
+    "MRR": 0.5114667683644805,
+    "n": 2229
+   },
+   "StemBorerSymptomDataset": {
+    "R@1": 0.9492063492063492,
+    "R@3": 0.9968253968253968,
+    "R@5": 0.9968253968253968,
+    "MRR": 0.973015873015873,
+    "n": 315
+   },
+   "YukeWbcDataset": {
+    "R@1": 1.0,
+    "R@3": 1.0,
+    "R@5": 1.0,
+    "MRR": 1.0,
+    "n": 10
+   }
+  },
+  "linear_probe": {
+   "test": {
+    "R@1": 0.4834905660377358,
+    "R@3": 0.7732479784366577,
+    "R@5": 0.8871293800539084,
+    "MRR": 0.6530393947172922,
+    "n": 2968
+   },
+   "test_core": {
+    "R@1": 0.5,
+    "R@3": 0.7756756756756756,
+    "R@5": 0.8837837837837837,
+    "MRR": 0.6591075066075066,
+    "n": 370
+   },
+   "DhanShomadhanDataset": {
+    "R@1": 0.5120481927710844,
+    "R@3": 0.8373493975903614,
+    "R@5": 0.9397590361445783,
+    "MRR": 0.6782180670734888,
+    "n": 166
+   },
+   "NetrokonaRiceDataset": {
+    "R@1": 1.0,
+    "R@3": 1.0,
+    "R@5": 1.0,
+    "MRR": 1.0,
+    "n": 75
+   },
+   "NutrientDeficiencyKaggleDataset": {
+    "R@1": 0.8323699421965318,
+    "R@3": 1.0,
+    "R@5": 1.0,
+    "MRR": 0.909441233140655,
+    "n": 173
+   },
+   "PaddyDoctorDataset": {
+    "R@1": 0.3728129205921938,
+    "R@3": 0.7106325706594886,
+    "R@5": 0.8541947061462539,
+    "MRR": 0.5751921897951507,
+    "n": 2229
+   },
+   "StemBorerSymptomDataset": {
+    "R@1": 0.9333333333333333,
+    "R@3": 1.0,
+    "R@5": 1.0,
+    "MRR": 0.9645502645502645,
+    "n": 315
+   },
+   "YukeWbcDataset": {
+    "R@1": 0.6,
+    "R@3": 0.9,
+    "R@5": 1.0,
+    "MRR": 0.7366666666666666,
+    "n": 10
+   }
+  }
+ },
+ "top_confusions": {
+  "clip_label": [
+   [
+    "Deadheart",
+    "White_Ear",
+    268
+   ],
+   [
+    "Normal_Health",
+    "White_Ear",
+    221
+   ],
+   [
+    "Hispa",
+    "White_Ear",
+    204
+   ],
+   [
+    "Rice_Blast_Disease",
+    "Brown_Spot",
+    198
+   ],
+   [
+    "Rice_Tungro_Disease",
+    "White_Ear",
+    106
+   ],
+   [
+    "Leaf_Folder",
+    "White_Ear",
+    103
+   ],
+   [
+    "Stem_Borer",
+    "White_Ear",
+    94
+   ],
+   [
+    "Potassium_Deficiency_Disorder",
+    "Bacterial_Leaf_Streak",
+    91
+   ]
+  ],
+  "clip_kg": [
+   [
+    "Rice_Blast_Disease",
+    "Nitrogen_Deficiency_Disorder",
+    212
+   ],
+   [
+    "Rice_Tungro_Disease",
+    "Nitrogen_Deficiency_Disorder",
+    169
+   ],
+   [
+    "Hispa",
+    "Nitrogen_Deficiency_Disorder",
+    140
+   ],
+   [
+    "Normal_Health",
+    "Brown_Planthopper",
+    128
+   ],
+   [
+    "Normal_Health",
+    "Downy_Mildew",
+    117
+   ],
+   [
+    "Deadheart",
+    "White_Ear",
+    97
+   ],
+   [
+    "Brown_Spot",
+    "Nitrogen_Deficiency_Disorder",
+    95
+   ],
+   [
+    "Downy_Mildew",
+    "Nitrogen_Deficiency_Disorder",
+    94
+   ]
+  ],
+  "knn_image": [
+   [
+    "Hispa",
+    "Normal_Health",
+    104
+   ],
+   [
+    "Stem_Borer",
+    "Deadheart",
+    79
+   ],
+   [
+    "Normal_Health",
+    "Hispa",
+    74
+   ],
+   [
+    "Deadheart",
+    "Stem_Borer",
+    57
+   ],
+   [
+    "Normal_Health",
+    "Leaf_Folder",
+    56
+   ],
+   [
+    "Rice_Tungro_Disease",
+    "Hispa",
+    47
+   ],
+   [
+    "Rice_Blast_Disease",
+    "Rice_Tungro_Disease",
+    44
+   ],
+   [
+    "Downy_Mildew",
+    "Hispa",
+    44
+   ]
+  ],
+  "linear_probe": [
+   [
+    "Hispa",
+    "Normal_Health",
+    113
+   ],
+   [
+    "Rice_Blast_Disease",
+    "Rice_Tungro_Disease",
+    94
+   ],
+   [
+    "Downy_Mildew",
+    "Hispa",
+    82
+   ],
+   [
+    "Stem_Borer",
+    "Deadheart",
+    77
+   ],
+   [
+    "Rice_Blast_Disease",
+    "Hispa",
+    60
+   ],
+   [
+    "Brown_Spot",
+    "Rice_Blast_Disease",
+    59
+   ],
+   [
+    "Rice_Tungro_Disease",
+    "Hispa",
+    57
+   ],
+   [
+    "Rice_Blast_Disease",
+    "Normal_Health",
+    55
+   ]
+  ]
+ },
+ "test_near_duplicate_rate": {
+  ">=0.95": 0.944743935309973,
+  ">=0.98": 0.24191374663072776,
+  ">=0.99": 0.028975741239892182
+ },
+ "cross_dataset": {
+  "train": "PaddyDoctorDataset train",
+  "query": "DhanShomadhanDataset",
+  "classes": [
+   "Brown_Spot",
+   "Rice_Blast_Disease",
+   "Rice_Tungro_Disease"
+  ],
+  "results": {
+   "clip_label": {
+    "R@1": 0.09405940594059406,
+    "R@3": 0.20132013201320131,
+    "R@5": 0.297029702970297,
+    "MRR": 0.21896254113554792,
+    "n": 606
+   },
+   "clip_kg": {
+    "R@1": 0.15676567656765678,
+    "R@3": 0.4735973597359736,
+    "R@5": 0.8613861386138614,
+    "MRR": 0.40107332161787607,
+    "n": 606
+   },
+   "knn_image": {
+    "R@1": 0.4834983498349835,
+    "R@3": 0.8316831683168316,
+    "R@5": 0.9306930693069307,
+    "MRR": 0.6676561108491802,
+    "n": 606
+   },
+   "linear_probe": {
+    "R@1": 0.43564356435643564,
+    "R@3": 0.7821782178217822,
+    "R@5": 0.9092409240924092,
+    "MRR": 0.632690947666195,
+    "n": 606
+   }
+  }
+ }
+}
