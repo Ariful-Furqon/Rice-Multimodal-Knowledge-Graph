@@ -33,6 +33,10 @@ Data splits and query-time graph for the SIGIR 2027 retrieval experiments. Desig
 - **Dhan-Shomadhan backgrounds:** it mixes white-background and field photos. The split is not stratified by background.
 - **Multispectral images:** the 472 multispectral captures (`RemoteSensingObservation`) are not in this split.
 
+## Gold answers
+
+[`splits/gold.csv`](splits/gold.csv) (`scripts/make_gold.py`) gives each image its gold target: the cause to manage, not the symptom. There are 17 targets, and all stem borer damage photos are gold `Stem_Borer`. Deadheart and white-head labels are kept as symptoms. The rule and its reasons are in [`design_v2.md`](design_v2.md), section 5.
+
 ## Query-time graph
 
 `Data/retrieval/RiceMMKG_query_time.ttl` is gitignored and rebuilt by the script.
@@ -53,6 +57,7 @@ python -I "Retrieval Benchmark/scripts/make_split.py" . Data/retrieval        # 
 <venv>/python -I "Retrieval Benchmark/scripts/stage1_baselines.py" . "Retrieval Benchmark/results"   # caches CLIP features
 <venv>/python -I "Retrieval Benchmark/scripts/capture_groups.py" .
 python -I "Retrieval Benchmark/scripts/make_split.py" . Data/retrieval        # v2, using capture_groups.csv
+python -I "Retrieval Benchmark/scripts/make_gold.py" .
 <venv>/python -I "Retrieval Benchmark/scripts/stage1_baselines.py" . "Retrieval Benchmark/results"
 ```
 

@@ -1,9 +1,12 @@
-"""Stage-1 baselines for entity retrieval: photo -> ranked list of the 19
-conditions (annotatedAs targets) of Rice MMKG.
+"""Stage-1 baselines for entity retrieval: photo -> ranked list of the gold
+targets of Rice MMKG (splits/gold.csv, from make_gold.py: the cause to manage,
+17 targets).
 
 Plan: Ontology/riceMMKG_SIGIR_plan.md, section 4 (step 1) and 5.2.
 Query = the image only; question templates come later (week 3).
-Candidates = all 19 conditions, for every dataset (no per-dataset shortlist).
+Candidates = all targets, for every dataset (no per-dataset shortlist).
+Metrics: strict R@k and MRR against the gold; nDCG@5 with graded relevance
+(gold 2; a target linked to the gold by `causes` in either direction 1).
 
 Systems:
 - clip_label:  CLIP zero-shot, one prompt per condition from its label.
@@ -90,12 +93,26 @@ def encode_texts(model, proc, texts):
     return torch.nn.functional.normalize(f.float(), dim=-1).cpu().numpy()
 
 
-def evaluate(scores, gold_idx):
-    """scores: (n, n_entities); returns recall@k and MRR (means over rows)."""
+def graded_relevance(g, entities):
+    """(n, n) matrix: rel[gold, candidate] = 2 for the gold, 1 if linked by causes."""
+    rel = 2 * np.eye(len(entities))
+    for i, a in enumerate(entities):
+        for j, b in enumerate(entities):
+            if i != j and ((R[a], R.causes, R[b]) in g or (R[b], R.causes, R[a]) in g):
+                rel[i, j] = 1
+    return rel
+
+
+def evaluate(scores, gold_idx, rel):
+    """scores: (n, n_entities); returns recall@k, MRR and graded nDCG@5 (means over rows)."""
     order = np.argsort(-scores, axis=1)
     rank = np.argmax(order == gold_idx[:, None], axis=1) + 1
     out = {f"R@{k}": float(np.mean(rank <= k)) for k in TOP_KS}
     out["MRR"] = float(np.mean(1.0 / rank))
+    disc = 1.0 / np.log2(np.arange(2, 7))
+    gains = (2 ** rel[gold_idx[:, None], order[:, :5]] - 1) @ disc
+    ideal = (2 ** (-np.sort(-rel[gold_idx], axis=1)[:, :5]) - 1) @ disc
+    out["nDCG@5"] = float(np.mean(gains / ideal))
     return out, rank, order[:, 0]
 
 
@@ -106,12 +123,17 @@ def main(root, out_dir):
         rows = list(csv.DictReader(f))
     with (root / "Retrieval Benchmark/splits/test_core.csv").open(encoding="utf-8") as f:
         core = {r["image"] for r in csv.DictReader(f)}
-    entities = sorted({r["annotatedAs"] for r in rows})
+    with (root / "Retrieval Benchmark/splits/gold.csv").open(encoding="utf-8") as f:
+        gold_of = {r["image"]: r["gold"] for r in csv.DictReader(f)}
+    entities = sorted(set(gold_of.values()))
     e_idx = {e: i for i, e in enumerate(entities)}
 
     g = rdflib.Graph()
     g.parse(root / "Data/retrieval/RiceMMKG_query_time.ttl")
     prompts = entity_prompts(g, entities)
+    rel = graded_relevance(g, entities)
+    print(f"{len(entities)} targets; graded pairs (relevance 1):",
+          [(entities[i], entities[j]) for i, j in zip(*np.nonzero(rel == 1))])
 
     model = CLIPModel.from_pretrained(MODEL, torch_dtype=torch.float16).to("cuda").eval()
     proc = CLIPProcessor.from_pretrained(MODEL)
@@ -123,7 +145,7 @@ def main(root, out_dir):
     kg_emb /= np.linalg.norm(kg_emb, axis=1, keepdims=True)
 
     split = np.array([r["split"] for r in rows])
-    gold = np.array([e_idx[r["annotatedAs"]] for r in rows])
+    gold = np.array([e_idx[gold_of[r["image"]]] for r in rows])
     train, test = split == "train", split == "test"
 
     def knn_scores(q, g_feats, g_gold):
@@ -163,7 +185,7 @@ def main(root, out_dir):
     shared = set(gold[gal])
     cq = (dataset == "DhanShomadhanDataset") & np.isin(gold, list(shared))
     cross_sys = run_systems(feats[cq], feats[gal], gold[gal])
-    cross = {name: evaluate(sc, gold[cq])[0] | {"n": int(cq.sum())} for name, sc in cross_sys.items()}
+    cross = {name: evaluate(sc, gold[cq], rel)[0] | {"n": int(cq.sum())} for name, sc in cross_sys.items()}
     cross_classes = sorted({entities[j] for j in gold[cq]})
     test_rows = [r for r, t in zip(rows, test) if t]
     datasets = sorted({r["dataset"] for r in test_rows})
@@ -176,9 +198,9 @@ def main(root, out_dir):
         res = {}
         for subset, mask in [("test", np.ones(len(test_rows), bool)), ("test_core", in_core)] + \
                             [(d, ds == d) for d in datasets]:
-            res[subset] = evaluate(sc[mask], g_test[mask])[0] | {"n": int(mask.sum())}
+            res[subset] = evaluate(sc[mask], g_test[mask], rel)[0] | {"n": int(mask.sum())}
         results[name] = res
-        _, _, top1 = evaluate(sc, g_test)
+        _, _, top1 = evaluate(sc, g_test, rel)
         pairs = collections.Counter((entities[a], entities[b]) for a, b in zip(g_test, top1) if a != b)
         confusions[name] = [[a, b, n] for (a, b), n in pairs.most_common(8)]
 
@@ -190,15 +212,15 @@ def main(root, out_dir):
                            "classes": cross_classes, "results": cross}}, indent=1), encoding="utf-8")
 
     cols = ["test", "test_core"] + datasets
-    lines = ["| System | " + " | ".join(f"{c} R@1" for c in cols) + " | test MRR |",
-             "|---|" + "---:|" * (len(cols) + 1)]
+    lines = ["| System | " + " | ".join(f"{c} R@1" for c in cols) + " | test MRR | test nDCG@5 |",
+             "|---|" + "---:|" * (len(cols) + 2)]
     for name, res in results.items():
         lines.append(f"| {name} | " + " | ".join(f"{res[c]['R@1']:.3f}" for c in cols)
-                     + f" | {res['test']['MRR']:.3f} |")
+                     + f" | {res['test']['MRR']:.3f} | {res['test']['nDCG@5']:.3f} |")
     lines += ["", f"Cross-dataset: Paddy Doctor train -> Dhan-Shomadhan ({', '.join(cross_classes)}), "
-                  f"n = {cq.sum()}, candidates = all {len(entities)} conditions", "",
-              "| System | R@1 | R@3 | MRR |", "|---|---:|---:|---:|"]
-    lines += [f"| {name} | {r['R@1']:.3f} | {r['R@3']:.3f} | {r['MRR']:.3f} |" for name, r in cross.items()]
+                  f"n = {cq.sum()}, candidates = all {len(entities)} targets", "",
+              "| System | R@1 | R@3 | MRR | nDCG@5 |", "|---|---:|---:|---:|---:|"]
+    lines += [f"| {name} | {r['R@1']:.3f} | {r['R@3']:.3f} | {r['MRR']:.3f} | {r['nDCG@5']:.3f} |" for name, r in cross.items()]
     (out_dir / "stage1_results.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print("\n".join(lines))
     for name, c in confusions.items():

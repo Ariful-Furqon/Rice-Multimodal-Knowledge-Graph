@@ -54,34 +54,52 @@ Local copies are in `D:\Software and Tools\ref-code\`.
 2. **Encoders:** CLIP ViT-L/14, the OMGM `clip` option. EVA-CLIP-8B does not fit next to a 7B VLM on 24 GB; it can be checked once, alone.
 3. **The stage-1 query is the image only.** Questions are added in week 3 and then enter step 2 and step 3, as in OMGM.
 
-## 4. Stage-1 results (split version 2)
+## 4. Stage-1 results (split v2, gold v1)
 
-Query: the image only. Candidates: all 19 conditions. Encoder: CLIP ViT-L/14. Full table, including per dataset: [`results/stage1_results.md`](results/stage1_results.md).
+**Setup:**
+- **Query:** the image only.
+- **Candidates:** all 17 gold targets (section 5).
+- **Encoder:** CLIP ViT-L/14.
+- **Full table, including per dataset:** [`results/stage1_results.md`](results/stage1_results.md).
 
 **In-distribution test split (2,968 images):**
 
 | System | R@1 | MRR | Paddy Doctor R@1 |
 |---|---:|---:|---:|
-| CLIP zero-shot, label prompt | 0.098 | 0.235 | 0.087 |
-| CLIP zero-shot, label + KG symptom prompts | 0.048 | 0.211 | 0.033 |
-| Image kNN over train (mean of top 5) | 0.439 | 0.614 | 0.297 |
-| Linear probe on train (supervised reference) | 0.483 | 0.653 | 0.373 |
+| CLIP zero-shot, label prompt | 0.107 | 0.249 | 0.135 |
+| CLIP zero-shot, label + KG symptom prompts | 0.036 | 0.206 | 0.032 |
+| Image kNN over train (mean of top 5) | 0.488 | 0.647 | 0.361 |
+| Linear probe on train (supervised reference) | 0.519 | 0.673 | 0.420 |
 
-Chance R@1 is 0.053.
+Chance R@1 is 0.059.
 
-**Cross-dataset (train on Paddy Doctor, query Dhan-Shomadhan blast, brown spot and tungro; 606 images):**
+**Cross-dataset (train on Paddy Doctor; query Dhan-Shomadhan blast, brown spot and tungro; 606 images):**
 
 | System | R@1 | R@3 | MRR |
 |---|---:|---:|---:|
-| CLIP zero-shot, label prompt | 0.094 | 0.201 | 0.219 |
-| CLIP zero-shot, label + KG symptom prompts | 0.157 | 0.474 | 0.401 |
-| Image kNN over Paddy Doctor train | 0.483 | 0.832 | 0.668 |
-| Linear probe on Paddy Doctor train | 0.436 | 0.782 | 0.633 |
+| CLIP zero-shot, label prompt | 0.094 | 0.201 | 0.221 |
+| CLIP zero-shot, label + KG symptom prompts | 0.157 | 0.474 | 0.402 |
+| Image kNN over Paddy Doctor train | 0.479 | 0.832 | 0.665 |
+| Linear probe on Paddy Doctor train | 0.436 | 0.790 | 0.635 |
 
 **Reading:**
-1. **Split v1 leaked.** On v1, kNN R@1 was 0.917 (Paddy Doctor 0.924), because burst photos were in train and test. On v2 it is 0.439 (Paddy Doctor 0.297). Every number reported from now on uses v2.
-2. **Generic CLIP text does not know rice symptoms.** Zero-shot is near chance in-distribution. Adding the KG symptom prompts lowers it, because blast and brown spot share "brown lesion", "leaf spot" and "wilting". Symptom matching must therefore happen in step 2 with a VLM and the closed vocabulary, not in the CLIP text space.
+1. **Split v1 leaked.** On v1 (19 targets), kNN R@1 was 0.917 and Paddy Doctor 0.924, because burst photos sat in train and test. On v2 it is 0.439 (Paddy Doctor 0.297). With gold v1 it is 0.488, because the stem borer and deadheart confusion is gone. Every number reported from now on uses split v2.
+2. **Generic CLIP text does not know rice symptoms.** Zero-shot is near chance in-distribution. Adding the KG symptom prompts lowers it, because blast and brown spot share "brown lesion", "leaf spot" and "wilting". Symptom matching must therefore happen in step 2, with a VLM and the closed vocabulary, not in the CLIP text space.
 3. **The KG text helps across datasets.** In the cross-dataset test, symptom prompts raise R@3 from 0.201 to 0.474. This is the first sign that graph knowledge transfers where image memory does not.
-4. **There is headroom for step 2.** Image kNN places the right condition in its top 3 for 83% of the cross-dataset queries, but at rank 1 for only 48%. Re-ranking within a short list is exactly step 2's job.
-5. **Confusions to target:** Hispa ↔ Normal, Stem borer ↔ Deadheart (a pest and its own symptom), Blast ↔ Tungro, and Downy mildew → Hispa. The pest–symptom pair is a modelling question, not only a retrieval one: is "Deadheart" a correct answer for a stem borer photo?
+4. **There is headroom for step 2.** Image kNN puts the right target in its top 3 for 83% of the cross-dataset queries, but at rank 1 for only 48%. Re-ranking within a short list is exactly step 2's job.
+5. **Confusions to target:** Hispa ↔ Normal, Normal → Leaf folder, Blast ↔ Tungro, Downy mildew → Hispa.
 6. **Dataset shortcut:** Netrokona and YUKE-WBC each hold one label and score up to 1.000. They are reported but not used as evidence.
+
+## 5. Gold answer (gold v1, 2026-10-27)
+
+`scripts/make_gold.py` writes [`splits/gold.csv`](splits/gold.csv).
+
+1. **The gold is the cause to manage**, whether pest, pathogen disease or nutrient disorder, and not the symptom. In IPM the action follows the cause.
+2. **All stem borer damage photos have gold `Stem_Borer`, as a group** (2,769 images remapped).
+   - **Paddy Doctor:** names its folders by species (`yellow_`, `white_`, `black_stem_borer`). Version 1 mapped yellow to `Stem_Borer` and white and black to `Deadheart`, but all three folders show damage, mostly whiteheads.
+   - **Species:** it cannot be told from the damage, and the management is the same.
+3. **`Deadheart` and `White_Ear` are symptoms, not targets.** They are kept per image only where the source labels the symptom (Stem Borer BD: 439 deadheart, 551 white head). They serve as ground truth for the step-2 symptom check.
+4. **Metrics:**
+   - **Primary:** strict R@k and MRR against the gold.
+   - **Graded nDCG@5:** relevance 2 for the gold, 1 for a target linked to it by `causes`. Among the 17 targets no such link exists today, so nDCG@5 currently adds nothing over strict ranking. It will matter for evidence passages.
+5. **Pending expert confirmation:** `annotatedAs` in the ontology is unchanged. Two questions go to the expert: whether stem borers are one group, and whether Deadheart stays a Disease individual.
