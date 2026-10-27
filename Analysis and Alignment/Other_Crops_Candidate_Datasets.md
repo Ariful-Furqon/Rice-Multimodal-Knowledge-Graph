@@ -17,69 +17,108 @@ The supervisor asked to explore crops other than rice (noted 2026-10-27). This l
 
 ## Priority for this week
 
-1. **Subscription-only sets first**, while the IEEE DataPort subscription lasts.
+1. **IEEE DataPort sets first**, while the subscription lasts (sections A–D, about 2 GB).
 2. **Tier 1 crops:** two or more independent field sources.
 3. **Tier 2:** one usable source, or field status unclear.
 
-## Download now: IEEE DataPort (subscription required)
+## IEEE DataPort: full screening (2026-10-27)
 
-These were found through web search and the DataPort keyword pages "agriculture" and "plant-disease-detection". DataPort's own search needs a login, so a logged-in search for "plant disease", "leaf", "pest" and each crop name may find more.
+**How the list was built:**
+- **Searches:** DataPort's public search (`/datasets?search_api_fulltext=…`) for plant disease, leaf disease, crop disease, pest, insect trap, soil sensor, hyperspectral, and the crop names rice, paddy, maize, wheat, tomato, potato, banana, cassava, cotton, soybean, sugarcane, tea, coffee, chili, citrus and mango.
+- **Pages read:** the first one to three result pages per query.
+- **Checks:** each candidate's own page, for size, field status and access.
+- **Access:** every entry below needs the IEEE DataPort subscription unless noted.
+- **Licences:** none stated, unless noted.
 
-| Priority | Crop | Dataset | Content | Size | Link |
-|---|---|---|---|---|---|
-| 1 | Tomato | Real Field Crop Image Dataset (Karande & Garg) | Field images, 3 sites in Sangli and Satara, Maharashtra; leaf masks | 151 MB | [10.21227/5ytp-dr85](https://ieee-dataport.org/documents/real-field-crop-image-dataset) |
-| 1 | Cotton | A Comprehensive Dataset of Cotton Plant Diseases … Treatment Guidance | **Text, not images** (CSV): 14 classes with symptoms, favourable conditions, prevention, and physical, biological and chemical controls, curated from Indian agriculture and government sites. A ready text layer for a cotton KG | small | [link](https://ieee-dataport.org/documents/comprehensive-dataset-cotton-plant-diseases-national-disease-identification-and-treatment) |
-| 1 | Cotton | COT-AD: Cotton Analysis Dataset (ICIP 2025, arXiv 2507.18532) | More than 25,000 images, 5,000 annotated; leaf disease (yellowish leaf, bacterial blight leaf spot, leaf reddening, fresh), boll (boll rot, damaged, healthy), bugs (mealy bug, red cotton bug); plus drone flights over 2 farms | **308 GB**: download only the leaf, boll and bug parts if the files are split | [link](https://ieee-dataport.org/documents/cot-adcotton-analysis-dataset) |
-| 2 | Brinjal, castor, cumin, guava, papaya | Multi-Crop Leaf Disease Dataset | 1,720 field images, 41 classes | | [link](https://ieee-dataport.org/documents/multi-crop-leaf-disease-dataset) |
-| 2 | Chili (guajillo) | Guajillo chili leaves under field conditions | 100 field images, 2025 season, San Luis Potosí, Mexico; fungal, bacterial, viral | 89 MB | [link](https://ieee-dataport.org/documents/image-dataset-guajillo-chili-leaves-visual-classification-fungal-bacterial-and-viral) |
-| 2 | Safflower | FieldCropLeaf | Field leaf images; image count unclear on the page | 30 MB | [link](https://ieee-dataport.org/documents/fieldcropleaf-dataset-safflower-plant-leaf-images-disease-detection-and-classification) |
-| 3 | Mixed pests | Dataset for Agriculture Pest Images | Aphids, leafhoppers, beetles, caterpillars; crops and field status not stated | 17.5 GB | [link](https://ieee-dataport.org/documents/dataset-agriculture-pest-images) |
+**Size rule:** "small" is up to about 1 GB. Larger sets are listed separately.
 
-**Not worth downloading:**
-- **[Annotated Maize Leaf Disease](https://ieee-dataport.org/documents/annotated-maize-leaf-disease-image-dataset-cnn-based-classification):** derived from PlantVillage, no metadata.
-- **[CoSEV cotton](https://ieee-dataport.org/documents/cosev-cotton-disease-dataset-detection-and-classification-severity-stages-and-multiple):** the page says the files have not been uploaded.
-- **PlantVillage copies:** lab photos.
-- **Ridge gourd:** 600 originals, augmented.
-- **Rose:** 596 images, augmented.
-- **Fruit-only sets:** mango, guava, apple fruitlet, grape frost.
-- **IP102:** also free on GitHub.
+### A. For Rice MMKG itself (download first)
 
-**Possibly useful as text only:** [Context-Aware Multimodal Augmented PlantVillage](https://ieee-dataport.org/documents/context-aware-multimodal-augmented-plantvillage-dataset). It has more than 3,900 expert text descriptions for 38 PlantVillage classes; the images are lab photos.
-
-### IEEE DataPort by modality (second search, 2026-10-27)
-
-**Rice:** these add sources and modalities to Rice MMKG itself.
-
-| Modality | Dataset | Content | Size | Link |
+| Dataset | Content | Size | Use | Link |
 |---|---|---|---|---|
-| Field image | Indian Rice Disease Dataset (IRDD) | Brown spot and healthy, West Bengal, expert-verified; "full dataset available soon" | 24 MB | [link](https://ieee-dataport.org/documents/indian-rice-disease-dataset-irdd) |
-| UAV RGB + multispectral | IMPaCT-UAV-MsRGB | Paddy fields in Andhra Pradesh over the full growth cycle; RGB plus 4 bands (G, R, RE, NIR), about 1 cm/pixel | to check | [link](https://ieee-dataport.org/documents/indian-multi-stage-paddy-crop-tracking-based-uav-multispectral-and-rgb-image-dataset) |
-| UAV multispectral (indices) | Multi-temporal UAV multispectral, paddy | DJI Mavic 3M, 7 dates, 3 plots, Kharif 2025, West Bengal; NDVI, NDRE, GNDVI per frame; no disease labels | 1.6 MB (CSV) | [link](https://ieee-dataport.org/documents/multi-temporal-uav-multispectral-dataset-solar-illumination-aware-vegetation-index) |
-| Field image | Paddy Doctor | Already in Rice MMKG | | [link](https://ieee-dataport.org/documents/paddy-doctor-visual-image-dataset-automated-paddy-disease-classification-and-benchmarking) |
+| Indian Rice Disease Dataset (IRDD) | Field photos, West Bengal; brown spot and healthy; expert-verified; CSV labels | 24 MB | Third independent brown-spot source for cross-source tests | [link](https://ieee-dataport.org/documents/indian-rice-disease-dataset-irdd) |
+| Rice Disease Risk Assessment Dataset v1.0 | Tabular: 236 records, 13 fields (soil chemistry, coordinates, climate) → disease risk; Odisha; **CC BY 4.0** | 0.2 MB | Context → risk links (`increaseRiskOf`) | [link](https://ieee-dataport.org/documents/rice-disease-risk-assessment-dataset-v10zip) |
+| Data_Tanaman_Padi_Indonesia_2018-2023 | Provincial harvested area and production (BPS), rainfall, humidity, temperature (BMKG) | 9 KB | Indonesian context layer | [link](https://ieee-dataport.org/documents/datatanamanpadiindonesia2018-2023) |
+| RiceDO v2 / TreatO v2 | The rice disease and control ontologies already aligned to | small | Their IRIs do not resolve today; the v2 files may fix the alignment | [RiceDO](https://ieee-dataport.org/documents/ricedo-version-2-rice-disease-ontology) · [TreatO](https://ieee-dataport.org/documents/treato-version-2-rice-disease-control-ontology) |
+| Multi-temporal UAV multispectral, paddy | NDVI, NDRE, GNDVI per frame; 7 dates, 3 plots, West Bengal 2025; no disease labels | 1.6 MB | Remote-sensing observations, if wanted | [link](https://ieee-dataport.org/documents/multi-temporal-uav-multispectral-dataset-solar-illumination-aware-vegetation-index) |
+| Paddy Crop RGB Drone Data (optional) | UAV RGB tiles 224×224, healthy or unhealthy only; West Bengal | 793 MB | Weak labels | [link](https://ieee-dataport.org/documents/paddy-crop-rgb-drone-data) |
+| Paddy Field (optional) | Kerala; JPEG; content unclear on the page | 639 MB | Check after download | [link](https://ieee-dataport.org/documents/paddy-field) |
 
-**IRDD adds a third independent brown-spot source** (with Paddy Doctor and Dhan-Shomadhan) for cross-source tests.
+**Skipped:**
+- **[IMPaCT-UAV-MsRGB](https://ieee-dataport.org/documents/indian-multi-stage-paddy-crop-tracking-based-uav-multispectral-and-rgb-image-dataset):** 415 GB, no disease labels, CC BY 4.0.
+- **[Paddy crop and weeds](https://ieee-dataport.org/documents/paddy-crop-and-weeds-digital-image-dataset):** 7.8 GB, weeds only.
+- **[RMPS](https://ieee-dataport.org/documents/rmps-rupnagar-maize-paddy-sugarcane-dataset):** 23.8 GB of satellite crop-type data.
+- **[Paddy Disease Effected Images](https://ieee-dataport.org/documents/paddy-disease-effected-images):** no files uploaded.
 
-**Other crops and modalities:**
+### B. Text knowledge for a crop KG (tiny, download all)
 
-| Modality | Crop | Dataset | Content | Size | Link |
-|---|---|---|---|---|---|
-| UAV and ground image | Soybean | MH-SoyaHealthVision | Rust, mosaic, healthy, semilooper/caterpillar; Maharashtra; 2 seasons | 4.2 GB | [link](https://ieee-dataport.org/documents/mh-soyahealthvision-uav-dataset-disease-monitoring-and-severity-assessment) |
-| Soil sensor (IoT) | none (field) | Rural IoT soil data | 7 LoRaWAN nodes near Gdańsk, 2023 season: soil moisture, temperature, pH, irradiance | small | [link](https://ieee-dataport.org/documents/rural-iot-soil-data) |
-| Text | Cotton | Cotton diseases … treatment guidance | See the table above | | |
+| Dataset | Content | Size | Link |
+|---|---|---|---|
+| Tomato plant diseases (VIIT Pune) | CSV with 9 diseases and pests plus healthy: symptoms, favourable conditions, physical, biological and chemical control with dosages, prevention; from more than 40 government and scientific sources; Mendeley copy linked | 27 KB | [link](https://ieee-dataport.org/documents/comprehensive-dataset-tomato-plant-diseases-national-predictive-analytics-and-crop-health) |
+| Cotton plant diseases (same authors) | CSV with 14 classes, the same fields | small | [link](https://ieee-dataport.org/documents/comprehensive-dataset-cotton-plant-diseases-national-disease-identification-and-treatment) |
 
-**Searched for but not found on DataPort:**
-- **Light-trap or pheromone-trap pest time series.** The closest open set is outside DataPort: the [Kenyan maize lepidopteran pests and microclimate dataset 2021–2024](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12433461/) (IRD Dataverse). It pairs pheromone-trap counts with microclimate sensors at five sites, which makes it a strong match for a maize KG's sensor and pest layer.
-- **Hyperspectral disease sets.** These appear in papers (wheat co-infection, tomato time series, soybean charcoal rot), but none was found as a DataPort download.
+**Caveat:** these files hold facts without per-sentence sources, so in Rice MMKG terms they are candidate facts, not provenance.
 
-**Coverage of this search:**
-- **What was used:** web search restricted to ieee-dataport.org, plus the public keyword pages "agriculture" (3 pages), "plant-disease-detection", "multispectral-imaging" and the paddy keyword page.
-- **What it misses:**
-  - DataPort's own search needs a login, so it may hold more.
-  - Datasets of IEEE Access papers are often on GitHub or Mendeley instead of DataPort; IEEE Xplore was not searched.
+### C. Field image sets, small (up to about 1 GB)
 
-**Cotton as a candidate crop:**
-- **What DataPort gives:** an image set (COT-AD) and a text set with symptoms, conditions and controls, the two layers Rice MMKG has.
-- **What is missing:** a second, independent cotton image source for cross-source tests.
+| Crop | Dataset | Content | Size | Link |
+|---|---|---|---|---|
+| Soybean | Soybean disease data set in natural scenes | 1,620 field images, 6 diseases, 3 farms in Heilongjiang, June–Sept 2019 | 19 MB | [link](https://ieee-dataport.org/documents/soybean-disease-data-set-natural-scenes) |
+| Safflower | FieldCropLeaf | Field leaf images | 30 MB | [link](https://ieee-dataport.org/documents/fieldcropleaf-dataset-safflower-plant-leaf-images-disease-detection-and-classification) |
+| Dragon fruit | PitayaLeaf | About 400 field images, 5 classes (anthracnose, brown spot, stem canker, stress, healthy), Satara; metadata CSV | 40 MB | [link](https://ieee-dataport.org/documents/pitayaleaf-real-world-dragon-fruit-plant-disease-image-dataset) |
+| Chili | Guajillo chili leaves | 100 field images, 2025 season, Mexico; fungal, bacterial, viral | 89 MB | [link](https://ieee-dataport.org/documents/image-dataset-guajillo-chili-leaves-visual-classification-fungal-bacterial-and-viral) |
+| Mango | Field-captured mango leaf diseases | Anthracnose, sooty mould, bacterial canker, cutting weevil, gall midge, powdery mildew, rust…; Konkan | 99 MB | [link](https://ieee-dataport.org/documents/comprehensive-field-captured-image-dataset-mango-plant-diseases-deep-learning) |
+| Tomato | Real Field Crop Image Dataset | Field images, 3 sites in Sangli and Satara, leaf masks | 151 MB | [link](https://ieee-dataport.org/documents/real-field-crop-image-dataset) |
+| Tea | Common diseases in Indian tea plants | 416 raw field images (healthy, diseased), Tinsukia, Assam; download the raw archive only | 176 MB | [link](https://ieee-dataport.org/documents/image-based-dataset-identification-common-diseases-indian-tea-plants) |
+| Arecanut | Arecanut disease detection | About 300 field images (handheld, smartphone, drone), 6 classes, Chikkamagaluru | 254 MB | [link](https://ieee-dataport.org/documents/arecanut-disease-detection-dataset-6-classes-field-images-karnataka-india) |
+| Coffee | Coffee Leaf Rust Dataset | 3-month time series from a camera system, rust severity 0–4 labelled by biologists (EAFIT); also on GitHub (tidusdavid/clr-dataset) | 511 MB | [link](https://ieee-dataport.org/documents/coffee-leaf-rust-dataset) |
+| Cotton | Cotton aphids and diseases | 1,399 originals (brown spot, Verticillium wilt, aphids, healthy) augmented to 4,000; field status not stated | 812 MB | [link](https://ieee-dataport.org/documents/cotton-aphids-and-diseases-dataset) |
+| Citrus | Orange fruit and leaf diseases | Black spot, greening, scab, canker, melanose, healthy; field status not stated | 64 MB | [link](https://ieee-dataport.org/documents/orange-fruit-and-leaf-diseases) |
+| Citrus | Lemon leaf disease dataset | 9 classes, YOLO boxes; field status not stated | 229 MB | [link](https://ieee-dataport.org/documents/lemon-leaf-disease-dataset) |
+
+### D. Pest trap and sensor time series (small)
+
+| Dataset | Content | Size | Link |
+|---|---|---|---|
+| Adapted Hartstack pheromone traps | Corn earworm trap counts with timestamps plus weather (temperature, RH, wind, pressure); 4 fields in North Carolina | 12 MB | [link](https://ieee-dataport.org/documents/adapted-hartstack-pheromone-traps-automated-moth-counting-dataset) |
+| Solar insecticidal lamp IoT | Light-trap analogue: insect-kill pulse counts plus air temperature, humidity, light, device status; Nov 2023 – Feb 2024; 16.7 M rows; crop and location not named | 332 MB | [link](https://ieee-dataport.org/documents/dataset-farmland-environmental-data-insecticidal-information-and-equipment-status-solar) |
+| Rural IoT soil data | 7 LoRaWAN nodes near Gdańsk, 2023: soil moisture, temperature, pH, irradiance | small | [link](https://ieee-dataport.org/documents/rural-iot-soil-data) |
+
+### E. Larger field sets (1–7 GB), download if space allows
+
+| Crop | Dataset | Content | Size | Link |
+|---|---|---|---|---|
+| Wheat | Wheat_Rust_HLSS | Raw field photos, healthy and stem, leaf and stripe rust, Maharashtra, several growth stages | 1.3 GB | [link](https://ieee-dataport.org/documents/wheatrusthlss) |
+| Banana | Banana plants across growth stages | 1,090 unlabelled field photos, Solapur; free Mendeley copy (10.17632/428ysdybvd.1) | ~3 GB | [link](https://ieee-dataport.org/documents/field-captured-dataset-banana-plants-across-growth-stages-and-early-disease-conditions) |
+| Brinjal, castor, cumin, guava, papaya | Multi-Crop Leaf Disease | 1,720 field images, 41 classes | 3.0 GB | [link](https://ieee-dataport.org/documents/multi-crop-leaf-disease-dataset) |
+| Soybean | MH-SoyaHealthVision | UAV and ground, rust, mosaic, semilooper; 2 seasons | 4.2 GB | [link](https://ieee-dataport.org/documents/mh-soyahealthvision-uav-dataset-disease-monitoring-and-severity-assessment) |
+| Loofah | Loofah pests and diseases | 2,929 field images, Guangdong; downy mildew, 2 pests, healthy | 7.0 GB | [link](https://ieee-dataport.org/documents/loofahpestsdiseasesimage) |
+
+### Not recommended
+
+**Too large:**
+- [COT-AD](https://ieee-dataport.org/documents/cot-adcotton-analysis-dataset): 308 GB.
+- [Cherry](https://ieee-dataport.org/documents/cherry-tree-disease-detection-dataset): 39 GB, and [Peach](https://ieee-dataport.org/documents/peach-tree-disease-detection-dataset): 60 GB. Both are otherwise excellent multimodal orchard sets, with UAV, ground and multispectral images and per-tree expert labels.
+- [Insecticidal lamp video](https://ieee-dataport.org/documents/insecticidal-counting-dataset-based-one-solar-insecticidal-lamp-and-two-cameras): 179 GB.
+
+**Lab, web, PlantVillage or augmented:**
+- [Raw citrus leaf](https://ieee-dataport.org/documents/raw-citrus-leaf-images): from PlantVillage.
+- [Potato Disease Classification](https://ieee-dataport.org/documents/potato-disease-classification-dataset): merged from open sources.
+- [Annotated Maize](https://ieee-dataport.org/documents/annotated-maize-leaf-disease-image-dataset-cnn-based-classification).
+- [Bean ibean augmented](https://ieee-dataport.org/documents/bean-leaf-disease-augmented-ibean-dataset): 2.2 GB. The original iBean is free on GitHub.
+- [INDTomatoMSTD](https://ieee-dataport.org/documents/indtomatomstd-multi-scale-tomato-disease-dataset-tiny-and-large-lesion-detection-using): fruit, augmented.
+- [Banana anthracnose](https://ieee-dataport.org/documents/real-time-dataset-banana-anthracnose-caused-colletotrichum-spp-decay-and-disease): fruit, controlled, no redistribution.
+- PlantVillage copies, ridge gourd, rose.
+
+**Other reasons:**
+- [LeafNet](https://ieee-dataport.org/documents/leafnet-large-scale-dataset-training-image-text-models-leaf-disease-identification): 11 GB, 186k images of 22 crops, image source unclear. Its per-class symptom JSON could be useful text.
+- [AgriSense](https://ieee-dataport.org/documents/ai-based-crop-disease-prediction-and-farm-advisory-platform): synthetic.
+- [CoSEV](https://ieee-dataport.org/documents/cosev-cotton-disease-dataset-detection-and-classification-severity-stages-and-multiple): no files uploaded.
+- [Agriculture Pest Images](https://ieee-dataport.org/documents/dataset-agriculture-pest-images): 17.5 GB, crops and field status not stated.
+
+**Download plan:**
+- **A + B + C + D:** about 2 GB in total.
+- **Adding E:** about 18 GB more.
 
 ## Tier 1: two or more independent field sources
 
