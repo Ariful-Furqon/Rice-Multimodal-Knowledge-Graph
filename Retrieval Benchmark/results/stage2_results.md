@@ -22,6 +22,8 @@ Coverage (main test photos; facts / facts with a linked sentence / section passa
 
 Stage 1 R@1 on the main test subset: no_kg 0.506, kg 0.506, oracle 1.000 (KG weight 0, tuned on dev)
 
+Reranker BAAI/bge-reranker-v2-m3 over the top 50. Top-k propagation, tuned on dev: no_kg K=5 beta=0.2 gamma=0, kg K=2 beta=0.1 gamma=1
+
 Stage 2, section gold
 
 | System | Intent | n | MRR | Hit@1 | Hit@3 | Hit@10 | nDCG@10 | Recall@10 |
@@ -35,12 +37,30 @@ Stage 2, section gold
 | no_kg_stage1+kg_route | cause | 2077 | 0.487 | 0.418 | 0.468 | 0.631 | 0.244 | 0.230 |
 | no_kg_stage1+kg_route | manage | 2094 | 0.333 | 0.241 | 0.358 | 0.491 | 0.184 | 0.184 |
 | no_kg_stage1+kg_route | identify | 2077 | 0.478 | 0.390 | 0.494 | 0.642 | 0.244 | 0.214 |
+| no_kg+rerank | cause | 2077 | 0.518 | 0.450 | 0.539 | 0.653 | 0.327 | 0.314 |
+| no_kg+rerank | manage | 2094 | 0.321 | 0.228 | 0.321 | 0.496 | 0.154 | 0.135 |
+| no_kg+rerank | identify | 2077 | 0.301 | 0.101 | 0.444 | 0.562 | 0.199 | 0.236 |
+| kg+rerank | cause | 2077 | 0.529 | 0.464 | 0.553 | 0.652 | 0.332 | 0.317 |
+| kg+rerank | manage | 2094 | 0.332 | 0.252 | 0.321 | 0.496 | 0.191 | 0.183 |
+| kg+rerank | identify | 2077 | 0.340 | 0.140 | 0.468 | 0.574 | 0.227 | 0.258 |
+| no_kg top-k+rerank | cause | 2077 | 0.533 | 0.457 | 0.552 | 0.684 | 0.326 | 0.316 |
+| no_kg top-k+rerank | manage | 2094 | 0.376 | 0.250 | 0.420 | 0.608 | 0.186 | 0.165 |
+| no_kg top-k+rerank | identify | 2077 | 0.310 | 0.092 | 0.483 | 0.621 | 0.209 | 0.256 |
+| kg top-k+rerank | cause | 2077 | 0.536 | 0.468 | 0.555 | 0.677 | 0.333 | 0.322 |
+| kg top-k+rerank | manage | 2094 | 0.389 | 0.308 | 0.391 | 0.545 | 0.192 | 0.163 |
+| kg top-k+rerank | identify | 2077 | 0.326 | 0.100 | 0.484 | 0.596 | 0.220 | 0.262 |
 | oracle+dense | cause | 2077 | 0.721 | 0.604 | 0.846 | 1.000 | 0.445 | 0.471 |
 | oracle+dense | manage | 2094 | 0.685 | 0.638 | 0.681 | 0.759 | 0.286 | 0.207 |
 | oracle+dense | identify | 2077 | 0.533 | 0.450 | 0.571 | 0.816 | 0.297 | 0.272 |
 | oracle+kg_route | cause | 2077 | 0.731 | 0.624 | 0.846 | 1.000 | 0.452 | 0.476 |
 | oracle+kg_route | manage | 2094 | 0.706 | 0.661 | 0.713 | 0.759 | 0.334 | 0.269 |
 | oracle+kg_route | identify | 2077 | 0.757 | 0.614 | 0.900 | 1.000 | 0.406 | 0.360 |
+| oracle+dense+rerank | cause | 2077 | 0.874 | 0.758 | 0.980 | 1.000 | 0.584 | 0.556 |
+| oracle+dense+rerank | manage | 2094 | 0.713 | 0.654 | 0.759 | 0.759 | 0.335 | 0.237 |
+| oracle+dense+rerank | identify | 2077 | 0.554 | 0.350 | 0.769 | 0.816 | 0.362 | 0.384 |
+| oracle+kg_route+rerank | cause | 2077 | 0.889 | 0.778 | 1.000 | 1.000 | 0.592 | 0.561 |
+| oracle+kg_route+rerank | manage | 2094 | 0.726 | 0.681 | 0.759 | 0.759 | 0.379 | 0.293 |
+| oracle+kg_route+rerank | identify | 2077 | 0.745 | 0.514 | 0.953 | 1.000 | 0.464 | 0.462 |
 
 Stage 2, fact gold
 
@@ -55,9 +75,27 @@ Stage 2, fact gold
 | no_kg_stage1+kg_route | cause | 149 | 0.768 | 0.765 | 0.765 | 0.765 | 0.765 | 0.765 |
 | no_kg_stage1+kg_route | manage | 173 | 0.839 | 0.838 | 0.838 | 0.838 | 0.838 | 0.838 |
 | no_kg_stage1+kg_route | identify | 897 | 0.508 | 0.475 | 0.475 | 0.593 | 0.504 | 0.548 |
+| no_kg+rerank | cause | 149 | 0.250 | 0.000 | 0.221 | 0.765 | 0.374 | 0.765 |
+| no_kg+rerank | manage | 173 | 0.032 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
+| no_kg+rerank | identify | 897 | 0.367 | 0.315 | 0.362 | 0.394 | 0.342 | 0.387 |
+| kg+rerank | cause | 149 | 0.768 | 0.765 | 0.765 | 0.765 | 0.765 | 0.765 |
+| kg+rerank | manage | 173 | 0.839 | 0.838 | 0.838 | 0.838 | 0.838 | 0.838 |
+| kg+rerank | identify | 897 | 0.499 | 0.475 | 0.475 | 0.501 | 0.482 | 0.494 |
+| no_kg top-k+rerank | cause | 149 | 0.244 | 0.000 | 0.215 | 0.785 | 0.368 | 0.785 |
+| no_kg top-k+rerank | manage | 173 | 0.030 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
+| no_kg top-k+rerank | identify | 897 | 0.432 | 0.363 | 0.464 | 0.505 | 0.414 | 0.487 |
+| kg top-k+rerank | cause | 149 | 0.795 | 0.758 | 0.812 | 0.859 | 0.808 | 0.859 |
+| kg top-k+rerank | manage | 173 | 0.078 | 0.000 | 0.000 | 0.353 | 0.117 | 0.353 |
+| kg top-k+rerank | identify | 897 | 0.416 | 0.359 | 0.423 | 0.447 | 0.404 | 0.440 |
 | oracle+dense | cause | 149 | 0.103 | 0.000 | 0.000 | 0.664 | 0.210 | 0.664 |
 | oracle+dense | manage | 173 | 0.099 | 0.000 | 0.000 | 0.382 | 0.164 | 0.382 |
 | oracle+dense | identify | 897 | 0.558 | 0.526 | 0.573 | 0.573 | 0.482 | 0.573 |
 | oracle+kg_route | cause | 149 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |
 | oracle+kg_route | manage | 173 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |
 | oracle+kg_route | identify | 897 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |
+| oracle+dense+rerank | cause | 149 | 0.334 | 0.000 | 0.336 | 1.000 | 0.498 | 1.000 |
+| oracle+dense+rerank | manage | 173 | 0.033 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
+| oracle+dense+rerank | identify | 897 | 0.563 | 0.526 | 0.573 | 0.573 | 0.529 | 0.573 |
+| oracle+kg_route+rerank | cause | 149 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |
+| oracle+kg_route+rerank | manage | 173 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |
+| oracle+kg_route+rerank | identify | 897 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |

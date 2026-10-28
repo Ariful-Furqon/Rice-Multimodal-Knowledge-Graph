@@ -163,3 +163,48 @@ Local copies are in `D:\Software and Tools\ref-code\`.
    - link cause and control facts to sentences, adding sources beyond IRRI;
    - add question text to stage 1 (week 3);
    - pool the top passages of both systems for human judging, which replaces the silver section gold.
+
+## 7. Stage 2 with OMGM step 3 and top-k propagation (2026-10-28)
+
+**What was added to `scripts/stage2_passages.py`:**
+- **Reranker (OMGM step 3):** bge-reranker-v2-m3, a cross-encoder, re-orders the top 50 passages. The query is "<condition label>: <question>".
+  - **Without the KG:** it re-orders the bge-m3 top 50.
+  - **On the KG route:** it re-orders within each KG tier, so passages the graph links stay first.
+  - **First attempt:** re-ordering the KG top 50 freely erased the graph's advantage; "identify" with the gold condition fell from 0.757 to 0.554.
+- **Top-k propagation:** the stage-1 top-1 is not trusted. The top K conditions each bring their pool, and a passage scores max over conditions e of log p(e | image) + beta · (rerank + gamma · tier bonus). K, beta and gamma are tuned on dev (section gold, mean MRR over intents):
+  - **No KG:** K = 5, beta = 0.2.
+  - **KG:** K = 2, beta = 0.1, gamma = 1.
+
+**Section gold, MRR on the main test subset:**
+
+| Stage 1 → stage 2 | cause | manage | identify |
+|---|---:|---:|---:|
+| probe top-1 → bge-m3 (no KG) | 0.479 | 0.316 | 0.416 |
+| probe top-1 → KG route | 0.487 | 0.333 | **0.478** |
+| probe top-1 → bge-m3 + rerank | 0.518 | 0.321 | 0.301 |
+| probe top-1 → KG route + rerank in tiers | 0.529 | 0.332 | 0.340 |
+| probe top-k → bge-m3 + rerank | 0.533 | 0.376 | 0.310 |
+| probe top-k → KG route + rerank in tiers | **0.536** | **0.389** | 0.326 |
+| gold condition → bge-m3 | 0.721 | 0.685 | 0.533 |
+| gold condition → KG route | 0.731 | 0.706 | **0.757** |
+| gold condition → bge-m3 + rerank | 0.874 | 0.713 | 0.554 |
+| gold condition → KG route + rerank in tiers | **0.889** | **0.726** | 0.745 |
+
+**Reading:**
+1. **The reranker helps cause and manage.**
+   - **With the gold condition:** cause rises from 0.731 to 0.889.
+   - **With the probe:** cause rises from 0.487 to 0.536, and manage from 0.333 to 0.389 once top-k propagation is added.
+   - **Best on these two intents:** "KG route + rerank in tiers" is the best system with either stage 1.
+2. **Top-k propagation mainly helps manage** (+0.06 over top-1 + rerank). Spreading over K conditions recovers some stage-1 errors.
+3. **The reranker hurts "identify" with the probe**: 0.478 → 0.326 on the KG route. Part of this is the silver gold. With the gold condition, the reranker's top-1 for identify falls on 13 targets as follows:
+   - **Gold:** 4 targets.
+   - **Symptom descriptions under "What it does":** 4 targets (bacterial blight, bacterial leaf streak, planthopper, tungro). They answer the question, but the section gold only accepts "How to identify".
+   - **Symptom lists under "How to manage":** the 3 nutrient disorders. These are outside the identify evaluation, which has no gold section for them.
+   - **Real errors:** 2 targets. Blast goes to a rice bug passage and stem borer to a sheath blight passage. Both passages say "can be confused with ⟨the queried condition⟩", and the cross-encoder matches the name.
+   - **With the probe's wrong conditions:** the reranker follows the wrong label more strictly than bge-m3 does, so it loses the near-misses that dense search still ranks high.
+4. **Fact gold** is still circular; the KG rows keep 1.000 with the gold condition and are not evidence.
+
+**Next:**
+- **Judged gold for "identify":** pool the top passages of all systems and judge them, so that symptom passages outside "How to identify" count.
+- **Per-intent stage 2:** use the KG route without the reranker for "identify" until the gold is judged.
+- **Stage 1 stays the bottleneck:** about 0.35 MRR separates the probe from the gold condition. The VLM step 2 (week 4) targets this.

@@ -50,7 +50,7 @@ Data splits and query-time graph for the SIGIR 2027 retrieval experiments. Desig
 
 ## Stage 2 and coverage
 
-`scripts/stage2_passages.py` gives the coverage table and the passage-retrieval scores, with and without the KG, in [`results/stage2_results.md`](results/stage2_results.md); see [`design_v2.md`](design_v2.md), section 6. It needs Ollama with `bge-m3`.
+`scripts/stage2_passages.py` gives the coverage table and the passage-retrieval scores, with and without the KG, in [`results/stage2_results.md`](results/stage2_results.md); see [`design_v2.md`](design_v2.md), sections 6 and 7. It needs Ollama with `bge-m3` and the reranker `BAAI/bge-reranker-v2-m3` (Hugging Face, about 2.3 GB, set `HF_HOME`).
 
 ## Rebuild
 

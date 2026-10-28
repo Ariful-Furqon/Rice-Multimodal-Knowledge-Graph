@@ -25,6 +25,15 @@ Systems (stage 1 -> stage 2):
           rest; bge-m3 orders within each tier.
 - oracle_*: the gold condition instead of the stage-1 prediction, to separate
           stage-1 errors from stage-2 errors.
+- +rerank: OMGM step 3. A cross-encoder (bge-reranker-v2-m3) re-orders the top
+          POOL passages of the ranking above with "<condition label>: <question>";
+          the rest keep their order. On the KG route it re-orders within each tier,
+          so passages the graph links stay first.
+- topK+rerank: instead of trusting the stage-1 top-1, the top K conditions each
+          bring their pool; a passage scores
+          max over conditions e of  log p(e | image) + beta * (rerank(e, passage) + gamma * tier bonus),
+          with the tier bonus 2 / 1 / 0 for KG tiers 0 / 1 / 2 (gamma = 0 without the KG).
+          K, beta and gamma are tuned on dev (section gold, mean MRR over intents).
 
 Queries: test images of the main subset (no single-source dataset) whose gold
 target has section gold for the intent.
@@ -47,8 +56,13 @@ OWL = rdflib.OWL
 SINGLE_SOURCE = {"NetrokonaRiceDataset", "YukeWbcDataset"}
 OLLAMA = "http://localhost:11434/api/embed"
 EMBED_MODEL = "bge-m3"
+RERANK_MODEL = "BAAI/bge-reranker-v2-m3"
+POOL = 50
 KS = (1, 3, 10)
 LAMBDAS = (0, 0.5, 1, 2, 5, 10, 20, 50, 100)
+TOPKS = (1, 2, 3, 5)
+BETAS = (0.05, 0.1, 0.2, 0.5, 1, 2, 5)
+GAMMAS = (0, 1, 2, 5, 10)
 
 GOLD_DOCS = {
     "Bacterial_Leaf_Blight": ["IRRI_RKB_bacterial-blight"],
@@ -92,6 +106,25 @@ def embed(texts):
             out += json.load(r)["embeddings"]
     v = np.array(out)
     return v / np.linalg.norm(v, axis=1, keepdims=True)
+
+
+def rerank_scores(pairs):
+    """Cross-encoder logits for (query, passage) pairs."""
+    import torch
+    from transformers import AutoModelForSequenceClassification, AutoTokenizer
+    tok = AutoTokenizer.from_pretrained(RERANK_MODEL)
+    model = AutoModelForSequenceClassification.from_pretrained(RERANK_MODEL, dtype=torch.float16).cuda().eval()
+    out = []
+    with torch.no_grad():
+        for i in range(0, len(pairs), 64):
+            x = tok(pairs[i:i + 64], padding=True, truncation=True, max_length=512, return_tensors="pt").to("cuda")
+            out += model(**x).logits.view(-1).float().tolist()
+    return out
+
+
+def log_softmax(x):
+    x = x - x.max(1, keepdims=True)
+    return x - np.log(np.exp(x).sum(1, keepdims=True))
 
 
 def metrics(ranked, gold):
@@ -196,19 +229,82 @@ def main(root, out_dir):
         s = p_emb @ q_emb[(e, it)]
         return [pid[i] for i in np.argsort(-s)], s
 
-    def kg_route(e, it):
-        order, s = dense(e, it)
+    def kg_tier(e, it):
         fs = facts(e, it)
         linked = set().union(*[ps for ps, _ in fs]) if fs else set()
         cited = {url_doc[u] for _, src in fs for u in src if u in url_doc}
-        tier = {p: 0 if p in linked else 1 if p_doc[p] in cited else 2 for p in pid}
-        return sorted(order, key=lambda p: tier[p])
+        return {p: 0 if p in linked else 1 if p_doc[p] in cited else 2 for p in pid}
 
-    rankers = {"dense": lambda e, it: dense(e, it)[0], "kg_route": kg_route}
+    def kg_route(e, it):
+        tier = kg_tier(e, it)
+        return sorted(dense(e, it)[0], key=lambda p: tier[p])
+
+    base = {}
+    for e in entities:
+        for it in INTENTS:
+            base[("dense", e, it)] = dense(e, it)[0]
+            base[("kg_route", e, it)] = kg_route(e, it)
+
+    # step 3: cross-encoder over the top POOL of either ranking (one batch for all)
+    rr_keys = sorted({(e, it, p) for (_, e, it), order in base.items() for p in order[:POOL]})
+    p_index = {p: i for i, p in enumerate(pid)}
+    print(f"reranking {len(rr_keys)} (condition, intent, passage) pairs", flush=True)
+    rr_vals = rerank_scores([[q_text[(e, it)], p_text[p_index[p]]] for e, it, p in rr_keys])
+    rr = dict(zip(rr_keys, rr_vals))
+
+    # the KG route keeps its tiers: the reranker orders passages within a tier only
+    tiers = {(e, it): kg_tier(e, it) for e in entities for it in INTENTS}
+    for e in entities:
+        for it in INTENTS:
+            order = base[("dense", e, it)]
+            base[("dense+rerank", e, it)] = sorted(order[:POOL], key=lambda p: -rr[(e, it, p)]) + order[POOL:]
+            order, t = base[("kg_route", e, it)], tiers[(e, it)]
+            base[("kg_route+rerank", e, it)] = sorted(order[:POOL], key=lambda p: (t[p], -rr[(e, it, p)])) + order[POOL:]
+
+    def topk_rank(logp_row, k, beta, b, it, gamma=0.0):
+        """Passages from the top-k conditions' pools, scored by
+        stage-1 log p + beta * (rerank + gamma * KG tier bonus); the bonus is 2, 1, 0 for tiers 0, 1, 2."""
+        top = np.argsort(-logp_row)[:k]
+        score = {}
+        for ei in top:
+            e = entities[ei]
+            t = tiers[(e, it)]
+            for p in base[(b, e, it)][:POOL]:
+                s = logp_row[ei] + beta * (rr[(e, it, p)] + gamma * (2 - t[p]))
+                if s > score.get(p, -np.inf):
+                    score[p] = s
+        head = sorted(score, key=lambda p: -score[p])
+        return head + [p for p in base[(b, entities[top[0]], it)] if p not in score]
+
+    # stage-1 log p(condition | image): the probe gives log-probabilities; the fused score is put
+    # through a softmax so both systems use the same form
+    logp = {"test": {"no_kg": stage1["test_linear_probe"][tm],
+                     "kg": log_softmax(zs(stage1["test_linear_probe"][tm]) + best * zs(stage1["test_clip_kg"][tm]))},
+            "dev": {"no_kg": stage1["dev_linear_probe"][dm],
+                    "kg": log_softmax(zs(stage1["dev_linear_probe"][dm]) + best * zs(stage1["dev_clip_kg"][dm]))}}
+
+    def dev_mrr(s1, b, k, beta, gamma):
+        vals = []
+        for it in INTENTS:
+            for row, gi in zip(logp["dev"][s1], dev_gold):
+                gold = section_gold(entities[gi], it)
+                if gold:
+                    vals.append(metrics(topk_rank(row, k, beta, b, it, gamma), gold)["MRR"])
+        return float(np.mean(vals))
+
+    topk_dev, topk_best = {}, {}
+    for s1, b, gammas in (("no_kg", "dense", (0,)), ("kg", "kg_route", GAMMAS)):
+        grid = {(k, beta, gm): dev_mrr(s1, b, k, beta, gm) for k in TOPKS for beta in BETAS for gm in gammas}
+        topk_best[s1] = max(grid, key=grid.get)
+        topk_dev[s1] = {f"K={k} beta={beta} gamma={gm}": v for (k, beta, gm), v in grid.items()}
+        print(f"dev MRR top-k {s1}: best K, beta, gamma = {topk_best[s1]} ({grid[topk_best[s1]]:.3f})", flush=True)
+
     systems = {"no_kg": ("no_kg", "dense"), "kg": ("kg", "kg_route"),
                "no_kg_stage1+kg_route": ("no_kg", "kg_route"),
-               "oracle+dense": ("oracle", "dense"), "oracle+kg_route": ("oracle", "kg_route")}
-    cache = {}
+               "no_kg+rerank": ("no_kg", "dense+rerank"), "kg+rerank": ("kg", "kg_route+rerank"),
+               "no_kg top-k+rerank": ("no_kg", "topk:dense"), "kg top-k+rerank": ("kg", "topk:kg_route"),
+               "oracle+dense": ("oracle", "dense"), "oracle+kg_route": ("oracle", "kg_route"),
+               "oracle+dense+rerank": ("oracle", "dense+rerank"), "oracle+kg_route+rerank": ("oracle", "kg_route+rerank")}
     results = {}
     for name, (s1, s2) in systems.items():
         res = {}
@@ -219,18 +315,22 @@ def main(root, out_dir):
                     gold = gfun(entities[gi], it)
                     if not gold:
                         continue
-                    e = entities[pred[s1][img_i]]
-                    key = (s2, e, it)
-                    if key not in cache:
-                        cache[key] = rankers[s2](e, it)
-                    rows.append(metrics(cache[key], gold))
+                    if s2.startswith("topk:"):
+                        k, beta, gm = topk_best[s1]
+                        ranked = topk_rank(logp["test"][s1][img_i], k, beta, s2[5:], it, gm)
+                    else:
+                        ranked = base[(s2, entities[pred[s1][img_i]], it)]
+                    rows.append(metrics(ranked, gold))
                 if rows:
                     res[f"{it}/{gname}"] = {m: float(np.mean([r[m] for r in rows])) for m in rows[0]} | {"n": len(rows)}
         results[name] = res
 
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "stage2_results.json").write_text(json.dumps(
-        {"embed_model": EMBED_MODEL, "kg_weight_dev": acc, "kg_weight": best, "stage1_test_R@1": stage1_r1,
+        {"embed_model": EMBED_MODEL, "rerank_model": RERANK_MODEL, "rerank_pool": POOL,
+         "kg_weight_dev": acc, "kg_weight": best, "stage1_test_R@1": stage1_r1,
+         "topk_dev_mrr": topk_dev,
+         "topk_chosen": {s: {"K": kb[0], "beta": kb[1], "gamma": kb[2]} for s, kb in topk_best.items()},
          "intents": {k: {"question": v["question"], "sections": v["sections"]} for k, v in INTENTS.items()},
          "coverage": coverage, "results": results}, indent=1), encoding="utf-8")
 
@@ -240,7 +340,9 @@ def main(root, out_dir):
         cells = [f"{r[it]['facts']} / {r[it]['facts_with_sentence']} / {r[it]['section_passages']}" for it in INTENTS]
         lines.append(f"| {e} | {r['test_photos']} | {r['fact_sheet']} | " + " | ".join(cells) + " |")
     lines += ["", f"Stage 1 R@1 on the main test subset: " +
-              ", ".join(f"{k} {v:.3f}" for k, v in stage1_r1.items()) + f" (KG weight {best}, tuned on dev)", ""]
+              ", ".join(f"{k} {v:.3f}" for k, v in stage1_r1.items()) + f" (KG weight {best}, tuned on dev)", "",
+              f"Reranker {RERANK_MODEL} over the top {POOL}. Top-k propagation, tuned on dev: " +
+              ", ".join(f"{s} K={kb[0]} beta={kb[1]} gamma={kb[2]}" for s, kb in topk_best.items()), ""]
     for gname in ("section", "fact"):
         lines += [f"Stage 2, {gname} gold", "",
                   "| System | Intent | n | MRR | Hit@1 | Hit@3 | Hit@10 | nDCG@10 | Recall@10 |",
