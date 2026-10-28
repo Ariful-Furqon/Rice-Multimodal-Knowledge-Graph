@@ -22,12 +22,10 @@ and keeps two things deliberately separate:
   label folder says an image is, asserted on all 10,407 image individuals.
 - **Domain-knowledge evidence** (`rice:captures` → `rice:indicates`) — a
   narrower, independently-populated chain from observed symptom to
-  diagnosed condition. In v0.6, `Deadheart` is disambiguated as a `Disease`
-  (damage syndrome caused by yellow stem borer *Scirpophaga incertulas*),
-  while the 1,442 dead-heart images capture the `Dead_Tiller` symptom
-  (`rice:captures rice:Dead_Tiller`, which has rdfs:label "dead heart"@en and
-  is typed `Symptom`). This cleanly satisfies the `SymptomaticObservation`
-  defined class while eliminating class disjointness collisions with `Disease`.
+  diagnosed condition. Since 2026-10-28 `Deadheart` (Indonesian *sundep*) is a
+  `Symptom` of `Stem_Borer`, on the advice of the project's rice expert; from
+  v0.6 until then it was typed `Disease`. The Paddy Doctor white and black stem
+  borer images capture `Deadheart`; `Dead_Tiller` is the broader death of a whole tiller.
 
 **Namespace:** `https://w3id.org/ricemmkg#` (prefix `rice:`) — a w3id.org permanent identifier, registered
 on 2026-09-16 (perma-id/w3id.org#6697) and used since 0.7.0-dev. Releases up to v0.6.2
@@ -55,17 +53,17 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **324,701** (asserted) / **628,650** (OWL RL) | 0.7.0-dev, measured 2026-10-22. +303,949 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Total triples** | **324,663** (asserted) / **625,056** (OWL RL) | 0.7.0-dev, measured 2026-10-28. +300,393 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
 | **Named classes** | 31 | 30 in the `rice:` namespace — 29 primitive (incl. `TextDocument` and `TextPassage`, 2026-10-22; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment`, `ResistanceLevel`, `TrapObservation`, `SpectralBand` and `BandImage`, 0.7.0-dev) and 1 defined class (`SymptomaticObservation`) — plus `dcat:Dataset`. Recounted 2026-10-15; the row read 23 although the version table already gave 26 |
 | **Object properties** | 44 | `hasBandImage` and `ofBand` added 2026-10-14; `hasAffectedPart` added 2026-10-21, entailed by property chains, range only; `inDocument` and `mentions` (domain only) added 2026-10-22. All others declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `assessedVariety`/`hasResistanceAssessment`, `assessedAgainst`, `hasResistanceLevel`, `ofVariety`, `hasSpatialLocation` (0.7.0-dev) |
 | **Datatype properties** | 32 | `startOffset`, `endOffset`, `textSha256`, `sectionTitle`, `passageText` (text layer, 2026-10-22; `passageText` asserted only in text modules), `centreWavelengthNm`, `hasCatchCount`, `recordedUntilDate`, `testedPopulation`, `testedLocation`, `reportedYear`, `plantAgeDays`, `sourceLabel`, `environmentCondition`, the sensor / remote-sensing measurements, `recordedAtDate`, `hasLatitude`, `hasLongitude`, `hasElectricalConductivity` and `hasOrganicCarbon` added in 0.7.0-dev |
 | **Annotation properties** | 16 | Includes `rice:evidenceType`, `rice:hasEvidencePassage` and `rice:evidencePassageCheck` (2026-10-22), PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
 | **Named individuals** | **36,620** | 19 `TextDocument` + 296 `TextPassage` and 2 symptoms (2026-10-22); 21,149 image individuals (Paddy Doctor 16,225, Dhan-Shomadhan 1,106, YUKE-WBC 66, stem borer symptom images 2,096, Kaggle nutrient deficiency 1,156, Netrokona potassium 500) + 11,533 trap observations + 472 remote-sensing observations + 2,360 band images + 186 sensor observations + 418 field locations + 9 dataset metadata + 176 domain entities (5 `SpectralBand`, 10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 4 `PathogenGroup`, 6 `AbioticFactor`, 12 `Variety`, 15 `ResistanceAssessment`, 3 `ResistanceLevel`) |
-| **`owl:Axiom` (provenance)** | **384** | **384 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev); the 15 `ResistanceAssessment` individuals carry their provenance directly. v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
+| **`owl:Axiom` (provenance)** | **377** | **377 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.7.0-dev); the 15 `ResistanceAssessment` individuals carry their provenance directly. v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (19 classes; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment` and `ResistanceLevel` added in 0.7.0-dev) |
-| **Reasoner Consistency** | **Consistent** | 0.7.0-dev checked in **HermiT** on 2026-09-17 with `-k` on a space-free copy, with injected-contradiction controls (`Rice` as Plant + Disease; `Leaf_Blade` as PlantPart + Disease; `Semi_Persistent` as TransmissionMode + Disease; `Chemical_Control_Category` as ManagementCategory + Disease; `Zinc_Deficiency` as AbioticFactor + Pathogen; `Salinity` as AbioticFactor + Pathogen; `IR64` as Variety + Disease; a `ResistanceAssessment` also typed Variety; `assessedAgainst` a Treatment) that all report inconsistent; v0.6 verified in HermiT & Pellet |
-| **Competency Questions (CQ)** | **21 PASS / 4 PARTIAL / 1 FAIL / 1 DOC** | **80.8% pass rate** across 26 scored CQs (27 total; CQ-27 added on 2026-10-15; CQ-26 added and CQ-17/CQ-18 extended on 2026-10-13, before that 21 / 2 / 1 / 1 over 24). CQ-13 FAIL: the unsourced severity → action triage was removed. CQ-12 PARTIAL: six abiotic disorders entered its denominator. CQ-26 PARTIAL: one pest of seven has trap observations. CQ-27 PARTIAL: one disease of 16 has spectral evidence. CQ-01 denominator corrected to exclude abiotic disorders (7/9; uncorrected 7/15). v0.6.1/v0.6.2: 23 / 1 / 0 / 1; released v0.6: 21 / 1 / 2 / 1 |
+| **Reasoner Consistency** | **Consistent** | 0.7.0-dev rechecked in HermiT (owlready2) on 2026-10-28, with `Deadheart` as Symptom + Disease as the inconsistent control; checked in **HermiT** on 2026-09-17 with `-k` on a space-free copy, with injected-contradiction controls (`Rice` as Plant + Disease; `Leaf_Blade` as PlantPart + Disease; `Semi_Persistent` as TransmissionMode + Disease; `Chemical_Control_Category` as ManagementCategory + Disease; `Zinc_Deficiency` as AbioticFactor + Pathogen; `Salinity` as AbioticFactor + Pathogen; `IR64` as Variety + Disease; a `ResistanceAssessment` also typed Variety; `assessedAgainst` a Treatment) that all report inconsistent; v0.6 verified in HermiT & Pellet |
+| **Competency Questions (CQ)** | **21 PASS / 4 PARTIAL / 1 FAIL / 1 DOC** | **80.8% pass rate** across 26 scored CQs (27 total; CQ-27 added on 2026-10-15; CQ-26 added and CQ-17/CQ-18 extended on 2026-10-13, before that 21 / 2 / 1 / 1 over 24). CQ-13 FAIL: the unsourced severity → action triage was removed. CQ-12 PARTIAL: six abiotic disorders entered its denominator. CQ-26 PARTIAL: one pest of seven has trap observations. CQ-27 PARTIAL: one disease of 15 has spectral evidence. CQ-01 denominator corrected to exclude abiotic disorders (7/9; uncorrected 7/15). v0.6.1/v0.6.2: 23 / 1 / 0 / 1; released v0.6: 21 / 1 / 2 / 1 |
 | **`skos:exactMatch` / `closeMatch` / `broadMatch` / `relatedMatch`** | 70 / 31 / 18 / 4 | Mapped to AGROVOC / NCBI Taxonomy / Planteome (PECO, PO), BFO, SOSA, WGS84, RiceDO v2 and TreatO v2, verified against live APIs or the published files. Recounted 2026-10-17 (the row read 42 / 23 / 1); SOSA round 2026-10-19 added 1 `closeMatch` and 17 `broadMatch`; RiceDO/TreatO round the same day 17 `exactMatch`, 2 `closeMatch`, 4 `relatedMatch`. Coverage: pathogens 10/10, plant parts 10/10, diseases 8/16, growth stages 6/7, symptoms 6/40; classes 9/28, properties 17/68 |
 | **`TODO` literals remaining** | **0** | **100% resolved (dataset metadata & EPPO codes verified)** |
 | **Properties with no declared domain/range** | 1 / 1 | `hasAffectedPart` has no domain (entailed by chains); `mentions` has no range (any domain individual) |
@@ -91,14 +89,14 @@ The 10,564 individuals in the knowledge graph are categorized by domain layer:
 | **Biotic Agents & Host** | `Pathogen` | 10 | Viral, bacterial, fungal, oomycete agents; `Rhizoctonia_Solani` and `Microdochium_Albescens` added in 0.7.0-dev |
 | | `Pest` | 7 | Insect pests and vector organisms (`Scirpophaga_Incertulas` merged into `Stem_Borer`) |
 | | `TransmissionMode` | 1 | `Semi_Persistent` (vector transmission mode of both tungro viruses); 0.7.0-dev |
-| | `Disease` | 16 | Biotic disease & damage condition classes (including `Deadheart`; `Leaf_Scald` added 2026-10-04), plus 4 nutrient-deficiency disorders and the iron toxicity and salinity disorders (0.7.0-dev) |
+| | `Disease` | 15 | Biotic disease classes (`Leaf_Scald` added 2026-10-04; `Deadheart` retyped `Symptom` 2026-10-28), plus 4 nutrient-deficiency disorders and the iron toxicity and salinity disorders (0.7.0-dev) |
 | | `AbioticFactor` | 6 | Nitrogen, phosphorus, potassium and zinc deficiency; iron toxicity; salinity — abiotic causes of the six disorders; 0.7.0-dev |
 | | `Variety` | 6 | Rice cultivars: `IR64`, the Indonesian varieties `Angke` and `Conde` bred from it, and `Ciherang`, `Inpari_32`, `Inpari_33`; 0.7.0-dev |
 | | `ResistanceAssessment` | 15 | One reported grade of a variety against a disease or pest, with population, location, year and its own source; 0.7.0-dev |
 | | `ResistanceLevel` | 3 | `Resistant_Reaction`, `Moderately_Resistant_Reaction`, `Susceptible_Reaction`; 0.7.0-dev |
 | | `HealthStatus` | 1 | `Normal_Health` (healthy reference baseline) |
 | | `Plant` | 1 | `Rice` (*Oryza sativa*) host individual |
-| **Phenotype & Environment** | `Symptom` | 42 | `Node_Lesion` and `Tiller_Death` added 2026-10-22 from text grounding; Visual symptoms (lesions, streaks, rotting, discoloration, dead tiller); 9 added in 0.7.0-dev for nutrient deficiencies, 3 for iron toxicity and salinity |
+| **Phenotype & Environment** | `Symptom` | 43 | `Deadheart` retyped from `Disease` 2026-10-28; `Node_Lesion` and `Tiller_Death` added 2026-10-22 from text grounding; Visual symptoms (lesions, streaks, rotting, discoloration, dead tiller); 9 added in 0.7.0-dev for nutrient deficiencies, 3 for iron toxicity and salinity |
 | | `PlantPart` | 10 | Organs on which symptoms appear (Whole_Plant, Tiller, Leaf, Leaf_Blade, Leaf_Sheath, Panicle, Panicle_Neck, Grain, Root, Stem); 0.7.0-dev |
 | | `GrowthStage` | 7 | Rice phenological stages (Seedling, Tillering, Flowering, etc.) |
 | | `EnvironmentalFactor` | 9 | Predisposing weather, canopy, and soil conditions |
@@ -117,25 +115,25 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | Category | Property | Assertions | Domain → Range | Provenance Backing |
 |---|---|---:|---|---|
 | **Dataset & Observation Layer** | `annotatedAs` | 21,149 | `ImageObservation` → `Disease ⊔ Pest ⊔ HealthStatus ⊔ Symptom` | Raw dataset labels |
-| | `captures` | 2,544 | `ImageObservation` → `Symptom` | Visual evidence links |
+| | `captures` | 2,544 | `ImageObservation` → `Symptom` | Visual evidence links: `Deadheart` 1,779 (Paddy Doctor white and black stem borer), `Dead_Tiller` 765 (yellow stem borer) |
 | | `sourceDatasetLabel` | 10 | `Disease ⊔ Pest ⊔ HealthStatus` → `xsd:string` | Dataset vocabulary mapping |
-| **Etiology & Susceptibility** | `vulnerableTo` | 55 | `Plant ⊔ GrowthStage` → `Disease ⊔ Pest` | CABI CPC (55); variety susceptibility moved to `ResistanceAssessment` (0.7.0-dev) |
-| | `occursIn` | 41 | `Disease ⊔ Pest ⊔ HealthStatus` → `GrowthStage` | IRRI RKB / Ou (1985) |
-| | `causes` | 17 | `Pathogen ⊔ AbioticFactor ⊔ Pest` → `Disease` | CABI / Ham / Hibino; IRRI nutrient and toxicity fact sheets (6, 0.7.0-dev); IRRI sheath blight fact sheet (1, 0.7.0-dev); IRAC (2025) for `Stem_Borer causes Deadheart` (1, 0.7.0-dev) |
+| **Etiology & Susceptibility** | `vulnerableTo` | 53 | `Plant ⊔ GrowthStage` → `Disease ⊔ Pest` | CABI CPC (53); variety susceptibility moved to `ResistanceAssessment` (0.7.0-dev) |
+| | `occursIn` | 40 | `Disease ⊔ Pest ⊔ HealthStatus` → `GrowthStage` | IRRI RKB / Ou (1985) |
+| | `causes` | 16 | `Pathogen ⊔ AbioticFactor ⊔ Pest` → `Disease` | CABI / Ham / Hibino; IRRI nutrient and toxicity fact sheets (6, 0.7.0-dev); IRRI sheath blight fact sheet (1, 0.7.0-dev). `Stem_Borer causes Deadheart` became `indicatedBy` on 2026-10-28 |
 | | `transmits` | 2 | `Pest` → `Pathogen` | CABI / Hibino (1996) |
 | | `hasTransmissionMode` | 2 | `Pathogen` → `TransmissionMode` | Wang et al. (2022); 0.7.0-dev |
 | | `hasPathogenGroup` | 10 | `Pathogen` → `PathogenGroup` | NCBI Taxonomy lineages read live 2026-09-23 (`ontology-derived`); 0.7.0-dev |
-| **Symptomatology & Risk Factors**| `indicatedBy` | 76 | `Disease ⊔ Pest` → `Symptom` | IRRI Rice Doctor / CABI / IRAC (2025); IRRI nutrient fact sheets (19) and toxicity fact sheets (8), 0.7.0-dev |
-| | `increaseRiskOf` | 35 | `EnvironmentalFactor` → `Disease ⊔ Pest` | CABI CPC (29) / IRRI RKB (5) |
-| **Plant Anatomy** | `affectsPlantPart` | 43 | `Symptom` → `PlantPart` | IRRI Rice Knowledge Bank fact sheets (13 pest/disease + 4 nutrient + 3 toxicity); CABI downy mildew datasheet (1, 0.7.0-dev) — every `Symptom` now carries a plant part |
+| **Symptomatology & Risk Factors**| `indicatedBy` | 75 | `Disease ⊔ Pest` → `Symptom` | IRRI Rice Doctor / CABI / IRAC (2025); IRRI nutrient fact sheets (19) and toxicity fact sheets (8), 0.7.0-dev |
+| | `increaseRiskOf` | 34 | `EnvironmentalFactor` → `Disease ⊔ Pest` | CABI CPC (28) / IRRI RKB (5) |
+| **Plant Anatomy** | `affectsPlantPart` | 44 | `Symptom` → `PlantPart` | IRRI Rice Knowledge Bank fact sheets (13 pest/disease + 4 nutrient + 3 toxicity); CABI downy mildew datasheet (1, 0.7.0-dev); IRAC (2025) for `Deadheart` (1, 2026-10-28) — every `Symptom` now carries a plant part |
 | | `partOf` | 2 | `PlantPart` → `PlantPart` | Plant Ontology via EBI OLS4 (`ontology-derived`) |
-| **Control & Management** | `controlledBy` | 50 | `Disease ⊔ Pest` → `Treatment` | CABI (41) / Gallagher et al. (2002, FAO) (1); IRRI zinc fact sheet (2), nitrogen, phosphorus and potassium fact sheets (1 each), 0.7.0-dev |
+| **Control & Management** | `controlledBy` | 48 | `Disease ⊔ Pest` → `Treatment` | CABI (39) / Gallagher et al. (2002, FAO) (1); IRRI zinc fact sheet (2), nitrogen, phosphorus and potassium fact sheets (1 each), 0.7.0-dev |
 | | `recommends` | 17 | `Disease ⊔ Pest ⊔ SeverityLevel` → `ManagementAction` | CABI; the 6 severity → action assertions were removed in 0.7.0-dev (unsourced) |
-| | `preventedBy` | 11 | `Disease ⊔ Pest` → `Treatment` | CABI (8); IRRI toxicity fact sheets (2, 0.7.0-dev) |
+| | `preventedBy` | 11 | `Disease ⊔ Pest` → `Treatment` (domain widened from `Disease` 2026-10-28) | CABI (8); IRRI toxicity fact sheets (2, 0.7.0-dev) |
 | | `requires` | 5 | `Treatment` → `GrowthStage` | IRRI RKB (`Crop_Sanitation requires Harvest_Stage` re-sourced from BBPOPT to the IRRI tungro sheet in 0.7.0-dev) |
 | | `hasManagementCategory` | 6 | `Treatment` → `ManagementCategory` | IRRI RKB (2) / AGROVOC definitions (4, `ontology-derived`); 0.7.0-dev |
 | **Variety** | `varietyOf` | 12 | `Variety` → `Plant` | Mackill & Khush (2018) (3); Bagariang et al. (2021) (2); Biswas et al. (2021) (1); Paddy Doctor metadata (6, `dataset-derived`); 0.7.0-dev |
-| **Total domain assertions** | | **384** | *(0.7.0-dev, measured 2026-10-22 after the curation candidates; before that 377 on 2026-10-13 with rdflib; plus 21,149 `annotatedAs`, 2,544 `captures`, 3,977 `ofVariety`, 10 `sourceDatasetLabel`, 17 `eppoCode`, and 15 `ResistanceAssessment` individuals — 15 each of `assessedVariety`, `assessedAgainst`, `hasResistanceLevel` — whose provenance sits on the individual: Mackill & Khush 10, Bagariang et al. 4, Biswas et al. 1)* | **377 / 377 reified** |
+| **Total domain assertions** | | **377** | *(0.7.0-dev, measured 2026-10-28 after `Deadheart` became a symptom; 384 on 2026-10-22 after the curation candidates; 377 on 2026-10-13 with rdflib; plus 21,149 `annotatedAs`, 2,544 `captures`, 3,977 `ofVariety`, 10 `sourceDatasetLabel`, 17 `eppoCode`, and 15 `ResistanceAssessment` individuals — 15 each of `assessedVariety`, `assessedAgainst`, `hasResistanceLevel` — whose provenance sits on the individual: Mackill & Khush 10, Bagariang et al. 4, Biswas et al. 1)* | **377 / 377 reified** |
 
 > *Note on inverse properties:* All twelve inverse directions (`indicates`, `detectedBy`, `causedBy`, `prevents`, `controls`, `threatens`, etc.) and `detects` are declared in the schema for reasoning/querying symmetry.
 
@@ -182,6 +180,38 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-10-28: 0.7.0-dev — `Deadheart` is a symptom of stem borer, not a disease
+
+A rice domain expert consulted by the project said that deadheart (*sundep*) is a symptom: the central shoot dies because stem borer larvae have cut it. The curator added that `Dead_Tiller` is broader, the death of a whole tiller from several causes. This reverses the v0.6 retyping of `Deadheart` as `Disease`. Pre-edit file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-deadheart-symptom.rdf`. Script: `Worklog/2026-10-28_deadheart_symptom/scripts/retype_deadheart.py`.
+
+- **`Deadheart`:**
+  - typed `Symptom`;
+  - label `deadheart`, with `skos:altLabel` "dead heart"@en and "sundep"@id;
+  - comment rewritten;
+  - new `affectsPlantPart Leaf`, cited to IRAC (2025): "the central leaf whorl does not unfold, turns brownish and dries off".
+- **Its pest-level assertions moved to `Stem_Borer`.** `Disease` and `Symptom` are disjoint, so nothing that needs a disease or pest may point at `Deadheart`.
+  - **The 17 moved assertions** (`controlledBy`, `indicatedBy`, `occursIn`, `preventedBy`, `recommends`, `vulnerableTo`, `increaseRiskOf`) were all cited to the CABI datasheet of *Scirpophaga incertulas*, the stem borer itself.
+  - **Already on `Stem_Borer`:** 8 of the 17 were there already. Their axioms were merged: the CABI source was added where the existing axiom cited only IRAC.
+  - **Re-pointed:** the other 9 axioms now point at `Stem_Borer`.
+  - **`Stem_Borer causes Deadheart` → `Stem_Borer indicatedBy Deadheart`** (same IRAC source). `causes` has range `Disease`.
+- **Schema:** `preventedBy` had domain `Disease` and `prevents` range `Disease`. Both are now `Disease ⊔ Pest`, each with its own union node; `controlledBy` already had this domain.
+- **`Dead_Tiller`:** label "dead heart" → "dead tiller", comment generalised.
+- **Images:**
+  - The 1,779 Paddy Doctor white and black stem borer images (`annotatedAs Deadheart`) now `capture Deadheart` instead of `Dead_Tiller` (set in v0.6).
+  - The 765 yellow stem borer images (`annotatedAs Stem_Borer`) keep `captures Dead_Tiller`.
+  - All 2,218 `annotatedAs Deadheart` are unchanged; `annotatedAs` admits `Symptom`.
+- **Checks:**
+  - **Axioms:** 377 axioms = 377 domain assertions; no duplicates or orphans.
+  - **Types:** 0 domain/range violations before and after (asserted types with subclasses); 0 individuals in two disjoint classes.
+  - **Reasoner:** HermiT consistent, 0 unsatisfiable classes. The control (`Deadheart` also typed `Disease`) is reported inconsistent.
+- **Benchmark:** verdicts unchanged at **21 PASS / 4 PARTIAL / 1 FAIL / 1 DOC**. The counts that moved:
+  - **Denominators down by one disease:** CQ-01 9/10 → 9/9, CQ-11 12/16 → 11/15, CQ-12 9/23 → 9/22, CQ-27 1/16 → 1/15. At the 40 % threshold CQ-12 now passes (sensitivity 40 %: 21 → 22).
+  - **CQ-16:** 17,087 → 14,869. The 2,218 images `annotatedAs Deadheart` no longer count as disease-annotated.
+  - **CQ-18:** 2/42 → 3/43. `Deadheart` is now a symptom grounded by images.
+  - **Other counts:** CQ-15 184 → 179 entailed; CQ-21 384/384 → 377/377.
+  - **Elicited CQs:** CQ-A15 now lists `Deadheart` 1,779 and `Dead_Tiller` 765; CQ-A22/A23 17,323 → 15,105; CQ-A07 gains `Neem_Based_Pesticide` for stem borer.
+- **Result:** 324,663 asserted / 625,056 OWL RL triples.
 
 ### 2026-10-22: 0.7.0-dev — 7 assertions the text grounding found missing; 2 new symptoms
 

@@ -18,7 +18,7 @@ Coverage (main test photos; facts / facts with a linked sentence / section passa
 | Rice_Blast_Disease | 383 | IRRI_RKB_blast-leaf-collar, IRRI_RKB_blast-node-neck | 1 / 0 / 7 | 7 / 0 / 13 | 7 / 2 / 11 |
 | Rice_Tungro_Disease | 299 | IRRI_RKB_tungro | 2 / 0 / 10 | 5 / 0 / 6 | 6 / 2 / 6 |
 | Sheath_Blight | 42 | IRRI_RKB_sheath-blight | 1 / 1 / 4 | 1 / 0 / 5 | 3 / 1 / 6 |
-| Stem_Borer | 504 | IRRI_RKB_stem-borer | 0 / 0 / 6 | 3 / 0 / 5 | 2 / 0 / 5 |
+| Stem_Borer | 504 | IRRI_RKB_stem-borer | 0 / 0 / 6 | 7 / 0 / 5 | 4 / 0 / 5 |
 
 Stage 1 R@1 on the main test subset: no_kg 0.506, kg 0.506, oracle 1.000 (KG weight 0, tuned on dev)
 

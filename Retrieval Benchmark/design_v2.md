@@ -71,7 +71,7 @@ Local copies are in `D:\Software and Tools\ref-code\`.
 | System | R@1 | macro R@1 | MRR |
 |---|---:|---:|---:|
 | CLIP zero-shot, label prompt | 0.108 | 0.085 | 0.251 |
-| CLIP zero-shot, label + KG symptom prompts | 0.035 | 0.043 | 0.208 |
+| CLIP zero-shot, label + KG symptom prompts | 0.128 | 0.076 | 0.289 |
 | Image kNN over train (mean of top 5) | 0.473 | 0.466 | 0.636 |
 | Linear probe on train (supervised reference) | 0.506 | 0.424 | 0.665 |
 
@@ -80,7 +80,7 @@ Local copies are in `D:\Software and Tools\ref-code\`.
 | System | R@1 | macro R@1 | R@3 | MRR |
 |---|---:|---:|---:|---:|
 | CLIP zero-shot, label prompt | 0.168 | 0.182 | 0.331 | 0.311 |
-| CLIP zero-shot, label + KG symptom prompts | 0.056 | 0.065 | 0.252 | 0.232 |
+| CLIP zero-shot, label + KG symptom prompts | 0.165 | 0.136 | 0.381 | 0.333 |
 | Image kNN | 0.366 | 0.287 | 0.593 | 0.534 |
 | Linear probe | 0.400 | 0.306 | 0.609 | 0.546 |
 
@@ -91,15 +91,21 @@ Local copies are in `D:\Software and Tools\ref-code\`.
 | Dhan-Shomadhan | 606 | blast, brown spot, tungro | 0.094 | **0.157** | 0.089 | 0.116 |
 | Netrokona | 500 | potassium | 0.000 | 0.000 | 0.000 | 0.002 |
 | Nutrient Kaggle | 383 | potassium | 0.000 | 0.000 | 0.632 | 0.671 |
-| Paddy Doctor | 10,508 | blast, brown spot, tungro, normal, stem borer | 0.219 | 0.065 | 0.411 | 0.432 |
-| Stem Borer BD | 2,096 | normal, stem borer | 0.005 | 0.007 | 0.264 | 0.372 |
+| Paddy Doctor | 10,508 | blast, brown spot, tungro, normal, stem borer | 0.219 | 0.205 | 0.411 | 0.432 |
+| Stem Borer BD | 2,096 | normal, stem borer | 0.005 | 0.034 | 0.264 | 0.372 |
+
+*KG-prompt rows re-measured 2026-10-28, after `Deadheart` became a symptom of `Stem_Borer` and stem borer gained the symptoms deadheart and reduced tillering. Before: in-source 0.035 / 0.043 / 0.208, cross-source 0.056 / 0.065 / 0.252 / 0.232, Paddy Doctor 0.065, Stem Borer BD 0.007. The other systems do not read the graph and did not change.*
 
 **Reading:**
 1. **Split v1 leaked.** On v1, image kNN reached R@1 0.917, because burst photos sat in train and test. On v2 the main subset gives 0.473. Every number reported from now on uses split v2.
 2. **Image memory is tied to the source.** The source dataset is predicted from the image with 0.993 accuracy (linear probe on CLIP features).
    - **Single-source datasets:** Netrokona scores R@1 1.000 in-source and 0.000 cross-source, so in-source it is solved by recognising the camera and background, not potassium deficiency. YUKE-WBC (brown planthopper, 66 images) has no second source and cannot be tested fairly. Both are reported but are not evidence.
    - **Gallery composition decides the answer:** with a Paddy Doctor-only gallery, kNN on Dhan-Shomadhan reaches 0.479. With all other datasets in the gallery it drops to 0.089, because Dhan's white-background leaf photos match the white-background nutrient datasets.
-3. **Generic CLIP text does not know rice symptoms.** In-source, the KG symptom prompts lower zero-shot R@1, because blast and brown spot share "brown lesion", "leaf spot" and "wilting". Symptom matching belongs in step 2 (VLM, closed vocabulary), not in the CLIP text space.
+3. **Generic CLIP text does not know rice symptoms well.** Blast and brown spot share "brown lesion", "leaf spot" and "wilting", so symptom prompts blur them.
+   - **Before the deadheart fix:** the KG symptom prompts lowered zero-shot R@1.
+   - **After it:** stem borer, the largest target, has the right symptoms. In-source R@1 rises above the label prompt (0.128 vs 0.108), though macro R@1 stays lower (0.076 vs 0.085). Cross-source, the two are level (0.165 vs 0.168), and R@3 is higher with the KG (0.381 vs 0.331).
+   - **The prompts are only as good as the graph's symptom lists.** Correcting one modelling error moved them more than any prompt change.
+   - **Symptom matching still belongs in step 2** (VLM, closed vocabulary), not in the CLIP text space.
 4. **The one place KG text already leads is the hardest held-out set.** On Dhan-Shomadhan cross-source, KG prompts give R@1 0.157, the best of the four systems. Earlier, with a Paddy Doctor-only gallery, they raised R@3 from 0.201 to 0.474. This is the first sign that graph knowledge transfers where image memory does not.
 5. **There is headroom for step 2.** Cross-source, the best image system has R@3 0.609 but R@1 0.400. Re-ranking a short list with symptoms and context is exactly step 2's job.
 6. **Confusions to target (main):** Hispa ↔ Normal, Normal → Leaf folder, Blast ↔ Tungro, Downy mildew → Hispa.
@@ -121,7 +127,9 @@ Local copies are in `D:\Software and Tools\ref-code\`.
 4. **Metrics:**
    - **Primary:** strict R@k and MRR against the gold.
    - **Graded nDCG@5:** relevance 2 for the gold, 1 for a target linked to it by `causes`. Among the 17 targets no such link exists today, so nDCG@5 currently adds nothing over strict ranking. It will matter for evidence passages.
-5. **Pending expert confirmation:** `annotatedAs` in the ontology is unchanged. Two questions go to the expert: whether stem borers are one group, and whether Deadheart stays a Disease individual.
+5. **Expert confirmation:**
+   - **Deadheart (answered 2026-10-28):** a domain expert said deadheart (*sundep*) is a symptom of stem borer, not a disease. The ontology now types `Deadheart` as `Symptom` ([`Analysis and Alignment/Expert_Input_2026-10-28_Deadheart.md`](../Analysis%20and%20Alignment/Expert_Input_2026-10-28_Deadheart.md)), which matches gold v1. `annotatedAs` is unchanged.
+   - **Still open:** whether the stem borer labels form one group.
 
 ## 6. Stage 2: from photo and question to passages (first scores, 2026-10-27)
 

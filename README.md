@@ -41,12 +41,12 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 | `BandImage` / `SpectralBand` | 2,360 / 5 | One image file per band of a capture; the five bands of the camera (450–840 nm) |
 | `Observation` | 0 | Abstract root observation superclass |
 | `Dataset` (`dcat:Dataset`) | 9 | Metadata individuals for the Paddy Doctor, Dhan-Shomadhan, YUKE-WBC, stem borer symptom, Kaggle nutrient deficiency and Netrokona image collections, the Rice Disease Risk Assessment table, the brown planthopper light-trap table and the brown spot multispectral set |
-| `Disease` | 16 | 10 biotic diseases & damage conditions (including `Deadheart`, Bacterial Leaf Blight, Rice Blast, Tungro, Sheath Blight, Leaf Scald) and 6 abiotic disorders (N, P, K, Zn deficiency, iron toxicity, salinity; 0.7.0-dev) |
+| `Disease` | 15 | 9 biotic diseases (Bacterial Leaf Blight, Rice Blast, Tungro, Sheath Blight, Leaf Scald, etc.) and 6 abiotic disorders (N, P, K, Zn deficiency, iron toxicity, salinity; 0.7.0-dev) |
 | `Pest` | 7 | Insect pests and vectors (Stem Borer, Leaf Folder, Brown Planthopper, Armyworm, Rice Bug, Hispa, Green Leafhopper) |
 | `Pathogen` | 10 | Microbial causal agents (Magnaporthe Oryzae, Rhizoctonia solani, Xanthomonas pathovars, Microdochium albescens, RTBV, RTSV) |
 | `Plant` | 1 | The host crop (*Oryza sativa*) |
 | `HealthStatus` | 1 | Non-disease reference baseline (`Normal_Health`) |
-| `Symptom` | 42 | Visual symptoms (Leaf Rolling, Dead Tiller, White Ear, Brown Lesion, Wilting, etc.) |
+| `Symptom` | 43 | Visual symptoms (Leaf Rolling, Deadheart, Dead Tiller, White Ear, Brown Lesion, Wilting, etc.); `Deadheart` was a `Disease` until 2026-10-28 |
 | `GrowthStage` | 7 | Rice phenological stages (Seedling, Tillering, Vegetative, Reproductive, Flowering, Maturity, Harvest) |
 | `EnvironmentalFactor` | 9 | Predisposing weather & field conditions (High Humidity, Waterlogged Soil, Dense Canopy, etc.) |
 | `SeverityLevel` | 4 | Severity levels (Low, Medium, High, Critical), each annotated with the matching attack-intensity category of the 2021 Indonesian pest-observation guideline; no severity → action mapping is asserted (0.7.0-dev) |
@@ -75,7 +75,7 @@ All declared with a domain and a range, except the entailed `hasAffectedPart` (r
 ### Individuals & Provenance
 
 - **36,303 named individuals**: 21,149 `ImageObservation` instances, 11,533 `TrapObservation` instances, 472 `RemoteSensingObservation` instances with 2,360 `BandImage`s, 186 `SensorObservation` instances, 418 `FieldLocation`s, 9 dataset metadata individuals, plus 176 domain entities (0.7.0-dev).
-- **384 reified domain axioms** over 384 domain assertions: every assertion backed by an `owl:Axiom` record with `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType`. Source URIs: CABI Compendium 243 (as `doi.org/10.1079/cabicompendium.*` DOIs), IRRI Rice Knowledge Bank / Rice Doctor 100, NCBI Taxonomy 10, Paddy Doctor dataset 6, Mackill & Khush (2018) 3, AGROVOC 4, IRAC 3, Plant Ontology 2, Wang et al. (2022) 2, Bagariang et al. (2021) 2, Biswas et al. (2021) 1, FAO 1. The 15 resistance assessments carry the same three annotations on the assessment itself.
+- **377 reified domain axioms** over 377 domain assertions: every assertion backed by an `owl:Axiom` record with `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType`. Source URIs: CABI Compendium 237 (as `doi.org/10.1079/cabicompendium.*` DOIs), IRRI Rice Knowledge Bank / Rice Doctor 100, NCBI Taxonomy 10, Paddy Doctor dataset 6, Mackill & Khush (2018) 3, AGROVOC 4, IRAC 4, Plant Ontology 2, Wang et al. (2022) 2, Bagariang et al. (2021) 2, Biswas et al. (2021) 1, FAO 1. The 15 resistance assessments carry the same three annotations on the assessment itself.
 - **Vector transmission mode (0.7.0-dev):** both tungro viruses are recorded as semi-persistently transmitted (`hasTransmissionMode`), citing Wang et al. (2022).
 - **Abiotic causes (0.7.0-dev):** nitrogen, phosphorus, potassium and zinc deficiency, and on the excess side iron toxicity and salinity, are modelled as `AbioticFactor`s that cause disorders, with symptoms from the IRRI Rice Knowledge Bank fact sheets — so abiotic factors, like pathogens, end at a Disease.
 - **Varieties (0.7.0-dev):** `IR64`, `Angke` and `Conde` (bred from IR64), `Ciherang`, `Inpari_32` and `Inpari_33`. Each reported grade is a `ResistanceAssessment` naming the variety, the disease or pest, the grade (resistant, moderately resistant, susceptible), the tested biotype, race or population, the year and its own source — 15 assessments from Mackill & Khush (2018), Bagariang et al. (2021) and Biswas et al. (2021). Conflicting grades stay side by side, and a resistance that broke down shows as assessments from different years.
@@ -93,17 +93,17 @@ The Paddy Doctor IEEE DataPort release (16,225 images) is the largest source; li
 | `blast` | 2,351 | `Rice_Blast_Disease` | Disease | — |
 | `hispa` | 2,151 | `Hispa` | Pest | — |
 | `tungro` | 1,951 | `Rice_Tungro_Disease` | Disease | — |
-| `white_stem_borer` | 1,273 | `Deadheart` | Disease (damage condition) | `Dead_Tiller` |
+| `white_stem_borer` | 1,273 | `Deadheart` | Symptom | `Deadheart` |
 | `brown_spot` | 1,257 | `Brown_Spot` | Disease | — |
 | `leaf_roller` | 1,095 | `Leaf_Folder` | Pest | — |
 | `downy_mildew` | 868 | `Downy_Mildew` | Disease | — |
 | `yellow_stem_borer` | 765 | `Stem_Borer` | Pest | `Dead_Tiller` |
 | `bacterial_leaf_blight` | 648 | `Bacterial_Leaf_Blight` | Disease | — |
-| `black_stem_borer` | 506 | `Deadheart` | Disease (damage condition) | `Dead_Tiller` |
+| `black_stem_borer` | 506 | `Deadheart` | Symptom | `Deadheart` |
 | `bacterial_leaf_streak` | 505 | `Bacterial_Leaf_Streak` | Disease | — |
 | `bacterial_panicle_blight` | 450 | `Bacterial_Panicle_Blight` | Disease | — |
 
-The 2,544 stem borer images (white, black and yellow) carry the only `captures` assertions in the graph, all to `Dead_Tiller`. White and black stem borer images stay `annotatedAs Deadheart` until decision 5 of the 2026-09-30 meeting. Images of the other sets are listed under `ImageObservation` above.
+The 2,544 stem borer images (white, black and yellow) carry the only `captures` assertions in the graph: white and black to `Deadheart`, yellow to `Dead_Tiller`. `Deadheart` (sundep) is a `Symptom` of `Stem_Borer` since 2026-10-28, on a domain expert's advice. White and black stem borer images stay `annotatedAs Deadheart` until decision 5 of the 2026-09-30 meeting. Images of the other sets are listed under `ImageObservation` above.
 
 ### Modality Coverage & Data Gaps (0.7.0-dev)
 
