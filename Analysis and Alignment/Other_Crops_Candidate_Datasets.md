@@ -3,15 +3,14 @@
 The supervisor asked to explore crops other than rice (noted 2026-10-27). This list comes from web searches on 2026-10-27.
 
 **Status (2026-10-27):**
-- **Downloaded:** the IEEE DataPort sets in sections A–E. Every archive opens; none is extracted.
+- **Downloaded:** the IEEE DataPort sets in sections A–E, including MH-SoyaHealthVision, Loofah and SPVD (DET train, val, labels and SEG). Extracted on 2026-10-28; each archive was deleted only after its CRC and file count checked out.
   - **Other crops:** in `D:\MMKG Data\other-crops\<crop>\`, under the original file names. Trap and sensor sets are in `sensor-context\`, the corn earworm traps in `maize\`, and the Multi-Crop and multi-fruit sets in `multi-crop\`.
   - **Rice sets:** at the top level of `D:\MMKG Data\`.
-- **Not yet downloaded:** MH-SoyaHealthVision, Loofah and SPVD.
 - **Counts that differ from the pages:**
   - Soybean natural scenes: 1,435 images; the page says 1,620.
   - Mango: 40 images.
   - IRDD: 72 images.
-  - Nirgundi & Eranda: 255 images in the six per-class archives; the page says 11,736.
+  - Nirgundi & Eranda: 255 original images; the 11,736 on the page includes the augmented set, which was not downloaded.
 - **Other sets:** the Tier 1 and Tier 2 sets outside DataPort have not been downloaded. Image counts, classes and licences for them are as the hosting pages or search summaries state them.
 
 **Download location:**
