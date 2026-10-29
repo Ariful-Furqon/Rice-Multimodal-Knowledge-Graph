@@ -1,6 +1,6 @@
 # Elicited Competency Questions - SPARQL Results
 
-Generated 2026-10-28 14:53 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 324,663 asserted triples, 625,056 after OWL RL materialisation (104.7s).
+Generated 2026-10-22 14:45 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 324,701 asserted triples, 628,650 after OWL RL materialisation (100.4s).
 
 **19 of the 25 elicited Tier A CQs are queried here** - every one for which RiceMMKG v0.7.0-dev has at least the concept the question turns on. Answerability is measured, not predicted: the Stage 3 `v06_status` column is not used. The remaining 6 ask for a concept v0.7.0-dev does not have at all and are the v0.7 work plan; the status table at the end lists each with its reason.
 
@@ -63,7 +63,7 @@ SELECT ?pathogen ?group ?eppo_code ?external_alignment WHERE {
 }
 ```
 
-1 row(s) in 65.9 ms.
+1 row(s) in 65.2 ms.
 
 | pathogen | group | eppo_code | external_alignment |
 |---|---|---|---|
@@ -134,7 +134,7 @@ SELECT ?vector ?agent ?mode ?disease WHERE {
 ORDER BY ?vector ?agent
 ```
 
-2 row(s) in 3.6 ms.
+2 row(s) in 5.9 ms.
 
 | vector | agent | mode | disease |
 |---|---|---|---|
@@ -160,7 +160,7 @@ SELECT ?symptom ?plant_part ?stage_of_disease WHERE {
 ORDER BY ?symptom ?plant_part ?stage_of_disease
 ```
 
-12 row(s) in 7.6 ms.
+12 row(s) in 4.5 ms.
 
 | symptom | plant_part | stage_of_disease |
 |---|---|---|
@@ -193,7 +193,7 @@ GROUP BY ?other
 ORDER BY DESC(?shared_symptoms)
 ```
 
-4 row(s) in 10.1 ms.
+4 row(s) in 6.6 ms.
 
 | other | shared_symptoms |
 |---|---|
@@ -219,7 +219,7 @@ SELECT ?symptom ?present_only_in WHERE {
 ORDER BY ?present_only_in ?symptom
 ```
 
-5 row(s) in 8.6 ms.
+5 row(s) in 8.2 ms.
 
 | symptom | present_only_in |
 |---|---|
@@ -244,7 +244,7 @@ SELECT ?condition WHERE {
 ORDER BY ?condition
 ```
 
-2 row(s) in 1.8 ms.
+2 row(s) in 1.9 ms.
 
 | condition |
 |---|
@@ -261,12 +261,12 @@ GROUP BY ?condition
 ORDER BY DESC(?entities) ?condition
 ```
 
-9 row(s) in 4.5 ms.
+9 row(s) in 4.7 ms.
 
 | condition | entities |
 |---|---|
 | rice:High_Humidity | 9 |
-| rice:High_Temperature | 6 |
+| rice:High_Temperature | 7 |
 | rice:Poor_Soil_Drainage | 5 |
 | rice:Low_Rainfall | 4 |
 | rice:Excessive_Nitrogen | 3 |
@@ -292,7 +292,7 @@ SELECT ?stage WHERE {
 ORDER BY ?stage
 ```
 
-2 row(s) in 1.8 ms.
+2 row(s) in 2.6 ms.
 
 | stage |
 |---|
@@ -322,13 +322,12 @@ SELECT ?treatment ?category ?source ?citation WHERE {
 ORDER BY ?treatment
 ```
 
-3 row(s) in 5.6 ms.
+2 row(s) in 5.0 ms.
 
 | treatment | category | source | citation |
 |---|---|---|---|
 | rice:Biological_Control | rice:Biological_Control_Category | https://doi.org/10.1079/cabicompendium.49009 | CABI (2021). Scirpophaga incertulas (yellow stem borer). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.49009 / IRRI (2020). Rice Doctor: Stem Borer. |
 | rice:Insecticide_Application | rice:Chemical_Control_Category | https://doi.org/10.1079/cabicompendium.49009 | CABI (2021). Scirpophaga incertulas (yellow stem borer). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.49009 / IRRI (2020). Rice Doctor: Stem Borer. |
-| rice:Neem_Based_Pesticide | None | https://doi.org/10.1079/cabicompendium.49009 | CABI (2021). Scirpophaga incertulas (yellow stem borer). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.49009 / IRRI (2020). Rice Doctor: Stem Borer. |
 
 ### CQ-A10 - Which images are annotated as showing Hispa damage?
 
@@ -346,7 +345,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-2151 row(s) in 44.9 ms.
+2151 row(s) in 43.3 ms.
 
 | image | url |
 |---|---|
@@ -385,7 +384,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 810.9 ms.
+1 row(s) in 747.0 ms.
 
 | image | condition | dataset | title | source | confidence |
 |---|---|---|---|---|---|
@@ -404,7 +403,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 1529.8 ms.
+1 row(s) in 1525.3 ms.
 
 | images | with_source_dataset | with_confidence |
 |---|---|---|
@@ -431,13 +430,13 @@ GROUP BY ?condition ?type
 ORDER BY DESC(?images)
 ```
 
-19 row(s) in 9181.0 ms.
+19 row(s) in 8790.2 ms.
 
 | condition | type | images |
 |---|---|---|
 | rice:Normal_Health | rice:HealthStatus | 3511 |
 | rice:Rice_Blast_Disease | rice:Disease | 2623 |
-| rice:Deadheart | rice:Symptom | 2218 |
+| rice:Deadheart | rice:Disease | 2218 |
 | rice:Hispa | rice:Pest | 2151 |
 | rice:Rice_Tungro_Disease | rice:Disease | 2146 |
 | rice:Brown_Spot | rice:Disease | 1396 |
@@ -455,7 +454,7 @@ SELECT ?dataset (COUNT(?image) AS ?images) WHERE {
 GROUP BY ?dataset
 ```
 
-6 row(s) in 255.3 ms.
+6 row(s) in 239.7 ms.
 
 | dataset | images |
 |---|---|
@@ -483,11 +482,11 @@ SELECT ?image ?symptom WHERE {
 }
 ```
 
-1 row(s) in 42.7 ms.
+1 row(s) in 41.3 ms.
 
 | image | symptom |
 |---|---|
-| rice:PaddyDoctor_black_stem_borer_PDD01604 | rice:Deadheart |
+| rice:PaddyDoctor_black_stem_borer_PDD01604 | rice:Dead_Tiller |
 
 **How many distinct symptoms the whole image corpus captures**
 
@@ -499,12 +498,11 @@ GROUP BY ?symptom
 ORDER BY DESC(?images)
 ```
 
-2 row(s) in 22.3 ms.
+1 row(s) in 20.6 ms.
 
 | symptom | images |
 |---|---|
-| rice:Deadheart | 1779 |
-| rice:Dead_Tiller | 765 |
+| rice:Dead_Tiller | 2544 |
 
 ### CQ-A16 - Which disease or pest is best supported by the visual evidence in a given image?
 
@@ -525,10 +523,11 @@ GROUP BY ?image ?candidate
 ORDER BY DESC(?support) ?candidate
 ```
 
-1 row(s) in 49.1 ms.
+2 row(s) in 66.8 ms.
 
 | image | candidate | support |
 |---|---|---|
+| rice:PaddyDoctor_black_stem_borer_PDD01604 | rice:Deadheart | 1 |
 | rice:PaddyDoctor_black_stem_borer_PDD01604 | rice:Stem_Borer | 1 |
 
 ### CQ-A17 - Which visual features separate Brown Spot from Rice Blast?
@@ -578,7 +577,7 @@ SELECT ?shared_symptom WHERE {
 ORDER BY ?shared_symptom
 ```
 
-3 row(s) in 2.0 ms.
+3 row(s) in 2.2 ms.
 
 | shared_symptom |
 |---|
@@ -605,7 +604,7 @@ SELECT ?image ?severity WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 561.1 ms.
+0 row(s) in 577.0 ms.
 
 **What the severity levels are used for in v0.7.0-dev**
 
@@ -617,7 +616,7 @@ SELECT ?severity ?recommends WHERE {
 ORDER BY ?severity
 ```
 
-4 row(s) in 3.2 ms.
+4 row(s) in 2.9 ms.
 
 | severity | recommends |
 |---|---|
@@ -644,7 +643,7 @@ SELECT ?image ?symptom_a ?symptom_b WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 108.4 ms.
+0 row(s) in 102.3 ms.
 
 **How many symptoms each annotated image captures**
 
@@ -658,7 +657,7 @@ GROUP BY ?symptoms_per_image
 ORDER BY ?symptoms_per_image
 ```
 
-1 row(s) in 95.7 ms.
+1 row(s) in 90.6 ms.
 
 | symptoms_per_image | images |
 |---|---|
@@ -684,12 +683,12 @@ WHERE {
 GROUP BY ?image_evidence
 ```
 
-2 row(s) in 10516.6 ms.
+2 row(s) in 9387.9 ms.
 
 | image_evidence | symptoms |
 |---|---|
 | no image evidence | 40 |
-| has image evidence | 3 |
+| has image evidence | 2 |
 
 **The symptoms with no image evidence at all**
 
@@ -702,7 +701,7 @@ SELECT ?symptom WHERE {
 ORDER BY ?symptom
 ```
 
-40 row(s) in 5313.5 ms.
+40 row(s) in 4974.7 ms.
 
 | symptom |
 |---|
@@ -735,7 +734,7 @@ SELECT ?image ?condition ?symptom ?pathogen WHERE {
 ORDER BY ?symptom
 ```
 
-4 row(s) in 183.7 ms.
+4 row(s) in 183.2 ms.
 
 | image | condition | symptom | pathogen |
 |---|---|---|---|
@@ -754,11 +753,11 @@ WHERE {
 }
 ```
 
-1 row(s) in 388.3 ms.
+1 row(s) in 406.1 ms.
 
 | images_with_literature |
 |---|
-| 15105 |
+| 17323 |
 
 ### CQ-A23 - Which treatment does the literature prescribe for a condition identified from an image?
 
@@ -779,7 +778,7 @@ SELECT ?image ?condition ?treatment WHERE {
 ORDER BY ?treatment
 ```
 
-4 row(s) in 1400.3 ms.
+4 row(s) in 1342.4 ms.
 
 | image | condition | treatment |
 |---|---|---|
@@ -797,11 +796,11 @@ SELECT (COUNT(DISTINCT ?image) AS ?images_with_treatment) WHERE {
 }
 ```
 
-1 row(s) in 277.9 ms.
+1 row(s) in 303.1 ms.
 
 | images_with_treatment |
 |---|
-| 15105 |
+| 17323 |
 
 ### CQ-A24 - Which images are explicitly annotated as showing no visible symptoms, and which organ or plant view does each represent?
 
@@ -821,7 +820,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-3747 row(s) in 72.6 ms.
+3747 row(s) in 68.3 ms.
 
 | image | url |
 |---|---|
@@ -844,7 +843,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?contradictory_images) WHERE {
 }
 ```
 
-1 row(s) in 23.6 ms.
+1 row(s) in 18.7 ms.
 
 | contradictory_images |
 |---|

@@ -41,8 +41,7 @@
 > CQ-21 divides by the number of axioms, so an assertion with no axiom at all is invisible to it, and the original CQ-22 checked only axioms that exist. v0.6 therefore reported full provenance while two assertions had none. CQ-22 now also flags domain assertions without a reified axiom. Against the released v0.6 file the extended CQ-22 reports **2 violations (FAIL)**, where the original form reported 0; against v0.6.1 it reports 0. The CQ count stays at 25.
 
 > **v0.6 Release Note:**  
-> Version 0.6 resolves the `Deadheart` class collision identified in v0.5. `Deadheart` is now formally classified as a `Disease` (damage syndrome), while `Dead_Tiller` represents the observed `Symptom`. All 1,442 dead-heart images now capture `Dead_Tiller`, fully satisfying `SymptomaticObservation` while clearing all disjointness conflicts (CQ-25 now **PASS** with 0 violations). Pre-fix v0.5 is preserved in `Ontology/Backup/Rice MMKG.backup-v.05.rdf`.  
-> *Reversed on 2026-10-28:* on a domain expert's advice `Deadheart` is a `Symptom` of `Stem_Borer` again, and its pest-level assertions moved to `Stem_Borer`, so the disjointness still holds. The white and black stem borer images now capture `Deadheart`; `Dead_Tiller` is the broader death of a whole tiller. See the 2026-10-28 changelog entry in `Ontology/Ontology_Overview.md`.
+> Version 0.6 resolves the `Deadheart` class collision identified in v0.5. `Deadheart` is now formally classified as a `Disease` (damage syndrome), while `Dead_Tiller` represents the observed `Symptom`. All 1,442 dead-heart images now capture `Dead_Tiller`, fully satisfying `SymptomaticObservation` while clearing all disjointness conflicts (CQ-25 now **PASS** with 0 violations). Pre-fix v0.5 is preserved in `Ontology/Backup/Rice MMKG.backup-v.05.rdf`.
 
 ---
 
@@ -178,7 +177,7 @@ SELECT DISTINCT ?d WHERE { ?d a rice:Disease }
 **Why corrected:** the question asks for a causal *pathogen*, which cannot exist for a disorder caused by an abiotic factor. With the original denominator, every abiotic disorder counted as a gap: 7/13 after the four nutrient disorders, and 7/15 (PARTIAL) after iron toxicity and salinity. That figure measured the modelling pattern, not missing knowledge. The exclusion is a criterion, so future abiotic disorders are excluded without naming them. The question text is unchanged. CQ-03, CQ-11 and CQ-12 were deliberately not corrected: their questions (control, risk-to-remedy chain, management action) apply to abiotic disorders too.  
 **Result (0.7.0-dev, corrected):** 8 covered / 9 total (88.9%) — PASS (7/9 before `Rhizoctonia_Solani causes Sheath_Blight` was added on 2026-09-17)  
 **Result (0.7.0-dev, original denominator):** 8 covered / 15 total (53.3%) — PASS (7/15, PARTIAL, before that addition)  
-**Uncovered entities:** none since 2026-10-28 (9/9). `Deadheart`, the one uncovered entity before (9/10; a damage condition caused by a pest has no pathogen), was retyped `Symptom` and left the denominator.  
+**Uncovered entities (1):** `rice:Deadheart` (a damage syndrome caused by a pest, so it has no pathogen by nature).  
 **v0.6.2:** 7/9 (77.8%), uncovered `Deadheart`, `Sheath_Blight`; both forms of the denominator give the same set on v0.6.x, because no `AbioticFactor` existed.
 
 ---
@@ -590,7 +589,6 @@ SELECT DISTINCT ?e WHERE { { ?e a rice:Disease } UNION { ?e a rice:Pathogen } UN
 ```
 **Result (0.7.0-dev):** 19 covered / 31 total (61.3%) — PASS; PARTIAL from a 70% threshold. `Rhizoctonia_Solani` (2026-09-17) entered covered, with EPPO, AGROVOC and NCBI identifiers; before it, 18/30.  
 **Uncovered entities (12):** `Bacterial_Leaf_Blight`, `Bacterial_Leaf_Streak`, `Bacterial_Panicle_Blight`, `Brown_Spot`, `Deadheart`, `Sheath_Blight`, and the six abiotic disorders (`Iron_Toxicity_Disorder`, `Nitrogen_Deficiency_Disorder`, `Phosphorus_Deficiency_Disorder`, `Potassium_Deficiency_Disorder`, `Salinity_Disorder`, `Zinc_Deficiency_Disorder`), which carry no `eppoCode`, `skos:exactMatch` or `skos:closeMatch`  
-**2026-10-28:** `Deadheart` left the denominator when it was retyped `Symptom` (measured 25/32).  
 **v0.6.2:** 18/24 (75.0%), the first six uncovered.
 
 ---
