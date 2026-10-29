@@ -43,6 +43,16 @@ The design this list supports is recorded in the text-modality notes: facts and 
 | Frontiers in Plant Science 2025 ([fpls.2025.1696872](https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2025.1696872/full)) | To be screened | — |
 | Patent CN122021845A ([goveda](https://www.goveda.com/patent/CN-122021845-A)) | Multimodal agricultural KG with image, text and sensor data | The only image + text + sensor KG found. It is a patent, not an evaluated paper |
 
+## 5. Multimodal retrieval for knowledge-based VQA (recommended by the supervisor, 2026-10-25)
+
+| Paper | What it does | Relevance |
+|---|---|---|
+| OMGM, Yang et al., ACL 2025 ([2025.acl-long.1198](https://aclanthology.org/2025.acl-long.1198/)) | Coarse-to-fine retrieval for knowledge-based VQA: entity-level cross-modal retrieval, multimodal fusion re-ranking, then section-level text re-ranking. Evaluated on InfoSeek and Encyclopedic-VQA; code public | Template for steps 1 and 3 of the SIGIR method, and a baseline |
+| Multimodal Reranking for Knowledge-Intensive VQA, Wen et al. 2024 ([arXiv 2407.12277](https://arxiv.org/abs/2407.12277)) | Multimodal reranker between retriever and generator, with cross-item interaction, trained by distant supervision. Evaluated on OK-VQA and A-OKVQA; noisier training candidates help | Distant supervision for step 2; a baseline |
+| KGMEL, Kim et al., SIGIR 2025 short ([10.1145/3726302.3730217](https://dl.acm.org/doi/10.1145/3726302.3730217), [arXiv 2504.15135](https://arxiv.org/abs/2504.15135)) | Multimodal entity linking with KG triples: a VLM generates triples for the mention, contrastive retrieval over text, image and triples, then LLM re-ranking with the candidates' triples; code public | Template for step 2 (triple-based re-ranking); a baseline |
+
+All three work on encyclopedic knowledge bases. Visually similar classes told apart by symptoms, field context, and evidence traceable to an authoritative source are not addressed. Method and evaluation: [`Ontology/riceMMKG_SIGIR_plan.md`](../Ontology/riceMMKG_SIGIR_plan.md), sections 4 and 5.
+
 ## Gap for Rice MMKG
 
 The search found:

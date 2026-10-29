@@ -116,7 +116,7 @@ is recorded as local-only rather than guessed.
 | `downy_mildew` | `Downy_Mildew` | Disease | [`downy mildews`](http://aims.fao.org/aos/agrovoc/c_10450) | `skos:closeMatch` | Implemented in v2.3 | Reviewed hierarchy: `skos:broader` is `c_4825` ("mildews"), no `skos:narrower` exists under `c_10450`, and no `skos:scopeNote` restricts it to a host plant. AGROVOC has no rice-specific downy mildew concept, so `closeMatch` (not `exactMatch`) is the ceiling given the local entity's rice-only scope. |
 | `tungro` | `Rice_Tungro_Disease` | Disease | [`tungro disease`](http://aims.fao.org/aos/agrovoc/c_34137) | `skos:exactMatch` | Implemented in v2.2 | Terminology match; retain the mapping register for future review. |
 | `hispa` | `Hispa` | Pest | No relevant English concept found | — | Local-only / gap | Search hits for *hispanica* are not valid matches. |
-| `dead_heart` | `Deadheart` | Disease | No exact English concept found | — | Local-only / gap | In v0.6, disambiguated as a Disease (damage condition caused by stem borer). The observed symptom is represented by `Dead_Tiller` (Symptom, label "dead heart"@en). |
+| `dead_heart` | `Deadheart` | Symptom | No exact English concept found | — | Local-only / gap | A `Symptom` of `Stem_Borer` since 2026-10-28, on a domain expert's advice; from v0.6 until then it was typed `Disease`. `Dead_Tiller` (label "dead tiller"@en) is the broader death of a whole tiller. |
 | `normal` | `Normal_Health` | HealthStatus | No concept selected | — | Local-only by design | Dataset-specific non-disease class. |
 
 ## Pathogen and Pest alignment (round 2)
@@ -386,9 +386,9 @@ literature evidence and provenance.
 5. The seven remaining `Local-only / gap` entities from the Paddy Doctor set
    (`Bacterial_Leaf_Blight`, `Bacterial_Leaf_Streak`,
    `Bacterial_Panicle_Blight`, `Brown_Spot`, `Hispa`, `Deadheart`,
-   `Normal_Health`) have no direct AGROVOC candidate on record. Note that in v0.6,
-   `Deadheart` is typed as `Disease` (damage condition), resolving class disjointness collisions
-   in HermiT and passing CQ-25. Re-attempt only if a
+   `Normal_Health`) have no direct AGROVOC candidate on record. Note that since 2026-10-28
+   `Deadheart` is typed as `Symptom` again, with its pest-level assertions on `Stem_Borer`, so it
+   stays clear of the disjointness that v0.6 resolved by typing it `Disease`. Re-attempt only if a
    new search strategy (alternate labels, broader terms) is worth trying;
    otherwise they remain local-only by design.
 5. ~~Three Pest/Pathogen candidates need a literature citation before they
