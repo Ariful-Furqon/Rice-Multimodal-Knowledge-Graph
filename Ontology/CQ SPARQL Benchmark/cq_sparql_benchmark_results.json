@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated": "2026-10-22 14:43",
+    "generated": "2026-10-28 14:50",
     "ontology": "Rice MMKG.rdf",
-    "asserted_triples": 324701,
-    "entailed_triples": 628650,
-    "reasoning_seconds": 107.6,
+    "asserted_triples": 324663,
+    "entailed_triples": 625056,
+    "reasoning_seconds": 104.8,
     "coverage_threshold": 0.5
   },
   "results": [
@@ -16,14 +16,12 @@
       "question": "Which rice diseases have an identified causal pathogen?",
       "rationale": "Aetiological completeness. A disease without a causal agent cannot support any downstream causal query.",
       "covered": 9,
-      "total": 10,
-      "ratio": 0.9,
-      "missing": [
-        "rice:Deadheart"
-      ],
+      "total": 9,
+      "ratio": 1.0,
+      "missing": [],
       "unit": "disease",
       "status": "PASS",
-      "ms": 117.9
+      "ms": 97.9
     },
     {
       "id": "CQ-02",
@@ -32,9 +30,9 @@
       "mode": "coverage",
       "question": "Which diseases and pests have at least one observable symptom?",
       "rationale": "Diagnosability. Without a symptom link an entity is invisible to field-observation-driven inference.",
-      "covered": 22,
-      "total": 23,
-      "ratio": 0.9565217391304348,
+      "covered": 21,
+      "total": 22,
+      "ratio": 0.9545454545454546,
       "missing": [
         "rice:Nephotettix_Virescens"
       ],
@@ -49,16 +47,16 @@
       "mode": "coverage",
       "question": "Which diseases and pests have at least one control treatment?",
       "rationale": "Actionability. The KG must not diagnose what it cannot advise on.",
-      "covered": 21,
-      "total": 23,
-      "ratio": 0.9130434782608695,
+      "covered": 20,
+      "total": 22,
+      "ratio": 0.9090909090909091,
       "missing": [
         "rice:Iron_Toxicity_Disorder",
         "rice:Salinity_Disorder"
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 6.7
+      "ms": 7.3
     },
     {
       "id": "CQ-04",
@@ -67,13 +65,13 @@
       "mode": "coverage",
       "question": "Which symptoms are attached to at least one disease or pest?",
       "rationale": "Detects orphan symptoms - vocabulary declared but never used in a diagnostic pattern.",
-      "covered": 42,
-      "total": 42,
+      "covered": 43,
+      "total": 43,
       "ratio": 1.0,
       "missing": [],
       "unit": "symptom",
       "status": "PASS",
-      "ms": 3.7
+      "ms": 4.2
     },
     {
       "id": "CQ-05",
@@ -82,9 +80,9 @@
       "mode": "coverage",
       "question": "For which diseases/pests can we state both the growth stage of occurrence and an environmental factor raising their risk?",
       "rationale": "Multi-criteria contextualisation. Both joins are mandatory (no OPTIONAL), so the CQ measures real co-population of occursIn and increaseRiskOf.",
-      "covered": 13,
-      "total": 23,
-      "ratio": 0.5652173913043478,
+      "covered": 12,
+      "total": 22,
+      "ratio": 0.5454545454545454,
       "missing": [
         "rice:Iron_Toxicity_Disorder",
         "rice:Leaf_Folder",
@@ -166,8 +164,8 @@
         "e",
         "f"
       ],
-      "detail_total": 88,
-      "ms": 31.9
+      "detail_total": 89,
+      "ms": 32.1
     },
     {
       "id": "CQ-06",
@@ -184,7 +182,7 @@
       ],
       "unit": "growth stage",
       "status": "PASS",
-      "ms": 4.6
+      "ms": 6.1
     },
     {
       "id": "CQ-07",
@@ -196,7 +194,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 5.6
+      "ms": 6.3
     },
     {
       "id": "CQ-08",
@@ -213,7 +211,7 @@
       ],
       "unit": "preventive treatment",
       "status": "PASS",
-      "ms": 3.3
+      "ms": 3.1
     },
     {
       "id": "CQ-09",
@@ -246,7 +244,7 @@
         "d"
       ],
       "detail_total": 2,
-      "ms": 5.3
+      "ms": 6.7
     },
     {
       "id": "CQ-10",
@@ -258,7 +256,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 2.2
+      "ms": 2.6
     },
     {
       "id": "CQ-11",
@@ -267,9 +265,9 @@
       "mode": "coverage",
       "question": "For which diseases is the full risk-to-remedy chain traversable: environmental factor -> disease -> symptom -> treatment?",
       "rationale": "End-to-end decision-support path. This is the query an advisory application actually needs to answer.",
-      "covered": 12,
-      "total": 16,
-      "ratio": 0.75,
+      "covered": 11,
+      "total": 15,
+      "ratio": 0.7333333333333333,
       "missing": [
         "rice:Iron_Toxicity_Disorder",
         "rice:Phosphorus_Deficiency_Disorder",
@@ -281,74 +279,74 @@
       "detail_rows": [
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Yellow_Leaf",
-          "rice:Crop_Rotation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Yellow_Leaf",
-          "rice:Crop_Sanitation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Yellow_Leaf",
-          "rice:Water_Management"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Yellow_Leaf",
-          "rice:Resistant_Variety"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Leaf_Rolling",
-          "rice:Crop_Rotation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Leaf_Rolling",
-          "rice:Crop_Sanitation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
+          "rice:Poor_Soil_Drainage",
           "rice:Leaf_Rolling",
           "rice:Water_Management"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
+          "rice:Poor_Soil_Drainage",
+          "rice:Leaf_Rolling",
+          "rice:Crop_Sanitation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Leaf_Rolling",
+          "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
           "rice:Leaf_Rolling",
           "rice:Resistant_Variety"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Wilting",
-          "rice:Crop_Rotation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Wilting",
-          "rice:Crop_Sanitation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Wilting",
+          "rice:Poor_Soil_Drainage",
+          "rice:Dry_Leaf_Tip",
           "rice:Water_Management"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Wilting",
+          "rice:Poor_Soil_Drainage",
+          "rice:Dry_Leaf_Tip",
+          "rice:Crop_Sanitation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Dry_Leaf_Tip",
+          "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Dry_Leaf_Tip",
+          "rice:Resistant_Variety"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Yellow_Leaf",
+          "rice:Water_Management"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Yellow_Leaf",
+          "rice:Crop_Sanitation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Yellow_Leaf",
+          "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Yellow_Leaf",
           "rice:Resistant_Variety"
         ]
       ],
@@ -358,8 +356,8 @@
         "s",
         "t"
       ],
-      "detail_total": 329,
-      "ms": 1151.7
+      "detail_total": 302,
+      "ms": 1162.6
     },
     {
       "id": "CQ-12",
@@ -369,8 +367,8 @@
       "question": "For which diseases and pests does the KG reach the management layer, i.e. recommend a concrete ManagementAction?",
       "rationale": "Tests that diagnosis terminates in an operational decision. Note the direction of rice:recommends in this KG is entity -> action, not action -> treatment.",
       "covered": 9,
-      "total": 23,
-      "ratio": 0.391304347826087,
+      "total": 22,
+      "ratio": 0.4090909090909091,
       "missing": [
         "rice:Armyworm",
         "rice:Brown_Planthopper",
@@ -384,12 +382,11 @@
         "rice:Rice_Bug",
         "rice:Salinity_Disorder",
         "rice:Sheath_Blight",
-        "rice:Stem_Borer",
         "rice:Zinc_Deficiency_Disorder"
       ],
       "unit": "disease/pest",
       "status": "PARTIAL",
-      "ms": 5.5
+      "ms": 5.6
     },
     {
       "id": "CQ-13",
@@ -412,7 +409,7 @@
       "detail_rows": [],
       "detail_vars": [],
       "detail_total": 0,
-      "ms": 5.6
+      "ms": 5.8
     },
     {
       "id": "CQ-14",
@@ -425,7 +422,7 @@
       "entailed": 2544,
       "gain": 2544,
       "status": "PASS",
-      "ms": 25.0
+      "ms": 22.6
     },
     {
       "id": "CQ-15",
@@ -435,10 +432,10 @@
       "question": "Can the KG be queried in the inverse direction, e.g. disease -> causedBy -> pathogen and symptom -> indicates -> disease?",
       "rationale": "14 of 26 object properties are declared as owl:inverseOf but never asserted. Query robustness depends on materialising them.",
       "asserted": 0,
-      "entailed": 184,
-      "gain": 184,
+      "entailed": 179,
+      "gain": 179,
       "status": "PASS",
-      "ms": 6.8
+      "ms": 6.7
     },
     {
       "id": "CQ-16",
@@ -447,13 +444,13 @@
       "mode": "coverage",
       "question": "Which image observations can be grounded all the way to an agronomic recommendation: image -> annotated class -> symptom and treatment?",
       "rationale": "The central multimodal claim of the KG. The denominator is restricted to images annotated with a Disease or Pest: images labelled with a HealthStatus (healthy plants) correctly have no symptom or treatment, and including them would understate grounding by a fixed 17%.",
-      "covered": 17087,
-      "total": 17087,
+      "covered": 14869,
+      "total": 14869,
       "ratio": 1.0,
       "missing": [],
       "unit": "diagnostic image",
       "status": "PASS",
-      "ms": 3777.0
+      "ms": 3617.7
     },
     {
       "id": "CQ-17",
@@ -468,7 +465,7 @@
       "missing": [],
       "unit": "annotated class",
       "status": "PASS",
-      "ms": 967.5
+      "ms": 990.0
     },
     {
       "id": "CQ-18",
@@ -477,9 +474,9 @@
       "mode": "coverage",
       "question": "Which symptoms are grounded in visual evidence, i.e. captured by, or given as the label of, at least one image observation?",
       "rationale": "Symptom-level visual grounding is what distinguishes an MMKG from a text ontology with images bolted on. Expected to expose the sharpest gap in the current release. Extended on 2026-10-13: an image whose dataset label is itself a symptom (annotatedAs) now counts beside the captures relation, which such a label does not produce.",
-      "covered": 2,
-      "total": 42,
-      "ratio": 0.047619047619047616,
+      "covered": 3,
+      "total": 43,
+      "ratio": 0.06976744186046512,
       "missing": [
         "rice:Black_Root",
         "rice:Brown_Leaf_Tip",
@@ -524,7 +521,7 @@
       ],
       "unit": "symptom",
       "status": "PARTIAL",
-      "ms": 5562.0
+      "ms": 5334.7
     },
     {
       "id": "CQ-19",
@@ -536,7 +533,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 1810.1
+      "ms": 1773.5
     },
     {
       "id": "CQ-20",
@@ -547,7 +544,7 @@
       "rationale": "Declared extension point. Recorded as a measurement, not scored, so the roadmap gap stays visible without inflating or deflating the pass rate.",
       "count": 186,
       "status": "DOCUMENTED",
-      "ms": 3.1
+      "ms": 3.5
     },
     {
       "id": "CQ-21",
@@ -556,13 +553,13 @@
       "mode": "coverage",
       "question": "Which reified domain assertions carry both an authoritative source URI and a bibliographic citation?",
       "rationale": "Provenance completeness - the scientific-defensibility claim of the KG.",
-      "covered": 384,
-      "total": 384,
+      "covered": 377,
+      "total": 377,
       "ratio": 1.0,
       "missing": [],
       "unit": "reified axiom",
       "status": "PASS",
-      "ms": 15.3
+      "ms": 15.1
     },
     {
       "id": "CQ-22",
@@ -574,7 +571,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 230.3
+      "ms": 235.8
     },
     {
       "id": "CQ-23",
@@ -584,11 +581,10 @@
       "question": "Which biological entities (disease, pathogen, pest) are aligned to an external vocabulary (EPPO, AGROVOC or NCBI Taxonomy)?",
       "rationale": "Interoperability. Written as a coverage measure rather than an OPTIONAL projection, which would report success even when every alignment column is null.",
       "covered": 25,
-      "total": 33,
-      "ratio": 0.7575757575757576,
+      "total": 32,
+      "ratio": 0.78125,
       "missing": [
         "rice:Bacterial_Panicle_Blight",
-        "rice:Deadheart",
         "rice:Iron_Toxicity_Disorder",
         "rice:Nitrogen_Deficiency_Disorder",
         "rice:Phosphorus_Deficiency_Disorder",
@@ -598,7 +594,7 @@
       ],
       "unit": "biological entity",
       "status": "PASS",
-      "ms": 7.9
+      "ms": 8.3
     },
     {
       "id": "CQ-24",
@@ -610,7 +606,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 13.1
+      "ms": 12.4
     },
     {
       "id": "CQ-25",
@@ -622,7 +618,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 1.6
+      "ms": 1.5
     },
     {
       "id": "CQ-26",
@@ -644,7 +640,7 @@
       ],
       "unit": "pest",
       "status": "PARTIAL",
-      "ms": 920.9
+      "ms": 941.4
     },
     {
       "id": "CQ-27",
@@ -654,13 +650,12 @@
       "question": "Which diseases have spectral evidence, i.e. are the label of at least one remote-sensing observation that carries a date, a location and band images of known wavelength?",
       "rationale": "Added on 2026-10-15 for the first remote-sensing observations. Band images are the only evidence beyond visible light; the other 26 questions do not touch them. The denominator is every Disease, so the result shows how few diseases have spectral data.",
       "covered": 1,
-      "total": 16,
-      "ratio": 0.0625,
+      "total": 15,
+      "ratio": 0.06666666666666667,
       "missing": [
         "rice:Bacterial_Leaf_Blight",
         "rice:Bacterial_Leaf_Streak",
         "rice:Bacterial_Panicle_Blight",
-        "rice:Deadheart",
         "rice:Downy_Mildew",
         "rice:Iron_Toxicity_Disorder",
         "rice:Leaf_Scald",
@@ -675,19 +670,19 @@
       ],
       "unit": "disease",
       "status": "PARTIAL",
-      "ms": 93.6
+      "ms": 88.9
     }
   ],
   "sensitivity": [
     {
       "threshold": 0.4,
       "tally": {
-        "PASS": 21,
-        "PARTIAL": 4,
+        "PASS": 22,
+        "PARTIAL": 3,
         "FAIL": 1,
         "ERROR": 0
       },
-      "pass_rate": 0.8076923076923077,
+      "pass_rate": 0.8461538461538461,
       "coverage_status": {
         "CQ-01": "PASS",
         "CQ-02": "PASS",
@@ -698,7 +693,7 @@
         "CQ-08": "PASS",
         "CQ-09": "PASS",
         "CQ-11": "PASS",
-        "CQ-12": "PARTIAL",
+        "CQ-12": "PASS",
         "CQ-13": "FAIL",
         "CQ-16": "PASS",
         "CQ-17": "PASS",
