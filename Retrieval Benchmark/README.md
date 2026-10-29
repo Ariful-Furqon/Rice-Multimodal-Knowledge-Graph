@@ -18,6 +18,13 @@ Data splits and query-time graph for the SIGIR 2027 retrieval experiments. Desig
 - **Capture groups:** images from one capture session or burst stay in one split ([`splits/capture_groups.csv`](splits/capture_groups.csv), built by `scripts/capture_groups.py`, 4,659 groups):
   - **Paddy Doctor:** one group per (label, variety, age) from its `metadata.csv`, giving 170 sessions. 96% of nearest-neighbour image pairs share this key; random same-label pairs share it 19% of the time.
   - **Other datasets:** these have no capture metadata. Images with CLIP ViT-L/14 similarity ≥ 0.98 within one dataset and label are joined.
+    - **The threshold is not critical** ([`results/split_threshold_sensitivity.md`](results/split_threshold_sensitivity.md), 5 split seeds each):
+      - **0.97 to 0.99, or no similarity grouping:** leak and kNN R@1 are equal within seed noise; kNN is 0.455 ± 0.025 at 0.98.
+      - **Below 0.98, groups chain:** the largest group has 498 photos at 0.97 and 703 at 0.95, against 81 at 0.98.
+      - **Outside Paddy Doctor, the leak is about 0** at every threshold. The 2 to 4% that remains is inside Paddy Doctor and depends on the seed.
+    - **The range matches CLIP deduplication practice:**
+      - SemDeDup (Abbas et al., 2023): cosine ≥ 1 − ε, ε = 0.03 to 0.001.
+      - DataComp (Gadre et al., 2023): CLIP at 0.96 gives precision 0.9.
   - **Exact copies:** byte-identical files (same MD5) are joined. There are 144 MD5 groups.
 - **Label conflicts:** one Paddy Doctor file is labelled both Downy Mildew (`downy_mildew/PDD06425.jpg`) and Rice Tungro Disease (`tungro/PDD12798.jpg`). It has no single gold answer, so both copies stay in train.
 - **test_core:** a class-balanced sample of the test split, with at most 15 images per stratum, for the expensive methods (VLM triple generation).
