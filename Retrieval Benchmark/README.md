@@ -20,7 +20,7 @@ Data splits and query-time graph for the SIGIR 2027 retrieval experiments. Desig
   - **Other datasets:** these have no capture metadata. Images with CLIP ViT-L/14 similarity ≥ 0.98 within one dataset and label are joined.
     - **The threshold is not critical** ([`results/split_threshold_sensitivity.md`](results/split_threshold_sensitivity.md), 5 split seeds each):
       - **0.97 to 0.99, or no similarity grouping:** leak and kNN R@1 are equal within seed noise; kNN is 0.455 ± 0.025 at 0.98.
-      - **Below 0.98, groups chain:** the largest group has 498 photos at 0.97 and 703 at 0.95, against 81 at 0.98.
+      - **Below 0.98, groups chain:** the largest group has 498 photos at 0.97, 661 at 0.96 and 703 at 0.95, against 81 at 0.98.
       - **Outside Paddy Doctor, the leak is about 0** at every threshold. The 2 to 4% that remains is inside Paddy Doctor and depends on the seed.
     - **The range matches CLIP deduplication practice:**
       - SemDeDup (Abbas et al., 2023): cosine ≥ 1 − ε, ε = 0.03 to 0.001.
