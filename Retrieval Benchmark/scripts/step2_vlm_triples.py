@@ -8,6 +8,9 @@ CORE_PER_STRATUM per stratum, seed 0) and written on the first run.
 Two vocabularies:
 - closed: the VLM must pick symptoms and plant parts from the labels in the KG.
   No condition name appears in the prompt, so the VLM cannot answer the label.
+  Prompt v2: v1 offered a "healthy" field and the VLM took it on most photos, sick
+  ones too, so the prompt now asks for the marks first and has no such field. The
+  choice was made on a sample of dev_core (design_v2.md, section 8).
 - open:   free text, for the KGMEL baseline (design_v2.md, section 3).
 
 The output is one JSON line per image, appended as it goes, so a stopped run resumes.
@@ -34,7 +37,7 @@ VLM = "qwen2.5vl:7b"
 SEED = 0
 CORE_PER_STRATUM = 15
 MAX_SIDE = 768
-CLOSED = """You are a rice plant pathologist. Look at this photo and report only what is clearly visible.
+CLOSED = """You are a rice plant pathologist. First describe the colour, shape and position of any marks on the plant in this photo. Then match them to the list.
 
 Symptoms you may report (use these exact words):
 {symptoms}
@@ -43,9 +46,9 @@ Plant parts you may report (use these exact words):
 {parts}
 
 Reply with JSON only:
-{{"healthy": true or false, "triples": [{{"symptom": "...", "part": "...", "confidence": 0.0 to 1.0}}]}}
+{{"marks": "colour, shape and position of the marks, or none", "triples": [{{"symptom": "...", "part": "...", "confidence": 0.0 to 1.0}}]}}
 
-Report at most 4 triples. If the plant looks healthy, set "healthy" to true and leave "triples" empty. Do not name a disease or a pest."""
+Use at most 4 triples, and none if there are no marks. Do not name a disease or a pest."""
 OPEN = """You are a rice plant pathologist. Look at this photo and report only what is clearly visible.
 
 Reply with JSON only:
