@@ -257,5 +257,22 @@ Local copies are in `D:\Software and Tools\ref-code\`.
 **Next, all tuned on dev:**
 - **Better symptoms before better fusion:** few-shot prompts with reference photos, or per-symptom yes/no questions, and normalising near-labels ("brown lesions" against "Brown Lesion"; 86% of triples are in vocabulary).
 - **Keep stage 1 in the LLM rerank:** give the LLM the stage-1 confidence, or let it act only when stage 1 is unsure.
-- **Add discriminative symptoms to the KG:** lesion shape and colour from the IRRI sheets, for example for blast and brown spot. This changes the graph, so it needs the same provenance as the other facts and expert review.
+- **Add discriminative symptoms to the KG:** tried on dev, see below. Not done.
 - **Add the question:** the farmer's words are the cheapest symptom source, and they are not in stage 1 yet.
+
+**Dev checks after the first scores (2026-11-01, dev_core main, no test data):**
+- **Ceiling:** the gold is in the stage-1 top 3 on 0.771 of photos in-source and 0.595 cross-source, so a rerank has room. Blast and brown spot make 13 of 160 in-source errors.
+- **Yes/no list over the top 3,** with two trial symptoms from the IRRI blast and brown spot sheets (spindle or diamond lesion; circular to oval lesion). One VLM call per photo, weights tuned by two-fold cross-fitting. The tuned weight was 0 in every fold, with and without the trial symptoms: R@1 stays 0.536 in-source and 0.354 cross-source. The VLM said yes to 6.9% of items.
+- **Direct lesion-shape question** on the 60 blast and brown spot photos: blast spindle 22, none 8; brown spot spindle 21, none 9, round 0.
+
+**Decision:** the KG stays unchanged. The gap is real, but this VLM cannot read the shape at 768 px, so adding the symptoms would change nothing. Crops and reference photos were then tested and failed too (below). Scripts are in `scripts/dev_checks/`, answers in `results/verify_dev.jsonl`.
+
+**Next steps run on dev (2026-11-01, dev_core main, no test data):**
+- **Lesion shape with crops or reference photos,** stop rule set before the run: balanced accuracy of at least 0.7, against 0.367 for the whole photo. Crops 0.500 (spindle on all 30 blast and 26 of 30 brown spot photos), reference photos 0.567 (round on 14 of 30 brown spot and 7 of 30 blast photos). Both fail, so this route stops. The four reference photos were drawn at random from train, so better ones might do a little more.
+- **LLM rerank that keeps stage 1** (top 3, shown the stage-1 confidence, used only below a margin): the cross-fitted threshold is 0 in both protocols, so nothing changes. `results/step2_llm_gate_dev.md`.
+- **Question layer:** `make_questions.py` writes five templates tied to Tier A CQs. They name no symptom, so they carry no entity information.
+- **Farmer's words, simulated:** an observation in plain words is drawn from the gold condition's KG symptoms, with noise, and matched to KG symptom labels with bge-m3. In-source R@1 0.536 to 0.652 / 0.591 / 0.565 at noise 0 / 0.3 / 0.5; cross-source 0.354 to 0.405 / 0.374 / 0.390, and only noise 0 is clearly above stage 1 there. Blast and brown spot do not gain (in-source 0.217 to 0.217 at noise 0.3). `results/step1_question_dev.md`. **This is circular by construction, so it is a sensitivity analysis and not a result.**
+- **20 test cases:** `splits/test_cases_draft.csv`, outside test_core, chosen without looking at the photos. The observation column is empty: a person must write it from the photo.
+- **Final evaluation:** 2,538 main test photos outside test_core have not been used by step 2.
+
+**Checkpoint 1 is still not met.** Nothing has raised R@1 with real data.

@@ -1,0 +1,346 @@
+image,gold,intent,question,observation_0.0,observation_0.3,observation_0.5
+DhanShomadhan_Brown_Spot_bs_wb_10,Brown_Spot,environment,Which weather or field conditions make this worse?,spots on the leaves,spots on the leaves,spots on the leaves
+DhanShomadhan_Brown_Spot_bs_wb_23,Brown_Spot,stage,At which crop stage does this do the most damage?,spots on the leaves,spots on the leaves,large patches with bands on the leaves
+DhanShomadhan_Brown_Spot_bs_wb_29,Brown_Spot,stage,At which crop stage does this do the most damage?,the grains are stained,the grains are stained,the grains are stained
+DhanShomadhan_Brown_Spot_bs_wb_3,Brown_Spot,symptom,What other signs should I check for?,the grains are stained,the grains are stained,the grains are stained
+DhanShomadhan_Brown_Spot_bs_wb_35,Brown_Spot,symptom,What other signs should I check for?,spots on the leaves,the leaves have gone yellow,the leaves have gone yellow
+DhanShomadhan_Brown_Spot_bs_wb_52,Brown_Spot,environment,Which weather or field conditions make this worse?,spots on the leaves,spots on the leaves,spots on the leaves
+DhanShomadhan_Brown_Spot_bs_wb_53,Brown_Spot,stage,At which crop stage does this do the most damage?,the plants are drooping,the plants are drooping,the plants are drooping
+DhanShomadhan_Brown_Spot_bs_wb_57,Brown_Spot,environment,Which weather or field conditions make this worse?,brown marks on the leaves,brown marks on the leaves,brown marks on the leaves
+DhanShomadhan_Brown_Spot_bs_wb_62,Brown_Spot,cause,What is causing this on my rice?,brown marks on the leaves,brown marks on the leaves,brown marks on the leaves
+DhanShomadhan_Brown_Spot_bs_wb_76,Brown_Spot,stage,At which crop stage does this do the most damage?,spots on the leaves,spots on the leaves,very few shoots per plant
+DhanShomadhan_Brown_Spot_bsf_21,Brown_Spot,cause,What is causing this on my rice?,the grains are stained,the centre shoot has dried up,the centre shoot has dried up
+DhanShomadhan_Brown_Spot_bsf_30,Brown_Spot,control,How can I control this problem?,brown marks on the leaves,brown marks on the leaves,brown marks on the leaves
+DhanShomadhan_Brown_Spot_bsf_36,Brown_Spot,symptom,What other signs should I check for?,spots on the leaves,spots on the leaves,spots on the leaves
+DhanShomadhan_Brown_Spot_bsf_39,Brown_Spot,stage,At which crop stage does this do the most damage?,the grains are stained,the grains are stained,the grains are stained
+DhanShomadhan_Brown_Spot_bsf_9,Brown_Spot,stage,At which crop stage does this do the most damage?,brown marks on the leaves,brown marks on the leaves,brown marks on the leaves
+DhanShomadhan_Leaf_Scald_ls_wb_104,Leaf_Scald,stage,At which crop stage does this do the most damage?,large patches with bands on the leaves,large patches with bands on the leaves,large patches with bands on the leaves
+DhanShomadhan_Leaf_Scald_ls_wb_109,Leaf_Scald,symptom,What other signs should I check for?,large patches with bands on the leaves,brown marks on the leaves,brown marks on the leaves
+DhanShomadhan_Leaf_Scald_ls_wb_121,Leaf_Scald,environment,Which weather or field conditions make this worse?,large patches with bands on the leaves,patches of the field look burnt and dry,patches of the field look burnt and dry
+DhanShomadhan_Leaf_Scald_ls_wb_132,Leaf_Scald,cause,What is causing this on my rice?,large patches with bands on the leaves,large patches with bands on the leaves,large patches with bands on the leaves
+DhanShomadhan_Leaf_Scald_ls_wb_2,Leaf_Scald,stage,At which crop stage does this do the most damage?,large patches with bands on the leaves,the leaf tips turned brown,the leaf tips turned brown
+DhanShomadhan_Leaf_Scald_ls_wb_31,Leaf_Scald,stage,At which crop stage does this do the most damage?,large patches with bands on the leaves,the leaves are turning orange,the leaves are turning orange
+DhanShomadhan_Leaf_Scald_ls_wb_33,Leaf_Scald,cause,What is causing this on my rice?,large patches with bands on the leaves,large patches with bands on the leaves,the plants are drooping
+DhanShomadhan_Leaf_Scald_ls_wb_44,Leaf_Scald,control,How can I control this problem?,large patches with bands on the leaves,the roots have turned black,the roots have turned black
+DhanShomadhan_Leaf_Scald_ls_wb_7,Leaf_Scald,symptom,What other signs should I check for?,large patches with bands on the leaves,large patches with bands on the leaves,large patches with bands on the leaves
+DhanShomadhan_Leaf_Scald_ls_wb_77,Leaf_Scald,cause,What is causing this on my rice?,large patches with bands on the leaves,large patches with bands on the leaves,large patches with bands on the leaves
+DhanShomadhan_Leaf_Scald_ls_wb_87,Leaf_Scald,cause,What is causing this on my rice?,large patches with bands on the leaves,far too many thin shoots,far too many thin shoots
+DhanShomadhan_Leaf_Scald_lsf_16,Leaf_Scald,cause,What is causing this on my rice?,large patches with bands on the leaves,large patches with bands on the leaves,the heads have changed colour
+DhanShomadhan_Leaf_Scald_lsf_38,Leaf_Scald,control,How can I control this problem?,large patches with bands on the leaves,large patches with bands on the leaves,large patches with bands on the leaves
+DhanShomadhan_Leaf_Scald_lsf_6,Leaf_Scald,control,How can I control this problem?,large patches with bands on the leaves,large patches with bands on the leaves,large patches with bands on the leaves
+DhanShomadhan_Leaf_Scald_lsf_9,Leaf_Scald,stage,At which crop stage does this do the most damage?,large patches with bands on the leaves,the roots have turned black,the roots have turned black
+DhanShomadhan_Rice_Blast_Disease_rb_wb_107,Rice_Blast_Disease,cause,What is causing this on my rice?,spots on the leaves,spots on the leaves,spots on the leaves
+DhanShomadhan_Rice_Blast_Disease_rb_wb_135,Rice_Blast_Disease,cause,What is causing this on my rice?,the heads turned white and empty,the heads turned white and empty,the heads turned white and empty
+DhanShomadhan_Rice_Blast_Disease_rb_wb_151,Rice_Blast_Disease,environment,Which weather or field conditions make this worse?,dark marks at the stem joints,the leaves are pale and light green,the leaves are pale and light green
+DhanShomadhan_Rice_Blast_Disease_rb_wb_175,Rice_Blast_Disease,stage,At which crop stage does this do the most damage?,the plants are drooping,far too many thin shoots,far too many thin shoots
+DhanShomadhan_Rice_Blast_Disease_rb_wb_177,Rice_Blast_Disease,control,How can I control this problem?,brown marks on the leaves,brown marks on the leaves,brown marks on the leaves
+DhanShomadhan_Rice_Blast_Disease_rb_wb_188,Rice_Blast_Disease,stage,At which crop stage does this do the most damage?,dark marks at the stem joints,dark marks at the stem joints,dark marks at the stem joints
+DhanShomadhan_Rice_Blast_Disease_rb_wb_190,Rice_Blast_Disease,environment,Which weather or field conditions make this worse?,the heads turned white and empty,the heads turned white and empty,the heads turned white and empty
+DhanShomadhan_Rice_Blast_Disease_rb_wb_34,Rice_Blast_Disease,symptom,What other signs should I check for?,the head snaps at its base,the head snaps at its base,the leaves look bronze
+DhanShomadhan_Rice_Blast_Disease_rb_wb_36,Rice_Blast_Disease,cause,What is causing this on my rice?,the heads turned white and empty,the heads turned white and empty,wet-looking streaks on the leaves
+DhanShomadhan_Rice_Blast_Disease_rb_wb_54,Rice_Blast_Disease,cause,What is causing this on my rice?,the plants are drooping,the plants are drooping,the plants are drooping
+DhanShomadhan_Rice_Blast_Disease_rbf_2,Rice_Blast_Disease,environment,Which weather or field conditions make this worse?,the head snaps at its base,the head snaps at its base,the leaves are curling up
+DhanShomadhan_Rice_Blast_Disease_rbf_29,Rice_Blast_Disease,stage,At which crop stage does this do the most damage?,the heads turned white and empty,the leaves are curling up,the leaves are curling up
+DhanShomadhan_Rice_Blast_Disease_rbf_35,Rice_Blast_Disease,environment,Which weather or field conditions make this worse?,the head snaps at its base,the head snaps at its base,the head snaps at its base
+DhanShomadhan_Rice_Blast_Disease_rbf_59,Rice_Blast_Disease,control,How can I control this problem?,spots on the leaves,spots on the leaves,spots on the leaves
+DhanShomadhan_Rice_Blast_Disease_rbf_69,Rice_Blast_Disease,environment,Which weather or field conditions make this worse?,brown marks on the leaves,brown marks on the leaves,the heads turned white and empty
+DhanShomadhan_Rice_Tungro_Disease_rt_wb_10,Rice_Tungro_Disease,environment,Which weather or field conditions make this worse?,the leaves are turning orange,the leaves are turning orange,the leaves are turning orange
+DhanShomadhan_Rice_Tungro_Disease_rt_wb_23,Rice_Tungro_Disease,cause,What is causing this on my rice?,the leaves are turning orange,wet-looking streaks on the leaves,wet-looking streaks on the leaves
+DhanShomadhan_Rice_Tungro_Disease_rt_wb_31,Rice_Tungro_Disease,control,How can I control this problem?,many of the grains are empty,many of the grains are empty,many of the grains are empty
+DhanShomadhan_Rice_Tungro_Disease_rt_wb_54,Rice_Tungro_Disease,environment,Which weather or field conditions make this worse?,the plants stay short,the plants stay short,brown marks on the leaves
+DhanShomadhan_Rice_Tungro_Disease_rt_wb_6,Rice_Tungro_Disease,control,How can I control this problem?,very few shoots per plant,very few shoots per plant,very few shoots per plant
+DhanShomadhan_Rice_Tungro_Disease_rt_wb_64,Rice_Tungro_Disease,cause,What is causing this on my rice?,many of the grains are empty,many of the grains are empty,the plants have fallen over
+DhanShomadhan_Rice_Tungro_Disease_rt_wb_66,Rice_Tungro_Disease,control,How can I control this problem?,very few shoots per plant,something has been eating the leaves,something has been eating the leaves
+DhanShomadhan_Rice_Tungro_Disease_rt_wb_74,Rice_Tungro_Disease,cause,What is causing this on my rice?,the heads set no seed,the heads set no seed,the heads set no seed
+DhanShomadhan_Rice_Tungro_Disease_rt_wb_78,Rice_Tungro_Disease,control,How can I control this problem?,many of the grains are empty,the stems are thin and weak,the stems are thin and weak
+DhanShomadhan_Rice_Tungro_Disease_rtf_13,Rice_Tungro_Disease,cause,What is causing this on my rice?,many of the grains are empty,the plants are drooping,the plants are drooping
+DhanShomadhan_Rice_Tungro_Disease_rtf_17,Rice_Tungro_Disease,symptom,What other signs should I check for?,many of the grains are empty,the plants stay short,the plants stay short
+DhanShomadhan_Rice_Tungro_Disease_rtf_32,Rice_Tungro_Disease,control,How can I control this problem?,many of the grains are empty,something has been eating the leaves,something has been eating the leaves
+DhanShomadhan_Rice_Tungro_Disease_rtf_36,Rice_Tungro_Disease,control,How can I control this problem?,the heads set no seed,the heads set no seed,the heads set no seed
+DhanShomadhan_Rice_Tungro_Disease_rtf_60,Rice_Tungro_Disease,stage,At which crop stage does this do the most damage?,the leaves are turning orange,the leaves are turning orange,the leaves are turning orange
+DhanShomadhan_Rice_Tungro_Disease_rtf_72,Rice_Tungro_Disease,environment,Which weather or field conditions make this worse?,very few shoots per plant,very few shoots per plant,very few shoots per plant
+DhanShomadhan_Sheath_Blight_sb_wb_122,Sheath_Blight,control,How can I control this problem?,grey-green blotches low on the stem,grey-green blotches low on the stem,the leaves are curling up
+DhanShomadhan_Sheath_Blight_sb_wb_137,Sheath_Blight,control,How can I control this problem?,the plants are drooping,large patches with bands on the leaves,large patches with bands on the leaves
+DhanShomadhan_Sheath_Blight_sb_wb_139,Sheath_Blight,cause,What is causing this on my rice?,grey-green blotches low on the stem,grey-green blotches low on the stem,the crop is ripening late
+DhanShomadhan_Sheath_Blight_sb_wb_140,Sheath_Blight,symptom,What other signs should I check for?,whole shoots are dying,very few shoots per plant,very few shoots per plant
+DhanShomadhan_Sheath_Blight_sb_wb_17,Sheath_Blight,environment,Which weather or field conditions make this worse?,grey-green blotches low on the stem,grey-green blotches low on the stem,grey-green blotches low on the stem
+DhanShomadhan_Sheath_Blight_sb_wb_176,Sheath_Blight,environment,Which weather or field conditions make this worse?,grey-green blotches low on the stem,grey-green blotches low on the stem,grey-green blotches low on the stem
+DhanShomadhan_Sheath_Blight_sb_wb_178,Sheath_Blight,stage,At which crop stage does this do the most damage?,whole shoots are dying,whole shoots are dying,whole shoots are dying
+DhanShomadhan_Sheath_Blight_sb_wb_203,Sheath_Blight,symptom,What other signs should I check for?,whole shoots are dying,whole shoots are dying,the plants are drooping
+DhanShomadhan_Sheath_Blight_sb_wb_30,Sheath_Blight,symptom,What other signs should I check for?,whole shoots are dying,whole shoots are dying,whole shoots are dying
+DhanShomadhan_Sheath_Blight_sb_wb_33,Sheath_Blight,cause,What is causing this on my rice?,whole shoots are dying,whole shoots are dying,whole shoots are dying
+DhanShomadhan_Sheath_Blight_sb_wb_63,Sheath_Blight,symptom,What other signs should I check for?,the plants are drooping,the plants are drooping,the plants are drooping
+DhanShomadhan_Sheath_Blight_sb_wb_74,Sheath_Blight,stage,At which crop stage does this do the most damage?,grey-green blotches low on the stem,grey-green blotches low on the stem,thin see-through lines between the veins
+DhanShomadhan_Sheath_Blight_sbf_35,Sheath_Blight,control,How can I control this problem?,grey-green blotches low on the stem,grey-green blotches low on the stem,grey-green blotches low on the stem
+DhanShomadhan_Sheath_Blight_sbf_41,Sheath_Blight,cause,What is causing this on my rice?,whole shoots are dying,whole shoots are dying,the heads set no seed
+DhanShomadhan_Sheath_Blight_sbf_46,Sheath_Blight,environment,Which weather or field conditions make this worse?,grey-green blotches low on the stem,grey-green blotches low on the stem,grey-green blotches low on the stem
+NutrientDeficiencyKaggle_Nitrogen_untitled_14,Nitrogen_Deficiency_Disorder,symptom,What other signs should I check for?,the plants stay short,the leaves look bronze,the leaves look bronze
+NutrientDeficiencyKaggle_Nitrogen_untitled_146,Nitrogen_Deficiency_Disorder,control,How can I control this problem?,very few shoots per plant,very few shoots per plant,the leaves have gone yellow
+NutrientDeficiencyKaggle_Nitrogen_untitled_148,Nitrogen_Deficiency_Disorder,stage,At which crop stage does this do the most damage?,the plants stay short,the plants stay short,far too many thin shoots
+NutrientDeficiencyKaggle_Nitrogen_untitled_158,Nitrogen_Deficiency_Disorder,environment,Which weather or field conditions make this worse?,the leaves are pale and light green,the leaves are curling up,the leaves are curling up
+NutrientDeficiencyKaggle_Nitrogen_untitled_198,Nitrogen_Deficiency_Disorder,control,How can I control this problem?,the plants stay short,many of the grains are empty,many of the grains are empty
+NutrientDeficiencyKaggle_Nitrogen_untitled_20,Nitrogen_Deficiency_Disorder,stage,At which crop stage does this do the most damage?,very few shoots per plant,very few shoots per plant,very few shoots per plant
+NutrientDeficiencyKaggle_Nitrogen_untitled_210,Nitrogen_Deficiency_Disorder,stage,At which crop stage does this do the most damage?,the plants stay short,the plants stay short,the head snaps at its base
+NutrientDeficiencyKaggle_Nitrogen_untitled_226,Nitrogen_Deficiency_Disorder,symptom,What other signs should I check for?,the leaves are pale and light green,the leaves are pale and light green,the leaves are pale and light green
+NutrientDeficiencyKaggle_Nitrogen_untitled_232,Nitrogen_Deficiency_Disorder,control,How can I control this problem?,the plants stay short,the plants stay short,the plants stay short
+NutrientDeficiencyKaggle_Nitrogen_untitled_317,Nitrogen_Deficiency_Disorder,symptom,What other signs should I check for?,the plants stay short,the plants stay short,the plants stay short
+NutrientDeficiencyKaggle_Nitrogen_untitled_345,Nitrogen_Deficiency_Disorder,stage,At which crop stage does this do the most damage?,the plants stay short,the plants stay short,the plants stay short
+NutrientDeficiencyKaggle_Nitrogen_untitled_405,Nitrogen_Deficiency_Disorder,environment,Which weather or field conditions make this worse?,very few shoots per plant,the leaves have gone yellow,the leaves have gone yellow
+NutrientDeficiencyKaggle_Nitrogen_untitled_66,Nitrogen_Deficiency_Disorder,cause,What is causing this on my rice?,very few shoots per plant,the plants are drooping,the plants are drooping
+NutrientDeficiencyKaggle_Nitrogen_untitled_73,Nitrogen_Deficiency_Disorder,environment,Which weather or field conditions make this worse?,the leaves are pale and light green,the leaves are pale and light green,the grains are stained
+NutrientDeficiencyKaggle_Nitrogen_untitled_80,Nitrogen_Deficiency_Disorder,environment,Which weather or field conditions make this worse?,the leaves are pale and light green,the leaves are pale and light green,the leaves are pale and light green
+NutrientDeficiencyKaggle_Phosphorus_IMG_3794,Phosphorus_Deficiency_Disorder,stage,At which crop stage does this do the most damage?,the plants stay short,the leaves have gone yellow,the leaves have gone yellow
+NutrientDeficiencyKaggle_Phosphorus_IMG_4087,Phosphorus_Deficiency_Disorder,stage,At which crop stage does this do the most damage?,the crop is ripening late,the crop is ripening late,the crop is ripening late
+NutrientDeficiencyKaggle_Phosphorus_IMG_4088,Phosphorus_Deficiency_Disorder,symptom,What other signs should I check for?,very few shoots per plant,very few shoots per plant,very few shoots per plant
+NutrientDeficiencyKaggle_Phosphorus_IMG_4265,Phosphorus_Deficiency_Disorder,environment,Which weather or field conditions make this worse?,the stems are thin and weak,the stems are thin and weak,the stems are thin and weak
+NutrientDeficiencyKaggle_Phosphorus_IMG_4303_29,Phosphorus_Deficiency_Disorder,cause,What is causing this on my rice?,many of the grains are empty,many of the grains are empty,many of the grains are empty
+NutrientDeficiencyKaggle_Phosphorus_IMG_4304,Phosphorus_Deficiency_Disorder,cause,What is causing this on my rice?,very few shoots per plant,very few shoots per plant,very few shoots per plant
+NutrientDeficiencyKaggle_Phosphorus_IMG_4306,Phosphorus_Deficiency_Disorder,environment,Which weather or field conditions make this worse?,the stems are thin and weak,the stems are thin and weak,the stems are thin and weak
+NutrientDeficiencyKaggle_Phosphorus_IMG_4320_35,Phosphorus_Deficiency_Disorder,control,How can I control this problem?,the leaves are very dark and stand straight up,large patches with bands on the leaves,large patches with bands on the leaves
+NutrientDeficiencyKaggle_Phosphorus_IMG_4362,Phosphorus_Deficiency_Disorder,environment,Which weather or field conditions make this worse?,the stems are thin and weak,the stems are thin and weak,the leaves have gone yellow
+NutrientDeficiencyKaggle_Phosphorus_IMG_4586,Phosphorus_Deficiency_Disorder,cause,What is causing this on my rice?,very few shoots per plant,very few shoots per plant,very few shoots per plant
+NutrientDeficiencyKaggle_Phosphorus_IMG_4615,Phosphorus_Deficiency_Disorder,cause,What is causing this on my rice?,the leaves are very dark and stand straight up,the leaves are very dark and stand straight up,the leaves are very dark and stand straight up
+NutrientDeficiencyKaggle_Phosphorus_IMG_5412_1,Phosphorus_Deficiency_Disorder,cause,What is causing this on my rice?,the leaves are very dark and stand straight up,the leaves are very dark and stand straight up,patches of the field look burnt and dry
+NutrientDeficiencyKaggle_Phosphorus_IMG_5431,Phosphorus_Deficiency_Disorder,stage,At which crop stage does this do the most damage?,the stems are thin and weak,the stems are thin and weak,the stems are thin and weak
+NutrientDeficiencyKaggle_Phosphorus_IMG_5436_25,Phosphorus_Deficiency_Disorder,stage,At which crop stage does this do the most damage?,very few shoots per plant,very few shoots per plant,very few shoots per plant
+NutrientDeficiencyKaggle_Phosphorus_IMG_5441_30,Phosphorus_Deficiency_Disorder,cause,What is causing this on my rice?,the plants stay short,the plants stay short,the plants stay short
+NutrientDeficiencyKaggle_Potassium_untitled_102,Potassium_Deficiency_Disorder,symptom,What other signs should I check for?,many of the grains are empty,many of the grains are empty,many of the grains are empty
+NutrientDeficiencyKaggle_Potassium_untitled_150,Potassium_Deficiency_Disorder,environment,Which weather or field conditions make this worse?,the roots have turned black,the roots have turned black,the roots have turned black
+NutrientDeficiencyKaggle_Potassium_untitled_207,Potassium_Deficiency_Disorder,environment,Which weather or field conditions make this worse?,the plants have fallen over,the plants have fallen over,yellow lines along the leaves
+NutrientDeficiencyKaggle_Potassium_untitled_210,Potassium_Deficiency_Disorder,cause,What is causing this on my rice?,the plants have fallen over,the plants have fallen over,the plants have fallen over
+NutrientDeficiencyKaggle_Potassium_untitled_224,Potassium_Deficiency_Disorder,cause,What is causing this on my rice?,many of the grains are empty,many of the grains are empty,many of the grains are empty
+NutrientDeficiencyKaggle_Potassium_untitled_229,Potassium_Deficiency_Disorder,cause,What is causing this on my rice?,the plants stay short,the plants stay short,the plants stay short
+NutrientDeficiencyKaggle_Potassium_untitled_291,Potassium_Deficiency_Disorder,symptom,What other signs should I check for?,the plants stay short,the plants stay short,the plants stay short
+NutrientDeficiencyKaggle_Potassium_untitled_307,Potassium_Deficiency_Disorder,environment,Which weather or field conditions make this worse?,the roots have turned black,the roots have turned black,the roots have turned black
+NutrientDeficiencyKaggle_Potassium_untitled_372,Potassium_Deficiency_Disorder,cause,What is causing this on my rice?,the leaf tips and edges are dead,the leaf tips and edges are dead,patches of the field look burnt and dry
+NutrientDeficiencyKaggle_Potassium_untitled_381,Potassium_Deficiency_Disorder,environment,Which weather or field conditions make this worse?,the plants have fallen over,the plants have fallen over,the plants have fallen over
+NutrientDeficiencyKaggle_Potassium_untitled_384,Potassium_Deficiency_Disorder,symptom,What other signs should I check for?,the plants have fallen over,thin see-through lines between the veins,thin see-through lines between the veins
+NutrientDeficiencyKaggle_Potassium_untitled_46,Potassium_Deficiency_Disorder,cause,What is causing this on my rice?,many of the grains are empty,many of the grains are empty,brown marks on the leaves
+NutrientDeficiencyKaggle_Potassium_untitled_52,Potassium_Deficiency_Disorder,symptom,What other signs should I check for?,the roots have turned black,patches of the field look burnt and dry,patches of the field look burnt and dry
+NutrientDeficiencyKaggle_Potassium_untitled_63,Potassium_Deficiency_Disorder,control,How can I control this problem?,the plants have fallen over,the plants have fallen over,the plants have fallen over
+NutrientDeficiencyKaggle_Potassium_untitled_91,Potassium_Deficiency_Disorder,symptom,What other signs should I check for?,many of the grains are empty,many of the grains are empty,many of the grains are empty
+PaddyDoctor_bacterial_leaf_blight_PDD00023,Bacterial_Leaf_Blight,control,How can I control this problem?,the plants are drooping,the plants are drooping,the heads set no seed
+PaddyDoctor_bacterial_leaf_blight_PDD00046,Bacterial_Leaf_Blight,control,How can I control this problem?,the plants are drooping,the leaves look scraped,the leaves look scraped
+PaddyDoctor_bacterial_leaf_blight_PDD00050,Bacterial_Leaf_Blight,environment,Which weather or field conditions make this worse?,the leaves are curling up,the leaves are curling up,the leaves are curling up
+PaddyDoctor_bacterial_leaf_blight_PDD00072,Bacterial_Leaf_Blight,stage,At which crop stage does this do the most damage?,the leaves are curling up,the leaves are curling up,the leaves are curling up
+PaddyDoctor_bacterial_leaf_blight_PDD00116,Bacterial_Leaf_Blight,environment,Which weather or field conditions make this worse?,the plants are drooping,the plants are drooping,the plants are drooping
+PaddyDoctor_bacterial_leaf_blight_PDD00128,Bacterial_Leaf_Blight,stage,At which crop stage does this do the most damage?,the plants are drooping,the plants stay short,the plants stay short
+PaddyDoctor_bacterial_leaf_blight_PDD00184,Bacterial_Leaf_Blight,environment,Which weather or field conditions make this worse?,the leaves have gone yellow,the leaves have gone yellow,the leaves have gone yellow
+PaddyDoctor_bacterial_leaf_blight_PDD00275,Bacterial_Leaf_Blight,cause,What is causing this on my rice?,the plants are drooping,the plants are drooping,the plants are drooping
+PaddyDoctor_bacterial_leaf_blight_PDD00324,Bacterial_Leaf_Blight,stage,At which crop stage does this do the most damage?,the plants are drooping,the plants are drooping,the plants are drooping
+PaddyDoctor_bacterial_leaf_blight_PDD00465,Bacterial_Leaf_Blight,symptom,What other signs should I check for?,the leaf tips are drying out,many of the grains are empty,many of the grains are empty
+PaddyDoctor_bacterial_leaf_blight_PDD00477,Bacterial_Leaf_Blight,environment,Which weather or field conditions make this worse?,the plants are drooping,the plants are drooping,the heads turned white and empty
+PaddyDoctor_bacterial_leaf_blight_PDD00507,Bacterial_Leaf_Blight,environment,Which weather or field conditions make this worse?,the leaf tips are drying out,large patches with bands on the leaves,large patches with bands on the leaves
+PaddyDoctor_bacterial_leaf_blight_PDD00515,Bacterial_Leaf_Blight,control,How can I control this problem?,the leaves are curling up,the leaves are curling up,the leaves are curling up
+PaddyDoctor_bacterial_leaf_blight_PDD00522,Bacterial_Leaf_Blight,environment,Which weather or field conditions make this worse?,the leaves have gone yellow,the leaves have gone yellow,the leaves have gone yellow
+PaddyDoctor_bacterial_leaf_blight_PDD00525,Bacterial_Leaf_Blight,control,How can I control this problem?,the leaves are curling up,many of the grains are empty,many of the grains are empty
+PaddyDoctor_bacterial_leaf_streak_PDD00676,Bacterial_Leaf_Streak,symptom,What other signs should I check for?,thin see-through lines between the veins,thin see-through lines between the veins,the plants are drooping
+PaddyDoctor_bacterial_leaf_streak_PDD00680,Bacterial_Leaf_Streak,symptom,What other signs should I check for?,thin see-through lines between the veins,many of the grains are empty,many of the grains are empty
+PaddyDoctor_bacterial_leaf_streak_PDD00736,Bacterial_Leaf_Streak,control,How can I control this problem?,wet-looking streaks on the leaves,large patches with bands on the leaves,large patches with bands on the leaves
+PaddyDoctor_bacterial_leaf_streak_PDD00755,Bacterial_Leaf_Streak,environment,Which weather or field conditions make this worse?,the leaves have gone yellow,very few shoots per plant,very few shoots per plant
+PaddyDoctor_bacterial_leaf_streak_PDD00848,Bacterial_Leaf_Streak,environment,Which weather or field conditions make this worse?,wet-looking streaks on the leaves,something has been eating the leaves,something has been eating the leaves
+PaddyDoctor_bacterial_leaf_streak_PDD00900,Bacterial_Leaf_Streak,cause,What is causing this on my rice?,the leaves have gone yellow,the plants stay short,the plants stay short
+PaddyDoctor_bacterial_leaf_streak_PDD00914,Bacterial_Leaf_Streak,environment,Which weather or field conditions make this worse?,wet-looking streaks on the leaves,wet-looking streaks on the leaves,the leaves are curling up
+PaddyDoctor_bacterial_leaf_streak_PDD00961,Bacterial_Leaf_Streak,control,How can I control this problem?,wet-looking streaks on the leaves,wet-looking streaks on the leaves,wet-looking streaks on the leaves
+PaddyDoctor_bacterial_leaf_streak_PDD01003,Bacterial_Leaf_Streak,symptom,What other signs should I check for?,thin see-through lines between the veins,thin see-through lines between the veins,thin see-through lines between the veins
+PaddyDoctor_bacterial_leaf_streak_PDD01030,Bacterial_Leaf_Streak,cause,What is causing this on my rice?,the leaves have gone yellow,the leaves have gone yellow,large patches with bands on the leaves
+PaddyDoctor_bacterial_leaf_streak_PDD01059,Bacterial_Leaf_Streak,control,How can I control this problem?,thin see-through lines between the veins,thin see-through lines between the veins,thin see-through lines between the veins
+PaddyDoctor_bacterial_leaf_streak_PDD01075,Bacterial_Leaf_Streak,environment,Which weather or field conditions make this worse?,the leaves have gone yellow,the leaves have gone yellow,the leaves have gone yellow
+PaddyDoctor_bacterial_leaf_streak_PDD01110,Bacterial_Leaf_Streak,symptom,What other signs should I check for?,the leaves have gone yellow,the plants stay short,the plants stay short
+PaddyDoctor_bacterial_leaf_streak_PDD01140,Bacterial_Leaf_Streak,control,How can I control this problem?,wet-looking streaks on the leaves,the leaves have gone yellow,the leaves have gone yellow
+PaddyDoctor_bacterial_leaf_streak_PDD01145,Bacterial_Leaf_Streak,stage,At which crop stage does this do the most damage?,wet-looking streaks on the leaves,wet-looking streaks on the leaves,the plants are drooping
+PaddyDoctor_bacterial_panicle_blight_PDD01224,Bacterial_Panicle_Blight,symptom,What other signs should I check for?,the plants are drooping,the plants are drooping,the plants are drooping
+PaddyDoctor_bacterial_panicle_blight_PDD01254,Bacterial_Panicle_Blight,environment,Which weather or field conditions make this worse?,the heads have changed colour,the heads have changed colour,the heads have changed colour
+PaddyDoctor_bacterial_panicle_blight_PDD01260,Bacterial_Panicle_Blight,environment,Which weather or field conditions make this worse?,many of the grains are empty,many of the grains are empty,many of the grains are empty
+PaddyDoctor_bacterial_panicle_blight_PDD01293,Bacterial_Panicle_Blight,cause,What is causing this on my rice?,the heads have changed colour,the heads have changed colour,the roots have turned black
+PaddyDoctor_bacterial_panicle_blight_PDD01315,Bacterial_Panicle_Blight,cause,What is causing this on my rice?,the grains are stained,the grains are stained,the grains are stained
+PaddyDoctor_bacterial_panicle_blight_PDD01353,Bacterial_Panicle_Blight,cause,What is causing this on my rice?,the grains are stained,something has been eating the leaves,something has been eating the leaves
+PaddyDoctor_bacterial_panicle_blight_PDD01379,Bacterial_Panicle_Blight,control,How can I control this problem?,many of the grains are empty,very few shoots per plant,very few shoots per plant
+PaddyDoctor_bacterial_panicle_blight_PDD01381,Bacterial_Panicle_Blight,cause,What is causing this on my rice?,many of the grains are empty,many of the grains are empty,the plants stay short
+PaddyDoctor_bacterial_panicle_blight_PDD01393,Bacterial_Panicle_Blight,symptom,What other signs should I check for?,the plants are drooping,the plants are drooping,spots on the leaves
+PaddyDoctor_bacterial_panicle_blight_PDD01401,Bacterial_Panicle_Blight,control,How can I control this problem?,many of the grains are empty,many of the grains are empty,many of the grains are empty
+PaddyDoctor_bacterial_panicle_blight_PDD01436,Bacterial_Panicle_Blight,environment,Which weather or field conditions make this worse?,the plants are drooping,the plants are drooping,the leaf tips and edges are dead
+PaddyDoctor_bacterial_panicle_blight_PDD01444,Bacterial_Panicle_Blight,environment,Which weather or field conditions make this worse?,many of the grains are empty,many of the grains are empty,many of the grains are empty
+PaddyDoctor_bacterial_panicle_blight_PDD01473,Bacterial_Panicle_Blight,stage,At which crop stage does this do the most damage?,many of the grains are empty,many of the grains are empty,many of the grains are empty
+PaddyDoctor_bacterial_panicle_blight_PDD01545,Bacterial_Panicle_Blight,cause,What is causing this on my rice?,many of the grains are empty,many of the grains are empty,many of the grains are empty
+PaddyDoctor_bacterial_panicle_blight_PDD01560,Bacterial_Panicle_Blight,control,How can I control this problem?,the grains are stained,the grains are stained,the grains are stained
+PaddyDoctor_brown_spot_PDD04689,Brown_Spot,symptom,What other signs should I check for?,the plants are drooping,the plants are drooping,the leaves have gone yellow
+PaddyDoctor_brown_spot_PDD04694,Brown_Spot,environment,Which weather or field conditions make this worse?,spots on the leaves,very few shoots per plant,very few shoots per plant
+PaddyDoctor_brown_spot_PDD04748,Brown_Spot,symptom,What other signs should I check for?,spots on the leaves,the leaves are curling up,the leaves are curling up
+PaddyDoctor_brown_spot_PDD04871,Brown_Spot,cause,What is causing this on my rice?,brown marks on the leaves,something has been eating the leaves,something has been eating the leaves
+PaddyDoctor_brown_spot_PDD04938,Brown_Spot,environment,Which weather or field conditions make this worse?,the grains are stained,the grains are stained,the grains are stained
+PaddyDoctor_brown_spot_PDD04959,Brown_Spot,environment,Which weather or field conditions make this worse?,brown marks on the leaves,the crop is ripening late,the crop is ripening late
+PaddyDoctor_brown_spot_PDD04996,Brown_Spot,symptom,What other signs should I check for?,spots on the leaves,spots on the leaves,many of the grains are empty
+PaddyDoctor_brown_spot_PDD05028,Brown_Spot,cause,What is causing this on my rice?,brown marks on the leaves,brown marks on the leaves,brown marks on the leaves
+PaddyDoctor_brown_spot_PDD05159,Brown_Spot,control,How can I control this problem?,the grains are stained,the grains are stained,the grains are stained
+PaddyDoctor_brown_spot_PDD05268,Brown_Spot,symptom,What other signs should I check for?,the plants are drooping,the plants are drooping,the plants are drooping
+PaddyDoctor_brown_spot_PDD05337,Brown_Spot,symptom,What other signs should I check for?,spots on the leaves,spots on the leaves,the roots have turned black
+PaddyDoctor_brown_spot_PDD05468,Brown_Spot,stage,At which crop stage does this do the most damage?,the plants are drooping,many of the grains are empty,many of the grains are empty
+PaddyDoctor_brown_spot_PDD05505,Brown_Spot,cause,What is causing this on my rice?,the plants are drooping,the plants are drooping,the plants are drooping
+PaddyDoctor_brown_spot_PDD05506,Brown_Spot,environment,Which weather or field conditions make this worse?,brown marks on the leaves,thin see-through lines between the veins,thin see-through lines between the veins
+PaddyDoctor_brown_spot_PDD05683,Brown_Spot,control,How can I control this problem?,brown marks on the leaves,brown marks on the leaves,the leaves look scraped
+PaddyDoctor_white_stem_borer_PDD14286,Stem_Borer,environment,Which weather or field conditions make this worse?,the centre shoot has dried up,the centre shoot has dried up,the centre shoot has dried up
+PaddyDoctor_white_stem_borer_PDD14405,Stem_Borer,control,How can I control this problem?,very few shoots per plant,very few shoots per plant,the leaves have gone yellow
+PaddyDoctor_white_stem_borer_PDD14512,Stem_Borer,symptom,What other signs should I check for?,the centre shoot has dried up,the centre shoot has dried up,the centre shoot has dried up
+PaddyDoctor_white_stem_borer_PDD14656,Stem_Borer,symptom,What other signs should I check for?,the heads turned white and empty,the heads turned white and empty,the heads turned white and empty
+PaddyDoctor_white_stem_borer_PDD14660,Stem_Borer,stage,At which crop stage does this do the most damage?,some shoots are dead,some shoots are dead,some shoots are dead
+PaddyDoctor_white_stem_borer_PDD14718,Stem_Borer,cause,What is causing this on my rice?,the heads turned white and empty,the heads turned white and empty,the heads turned white and empty
+PaddyDoctor_white_stem_borer_PDD14733,Stem_Borer,control,How can I control this problem?,some shoots are dead,something has been eating the leaves,something has been eating the leaves
+PaddyDoctor_white_stem_borer_PDD14758,Stem_Borer,cause,What is causing this on my rice?,very few shoots per plant,very few shoots per plant,the roots have turned black
+PaddyDoctor_white_stem_borer_PDD14863,Stem_Borer,control,How can I control this problem?,the centre shoot has dried up,the centre shoot has dried up,the centre shoot has dried up
+PaddyDoctor_white_stem_borer_PDD14874,Stem_Borer,control,How can I control this problem?,the centre shoot has dried up,the leaves are curling up,the leaves are curling up
+PaddyDoctor_white_stem_borer_PDD14883,Stem_Borer,symptom,What other signs should I check for?,the centre shoot has dried up,the centre shoot has dried up,the centre shoot has dried up
+PaddyDoctor_white_stem_borer_PDD15064,Stem_Borer,cause,What is causing this on my rice?,some shoots are dead,some shoots are dead,some shoots are dead
+PaddyDoctor_white_stem_borer_PDD15167,Stem_Borer,control,How can I control this problem?,some shoots are dead,some shoots are dead,some shoots are dead
+PaddyDoctor_white_stem_borer_PDD15267,Stem_Borer,control,How can I control this problem?,the centre shoot has dried up,the centre shoot has dried up,the centre shoot has dried up
+PaddyDoctor_white_stem_borer_PDD15332,Stem_Borer,control,How can I control this problem?,the centre shoot has dried up,the centre shoot has dried up,the centre shoot has dried up
+PaddyDoctor_downy_mildew_PDD05721,Downy_Mildew,environment,Which weather or field conditions make this worse?,the plants stay short,the plants stay short,the plants stay short
+PaddyDoctor_downy_mildew_PDD05739,Downy_Mildew,environment,Which weather or field conditions make this worse?,the heads set no seed,the heads set no seed,something has been eating the leaves
+PaddyDoctor_downy_mildew_PDD05814,Downy_Mildew,environment,Which weather or field conditions make this worse?,the plants stay short,the plants stay short,the plants stay short
+PaddyDoctor_downy_mildew_PDD05890,Downy_Mildew,cause,What is causing this on my rice?,the heads set no seed,the plants stay short,the plants stay short
+PaddyDoctor_downy_mildew_PDD06025,Downy_Mildew,symptom,What other signs should I check for?,the heads set no seed,the heads set no seed,the heads set no seed
+PaddyDoctor_downy_mildew_PDD06118,Downy_Mildew,cause,What is causing this on my rice?,yellow lines along the leaves,yellow lines along the leaves,very few shoots per plant
+PaddyDoctor_downy_mildew_PDD06142,Downy_Mildew,control,How can I control this problem?,far too many thin shoots,spots on the leaves,spots on the leaves
+PaddyDoctor_downy_mildew_PDD06214,Downy_Mildew,symptom,What other signs should I check for?,the plants stay short,the plants stay short,the plants stay short
+PaddyDoctor_downy_mildew_PDD06333,Downy_Mildew,cause,What is causing this on my rice?,the heads set no seed,the heads set no seed,the leaf tips are drying out
+PaddyDoctor_downy_mildew_PDD06334,Downy_Mildew,cause,What is causing this on my rice?,far too many thin shoots,very few shoots per plant,very few shoots per plant
+PaddyDoctor_downy_mildew_PDD06397,Downy_Mildew,symptom,What other signs should I check for?,the heads set no seed,the heads set no seed,the heads set no seed
+PaddyDoctor_downy_mildew_PDD06404,Downy_Mildew,environment,Which weather or field conditions make this worse?,the heads set no seed,the heads set no seed,many of the grains are empty
+PaddyDoctor_downy_mildew_PDD06495,Downy_Mildew,symptom,What other signs should I check for?,far too many thin shoots,far too many thin shoots,far too many thin shoots
+PaddyDoctor_downy_mildew_PDD06537,Downy_Mildew,environment,Which weather or field conditions make this worse?,yellow lines along the leaves,yellow lines along the leaves,yellow lines along the leaves
+PaddyDoctor_downy_mildew_PDD06581,Downy_Mildew,cause,What is causing this on my rice?,yellow lines along the leaves,yellow lines along the leaves,yellow lines along the leaves
+PaddyDoctor_hispa_PDD06637,Hispa,control,How can I control this problem?,the leaf tips turned brown,patches of the field look burnt and dry,patches of the field look burnt and dry
+PaddyDoctor_hispa_PDD06952,Hispa,symptom,What other signs should I check for?,the leaf tips turned brown,the grains are stained,the grains are stained
+PaddyDoctor_hispa_PDD07089,Hispa,control,How can I control this problem?,white lines on the leaves,white lines on the leaves,white lines on the leaves
+PaddyDoctor_hispa_PDD07275,Hispa,cause,What is causing this on my rice?,white lines on the leaves,white lines on the leaves,the crop is ripening late
+PaddyDoctor_hispa_PDD07428,Hispa,environment,Which weather or field conditions make this worse?,the leaves look scraped,the leaves look scraped,the leaves look scraped
+PaddyDoctor_hispa_PDD07717,Hispa,symptom,What other signs should I check for?,white lines on the leaves,white lines on the leaves,white lines on the leaves
+PaddyDoctor_hispa_PDD07739,Hispa,cause,What is causing this on my rice?,white lines on the leaves,white lines on the leaves,many of the grains are empty
+PaddyDoctor_hispa_PDD07853,Hispa,control,How can I control this problem?,the leaf tips turned brown,the leaf tips turned brown,the plants stay short
+PaddyDoctor_hispa_PDD07893,Hispa,environment,Which weather or field conditions make this worse?,the leaf tips turned brown,the leaf tips turned brown,the plants stay short
+PaddyDoctor_hispa_PDD08181,Hispa,symptom,What other signs should I check for?,the leaf tips turned brown,the leaf tips turned brown,the leaf tips turned brown
+PaddyDoctor_hispa_PDD08210,Hispa,stage,At which crop stage does this do the most damage?,the leaves look scraped,the leaves look scraped,the leaves look scraped
+PaddyDoctor_hispa_PDD08262,Hispa,environment,Which weather or field conditions make this worse?,the leaves look scraped,the leaves look scraped,the leaves look scraped
+PaddyDoctor_hispa_PDD08510,Hispa,cause,What is causing this on my rice?,white lines on the leaves,the plants are drooping,the plants are drooping
+PaddyDoctor_hispa_PDD08578,Hispa,stage,At which crop stage does this do the most damage?,white lines on the leaves,white lines on the leaves,white lines on the leaves
+PaddyDoctor_hispa_PDD08644,Hispa,stage,At which crop stage does this do the most damage?,the leaf tips turned brown,the leaf tips turned brown,the leaves are curling up
+PaddyDoctor_leaf_roller_PDD08856,Leaf_Folder,stage,At which crop stage does this do the most damage?,the leaves are curling up,the leaves are curling up,the leaves are curling up
+PaddyDoctor_leaf_roller_PDD08925,Leaf_Folder,control,How can I control this problem?,the leaves are curling up,the leaves are curling up,the leaves are curling up
+PaddyDoctor_leaf_roller_PDD09155,Leaf_Folder,stage,At which crop stage does this do the most damage?,the leaves are curling up,the leaves are curling up,the leaves are curling up
+PaddyDoctor_leaf_roller_PDD09206,Leaf_Folder,symptom,What other signs should I check for?,the leaves are curling up,large patches with bands on the leaves,large patches with bands on the leaves
+PaddyDoctor_leaf_roller_PDD09222,Leaf_Folder,environment,Which weather or field conditions make this worse?,the leaves are curling up,the leaves are curling up,the leaves are curling up
+PaddyDoctor_leaf_roller_PDD09230,Leaf_Folder,stage,At which crop stage does this do the most damage?,the leaves are curling up,the leaves have gone yellow,the leaves have gone yellow
+PaddyDoctor_leaf_roller_PDD09243,Leaf_Folder,environment,Which weather or field conditions make this worse?,the leaves are curling up,the leaves are curling up,the leaves are curling up
+PaddyDoctor_leaf_roller_PDD09259,Leaf_Folder,stage,At which crop stage does this do the most damage?,the leaves are curling up,the leaves are curling up,the leaves are curling up
+PaddyDoctor_leaf_roller_PDD09260,Leaf_Folder,cause,What is causing this on my rice?,the leaves are curling up,the leaves are curling up,the leaves are curling up
+PaddyDoctor_leaf_roller_PDD09266,Leaf_Folder,environment,Which weather or field conditions make this worse?,the leaves are curling up,large patches with bands on the leaves,large patches with bands on the leaves
+PaddyDoctor_leaf_roller_PDD09396,Leaf_Folder,symptom,What other signs should I check for?,the leaves are curling up,the leaves are curling up,the leaves are curling up
+PaddyDoctor_leaf_roller_PDD09572,Leaf_Folder,symptom,What other signs should I check for?,the leaves are curling up,the plants are drooping,the plants are drooping
+PaddyDoctor_leaf_roller_PDD09714,Leaf_Folder,cause,What is causing this on my rice?,the leaves are curling up,the leaves are curling up,the leaves are curling up
+PaddyDoctor_leaf_roller_PDD09792,Leaf_Folder,environment,Which weather or field conditions make this worse?,the leaves are curling up,the leaves are curling up,the leaves are curling up
+PaddyDoctor_leaf_roller_PDD09794,Leaf_Folder,cause,What is causing this on my rice?,the leaves are curling up,the leaves are curling up,the grains are stained
+PaddyDoctor_normal_PDD09941,Normal_Health,environment,Which weather or field conditions make this worse?,the crop looks fine to me,white lines on the leaves,white lines on the leaves
+PaddyDoctor_normal_PDD10032,Normal_Health,control,How can I control this problem?,the crop looks fine to me,the roots have turned black,the roots have turned black
+PaddyDoctor_normal_PDD10144,Normal_Health,stage,At which crop stage does this do the most damage?,the crop looks fine to me,the crop looks fine to me,the plants are drooping
+PaddyDoctor_normal_PDD11333,Normal_Health,stage,At which crop stage does this do the most damage?,the crop looks fine to me,the crop looks fine to me,the crop looks fine to me
+PaddyDoctor_normal_PDD11439,Normal_Health,control,How can I control this problem?,the crop looks fine to me,the crop looks fine to me,wet-looking streaks on the leaves
+PaddyDoctor_normal_PDD11501,Normal_Health,environment,Which weather or field conditions make this worse?,the crop looks fine to me,the crop looks fine to me,the crop looks fine to me
+PaddyDoctor_normal_PDD11620,Normal_Health,symptom,What other signs should I check for?,the crop looks fine to me,the crop looks fine to me,the crop looks fine to me
+PaddyDoctor_normal_PDD11628,Normal_Health,cause,What is causing this on my rice?,the crop looks fine to me,the crop looks fine to me,the leaves look bronze
+PaddyDoctor_normal_PDD11708,Normal_Health,environment,Which weather or field conditions make this worse?,the crop looks fine to me,the crop looks fine to me,the plants stay short
+PaddyDoctor_normal_PDD11822,Normal_Health,cause,What is causing this on my rice?,the crop looks fine to me,the crop looks fine to me,the crop looks fine to me
+PaddyDoctor_normal_PDD11908,Normal_Health,control,How can I control this problem?,the crop looks fine to me,the crop looks fine to me,the crop looks fine to me
+PaddyDoctor_normal_PDD11995,Normal_Health,cause,What is causing this on my rice?,the crop looks fine to me,the crop looks fine to me,very few shoots per plant
+PaddyDoctor_normal_PDD12015,Normal_Health,cause,What is causing this on my rice?,the crop looks fine to me,the plants stay short,the plants stay short
+PaddyDoctor_normal_PDD12067,Normal_Health,cause,What is causing this on my rice?,the crop looks fine to me,the plants are drooping,the plants are drooping
+PaddyDoctor_normal_PDD12077,Normal_Health,cause,What is causing this on my rice?,the crop looks fine to me,the crop looks fine to me,something has been eating the leaves
+PaddyDoctor_blast_PDD02128,Rice_Blast_Disease,environment,Which weather or field conditions make this worse?,the heads turned white and empty,the heads turned white and empty,the heads turned white and empty
+PaddyDoctor_blast_PDD02147,Rice_Blast_Disease,control,How can I control this problem?,the head snaps at its base,the head snaps at its base,the head snaps at its base
+PaddyDoctor_blast_PDD02242,Rice_Blast_Disease,cause,What is causing this on my rice?,the heads turned white and empty,the leaves have gone yellow,the leaves have gone yellow
+PaddyDoctor_blast_PDD02261,Rice_Blast_Disease,cause,What is causing this on my rice?,the plants are drooping,the plants are drooping,the plants are drooping
+PaddyDoctor_blast_PDD02491,Rice_Blast_Disease,stage,At which crop stage does this do the most damage?,the stalk under the head has rotted,the stalk under the head has rotted,the stalk under the head has rotted
+PaddyDoctor_blast_PDD02558,Rice_Blast_Disease,stage,At which crop stage does this do the most damage?,spots on the leaves,spots on the leaves,spots on the leaves
+PaddyDoctor_blast_PDD02727,Rice_Blast_Disease,symptom,What other signs should I check for?,the heads turned white and empty,very few shoots per plant,very few shoots per plant
+PaddyDoctor_blast_PDD02765,Rice_Blast_Disease,symptom,What other signs should I check for?,spots on the leaves,spots on the leaves,spots on the leaves
+PaddyDoctor_blast_PDD03445,Rice_Blast_Disease,environment,Which weather or field conditions make this worse?,the heads turned white and empty,the heads turned white and empty,the heads turned white and empty
+PaddyDoctor_blast_PDD03446,Rice_Blast_Disease,stage,At which crop stage does this do the most damage?,spots on the leaves,large patches with bands on the leaves,large patches with bands on the leaves
+PaddyDoctor_blast_PDD03668,Rice_Blast_Disease,environment,Which weather or field conditions make this worse?,the heads turned white and empty,the heads turned white and empty,the heads turned white and empty
+PaddyDoctor_blast_PDD03843,Rice_Blast_Disease,symptom,What other signs should I check for?,the plants are drooping,the plants are drooping,the plants are drooping
+PaddyDoctor_blast_PDD03909,Rice_Blast_Disease,stage,At which crop stage does this do the most damage?,the stalk under the head has rotted,the leaves have gone yellow,the leaves have gone yellow
+PaddyDoctor_blast_PDD04207,Rice_Blast_Disease,cause,What is causing this on my rice?,dark marks at the stem joints,dark marks at the stem joints,dark marks at the stem joints
+PaddyDoctor_blast_PDD04343,Rice_Blast_Disease,stage,At which crop stage does this do the most damage?,the plants are drooping,the plants are drooping,many of the grains are empty
+PaddyDoctor_tungro_PDD12366,Rice_Tungro_Disease,environment,Which weather or field conditions make this worse?,the heads set no seed,the heads set no seed,the heads set no seed
+PaddyDoctor_tungro_PDD12368,Rice_Tungro_Disease,cause,What is causing this on my rice?,the heads set no seed,patches of the field look burnt and dry,patches of the field look burnt and dry
+PaddyDoctor_tungro_PDD12417,Rice_Tungro_Disease,stage,At which crop stage does this do the most damage?,many of the grains are empty,the leaf edges are yellow-brown,the leaf edges are yellow-brown
+PaddyDoctor_tungro_PDD12496,Rice_Tungro_Disease,symptom,What other signs should I check for?,the heads set no seed,the heads set no seed,the heads set no seed
+PaddyDoctor_tungro_PDD12855,Rice_Tungro_Disease,cause,What is causing this on my rice?,the leaves have gone yellow,the leaves have gone yellow,the stalk under the head has rotted
+PaddyDoctor_tungro_PDD12922,Rice_Tungro_Disease,stage,At which crop stage does this do the most damage?,the plants stay short,the plants stay short,the plants stay short
+PaddyDoctor_tungro_PDD13014,Rice_Tungro_Disease,control,How can I control this problem?,the plants stay short,the leaves look bronze,the leaves look bronze
+PaddyDoctor_tungro_PDD13138,Rice_Tungro_Disease,cause,What is causing this on my rice?,the heads set no seed,the heads set no seed,the heads have changed colour
+PaddyDoctor_tungro_PDD13206,Rice_Tungro_Disease,cause,What is causing this on my rice?,the heads set no seed,the crop is ripening late,the crop is ripening late
+PaddyDoctor_tungro_PDD13291,Rice_Tungro_Disease,environment,Which weather or field conditions make this worse?,many of the grains are empty,many of the grains are empty,many of the grains are empty
+PaddyDoctor_tungro_PDD13385,Rice_Tungro_Disease,cause,What is causing this on my rice?,many of the grains are empty,many of the grains are empty,many of the grains are empty
+PaddyDoctor_tungro_PDD13737,Rice_Tungro_Disease,stage,At which crop stage does this do the most damage?,the heads set no seed,wet-looking streaks on the leaves,wet-looking streaks on the leaves
+PaddyDoctor_tungro_PDD13739,Rice_Tungro_Disease,cause,What is causing this on my rice?,the leaves have gone yellow,the leaves have gone yellow,the leaves are curling up
+PaddyDoctor_tungro_PDD13816,Rice_Tungro_Disease,symptom,What other signs should I check for?,the heads set no seed,the heads set no seed,the heads set no seed
+PaddyDoctor_tungro_PDD14111,Rice_Tungro_Disease,control,How can I control this problem?,very few shoots per plant,very few shoots per plant,very few shoots per plant
+PaddyDoctor_yellow_stem_borer_PDD15496,Stem_Borer,control,How can I control this problem?,very few shoots per plant,very few shoots per plant,very few shoots per plant
+PaddyDoctor_yellow_stem_borer_PDD15517,Stem_Borer,cause,What is causing this on my rice?,the centre shoot has dried up,the centre shoot has dried up,the leaves are very dark and stand straight up
+PaddyDoctor_yellow_stem_borer_PDD15592,Stem_Borer,control,How can I control this problem?,the centre shoot has dried up,the centre shoot has dried up,the centre shoot has dried up
+PaddyDoctor_yellow_stem_borer_PDD15613,Stem_Borer,symptom,What other signs should I check for?,very few shoots per plant,the leaf tips and edges are dead,the leaf tips and edges are dead
+PaddyDoctor_yellow_stem_borer_PDD15738,Stem_Borer,stage,At which crop stage does this do the most damage?,the centre shoot has dried up,grey-green blotches low on the stem,grey-green blotches low on the stem
+PaddyDoctor_yellow_stem_borer_PDD15865,Stem_Borer,stage,At which crop stage does this do the most damage?,the centre shoot has dried up,the stems are thin and weak,the stems are thin and weak
+PaddyDoctor_yellow_stem_borer_PDD15877,Stem_Borer,control,How can I control this problem?,some shoots are dead,large patches with bands on the leaves,large patches with bands on the leaves
+PaddyDoctor_yellow_stem_borer_PDD15963,Stem_Borer,cause,What is causing this on my rice?,the centre shoot has dried up,the centre shoot has dried up,the centre shoot has dried up
+PaddyDoctor_yellow_stem_borer_PDD15970,Stem_Borer,environment,Which weather or field conditions make this worse?,very few shoots per plant,very few shoots per plant,very few shoots per plant
+PaddyDoctor_yellow_stem_borer_PDD15985,Stem_Borer,control,How can I control this problem?,the centre shoot has dried up,the centre shoot has dried up,the centre shoot has dried up
+PaddyDoctor_yellow_stem_borer_PDD16014,Stem_Borer,stage,At which crop stage does this do the most damage?,very few shoots per plant,very few shoots per plant,the leaves have gone yellow
+PaddyDoctor_yellow_stem_borer_PDD16121,Stem_Borer,cause,What is causing this on my rice?,the heads turned white and empty,the heads turned white and empty,many of the grains are empty
+PaddyDoctor_yellow_stem_borer_PDD16140,Stem_Borer,environment,Which weather or field conditions make this worse?,the heads turned white and empty,the crop is ripening late,the crop is ripening late
+PaddyDoctor_yellow_stem_borer_PDD16153,Stem_Borer,environment,Which weather or field conditions make this worse?,very few shoots per plant,very few shoots per plant,very few shoots per plant
+PaddyDoctor_yellow_stem_borer_PDD16214,Stem_Borer,stage,At which crop stage does this do the most damage?,the centre shoot has dried up,the centre shoot has dried up,something has been eating the leaves
+StemBorerBD_Dead_Heart_Dead_heart125,Stem_Borer,symptom,What other signs should I check for?,some shoots are dead,large patches with bands on the leaves,large patches with bands on the leaves
+StemBorerBD_Dead_Heart_Dead_heart130,Stem_Borer,stage,At which crop stage does this do the most damage?,the heads turned white and empty,the heads turned white and empty,the heads turned white and empty
+StemBorerBD_Dead_Heart_Dead_heart140,Stem_Borer,cause,What is causing this on my rice?,some shoots are dead,some shoots are dead,some shoots are dead
+StemBorerBD_Dead_Heart_Dead_heart147,Stem_Borer,environment,Which weather or field conditions make this worse?,very few shoots per plant,very few shoots per plant,very few shoots per plant
+StemBorerBD_Dead_Heart_Dead_heart178,Stem_Borer,environment,Which weather or field conditions make this worse?,some shoots are dead,some shoots are dead,whole shoots are dying
+StemBorerBD_Dead_Heart_Dead_heart185,Stem_Borer,symptom,What other signs should I check for?,some shoots are dead,some shoots are dead,the plants stay short
+StemBorerBD_Dead_Heart_Dead_heart204,Stem_Borer,control,How can I control this problem?,very few shoots per plant,very few shoots per plant,very few shoots per plant
+StemBorerBD_Dead_Heart_Dead_heart220,Stem_Borer,symptom,What other signs should I check for?,the heads turned white and empty,the heads turned white and empty,the plants are drooping
+StemBorerBD_Dead_Heart_Dead_heart264,Stem_Borer,cause,What is causing this on my rice?,the centre shoot has dried up,the centre shoot has dried up,the centre shoot has dried up
+StemBorerBD_Dead_Heart_Dead_heart349,Stem_Borer,symptom,What other signs should I check for?,the centre shoot has dried up,the grains are stained,the grains are stained
+StemBorerBD_Dead_Heart_Dead_heart405,Stem_Borer,cause,What is causing this on my rice?,some shoots are dead,some shoots are dead,very few shoots per plant
+StemBorerBD_Dead_Heart_Dead_heart426,Stem_Borer,cause,What is causing this on my rice?,the centre shoot has dried up,the centre shoot has dried up,the centre shoot has dried up
+StemBorerBD_Dead_Heart_Dead_heart435,Stem_Borer,control,How can I control this problem?,the centre shoot has dried up,the leaf tips turned brown,the leaf tips turned brown
+StemBorerBD_Dead_Heart_Dead_heart_2,Stem_Borer,environment,Which weather or field conditions make this worse?,very few shoots per plant,very few shoots per plant,many of the grains are empty
+StemBorerBD_Dead_Heart_Dead_heart_8,Stem_Borer,cause,What is causing this on my rice?,the centre shoot has dried up,the centre shoot has dried up,the centre shoot has dried up
+StemBorerBD_Healthy_Healthy_1173,Normal_Health,symptom,What other signs should I check for?,the crop looks fine to me,the crop looks fine to me,the crop looks fine to me
+StemBorerBD_Healthy_Healthy_1200,Normal_Health,environment,Which weather or field conditions make this worse?,the crop looks fine to me,the crop looks fine to me,the crop looks fine to me
+StemBorerBD_Healthy_Healthy_1208,Normal_Health,control,How can I control this problem?,the crop looks fine to me,the crop looks fine to me,the crop looks fine to me
+StemBorerBD_Healthy_Healthy_1227,Normal_Health,environment,Which weather or field conditions make this worse?,the crop looks fine to me,the crop looks fine to me,the crop looks fine to me
+StemBorerBD_Healthy_Healthy_1292,Normal_Health,environment,Which weather or field conditions make this worse?,the crop looks fine to me,the crop looks fine to me,the crop looks fine to me
+StemBorerBD_Healthy_Healthy_1398,Normal_Health,control,How can I control this problem?,the crop looks fine to me,some shoots are dead,some shoots are dead
+StemBorerBD_Healthy_Healthy_1825,Normal_Health,control,How can I control this problem?,the crop looks fine to me,the crop looks fine to me,the crop looks fine to me
+StemBorerBD_Healthy_Healthy_1830,Normal_Health,symptom,What other signs should I check for?,the crop looks fine to me,the crop looks fine to me,the crop looks fine to me
+StemBorerBD_Healthy_Healthy_1832,Normal_Health,environment,Which weather or field conditions make this worse?,the crop looks fine to me,the leaf tips are drying out,the leaf tips are drying out
+StemBorerBD_Healthy_Healthy_1880,Normal_Health,cause,What is causing this on my rice?,the crop looks fine to me,the crop looks fine to me,the crop looks fine to me
+StemBorerBD_Healthy_Healthy_1883,Normal_Health,cause,What is causing this on my rice?,the crop looks fine to me,the crop looks fine to me,the crop looks fine to me
+StemBorerBD_Healthy_Healthy_1962,Normal_Health,symptom,What other signs should I check for?,the crop looks fine to me,the crop looks fine to me,the crop looks fine to me
+StemBorerBD_Healthy_Healthy_2014,Normal_Health,stage,At which crop stage does this do the most damage?,the crop looks fine to me,the crop looks fine to me,the crop looks fine to me
+StemBorerBD_Healthy_Healthy_2071,Normal_Health,control,How can I control this problem?,the crop looks fine to me,dusty brown specks on the top leaves,dusty brown specks on the top leaves
+StemBorerBD_Healthy_Healthy_2192,Normal_Health,stage,At which crop stage does this do the most damage?,the crop looks fine to me,the crop looks fine to me,yellow lines along the leaves
+StemBorerBD_White_Head_WhiteHead156,Stem_Borer,environment,Which weather or field conditions make this worse?,the heads turned white and empty,grey-green blotches low on the stem,grey-green blotches low on the stem
+StemBorerBD_White_Head_WhiteHead185,Stem_Borer,control,How can I control this problem?,the heads turned white and empty,the heads turned white and empty,the heads turned white and empty
+StemBorerBD_White_Head_WhiteHead225,Stem_Borer,cause,What is causing this on my rice?,the centre shoot has dried up,the centre shoot has dried up,the centre shoot has dried up
+StemBorerBD_White_Head_WhiteHead342,Stem_Borer,stage,At which crop stage does this do the most damage?,some shoots are dead,some shoots are dead,some shoots are dead
+StemBorerBD_White_Head_WhiteHead361,Stem_Borer,symptom,What other signs should I check for?,the heads turned white and empty,the heads turned white and empty,the heads turned white and empty
+StemBorerBD_White_Head_WhiteHead375,Stem_Borer,symptom,What other signs should I check for?,the centre shoot has dried up,the plants stay short,the plants stay short
+StemBorerBD_White_Head_WhiteHead389,Stem_Borer,symptom,What other signs should I check for?,some shoots are dead,some shoots are dead,some shoots are dead
+StemBorerBD_White_Head_WhiteHead401,Stem_Borer,cause,What is causing this on my rice?,some shoots are dead,some shoots are dead,whole shoots are dying
+StemBorerBD_White_Head_WhiteHead468,Stem_Borer,symptom,What other signs should I check for?,the centre shoot has dried up,the centre shoot has dried up,the grains are stained
+StemBorerBD_White_Head_WhiteHead484,Stem_Borer,symptom,What other signs should I check for?,the centre shoot has dried up,the centre shoot has dried up,the centre shoot has dried up
+StemBorerBD_White_Head_WhiteHead57,Stem_Borer,stage,At which crop stage does this do the most damage?,the heads turned white and empty,the heads turned white and empty,the heads turned white and empty
+StemBorerBD_White_Head_WhiteHead67,Stem_Borer,stage,At which crop stage does this do the most damage?,some shoots are dead,some shoots are dead,some shoots are dead
+StemBorerBD_White_Head_WhiteHead86,Stem_Borer,environment,Which weather or field conditions make this worse?,some shoots are dead,some shoots are dead,some shoots are dead
+StemBorerBD_White_Head_WhiteHead89,Stem_Borer,control,How can I control this problem?,the centre shoot has dried up,the leaves are curling up,the leaves are curling up
+StemBorerBD_White_Head_WhiteHead98,Stem_Borer,cause,What is causing this on my rice?,some shoots are dead,some shoots are dead,the heads set no seed
