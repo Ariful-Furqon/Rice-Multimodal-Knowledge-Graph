@@ -56,3 +56,6 @@
 {"image": "DhanShomadhan_Rice_Tungro_Disease_rtf_20", "split": "test", "parsed": {"healthy": true}, "raw": "{\"healthy\": true}"}
 {"image": "DhanShomadhan_Rice_Tungro_Disease_rtf_28", "split": "test", "parsed": {"healthy": true}, "raw": "{\"healthy\": true}"}
 {"image": "DhanShomadhan_Rice_Tungro_Disease_rtf_37", "split": "test", "parsed": {"healthy": true}, "raw": "{\"healthy\": true}"}
+{"image": "DhanShomadhan_Rice_Tungro_Disease_rtf_54", "split": "test", "parsed": {"healthy": true}, "raw": "{\"healthy\": true}"}
+{"image": "DhanShomadhan_Rice_Tungro_Disease_rtf_7", "split": "test", "parsed": {"healthy": true}, "raw": "{\"healthy\": true}"}
+{"image": "DhanShomadhan_Sheath_Blight_sb_wb_144", "split": "test", "parsed": {"healthy": true}, "raw": "{\"healthy\": true}"}
