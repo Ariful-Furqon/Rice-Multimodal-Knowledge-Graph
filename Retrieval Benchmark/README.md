@@ -59,6 +59,10 @@ Data splits and query-time graph for the SIGIR 2027 retrieval experiments. Desig
 
 `scripts/stage2_passages.py` gives the coverage table and the passage-retrieval scores, with and without the KG, in [`results/stage2_results.md`](results/stage2_results.md); see [`design_v2.md`](design_v2.md), sections 6 and 7. It needs Ollama with `bge-m3` and the reranker `BAAI/bge-reranker-v2-m3` (Hugging Face, about 2.3 GB, set `HF_HOME`).
 
+## Step 2
+
+`scripts/step2_vlm_triples.py` writes the VLM triples (`results/vlm_triples_closed.jsonl`, `results/vlm_triples_open.jsonl`) and `splits/dev_core.csv`. `scripts/step2_rerank.py` gives [`results/step2_results.md`](results/step2_results.md); see [`design_v2.md`](design_v2.md), section 8. They need Ollama with `qwen2.5vl:7b` and `qwen2.5:7b`.
+
 ## Rebuild
 
 `make_split.py` needs `rdflib` only. The other two scripts need the GPU environment (`D:\venvs\ricemmkg-retrieval`: torch with CUDA 12.8, transformers, scikit-learn).
@@ -71,6 +75,9 @@ python -I "Retrieval Benchmark/scripts/make_split.py" . Data/retrieval        # 
 python -I "Retrieval Benchmark/scripts/make_gold.py" .
 <venv>/python -I "Retrieval Benchmark/scripts/stage1_baselines.py" . "Retrieval Benchmark/results"
 <venv>/python -I "Retrieval Benchmark/scripts/stage2_passages.py" . "Retrieval Benchmark/results"
+<venv>/python -I "Retrieval Benchmark/scripts/step2_vlm_triples.py" . closed "Retrieval Benchmark/results/vlm_triples_closed.jsonl"
+<venv>/python -I "Retrieval Benchmark/scripts/step2_vlm_triples.py" . open "Retrieval Benchmark/results/vlm_triples_open.jsonl"
+<venv>/python -I "Retrieval Benchmark/scripts/step2_rerank.py" . "Retrieval Benchmark/results/vlm_triples_closed.jsonl" "Retrieval Benchmark/results/vlm_triples_open.jsonl" "Retrieval Benchmark/results"
 ```
 
 The first run hashes every image. Files that OneDrive keeps online only are downloaded first. The hashes are cached in `Data/retrieval/md5_cache.csv` and the CLIP features in `Data/retrieval/feats_clip-l14.npz`.

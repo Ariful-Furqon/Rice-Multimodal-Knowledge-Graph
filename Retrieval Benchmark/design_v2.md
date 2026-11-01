@@ -216,3 +216,46 @@ Local copies are in `D:\Software and Tools\ref-code\`.
 - **Judged gold for "identify":** pool the top passages of all systems and judge them, so that symptom passages outside "How to identify" count.
 - **Per-intent stage 2:** use the KG route without the reranker for "identify" until the gold is judged.
 - **Stage 1 stays the bottleneck:** about 0.35 MRR separates the probe from the gold condition. The VLM step 2 (week 4) targets this.
+
+## 8. Step 2: VLM triples and first scores (2026-11-01)
+
+`scripts/step2_vlm_triples.py` and `scripts/step2_rerank.py` give [`results/step2_results.md`](results/step2_results.md).
+
+**Setup:**
+- **VLM:** Qwen2.5-VL-7B through Ollama, 3 to 4 seconds per photo.
+- **Images:** 740 in all. `test_core` (370) reports, and `splits/dev_core.csv` (370, same rule as `test_core`) tunes the fusion. On the main subset, 345 test images are in-source and 195 are cross-source.
+- **Closed vocabulary (ours):** the VLM picks from the 43 symptom labels and 10 plant parts. No condition name is in the prompt.
+- **Score:** matched symptoms weighted by confidence and idf, with a penalty if the KG does not link the symptom to the reported part. It is fused with stage 1 over the top 5, and lambda is tuned on dev.
+- **KGMEL baseline:** open-vocabulary triples, then Qwen2.5:7b names one of the top 5 from the KG symptoms.
+
+**Prompt change, made on dev:** prompt v1 had a `healthy` field and 76% of the first 412 photos took it, sick ones too. It was stopped and replaced by v2, which asks for the marks first. On a sample of 46 dev images, photos of sick plants with no triples fell to 2 of 42, and all 4 healthy photos stayed empty. The partial v1 run printed test scores, which were not used to choose the prompt. The v2 test scores were computed once.
+
+**Results, `test_core` main subset:**
+
+| Protocol | System | n | R@1 | macro R@1 | MRR | p (MRR, vs stage 1) |
+|---|---|---:|---:|---:|---:|---:|
+| In-source | Stage 1 (probe) | 345 | 0.513 | 0.435 | 0.667 | |
+| In-source | Stage 1 + KG triples (lambda 0.2) | 345 | 0.528 | 0.453 | 0.677 | 0.164 |
+| In-source | KGMEL baseline | 345 | 0.258 | 0.212 | 0.531 | < 0.001 (worse) |
+| Cross-source | Stage 1 (probe) | 195 | 0.354 | 0.331 | 0.512 | |
+| Cross-source | Stage 1 + KG triples (lambda 0) | 195 | 0.354 | 0.331 | 0.512 | 1.000 |
+| Cross-source | KGMEL baseline | 195 | 0.246 | 0.244 | 0.471 | 0.088 (worse) |
+
+**Reading:**
+1. **Checkpoint 1 is not met yet.** In-source the gain is +0.015 R@1 and not significant. Cross-source, dev chose lambda 0, so step 2 is switched off and the row equals stage 1. The in-source lambda is also fragile: only 0.2 beats 0 on dev (0.548 vs 0.536), and larger weights fall below it.
+2. **The bottleneck is the VLM's symptoms, not the fusion.** On 345 dev photos:
+   - Only 24% of the photos of sick plants have a triple that matches a symptom of their gold condition.
+   - Six conditions score 0%: bacterial leaf blight, leaf folder, leaf scald, nitrogen deficiency, phosphorus deficiency and sheath blight.
+   - One label dominates: "yellow stripe" appears on 131 of 345 photos.
+   - On stem borer photos whose source labels the symptom, the VLM reports deadheart on 0 of 15 and white ear on 1 of 15.
+   - 25 of 30 healthy photos correctly get no triples.
+3. **The KGMEL baseline is worse overall and over-picks.** It discards the stage-1 ranking: it moves the answer away from stage 1's top 1 on 215 of 345 images, and picks Normal_Health 87 times against 30 gold photos.
+4. **Its gain on blast / brown spot is only partly real.** R@1 on those photos rises from 0.250 to 0.367 in-source and 0.017 to 0.183 cross-source, but it picks blast 63 times against 30 gold photos, so part of this is bias towards the two classes. Of the 60 in-source photos, 22 are correct, 14 go to the other member of the pair and 24 go outside it.
+
+5. **On leaf photos the KG cannot separate blast from brown spot.** Both list `Brown Lesion`, `Leaf Spot` and `Wilting`, and their other symptoms are on the panicle, neck, node or grain. So on a leaf photo they get the same KG score, however good the VLM is. The feature that farmers use, lesion shape, is not in the graph.
+
+**Next, all tuned on dev:**
+- **Better symptoms before better fusion:** few-shot prompts with reference photos, or per-symptom yes/no questions, and normalising near-labels ("brown lesions" against "Brown Lesion"; 86% of triples are in vocabulary).
+- **Keep stage 1 in the LLM rerank:** give the LLM the stage-1 confidence, or let it act only when stage 1 is unsure.
+- **Add discriminative symptoms to the KG:** lesion shape and colour from the IRRI sheets, for example for blast and brown spot. This changes the graph, so it needs the same provenance as the other facts and expert review.
+- **Add the question:** the farmer's words are the cheapest symptom source, and they are not in stage 1 yet.

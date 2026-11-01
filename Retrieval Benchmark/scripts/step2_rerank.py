@@ -35,6 +35,7 @@ import csv
 import json
 import math
 import sys
+import time
 import urllib.request
 from pathlib import Path
 
@@ -48,7 +49,7 @@ TOP = 5
 PART_MISS = 0.5
 LAMBDAS = (0, 0.1, 0.2, 0.5, 1, 2, 5, 10)
 PERMUTATIONS = 10000
-OLLAMA = "http://localhost:11434/api/chat"
+OLLAMA = "http://127.0.0.1:11434/api/chat"
 LLM = "qwen2.5:7b"
 PAIRS = {"blast / brown spot": {"Rice_Blast_Disease", "Brown_Spot"},
          "BLB / BLS": {"Bacterial_Leaf_Blight", "Bacterial_Leaf_Streak"}}
