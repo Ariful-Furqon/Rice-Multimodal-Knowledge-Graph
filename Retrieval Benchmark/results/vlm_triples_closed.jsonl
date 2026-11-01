@@ -90,3 +90,13 @@
 {"image": "NetrokonaRice_Potassium_Deficiency_image_0497", "split": "test", "parsed": {"healthy": true}, "raw": "{\"healthy\": true}"}
 {"image": "NutrientDeficiencyKaggle_Nitrogen_untitled_168", "split": "test", "parsed": {"healthy": true}, "raw": "{\"healthy\": true}"}
 {"image": "NutrientDeficiencyKaggle_Nitrogen_untitled_195", "split": "test", "parsed": {"healthy": true}, "raw": "{\"healthy\": true}"}
+{"image": "NutrientDeficiencyKaggle_Nitrogen_untitled_201", "split": "test", "parsed": {"healthy": true}, "raw": "{\"healthy\": true}"}
+{"image": "NutrientDeficiencyKaggle_Nitrogen_untitled_204", "split": "test", "parsed": {"healthy": true}, "raw": "{\"healthy\": true}"}
+{"image": "NutrientDeficiencyKaggle_Nitrogen_untitled_238", "split": "test", "parsed": {"healthy": true}, "raw": "{\"healthy\": true}"}
+{"image": "NutrientDeficiencyKaggle_Nitrogen_untitled_247", "split": "test", "parsed": {"healthy": true}, "raw": "{\"healthy\": true}"}
+{"image": "NutrientDeficiencyKaggle_Nitrogen_untitled_269", "split": "test", "parsed": {"healthy": true}, "raw": "{\"healthy\": true}"}
+{"image": "NutrientDeficiencyKaggle_Nitrogen_untitled_3", "split": "test", "parsed": {"healthy": false, "triples": [{"symptom": "yellow leaf", "part": "leaf", "confidence": 0.9}, {"symptom": "chlorotic leaf patches", "part": "leaf", "confidence": 0.8}, {"symptom": "yellow-orange leaf discoloration", "part": "leaf", "confidence": 0.7}, {"symptom": "yellow stripe", "part": "leaf", "confidence": 0.6}]}, "raw": "{\"healthy\": false, \"triples\": [{\"symptom\": \"yellow leaf\", \"part\": \"leaf\", \"confidence\": 0.9}, {\"symptom\": \"chlorotic leaf patches\", \"part\": \"leaf\", \"confidence\": 0.8}, {\"symptom\": \"yellow-orange leaf discoloration\", \"part\": \"leaf\", \"confidence\": 0.7}, {\"symptom\": \"yellow stripe\", \"part\": \"leaf\", \"confidence\": 0.6}]}"}
+{"image": "NutrientDeficiencyKaggle_Nitrogen_untitled_325", "split": "test", "parsed": {"healthy": true}, "raw": "{\"healthy\": true}"}
+{"image": "NutrientDeficiencyKaggle_Nitrogen_untitled_380", "split": "test", "parsed": {"healthy": true}, "raw": "{\"healthy\": true}"}
+{"image": "NutrientDeficiencyKaggle_Nitrogen_untitled_41", "split": "test", "parsed": {"healthy": true}, "raw": "{\"healthy\": true}"}
+{"image": "NutrientDeficiencyKaggle_Nitrogen_untitled_49", "split": "test", "parsed": {"healthy": true}, "raw": "{\"healthy\": true}"}
