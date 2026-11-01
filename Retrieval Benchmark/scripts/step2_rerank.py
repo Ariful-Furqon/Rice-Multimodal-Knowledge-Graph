@@ -139,8 +139,15 @@ def llm_choice(prompt, n):
     body = {"model": LLM, "stream": False, "format": "json", "options": {"temperature": 0, "seed": 0, "num_predict": 40},
             "messages": [{"role": "user", "content": prompt}]}
     req = urllib.request.Request(OLLAMA, data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=300) as r:
-        raw = json.load(r)["message"]["content"]
+    for attempt in range(5):
+        try:
+            with urllib.request.urlopen(req, timeout=300) as r:
+                raw = json.load(r)["message"]["content"]
+            break
+        except OSError:  # urllib's errors; the local server fails briefly now and then
+            if attempt == 4:
+                raise
+            time.sleep(10 * (attempt + 1))
     try:
         k = int(json.loads(raw)["answer"])
     except (ValueError, KeyError, TypeError):

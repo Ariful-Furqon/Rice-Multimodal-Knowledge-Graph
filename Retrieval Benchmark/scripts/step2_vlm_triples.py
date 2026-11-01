@@ -32,11 +32,12 @@ import rdflib
 from PIL import Image
 
 R = rdflib.Namespace("https://w3id.org/ricemmkg#")
-OLLAMA = "http://localhost:11434/api/chat"
+OLLAMA = "http://127.0.0.1:11434/api/chat"
 VLM = "qwen2.5vl:7b"
 SEED = 0
 CORE_PER_STRATUM = 15
 MAX_SIDE = 768
+RETRIES = 5
 CLOSED = """You are a rice plant pathologist. First describe the colour, shape and position of any marks on the plant in this photo. Then match them to the list.
 
 Symptoms you may report (use these exact words):
@@ -98,8 +99,14 @@ def ask(prompt, path):
             "options": {"temperature": 0, "seed": SEED, "num_predict": 400},
             "messages": [{"role": "user", "content": prompt, "images": [image_b64(path)]}]}
     req = urllib.request.Request(OLLAMA, data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=300) as r:
-        return json.load(r)["message"]["content"]
+    for attempt in range(RETRIES):
+        try:
+            with urllib.request.urlopen(req, timeout=300) as r:
+                return json.load(r)["message"]["content"]
+        except OSError as e:  # urllib's errors; the local server fails briefly now and then
+            print(f"  retry {attempt + 1} for {path}: {e}", flush=True)
+            time.sleep(10 * (attempt + 1))
+    raise RuntimeError(f"no answer for {path}")
 
 
 def main(root, mode, out):
