@@ -81,6 +81,7 @@ python -I "Retrieval Benchmark/scripts/make_gold.py" .
 python -I "Retrieval Benchmark/scripts/make_questions.py" .
 <venv>/python -I "Retrieval Benchmark/scripts/step1_question.py" . "Retrieval Benchmark/results/step1_question_dev.md"
 <venv>/python -I "Retrieval Benchmark/scripts/step2_llm_gate.py" . "Retrieval Benchmark/results/vlm_triples_open.jsonl" "Retrieval Benchmark/results"
+<venv>/python -I "Retrieval Benchmark/scripts/step2_field_context.py" . "Retrieval Benchmark/results/step2_field_context_dev.md"
 ```
 
 The first run hashes every image. Files that OneDrive keeps online only are downloaded first. The hashes are cached in `Data/retrieval/md5_cache.csv` and the CLIP features in `Data/retrieval/feats_clip-l14.npz`.

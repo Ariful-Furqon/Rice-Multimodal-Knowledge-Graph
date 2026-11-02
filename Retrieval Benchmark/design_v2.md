@@ -275,4 +275,7 @@ Local copies are in `D:\Software and Tools\ref-code\`.
 - **20 test cases:** `splits/test_cases_draft.csv`, outside test_core, chosen without looking at the photos. The observation column is empty: a person must write it from the photo.
 - **Final evaluation:** 2,538 main test photos outside test_core have not been used by step 2.
 
-**Checkpoint 1 is still not met.** Nothing has raised R@1 with real data.
+- **Field context:** plant age is the only context on the photos, on Paddy Doctor only (180 of 345). Age bands fixed before the run map to growth stages, then to candidates through `occursIn`. In-source 0.406 unchanged (lambda 0); cross-source 0.433 to 0.467 on 90 photos, p 0.324. Dev ages run only from 45 to 75 days, so age separates few candidates. `results/step2_field_context_dev.md`.
+- **Larger VLM (`qwen2.5vl:32b`)** on the same 60 photos, same stop rule: whole photo 0.400, reference photos 0.333. It fails, and does no better than the 7B model. Crops were skipped.
+
+**Checkpoint 1 is still not met.** Nothing has raised R@1 significantly with real data. Not tried: a stronger stage-1 encoder, which would not be a KG contribution.
