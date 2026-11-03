@@ -47,6 +47,8 @@ for e, shape in SHAPES.items():
 def ask(messages):
     body = {"model": VLM, "stream": False, "format": "json",
             "options": {"temperature": 0, "seed": 0, "num_predict": 30}, "messages": messages}
+    if not VLM.startswith("qwen2.5vl"):  # newer models may reason first; ask for the answer only
+        body["think"] = False
     req = urllib.request.Request(OLLAMA, data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
     for attempt in range(5):
         try:
