@@ -59,8 +59,8 @@ def ask(messages):
             time.sleep(10 * (attempt + 1))
     else:
         raise RuntimeError("no answer")
-    try:
-        return str(json.loads(raw).get("shape"))
+    try:  # some models append an end token after the JSON, e.g. '{"shape": "none"}<|eot|>'
+        return str(json.loads(raw[raw.index("{"):raw.rindex("}") + 1]).get("shape"))
     except (ValueError, AttributeError):
         return "bad"
 
