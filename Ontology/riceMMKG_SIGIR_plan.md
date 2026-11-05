@@ -2,6 +2,57 @@
 
 Drafted 2026-10-20 and revised 2026-10-26 after the supervisor's feedback that the retrieval side was too weak. The paper now targets the **full paper track with a retrieval method**. It replaces the ESWC plan ([riceMMKG_ESWC_plan.md](riceMMKG_ESWC_plan.md)) as the working schedule.
 
+**Update 2026-11-05:** the venue is under review and next week's work has changed; see section 0. Sections 1–8 still describe the SIGIR plan.
+
+## 0. Status and next week (2026-11-05)
+
+**Venue proposal: IEEE Access.**
+- The supervisor suggested IEEE Access for Rice MMKG. SIGIR stays possible only with a new method evaluated on OMGM's benchmark datasets, which would be a different project.
+- The article fee would come from lab funds.
+- To confirm at the weekly meeting on 2026-11-06. If confirmed, sections 1, 2 and 6 are rewritten for a journal paper:
+  - the KG's contribution becomes evidence retrieval;
+  - disease re-ranking becomes an analysis section.
+
+**Done in week 3 (Nov 2–8).** Details are in [design_v2.md](../Retrieval%20Benchmark/design_v2.md), sections 6–8.
+- **Split v2 and query-time graph.** The split is by photo, with capture groups. The query-time graph drops 49,557 triples of 5,935 dev and test photos and keeps 275,144.
+- **Questions.** Templates, dev questions with simulated observations, and 20 draft test cases with empty observations ([splits/](../Retrieval%20Benchmark/splits/)).
+- **Step 2 on test_core.**
+  - In-source, KG triples raise R@1 from 0.513 to 0.528, which is not significant (MRR p = 0.164).
+  - Cross-source, dev chose λ = 0.
+  - The KGMEL baseline reaches 0.258.
+- **Five step-2 experiments, on dev only:**
+  - yes/no symptoms;
+  - gated LLM;
+  - lesion shape with five open-weight VLMs (best 0.567 against a 0.7 stop rule);
+  - plant age;
+  - simulated farmer's words.
+
+  None gives a real gain. Only the simulated words help, with in-source R@1 from 0.536 to 0.652 at noise 0, and they are an upper bound because they are drawn from the answer. The KG was not changed.
+- **Step 3 (OMGM reranker inside KG tiers, stage-1 top 2), on the full main test set:**
+  - Cause MRR is 0.536 end to end and 0.889 with the gold condition.
+  - The KG route beats the route without the KG in every column.
+  - "Identify" falls with the reranker, partly because the section gold accepts one section only.
+
+**Checkpoint 1 (15 Nov): not met.** The fallback named in section 6, LLM re-ranking as in KGMEL, was tried and is worse (0.258). Step 2 is therefore reported as analysis, not as the method's gain.
+
+**Next week (Nov 9–15):**
+
+| # | Work | Output |
+|---|---|---|
+| 1 | **Link prediction, the supervisor's idea:** keep the photo node, cut `annotatedAs` and the leaking edges (`rdfs:label`, `contentUrl`, `sourceLabel`, `captures`; variety + age and `wasDerivedFrom` tested separately), predict the label from the pixels and the safe edges. Dev first | Dev table, with and without the leaking edges |
+| 2 | **Expert package:** a form for pooled passage judgements (0/1/2), observations for the 20 draft test cases, and a label check. Sent only after the supervisor agrees | Form ready to send |
+| 3 | **Text coverage:** open texts for the three diseases without an IRRI sheet (bacterial panicle blight, downy mildew, leaf scald), and cause and control texts (CABI or open papers). Must be done before pooling, by Nov 22 | New passages linked to facts |
+| 4 | **Reranker pool size:** recall@k and MRR for k = 20, 50 and 100 on dev; k = 50 is a default so far, not a tuned value | One dev table |
+| 5 | **Significance of the evidence table:** paired sign-flip test per query, KG vs no KG and before vs after the reranker | p-values for the step-3 table |
+| 6 | **Plan rewrite**, if IEEE Access is confirmed | Revised sections 1, 2 and 6 |
+
+**After next week (draft):**
+- **Nov 16–22:** pool the top passages of all systems and send the judging request.
+- **Nov 23–Dec 6:** expert judgements, κ and the 20 observations.
+- **December:**
+  - final evaluation on the 2,538 main test photos outside test_core, with test_core used once more at the end;
+  - writing.
+
 ## 1. Venue
 
 | | Date (AoE) | Source |
@@ -126,8 +177,8 @@ Weeks start on Monday. Holidays fall in weeks 10–11.
 |---|---|---|---|
 | 1 | Oct 19–25 | Text pilot; text layer in KG | Done |
 | 2 | Oct 26–Nov 1 | Revise this plan; read the code of OMGM and KGMEL; test split with the leakage rule | Design v2 |
-| 3 | Nov 2–8 | Questions: templates, training and dev sets, first 20 test cases. Indexes for BM25, bge-m3 and CLIP. Stage-1 baselines and IKRL re-run on the frozen data | Benchmark draft; stage-1 baselines |
-| 4 | Nov 9–15 | VLM triple generation; step 2 re-ranking; OMGM and KGMEL adapted | **Checkpoint 1** |
+| 3 | Nov 2–8 | Questions: templates, training and dev sets, first 20 test cases. Indexes for BM25, bge-m3 and CLIP. Stage-1 baselines and IKRL re-run on the frozen data | Done, with step 2 and step 3 brought forward (section 0) |
+| 4 | Nov 9–15 | ~~VLM triple generation; step 2 re-ranking; OMGM and KGMEL adapted~~ Done in week 3. Now: link prediction; expert package; text coverage (section 0) | **Checkpoint 1: not met** (section 0) |
 | 5 | Nov 16–22 | Step 3 evidence; end to end; remaining test cases; pooling; send the judging request | Pools |
 | 6 | Nov 23–29 | Judges at work; Wen-style reranker; MegaRAG and LightRAG runs | Baseline runs |
 | 7 | Nov 30–Dec 6 | qrels and κ; full runs; significance tests | Results tables |
@@ -140,6 +191,7 @@ Weeks start on Monday. Holidays fall in weeks 10–11.
 
 **Checkpoints:**
 - **Checkpoint 1, 15 Nov.** Step 2 must raise entity Recall@1 over step 1 alone, at least on the confusable pairs. If it does not, change the matching: use LLM re-ranking as in KGMEL instead of triple overlap.
+  - **Status 2026-11-05: not met.** The KGMEL fallback is worse, and five more experiments on dev gave no real gain (section 0).
 - **Week 6.** If the judgements are late, report entity retrieval and oracle evidence retrieval on the judged subset, and keep the full set for the camera-ready version.
 - **Checkpoint 2, 14 Jan.** If the method does not beat the best baseline on evidence retrieval, do not submit the full paper. Move to the Resource & Reproducibility fallback (section 1).
 
