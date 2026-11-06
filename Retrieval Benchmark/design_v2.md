@@ -380,3 +380,50 @@ The supervisor's idea: keep the photo node, cut `annotatedAs`, and predict it fr
    - Link prediction on the photo node gains nothing from the graph once `annotatedAs` and its string copies are cut.
    - The domain triples do not reach the photo (9.2), and the photo's own edges are dataset or session markers.
    - Its value for the paper is the leakage analysis: an in-source KG-augmented model that keeps `sourceLabel` or `contentUrl` can report anything up to 1.0.
+
+### 9.4 KG-based generalized zero-shot: first run (2026-11-06, no calibration)
+
+`scripts/dev_checks/zsl_dev.py` → `results/zsl_dev.md`.
+
+**Question:** does the KG help for a condition that has no training photo? For conditions without photos (armyworm, rice bug, Zn deficiency, …), the KG is the only source of knowledge.
+
+**Setup:**
+- Leave one condition out: train on the other 16, score all 17 on dev main.
+- Model: s(x, c) = (Wx) · φ(c).
+- Class representations φ(c):
+  - KG multi-hot: domain triples, symptom → plant part, and type; 108 features;
+  - the same, shuffled among classes (control);
+  - CLIP text of the label;
+  - CLIP text of the label plus the KG symptoms.
+- Also CLIP zero-shot with no training. Chance MRR over 17 classes is 0.202.
+
+| Method | Unseen R@1 | Unseen R@3 | Unseen MRR | Seen R@1 |
+|---|---:|---:|---:|---:|
+| CLIP zero-shot, label text | 0.066 | 0.173 | 0.206 | 0.124 |
+| CLIP zero-shot, label + KG symptom text | 0.071 | 0.240 | 0.225 | 0.109 |
+| Trained, KG multi-hot | 0.000 | 0.066 | 0.156 | 0.597 |
+| Trained, KG shuffled (control) | 0.000 | 0.013 | 0.129 | 0.600 |
+| Trained, label text | 0.001 | 0.231 | 0.176 | 0.594 |
+| Trained, label + KG symptom text | 0.023 | 0.161 | 0.181 | 0.558 |
+
+**Reading:**
+1. **The KG structure carries real, if small, signal.**
+   - KG multi-hot beats its shuffled control on 12 of 16 conditions (3 losses, 1 tie), with MRR 0.156 vs 0.129.
+   - The largest gains are on the nutrient disorders (P 0.237 vs 0.109, K 0.240 vs 0.117), brown spot and downy mildew.
+   - This is the first test where the KG beats a matched control; IKRL (9.2) and link prediction (9.3) gave zero.
+2. **Without calibration, the trained models never put the unseen class first.** Unseen R@1 is about 0, and MRR is below chance. This is the known seen-class bias of generalized ZSL, so the absolute numbers are not yet meaningful.
+3. **In CLIP zero-shot, the KG symptoms help on average, but not everywhere.**
+   - MRR rises from 0.206 to 0.225, and R@3 from 0.173 to 0.240.
+   - The symptom text wins on 8 of 16 conditions. The gains are on conditions with a distinctive, non-leaf or named symptom:
+     - stem borer 0.578 vs 0.080 (deadheart, white ear);
+     - downy mildew 0.506 vs 0.146;
+     - sheath blight 0.510 vs 0.309;
+     - blast 0.358 vs 0.117;
+     - leaf scald 0.257 vs 0.126.
+   - It loses on brown spot (0.242 vs 0.598) and healthy plants (0.128 vs 0.665). Healthy has no symptom prompt, so it loses ground when the other classes gain prompts.
+4. **The KG works better read as text than as a multi-hot vector.** CLIP's language encoder knows what "deadheart" looks like; a one-hot column does not.
+
+**Next:**
+- **A calibration-free metric:** the area under the seen–unseen accuracy curve (AUSUC; Chao et al., 2016) over a calibration constant γ, plus the harmonic mean at a γ chosen on held-out *seen* classes only.
+- **Run speed:** save the raw scores so calibration needs no retraining, and run on MPS. This run took about 70 minutes on CPU.
+- **Hybrid:** a trained model for the seen classes and KG-text prototypes for the unseen ones.

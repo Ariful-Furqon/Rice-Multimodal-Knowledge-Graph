@@ -75,6 +75,7 @@ The scripts in `scripts/dev_checks/` use dev data only and never touch test. The
 | `ikrl_v2_dev.py` | IKRL on split v2, with a random-class-vector capacity control | [`results/ikrl_v2_dev.md`](results/ikrl_v2_dev.md) |
 
 | `link_pred_dev.py` | Link prediction with the photo's own edges: safe, age and variety, dataset, leaking | [`results/link_pred_dev.md`](results/link_pred_dev.md) |
+| `zsl_dev.py` | KG-based generalized zero-shot, leave one condition out; KG vs shuffled control vs CLIP text | [`results/zsl_dev.md`](results/zsl_dev.md) |
 
 ## Rebuild
 

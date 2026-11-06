@@ -89,6 +89,25 @@ Drafted 2026-10-20 and revised 2026-10-26 after the supervisor's feedback that t
 | 7 | **High-resolution lesion shape:** the same 60 blast and brown spot photos at about 1536 px, or 2×2 tiles with a vote. Local Ollama models (`qwen2.5vl`, `gemma4`) with `shape_model.py`. Same stop rule (balanced accuracy ≥ 0.7). If it fails, the perception route is closed | One dev row per model |
 | 8 | **KG-chosen clarifying question, design (section 0.1):** discriminative symptoms to add to the KG, the information-gain selection, and the protocol for a simulated user. Observations for the 20 test cases come from the expert package (item 2) | Design note; dev run if time allows |
 | 9 | **λ sensitivity figure:** R@1 and MRR against λ on dev, per protocol, as in the 2026-11-06 check (`scripts/dev_checks/lambda_dev.py`) | Figure for the analysis section |
+| 10 | **KG-based zero-shot for conditions without photos** (design_v2.md, 9.4). First run done on 2026-11-06, without calibration. KG multi-hot beats its shuffled control on 12 of 16 conditions (unseen MRR 0.156 vs 0.129). In CLIP zero-shot, the KG symptom text raises unseen MRR from 0.206 to 0.225, and R@3 from 0.173 to 0.240. Next: AUSUC and harmonic mean with γ chosen on seen classes only; save the raw scores; a hybrid of the trained seen model with KG-text prototypes for the unseen classes | Calibrated dev table |
+
+**Checkpoint 2026-11-06 (moving to the RTX 5090 laptop):**
+- **Done on the Mac, results committed:**
+  - λ re-check (9.1);
+  - IKRL on split v2 (9.2);
+  - link prediction with photo edges (9.3);
+  - first zero-shot run (9.4).
+  - Scripts are in `Retrieval Benchmark/scripts/dev_checks/`, results in `Retrieval Benchmark/results/`.
+- **Not in Git: `Data/retrieval/`.** It holds the query-time graph, the CLIP features, the stage-1 scores and the new `text_emb_zsl.npz`. Sync it through OneDrive, or rebuild it: the text embeddings are recomputed if the file is missing. No model weights are saved; every dev check retrains in minutes.
+- **Next on the RTX 5090:**
+  1. item 10, the calibrated zero-shot run, on CUDA;
+  2. item 7, high-resolution lesion shape;
+  3. item 4, reranker pool size.
+- **Next without a GPU:**
+  - item 3, text coverage, due by Nov 22;
+  - item 2, the expert package;
+  - item 5, significance of the evidence table;
+  - item 8, design of the clarifying question.
 
 **After next week (draft):**
 - **Nov 16–22:** pool the top passages of all systems and send the judging request.
