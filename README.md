@@ -18,7 +18,7 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 
 - **Namespace:** `https://w3id.org/ricemmkg#` — permanent identifier, live since 2026-09-16; version IRIs `https://w3id.org/ricemmkg/<version>` (releases up to v0.6.2 used `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#`)
 - **Format:** OWL/XML (`.rdf`), fully compatible with [Protégé](https://protege.stanford.edu/)
-- **Version:** `0.7.0-dev` on `main` (in development; last release `v0.6.2`, 2026-09-15; git tags `v0.6.1`, `v0.6.2`; v0.6 released 2026-09-03) — target venue under review (ESWC 2027 dropped on 2026-09-29; see [Roadmap](#roadmap))
+- **Version:** `0.7.0-dev` on `main` (in development; last release `v0.6.2`, 2026-09-15; git tags `v0.6.1`, `v0.6.2`; v0.6 released 2026-09-03) — target venue under review (SIGIR 2027 full paper, or IEEE Access as proposed on 2026-11-05; see [Roadmap](#roadmap))
 - **Triples:** **324,701** asserted triples / **628,650** materialised triples under OWL RL (measured 2026-10-22); the rise from 68,204 is the Paddy Doctor IEEE release, Dhan-Shomadhan images, the first sensor observations, the YUKE-WBC planthopper images, the stem borer symptom images, the nutrient deficiency images, the light-trap catches, the multispectral captures and 41 alignment links to SOSA, RiceDO and TreatO; v0.6.2: 66,802 / 161,447
 - **Reasoner Consistency:** **100% Consistent** in HermiT & Pellet (0 unsatisfiable classes, 0 disjointness conflicts)
 
@@ -164,7 +164,17 @@ Measured 2026-10-15. CQ-17 and CQ-18 were extended and CQ-26 was added on 2026-1
 
 **Status (2026-10-16): data collection frozen** at the state tagged `data-freeze-2026-10` (nine sources, four observation channels; 321,451 asserted triples; benchmark 21 PASS / 4 PARTIAL / 1 FAIL / 1 DOC). A new source is admitted only if it closes a gap listed in the open points above. Still running meanwhile: the Kaggle licence request, expert checks of the Netrokona and YUKE-WBC labels, and decision 5 on the stem borer images. Work moves to ontology mapping, starting with the comparison with RiceDO v2 and TreatO v2; text extraction follows after mapping.
 
-**Next steps:**
+**Status (2026-11-06): retrieval experiments.** The benchmark is in [`Retrieval Benchmark/`](Retrieval%20Benchmark/). Details are in its [`design_v2.md`](Retrieval%20Benchmark/design_v2.md), and the current plan is in section 0 of [`riceMMKG_SIGIR_plan.md`](Ontology/riceMMKG_SIGIR_plan.md).
+- **Splits.** Split v2 groups photos by capture session, and the query-time graph excludes dev and test photos.
+- **KG for disease identification: not helpful.**
+  - Re-ranking with VLM symptom triples gives no significant gain (checkpoint 1 not met).
+  - The cause is symptom perception. Only 24% of the photos of sick plants yield a matching symptom.
+  - Five open-weight VLMs cannot read lesion shape, the feature that separates blast from brown spot.
+  - IKRL-style graph embeddings, re-run on split v2 with a capacity control, add nothing over the image features.
+- **KG for evidence retrieval: helpful.** The route with the KG beats the route without it in every column.
+- **Venue.** IEEE Access was proposed on 2026-11-05. If it is chosen, the paper centres on evidence retrieval.
+
+**Next steps (data collection, 2026-10-16):**
 1. Collect the candidate datasets, starting with pest images, and verify licence and access.
 2. Analyse them: classes, image counts, and which ontology individuals they match.
 3. Map them to the current ontology, including a `Deadheart` → `Stem_Borer` link.
@@ -184,6 +194,28 @@ The original six phases:
    pyLODE/Widoco documentation at the PURL, FOOPS!/OOPS!, Zenodo DOI and AgroPortal for the final release.
 6. **Phase 6: Resource Paper & Submission → v1.0 (Mid Nov – Early Dec)**  
    Manuscript, reproducibility package, submission (venue to be decided).
+
+---
+
+## Repository Layout
+
+| Path | Contents |
+|---|---|
+| [`Ontology/`](Ontology/) | `Rice MMKG.rdf` (the graph), the patch file, [`Ontology_Overview.md`](Ontology/Ontology_Overview.md) (changelog) and the venue plans |
+| [`Ontology/CQ SPARQL Benchmark/`](Ontology/CQ%20SPARQL%20Benchmark/) | CQ benchmark, elicited CQs, LLM elicitation prompts and runs, CQ screening data (anonymised) |
+| [`Retrieval Benchmark/`](Retrieval%20Benchmark/) | Splits, gold answers, questions, retrieval scripts and results; [`design_v2.md`](Retrieval%20Benchmark/design_v2.md) records every experiment |
+| [`Text Modality/`](Text%20Modality/) | IRRI passage module (CC BY-NC-SA 3.0) and the scripts that build it |
+| [`Analysis and Alignment/`](Analysis%20and%20Alignment/) | Dataset analyses and alignments (AGROVOC, NCBI Taxonomy, Planteome, SOSA, RiceDO/TreatO) |
+| [`w3id/ricemmkg/`](w3id/ricemmkg/) | Mirror of the w3id.org redirect rules |
+
+**Kept locally, not in Git:**
+- `Data/` (images and derived retrieval files);
+- `Worklog/` (per-task scripts and reports);
+- `Multimodal Fusion PoC/` (early TransE/IKRL prototypes);
+- `Ontology/Backup/`;
+- raw expert input, the expert questionnaire with names, and the CQ screening internals.
+
+Documents may cite paths in these folders as a record of how the work was done. The paths cannot be opened on GitHub. The retrieval scripts need `Data/retrieval/` (see [`Retrieval Benchmark/README.md`](Retrieval%20Benchmark/README.md)).
 
 ---
 

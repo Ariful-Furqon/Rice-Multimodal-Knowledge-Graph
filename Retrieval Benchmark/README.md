@@ -14,7 +14,7 @@ Data splits and query-time graph for the SIGIR 2027 retrieval experiments. Desig
 | test_core ([`splits/test_core.csv`](splits/test_core.csv)) | 370 |
 
 **Rules:**
-- **Stratification:** by source dataset × `annotatedAs`, 70/15/15, seed 0. This is the same ratio and seed as `Multimodal Fusion PoC/ikrl_vs_cnn.py`.
+- **Stratification:** by source dataset × `annotatedAs`, 70/15/15, seed 0. This is the same ratio and seed as the August 2026 IKRL prototype, which is kept locally and is not in this repository.
 - **Capture groups:** images from one capture session or burst stay in one split ([`splits/capture_groups.csv`](splits/capture_groups.csv), built by `scripts/capture_groups.py`, 4,659 groups):
   - **Paddy Doctor:** one group per (label, variety, age) from its `metadata.csv`, giving 170 sessions. 96% of nearest-neighbour image pairs share this key; random same-label pairs share it 19% of the time.
   - **Other datasets:** these have no capture metadata. Images with CLIP ViT-L/14 similarity ≥ 0.98 within one dataset and label are joined.
@@ -63,9 +63,27 @@ Data splits and query-time graph for the SIGIR 2027 retrieval experiments. Desig
 
 `scripts/step2_vlm_triples.py` writes the VLM triples (`results/vlm_triples_closed.jsonl`, `results/vlm_triples_open.jsonl`) and `splits/dev_core.csv`. `scripts/step2_rerank.py` gives [`results/step2_results.md`](results/step2_results.md); see [`design_v2.md`](design_v2.md), section 8. They need Ollama with `qwen2.5vl:7b` and `qwen2.5:7b`.
 
+## Dev checks
+
+The scripts in `scripts/dev_checks/` use dev data only and never touch test. Their results are in `design_v2.md`, sections 8 and 9.
+
+| Script | What it checks | Output |
+|---|---|---|
+| `verify_dev.py`, `verify_eval.py` | Yes/no symptom list over the stage-1 top 3 | `results/verify_dev.jsonl` |
+| `shape_dev.py`, `shape_crops.py`, `shape_model.py` | Blast vs brown spot lesion shape: whole photo, crops, reference photos, five VLMs | `results/shape_*.jsonl` |
+| `lambda_dev.py` | Step-2 λ: fine grid, R@1 vs MRR, bootstrap stability | Printed; summary in `design_v2.md` 9.1 |
+| `ikrl_v2_dev.py` | IKRL on split v2, with a random-class-vector capacity control | [`results/ikrl_v2_dev.md`](results/ikrl_v2_dev.md) |
+
+Planned, not yet written: `link_pred_dev.py`, link prediction with the photo's own edges (`design_v2.md` 9.3).
+
 ## Rebuild
 
-`make_split.py` needs `rdflib` only. The other two scripts need the GPU environment (`D:\venvs\ricemmkg-retrieval`: torch with CUDA 12.8, transformers, scikit-learn).
+**Requirements:**
+- `make_split.py` needs `rdflib` only.
+- The other scripts need a GPU environment with torch, transformers, scikit-learn and rdflib:
+  - Windows / RTX 5090: `D:\venvs\ricemmkg-retrieval`, torch with CUDA 12.8;
+  - macOS: the conda environment `mmkg-rag`, torch with MPS or CPU.
+- `Data/retrieval/` is not in Git. Copy it, or let OneDrive sync it, before running.
 
 ```bash
 python -I "Retrieval Benchmark/scripts/make_split.py" . Data/retrieval        # first run: v1 groups, also writes the MD5 cache
@@ -82,6 +100,8 @@ python -I "Retrieval Benchmark/scripts/make_questions.py" .
 <venv>/python -I "Retrieval Benchmark/scripts/step1_question.py" . "Retrieval Benchmark/results/step1_question_dev.md"
 <venv>/python -I "Retrieval Benchmark/scripts/step2_llm_gate.py" . "Retrieval Benchmark/results/vlm_triples_open.jsonl" "Retrieval Benchmark/results"
 <venv>/python -I "Retrieval Benchmark/scripts/step2_field_context.py" . "Retrieval Benchmark/results/step2_field_context_dev.md"
+<venv>/python -I "Retrieval Benchmark/scripts/dev_checks/lambda_dev.py" .
+<venv>/python -I "Retrieval Benchmark/scripts/dev_checks/ikrl_v2_dev.py" . "Retrieval Benchmark/results/ikrl_v2_dev.md"
 ```
 
 The first run hashes every image. Files that OneDrive keeps online only are downloaded first. The hashes are cached in `Data/retrieval/md5_cache.csv` and the CLIP features in `Data/retrieval/feats_clip-l14.npz`.
