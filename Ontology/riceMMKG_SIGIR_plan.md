@@ -80,7 +80,7 @@ Drafted 2026-10-20 and revised 2026-10-26 after the supervisor's feedback that t
 
 | # | Work | Output |
 |---|---|---|
-| 1 | **Link prediction, the supervisor's idea:** keep the photo node, cut `annotatedAs` and the leaking edges (`rdfs:label`, `contentUrl`, `sourceLabel`, `captures`; variety + age and `wasDerivedFrom` tested separately), predict the label from the pixels and the safe edges. Dev first | Dev table, with and without the leaking edges |
+| 1 | **Link prediction, the supervisor's idea:** keep the photo node, cut `annotatedAs` and the leaking edges (`rdfs:label`, `contentUrl`, `sourceLabel`, `captures`; variety + age and `wasDerivedFrom` tested separately), predict the label from the pixels and the safe edges. Dev first. **2026-11-06:** the first part is done. IKRL on split v2 has zero KG effect: TransE vs random class vectors differ by +0.0005 MRR, and the August gain does not hold (design_v2.md, 9.2). The edge variants are designed (9.3) and will be run on the RTX 5090 laptop | Dev table, with and without the leaking edges |
 | 2 | **Expert package:** a form for pooled passage judgements (0/1/2), observations for the 20 draft test cases, and a label check. Sent only after the supervisor agrees | Form ready to send |
 | 3 | **Text coverage:** open texts for the three diseases without an IRRI sheet (bacterial panicle blight, downy mildew, leaf scald), and cause and control texts (CABI or open papers). Must be done before pooling, by Nov 22 | New passages linked to facts |
 | 4 | **Reranker pool size:** recall@k and MRR for k = 20, 50 and 100 on dev; k = 50 is a default so far, not a tuned value | One dev table |
@@ -88,7 +88,7 @@ Drafted 2026-10-20 and revised 2026-10-26 after the supervisor's feedback that t
 | 6 | **Plan rewrite**, if IEEE Access is confirmed | Revised sections 1, 2 and 6 |
 | 7 | **High-resolution lesion shape:** the same 60 blast and brown spot photos at about 1536 px, or 2×2 tiles with a vote. Local Ollama models (`qwen2.5vl`, `gemma4`) with `shape_model.py`. Same stop rule (balanced accuracy ≥ 0.7). If it fails, the perception route is closed | One dev row per model |
 | 8 | **KG-chosen clarifying question, design (section 0.1):** discriminative symptoms to add to the KG, the information-gain selection, and the protocol for a simulated user. Observations for the 20 test cases come from the expert package (item 2) | Design note; dev run if time allows |
-| 9 | **λ sensitivity figure:** R@1 and MRR against λ on dev, per protocol, as in the 2026-11-06 check; the script moves to `scripts/dev_checks/` | Figure for the analysis section |
+| 9 | **λ sensitivity figure:** R@1 and MRR against λ on dev, per protocol, as in the 2026-11-06 check (`scripts/dev_checks/lambda_dev.py`) | Figure for the analysis section |
 
 **After next week (draft):**
 - **Nov 16–22:** pool the top passages of all systems and send the judging request.

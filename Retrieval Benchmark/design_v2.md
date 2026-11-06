@@ -281,3 +281,78 @@ Local copies are in `D:\Software and Tools\ref-code\`.
 - **Three more open-weight VLMs (2026-11-03),** same 60 photos, prompt, reference photos and stop rule (`scripts/dev_checks/shape_model.py`; newer models are asked not to reason first, and the JSON is cut out of the reply because one model appends an end token). Balanced accuracy, whole photo / with reference photos: `gemma4:31b` 0.417 / 0.433; `muse-glimmer:30b` 0.250 / 0.300; `qwen3.8:27b` 0.400 / 0.333. All fail. Every model answers spindle on most brown spot photos. With `qwen2.5vl` 7B and 32B, five models from three vendors fail, the best at 0.567. Images were 768 px on the long side for all of them.
 
 **Checkpoint 1 is still not met.** Nothing has raised R@1 significantly with real data. Not tried: a stronger stage-1 encoder, which would not be a KG contribution.
+
+## 9. λ re-check, IKRL on split v2, and the link-prediction design (2026-11-06)
+
+All on dev, no test data.
+
+### 9.1 λ tuning (step 2)
+
+`scripts/dev_checks/lambda_dev.py`, dev_core main. Finer grid (0 plus 40 log-spaced values, 0.01–10), R@1 and MRR as criteria, 2,000 bootstrap resamples.
+- **In-source (345):** both criteria choose λ ≈ 0.2, as the 8-value grid did. Dev MRR 0.682 → 0.690. λ = 0.2 beats λ = 0 in 88% of resamples, below 95%. Above about 0.35 the scores fall steeply.
+- **Cross-source (195):** flat. R@1 chooses 0. MRR chooses λ ≈ 4 for +0.002, which wins in 52% of resamples. The bootstrap choices range from 0.01 to 3.5.
+- **Decision:** `step2_rerank.py` is unchanged. MRR argmax would switch on noise cross-source. The dev curve goes into the paper as a sensitivity figure. The failure of step 2 lies in the symptoms (section 8), not the weight.
+
+### 9.2 IKRL on split v2
+
+`scripts/dev_checks/ikrl_v2_dev.py` → `results/ikrl_v2_dev.md`.
+
+**Why it was re-run.** The August run (`Multimodal Fusion PoC/ikrl_vs_cnn.py`: 71.1% vs 62.6%) had two flaws:
+- it used a random split of Paddy Doctor, which leaks burst photos (the split v1 problem, section 4);
+- the IKRL head had an extra MLP that the linear baseline lacked, so capacity was not controlled.
+
+**Setup:**
+- Split v2, CLIP ViT-L/14 features, 17 conditions, gold from `gold.csv`.
+- Early stopping on 10% of the train capture groups. Dev main subset, 5 seeds.
+- Three heads on the same features:
+  - **A:** linear;
+  - **B:** linear + gate · −‖g(x) − e_c‖, with e_c from TransE on the 345 domain triples;
+  - **C:** the same as B, with random frozen class vectors.
+- The KG effect is B − C.
+
+| Protocol | n | A R@1 | B R@1 | C R@1 | A MRR | B MRR | C MRR |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| In-source | 2,882 | 0.605 | 0.612 | 0.612 | 0.724 | 0.730 | 0.729 |
+| Cross-source | 1,890 | 0.419 | 0.418 | 0.421 | 0.576 | 0.571 | 0.570 |
+
+**Reading:**
+1. **The KG effect is zero.** B − C MRR is +0.0005 in-source (4 of 5 seeds above zero) and +0.0004 ± 0.017 cross-source (2 of 5). TransE class vectors do no better than random ones.
+2. **The small in-source gain over A is capacity, not the KG.** C − A is +0.005 MRR in 5 of 5 seeds. The gate is about 0.85 in both B and C, so the distance term acts as extra learned prototypes.
+3. **The August 71.1% vs 62.6% should not be cited.** It mixes a leaky split, uncontrolled capacity and weak ResNet features.
+4. **Why the KG has no effect:** the domain triples reach a photo only through its class, and there is no edge from a photo to a symptom. The KG adds no information that the pixels do not already give. This is the same bottleneck as step 2.
+
+### 9.3 Link prediction with photo edges: design, not yet run
+
+The supervisor's idea: keep the photo node, cut `annotatedAs`, and predict it from the pixels and the photo's other edges.
+
+**Edges of the photo nodes** (query-time graph, sample of 3,000 photos):
+
+| Edge | Coverage | Treatment |
+|---|---:|---|
+| `rdfs:label`, `schema:contentUrl`, `sourceLabel` | ~100% | **Leaking:** the folder name and label are in the string |
+| `captures` | ~12% | Leaking |
+| `prov:wasDerivedFrom` (dataset) | 100% | Dataset prior; tested separately |
+| `plantAgeDays` | ~76% | Field context, mostly Paddy Doctor; tested separately |
+| `ofVariety` | ~19% | Field context; tested separately |
+| `recordedAtDate`, `hasSpatialLocation`, `environmentCondition`, `hasBandImage` | 5–14% | Safe |
+
+**Variants:**
+- Head C from 9.2 (B is no better), with the edge features concatenated to the standardised CLIP features.
+- A missing edge is a zero plus an indicator.
+- Same split, early stopping, 5 seeds, in-source and cross-source, dev main subset.
+
+| Variant | Added input | Question |
+|---|---|---|
+| 1 | None (pixels only) | Baseline; should match 9.2 C |
+| 2 | Safe edges | Does photo context help? |
+| 3 | 2 + plant age (bands as in `step2_field_context.py`) + variety | Field context |
+| 4 | 2 + dataset one-hot | How large is the dataset shortcut? |
+| 5 | 2 + leaking edges (`sourceLabel` token, label and path tokens, `captures`) | **How much does leakage inflate a KG-augmented result?** |
+
+**Expected:**
+- Variants 2 and 3: little or no gain. The safe edges are sparse, and the dev ages run only from 45 to 75 days (section 8).
+- Variant 4: a gain in-source. It is not defined cross-source, where the query's dataset is never seen in training.
+- Variant 5: close to 1.0. It is reported as the leakage table of the analysis (SIGIR plan, section 2, claim 3).
+- Any gain in variants 4 and 5 is a dataset prior or leakage, not domain knowledge.
+
+**Run:** on the RTX 5090 laptop. The script (`scripts/dev_checks/link_pred_dev.py`) is still to be written. Results go to `results/link_pred_dev.md`.
