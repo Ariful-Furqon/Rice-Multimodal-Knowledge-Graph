@@ -355,4 +355,28 @@ The supervisor's idea: keep the photo node, cut `annotatedAs`, and predict it fr
 - Variant 5: close to 1.0. It is reported as the leakage table of the analysis (SIGIR plan, section 2, claim 3).
 - Any gain in variants 4 and 5 is a dataset prior or leakage, not domain knowledge.
 
-**Run:** on the RTX 5090 laptop. The script (`scripts/dev_checks/link_pred_dev.py`) is still to be written. Results go to `results/link_pred_dev.md`.
+**Run (2026-11-06, on the Mac, CPU):** `scripts/dev_checks/link_pred_dev.py` → `results/link_pred_dev.md`. Edges come from `Ontology/Rice MMKG.rdf`, because the query-time graph has none for dev photos. Dev main subset, 5 seeds; Δ MRR is against variant 1.
+
+| Variant | In-source R@1 | Δ MRR | Seeds > 0 | Cross-source R@1 | Δ MRR | Seeds > 0 |
+|---|---:|---:|---:|---:|---:|---:|
+| 1 Pixels | 0.612 | | | 0.421 | | |
+| 2 Safe edges | 0.608 | −0.003 | 1/5 | 0.427 | +0.005 | 2/5 |
+| 3 + age, variety | 0.582 | −0.018 | 0/5 | 0.424 | +0.006 | 3/5 |
+| 4 + dataset | 0.608 | −0.002 | 1/5 | 0.428 | +0.009 | 4/5 |
+| 5 + leaking edges | 0.798 | +0.141 | 5/5 | 0.422 | +0.006 | 3/5 |
+
+**Reading:**
+1. **No photo edge helps.** In-source, variants 2–4 are at or below pixels only. Cross-source, the gains are below 0.01 MRR and not consistent across seeds.
+2. **The "safe" edges are dataset markers.**
+   - Each one occurs in one or two datasets only: date and location in Kaggle and YUKE-WBC, background in Dhan-Shomadhan, age and variety in Paddy Doctor.
+   - Its presence alone tells the dataset, which the pixels already give (0.993, section 4).
+3. **Age and variety hurt in-source (−0.018 MRR, 0 of 5 seeds).** The Paddy Doctor capture groups are defined by (label, variety, age), so in train these values identify a session and with it the label. Dev sessions are different groups, so the shortcut fails and costs accuracy. This confirms that the capture groups do their job.
+4. **Leakage is large in-source.**
+   - With the leaking edges the head reaches 0.798 R@1 (+0.14 MRR).
+   - This underestimates the leak: a lookup from the folder name in `contentUrl` to the majority train gold gives **R@1 1.000** on all 2,882 dev photos. The head does not fully use the one-hot features next to 768 CLIP dimensions.
+   - Every dataset except Dhan-Shomadhan has `sourceLabel`, and it maps one-to-one to the gold.
+5. **Cross-source the leak does not transfer.** The label strings differ between datasets ("blast" vs "Rice_Blast"), so an unseen dataset's strings mean nothing to the model. A cross-source result therefore cannot be inflated in this way. An in-source result can be.
+6. **Conclusion for the supervisor's idea:**
+   - Link prediction on the photo node gains nothing from the graph once `annotatedAs` and its string copies are cut.
+   - The domain triples do not reach the photo (9.2), and the photo's own edges are dataset or session markers.
+   - Its value for the paper is the leakage analysis: an in-source KG-augmented model that keeps `sourceLabel` or `contentUrl` can report anything up to 1.0.

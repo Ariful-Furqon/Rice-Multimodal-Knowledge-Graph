@@ -74,7 +74,7 @@ The scripts in `scripts/dev_checks/` use dev data only and never touch test. The
 | `lambda_dev.py` | Step-2 λ: fine grid, R@1 vs MRR, bootstrap stability | Printed; summary in `design_v2.md` 9.1 |
 | `ikrl_v2_dev.py` | IKRL on split v2, with a random-class-vector capacity control | [`results/ikrl_v2_dev.md`](results/ikrl_v2_dev.md) |
 
-Planned, not yet written: `link_pred_dev.py`, link prediction with the photo's own edges (`design_v2.md` 9.3).
+| `link_pred_dev.py` | Link prediction with the photo's own edges: safe, age and variety, dataset, leaking | [`results/link_pred_dev.md`](results/link_pred_dev.md) |
 
 ## Rebuild
 
