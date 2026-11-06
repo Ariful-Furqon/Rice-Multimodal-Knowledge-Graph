@@ -15,3 +15,26 @@ __pycache__/
 # Stage 5 unblinding key: source model, n_models, group id, benchmark flag.
 # Must never reach a rater, so it is not published even though data/ is.
 /Ontology/CQ SPARQL Benchmark/CQ Screening/data/cq_stage5_key.csv
+
+# Protégé JDBC settings (empty, machine-local)
+/Ontology/*.properties
+
+# OS, editor and Python clutter
+.DS_Store
+._*
+~$*
+*.swp
+.vscode/
+.idea/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Expert questionnaire with names and institutions: kept locally, not published.
+# The anonymised responses are in CQ Screening/data/cq_stage5_responses.csv.
+/Ontology/CQ SPARQL Benchmark/CQ Screening/*(Responses).xlsx
