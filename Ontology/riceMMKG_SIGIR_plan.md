@@ -4,6 +4,8 @@ Drafted 2026-10-20 and revised 2026-10-26 after the supervisor's feedback that t
 
 **Update 2026-11-05:** the venue is under review and next week's work has changed; see section 0. Sections 1–8 still describe the SIGIR plan.
 
+**Update 2026-11-06:** a dev-only re-check of the λ tuning, and a diagnosis of why step 2 fails. Two items are added to next week (section 0.1).
+
 ## 0. Status and next week (2026-11-05)
 
 **Venue proposal: IEEE Access.**
@@ -35,6 +37,45 @@ Drafted 2026-10-20 and revised 2026-10-26 after the supervisor's feedback that t
 
 **Checkpoint 1 (15 Nov): not met.** The fallback named in section 6, LLM re-ranking as in KGMEL, was tried and is worse (0.258). Step 2 is therefore reported as analysis, not as the method's gain.
 
+### 0.1 Step-2 diagnosis (2026-11-06, dev only, no test data)
+
+**λ tuning is not the problem.**
+- The current tuning is a grid search over 8 values of λ, with R@1 on dev_core as the criterion and ties going to the smaller λ (`step2_rerank.py`).
+- It was re-run with a finer grid (0 plus 40 log-spaced values, 0.01–10), with R@1 and MRR as criteria, and with 2,000 bootstrap resamples of dev.
+- **In-source:** both criteria choose λ ≈ 0.2, as before. Dev MRR rises only from 0.682 to 0.690. λ = 0.2 beats λ = 0 in 88% of resamples, below 95%. Above λ ≈ 0.35 the scores fall steeply.
+- **Cross-source:** the curve is flat. R@1 chooses λ = 0. MRR chooses λ ≈ 4 for +0.002, which wins in only 52% of resamples, so it is noise. The bootstrap choices range from 0.01 to 3.5.
+- **Decision:** the script is left unchanged. MRR argmax would switch on a noisy λ cross-source. The dev curve of R@1 and MRR against λ goes into the paper as a sensitivity figure.
+
+**The bottleneck is symptom perception, plus a gap in the KG for look-alike diseases.**
+- **The VLM misses symptoms in general, not only look-alikes** (design_v2.md, section 8):
+  - only 24% of the photos of sick plants have a triple that matches their gold condition;
+  - six conditions are never matched;
+  - "yellow stripe" appears on 131 of 345 photos;
+  - deadheart is reported on 0 of 15 stem borer photos.
+- **Blast vs brown spot fails twice:**
+  - on leaf photos the KG gives both the same symptoms (`Brown Lesion`, `Leaf Spot`, `Wilting`), so their KG scores are equal whatever the VLM says;
+  - the feature that separates them, lesion shape, cannot be read by any of the five open-weight VLMs (best 0.567, near chance).
+- **The fusion works when the symptoms are right.** With simulated farmer's words, in-source R@1 rises from 0.536 to 0.652. This is an upper bound, because the words are drawn from the answer.
+
+**Options considered:**
+
+| Option | Decision |
+|---|---|
+| Closed frontier VLM via a paid API, as an upper bound | **Not pursued**, at the author's choice |
+| Symptom detector trained from the disease labels | **Rejected.** With disease labels only, it collapses into stage 1 and adds no KG information. Real symptom annotations would be needed |
+| Higher resolution with the local VLMs: all runs so far used 768 px | **Run next week.** It is the last untested perception variable, and reviewers will ask about it |
+| KG-chosen clarifying question: the farmer is the sensor, and the KG picks the question | **Design next week.** It is the KG contribution that does not depend on the VLM |
+| Main claim on evidence retrieval (step 3), with step 2 as a controlled negative result | **Adopted for the paper**, in line with the IEEE Access rewrite (item 6 below) |
+
+**The question option:**
+- Stage 1 gives the top-k candidates.
+- The KG picks the symptom that best separates them, by information gain over the candidates. Example: *"Are the spots diamond-shaped with a grey centre, or round and evenly brown?"*
+- The answer is fused with the stage-1 score.
+- **Needs:**
+  - discriminative symptoms added to the KG, such as lesion shape from the IRRI sheets. In this route they help, because a person supplies the observation, not the VLM;
+  - the question selection;
+  - an evaluation with a simulated user on dev, reported as a sensitivity analysis because it is circular, plus expert answers on the 20 draft test cases (item 2 below).
+
 **Next week (Nov 9–15):**
 
 | # | Work | Output |
@@ -45,6 +86,9 @@ Drafted 2026-10-20 and revised 2026-10-26 after the supervisor's feedback that t
 | 4 | **Reranker pool size:** recall@k and MRR for k = 20, 50 and 100 on dev; k = 50 is a default so far, not a tuned value | One dev table |
 | 5 | **Significance of the evidence table:** paired sign-flip test per query, KG vs no KG and before vs after the reranker | p-values for the step-3 table |
 | 6 | **Plan rewrite**, if IEEE Access is confirmed | Revised sections 1, 2 and 6 |
+| 7 | **High-resolution lesion shape:** the same 60 blast and brown spot photos at about 1536 px, or 2×2 tiles with a vote. Local Ollama models (`qwen2.5vl`, `gemma4`) with `shape_model.py`. Same stop rule (balanced accuracy ≥ 0.7). If it fails, the perception route is closed | One dev row per model |
+| 8 | **KG-chosen clarifying question, design (section 0.1):** discriminative symptoms to add to the KG, the information-gain selection, and the protocol for a simulated user. Observations for the 20 test cases come from the expert package (item 2) | Design note; dev run if time allows |
+| 9 | **λ sensitivity figure:** R@1 and MRR against λ on dev, per protocol, as in the 2026-11-06 check; the script moves to `scripts/dev_checks/` | Figure for the analysis section |
 
 **After next week (draft):**
 - **Nov 16–22:** pool the top passages of all systems and send the judging request.
@@ -192,6 +236,7 @@ Weeks start on Monday. Holidays fall in weeks 10–11.
 **Checkpoints:**
 - **Checkpoint 1, 15 Nov.** Step 2 must raise entity Recall@1 over step 1 alone, at least on the confusable pairs. If it does not, change the matching: use LLM re-ranking as in KGMEL instead of triple overlap.
   - **Status 2026-11-05: not met.** The KGMEL fallback is worse, and five more experiments on dev gave no real gain (section 0).
+  - **2026-11-06:** finer λ tuning changes nothing. The cause is symptom perception and a KG gap for look-alike diseases (section 0.1).
 - **Week 6.** If the judgements are late, report entity retrieval and oracle evidence retrieval on the judged subset, and keep the full set for the camera-ready version.
 - **Checkpoint 2, 14 Jan.** If the method does not beat the best baseline on evidence retrieval, do not submit the full paper. Move to the Resource & Reproducibility fallback (section 1).
 
@@ -202,6 +247,7 @@ Weeks start on Monday. Holidays fall in weeks 10–11.
 | Label leakage makes KG results look too good | Leakage rule in 5.1; report it in the paper |
 | Qrels favour the method (circularity) | Test qrels from pooled human judgements only (5.1) |
 | The VLM invents symptoms | Closed KG vocabulary; ablation without step 2 |
+| The VLM cannot see the symptoms (observed: 24% match; lesion shape near chance for five models) | High-resolution check (section 0, item 7); KG-chosen question to the farmer (section 0.1); step 2 reported as analysis |
 | Adapting OMGM or KGMEL takes too long | Reimplement their core step on our data, and say so |
 | Not enough judges | Entity retrieval needs no judges; keep the judged set at about 50 queries |
 | IRRI text is CC BY-NC-SA | Passages are released as a separate module; the core and qrels refer to passages by pointer |
