@@ -555,12 +555,15 @@ ORDER BY DESC(?support) ?candidate"""),
         "question": "Which visual features separate Brown Spot from Rice "
                     "Blast?",
         "note": "The pair the models named most often as visually confusable. "
-                "Answered from the symptom layer; {V} has no lesion "
-                "shape/colour descriptors, so the separation is by symptom "
-                "identity rather than by visual feature.",
+                "Answered from the symptom layer. Since 0.8.0 the lesion "
+                "shape, centre, margin, halo and size stated by the IRRI fact "
+                "sheets are symptoms of their own (e.g. spindle-shaped vs "
+                "circular to oval lesion), so the unique symptoms now include "
+                "visual features; they are still symptom individuals, not "
+                "values of shape or colour properties.",
         "partial_kind": "schema",
-        "partial": "separation is by symptom, not by lesion descriptors, "
-                   "which {V} does not carry",
+        "partial": "visual features are symptom individuals; {V} has no "
+                   "shape or colour descriptor properties to compare them by",
         "queries": [
             ("Symptoms unique to each of the two conditions",
              """SELECT ?condition ?distinguishing_symptom WHERE {
