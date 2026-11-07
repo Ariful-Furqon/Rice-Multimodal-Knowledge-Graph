@@ -129631,6 +129631,11 @@
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Grain_Discoloration"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Second source added 2026-11-07: IRRI (2018) Rice Diseases also states this symptom (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1, row GR14). The evidence passage is from that source; the first source has no passage in the text layer.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_hispa_PDD08057">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -149840,6 +149845,11 @@
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Burkholderia glumae (bacterial grain rot). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.44964 / Ham, J. H. et al. (2011). Burkholderia glumae: next major pathogen of rice? Mol. Plant Pathol., 12(4), 329-339.</dcterms:bibliographicCitation>
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.44964"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Second source added 2026-11-07: IRRI (2018) Rice Diseases also states this symptom (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1, row GR10). The evidence passage is from that source; the first source has no passage in the text layer.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_blast_PDD02481">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -158342,6 +158352,11 @@
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Empty_Grain"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Second source added 2026-11-07: IRRI (2018) Rice Diseases also states this symptom (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1, row GR3). The evidence passage is from that source; the first source has no passage in the text layer.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_leaf_roller_PDD09822">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -184629,6 +184644,11 @@
     <dcterms:source rdf:resource="https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm"/>
     <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Factsheet - Scald. Rice Doctor. International Rice Research Institute, with the Australian Centre for International Agricultural Research and The University of Queensland. https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm (accessed 2026-10-05). "Leaf scald is a fungal disease caused by Microdochium oryzae."</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Second source added 2026-11-07: IRRI (2018) Rice Diseases also states this symptom (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1, row LS1). The evidence passage is from that source; the first source has no passage in the text layer.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:nodeID="ax_20261005_04">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
