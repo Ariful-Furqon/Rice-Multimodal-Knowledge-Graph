@@ -37,6 +37,12 @@
 - **Regional rows:** the leaf scald rows that the source reports only from Japan, Korea or Costa Rica were added, and their comments say so.
 - **X11:** still open. The source gives oospores only in its "Causal organism" section.
 - **Second source:** rows LS1, GR3, GR10 and GR14 were already linked from CABI or IRRI Rice Doctor. Their axioms now also cite IRRI (2018), with its passage as evidence.
+
+**Update 2026-11-07 (0.9.0-dev, decision M4):** all [sign] rows of §3 and §4.1 are now in the KG as `rice:Sign`. This is a new class, disjoint from `Symptom`, and linked by the same `indicatedBy`.
+- **New signs:** 20. They come from tungro 1, sheath blight 1, BLB 2, BLS 1, stem borer 4, hispa 1, leaffolder 5, BPH 3 and downy mildew 2.
+- **Retyped:** `Sooty_Mould_Plant_Base` changes from `Symptom` to `Sign`.
+- **Not used:** the second sclerotia passage (`sheath-blight_p4`), because it is about predisposing factors.
+- M6 and M7 are still open.
 - **Status:** every condition with an IRRI fact sheet is now covered. Still open:
   - the three diseases without a sheet (§4);
   - Normal_Health (§5);

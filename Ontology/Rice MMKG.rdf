@@ -6710,7 +6710,14 @@
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#indicates">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="https://w3id.org/ricemmkg#Symptom"/>
+          <rdf:Description rdf:about="https://w3id.org/ricemmkg#Sign"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
     <rdfs:range rdf:nodeID="N4f765fb030f74bc0b715ea7022fe9795"/>
     <rdfs:label xml:lang="en">indicates</rdfs:label>
   </rdf:Description>
@@ -46015,7 +46022,7 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#Symptom">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">An observable sign on the plant that indicates the presence of a Disease or Pest.</rdfs:comment>
+    <rdfs:comment xml:lang="en">An observable change in the plant itself that indicates the presence of a Disease or Pest. Structures or products of the causal organism or pest, and the pest itself, are rice:Sign (since 0.9.0-dev).</rdfs:comment>
     <rdfs:label xml:lang="en">Symptom</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_blast_PDD02917">
@@ -47860,9 +47867,16 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#affectsPlantPart">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="https://w3id.org/ricemmkg#Symptom"/>
+          <rdf:Description rdf:about="https://w3id.org/ricemmkg#Sign"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
     <rdfs:range rdf:resource="https://w3id.org/ricemmkg#PlantPart"/>
-    <rdfs:comment xml:lang="en">Relates a Symptom to the plant part on which it appears. Asserted per symptom, not per disease-symptom pair.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Relates a Symptom or a Sign to the plant part on which it appears. Asserted per symptom or sign, not per disease-symptom pair.</rdfs:comment>
     <rdfs:label xml:lang="en">affects plant part</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_leaf_roller_PDD09413">
@@ -132074,7 +132088,14 @@
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
     <owl:inverseOf rdf:resource="https://w3id.org/ricemmkg#indicates"/>
     <rdfs:domain rdf:nodeID="N5e2c73f925764a008f1facfd41f3a640"/>
-    <rdfs:range rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="https://w3id.org/ricemmkg#Symptom"/>
+          <rdf:Description rdf:about="https://w3id.org/ricemmkg#Sign"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
     <rdfs:label xml:lang="en">indicated by</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_tungro_PDD13240">
@@ -400916,9 +400937,9 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#Sooty_Mould_Plant_Base">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
     <rdfs:label xml:lang="en">sooty mould at plant base</rdfs:label>
-    <rdfs:comment xml:lang="en">Black sooty mould growing on honeydew at the base of the plant.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Black sooty mould growing on honeydew at the base of the plant. A fungus on the insects' honeydew, not a response of the plant: a Sign since 0.9.0-dev (decision M4).</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#Stem_Bore_Hole">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -402907,5 +402928,676 @@
     <dcterms:source rdf:resource="http://purl.obolibrary.org/obo/PO_0006012"/>
     <dcterms:bibliographicCitation xml:lang="en">Plant Ontology Consortium. Plant Ontology (PO): PO:0006012 'leaf collar' part_of PO:0009025 'vascular leaf', a PO:0025034 'leaf'. Retrieved via EBI Ontology Lookup Service (OLS4) on 2026-11-07.</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">ontology-derived</rice:evidenceType>
+  </rdf:Description>
+  <!-- decision M4, 2026-11-07: signs of the organism or pest as rice:Sign (Analysis and Alignment/Symptom_Inventory_2026-11.md) -->
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Sign">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">sign</rdfs:label>
+    <rdfs:comment xml:lang="en">A visible structure or product of the causal organism or pest, or the pest itself, on or in the plant: bacterial ooze, fungal growth, sclerotia, eggs, larvae, nymphs, adults, frass, silk. A Sign indicates a Disease or Pest (indicatedBy) as a Symptom does, but it is not the plant's own response.</rdfs:comment>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#AbioticFactor"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#Disease"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#EnvironmentalFactor"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#GrowthStage"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#HealthStatus"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#ManagementAction"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#ManagementCategory"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#Observation"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#Pathogen"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#PathogenGroup"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#Pest"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#Plant"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#PlantPart"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#ResistanceAssessment"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#ResistanceLevel"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#SeverityLevel"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#TransmissionMode"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#Treatment"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#Variety"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Adults_At_Tiller_Base">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdfs:label xml:lang="en">brown or white adults near the base of tillers</rdfs:label>
+    <rdfs:comment xml:lang="en">Brown or white adult insects feeding near the base of the tillers. White adults may be another species (inventory, M8).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Crescent_White_Egg">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdfs:label xml:lang="en">crescent-shaped white eggs in the midrib or leaf sheath</rdfs:label>
+    <rdfs:comment xml:lang="en">Crescent-shaped white eggs inserted into the midrib (part of the leaf blade) or the leaf sheath.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Dried_Ooze_Bead">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdfs:label xml:lang="en">small dried yellowish ooze beads under the leaf</rdfs:label>
+    <rdfs:comment xml:lang="en">Bacterial ooze that has dried into small yellowish beads on the underside of the leaf.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Egg_Mass_Lower_Plant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdfs:label xml:lang="en">egg masses on the lower parts of the plant</rdfs:label>
+    <rdfs:comment xml:lang="en">Egg masses laid on the lower parts of the plant. The source states this in its management section.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Fecal_Matter">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdfs:label xml:lang="en">insect fecal matter</rdfs:label>
+    <rdfs:comment xml:lang="en">Faeces of the larvae. The source does not say where.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Frass_In_Stem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdfs:label xml:lang="en">frass inside the stem</rdfs:label>
+    <rdfs:comment xml:lang="en">Frass (insect faeces) inside damaged stems; seen when the stem is opened.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Insect_On_Plant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdfs:label xml:lang="en">insect present on the plant</rdfs:label>
+    <rdfs:comment xml:lang="en">The insect itself present on the plant. The source names it as a check but does not describe it.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Larva_At_Young_Leaf_Base">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdfs:label xml:lang="en">young larvae at the base of the youngest unopened leaves</rdfs:label>
+    <rdfs:comment xml:lang="en">Young larvae feeding at the base of the youngest leaves that have not yet opened.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Larva_In_Folded_Leaf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdfs:label xml:lang="en">larva enclosed in a folded leaf</rdfs:label>
+    <rdfs:comment xml:lang="en">Feeding larva inside a folded leaf. The folded leaf itself is the symptom Tubular_Folded_Leaf.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Larva_Pupa_In_Stem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdfs:label xml:lang="en">larvae or pupae inside the stem</rdfs:label>
+    <rdfs:comment xml:lang="en">Larvae or pupae found when stems are pulled and dissected.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Larval_Leaf_Tube">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdfs:label xml:lang="en">larva in a tube made of leaf</rdfs:label>
+    <rdfs:comment xml:lang="en">Young larva enclosed in a tube made from a piece of leaf. The source describes this for the yellow stem borer in deepwater rice, as part of its life history.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Underside_Fungal_Growth">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdfs:label xml:lang="en">fluffy white to grey fungal growth under the leaf</rdfs:label>
+    <rdfs:comment xml:lang="en">Fluffy white to grey fungal growth on the underside of leaf blades, seen at times.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leafhoppers_On_Plant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdfs:label xml:lang="en">leafhoppers on the plant</rdfs:label>
+    <rdfs:comment xml:lang="en">Leafhoppers, the vectors of the tungro viruses, present on the plant. A vector, not the cause.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Milky_Ooze_Droplet">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdfs:label xml:lang="en">milky dew-drop bacterial ooze on young lesions</rdfs:label>
+    <rdfs:comment xml:lang="en">Bacterial ooze like a milky dew drop on young leaf lesions, seen early in the morning.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Sclerotia">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdfs:label xml:lang="en">sclerotia</rdfs:label>
+    <rdfs:comment xml:lang="en">Sclerotia (compact fungal resting bodies) present. The source does not say where on the plant or what they look like.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Silk_Strands_Leaf_Margin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdfs:label xml:lang="en">silk strands joining the leaf margins</rdfs:label>
+    <rdfs:comment xml:lang="en">Silk strands that hold the margins of a folded leaf together.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Single_Disc_Egg">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdfs:label xml:lang="en">disc-shaped ovoid eggs laid singly</rdfs:label>
+    <rdfs:comment xml:lang="en">Flat, oval eggs laid one by one. The source does not say where.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#White_Brown_Nymph">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdfs:label xml:lang="en">white to brown nymphs</rdfs:label>
+    <rdfs:comment xml:lang="en">Nymphs, white to brown. The source does not say where on the plant.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#White_Fungal_Coating">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdfs:label xml:lang="en">white fungal coating on young shoots and seeds</rdfs:label>
+    <rdfs:comment xml:lang="en">White coating of fungal growth on young shoots and seeds. Young shoots are mapped to Tiller.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Yellow_Ooze_Droplet">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdfs:label xml:lang="en">yellow bacterial ooze droplets on the leaf surface</rdfs:label>
+    <rdfs:comment xml:lang="en">Yellow droplets of bacterial ooze on the leaf surface, under humid conditions.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Adults_At_Tiller_Base">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Tiller"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Adults_At_Tiller_Base"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Tiller"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Planthopper. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_planthopper_p6"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Crescent_White_Egg">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Crescent_White_Egg"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Planthopper. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_planthopper_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Crescent_White_Egg">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Crescent_White_Egg"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Planthopper. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_planthopper_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Dried_Ooze_Bead">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Dried_Ooze_Bead"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p8"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Frass_In_Stem">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Stem"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Frass_In_Stem"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Stem"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Stem borer. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_stem-borer_p10"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Larva_At_Young_Leaf_Base">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Larva_At_Young_Leaf_Base"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice leaffolder. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_rice-leaffolder_p8"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Larva_In_Folded_Leaf">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Larva_In_Folded_Leaf"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice leaffolder. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_rice-leaffolder_p8"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Larva_Pupa_In_Stem">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Stem"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a8">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Larva_Pupa_In_Stem"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Stem"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Stem borer. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_stem-borer_p11"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Larval_Leaf_Tube">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Larval_Leaf_Tube"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Stem borer. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_stem-borer_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Underside_Fungal_Growth">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a10">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Underside_Fungal_Growth"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Milky_Ooze_Droplet">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a11">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Milky_Ooze_Droplet"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p8"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Silk_Strands_Leaf_Margin">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a12">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Silk_Strands_Leaf_Margin"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice leaffolder. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_rice-leaffolder_p1"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#White_Fungal_Coating">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Grain"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a13">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#White_Fungal_Coating"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Grain"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#White_Fungal_Coating">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Tiller"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a14">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#White_Fungal_Coating"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Tiller"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Yellow_Ooze_Droplet">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a15">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Yellow_Ooze_Droplet"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-leaf-streak"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial leaf streak. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-leaf-streak (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-leaf-streak_p7"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Dried_Ooze_Bead"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a16">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Dried_Ooze_Bead"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p8"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Milky_Ooze_Droplet"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a17">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Milky_Ooze_Droplet"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p8"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Leaf_Streak">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Yellow_Ooze_Droplet"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a18">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Streak"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Yellow_Ooze_Droplet"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-leaf-streak"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial leaf streak. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-leaf-streak (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-leaf-streak_p7"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Brown_Planthopper">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Adults_At_Tiller_Base"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a19">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Adults_At_Tiller_Base"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Planthopper. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_planthopper_p6"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Brown_Planthopper">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Crescent_White_Egg"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a20">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Crescent_White_Egg"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Planthopper. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_planthopper_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Brown_Planthopper">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#White_Brown_Nymph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a21">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#White_Brown_Nymph"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Planthopper. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_planthopper_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Downy_Mildew">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Leaf_Underside_Fungal_Growth"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a22">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Underside_Fungal_Growth"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Downy_Mildew">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#White_Fungal_Coating"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a23">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#White_Fungal_Coating"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Hispa">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Insect_On_Plant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a24">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Hispa"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Insect_On_Plant"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-hispa"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice hispa. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-hispa (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_rice-hispa_p8"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Folder">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Fecal_Matter"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a25">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Folder"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Fecal_Matter"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice leaffolder. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_rice-leaffolder_p9"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Folder">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Larva_At_Young_Leaf_Base"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a26">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Folder"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Larva_At_Young_Leaf_Base"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice leaffolder. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_rice-leaffolder_p8"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Folder">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Larva_In_Folded_Leaf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a27">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Folder"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Larva_In_Folded_Leaf"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice leaffolder. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_rice-leaffolder_p8"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Folder">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Silk_Strands_Leaf_Margin"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a28">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Folder"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Silk_Strands_Leaf_Margin"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice leaffolder. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_rice-leaffolder_p1"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Folder">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Single_Disc_Egg"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a29">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Folder"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Single_Disc_Egg"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice leaffolder. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_rice-leaffolder_p8"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rice_Tungro_Disease">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Leafhoppers_On_Plant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a30">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Tungro_Disease"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leafhoppers_On_Plant"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p13"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Sheath_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Sclerotia"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a31">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Sheath_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Sclerotia"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/sheath-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Sheath blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/sheath-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_sheath-blight_p10"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Stem_Borer">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Egg_Mass_Lower_Plant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a32">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Stem_Borer"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Egg_Mass_Lower_Plant"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Stem borer. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_stem-borer_p16"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Stem_Borer">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Frass_In_Stem"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a33">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Stem_Borer"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Frass_In_Stem"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Stem borer. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_stem-borer_p10"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Stem_Borer">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Larva_Pupa_In_Stem"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a34">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Stem_Borer"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Larva_Pupa_In_Stem"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Stem borer. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_stem-borer_p11"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Stem_Borer">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Larval_Leaf_Tube"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsignInv20261107a35">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Stem_Borer"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Larval_Leaf_Tube"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Stem borer. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_stem-borer_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
   </rdf:Description>
 </rdf:RDF>
