@@ -51,7 +51,7 @@ The design this list supports is recorded in the text-modality notes: facts and 
 | Multimodal Reranking for Knowledge-Intensive VQA, Wen et al. 2024 ([arXiv 2407.12277](https://arxiv.org/abs/2407.12277)) | Multimodal reranker between retriever and generator, with cross-item interaction, trained by distant supervision. Evaluated on OK-VQA and A-OKVQA; noisier training candidates help | Distant supervision for step 2; a baseline |
 | KGMEL, Kim et al., SIGIR 2025 short ([10.1145/3726302.3730217](https://dl.acm.org/doi/10.1145/3726302.3730217), [arXiv 2504.15135](https://arxiv.org/abs/2504.15135)) | Multimodal entity linking with KG triples: a VLM generates triples for the mention, contrastive retrieval over text, image and triples, then LLM re-ranking with the candidates' triples; code public | Template for step 2 (triple-based re-ranking); a baseline |
 
-All three work on encyclopedic knowledge bases. Visually similar classes told apart by symptoms, field context, and evidence traceable to an authoritative source are not addressed. Method and evaluation: [`Ontology/riceMMKG_SIGIR_plan.md`](../Ontology/riceMMKG_SIGIR_plan.md), sections 4 and 5.
+All three work on encyclopedic knowledge bases. Visually similar classes told apart by symptoms, field context, and evidence traceable to an authoritative source are not addressed. Method and evaluation: the paper plan in the `RiceMMKG-Benchmark` repository (`Plans/riceMMKG_SIGIR_plan.md`), sections 4 and 5.
 
 ## Gap for Rice MMKG
 

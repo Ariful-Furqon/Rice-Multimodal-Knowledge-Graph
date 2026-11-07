@@ -160,11 +160,11 @@ Measured 2026-10-15. CQ-17 and CQ-18 were extended and CQ-26 was added on 2026-1
 
 **Status (2026-09-30):** ESWC 2027 is no longer the target venue, and a new one has not been chosen. The six phases below were planned against the ESWC 2027 Resource Track; their order still holds, but dates in Phases 4–6 will be re-planned once the venue is set. Details: [`Ontology/riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md) (revised 2026-09-14).
 
-**Status (2026-10-15): target venue SIGIR 2027**, set by the supervisor. As an information retrieval venue it needs a retrieval evaluation beyond the coverage-based CQ benchmark: query sets with relevance judgements, standard metrics (nDCG@k, Recall@k, MRR) and baselines with and without the knowledge graph. Track (full paper or Resource & Reproducibility) and deadline are still to be confirmed; the phases below will be re-planned against them. **Update 2026-10-26:** full paper track (abstract 2027-01-14, paper 2027-01-21, official call, still marked proposed), with a retrieval method as the main contribution: KG-grounded coarse-to-fine retrieval on a Rice KB-VQA benchmark. A Resource & Reproducibility paper is the fallback if that track is announced. Method, evaluation and schedule: [`Ontology/riceMMKG_SIGIR_plan.md`](Ontology/riceMMKG_SIGIR_plan.md).
+**Status (2026-10-15): target venue SIGIR 2027**, set by the supervisor. As an information retrieval venue it needs a retrieval evaluation beyond the coverage-based CQ benchmark: query sets with relevance judgements, standard metrics (nDCG@k, Recall@k, MRR) and baselines with and without the knowledge graph. Track (full paper or Resource & Reproducibility) and deadline are still to be confirmed; the phases below will be re-planned against them. **Update 2026-10-26:** full paper track (abstract 2027-01-14, paper 2027-01-21, official call, still marked proposed), with a retrieval method as the main contribution: KG-grounded coarse-to-fine retrieval on a Rice KB-VQA benchmark. A Resource & Reproducibility paper is the fallback if that track is announced. Method, evaluation and schedule: the paper plan in the separate benchmark repository (see below).
 
 **Status (2026-10-16): data collection frozen** at the state tagged `data-freeze-2026-10` (nine sources, four observation channels; 321,451 asserted triples; benchmark 21 PASS / 4 PARTIAL / 1 FAIL / 1 DOC). A new source is admitted only if it closes a gap listed in the open points above. Still running meanwhile: the Kaggle licence request, expert checks of the Netrokona and YUKE-WBC labels, and decision 5 on the stem borer images. Work moves to ontology mapping, starting with the comparison with RiceDO v2 and TreatO v2; text extraction follows after mapping.
 
-**Status (2026-11-06): retrieval experiments.** The benchmark is in [`Retrieval Benchmark/`](Retrieval%20Benchmark/). Details are in its [`design_v2.md`](Retrieval%20Benchmark/design_v2.md), and the current plan is in section 0 of [`riceMMKG_SIGIR_plan.md`](Ontology/riceMMKG_SIGIR_plan.md).
+**Status (2026-11-06): retrieval experiments.** On 2026-11-07 the retrieval benchmark (splits, scripts, results, `design_v2.md`) and the paper plan moved to a separate repository, `RiceMMKG-Benchmark`. It uses this repository as the git submodule `kg/`, pinned to the version the experiments use. This repository keeps the ontology, its modules and its permanent IRIs.
 - **Splits.** Split v2 groups photos by capture session, and the query-time graph excludes dev and test photos.
 - **KG for disease identification: not helpful.**
   - Re-ranking with VLM symptom triples gives no significant gain (checkpoint 1 not met).
@@ -201,9 +201,8 @@ The original six phases:
 
 | Path | Contents |
 |---|---|
-| [`Ontology/`](Ontology/) | `Rice MMKG.rdf` (the graph), the patch file, [`Ontology_Overview.md`](Ontology/Ontology_Overview.md) (changelog) and the venue plans |
+| [`Ontology/`](Ontology/) | `Rice MMKG.rdf` (the graph), the patch file, [`Ontology_Overview.md`](Ontology/Ontology_Overview.md) (changelog) and the ontology roadmap ([`riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md)) |
 | [`Ontology/CQ SPARQL Benchmark/`](Ontology/CQ%20SPARQL%20Benchmark/) | CQ benchmark, elicited CQs, LLM elicitation prompts and runs, CQ screening data (anonymised) |
-| [`Retrieval Benchmark/`](Retrieval%20Benchmark/) | Splits, gold answers, questions, retrieval scripts and results; [`design_v2.md`](Retrieval%20Benchmark/design_v2.md) records every experiment |
 | [`Text Modality/`](Text%20Modality/) | IRRI passage module (CC BY-NC-SA 3.0) and the scripts that build it |
 | [`Analysis and Alignment/`](Analysis%20and%20Alignment/) | Dataset analyses and alignments (AGROVOC, NCBI Taxonomy, Planteome, SOSA, RiceDO/TreatO) |
 | [`w3id/ricemmkg/`](w3id/ricemmkg/) | Mirror of the w3id.org redirect rules |
@@ -215,7 +214,7 @@ The original six phases:
 - `Ontology/Backup/`;
 - raw expert input, the expert questionnaire with names, and the CQ screening internals.
 
-Documents may cite paths in these folders as a record of how the work was done. The paths cannot be opened on GitHub. The retrieval scripts need `Data/retrieval/` (see [`Retrieval Benchmark/README.md`](Retrieval%20Benchmark/README.md)).
+Documents may cite paths in these folders as a record of how the work was done. The paths cannot be opened on GitHub. The image URLs in the graph (`schema:contentUrl`) are paths under `Data/`.
 
 ---
 
