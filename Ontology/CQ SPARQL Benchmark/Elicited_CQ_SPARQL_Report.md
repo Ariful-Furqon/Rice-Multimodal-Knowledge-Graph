@@ -1,6 +1,6 @@
 # Elicited Competency Questions - SPARQL Results
 
-Generated 2026-11-07 12:39 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 325,302 asserted triples, 626,037 after OWL RL materialisation (135.4s).
+Generated 2026-11-07 12:46 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 325,302 asserted triples, 626,037 after OWL RL materialisation (108.6s).
 
 **19 of the 25 elicited Tier A CQs are queried here** - every one for which RiceMMKG v0.8.0 has at least the concept the question turns on. Answerability is measured, not predicted: the Stage 3 `v06_status` column is not used. The remaining 6 ask for a concept v0.8.0 does not have at all and are the v0.7 work plan; the status table at the end lists each with its reason.
 
@@ -63,7 +63,7 @@ SELECT ?pathogen ?group ?eppo_code ?external_alignment WHERE {
 }
 ```
 
-1 row(s) in 83.2 ms.
+1 row(s) in 74.1 ms.
 
 | pathogen | group | eppo_code | external_alignment |
 |---|---|---|---|
@@ -79,7 +79,7 @@ SELECT ?pathogen ?group WHERE {
 ORDER BY ?group ?pathogen
 ```
 
-10 row(s) in 4.2 ms.
+10 row(s) in 3.4 ms.
 
 | pathogen | group |
 |---|---|
@@ -103,7 +103,7 @@ SELECT ?disease ?pathogen WHERE {
 ORDER BY ?disease
 ```
 
-10 row(s) in 2.3 ms.
+10 row(s) in 2.2 ms.
 
 | disease | pathogen |
 |---|---|
@@ -134,7 +134,7 @@ SELECT ?vector ?agent ?mode ?disease WHERE {
 ORDER BY ?vector ?agent
 ```
 
-2 row(s) in 3.8 ms.
+2 row(s) in 3.5 ms.
 
 | vector | agent | mode | disease |
 |---|---|---|---|
@@ -160,7 +160,7 @@ SELECT ?symptom ?plant_part ?stage_of_disease WHERE {
 ORDER BY ?symptom ?plant_part ?stage_of_disease
 ```
 
-12 row(s) in 6.5 ms.
+12 row(s) in 4.0 ms.
 
 | symptom | plant_part | stage_of_disease |
 |---|---|---|
@@ -193,7 +193,7 @@ GROUP BY ?other
 ORDER BY DESC(?shared_symptoms)
 ```
 
-9 row(s) in 8.6 ms.
+9 row(s) in 8.7 ms.
 
 | other | shared_symptoms |
 |---|---|
@@ -224,7 +224,7 @@ SELECT ?symptom ?present_only_in WHERE {
 ORDER BY ?present_only_in ?symptom
 ```
 
-26 row(s) in 9.7 ms.
+26 row(s) in 8.8 ms.
 
 | symptom | present_only_in |
 |---|---|
@@ -253,7 +253,7 @@ SELECT ?condition WHERE {
 ORDER BY ?condition
 ```
 
-2 row(s) in 2.2 ms.
+2 row(s) in 1.9 ms.
 
 | condition |
 |---|
@@ -270,7 +270,7 @@ GROUP BY ?condition
 ORDER BY DESC(?entities) ?condition
 ```
 
-9 row(s) in 4.7 ms.
+9 row(s) in 4.8 ms.
 
 | condition | entities |
 |---|---|
@@ -331,7 +331,7 @@ SELECT ?treatment ?category ?source ?citation WHERE {
 ORDER BY ?treatment
 ```
 
-3 row(s) in 5.7 ms.
+3 row(s) in 4.8 ms.
 
 | treatment | category | source | citation |
 |---|---|---|---|
@@ -355,7 +355,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-2151 row(s) in 45.8 ms.
+2151 row(s) in 47.5 ms.
 
 | image | url |
 |---|---|
@@ -394,7 +394,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 834.4 ms.
+1 row(s) in 771.6 ms.
 
 | image | condition | dataset | title | source | confidence |
 |---|---|---|---|---|---|
@@ -413,7 +413,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 1552.0 ms.
+1 row(s) in 1481.0 ms.
 
 | images | with_source_dataset | with_confidence |
 |---|---|---|
@@ -440,7 +440,7 @@ GROUP BY ?condition ?type
 ORDER BY DESC(?images)
 ```
 
-19 row(s) in 9239.8 ms.
+19 row(s) in 8580.1 ms.
 
 | condition | type | images |
 |---|---|---|
@@ -464,7 +464,7 @@ SELECT ?dataset (COUNT(?image) AS ?images) WHERE {
 GROUP BY ?dataset
 ```
 
-6 row(s) in 268.1 ms.
+6 row(s) in 245.1 ms.
 
 | dataset | images |
 |---|---|
@@ -492,7 +492,7 @@ SELECT ?image ?symptom WHERE {
 }
 ```
 
-1 row(s) in 49.0 ms.
+1 row(s) in 39.1 ms.
 
 | image | symptom |
 |---|---|
@@ -508,7 +508,7 @@ GROUP BY ?symptom
 ORDER BY DESC(?images)
 ```
 
-2 row(s) in 21.5 ms.
+2 row(s) in 20.2 ms.
 
 | symptom | images |
 |---|---|
@@ -534,7 +534,7 @@ GROUP BY ?image ?candidate
 ORDER BY DESC(?support) ?candidate
 ```
 
-1 row(s) in 50.0 ms.
+1 row(s) in 44.4 ms.
 
 | image | candidate | support |
 |---|---|---|
@@ -544,9 +544,9 @@ ORDER BY DESC(?support) ?candidate
 
 **Level L3 · Dimension D2 · partial - schema**
 
-The pair the models named most often as visually confusable. Answered from the symptom layer. Since 0.8.0 the lesion shape, centre, margin, halo and size stated by the IRRI fact sheets are symptoms of their own (e.g. spindle-shaped vs circular to oval lesion), so the unique symptoms now include visual features; they are still symptom individuals, not values of shape or colour properties.
+The pair the models named most often as visually confusable. Answered from the symptom layer. Since 0.8.0 the lesion shape, centre, margin, halo and size stated by the IRRI fact sheets are symptoms of their own (e.g. spindle-shaped vs circular to oval lesion), so the unique symptoms now include visual features. They are still symptom individuals, not values of shape or colour properties, so the query cannot see overlaps: IRRI gives both diseases a grey lesion centre and a reddish-brown border, yet these appear as unique to each under different wording.
 
-> **Partial:** visual features are symptom individuals; v0.8.0 has no shape or colour descriptor properties to compare them by
+> **Partial:** visual features are symptom individuals; with no shape or colour properties, v0.8.0 cannot tell that some of them (grey centre, reddish-brown border) overlap
 
 **Symptoms unique to each of the two conditions**
 
@@ -567,7 +567,7 @@ SELECT ?condition ?distinguishing_symptom WHERE {
 ORDER BY ?condition ?distinguishing_symptom
 ```
 
-26 row(s) in 8.4 ms.
+26 row(s) in 8.1 ms.
 
 | condition | distinguishing_symptom |
 |---|---|
@@ -591,7 +591,7 @@ SELECT ?shared_symptom WHERE {
 ORDER BY ?shared_symptom
 ```
 
-5 row(s) in 2.6 ms.
+5 row(s) in 2.1 ms.
 
 | shared_symptom |
 |---|
@@ -620,7 +620,7 @@ SELECT ?image ?severity WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 590.5 ms.
+0 row(s) in 557.1 ms.
 
 **What the severity levels are used for in v0.8.0**
 
@@ -632,7 +632,7 @@ SELECT ?severity ?recommends WHERE {
 ORDER BY ?severity
 ```
 
-4 row(s) in 3.1 ms.
+4 row(s) in 3.0 ms.
 
 | severity | recommends |
 |---|---|
@@ -659,7 +659,7 @@ SELECT ?image ?symptom_a ?symptom_b WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 107.6 ms.
+0 row(s) in 99.3 ms.
 
 **How many symptoms each annotated image captures**
 
@@ -673,7 +673,7 @@ GROUP BY ?symptoms_per_image
 ORDER BY ?symptoms_per_image
 ```
 
-1 row(s) in 98.4 ms.
+1 row(s) in 86.4 ms.
 
 | symptoms_per_image | images |
 |---|---|
@@ -699,7 +699,7 @@ WHERE {
 GROUP BY ?image_evidence
 ```
 
-2 row(s) in 17189.2 ms.
+2 row(s) in 14516.7 ms.
 
 | image_evidence | symptoms |
 |---|---|
@@ -717,7 +717,7 @@ SELECT ?symptom WHERE {
 ORDER BY ?symptom
 ```
 
-62 row(s) in 9558.0 ms.
+62 row(s) in 7343.3 ms.
 
 | symptom |
 |---|
@@ -750,7 +750,7 @@ SELECT ?image ?condition ?symptom ?pathogen WHERE {
 ORDER BY ?symptom
 ```
 
-17 row(s) in 193.2 ms.
+17 row(s) in 182.2 ms.
 
 | image | condition | symptom | pathogen |
 |---|---|---|---|
@@ -774,7 +774,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 680.0 ms.
+1 row(s) in 644.2 ms.
 
 | images_with_literature |
 |---|
@@ -799,7 +799,7 @@ SELECT ?image ?condition ?treatment WHERE {
 ORDER BY ?treatment
 ```
 
-4 row(s) in 1503.6 ms.
+4 row(s) in 1326.8 ms.
 
 | image | condition | treatment |
 |---|---|---|
@@ -817,7 +817,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?images_with_treatment) WHERE {
 }
 ```
 
-1 row(s) in 276.0 ms.
+1 row(s) in 254.1 ms.
 
 | images_with_treatment |
 |---|
@@ -841,7 +841,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-3747 row(s) in 73.5 ms.
+3747 row(s) in 77.9 ms.
 
 | image | url |
 |---|---|
@@ -864,7 +864,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?contradictory_images) WHERE {
 }
 ```
 
-1 row(s) in 21.8 ms.
+1 row(s) in 17.5 ms.
 
 | contradictory_images |
 |---|
