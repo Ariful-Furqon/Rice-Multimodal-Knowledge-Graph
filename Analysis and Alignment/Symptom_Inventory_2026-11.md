@@ -48,6 +48,12 @@
 - **M6:** the three field-scale rows are now symptoms without a plant part: tungro patches, a field that looks burnt (hispa), and a field that looks scorched (leaffolder).
 - **M7:** of the ambiguous rows, the two with a visible feature were added: GR16 (mild rot of the flag leaf sheath) and BPH #7 (oviposition marks). The others stay out, being temporal, an absence or a count.
 - **M11:** Normal_Health takes option (b) of §5. The KG gets no content for normal appearance, and its comment records the decision.
+
+**Update 2026-11-07 (0.9.0-dev, §6.4 items 5–8):**
+- **Item 5:** `Deadheart` also affects `Tiller` (IRRI `stem-borer_p2`); `Leaf` stays.
+- **Item 6:** the seven symptoms without a comment now have one.
+- **Item 7:** kept as a known limitation and documented in README.
+- **Item 8:** scope notes were added to the comments of `Stem_Borer` and `Brown_Planthopper`; their species identity is unchanged.
 - **Status:** every condition with an IRRI fact sheet is now covered. Still open:
   - the three diseases without a sheet (§4);
   - Normal_Health (§5);
@@ -813,7 +819,7 @@ These are excluded from the tables (or tagged ⚠ there). Every quote was checke
 | Leaf_Folder | `IRRI_RKB_rice-leaffolder_p10` | "The damage caused by leaffolders may be important when it affects more than half of the flag leaf and the next two youngest leaves in each tiller." | ambiguous | damage threshold, not a symptom |
 | Brown_Planthopper | `IRRI_RKB_planthopper_p15` | "For older rice plants, grasp the plant, bend it over slightly, and gently tap it near the base to see if planthoppers fall onto the water surface." | test | tap test (scouting) |
 
-### 6.4 KG issues found along the way (not fixed)
+### 6.4 KG issues found along the way (items 1–4 fixed in 0.8.1, items 5–8 handled in 0.9.0-dev)
 
 1. **`Brown_Leaf_Tip → leaf blade`** cites `IRRI rice-hispa`, but that sheet never mentions browning (§3.14).
 2. **`Brown_Lesion → leaf blade`** cites `IRRI blast-leaf-collar` with no passage. That sheet describes lesions with whitish to grey centres and a "red to brownish" border, not brown lesions.

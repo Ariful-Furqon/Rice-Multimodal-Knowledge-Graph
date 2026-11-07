@@ -77961,7 +77961,7 @@
     <rice:occursIn rdf:resource="https://w3id.org/ricemmkg#Maturity_Stage"/>
     <rice:occursIn rdf:resource="https://w3id.org/ricemmkg#Vegetative_Stage"/>
     <rice:recommends rdf:resource="https://w3id.org/ricemmkg#Insecticide_Application"/>
-    <rdfs:comment xml:lang="en">Scirpophaga incertulas (yellow stem borer). Larvae bore into stems causing deadheart at vegetative stage and white ear at flowering stage.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Scirpophaga incertulas (yellow stem borer). Larvae bore into stems causing deadheart at vegetative stage and white ear at flowering stage. Scope: its symptoms and signs come from the IRRI fact sheet on stem borers, which also covers the striped and the pink stem borer. They are taken here for the yellow stem borer, the species this individual stands for (symptom inventory §6.4, item 8).</rdfs:comment>
     <rdfs:label xml:lang="en">Stem Borer</rdfs:label>
     <rice:eppoCode>SCHOBI</rice:eppoCode>
     <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_72366"/>
@@ -403720,5 +403720,45 @@
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_potassium-k_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
     <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decisions M6 and M7; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <!-- symptom inventory §6.4, items 5, 6 and 8 (2026-11-07) -->
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Brown_Lesion">
+    <rdfs:comment xml:lang="en">Generic brown lesion on the leaf blade or sheath, with no stated shape, centre or margin. The specific lesions of blast and brown spot are separate symptoms (0.8.0).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Spot">
+    <rdfs:comment xml:lang="en">Generic small spot on the leaf blade, with no stated colour or shape (AGROVOC 'leaf spot').</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Wilting">
+    <rdfs:comment xml:lang="en">Drooping of the leaves or the whole plant through loss of turgor. A generic symptom, shared by several conditions.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Yellow_Leaf">
+    <rdfs:comment xml:lang="en">Leaf blade turning yellow, with no stated pattern. A generic symptom, shared by several conditions.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Dry_Leaf_Tip">
+    <rdfs:comment xml:lang="en">Leaf tip that dries out.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Rolling">
+    <rdfs:comment xml:lang="en">Leaf blade rolled along its length. Kept apart from Tubular_Folded_Leaf, the leaf folded around a larva.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Chewed_Leaf">
+    <rdfs:comment xml:lang="en">Leaf with part of its tissue eaten by insects.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Brown_Planthopper">
+    <rdfs:comment xml:lang="en">Nilaparvata lugens (brown planthopper). Scope: its symptoms and signs come from the IRRI fact sheet on planthoppers, which also covers the whitebacked planthopper (WBPH); 'white adults' may refer to that species (symptom inventory §6.4, item 8).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Deadheart">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Tiller"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107f1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Deadheart"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Tiller"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Stem borer. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_stem-borer_p2"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Symptom inventory §6.4, item 5 (2026-11-07): IRRI describes deadheart as drying of the central tiller; the Leaf part (IRAC, expert definition of the innermost leaf whorl) stays. Approved by the curator.</rdfs:comment>
   </rdf:Description>
 </rdf:RDF>
