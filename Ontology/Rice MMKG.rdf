@@ -401521,4 +401521,1349 @@
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
     <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), batch 3: every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
   </rdf:Description>
+  <!-- text layer 2026-11-07: IRRI (2018) Rice Diseases, sections on leaf scald, downy mildew and grain rot (Text Modality/README.md); wording in Text Modality/RiceMMKG_IRRI_RD2018_text.ttl -->
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextDocument"/>
+    <rdfs:label xml:lang="en">IRRI Rice Diseases online resource (2018): Downy mildew (DM)</rdfs:label>
+    <dcterms:title xml:lang="en">Downy mildew (DM)</dcterms:title>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
+    <rdfs:comment xml:lang="en">Section of chapter2_foliar_fungal_diseases.pdf from IRRI (2018) Rice Diseases: Biology and Selected Management Practices, https://rice-diseases.irri.org/contents (downloaded 2026-11-07): the introduction and the Symptoms subsection. Plain text by Text Modality/scripts/rd2018_to_text.py, which the passage offsets refer to. Wording in Text Modality/RiceMMKG_IRRI_RD2018_text.ttl.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextDocument"/>
+    <rdfs:label xml:lang="en">IRRI Rice Diseases online resource (2018): Grain rot (GnR)</rdfs:label>
+    <dcterms:title xml:lang="en">Grain rot (GnR)</dcterms:title>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
+    <rdfs:comment xml:lang="en">Section of chapter4_grain_diseases.pdf from IRRI (2018) Rice Diseases: Biology and Selected Management Practices, https://rice-diseases.irri.org/contents (downloaded 2026-11-07): the introduction and the Symptoms subsection. Plain text by Text Modality/scripts/rd2018_to_text.py, which the passage offsets refer to. Wording in Text Modality/RiceMMKG_IRRI_RD2018_text.ttl.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextDocument"/>
+    <rdfs:label xml:lang="en">IRRI Rice Diseases online resource (2018): Leaf scald (LSc)</rdfs:label>
+    <dcterms:title xml:lang="en">Leaf scald (LSc)</dcterms:title>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
+    <rdfs:comment xml:lang="en">Section of chapter2_foliar_fungal_diseases.pdf from IRRI (2018) Rice Diseases: Biology and Selected Management Practices, https://rice-diseases.irri.org/contents (downloaded 2026-11-07): the introduction and the Symptoms subsection. Plain text by Text Modality/scripts/rd2018_to_text.py, which the passage offsets refer to. Wording in Text Modality/RiceMMKG_IRRI_RD2018_text.ttl.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Downy mildew (DM), passage 1</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">541</rice:endOffset>
+    <rice:textSha256>72d1e5fd6fb200615e955f9c362b589702e5a765a62faf784a587b8fe4c73276</rice:textSha256>
+    <rice:sectionTitle>Introduction</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Downy mildew (DM), passage 2</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">543</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1074</rice:endOffset>
+    <rice:textSha256>cc9d14ce9c2069e8dbdddfd1d48c28b0cf27adc604e9d2b55b37163cf335b584</rice:textSha256>
+    <rice:sectionTitle>Introduction</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Downy mildew (DM), passage 3</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1089</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1427</rice:endOffset>
+    <rice:textSha256>d333a8fc1fde720c65c3231de2961941d364e2fdf86d744752200feda5145dea</rice:textSha256>
+    <rice:sectionTitle>Symptoms</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Downy mildew (DM), passage 4</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1429</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1866</rice:endOffset>
+    <rice:textSha256>bfbab132d25b1010ecc14f7b6062d115cbf29e36c5c7e19d9e26d98bc68d6d0f</rice:textSha256>
+    <rice:sectionTitle>Symptoms</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Grain rot (GnR), passage 1</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">937</rice:endOffset>
+    <rice:textSha256>cc796ec1c7c2302ac86b5eb7384e5eb6bada2119703b364600fa9abb320afe2b</rice:textSha256>
+    <rice:sectionTitle>Introduction</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Grain"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#High_Temperature"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Grain rot (GnR), passage 2</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">939</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2057</rice:endOffset>
+    <rice:textSha256>b1309c876e2848ea50a3b4853e853681187e3b929f3873b29a290ed0461a08c0</rice:textSha256>
+    <rice:sectionTitle>Introduction</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Grain"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Grain rot (GnR), passage 3</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2072</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2950</rice:endOffset>
+    <rice:textSha256>da54ebf5eabdd7ed9c8624f31249a78337c3e79ec40807583c2dca648d559dae</rice:textSha256>
+    <rice:sectionTitle>Symptoms</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Grain"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Seedling_Stage"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Tiller"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Grain rot (GnR), passage 4</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2952</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3674</rice:endOffset>
+    <rice:textSha256>a1171e7db67e8200c1d6e0ba8fef5724779ae0333166dda1c3e4206e5c1d262d</rice:textSha256>
+    <rice:sectionTitle>Symptoms</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Brown_Lesion"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Coleoptile"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Wilting"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Grain rot (GnR), passage 5</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3676</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4385</rice:endOffset>
+    <rice:textSha256>b651afafa4ef28f0c6e648c99e16b88b9dfc3a1c5dd22d92870d5dd3349d379f</rice:textSha256>
+    <rice:sectionTitle>Symptoms</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Glume"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Grain"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 1</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">324</rice:endOffset>
+    <rice:textSha256>1ad1739ca013ff65426cca7fe29861ead66b9be53e0d142342e3c6840926e2dc</rice:textSha256>
+    <rice:sectionTitle>Introduction</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 2</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">326</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">637</rice:endOffset>
+    <rice:textSha256>9dcbf741e87ffa9efc9e7a7e82ef06863706e87b2305b42c8a57e35e000192ec</rice:textSha256>
+    <rice:sectionTitle>Introduction</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice_Blast_Disease"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 3</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">639</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1013</rice:endOffset>
+    <rice:textSha256>a308fa75284dd10359566dcddb8e6fb7dbe78b3c908f5d1a41b2c0dc215820a0</rice:textSha256>
+    <rice:sectionTitle>Introduction</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Xanthomonas_Oryzae"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 4</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1028</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1598</rice:endOffset>
+    <rice:textSha256>12518418381aca9a546297cadd16637e20a54fa17cf4fed144c0edb67b540947</rice:textSha256>
+    <rice:sectionTitle>Symptoms</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 5</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1600</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2013</rice:endOffset>
+    <rice:textSha256>3544389271ce67fb8e50344dd710c36134d7c16684f09f4bab074063266b4952</rice:textSha256>
+    <rice:sectionTitle>Symptoms</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Brown_Lesion"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Brown_Spot"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 6</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2015</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2642</rice:endOffset>
+    <rice:textSha256>d47301ea690aa27b75c08e75d11abe7a207512c1b548e55cfdb2904fc1a445a6</rice:textSha256>
+    <rice:sectionTitle>Symptoms</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Brown_Spot"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Coleoptile"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Glume"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Grain"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Root"/>
+  </rdf:Description>
+  <!-- symptom inventory 2026-11-07, IRRI (2018) Rice Diseases: leaf scald, downy mildew, bacterial panicle blight (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1) -->
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Brown_Coleoptile_Lesion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">brown coleoptile lesion</rdfs:label>
+    <rdfs:comment xml:lang="en">Brown lesion on the coleoptile of a seedling.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Brown_Sheath_Patch">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">large brown patches on leaf sheath</rdfs:label>
+    <rdfs:comment xml:lang="en">Large brown patches on the leaf sheath without dead tissue and with indistinct edges; a regional report (Japan), only occasionally seen in the tropics.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Contorted_Panicle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">contorted or spiral panicle</rdfs:label>
+    <rdfs:comment xml:lang="en">Panicle that is contorted, sometimes spiral.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Dark_Based_Floret">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">floret with dark grey or brown base</rdfs:label>
+    <rdfs:comment xml:lang="en">Floret whose base turns dark grey or brown.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Deformed_Floret">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">deformed florets</rdfs:label>
+    <rdfs:comment xml:lang="en">Deformed florets; a regional report (Costa Rica).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Erect_Panicle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">panicle staying erect at maturity</rdfs:label>
+    <rdfs:comment xml:lang="en">Panicle that stays upright instead of bending, because its grains are light.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Grain_Brown_Boundary_Line">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">brown boundary line across the grain</rdfs:label>
+    <rdfs:comment xml:lang="en">Brown line on a grain that marks where the diseased part ends.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Green_Rachis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">panicle rachis staying green</rdfs:label>
+    <rdfs:comment xml:lang="en">Panicle rachis that stays green while the grains are diseased.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Hull_Fading_From_Base">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">grain hull fading from the base</rdfs:label>
+    <rdfs:comment xml:lang="en">Grain hull that loses colour from its base, first greenish white, then pale pink to yellowish brown.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Large_Dead_Leaf_Area">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">large dead area of the leaf blade</rdfs:label>
+    <rdfs:comment xml:lang="en">Large part of the leaf blade dead after lesions spread and merge.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Late_Green_Panicle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">panicle staying green longer than normal</rdfs:label>
+    <rdfs:comment xml:lang="en">Panicle that stays green longer than normal.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Lesion_Size_1_5cm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">leaf lesion 1-5 cm long</rdfs:label>
+    <rdfs:comment xml:lang="en">Leaf lesion 1-5 cm long and 0.5-1 cm wide; merged lesions can reach 25 cm.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Soft_Rot">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">soft rot of leaves</rdfs:label>
+    <rdfs:comment xml:lang="en">Soft rot of the leaves.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Light_Brown_Lesion_Halo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">light brown halo around lesion</rdfs:label>
+    <rdfs:comment xml:lang="en">Light brown zone around a leaf lesion. Kept apart from Yellow_Lesion_Halo.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Neck_Brown_Patch">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">brown patch on panicle neck</rdfs:label>
+    <rdfs:comment xml:lang="en">Brown patch on the panicle neck, like the leaf sheath patches; a regional report (Korea).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Oblong_Leaf_Lesion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">oblong leaf lesion</rdfs:label>
+    <rdfs:comment xml:lang="en">Leaf lesion that is roughly oblong.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Purplish_Brown_Elliptical_Lesion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">long elliptical purplish-brown or light grey lesion</rdfs:label>
+    <rdfs:comment xml:lang="en">Long, elliptical or rectangular lesion, purplish brown or light grey; a regional report (Korea).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Red_Brown_Coleoptile_Decay">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">red-brown coleoptile decay</rdfs:label>
+    <rdfs:comment xml:lang="en">Decay of the coleoptile with red-brown colour; a regional report (Costa Rica).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Reddish_Brown_Fleck">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">small scattered reddish-brown flecks</rdfs:label>
+    <rdfs:comment xml:lang="en">Small, scattered reddish-brown flecks without dead tissue and with an indistinct edge; a regional report (Japan, Korea), only occasionally seen in the tropics.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Reduced_Leaf_Size">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">reduced leaf size</rdfs:label>
+    <rdfs:comment xml:lang="en">Leaf blades smaller than normal.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Root_Rot">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">root rot</rdfs:label>
+    <rdfs:comment xml:lang="en">Rotting roots; a regional report (Costa Rica). Not visible above ground.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Sheath_Soft_Rot">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">brown water-soaked soft rot of leaf sheath</rdfs:label>
+    <rdfs:comment xml:lang="en">Brown, water-soaked soft rot of the leaf sheath of a seedling.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Shrunken_Discoloured_Panicle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">shrunken panicle turning dirty yellow to brown</rdfs:label>
+    <rdfs:comment xml:lang="en">Shrunken panicle that turns from pale green to dirty yellow or brown and dries.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Small_Tan_Leaf_Lesion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">small tan leaf lesion with brown margin</rdfs:label>
+    <rdfs:comment xml:lang="en">Small tan leaf lesion, 1-5 mm, with a brown margin, mostly on flag leaves.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Tan_Centre_Sheath_Lesion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">long sheath lesion with tan centre and reddish-brown margin</rdfs:label>
+    <rdfs:comment xml:lang="en">Leaf sheath lesion several centimetres long with a tan centre and a reddish-brown margin, on the flag leaf sheath.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Tubular_Twisted_Floret">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">florets turned into twisted tubes</rdfs:label>
+    <rdfs:comment xml:lang="en">Florets changed into twisted, tube-like structures.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Twisted_Leaf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">distorted or twisted leaf</rdfs:label>
+    <rdfs:comment xml:lang="en">Leaf that is distorted or twisted.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Twisted_Leaf_Sheath">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">twisted leaf sheath</rdfs:label>
+    <rdfs:comment xml:lang="en">Leaf sheath that is twisted.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Brown_Coleoptile_Lesion">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Coleoptile"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Brown_Coleoptile_Lesion"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Coleoptile"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Brown_Sheath_Patch">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Brown_Sheath_Patch"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Contorted_Panicle">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Contorted_Panicle"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Dark_Based_Floret">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Dark_Based_Floret"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Deformed_Floret">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Deformed_Floret"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Erect_Panicle">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Erect_Panicle"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Grain_Brown_Boundary_Line">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Grain"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Grain_Brown_Boundary_Line"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Grain"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Green_Rachis">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d8">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Green_Rachis"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Hull_Fading_From_Base">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Grain"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Hull_Fading_From_Base"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Grain"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Large_Dead_Leaf_Area">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d10">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Large_Dead_Leaf_Area"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Late_Green_Panicle">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d11">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Late_Green_Panicle"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Lesion_Size_1_5cm">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d12">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Lesion_Size_1_5cm"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Soft_Rot">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d13">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Soft_Rot"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Light_Brown_Lesion_Halo">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d14">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Light_Brown_Lesion_Halo"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Neck_Brown_Patch">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Panicle_Neck"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d15">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Neck_Brown_Patch"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Panicle_Neck"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Oblong_Leaf_Lesion">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d16">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Oblong_Leaf_Lesion"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Purplish_Brown_Elliptical_Lesion">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d17">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Purplish_Brown_Elliptical_Lesion"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Red_Brown_Coleoptile_Decay">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Coleoptile"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d18">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Red_Brown_Coleoptile_Decay"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Coleoptile"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Reddish_Brown_Fleck">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d19">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Reddish_Brown_Fleck"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Reduced_Leaf_Size">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d20">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Reduced_Leaf_Size"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Root_Rot">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Root"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d21">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Root_Rot"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Root"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Sheath_Soft_Rot">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d22">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Sheath_Soft_Rot"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Shrunken_Discoloured_Panicle">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d23">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Shrunken_Discoloured_Panicle"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Small_Tan_Leaf_Lesion">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d24">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Small_Tan_Leaf_Lesion"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Tan_Centre_Sheath_Lesion">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d25">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Tan_Centre_Sheath_Lesion"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Tubular_Twisted_Floret">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d26">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Tubular_Twisted_Floret"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Twisted_Leaf">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d27">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Twisted_Leaf"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Twisted_Leaf_Sheath">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d28">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Twisted_Leaf_Sheath"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Brown_Coleoptile_Lesion"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d29">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Brown_Coleoptile_Lesion"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Dark_Based_Floret"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d30">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Dark_Based_Floret"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Erect_Panicle"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d31">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Erect_Panicle"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Grain_Brown_Boundary_Line"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d32">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Grain_Brown_Boundary_Line"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Green_Rachis"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d33">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Green_Rachis"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Hull_Fading_From_Base"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d34">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Hull_Fading_From_Base"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Leaf_Soft_Rot"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d35">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Soft_Rot"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Seedling_Death"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d36">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Seedling_Death"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Sheath_Soft_Rot"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d37">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Sheath_Soft_Rot"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Shrunken_Discoloured_Panicle"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d38">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Shrunken_Discoloured_Panicle"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Small_Tan_Leaf_Lesion"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d39">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Small_Tan_Leaf_Lesion"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Tan_Centre_Sheath_Lesion"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d40">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Tan_Centre_Sheath_Lesion"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Downy_Mildew">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Chlorotic_Leaf_Patch"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d41">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Chlorotic_Leaf_Patch"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Downy_Mildew">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Contorted_Panicle"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d42">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Contorted_Panicle"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Downy_Mildew">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Incompletely_Exserted_Panicle"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d43">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Incompletely_Exserted_Panicle"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Downy_Mildew">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Late_Green_Panicle"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d44">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Late_Green_Panicle"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Downy_Mildew">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Reduced_Leaf_Size"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d45">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Reduced_Leaf_Size"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Downy_Mildew">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Tubular_Twisted_Floret"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d46">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Tubular_Twisted_Floret"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Downy_Mildew">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Twisted_Leaf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d47">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Twisted_Leaf"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Downy_Mildew">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Twisted_Leaf_Sheath"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d48">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Twisted_Leaf_Sheath"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Scald">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Brown_Sheath_Patch"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d49">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Brown_Sheath_Patch"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Scald">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Coalescing_Leaf_Lesions"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d50">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Coalescing_Leaf_Lesions"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Scald">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Deformed_Floret"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d51">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Deformed_Floret"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Scald">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Dry_Leaf_Tip"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d52">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Dry_Leaf_Tip"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Scald">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Grain_Discoloration"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d53">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Grain_Discoloration"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Scald">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Large_Dead_Leaf_Area"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d54">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Large_Dead_Leaf_Area"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Scald">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Leaf_Lesion_Size_1_5cm"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d55">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Lesion_Size_1_5cm"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Scald">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Light_Brown_Lesion_Halo"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d56">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Light_Brown_Lesion_Halo"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Scald">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Neck_Brown_Patch"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d57">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Neck_Brown_Patch"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Scald">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Oblong_Leaf_Lesion"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d58">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Oblong_Leaf_Lesion"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Scald">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Purplish_Brown_Elliptical_Lesion"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d59">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Purplish_Brown_Elliptical_Lesion"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Scald">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Red_Brown_Coleoptile_Decay"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d60">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Red_Brown_Coleoptile_Decay"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Scald">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Reddish_Brown_Fleck"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d61">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Reddish_Brown_Fleck"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Scald">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Root_Rot"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d62">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Root_Rot"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Scald">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Sterile_Panicle"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107d63">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Sterile_Panicle"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
 </rdf:RDF>

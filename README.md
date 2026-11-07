@@ -19,7 +19,7 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 - **Namespace:** `https://w3id.org/ricemmkg#` — permanent identifier, live since 2026-09-16; version IRIs `https://w3id.org/ricemmkg/<version>` (releases up to v0.6.2 used `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#`)
 - **Format:** OWL/XML (`.rdf`), fully compatible with [Protégé](https://protege.stanford.edu/)
 - **Version:** `0.9.0-dev` on `main` (in development since 2026-11-07). Last release `v0.8.1` (2026-11-07: symptom labels and provenance links corrected). Earlier tags: `v0.8.0` (2026-11-07), `v0.7.0` (the data freeze of 2026-10-16, same commit as `data-freeze-2026-10`; the file there reads `0.7.0-dev`), `v0.6.2` and `v0.6.1` (2026-09-15), and `v0.6.0` (the v0.6 release of 2026-09-03, same commit as `elicited-baseline-v0.6`). Every tag `v<version>` resolves at `https://w3id.org/ricemmkg/<version>`. The data state used by downstream experiments is `v0.7.0` / `data-freeze-2026-10`.
-- **Triples:** **324,663** asserted triples (measured 2026-11-07) / **628,650** materialised triples under OWL RL (measured 2026-10-22); the rise from 68,204 is the Paddy Doctor IEEE release, Dhan-Shomadhan images, the first sensor observations, the YUKE-WBC planthopper images, the stem borer symptom images, the nutrient deficiency images, the light-trap catches, the multispectral captures and 41 alignment links to SOSA, RiceDO and TreatO; v0.6.2: 66,802 / 161,447
+- **Triples:** **327,185** asserted triples / **628,959** materialised triples under OWL RL (both measured 2026-11-07, 0.9.0-dev); the rise from 68,204 is the Paddy Doctor IEEE release, Dhan-Shomadhan images, the first sensor observations, the YUKE-WBC planthopper images, the stem borer symptom images, the nutrient deficiency images, the light-trap catches, the multispectral captures and 41 alignment links to SOSA, RiceDO and TreatO; v0.6.2: 66,802 / 161,447
 - **Reasoner Consistency:** **100% Consistent** in HermiT & Pellet (0 unsatisfiable classes, 0 disjointness conflicts)
 
 ---
@@ -74,17 +74,24 @@ All declared with a domain and a range, except the entailed `hasAffectedPart` (r
 
 ### Individuals & Provenance
 
-- **36,676 named individuals** (2026-11-07, 0.9.0-dev): 21,149 `ImageObservation` instances, 11,533 `TrapObservation` instances, 472 `RemoteSensingObservation` instances with 2,360 `BandImage`s, 186 `SensorObservation` instances, 418 `FieldLocation`s, 9 dataset metadata individuals, plus 232 domain entities (176 in 0.7.0-dev; 22 symptoms and 3 plant parts added in 0.8.0; 31 symptoms in 0.9.0-dev).
+- **36,722 named individuals** (2026-11-07, 0.9.0-dev): 21,149 `ImageObservation` instances, 11,533 `TrapObservation` instances, 472 `RemoteSensingObservation` instances with 2,360 `BandImage`s, 186 `SensorObservation` instances, 418 `FieldLocation`s, 9 dataset metadata individuals, 22 `TextDocument`s with 311 `TextPassage`s, plus 260 domain entities (176 in 0.7.0-dev; 22 symptoms and 3 plant parts added in 0.8.0; 59 symptoms in 0.9.0-dev).
 - **377 reified domain axioms** over 377 domain assertions: every assertion backed by an `owl:Axiom` record with `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType`. Source URIs: CABI Compendium 237 (as `doi.org/10.1079/cabicompendium.*` DOIs), IRRI Rice Knowledge Bank / Rice Doctor 100, NCBI Taxonomy 10, Paddy Doctor dataset 6, Mackill & Khush (2018) 3, AGROVOC 4, IRAC 4, Plant Ontology 2, Wang et al. (2022) 2, Bagariang et al. (2021) 2, Biswas et al. (2021) 1, FAO 1. The 15 resistance assessments carry the same three annotations on the assessment itself.
 - **Vector transmission mode (0.7.0-dev):** both tungro viruses are recorded as semi-persistently transmitted (`hasTransmissionMode`), citing Wang et al. (2022).
 - **Abiotic causes (0.7.0-dev):** nitrogen, phosphorus, potassium and zinc deficiency, and on the excess side iron toxicity and salinity, are modelled as `AbioticFactor`s that cause disorders, with symptoms from the IRRI Rice Knowledge Bank fact sheets — so abiotic factors, like pathogens, end at a Disease.
 - **Varieties (0.7.0-dev):** `IR64`, `Angke` and `Conde` (bred from IR64), `Ciherang`, `Inpari_32` and `Inpari_33`. Each reported grade is a `ResistanceAssessment` naming the variety, the disease or pest, the grade (resistant, moderately resistant, susceptible), the tested biotype, race or population, the year and its own source — 15 assessments from Mackill & Khush (2018), Bagariang et al. (2021) and Biswas et al. (2021). Conflicting grades stay side by side, and a resistance that broke down shows as assessments from different years.
 - **Management categories (0.7.0-dev):** treatments are classed as chemical, biological, cultural or host-plant-resistance control (`hasManagementCategory`, categories from AGROVOC) where a source places them unambiguously.
-- **Plant anatomy (0.7.0-dev; extended in 0.8.0):** 13 `PlantPart` individuals, 9 of them aligned to the Plant Ontology (`Panicle_Neck` has no PO term; `Leaf_Collar`, `Coleoptile` and `Glume`, added in 0.8.0, are not yet looked up); 94 of the 96 symptoms linked to the organ they affect (`affectsPlantPart`), with `partOf` where the Plant Ontology records it. `Brown_Leaf_Tip` and `Yellow_Stripe` have no plant part since 0.8.1, because no readable source states it.
-- **Visual symptoms from the IRRI fact sheets:** every visual feature the IRRI fact sheets state is being added as a symptom of its own. See `Analysis and Alignment/Symptom_Inventory_2026-11.md`.
+- **Plant anatomy (0.7.0-dev; extended in 0.8.0):** 13 `PlantPart` individuals, 9 of them aligned to the Plant Ontology (`Panicle_Neck` has no PO term; `Leaf_Collar`, `Coleoptile` and `Glume`, added in 0.8.0, are not yet looked up); 122 of the 124 symptoms linked to the organ they affect (`affectsPlantPart`), with `partOf` where the Plant Ontology records it. `Brown_Leaf_Tip` and `Yellow_Stripe` have no plant part since 0.8.1, because no readable source states it.
+- **Visual symptoms from IRRI sources:** every visual feature that the IRRI fact sheets state is being added as a symptom of its own. For the three conditions without a fact sheet, the source is IRRI's book *Rice Diseases* (2018). See `Analysis and Alignment/Symptom_Inventory_2026-11.md`.
   - **Blast and brown spot (0.8.0):** lesion shape, centre, margin, halo and size; seedling, collar, neck and glume symptoms. The two no longer share all their leaf symptoms.
   - **Tungro and bacterial leaf blight (0.9.0-dev):** leaf colour patterns, lesion margin and progression, panicle and grain symptoms.
   - **Bacterial leaf streak, sheath blight, hispa, leaffolder, stem borer and brown planthopper (0.9.0-dev):** feeding marks and leaf mines, leaf folding, sheath lesion size and spread, bore holes, sooty mould.
+  - **Leaf scald, downy mildew and bacterial panicle blight (0.9.0-dev, from IRRI 2018 *Rice Diseases*):**
+    - lesion shape, size and halo;
+    - twisted leaves, sheaths, panicles and florets;
+    - soft rots;
+    - panicle and grain symptoms.
+
+    Bacterial panicle blight no longer shares nearly all of its symptoms with brown spot.
 - **External Alignment**: 70 `skos:exactMatch`, 31 `skos:closeMatch`, 18 `skos:broadMatch`, 4 `skos:relatedMatch` to AGROVOC, NCBI Taxonomy, Plant Ontology, PECO, BFO, SOSA, WGS84, RiceDO v2 and TreatO v2 (counted 2026-10-19). The observation layer is aligned to SOSA in [`SOSA_alignment.md`](Analysis%20and%20Alignment/SOSA_alignment.md); the measured comparison with RiceDO and TreatO is in [`RiceDO_TreatO_comparison.md`](Analysis%20and%20Alignment/RiceDO_TreatO_comparison.md) (both 2026-10-19).
 
 ### Paddy Doctor Dataset Alignment
@@ -127,10 +134,14 @@ Every source checked so far, with the outcome and the reason, is recorded in [`C
 | Licence or label to confirm | Kaggle N/P/K images (licence not stated, permission requested; to be removed if refused); Netrokona potassium labels and YUKE-WBC species (expert confirmation) |
 | Candidates not yet imported | Weekly pest surveillance with weather, Midsayap, Philippines (needs `Scotinophara coarctata` as a new pest); brown planthopper resistance of 218 landraces; Sentinel-1 phenology table, Indramayu (licence "Custom"); UAV multispectral time series (no disease labels) |
 | Per-image content beyond the label | Expert image annotation; lesion boxes (RiceLeafDiseaseBD, Mendeley) |
-| Text | IRRI Rice Knowledge Bank, 19 fact sheets, 296 passages (2026-10-22). 84 curated assertions carry the passage that states them; the wording is in [`Text Modality/`](Text%20Modality/) under CC BY-NC-SA 3.0. Further text from CC BY papers is still open |
+| Text | IRRI Rice Knowledge Bank, 19 fact sheets, 296 passages (2026-10-22), and IRRI (2018) *Rice Diseases*, 3 disease sections, 15 passages (2026-11-07). 267 curated assertions carry the passage that states them (2026-11-07). The wording is in [`Text Modality/`](Text%20Modality/), under CC BY-NC-SA 3.0 and 4.0 like the sources. Further text from CC BY papers is still open |
 | Comparison with an existing ontology | Done for RiceDO v2 + TreatO v2 (2026-10-19): 23 mappings applied; TreatO's product–disease links not imported (no source per axiom; licence not stated in the files) |
 
-Sources under CC BY-SA would go into a separate module brought in through `owl:imports`, so the core stays CC BY 4.0. The IRRI passage wording (CC BY-NC-SA 3.0) is such a module: `Text Modality/RiceMMKG_IRRI_text.ttl`; the core holds only pointers (offsets, sha256) to it.
+Sources under CC BY-SA would go into a separate module brought in through `owl:imports`, so the core stays CC BY 4.0. The IRRI passage wording is held in two such modules:
+- `Text Modality/RiceMMKG_IRRI_text.ttl` (CC BY-NC-SA 3.0);
+- `Text Modality/RiceMMKG_IRRI_RD2018_text.ttl` (CC BY-NC-SA 4.0).
+
+The core holds only pointers to them (offsets, sha256).
 
 ---
 
@@ -200,7 +211,7 @@ Retrieval experiments that use this graph are kept in a separate repository, whi
 |---|---|
 | [`Ontology/`](Ontology/) | `Rice MMKG.rdf` (the graph), the patch file, [`Ontology_Overview.md`](Ontology/Ontology_Overview.md) (changelog) and the ontology roadmap ([`riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md)) |
 | [`Ontology/CQ SPARQL Benchmark/`](Ontology/CQ%20SPARQL%20Benchmark/) | CQ benchmark, elicited CQs, LLM elicitation prompts and runs, CQ screening data (anonymised) |
-| [`Text Modality/`](Text%20Modality/) | IRRI passage module (CC BY-NC-SA 3.0) and the scripts that build it |
+| [`Text Modality/`](Text%20Modality/) | IRRI passage modules (Rice Knowledge Bank, CC BY-NC-SA 3.0; *Rice Diseases* 2018, CC BY-NC-SA 4.0) and the scripts that build them |
 | [`Analysis and Alignment/`](Analysis%20and%20Alignment/) | Dataset analyses and alignments (AGROVOC, NCBI Taxonomy, Planteome, SOSA, RiceDO/TreatO) |
 | [`w3id/ricemmkg/`](w3id/ricemmkg/) | Mirror of the w3id.org redirect rules |
 
@@ -252,7 +263,11 @@ print(f"Asserted triples loaded: {len(g)}")
 **Licences** (details in [`LICENSE`](LICENSE)):
 - **Ontology and knowledge graph data:** [CC BY 4.0](LICENSE#part-2-creative-commons-attribution-4-0-international-cc-by-40).
 - **Scripts and benchmark tooling:** [MIT](LICENSE#part-1-mit-license-software-scripts-and-benchmark-tooling).
-- **IRRI passage text** (`Text Modality/RiceMMKG_IRRI_text.ttl`): CC BY-NC-SA 3.0, as its source. It is a separate module; the CC BY core holds only pointers to it.
+- **IRRI passage text:** each module has the licence of its source:
+  - `Text Modality/RiceMMKG_IRRI_text.ttl`: CC BY-NC-SA 3.0;
+  - `Text Modality/RiceMMKG_IRRI_RD2018_text.ttl`: CC BY-NC-SA 4.0.
+
+  They are separate modules; the CC BY core holds only pointers to them.
 <!-- - **Cite as:**
   ```bibtex
   @misc{ricemmkg_2026,

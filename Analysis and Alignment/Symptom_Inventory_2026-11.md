@@ -28,6 +28,14 @@
 - **Left out:**
   - signs, field patterns and ambiguous rows;
   - details already in the comment of an existing symptom: candidates for label refinement, not new symptoms.
+
+**Update 2026-11-07 (0.9.0-dev, IRRI 2018):** the rows of §4.1 were added to the KG for leaf scald, downy mildew and bacterial panicle blight, the three conditions without an IRRI fact sheet. Their source is IRRI (2018) *Rice Diseases*.
+- **Text layer:** 3 new text documents with 15 passages, whose wording is in `Text Modality/RiceMMKG_IRRI_RD2018_text.ttl` (CC BY-NC-SA 4.0).
+- **New symptoms:** 28 in total (leaf scald 11, downy mildew 6, bacterial panicle blight 11).
+- **Reused:** 7 existing symptoms.
+- **Left out:** signs (DM3, DM4) and ambiguous rows. Rows already linked from CABI keep their CABI source only.
+- **Regional rows:** the leaf scald rows that the source reports only from Japan, Korea or Costa Rica were added, and their comments say so.
+- **X11:** still open. The source gives oospores only in its "Causal organism" section.
 - **Status:** every condition with an IRRI fact sheet is now covered. Still open:
   - the three diseases without a sheet (§4);
   - Normal_Health (§5);
@@ -579,6 +587,87 @@ Nothing below has been fetched or added. Each source needs a licence check befor
 | Normal_Health | none | No symptom source is proposed, because the task rules out inventing symptoms. See §5 for what option (a) would need. |
 
 **CABI Compendium:** check its reuse terms before quoting. The KG already cites its DOIs, so a facts-and-pointers link needs no wording.
+
+### 4.1 Inventory from IRRI (2018) *Rice Diseases: Biology & Selected Management Practices* (added 2026-11-07)
+
+**Source**
+- **Book:** IRRI's online book at https://rice-diseases.irri.org, © 2018 IRRI, **CC BY-NC-SA 4.0** (licence link in the page footer).
+- **Chapters:** Chapter 2 (foliar fungal diseases: leaf scald, downy mildew) and Chapter 4 (grain diseases: grain rot), as PDFs.
+
+**Bacterial panicle blight = grain rot.** Chapter 4 says *Burkholderia glumae* and *B. gladioli* cause "a disease syndrome known as 'bacterial panicle blight' in the U.S", and: "In the United States, the disease is called bacterial panicle blight but in other countries the disease is known as grain rot."
+
+**Passages**
+- **Scope:** the introduction and the Symptoms subsection of each disease, cut into passages `IRRI_RD2018_*`.
+- **Wording:** in `Text Modality/RiceMMKG_IRRI_RD2018_text.ttl`, CC BY-NC-SA 4.0.
+- **Scripts:** `Text Modality/scripts/rd2018_to_text.py` and `rd2018_passages.py`.
+
+Every quote below was checked as an exact substring of its passage.
+
+**Not answered by this source:**
+- **Question X11:** the only statement about yellowish lines along the veins concerns mature oospores and sits in the "Causal organism" subsection, outside the passages.
+- **CABI-sourced downy mildew symptoms:** the book does not state stunting or excessive tillering, which the KG has from CABI.
+
+#### Leaf_Scald
+
+| # | Symptom in the source | In KG? | Label | Plant part | Passage and quote |
+|---|---|---|---|---|---|
+| LS1 | Zonate lesions starting from the leaf tip or edges | exact | (zonate leaf lesion) | Leaf_Blade | `IRRI_RD2018_leaf-scald_p4`: "The lesions are characterized by zonation starting from the leaf tip or edges"<br>_Note: tip/edge start is in the comment of Zonate_Leaf_Lesion_ |
+| LS2 | Usually on mature leaves [⚠ ambiguous] | partial | — | Leaf | `IRRI_RD2018_leaf-scald_p4`: "and usually occur on mature leaves"<br>_Note: leaf age, not a look_ |
+| LS3 | Lesions more or less oblong | **missing** | oblong leaf lesion | Leaf_Blade | `IRRI_RD2018_leaf-scald_p4`: "They are more or less oblong with light brown halos." |
+| LS4 | Light brown halo around the lesion | **missing** | light brown halo around lesion | Leaf_Blade | `IRRI_RD2018_leaf-scald_p4`: "They are more or less oblong with light brown halos."<br>_Note: brown spot has a yellow halo (Yellow_Lesion_Halo)_ |
+| LS5 | Lesions 1-5 cm long, 0.5-1 cm wide (up to 25 cm) | **missing** | leaf lesion 1-5 cm long | Leaf_Blade | `IRRI_RD2018_leaf-scald_p4`: "Individual lesions are 1-5 cm long, 0.5-1 cm wide."<br>`IRRI_RD2018_leaf-scald_p4`: "lesions as long as 25 cm have been observed" |
+| LS6 | Lesions enlarge and coalesce | **missing** (reuse `Coalescing_Leaf_Lesions`) | (coalescing leaf lesions) | Leaf_Blade | `IRRI_RD2018_leaf-scald_p4`: "The continuous enlargement and coalescing of lesions may result in blight on a large part of the leaf blade" |
+| LS7 | A large part of the leaf blade dies | **missing** | large dead area of the leaf blade | Leaf_Blade | `IRRI_RD2018_leaf-scald_p4`: "may result in blight on a large part of the leaf blade"<br>_Note: label avoids 'blight' and 'scald' (condition names)_ |
+| LS8 | Zonation fades with age; lesion without zonation = leaf tip drying | **missing** (reuse `Dry_Leaf_Tip`) | (Dry Leaf Tip) | Leaf_Blade | `IRRI_RD2018_leaf-scald_p4`: "The zonation fades as the lesions become old."<br>`IRRI_RD2018_leaf-scald_p4`: "Lesion without distinct zonation is called leaf tip blight in Japan, and leaf tip drying in China" |
+| LS9 | Small, scattered reddish-brown spots with indistinct margin | **missing** | small scattered reddish-brown flecks | Leaf_Blade | `IRRI_RD2018_leaf-scald_p5`: "In Japan, brown leaf blight typically shows small, scattered, reddish-brown spots without necrotic tissues and with an indistinct margin."<br>`IRRI_RD2018_leaf-scald_p6`: "small, reddish-brown spots on the leaves (brown leaf blight)"<br>_Note: regional report (Japan, Korea); only occasionally in the tropics. Label avoids 'brown spot'_ |
+| LS10 | Large brown patches on the leaf sheath | **missing** | large brown patches on leaf sheath | Leaf_Sheath | `IRRI_RD2018_leaf-scald_p5`: "Leaf sheath browning is characterized by relatively large patches of brown lesions without necrosis and indistinct margins."<br>_Note: regional report (Japan); only occasionally in the tropics; easily confused with other diseases_ |
+| LS11 | Long, elliptical or rectangular, purplish-brown or light grey lesions | **missing** | long elliptical purplish-brown or light grey lesion | Leaf_Blade | `IRRI_RD2018_leaf-scald_p6`: "long, elliptical or rectangular, purplish-brown or light grey were also described"<br>_Note: regional report (Korea); the sentence names no organ, leaf assumed from context_ |
+| LS12 | Lesions on the panicle neck, like the sheath lesions | **missing** | brown patch on panicle neck | Panicle_Neck | `IRRI_RD2018_leaf-scald_p6`: "Lesions on the neck of the panicles, similar to those on the leaf sheath, have also been observed"<br>_Note: regional report (Korea)_ |
+| LS13 | Sterility in a head blight | **missing** (reuse `Sterile_Panicle`) | (sterile panicle) | Panicle | `IRRI_RD2018_leaf-scald_p6`: "De Gutierrez (1960) reported a head blight causing considerable sterility, flower deformation and discoloration of glumes in Costa Rica."<br>_Note: regional report (Costa Rica)_ |
+| LS14 | Flower deformation | **missing** | deformed florets | Panicle | `IRRI_RD2018_leaf-scald_p6`: "flower deformation"<br>_Note: regional report (Costa Rica)_ |
+| LS15 | Discoloration of glumes | **missing** (reuse `Grain_Discoloration`) | (grain discoloration) | Grain | `IRRI_RD2018_leaf-scald_p6`: "discoloration of glumes"<br>_Note: regional report (Costa Rica)_ |
+| LS16 | Decay of coleoptiles with red-brown infection | **missing** | red-brown coleoptile decay | Coleoptile | `IRRI_RD2018_leaf-scald_p6`: "She described the fungus as causing decay of coleoptiles with red brown infection and root rot."<br>_Note: regional report (Costa Rica)_ |
+| LS17 | Root rot | **missing** | root rot | Root | `IRRI_RD2018_leaf-scald_p6`: "and root rot"<br>_Note: regional report (Costa Rica); not visible above ground_ |
+| LS18 | Grains infected [⚠ ambiguous] | partial | — | Grain | `IRRI_RD2018_leaf-scald_p6`: "indicated that the grains were infected"<br>_Note: no look described_ |
+
+#### Downy_Mildew
+
+| # | Symptom in the source | In KG? | Label | Plant part | Passage and quote |
+|---|---|---|---|---|---|
+| DM1 | Chlorotic whitish spots or patches on new leaf blades | **missing** (reuse `Chlorotic_Leaf_Patch`) | (chlorotic leaf patches) | Leaf_Blade | `IRRI_RD2018_downy-mildew_p3`: "In the earlier stage of the disease, new leaves of infected plants produce chlorotic whitish spots or patches on the leaf blades, sometimes reducing them in size."<br>_Note: Chlorotic_Leaf_Patch is so far a salinity symptom; its label is generic_ |
+| DM2 | Leaf blades reduced in size | **missing** | reduced leaf size | Leaf_Blade | `IRRI_RD2018_downy-mildew_p3`: "sometimes reducing them in size" |
+| DM3 | Fluffy white to grey fungal growth on the leaf underside [sign] | **missing** | — | Leaf_Blade | `IRRI_RD2018_downy-mildew_p3`: "At times, fluffy white to grey fungal growth may be seen on the under surface of the leaf blades."<br>_Note: sign of the pathogen (decision M4)_ |
+| DM4 | White fungal coating on young shoots and seeds [sign] | **missing** | — | Tiller, Grain | `IRRI_RD2018_downy-mildew_p3`: "Infected young shoots and seeds may also show white coating of fungal growth."<br>_Note: sign (M4)_ |
+| DM5 | Leaves distorted or twisted | **missing** | distorted or twisted leaf | Leaf | `IRRI_RD2018_downy-mildew_p4`: "In severe cases, the leaves may be distorted or twisted."<br>_Note: severe cases_ |
+| DM6 | Panicles irregular, partly emerged from the sheath | **missing** (reuse `Incompletely_Exserted_Panicle`) | (small, incompletely exserted panicle) | Panicle | `IRRI_RD2018_downy-mildew_p4`: "The panicles appear irregular, partially emerged from the leaf sheath freely and become contorted and, sometimes, spiral (DM Figure 1)."<br>_Note: the source also says the panicle is reduced in size_ |
+| DM7 | Panicles contorted, sometimes spiral | **missing** | contorted or spiral panicle | Panicle | `IRRI_RD2018_downy-mildew_p4`: "become contorted and, sometimes, spiral" |
+| DM8 | Leaf sheath twisted | **missing** | twisted leaf sheath | Leaf_Sheath | `IRRI_RD2018_downy-mildew_p4`: "The leaf sheath may also be twisted." |
+| DM9 | Floral parts turned into twisted tubular structures | **missing** | florets turned into twisted tubes | Panicle | `IRRI_RD2018_downy-mildew_p4`: "The emerged panicle is reduced in size with part of its floral parts modified into twisted tubular structures and usually remains green longer than normal." |
+| DM10 | Panicle stays green longer than normal | **missing** | panicle staying green longer than normal | Panicle | `IRRI_RD2018_downy-mildew_p4`: "usually remains green longer than normal" |
+| DM11 | Symptoms more pronounced at flowering [⚠ ambiguous] | partial | — | Panicle | `IRRI_RD2018_downy-mildew_p4`: "The symptoms are more pronounced at flowering time."<br>_Note: timing_ |
+
+#### Bacterial_Panicle_Blight
+
+| # | Symptom in the source | In KG? | Label | Plant part | Passage and quote |
+|---|---|---|---|---|---|
+| GR1 | Small tan lesions 1-5 mm with brown margins on leaf blades, especially flag leaves | **missing** | small tan leaf lesion with brown margin | Leaf_Blade | `IRRI_RD2018_grain-rot_p3`: "On leaf blades, especially flag leaves, the disease appears as small tan lesions measuring 1 to 5 mm with brown margins." |
+| GR2 | Sheath lesion several cm long, tan centre, reddish-brown margin | **missing** | long sheath lesion with tan centre and reddish-brown margin | Leaf_Sheath | `IRRI_RD2018_grain-rot_p3`: "On the leaf sheath, the lesion may be several centimeters long with a tan center and reddish brown margins on individual flag leaf sheaths of infected tillers." |
+| GR3 | Kernel abortion before filling | exact | (empty grain) | Grain | `IRRI_RD2018_grain-rot_p3`: "Infection occurs on spikelets causing kernel abortion before the kernels are completely filled."<br>_Note: already linked (CABI)_ |
+| GR4 | Florets with dark grey or brown bases | **missing** | floret with dark grey or brown base | Panicle | `IRRI_RD2018_grain-rot_p3`: "Infected florets may show dark gray or brown bases, but the rachis of the panicles remains green." |
+| GR5 | Panicle rachis stays green | **missing** | panicle rachis staying green | Panicle | `IRRI_RD2018_grain-rot_p3`: "but the rachis of the panicles remains green" |
+| GR6 | Panicles stay erect instead of bending | **missing** | panicle staying erect at maturity | Panicle | `IRRI_RD2018_grain-rot_p3`: "Panicles of infected tillers remain erect instead of bending due to loss of grain weight." |
+| GR7 | Brown lesions on the coleoptile of seedlings | **missing** | brown coleoptile lesion | Coleoptile | `IRRI_RD2018_grain-rot_p4`: "The symptoms on seedlings caused by inoculum from rotting seeds usually develop into brown lesions on the coleoptile (Uematsu et al 1976a,b), which can cause seedling mortality."<br>_Note: nursery boxes_ |
+| GR8 | Seedling mortality | **missing** (reuse `Seedling_Death`) | (seedling death) | Whole_Plant | `IRRI_RD2018_grain-rot_p4`: "which can cause seedling mortality" |
+| GR9 | Brown, water-soaked soft rot of the leaf sheath (seedlings) | **missing** | brown water-soaked soft rot of leaf sheath | Leaf_Sheath | `IRRI_RD2018_grain-rot_p4`: "Lesions on infected and developed seedlings show brown, water-soaked soft rot of the leaf sheath accompanied by wilting or soft rot of the leaves (GnR Figure 1)." |
+| GR10 | Wilting | exact | (Wilting) | Whole_Plant | `IRRI_RD2018_grain-rot_p4`: "accompanied by wilting or soft rot of the leaves"<br>_Note: already linked (CABI)_ |
+| GR11 | Soft rot of the leaves | **missing** | soft rot of leaves | Leaf | `IRRI_RD2018_grain-rot_p4`: "accompanied by wilting or soft rot of the leaves" |
+| GR12 | Panicles shrunken, pale green, then dirty yellow to brown and dry | partial | shrunken panicle turning dirty yellow to brown | Panicle | `IRRI_RD2018_grain-rot_p5`: "On grain rot, the panicles are shrunken and pale green, becoming dirty yellow to brown and dry."<br>_Note: Discolored_Panicle is broader_ |
+| GR13 | Hulls fade from the base: greenish white, then pale pink to yellowish brown | **missing** | grain hull fading from the base | Grain | `IRRI_RD2018_grain-rot_p5`: "The hulls of infected grains on young panicles rapidly fade in color from the base, turning greenish white at first and then pale pink to yellowish brown." |
+| GR14 | Grains sterile, or brown rice with dark-brown discoloration at the base | exact | (empty grain; grain discoloration) | Grain | `IRRI_RD2018_grain-rot_p5`: "The infected grains are either sterile or carry brown rice with dark-brown discoloration at the base."<br>_Note: already linked (CABI)_ |
+| GR15 | Brown margin between infected and healthy parts of the grain (diagnostic) | **missing** | brown boundary line across the grain | Grain | `IRRI_RD2018_grain-rot_p5`: "A brown margin between the infected and healthy parts of the grain is a diagnostic feature of the disease (GnR Figure 2)."<br>_Note: the source calls it diagnostic_ |
+| GR16 | Mild rot of the flag leaf sheath at the collar [⚠ ambiguous] | **missing** | — | Leaf_Sheath | `IRRI_RD2018_grain-rot_p5`: "The bacterium may cause mild rot of the flag leaf sheath of the leaf sheath collar."<br>_Note: wording unclear_ |
+| GR17 | Seeds fail to germinate (damping off) in nursery boxes [⚠ ambiguous] | **missing** | — | Grain | `IRRI_RD2018_grain-rot_p4`: "Preemergence “damping off” causes GnR where the seeds fail to germinate"<br>_Note: an absence, nursery boxes_ |
+
 
 ## 5. Normal_Health: two modelling options (not decided)
 
