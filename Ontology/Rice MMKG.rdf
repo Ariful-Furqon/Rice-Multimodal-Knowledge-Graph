@@ -400292,13 +400292,13 @@
   <!-- 0.8.1: evidence passages for two provenance axioms (Symptom_Inventory_2026-11.md §6.4, items 2-3) -->
   <rdf:Description rdf:nodeID="Ne57e17008fde4d93b76a2e90666918b3">
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_blast-leaf-collar_p8"/>
-    <rice:evidencePassageCheck>LLM-reviewed</rice:evidencePassageCheck>
-    <rdfs:comment xml:lang="en">Evidence passage added in 0.8.1 (inventory §6.4). The passage was chosen by an LLM and checked as an exact substring of the passage text; it awaits curator review.</rdfs:comment>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence passage added in 0.8.1 (inventory §6.4). The passage was chosen by an LLM and checked as an exact substring of the passage text; the curator confirmed it on 2026-11-07.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:nodeID="N6e27e67799d346a2bcffae3f3e2d1185">
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_brown-spot_p10"/>
-    <rice:evidencePassageCheck>LLM-reviewed</rice:evidencePassageCheck>
-    <rdfs:comment xml:lang="en">Evidence passage added in 0.8.1 (inventory §6.4). The passage was chosen by an LLM and checked as an exact substring of the passage text; it awaits curator review.</rdfs:comment>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence passage added in 0.8.1 (inventory §6.4). The passage was chosen by an LLM and checked as an exact substring of the passage text; the curator confirmed it on 2026-11-07.</rdfs:comment>
   </rdf:Description>
   <!-- symptom inventory 2026-11-07: tungro and bacterial leaf blight (Analysis and Alignment/Symptom_Inventory_2026-11.md) -->
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#Grey_White_Lesion_Black_Dots">

@@ -8,7 +8,7 @@
 - **Fixed by adding a passage:**
   - item 2, `Brown_Lesion → leaf blade`: now linked to `blast-leaf-collar_p8`;
   - item 3, `Discolored_Panicle → panicle`: now linked to `brown-spot_p10`.
-  - Both links are `LLM-reviewed` until the curator confirms them.
+  - Both links were `LLM-reviewed` until the curator confirmed them on 2026-11-07; they are now `human-reviewed`.
 - **Fixed by removal:**
   - item 1, `Brown_Leaf_Tip → leaf blade`;
   - item 4, `Yellow_Stripe → leaf blade`.
