@@ -19,7 +19,7 @@ The core graph stays CC BY 4.0 because it holds facts and pointers, not the IRRI
   - `inDocument`, `startOffset`, `endOffset` and `textSha256` locate the passage.
   - `sectionTitle` gives its section, and `mentions` the domain individuals named in it.
   - The offsets play the role of a W3C Web Annotation `TextPositionSelector`.
-- **Evidence on curated assertions:** `rice:hasEvidencePassage` on the `owl:Axiom` of 77 curated assertions points to the passage that states the assertion. `rice:evidencePassageCheck` says how the link was checked: `human-reviewed` (42) or `LLM-reviewed` (35).
+- **Evidence on curated assertions:** `rice:hasEvidencePassage` on the `owl:Axiom` of 84 curated assertions points to the passage that states the assertion. `rice:evidencePassageCheck` says how the link was checked: `human-reviewed` (49) or `LLM-reviewed` (35). Counted 2026-11-07.
 - **This module:** `rice:passageText` for each passage. Load it together with the core to get the wording.
 
 ## How the offsets are defined

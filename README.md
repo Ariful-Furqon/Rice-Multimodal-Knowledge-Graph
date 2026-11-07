@@ -11,15 +11,15 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 ### Core Design Principles
 
 - **Observation is kept separate from domain knowledge.** An `ImageObservation`'s raw dataset label (`annotatedAs`) is never conflated with curated symptom/cause/treatment relations (`captures`, `causes`, `indicatedBy`, ...) — what was recorded by computer vision is distinct from what is concluded by domain knowledge.
-- **Every domain-level assertion is traceable.** All 384 populated domain triples (`causes`, `indicatedBy`, `occursIn`, `controlledBy`, `preventedBy`, `increaseRiskOf`, `vulnerableTo`, `recommends`, `requires`, `transmits`, `affectsPlantPart`, `partOf`, `hasTransmissionMode`, `hasManagementCategory`, `varietyOf`, `hasPathogenGroup`) are reified with `owl:Axiom` and carry `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType` — **100% provenance coverage as of v0.6.1**, checked by CQ-22 (assertions without an axiom) as well as CQ-21 (axioms without a source). v0.6 fell two assertions short of this; see the v0.6.1 note in [`Ontology_Overview.md`](Ontology/Ontology_Overview.md).
+- **Every domain-level assertion is traceable.** All 377 populated domain triples (`causes`, `indicatedBy`, `occursIn`, `controlledBy`, `preventedBy`, `increaseRiskOf`, `vulnerableTo`, `recommends`, `requires`, `transmits`, `affectsPlantPart`, `partOf`, `hasTransmissionMode`, `hasManagementCategory`, `varietyOf`, `hasPathogenGroup`) are reified with `owl:Axiom` and carry `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType` — **100% provenance coverage as of v0.6.1**, checked by CQ-22 (assertions without an axiom) as well as CQ-21 (axioms without a source). v0.6 fell two assertions short of this; see the v0.6.1 note in [`Ontology_Overview.md`](Ontology/Ontology_Overview.md).
 - **Formal reasoning & falsifiable Competency Questions.** Evaluated under automated Description Logic (HermiT/Pellet) and rule-based (OWL RL) reasoning across 27 schema-level Competency Questions without permissive `OPTIONAL` clauses.
 
 ### Metadata Snapshot
 
 - **Namespace:** `https://w3id.org/ricemmkg#` — permanent identifier, live since 2026-09-16; version IRIs `https://w3id.org/ricemmkg/<version>` (releases up to v0.6.2 used `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#`)
 - **Format:** OWL/XML (`.rdf`), fully compatible with [Protégé](https://protege.stanford.edu/)
-- **Version:** `0.7.0-dev` on `main` (in development; last release `v0.6.2`, 2026-09-15; git tags `v0.6.1`, `v0.6.2`; v0.6 released 2026-09-03) — target venue under review (SIGIR 2027 full paper, or IEEE Access as proposed on 2026-11-05; see [Roadmap](#roadmap))
-- **Triples:** **324,701** asserted triples / **628,650** materialised triples under OWL RL (measured 2026-10-22); the rise from 68,204 is the Paddy Doctor IEEE release, Dhan-Shomadhan images, the first sensor observations, the YUKE-WBC planthopper images, the stem borer symptom images, the nutrient deficiency images, the light-trap catches, the multispectral captures and 41 alignment links to SOSA, RiceDO and TreatO; v0.6.2: 66,802 / 161,447
+- **Version:** `0.7.0-dev` on `main` (in development; last release `v0.6.2`, 2026-09-15; git tags `v0.6.1`, `v0.6.2`; v0.6 released 2026-09-03). The data state used by downstream experiments is tagged `data-freeze-2026-10`.
+- **Triples:** **324,663** asserted triples (measured 2026-11-07) / **628,650** materialised triples under OWL RL (measured 2026-10-22); the rise from 68,204 is the Paddy Doctor IEEE release, Dhan-Shomadhan images, the first sensor observations, the YUKE-WBC planthopper images, the stem borer symptom images, the nutrient deficiency images, the light-trap catches, the multispectral captures and 41 alignment links to SOSA, RiceDO and TreatO; v0.6.2: 66,802 / 161,447
 - **Reasoner Consistency:** **100% Consistent** in HermiT & Pellet (0 unsatisfiable classes, 0 disjointness conflicts)
 
 ---
@@ -74,13 +74,13 @@ All declared with a domain and a range, except the entailed `hasAffectedPart` (r
 
 ### Individuals & Provenance
 
-- **36,303 named individuals**: 21,149 `ImageObservation` instances, 11,533 `TrapObservation` instances, 472 `RemoteSensingObservation` instances with 2,360 `BandImage`s, 186 `SensorObservation` instances, 418 `FieldLocation`s, 9 dataset metadata individuals, plus 176 domain entities (0.7.0-dev).
+- **36,620 named individuals** (2026-11-07): 21,149 `ImageObservation` instances, 11,533 `TrapObservation` instances, 472 `RemoteSensingObservation` instances with 2,360 `BandImage`s, 186 `SensorObservation` instances, 418 `FieldLocation`s, 9 dataset metadata individuals, plus 176 domain entities (0.7.0-dev).
 - **377 reified domain axioms** over 377 domain assertions: every assertion backed by an `owl:Axiom` record with `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType`. Source URIs: CABI Compendium 237 (as `doi.org/10.1079/cabicompendium.*` DOIs), IRRI Rice Knowledge Bank / Rice Doctor 100, NCBI Taxonomy 10, Paddy Doctor dataset 6, Mackill & Khush (2018) 3, AGROVOC 4, IRAC 4, Plant Ontology 2, Wang et al. (2022) 2, Bagariang et al. (2021) 2, Biswas et al. (2021) 1, FAO 1. The 15 resistance assessments carry the same three annotations on the assessment itself.
 - **Vector transmission mode (0.7.0-dev):** both tungro viruses are recorded as semi-persistently transmitted (`hasTransmissionMode`), citing Wang et al. (2022).
 - **Abiotic causes (0.7.0-dev):** nitrogen, phosphorus, potassium and zinc deficiency, and on the excess side iron toxicity and salinity, are modelled as `AbioticFactor`s that cause disorders, with symptoms from the IRRI Rice Knowledge Bank fact sheets — so abiotic factors, like pathogens, end at a Disease.
 - **Varieties (0.7.0-dev):** `IR64`, `Angke` and `Conde` (bred from IR64), `Ciherang`, `Inpari_32` and `Inpari_33`. Each reported grade is a `ResistanceAssessment` naming the variety, the disease or pest, the grade (resistant, moderately resistant, susceptible), the tested biotype, race or population, the year and its own source — 15 assessments from Mackill & Khush (2018), Bagariang et al. (2021) and Biswas et al. (2021). Conflicting grades stay side by side, and a resistance that broke down shows as assessments from different years.
 - **Management categories (0.7.0-dev):** treatments are classed as chemical, biological, cultural or host-plant-resistance control (`hasManagementCategory`, categories from AGROVOC) where a source places them unambiguously.
-- **Plant anatomy (0.7.0-dev):** 8 `PlantPart` individuals aligned to the Plant Ontology; each symptom linked to the organ it affects (`affectsPlantPart`), with `partOf` where the Plant Ontology records it.
+- **Plant anatomy (0.7.0-dev):** 10 `PlantPart` individuals, 9 of them aligned to the Plant Ontology (`Panicle_Neck` has no PO term); each of the 43 symptoms linked to the organ it affects (`affectsPlantPart`), with `partOf` where the Plant Ontology records it.
 - **External Alignment**: 70 `skos:exactMatch`, 31 `skos:closeMatch`, 18 `skos:broadMatch`, 4 `skos:relatedMatch` to AGROVOC, NCBI Taxonomy, Plant Ontology, PECO, BFO, SOSA, WGS84, RiceDO v2 and TreatO v2 (counted 2026-10-19). The observation layer is aligned to SOSA in [`SOSA_alignment.md`](Analysis%20and%20Alignment/SOSA_alignment.md); the measured comparison with RiceDO and TreatO is in [`RiceDO_TreatO_comparison.md`](Analysis%20and%20Alignment/RiceDO_TreatO_comparison.md) (both 2026-10-19).
 
 ### Paddy Doctor Dataset Alignment
@@ -107,7 +107,7 @@ The 2,544 stem borer images (white, black and yellow) carry the only `captures` 
 
 ### Modality Coverage & Data Gaps (0.7.0-dev)
 
-Images currently cover 13 of the 16 `Disease` individuals and 4 of the 7 `Pest` individuals (`Hispa`, `Stem_Borer`, `Leaf_Folder`, `Brown_Planthopper`), as of 2026-10-13. The ontology conditions without any image are:
+Images currently cover 12 of the 15 `Disease` individuals and 4 of the 7 `Pest` individuals (`Hispa`, `Stem_Borer`, `Leaf_Folder`, `Brown_Planthopper`), as of 2026-11-07. The ontology conditions without any image are:
 
 | Class | Without images |
 |---|---|
@@ -123,7 +123,7 @@ Every source checked so far, with the outcome and the reason, is recorded in [`C
 | Licence or label to confirm | Kaggle N/P/K images (licence not stated, permission requested; to be removed if refused); Netrokona potassium labels and YUKE-WBC species (expert confirmation) |
 | Candidates not yet imported | Weekly pest surveillance with weather, Midsayap, Philippines (needs `Scotinophara coarctata` as a new pest); brown planthopper resistance of 218 landraces; Sentinel-1 phenology table, Indramayu (licence "Custom"); UAV multispectral time series (no disease labels) |
 | Per-image content beyond the label | Expert image annotation; lesion boxes (RiceLeafDiseaseBD, Mendeley) |
-| Text | IRRI Rice Knowledge Bank, 19 fact sheets, 296 passages (2026-10-22). 77 curated assertions carry the passage that states them; the wording is in [`Text Modality/`](Text%20Modality/) under CC BY-NC-SA 3.0. Further text from CC BY papers is still open |
+| Text | IRRI Rice Knowledge Bank, 19 fact sheets, 296 passages (2026-10-22). 84 curated assertions carry the passage that states them; the wording is in [`Text Modality/`](Text%20Modality/) under CC BY-NC-SA 3.0. Further text from CC BY papers is still open |
 | Comparison with an existing ontology | Done for RiceDO v2 + TreatO v2 (2026-10-19): 23 mappings applied; TreatO's product–disease links not imported (no source per axiom; licence not stated in the files) |
 
 Sources under CC BY-SA would go into a separate module brought in through `owl:imports`, so the core stays CC BY 4.0. The IRRI passage wording (CC BY-NC-SA 3.0) is such a module: `Text Modality/RiceMMKG_IRRI_text.ttl`; the core holds only pointers (offsets, sha256) to it.
@@ -158,42 +158,22 @@ Measured 2026-10-15. CQ-17 and CQ-18 were extended and CQ-26 was added on 2026-1
 
 ## Roadmap
 
-**Status (2026-09-30):** ESWC 2027 is no longer the target venue, and a new one has not been chosen. The six phases below were planned against the ESWC 2027 Resource Track; their order still holds, but dates in Phases 4–6 will be re-planned once the venue is set. Details: [`Ontology/riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md) (revised 2026-09-14).
+**Done (0.7.0-dev):**
+- **Namespace:** w3id PURL `https://w3id.org/ricemmkg` live since 2026-09-16, namespace rewritten, maintenance plan in [`MAINTENANCE.md`](MAINTENANCE.md).
+- **Schema:** plant parts, transmission mode, management category, abiotic causes, varieties and resistance assessments, all with a source per axiom.
+- **Data:** nine sources and four observation channels, frozen on 2026-10-16 (tag `data-freeze-2026-10`). A new source is admitted only if it closes a gap listed under [Modality Coverage & Data Gaps](#modality-coverage--data-gaps-070-dev).
+- **Alignment:** AGROVOC, NCBI Taxonomy, Plant Ontology, SOSA, RiceDO v2 and TreatO v2.
+- **Text layer:** IRRI Rice Knowledge Bank passages as a separate CC BY-NC-SA module, linked from the provenance axioms.
 
-**Status (2026-10-15): target venue SIGIR 2027**, set by the supervisor. As an information retrieval venue it needs a retrieval evaluation beyond the coverage-based CQ benchmark: query sets with relevance judgements, standard metrics (nDCG@k, Recall@k, MRR) and baselines with and without the knowledge graph. Track (full paper or Resource & Reproducibility) and deadline are still to be confirmed; the phases below will be re-planned against them. **Update 2026-10-26:** full paper track (abstract 2027-01-14, paper 2027-01-21, official call, still marked proposed), with a retrieval method as the main contribution: KG-grounded coarse-to-fine retrieval on a Rice KB-VQA benchmark. A Resource & Reproducibility paper is the fallback if that track is announced. Method, evaluation and schedule: the paper plan in the separate benchmark repository (see below).
+**Open:**
+1. **Labels and licences:** the Kaggle licence request, expert checks of the Netrokona and YUKE-WBC labels, and decision 5 on the white and black stem borer images (still `annotatedAs Deadheart`).
+2. **Expert input:** the severity → action mapping (CQ-13) and the image annotation package for abiotic disorders and sheath blight.
+3. **Release v0.7.0:** pyLODE or Widoco documentation at the PURL (the browser redirect then points to it), FOOPS! and OOPS! checks, Zenodo DOI, AgroPortal.
+4. **Toward v1.0:** expert validation of the elicited CQs (weighted κ or Krippendorff's α), and a smaller ontology file served at the namespace, with the image observations distributed separately.
 
-**Status (2026-10-16): data collection frozen** at the state tagged `data-freeze-2026-10` (nine sources, four observation channels; 321,451 asserted triples; benchmark 21 PASS / 4 PARTIAL / 1 FAIL / 1 DOC). A new source is admitted only if it closes a gap listed in the open points above. Still running meanwhile: the Kaggle licence request, expert checks of the Netrokona and YUKE-WBC labels, and decision 5 on the stem borer images. Work moves to ontology mapping, starting with the comparison with RiceDO v2 and TreatO v2; text extraction follows after mapping.
+The history of each change is in the changelog, [`Ontology_Overview.md`](Ontology/Ontology_Overview.md); the earlier phase plan is in [`riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md).
 
-**Status (2026-11-06): retrieval experiments.** On 2026-11-07 the retrieval benchmark (splits, scripts, results, `design_v2.md`) and the paper plan moved to a separate repository, `RiceMMKG-Benchmark`. It uses this repository as the git submodule `kg/`, pinned to the version the experiments use. This repository keeps the ontology, its modules and its permanent IRIs.
-- **Splits.** Split v2 groups photos by capture session, and the query-time graph excludes dev and test photos.
-- **KG for disease identification: not helpful.**
-  - Re-ranking with VLM symptom triples gives no significant gain (checkpoint 1 not met).
-  - The cause is symptom perception. Only 24% of the photos of sick plants yield a matching symptom.
-  - Five open-weight VLMs cannot read lesion shape, the feature that separates blast from brown spot.
-  - IKRL-style graph embeddings, re-run on split v2 with a capacity control, add nothing over the image features.
-- **KG for evidence retrieval: helpful.** The route with the KG beats the route without it in every column.
-- **Venue.** IEEE Access was proposed on 2026-11-05. If it is chosen, the paper centres on evidence retrieval.
-
-**Next steps (data collection, 2026-10-16):**
-1. Collect the candidate datasets, starting with pest images, and verify licence and access.
-2. Analyse them: classes, image counts, and which ontology individuals they match.
-3. Map them to the current ontology, including a `Deadheart` → `Stem_Borer` link.
-4. Send the expert annotation package to cover abiotic disorders and sheath blight.
-
-The original six phases:
-
-1. **Phase 1: Functional & Reasoning Evaluation (Weeks 1–2, Sept) — [done: v0.6.1]**  
-   25 benchmark CQs (95.8% pass rate, 0 FAIL), 19 of 25 elicited CQs queried against a frozen baseline, HermiT consistency, OWL RL materialisation.
-2. **Phase 2: Namespace & Release Scaffolding → v0.7 (Weeks 3–4, Sept)**  
-   Register the w3id PURL and rewrite the namespace early, before more artefacts embed the old IRIs; close the maintenance plan; send the expert questionnaire and image annotation sample; release v0.7.0.
-3. **Phase 3: Modality Checkpoint, Grounding & Schema → v0.8 (Weeks 5–8, Late Sept & Oct)**  
-   Decide whether sensor and genomic data enter the submission (open decision); symptom-level image grounding from expert annotation; literature-backed schema (plant part, transmission mode, management category).
-4. **Phase 4: Expert Validation & Analysis → v0.9 with Phase 5 (Late Oct & Early Nov)**  
-   Ordinal agreement (weighted κ / Krippendorff's α) on the elicited CQs, independent second screener, separate roadmap-tier instrument.
-5. **Phase 5: Availability & FAIR Finalisation → v0.9 (Early–Mid Nov)**  
-   pyLODE/Widoco documentation at the PURL, FOOPS!/OOPS!, Zenodo DOI and AgroPortal for the final release.
-6. **Phase 6: Resource Paper & Submission → v1.0 (Mid Nov – Early Dec)**  
-   Manuscript, reproducibility package, submission (venue to be decided).
+Retrieval experiments that use this graph are kept in a separate repository, which includes this one as a git submodule pinned to the version used.
 
 ---
 
@@ -223,7 +203,13 @@ Documents may cite paths in these folders as a record of how the work was done. 
 ### In Protégé
 1. Open `Ontology/Rice MMKG.rdf` in Protégé 5.x.
 2. Select **`Reasoner` → `HermiT`** (or `Pellet`).
-3. Press **`Ctrl + R`** (`Start reasoner`). The reasoner will confirm global consistency (0 unsatisfiable classes) and classify 1,442 images under `SymptomaticObservation`.
+3. Press **`Ctrl + R`** (`Start reasoner`). The reasoner will confirm global consistency (0 unsatisfiable classes) and classify 2,544 images under `SymptomaticObservation`.
+
+### Through the permanent IRI
+```bash
+curl -L -H "Accept: application/rdf+xml" https://w3id.org/ricemmkg -o "Rice MMKG.rdf"        # latest (main)
+curl -L https://w3id.org/ricemmkg/0.6.2 -o "Rice MMKG-0.6.2.rdf"                              # a release
+```
 
 ### Programmatic SPARQL Benchmark via Python
 Run the automated benchmark suite with OWL RL deductive closure:
@@ -244,13 +230,12 @@ print(f"Asserted triples loaded: {len(g)}")
 
 ## Citation & License
 
-- **License:** [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
-- **Author:** Muhammad Ariful Furqon (ORCID: [0000-0002-1031-3567](https://orcid.org/0000-0002-1031-3567)), Natthawut Kertkeidkachorn (ORCID: [0000-0003-4527-776X](https://orcid.org/0000-0003-4527-776X))
-Rice MMKG is released under a **Dual-Licensing** framework:
-- **Software, Benchmark Scripts, & Tooling:** [MIT License](LICENSE#part-1-mit-license-software-scripts-and-benchmark-tooling) — open and permissive for programmatic reuse and automation.
-- **Ontology Specification & Knowledge Graph Data:** [Creative Commons Attribution 4.0 International (CC BY 4.0)](LICENSE#part-2-creative-commons-attribution-4-0-international-cc-by-40) — adhering to FAIR data principles for academic and agronomic research.
+**Authors & curators:** Muhammad Ariful Furqon (ORCID: [0000-0002-1031-3567](https://orcid.org/0000-0002-1031-3567)), Natthawut Kertkeidkachorn (ORCID: [0000-0003-4527-776X](https://orcid.org/0000-0003-4527-776X)).
 
-- **Authors & Curators:** Muhammad Ariful Furqon (ORCID: [0000-0002-1031-3567](https://orcid.org/0000-0002-1031-3567)), Natthawut Kertkeidkachorn (ORCID: [0000-0003-4527-776X](https://orcid.org/0000-0003-4527-776X))
+**Licences** (details in [`LICENSE`](LICENSE)):
+- **Ontology and knowledge graph data:** [CC BY 4.0](LICENSE#part-2-creative-commons-attribution-4-0-international-cc-by-40).
+- **Scripts and benchmark tooling:** [MIT](LICENSE#part-1-mit-license-software-scripts-and-benchmark-tooling).
+- **IRRI passage text** (`Text Modality/RiceMMKG_IRRI_text.ttl`): CC BY-NC-SA 3.0, as its source. It is a separate module; the CC BY core holds only pointers to it.
 <!-- - **Cite as:**
   ```bibtex
   @misc{ricemmkg_2026,
