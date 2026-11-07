@@ -2,6 +2,8 @@
 
 **Date:** 2026-11-07. **KG state:** `Ontology/Rice MMKG.rdf`, `owl:versionInfo` 0.7.0-dev, commit `a91126a`. **Status:** read-only inventory for maintainer review. No file other than this one was changed.
 
+**Update 2026-11-07:** the blast and brown spot rows (§3.1, §3.3) were added to the KG in **0.8.0**; see the changelog in `Ontology/Ontology_Overview.md`. The rest of this document describes the 0.7.0-dev state it was written on. The other conditions are still open.
+
 Phase 2 (editing) follows MAINTENANCE.md: a provenance axiom for each assertion, a MINOR version bump, a HermiT check on a copy in a path without spaces, and the CQ benchmarks.
 
 ## 1. Scope and method

@@ -183,6 +183,38 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 
 <!-- Newest first. -->
 
+### 2026-11-07: 0.8.0 — every visual symptom of blast and brown spot stated by IRRI
+
+The retrieval benchmark found that the KG gave blast and brown spot the same leaf symptoms (`Brown Lesion`, `Leaf Spot`), so the two could not be told apart. The symptom inventory (`Analysis and Alignment/Symptom_Inventory_2026-11.md`) lists every visual statement of the IRRI fact sheets for the 17 benchmark conditions, chosen without regard to benchmark scores. This release adds the rows for blast and brown spot; the curator reviewed the draft and approved it. Pre-edit file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-symptom-inventory.rdf`. Script: `Worklog/2026-11-07_symptom_inventory/scripts/merge_symptom_draft.py`. Version 0.7.0 was not tagged; the next tag is `v0.8.0`.
+
+- **Modelling choices** (open questions M1–M5 of the inventory):
+  - each visual feature (shape, centre, margin, halo, size) is its own `Symptom`, and its discriminating wording is in `rdfs:label`, which the benchmark reads;
+  - new individuals for discriminating features; only `Empty_Grain` is reused. The new `Leaf_Death` and `Seedling_Death` are shared, as they are not specific to one disease;
+  - comments are in our own words, so no IRRI wording enters the CC BY core;
+  - organism signs (ooze, insects, eggs) and field patterns are not added.
+- **New `PlantPart`s:** `Leaf_Collar`, `Coleoptile`, `Glume`. No Plant Ontology match yet; it has to be looked up live first.
+- **Brown spot, 12 new symptoms:** small dark brown to purple-brown leaf spot; circular to oval leaf lesion; light brown to grey centre; reddish-brown margin; yellow halo; brown leaf lesion 5–14 mm; pinhead-sized brown spot; circular brown lesion on coleoptile; girdled coleoptile; distorted seedling leaves; dark brown to black spots on glumes; leaf death. Also `Brown_Spot indicatedBy Empty_Grain`.
+- **Blast, 10 new symptoms:** white to grey-green lesion with dark green border (leaf blade and collar); spindle-shaped and diamond-shaped leaf lesion; whitish to grey centre; red-brown or necrotic border; coalescing leaf lesions; collar lesion; seedling death; girdled panicle neck with fallen panicle; broken culm at infected node. Also `indicatedBy Leaf_Death` and `indicatedBy Empty_Grain`.
+- **Provenance:** 25 `indicatedBy` and 24 `affectsPlantPart` assertions, each with an `owl:Axiom`: IRRI source and citation, `evidenceType` literature-curated, `hasEvidencePassage` and `evidencePassageCheck` human-reviewed. The yellow halo cites the blast (leaf and collar) sheet, the only one that states it.
+- **Unchanged:** the CABI-sourced `Brown_Lesion`, `Leaf_Spot` and `Wilting` on blast and brown spot (a question for the domain expert), and the provenance issues listed in §6.4 of the inventory.
+- **Result on the leaf:** blast and brown spot shared all their leaf symptoms; now brown spot has 10 and blast 7 of their own. They still share `Brown Lesion`, `Leaf Spot` and `leaf death`. IRRI states a grey centre and a reddish-brown border for both, so the separating features are shape, the yellow halo, the early colour and the size.
+- **Checks:**
+  - **Triples:** the merged graph is the backup plus the 639 triples of the draft and the version change, nothing else;
+  - **Axioms:** 426 axioms = 426 domain assertions; no duplicates or orphans;
+  - **Reasoner:** HermiT consistent, 0 unsatisfiable classes. The control (`Leaf_Collar` also typed `Disease`) is reported inconsistent.
+- **Benchmark, against a run on the pre-edit file:** verdicts unchanged at **21 PASS / 4 PARTIAL / 1 FAIL / 1 DOC**. The counts that moved:
+  - **CQ-04:** 43 → 65 symptoms, all with a plant part;
+  - **CQ-11:** 302 → 554 disease–factor–symptom–treatment rows;
+  - **CQ-15:** 179 → 204 entailed;
+  - **CQ-18:** 3/43 → 3/65 symptoms grounded by images (7.0 % → 4.6 %, still PARTIAL);
+  - **CQ-21:** 377/377 → 426/426.
+  - **Elicited CQs:** unchanged at 10 / 7 / 2.
+    - CQ-A17 (what separates brown spot from blast) now lists 26 unique symptoms, up from 5, and 5 shared, up from 3. Its note was rewritten, because the old one said lesion shape was not modelled.
+    - **CQ-A04** (diseases sharing symptoms with brown spot): 4 → 9 sharing conditions, 5 → 26 discriminating symptoms.
+    - **CQ-A21:** symptoms with no image evidence 40 → 62.
+    - **CQ-A22:** 4 → 17 candidate rows for the multispectral brown spot capture.
+- **Result:** 325,302 asserted / 626,037 OWL RL triples.
+
 ### 2026-10-28: 0.7.0-dev — `Deadheart` is a symptom of stem borer, not a disease
 
 A rice domain expert consulted by the project said that deadheart (*sundep*) is a symptom: the central shoot dies because stem borer larvae have cut it. The curator added that `Dead_Tiller` is broader, the death of a whole tiller from several causes. This reverses the v0.6 retyping of `Deadheart` as `Disease`. Pre-edit file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-deadheart-symptom.rdf`. Script: `Worklog/2026-10-28_deadheart_symptom/scripts/retype_deadheart.py`.
