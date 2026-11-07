@@ -53,7 +53,7 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **325,302** (asserted) / **626,037** (OWL RL) | 0.8.0, measured 2026-11-07; 0.7.0-dev on 2026-10-28: 324,663 / 625,056. +300,393 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Total triples** | **325,291** (asserted) / **626,024** (OWL RL) | 0.8.1, measured 2026-11-07; 0.8.0: 325,302 / 626,037; 0.7.0-dev on 2026-10-28: 324,663 / 625,056. +300,393 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
 | **Named classes** | 31 | 30 in the `rice:` namespace — 29 primitive (incl. `TextDocument` and `TextPassage`, 2026-10-22; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment`, `ResistanceLevel`, `TrapObservation`, `SpectralBand` and `BandImage`, 0.7.0-dev) and 1 defined class (`SymptomaticObservation`) — plus `dcat:Dataset`. Recounted 2026-10-15; the row read 23 although the version table already gave 26 |
 | **Object properties** | 44 | `hasBandImage` and `ofBand` added 2026-10-14; `hasAffectedPart` added 2026-10-21, entailed by property chains, range only; `inDocument` and `mentions` (domain only) added 2026-10-22. All others declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `assessedVariety`/`hasResistanceAssessment`, `assessedAgainst`, `hasResistanceLevel`, `ofVariety`, `hasSpatialLocation` (0.7.0-dev) |
 | **Datatype properties** | 32 | `startOffset`, `endOffset`, `textSha256`, `sectionTitle`, `passageText` (text layer, 2026-10-22; `passageText` asserted only in text modules), `centreWavelengthNm`, `hasCatchCount`, `recordedUntilDate`, `testedPopulation`, `testedLocation`, `reportedYear`, `plantAgeDays`, `sourceLabel`, `environmentCondition`, the sensor / remote-sensing measurements, `recordedAtDate`, `hasLatitude`, `hasLongitude`, `hasElectricalConductivity` and `hasOrganicCarbon` added in 0.7.0-dev |
@@ -175,13 +175,51 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | 0.7.0-dev (+ text layer, IRRI passages as evidence) | 2026-10-22 | 324,616 (628,516 OWL RL) | 31 | 44 | 36,618 | 377 axioms / 377 assertions + 15 assessments; 77 axioms with an evidence passage |
 | 0.7.0-dev (+ 7 assertions found by text grounding) | 2026-10-22 | 324,701 (628,650 OWL RL) | 31 | 44 | 36,620 | 384 axioms / 384 assertions + 15 assessments; 84 axioms with an evidence passage |
 | 0.7.0-dev (`Deadheart` a symptom of stem borer) | 2026-10-28 | 324,663 (625,056 OWL RL) | 31 | 44 | 36,620 | 377 axioms / 377 assertions + 15 assessments; 84 axioms with an evidence passage |
-| **0.8.0 (+ blast and brown spot symptoms from the symptom inventory)** | **2026-11-07** | **325,302** (626,037 OWL RL) | **31** | **44** | **36,645** | **426 axioms / 426 assertions + 15 assessments; 133 axioms with an evidence passage** |
+| 0.8.0 (+ blast and brown spot symptoms from the symptom inventory) | 2026-11-07 | 325,302 (626,037 OWL RL) | 31 | 44 | 36,645 | 426 axioms / 426 assertions + 15 assessments; 133 axioms with an evidence passage |
+| **0.8.1 (symptom labels without condition names; four provenance links fixed)** | **2026-11-07** | **325,291** (626,024 OWL RL) | **31** | **44** | **36,645** | **424 axioms / 424 assertions + 15 assessments; 134 axioms with an evidence passage** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-11-07: 0.8.1 — symptom labels without condition names; four provenance links fixed
+
+PATCH: no class, property or individual added, and no change to which conditions have which symptoms. Pre-edit file: `Backup/Rice MMKG.backup-0.8.0-pre-0.8.1.rdf`. Script: `Worklog/2026-11-07_patch_0.8.1/scripts/patch_0_8_1.py`.
+
+- **Symptom labels.** The retrieval benchmark builds CLIP prompts from symptom labels, so a label that contains a condition's name leaks the answer into the prompt.
+  - **How they were found:** every symptom label and `skos:altLabel` was checked against the labels and altLabels of every disease, pest, disorder and health status, by full name and by distinctive word.
+  - **Three hits.** IRIs are kept, so no link breaks.
+
+  | Symptom | Old label → new label | Old label kept? |
+  |---|---|---|
+  | `Pinhead_Brown_Spot` (brown spot) | "pinhead-sized brown spot" → "pinhead-sized brown lesion" | Dropped: not the source's term (IRRI: "the lesions are brown and pinhead-sized") |
+  | `Panicle_Blast` (blast) | "panicle blast" → "greyish-brown neck lesion" (from its comment and `blast-node-neck_p6`: "Lesions on the neck are grayish brown") | Dropped: names a form of the disease, not what is seen; IRRI says "neck blast", not "panicle blast" |
+  | `Dusty_Brown_Spot` (zinc deficiency) | "dusty brown spots on upper leaves" → "dusty brown flecks on upper leaves" | Kept as `skos:altLabel`: it is the IRRI zinc sheet's wording. The benchmark does not read altLabels |
+
+  - **Not a hit:** `Hopper_Burn` contains "hopper", but the distinctive word of Brown_Planthopper is "planthopper", and "hopperburn" is IRRI's term for the symptom. Left unchanged.
+- **Provenance** (inventory §6.4, items 1–4). Each assertion either got an IRRI passage that states it, or lost the wrong source.
+  1. **`Brown_Leaf_Tip affectsPlantPart Leaf_Blade` — removed, with its axiom.** It cited the IRRI rice-hispa sheet, which never mentions browning. No IRRI passage states brown leaf tips. The CABI hispa datasheet (27270) returned 403 and could not be checked. Now expert question X10.
+  2. **`Brown_Lesion affectsPlantPart Leaf_Blade` — passage added:** `blast-leaf-collar_p8`, in the sheet already cited: "brown spot lesions tend to be more round, brown in color". `LLM-reviewed` until the curator confirms.
+  3. **`Discolored_Panicle affectsPlantPart Panicle` — passage added:** `brown-spot_p10`, in the sheet already cited: "Infected glumes and panicle branches have dark brown to black oval spots or discoloration on the entire surface". `LLM-reviewed` until the curator confirms.
+  4. **`Yellow_Stripe affectsPlantPart Leaf_Blade` — removed, with its axiom and its passage link.** Its only passage, `bacterial-blight_p7`, describes the bacterial blight stripe. No IRRI passage describes the downy mildew stripe, and the CABI datasheet (49243) returned 403. Now expert question X11.
+  - **Consequence:** 63 of the 65 symptoms have a plant part; `Brown_Leaf_Tip` and `Yellow_Stripe` have none.
+- **Version metadata:**
+  - `versionInfo` and `versionIRI` are now 0.8.1;
+  - `owl:priorVersion` is now `…/0.8.0` (v0.8.0 named 0.6.2; see the Tag notes in `MAINTENANCE.md`);
+  - the ontology comment now names 0.6.0 among the resolving version IRIs, and says every later tag resolves.
+- **Documentation:** a line in the 0.8.0 entry said CQ-04 counted symptoms "with a plant part". CQ-04 counts symptoms linked to a disease or pest, so the line was corrected.
+- **Checks:**
+  - **Triples:** the patched graph differs from v0.8.0 only by the triples listed above;
+  - **Axioms:** 424 axioms = 424 domain assertions;
+  - **Reasoner:** HermiT consistent, 0 unsatisfiable classes. The control (`Pinhead_Brown_Spot` also typed `Disease`) is reported inconsistent.
+- **Benchmark against v0.8.0:** verdicts unchanged at **21 PASS / 4 PARTIAL / 1 FAIL / 1 DOC**.
+  - **CQ-21:** 426/426 → 424/424, from the two removed axioms. No other count changed.
+  - **CQ-04** stays 65/65, because both symptoms keep their `indicatedBy` link.
+  - **Elicited CQs:** unchanged at 10 / 7 / 2, with the same rows. The queries return symptom IRIs, not labels.
+- **Result:** 325,291 asserted / 626,024 OWL RL triples.
+- **Commit note:** part of this work was committed and pushed early as `024b56f`, with a generic message and with the unmerged tungro and bacterial leaf blight draft. Published history is not rewritten, so the release commit that follows it carries the description.
 
 ### 2026-11-07: 0.8.0 — every visual symptom of blast and brown spot stated by IRRI
 
@@ -203,7 +241,7 @@ The retrieval benchmark found that the KG gave blast and brown spot the same lea
   - **Axioms:** 426 axioms = 426 domain assertions; no duplicates or orphans;
   - **Reasoner:** HermiT consistent, 0 unsatisfiable classes. The control (`Leaf_Collar` also typed `Disease`) is reported inconsistent.
 - **Benchmark, against a run on the pre-edit file:** verdicts unchanged at **21 PASS / 4 PARTIAL / 1 FAIL / 1 DOC**. The counts that moved:
-  - **CQ-04:** 43 → 65 symptoms, all with a plant part;
+  - **CQ-04:** 43 → 65 symptoms, all linked to a disease or pest (CQ-04 counts `indicatedBy`, not plant parts; this line said "all with a plant part" until 0.8.1);
   - **CQ-11:** 302 → 554 disease–factor–symptom–treatment rows;
   - **CQ-15:** 179 → 204 entailed;
   - **CQ-18:** 3/43 → 3/65 symptoms grounded by images (7.0 % → 4.6 %, still PARTIAL);
