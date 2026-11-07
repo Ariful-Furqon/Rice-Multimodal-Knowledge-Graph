@@ -321,7 +321,7 @@ All on dev, no test data.
 3. **The August 71.1% vs 62.6% should not be cited.** It mixes a leaky split, uncontrolled capacity and weak ResNet features.
 4. **Why the KG has no effect:** the domain triples reach a photo only through its class, and there is no edge from a photo to a symptom. The KG adds no information that the pixels do not already give. This is the same bottleneck as step 2.
 
-### 9.3 Link prediction with photo edges: design, not yet run
+### 9.3 Link prediction with photo edges (run 2026-11-06)
 
 The supervisor's idea: keep the photo node, cut `annotatedAs`, and predict it from the pixels and the photo's other edges.
 
@@ -355,27 +355,39 @@ The supervisor's idea: keep the photo node, cut `annotatedAs`, and predict it fr
 - Variant 5: close to 1.0. It is reported as the leakage table of the analysis (SIGIR plan, section 2, claim 3).
 - Any gain in variants 4 and 5 is a dataset prior or leakage, not domain knowledge.
 
-**Run (2026-11-06, on the Mac, CPU):** `scripts/dev_checks/link_pred_dev.py` → `results/link_pred_dev.md`. Edges come from `Ontology/Rice MMKG.rdf`, because the query-time graph has none for dev photos. Dev main subset, 5 seeds; Δ MRR is against variant 1.
+**Run (2026-11-06, CPU):** `scripts/dev_checks/link_pred_dev.py` → `results/link_pred_dev.md`. Edges come from `Ontology/Rice MMKG.rdf`, because the query-time graph has none for dev photos. Dev main subset, 5 seeds; Δ MRR is against variant 1. Plant age enters as its growth-stage band (the `BANDS` of `step2_field_context.py`). A first run with one-hot raw days gave the same picture (variant 3: −0.018 MRR); the numbers below are the re-run with bands, which reproduces variants 1, 2, 4 and 5 of the first run to within 0.002 MRR.
 
-| Variant | In-source R@1 | Δ MRR | Seeds > 0 | Cross-source R@1 | Δ MRR | Seeds > 0 |
-|---|---:|---:|---:|---:|---:|---:|
-| 1 Pixels | 0.612 | | | 0.421 | | |
-| 2 Safe edges | 0.608 | −0.003 | 1/5 | 0.427 | +0.005 | 2/5 |
-| 3 + age, variety | 0.582 | −0.018 | 0/5 | 0.424 | +0.006 | 3/5 |
-| 4 + dataset | 0.608 | −0.002 | 1/5 | 0.428 | +0.009 | 4/5 |
-| 5 + leaking edges | 0.798 | +0.141 | 5/5 | 0.422 | +0.006 | 3/5 |
+Two additions to the design:
+- **3b:** variant 3 trained without early stopping, for exactly the epochs at which variant 1 stopped (same seed and fold). It separates the effect of the inputs from that of the stopping point.
+- **Lookup baseline:** no model, folder name in `contentUrl` → majority train gold.
+
+| Variant | In-source R@1 | Δ MRR | Seeds > 0 | Stop epoch | Cross-source R@1 | Δ MRR | Seeds > 0 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 1 Pixels | 0.612 | | | 341 | 0.421 | | |
+| 2 Safe edges | 0.609 | −0.002 | 2/5 | 303 | 0.427 | +0.005 | 2/5 |
+| 3 + age, variety | 0.594 | −0.011 | 0/5 | 131 | 0.417 | +0.001 | 3/5 |
+| 3b = 3, epochs of 1 | 0.613 | −0.001 | 2/5 | 341 | 0.411 | −0.005 | 2/5 |
+| 4 + dataset | 0.608 | −0.002 | 1/5 | 286 | n/a | | |
+| 5 + leaking edges | 0.798 | +0.141 | 5/5 | 399 | 0.422 | +0.005 | 3/5 |
+| Lookup, folder name | 1.000 | | | | 0.000 | | |
+
+Variant 4 is not run cross-source: the held-out dataset's one-hot column is never set in training, so it would equal variant 2.
 
 **Reading:**
 1. **No photo edge helps.** In-source, variants 2–4 are at or below pixels only. Cross-source, the gains are below 0.01 MRR and not consistent across seeds.
 2. **The "safe" edges are dataset markers.**
    - Each one occurs in one or two datasets only: date and location in Kaggle and YUKE-WBC, background in Dhan-Shomadhan, age and variety in Paddy Doctor.
    - Its presence alone tells the dataset, which the pixels already give (0.993, section 4).
-3. **Age and variety hurt in-source (−0.018 MRR, 0 of 5 seeds).** The Paddy Doctor capture groups are defined by (label, variety, age), so in train these values identify a session and with it the label. Dev sessions are different groups, so the shortcut fails and costs accuracy. This confirms that the capture groups do their job.
+3. **Age and variety cost accuracy only through early stopping.**
+   - Variant 3 is lower in-source (−0.011 MRR, 0 of 5 seeds), and the loss falls mostly on the datasets that have *no* age or variety edge: Dhan-Shomadhan 0.692 → 0.643, Kaggle 0.927 → 0.882, Stem Borer BD 0.983 → 0.952, against Paddy Doctor 0.530 → 0.517. Their input is unchanged, so the cause is the training, not the features.
+   - With these inputs, validation accuracy peaks early (epoch 131 on average, against 341 for pixels), and the kept model is under-trained for every dataset.
+   - Trained for variant 1's epochs (3b), the loss disappears (−0.001 MRR, 0.613 R@1, every dataset back at its pixels-only level). Age and variety are neutral, not harmful, and they add nothing.
+   - A likely reason for the early peak: the Paddy Doctor capture groups are defined by (label, variety, age), so in train these values identify a session and with it the label. The head fits that shortcut first, and it does not carry over to the validation groups.
 4. **Leakage is large in-source.**
    - With the leaking edges the head reaches 0.798 R@1 (+0.14 MRR).
-   - This underestimates the leak: a lookup from the folder name in `contentUrl` to the majority train gold gives **R@1 1.000** on all 2,882 dev photos. The head does not fully use the one-hot features next to 768 CLIP dimensions.
+   - This underestimates the leak: the lookup from the folder name in `contentUrl` to the majority train gold gives **R@1 1.000** on all 2,882 dev photos (computed in the same script). The head does not fully use the one-hot features next to 768 CLIP dimensions.
    - Every dataset except Dhan-Shomadhan has `sourceLabel`, and it maps one-to-one to the gold.
-5. **Cross-source the leak does not transfer.** The label strings differ between datasets ("blast" vs "Rice_Blast"), so an unseen dataset's strings mean nothing to the model. A cross-source result therefore cannot be inflated in this way. An in-source result can be.
+5. **Cross-source the leak does not transfer.** The label strings differ between datasets ("blast" vs "Rice_Blast"), so an unseen dataset's strings mean nothing to the model: no held-out folder occurs in training, and the lookup scores 0.000. A cross-source result therefore cannot be inflated in this way. An in-source result can be.
 6. **Conclusion for the supervisor's idea:**
    - Link prediction on the photo node gains nothing from the graph once `annotatedAs` and its string copies are cut.
    - The domain triples do not reach the photo (9.2), and the photo's own edges are dataset or session markers.

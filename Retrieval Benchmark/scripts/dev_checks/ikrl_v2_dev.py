@@ -78,19 +78,23 @@ class Head(nn.Module):
         return out
 
 
-def fit(x_tr, y_tr, x_va, y_va, n, class_emb, seed, epochs=400):
+def fit(x_tr, y_tr, x_va, y_va, n, class_emb, seed, epochs=400, info=None):
+    """Train with early stopping on val accuracy. If `info` is a dict, the best epoch
+    (1-based) and its val accuracy are written to it."""
     torch.manual_seed(seed)
     m = Head(x_tr.shape[1], n, class_emb)
     opt = torch.optim.Adam(m.parameters(), lr=1e-3, weight_decay=1e-4)
-    best, state = -1.0, None
-    for _ in range(epochs):
+    best, state, best_ep = -1.0, None, 0
+    for ep in range(epochs):
         m.train(); opt.zero_grad()
         nn.functional.cross_entropy(m(x_tr), y_tr).backward(); opt.step()
         m.eval()
         with torch.no_grad():
             acc = (m(x_va).argmax(1) == y_va).float().mean().item()
         if acc > best:
-            best, state = acc, {k: v.clone() for k, v in m.state_dict().items()}
+            best, state, best_ep = acc, {k: v.clone() for k, v in m.state_dict().items()}, ep + 1
+    if info is not None:
+        info.update(epoch=best_ep, val_acc=best)
     m.load_state_dict(state); m.eval()
     gate = float(nn.functional.softplus(m.log_lam)) if m.kg else None
     return m, gate
