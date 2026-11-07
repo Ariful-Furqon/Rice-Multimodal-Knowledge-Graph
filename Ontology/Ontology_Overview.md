@@ -45,7 +45,7 @@ modality class is named `ImageObservation` (not `LeafImage`) since the
 2026-08-19 cleanup round — the old name was factually wrong for the part
 of the corpus that isn't a leaf (panicle blight, deadheart).
 
-**License:** CC BY 4.0. **Creator:** Muhammad Ariful Furqon (ORCID 0000-0002-1031-3567), Natthawut Kertkeidkachorn (ORCID 0000-0003-4527-776X). **Version:** `0.7.0-dev` (in development since 2026-09-15; last release `0.6.2`; pre-release progression: `v0.1` → `v0.2` → `v0.3` → `v0.4` → `v0.5` → `v0.6` → `v0.6.1` → `v0.6.2`; git tags `elicited-baseline-v0.6`, `v0.6.1`, `v0.6.2`).
+**License:** CC BY 4.0. **Creator:** Muhammad Ariful Furqon (ORCID 0000-0002-1031-3567), Natthawut Kertkeidkachorn (ORCID 0000-0003-4527-776X). **Version:** `0.8.0` (2026-11-07; progression: `v0.1` → `v0.2` → `v0.3` → `v0.4` → `v0.5` → `v0.6` → `v0.6.1` → `v0.6.2` → `v0.7.0` → `v0.8.0`; git tags `v0.6.0` (= `elicited-baseline-v0.6`), `v0.6.1`, `v0.6.2`, `v0.7.0` (= `data-freeze-2026-10`, file reads `0.7.0-dev`), `v0.8.0`).
 
 ---
 
@@ -185,7 +185,7 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 
 ### 2026-11-07: 0.8.0 — every visual symptom of blast and brown spot stated by IRRI
 
-The retrieval benchmark found that the KG gave blast and brown spot the same leaf symptoms (`Brown Lesion`, `Leaf Spot`), so the two could not be told apart. The symptom inventory (`Analysis and Alignment/Symptom_Inventory_2026-11.md`) lists every visual statement of the IRRI fact sheets for the 17 benchmark conditions, chosen without regard to benchmark scores. This release adds the rows for blast and brown spot; the curator reviewed the draft and approved it. Pre-edit file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-symptom-inventory.rdf`. Script: `Worklog/2026-11-07_symptom_inventory/scripts/merge_symptom_draft.py`. Version 0.7.0 was not tagged; the next tag is `v0.8.0`.
+The retrieval benchmark found that the KG gave blast and brown spot the same leaf symptoms (`Brown Lesion`, `Leaf Spot`), so the two could not be told apart. The symptom inventory (`Analysis and Alignment/Symptom_Inventory_2026-11.md`) lists every visual statement of the IRRI fact sheets for the 17 benchmark conditions, chosen without regard to benchmark scores. This release adds the rows for blast and brown spot; the curator reviewed the draft and approved it. Pre-edit file: `Backup/Rice MMKG.backup-0.7.0-dev-pre-symptom-inventory.rdf`. Script: `Worklog/2026-11-07_symptom_inventory/scripts/merge_symptom_draft.py`. Tagged `v0.8.0`. `v0.7.0` was tagged afterwards at the data-freeze commit of 2026-10-16; the 0.7.0-dev changes made after the freeze (text layer, `Deadheart`) first appear in this release.
 
 - **Modelling choices** (open questions M1–M5 of the inventory):
   - each visual feature (shape, centre, margin, halo, size) is its own `Symptom`, and its discriminating wording is in `rdfs:label`, which the benchmark reads;

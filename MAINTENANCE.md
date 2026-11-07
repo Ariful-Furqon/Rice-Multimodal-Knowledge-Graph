@@ -49,7 +49,8 @@ Each version number names exactly one content state: a change is never folded si
 
 - **Minor releases follow the phases of the ESWC plan** (decided 2026-09-17): **v0.7** closes Phase 2 (namespace and release scaffolding), **v0.8** closes Phase 3 (multimodal: modality checkpoint, grounding, schema), **v0.9** closes Phases 4 and 5 (expert validation and FAIR finalisation), and **v1.0** is the version submitted to ESWC 2027.
 - **Revised 2026-11-07** (replaces the map above):
-  - **0.7:** scaffolding and modalities (image and text the strongest). Never tagged; its content is in v0.8.0.
+  - **v0.7.0:** scaffolding and modalities (image and text the strongest). Tagged on 2026-11-07 at the data-freeze commit of 2026-10-16 (same commit as `data-freeze-2026-10`; the file there reads `0.7.0-dev`). The 0.7.0-dev work after the freeze (text layer, `Deadheart` as a symptom) is in v0.8.0.
+  - **v0.6.0:** tagged on 2026-11-07 at the v0.6 release of 2026-09-03 (same commit as `elicited-baseline-v0.6`). The descriptive tags are kept, because tags are never deleted and documents cite them.
   - **v0.8.0** (tagged 2026-11-07): the symptom inventory, and the visual symptoms of blast and brown spot.
   - **0.8 → v0.9: benchmark.** The changes the retrieval benchmark needs from the KG: the rest of the symptom inventory, its provenance fixes and the missing sources.
   - **0.9 → v1.0: FAIR and finalisation.** Documentation at the PURL, FOOPS!/OOPS!, Zenodo DOI, AgroPortal, a smaller distribution file and expert validation of the elicited CQs.
@@ -66,6 +67,22 @@ Each version number names exactly one content state: a change is never folded si
 5. Commit, create an annotated tag `v<version>` on that commit, and push the commit and the tag.
 
 **Tags are permanent.** Version IRIs resolve through them, so a tag is never moved, deleted or rewritten, and published history is not rewritten.
+
+## Tag notes
+
+Exceptions to the rules above, recorded on 2026-11-07. The tagged files cannot be changed, so each one is explained here instead.
+
+| Tag | Commit | What differs | Why |
+|---|---|---|---|
+| `v0.6.0` | `a2bff71` (= `elicited-baseline-v0.6`) | The file reads `versionInfo 0.6` and `versionIRI http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG/0.6`, not `0.6.0` | Tagged on 2026-11-07 for the v0.6 release of 2026-09-03, which predates the three-part version numbers and the w3id namespace |
+| `v0.7.0` | `3c99091` (= `data-freeze-2026-10`) | The file reads `versionInfo 0.7.0-dev`. The release checklist was not run as a release; the data-freeze baseline of both CQ instruments (changelog, 2026-10-17 to 2026-10-19) is its nearest equivalent | Tagged on 2026-11-07 at the data freeze of 2026-10-16, which closed the modality phase. The 0.7.0-dev work after the freeze (text layer, `Deadheart` as a symptom) is in `v0.8.0` |
+| `v0.8.0` | `d2888bb` | The file names `owl:priorVersion` `https://w3id.org/ricemmkg/0.6.2`, not `…/0.7.0` | `v0.7.0` was tagged after `v0.8.0`. The prior version is `…/0.7.0`, not "0.7.0-dev": `owl:priorVersion` takes a version IRI that resolves to one fixed file, and 0.7.0-dev named many changing states. `…/0.7.0` resolves to the frozen one, whose file reads `0.7.0-dev` |
+
+**Fix in 0.9.0-dev:**
+- set `owl:priorVersion` to `0.8.0`;
+- update the ontology's `rdfs:comment`, which still names only 0.6.1 and 0.6.2 as resolving version IRIs. Every tag from `v0.6.0` to `v0.8.0` now resolves.
+
+**Descriptive tags:** `elicited-baseline-v0.6` and `data-freeze-2026-10` are kept next to `v0.6.0` and `v0.7.0`, because documents cite them. Their names do not match the version pattern, so they have no w3id IRI.
 
 ## Backups
 

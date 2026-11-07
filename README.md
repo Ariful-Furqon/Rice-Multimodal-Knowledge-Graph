@@ -18,7 +18,7 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 
 - **Namespace:** `https://w3id.org/ricemmkg#` — permanent identifier, live since 2026-09-16; version IRIs `https://w3id.org/ricemmkg/<version>` (releases up to v0.6.2 used `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#`)
 - **Format:** OWL/XML (`.rdf`), fully compatible with [Protégé](https://protege.stanford.edu/)
-- **Version:** `0.8.0` on `main` (2026-11-07, to be tagged `v0.8.0`; the 0.7.0-dev state was never tagged; last release `v0.6.2`, 2026-09-15; git tags `v0.6.1`, `v0.6.2`; v0.6 released 2026-09-03). The data state used by downstream experiments is tagged `data-freeze-2026-10`.
+- **Version:** `0.8.0` (tag `v0.8.0`, 2026-11-07). Earlier tags: `v0.7.0` (the data freeze of 2026-10-16, same commit as `data-freeze-2026-10`; the file there reads `0.7.0-dev`), `v0.6.2` and `v0.6.1` (2026-09-15), and `v0.6.0` (the v0.6 release of 2026-09-03, same commit as `elicited-baseline-v0.6`). Every tag `v<version>` resolves at `https://w3id.org/ricemmkg/<version>`. The data state used by downstream experiments is `v0.7.0` / `data-freeze-2026-10`.
 - **Triples:** **324,663** asserted triples (measured 2026-11-07) / **628,650** materialised triples under OWL RL (measured 2026-10-22); the rise from 68,204 is the Paddy Doctor IEEE release, Dhan-Shomadhan images, the first sensor observations, the YUKE-WBC planthopper images, the stem borer symptom images, the nutrient deficiency images, the light-trap catches, the multispectral captures and 41 alignment links to SOSA, RiceDO and TreatO; v0.6.2: 66,802 / 161,447
 - **Reasoner Consistency:** **100% Consistent** in HermiT & Pellet (0 unsatisfiable classes, 0 disjointness conflicts)
 
@@ -159,7 +159,7 @@ Measured 2026-10-15; rechecked on 0.8.0 on 2026-11-07 with the same verdicts (CQ
 
 ## Roadmap
 
-**Done in 0.7 (scaffolding and modalities; developed as 0.7.0-dev, never tagged, carried into 0.8.0):**
+**Done in v0.7.0 (scaffolding and modalities; tagged at the data freeze of 2026-10-16; the 0.7.0-dev work after the freeze is in v0.8.0):**
 - **Namespace:** w3id PURL `https://w3id.org/ricemmkg` live since 2026-09-16, namespace rewritten, maintenance plan in [`MAINTENANCE.md`](MAINTENANCE.md).
 - **Schema:** plant parts, transmission mode, management category, abiotic causes, varieties and resistance assessments, all with a source per axiom.
 - **Modalities:** nine sources and four observation channels, frozen on 2026-10-16 (tag `data-freeze-2026-10`). Image and text are the strongest modalities; sensor, light-trap and multispectral data are thin. A new source is admitted only if it closes a gap listed under [Modality Coverage & Data Gaps](#modality-coverage--data-gaps-070-dev).
