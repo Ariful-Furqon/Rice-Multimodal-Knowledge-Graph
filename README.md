@@ -166,20 +166,24 @@ Measured 2026-10-15; rechecked on 0.8.0 on 2026-11-07 with the same verdicts (CQ
 - **Alignment:** AGROVOC, NCBI Taxonomy, Plant Ontology, SOSA, RiceDO v2 and TreatO v2.
 - **Text layer:** IRRI Rice Knowledge Bank passages as a separate CC BY-NC-SA module, linked from the provenance axioms.
 
-**0.8 (the KG as the benchmark needs it):**
-- **Done:** the symptom inventory of the 17 benchmark conditions (`Analysis and Alignment/Symptom_Inventory_2026-11.md`), and every visual symptom of blast and brown spot stated by IRRI (0.8.0, 2026-11-07).
-- **Open:**
-  1. the inventory rows for the other conditions (tungro, bacterial leaf blight and streak, sheath blight, hispa, leaffolder, stem borer, brown planthopper);
-  2. the provenance issues of the inventory's §6.4;
-  3. sources for the three diseases without an IRRI fact sheet (leaf scald, downy mildew, bacterial panicle blight);
-  4. the Normal_Health decision;
-  5. Plant Ontology lookup for `Leaf_Collar`, `Coleoptile` and `Glume`.
+**Done in v0.8.0 (tagged 2026-11-07):** the symptom inventory of the 17 benchmark conditions (`Analysis and Alignment/Symptom_Inventory_2026-11.md`), and every visual symptom of blast and brown spot stated by IRRI.
 
-**Open, not tied to 0.8:**
+**Toward v0.9: the KG as the benchmark needs it**
+1. the inventory rows for the other conditions (tungro, bacterial leaf blight and streak, sheath blight, hispa, leaffolder, stem borer, brown planthopper);
+2. the provenance issues of the inventory's §6.4;
+3. sources for the three diseases without an IRRI fact sheet (leaf scald, downy mildew, bacterial panicle blight);
+4. the Normal_Health decision;
+5. Plant Ontology lookup for `Leaf_Collar`, `Coleoptile` and `Glume`;
+6. the domain-expert questions of the symptom inventory (§7.4).
+
+**Toward v1.0: FAIR and finalisation**
+1. **Release tooling:** pyLODE or Widoco documentation at the PURL (the browser redirect then points to it), FOOPS! and OOPS! checks, Zenodo DOI, AgroPortal.
+2. **Distribution:** a smaller ontology file served at the namespace, with the image observations distributed separately.
+3. **Validation:** expert validation of the elicited CQs (weighted κ or Krippendorff's α).
+
+**Open, not tied to a version:**
 1. **Labels and licences:** the Kaggle licence request, expert checks of the Netrokona and YUKE-WBC labels, and decision 5 on the white and black stem borer images (still `annotatedAs Deadheart`).
-2. **Expert input:** the severity → action mapping (CQ-13), the image annotation package for abiotic disorders and sheath blight, and the domain-expert questions of the symptom inventory (§7.4).
-3. **Release tooling:** pyLODE or Widoco documentation at the PURL (the browser redirect then points to it), FOOPS! and OOPS! checks, Zenodo DOI, AgroPortal.
-4. **Toward v1.0:** expert validation of the elicited CQs (weighted κ or Krippendorff's α), and a smaller ontology file served at the namespace, with the image observations distributed separately.
+2. **Expert input:** the severity → action mapping (CQ-13) and the image annotation package for abiotic disorders and sheath blight.
 
 The history of each change is in the changelog, [`Ontology_Overview.md`](Ontology/Ontology_Overview.md); the earlier phase plan is in [`riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md).
 

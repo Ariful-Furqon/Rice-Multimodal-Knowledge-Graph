@@ -48,7 +48,12 @@ Each version number names exactly one content state: a change is never folded si
 ## Release cadence
 
 - **Minor releases follow the phases of the ESWC plan** (decided 2026-09-17): **v0.7** closes Phase 2 (namespace and release scaffolding), **v0.8** closes Phase 3 (multimodal: modality checkpoint, grounding, schema), **v0.9** closes Phases 4 and 5 (expert validation and FAIR finalisation), and **v1.0** is the version submitted to ESWC 2027.
-- **Revised 2026-11-07:** 0.7 covered the scaffolding and the modalities (image and text the strongest) and was never tagged; its content is carried into 0.8.0. **0.8** holds the changes the retrieval benchmark needs from the KG, starting with the symptom inventory. The plan for v0.9 and v1.0 is unchanged until the target venue is decided.
+- **Revised 2026-11-07** (replaces the map above):
+  - **0.7:** scaffolding and modalities (image and text the strongest). Never tagged; its content is in v0.8.0.
+  - **v0.8.0** (tagged 2026-11-07): the symptom inventory, and the visual symptoms of blast and brown spot.
+  - **0.8 → v0.9: benchmark.** The changes the retrieval benchmark needs from the KG: the rest of the symptom inventory, its provenance fixes and the missing sources.
+  - **0.9 → v1.0: FAIR and finalisation.** Documentation at the PURL, FOOPS!/OOPS!, Zenodo DOI, AgroPortal, a smaller distribution file and expert validation of the elicited CQs.
+  - Development between tags carries `-dev` (e.g. `0.9.0-dev`), as 0.7.0-dev did.
 - **Patch releases are made whenever a verified correction is ready**, with no fixed schedule.
 - After submission, releases continue as needed rather than on a fixed calendar.
 
