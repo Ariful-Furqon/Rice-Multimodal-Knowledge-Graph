@@ -20,7 +20,18 @@
 - **Tungro:** 7 new symptoms, plus `Grain_Discoloration` reused.
 - **Bacterial leaf blight:** 8 new symptoms, plus `Seedling_Death` reused.
 - **Left out, as in 0.8.0:** signs, field patterns and ambiguous rows.
-- **Still open:** the rows of the other conditions.
+
+**Update 2026-11-07 (0.9.0-dev, batch 3):** the rows of the remaining six conditions with an IRRI sheet were added (§3.10, §3.5, §3.14, §3.15, §3.12, §3.17).
+- **New symptoms:** 16 in total, plus `Leaf_Drying`, `Leaf_Death` and `Empty_Grain` reused.
+  - bacterial leaf streak 1; sheath blight 4; hispa 5; leaffolder 3; stem borer 1; brown planthopper 2.
+- **`Hopper_Burn`:** now has a comment describing what it looks like.
+- **Left out:**
+  - signs, field patterns and ambiguous rows;
+  - details already in the comment of an existing symptom: candidates for label refinement, not new symptoms.
+- **Status:** every condition with an IRRI fact sheet is now covered. Still open:
+  - the three diseases without a sheet (§4);
+  - Normal_Health (§5);
+  - decisions M4, M6 and M7.
 
 Phase 2 (editing) follows MAINTENANCE.md: a provenance axiom for each assertion, a MINOR version bump, a HermiT check on a copy in a path without spaces, and the CQ benchmarks.
 

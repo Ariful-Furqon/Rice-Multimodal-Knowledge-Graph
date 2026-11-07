@@ -1,6 +1,6 @@
 # Elicited Competency Questions - SPARQL Results
 
-Generated 2026-11-07 19:18 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 325,703 asserted triples, 626,656 after OWL RL materialisation (100.5s).
+Generated 2026-11-07 19:35 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 326,186 asserted triples, 627,392 after OWL RL materialisation (95.9s).
 
 **19 of the 25 elicited Tier A CQs are queried here** - every one for which RiceMMKG v0.9.0-dev has at least the concept the question turns on. Answerability is measured, not predicted: the Stage 3 `v06_status` column is not used. The remaining 6 ask for a concept v0.9.0-dev does not have at all and are the v0.7 work plan; the status table at the end lists each with its reason.
 
@@ -63,7 +63,7 @@ SELECT ?pathogen ?group ?eppo_code ?external_alignment WHERE {
 }
 ```
 
-1 row(s) in 84.1 ms.
+1 row(s) in 78.6 ms.
 
 | pathogen | group | eppo_code | external_alignment |
 |---|---|---|---|
@@ -79,7 +79,7 @@ SELECT ?pathogen ?group WHERE {
 ORDER BY ?group ?pathogen
 ```
 
-10 row(s) in 3.9 ms.
+10 row(s) in 4.3 ms.
 
 | pathogen | group |
 |---|---|
@@ -134,7 +134,7 @@ SELECT ?vector ?agent ?mode ?disease WHERE {
 ORDER BY ?vector ?agent
 ```
 
-2 row(s) in 4.0 ms.
+2 row(s) in 6.2 ms.
 
 | vector | agent | mode | disease |
 |---|---|---|---|
@@ -160,7 +160,7 @@ SELECT ?symptom ?plant_part ?stage_of_disease WHERE {
 ORDER BY ?symptom ?plant_part ?stage_of_disease
 ```
 
-39 row(s) in 6.9 ms.
+39 row(s) in 6.3 ms.
 
 | symptom | plant_part | stage_of_disease |
 |---|---|---|
@@ -193,7 +193,7 @@ GROUP BY ?other
 ORDER BY DESC(?shared_symptoms)
 ```
 
-9 row(s) in 8.6 ms.
+11 row(s) in 8.4 ms.
 
 | other | shared_symptoms |
 |---|---|
@@ -205,7 +205,7 @@ ORDER BY DESC(?shared_symptoms)
 | rice:Phosphorus_Deficiency_Disorder | 1 |
 | rice:Zinc_Deficiency_Disorder | 1 |
 | rice:Rice_Bug | 1 |
-| *… 1 more rows* | |
+| *… 3 more rows* | |
 
 **Symptoms that discriminate Brown Spot from Rice Blast**
 
@@ -224,7 +224,7 @@ SELECT ?symptom ?present_only_in WHERE {
 ORDER BY ?present_only_in ?symptom
 ```
 
-26 row(s) in 8.8 ms.
+26 row(s) in 9.5 ms.
 
 | symptom | present_only_in |
 |---|---|
@@ -253,7 +253,7 @@ SELECT ?condition WHERE {
 ORDER BY ?condition
 ```
 
-2 row(s) in 1.8 ms.
+2 row(s) in 2.0 ms.
 
 | condition |
 |---|
@@ -270,7 +270,7 @@ GROUP BY ?condition
 ORDER BY DESC(?entities) ?condition
 ```
 
-9 row(s) in 4.8 ms.
+9 row(s) in 5.4 ms.
 
 | condition | entities |
 |---|---|
@@ -301,7 +301,7 @@ SELECT ?stage WHERE {
 ORDER BY ?stage
 ```
 
-2 row(s) in 2.1 ms.
+2 row(s) in 2.0 ms.
 
 | stage |
 |---|
@@ -331,7 +331,7 @@ SELECT ?treatment ?category ?source ?citation WHERE {
 ORDER BY ?treatment
 ```
 
-3 row(s) in 4.8 ms.
+3 row(s) in 5.4 ms.
 
 | treatment | category | source | citation |
 |---|---|---|---|
@@ -355,7 +355,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-2151 row(s) in 41.5 ms.
+2151 row(s) in 48.1 ms.
 
 | image | url |
 |---|---|
@@ -394,7 +394,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 803.7 ms.
+1 row(s) in 705.2 ms.
 
 | image | condition | dataset | title | source | confidence |
 |---|---|---|---|---|---|
@@ -413,7 +413,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 1522.9 ms.
+1 row(s) in 1552.7 ms.
 
 | images | with_source_dataset | with_confidence |
 |---|---|---|
@@ -440,7 +440,7 @@ GROUP BY ?condition ?type
 ORDER BY DESC(?images)
 ```
 
-19 row(s) in 9283.4 ms.
+19 row(s) in 9126.6 ms.
 
 | condition | type | images |
 |---|---|---|
@@ -464,7 +464,7 @@ SELECT ?dataset (COUNT(?image) AS ?images) WHERE {
 GROUP BY ?dataset
 ```
 
-6 row(s) in 248.1 ms.
+6 row(s) in 247.3 ms.
 
 | dataset | images |
 |---|---|
@@ -492,7 +492,7 @@ SELECT ?image ?symptom WHERE {
 }
 ```
 
-1 row(s) in 40.2 ms.
+1 row(s) in 41.4 ms.
 
 | image | symptom |
 |---|---|
@@ -508,7 +508,7 @@ GROUP BY ?symptom
 ORDER BY DESC(?images)
 ```
 
-2 row(s) in 20.9 ms.
+2 row(s) in 21.0 ms.
 
 | symptom | images |
 |---|---|
@@ -534,7 +534,7 @@ GROUP BY ?image ?candidate
 ORDER BY DESC(?support) ?candidate
 ```
 
-1 row(s) in 44.9 ms.
+1 row(s) in 48.0 ms.
 
 | image | candidate | support |
 |---|---|---|
@@ -567,7 +567,7 @@ SELECT ?condition ?distinguishing_symptom WHERE {
 ORDER BY ?condition ?distinguishing_symptom
 ```
 
-26 row(s) in 8.0 ms.
+26 row(s) in 9.3 ms.
 
 | condition | distinguishing_symptom |
 |---|---|
@@ -591,7 +591,7 @@ SELECT ?shared_symptom WHERE {
 ORDER BY ?shared_symptom
 ```
 
-5 row(s) in 2.5 ms.
+5 row(s) in 2.3 ms.
 
 | shared_symptom |
 |---|
@@ -620,7 +620,7 @@ SELECT ?image ?severity WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 559.7 ms.
+0 row(s) in 561.9 ms.
 
 **What the severity levels are used for in v0.9.0-dev**
 
@@ -632,7 +632,7 @@ SELECT ?severity ?recommends WHERE {
 ORDER BY ?severity
 ```
 
-4 row(s) in 3.4 ms.
+4 row(s) in 3.8 ms.
 
 | severity | recommends |
 |---|---|
@@ -659,7 +659,7 @@ SELECT ?image ?symptom_a ?symptom_b WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 107.8 ms.
+0 row(s) in 105.4 ms.
 
 **How many symptoms each annotated image captures**
 
@@ -673,7 +673,7 @@ GROUP BY ?symptoms_per_image
 ORDER BY ?symptoms_per_image
 ```
 
-1 row(s) in 96.3 ms.
+1 row(s) in 93.1 ms.
 
 | symptoms_per_image | images |
 |---|---|
@@ -699,11 +699,11 @@ WHERE {
 GROUP BY ?image_evidence
 ```
 
-2 row(s) in 18764.9 ms.
+2 row(s) in 21715.4 ms.
 
 | image_evidence | symptoms |
 |---|---|
-| no image evidence | 77 |
+| no image evidence | 93 |
 | has image evidence | 3 |
 
 **The symptoms with no image evidence at all**
@@ -717,7 +717,7 @@ SELECT ?symptom WHERE {
 ORDER BY ?symptom
 ```
 
-77 row(s) in 9343.3 ms.
+93 row(s) in 10936.1 ms.
 
 | symptom |
 |---|
@@ -729,7 +729,7 @@ ORDER BY ?symptom
 | rice:Chlorotic_Leaf_Patch |
 | rice:Circular_Oval_Leaf_Lesion |
 | rice:Coalescing_Leaf_Lesions |
-| *… 69 more rows* |
+| *… 85 more rows* |
 
 ### CQ-A22 - Which disease described in the literature matches the condition annotated in a given image?
 
@@ -750,7 +750,7 @@ SELECT ?image ?condition ?symptom ?pathogen WHERE {
 ORDER BY ?symptom
 ```
 
-17 row(s) in 198.9 ms.
+17 row(s) in 180.7 ms.
 
 | image | condition | symptom | pathogen |
 |---|---|---|---|
@@ -774,7 +774,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 813.1 ms.
+1 row(s) in 886.2 ms.
 
 | images_with_literature |
 |---|
@@ -799,7 +799,7 @@ SELECT ?image ?condition ?treatment WHERE {
 ORDER BY ?treatment
 ```
 
-4 row(s) in 1304.1 ms.
+4 row(s) in 1250.3 ms.
 
 | image | condition | treatment |
 |---|---|---|
@@ -817,7 +817,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?images_with_treatment) WHERE {
 }
 ```
 
-1 row(s) in 267.4 ms.
+1 row(s) in 259.9 ms.
 
 | images_with_treatment |
 |---|
@@ -841,7 +841,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-3747 row(s) in 74.0 ms.
+3747 row(s) in 71.1 ms.
 
 | image | url |
 |---|---|
@@ -864,7 +864,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?contradictory_images) WHERE {
 }
 ```
 
-1 row(s) in 19.8 ms.
+1 row(s) in 18.4 ms.
 
 | contradictory_images |
 |---|

@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated": "2026-11-07 19:15",
+    "generated": "2026-11-07 19:33",
     "ontology": "Rice MMKG.rdf",
-    "asserted_triples": 325703,
-    "entailed_triples": 626656,
-    "reasoning_seconds": 110.3,
+    "asserted_triples": 326186,
+    "entailed_triples": 627392,
+    "reasoning_seconds": 107.5,
     "coverage_threshold": 0.5
   },
   "results": [
@@ -21,7 +21,7 @@
       "missing": [],
       "unit": "disease",
       "status": "PASS",
-      "ms": 128.3
+      "ms": 80.1
     },
     {
       "id": "CQ-02",
@@ -38,7 +38,7 @@
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 15.4
+      "ms": 17.6
     },
     {
       "id": "CQ-03",
@@ -56,7 +56,7 @@
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 6.9
+      "ms": 7.3
     },
     {
       "id": "CQ-04",
@@ -65,13 +65,13 @@
       "mode": "coverage",
       "question": "Which symptoms are attached to at least one disease or pest?",
       "rationale": "Detects orphan symptoms - vocabulary declared but never used in a diagnostic pattern.",
-      "covered": 80,
-      "total": 80,
+      "covered": 96,
+      "total": 96,
       "ratio": 1.0,
       "missing": [],
       "unit": "symptom",
       "status": "PASS",
-      "ms": 5.6
+      "ms": 7.0
     },
     {
       "id": "CQ-05",
@@ -111,17 +111,17 @@
         [
           "rice:Flowering_Stage",
           "rice:Bacterial_Panicle_Blight",
+          "rice:High_Night_Temperature"
+        ],
+        [
+          "rice:Flowering_Stage",
+          "rice:Bacterial_Panicle_Blight",
           "rice:High_Temperature"
         ],
         [
           "rice:Flowering_Stage",
           "rice:Bacterial_Panicle_Blight",
           "rice:High_Humidity"
-        ],
-        [
-          "rice:Flowering_Stage",
-          "rice:Bacterial_Panicle_Blight",
-          "rice:High_Night_Temperature"
         ],
         [
           "rice:Flowering_Stage",
@@ -136,16 +136,11 @@
         [
           "rice:Flowering_Stage",
           "rice:Rice_Blast_Disease",
-          "rice:High_Humidity"
-        ],
-        [
-          "rice:Flowering_Stage",
-          "rice:Rice_Blast_Disease",
           "rice:Low_Rainfall"
         ],
         [
           "rice:Flowering_Stage",
-          "rice:Sheath_Blight",
+          "rice:Rice_Blast_Disease",
           "rice:High_Humidity"
         ],
         [
@@ -154,9 +149,14 @@
           "rice:Poor_Soil_Drainage"
         ],
         [
+          "rice:Flowering_Stage",
+          "rice:Sheath_Blight",
+          "rice:High_Humidity"
+        ],
+        [
           "rice:Maturity_Stage",
           "rice:Bacterial_Panicle_Blight",
-          "rice:High_Temperature"
+          "rice:High_Night_Temperature"
         ]
       ],
       "detail_vars": [
@@ -165,7 +165,7 @@
         "f"
       ],
       "detail_total": 89,
-      "ms": 32.0
+      "ms": 39.3
     },
     {
       "id": "CQ-06",
@@ -182,7 +182,7 @@
       ],
       "unit": "growth stage",
       "status": "PASS",
-      "ms": 5.5
+      "ms": 4.9
     },
     {
       "id": "CQ-07",
@@ -194,7 +194,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 5.5
+      "ms": 6.5
     },
     {
       "id": "CQ-08",
@@ -211,7 +211,7 @@
       ],
       "unit": "preventive treatment",
       "status": "PASS",
-      "ms": 3.4
+      "ms": 3.2
     },
     {
       "id": "CQ-09",
@@ -229,12 +229,12 @@
       "detail_rows": [
         [
           "rice:Nephotettix_Virescens",
-          "rice:Rice_Tungro_Bacilliform_Virus",
+          "rice:Rice_Tungro_Spherical_Virus",
           "rice:Rice_Tungro_Disease"
         ],
         [
           "rice:Nephotettix_Virescens",
-          "rice:Rice_Tungro_Spherical_Virus",
+          "rice:Rice_Tungro_Bacilliform_Virus",
           "rice:Rice_Tungro_Disease"
         ]
       ],
@@ -244,7 +244,7 @@
         "d"
       ],
       "detail_total": 2,
-      "ms": 5.9
+      "ms": 5.8
     },
     {
       "id": "CQ-10",
@@ -256,7 +256,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 2.3
+      "ms": 2.2
     },
     {
       "id": "CQ-11",
@@ -280,30 +280,6 @@
         [
           "rice:Bacterial_Leaf_Blight",
           "rice:Excessive_Nitrogen",
-          "rice:Straw_Coloured_Leaf",
-          "rice:Crop_Sanitation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Straw_Coloured_Leaf",
-          "rice:Water_Management"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Straw_Coloured_Leaf",
-          "rice:Crop_Rotation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Straw_Coloured_Leaf",
-          "rice:Resistant_Variety"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
           "rice:Grey_White_Lesion_Black_Dots",
           "rice:Crop_Sanitation"
         ],
@@ -311,13 +287,13 @@
           "rice:Bacterial_Leaf_Blight",
           "rice:Excessive_Nitrogen",
           "rice:Grey_White_Lesion_Black_Dots",
-          "rice:Water_Management"
+          "rice:Crop_Rotation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
           "rice:Excessive_Nitrogen",
           "rice:Grey_White_Lesion_Black_Dots",
-          "rice:Crop_Rotation"
+          "rice:Water_Management"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
@@ -328,25 +304,49 @@
         [
           "rice:Bacterial_Leaf_Blight",
           "rice:Excessive_Nitrogen",
-          "rice:Sheath_Lesion_Extension",
+          "rice:Tip_To_Base_Lesion",
           "rice:Crop_Sanitation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
           "rice:Excessive_Nitrogen",
-          "rice:Sheath_Lesion_Extension",
-          "rice:Water_Management"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Excessive_Nitrogen",
-          "rice:Sheath_Lesion_Extension",
+          "rice:Tip_To_Base_Lesion",
           "rice:Crop_Rotation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
           "rice:Excessive_Nitrogen",
-          "rice:Sheath_Lesion_Extension",
+          "rice:Tip_To_Base_Lesion",
+          "rice:Water_Management"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
+          "rice:Tip_To_Base_Lesion",
+          "rice:Resistant_Variety"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
+          "rice:Yellow_Leaf",
+          "rice:Crop_Sanitation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
+          "rice:Yellow_Leaf",
+          "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
+          "rice:Yellow_Leaf",
+          "rice:Water_Management"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Excessive_Nitrogen",
+          "rice:Yellow_Leaf",
           "rice:Resistant_Variety"
         ]
       ],
@@ -356,8 +356,8 @@
         "s",
         "t"
       ],
-      "detail_total": 710,
-      "ms": 2110.5
+      "detail_total": 738,
+      "ms": 2523.1
     },
     {
       "id": "CQ-12",
@@ -386,7 +386,7 @@
       ],
       "unit": "disease/pest",
       "status": "PARTIAL",
-      "ms": 5.9
+      "ms": 6.0
     },
     {
       "id": "CQ-13",
@@ -409,7 +409,7 @@
       "detail_rows": [],
       "detail_vars": [],
       "detail_total": 0,
-      "ms": 5.5
+      "ms": 4.9
     },
     {
       "id": "CQ-14",
@@ -422,7 +422,7 @@
       "entailed": 2544,
       "gain": 2544,
       "status": "PASS",
-      "ms": 24.0
+      "ms": 22.8
     },
     {
       "id": "CQ-15",
@@ -432,10 +432,10 @@
       "question": "Can the KG be queried in the inverse direction, e.g. disease -> causedBy -> pathogen and symptom -> indicates -> disease?",
       "rationale": "14 of 26 object properties are declared as owl:inverseOf but never asserted. Query robustness depends on materialising them.",
       "asserted": 0,
-      "entailed": 221,
-      "gain": 221,
+      "entailed": 241,
+      "gain": 241,
       "status": "PASS",
-      "ms": 7.8
+      "ms": 7.5
     },
     {
       "id": "CQ-16",
@@ -450,7 +450,7 @@
       "missing": [],
       "unit": "diagnostic image",
       "status": "PASS",
-      "ms": 6352.0
+      "ms": 6733.4
     },
     {
       "id": "CQ-17",
@@ -465,7 +465,7 @@
       "missing": [],
       "unit": "annotated class",
       "status": "PASS",
-      "ms": 953.3
+      "ms": 937.5
     },
     {
       "id": "CQ-18",
@@ -475,8 +475,8 @@
       "question": "Which symptoms are grounded in visual evidence, i.e. captured by, or given as the label of, at least one image observation?",
       "rationale": "Symptom-level visual grounding is what distinguishes an MMKG from a text ontology with images bolted on. Expected to expose the sharpest gap in the current release. Extended on 2026-10-13: an image whose dataset label is itself a symptom (annotatedAs) now counts beside the captures relation, which such a label does not produce.",
       "covered": 3,
-      "total": 80,
-      "ratio": 0.0375,
+      "total": 96,
+      "ratio": 0.03125,
       "missing": [
         "rice:Black_Root",
         "rice:Broken_Culm",
@@ -490,14 +490,17 @@
         "rice:Collar_Lesion",
         "rice:Dark_Glume_Spot",
         "rice:Dark_Green_Erect_Leaf",
+        "rice:Dark_Green_Streak",
         "rice:Delayed_Maturity",
         "rice:Diamond_Shaped_Lesion",
         "rice:Discolored_Panicle",
         "rice:Distorted_Seedling_Leaf",
         "rice:Dry_Leaf_Tip",
         "rice:Dusty_Brown_Spot",
+        "rice:Elongated_Feeding_Mark",
         "rice:Empty_Grain",
         "rice:Excessive_Tillering",
+        "rice:Folded_Leaf",
         "rice:Girdled_Coleoptile",
         "rice:Girdled_Panicle_Neck",
         "rice:Grain_Discoloration",
@@ -507,16 +510,19 @@
         "rice:Hopper_Burn",
         "rice:Incompletely_Exserted_Panicle",
         "rice:Interveinal_Necrosis",
+        "rice:Irregular_Grey_White_Leaf_Lesion",
         "rice:Large_Brown_Leaf_Lesion",
         "rice:Leaf_Bronzing",
         "rice:Leaf_Death",
         "rice:Leaf_Drying",
+        "rice:Leaf_Mine",
         "rice:Leaf_Rolling",
         "rice:Leaf_Scratching",
         "rice:Leaf_Sheath_Lesion",
         "rice:Leaf_Spot",
         "rice:Light_Brown_Grey_Lesion_Centre",
         "rice:Lodging",
+        "rice:Longitudinal_Transparent_Streak",
         "rice:Mottled_Leaf",
         "rice:Neck_Rot",
         "rice:Necrotic_Leaf_Tip_Margin",
@@ -531,7 +537,10 @@
         "rice:Rust_Coloured_Leaf_Spot",
         "rice:Seedling_Death",
         "rice:Sheath_Lesion_Extension",
+        "rice:Sheath_Lesion_Size",
+        "rice:Sooty_Mould_Plant_Base",
         "rice:Spindle_Shaped_Lesion",
+        "rice:Stem_Bore_Hole",
         "rice:Sterile_Panicle",
         "rice:Straw_Coloured_Leaf",
         "rice:Striped_Leaf",
@@ -539,26 +548,33 @@
         "rice:Thin_Spindly_Stem",
         "rice:Tiller_Death",
         "rice:Tip_Down_Leaf_Discoloration",
+        "rice:Tip_Fastened_Leaf",
         "rice:Tip_To_Base_Lesion",
         "rice:Translucent_Stripe",
+        "rice:Translucent_White_Leaf_Patch",
+        "rice:Upward_Spreading_Lesion",
+        "rice:Water_Soaked_Sheath_Lesion",
         "rice:Water_Soaked_Streak",
         "rice:Wavy_Lesion_Margin",
         "rice:White_Leaf_Tip",
         "rice:White_Streak",
         "rice:Whitish_Grey_Lesion_Centre",
+        "rice:Whitish_Membranous_Leaf",
         "rice:Wilting",
+        "rice:Withered_Leaf",
         "rice:Yellow_Leaf",
         "rice:Yellow_Lesion_Halo",
         "rice:Yellow_Orange_Discoloration",
         "rice:Yellow_Orange_Leaf_Stripe",
         "rice:Yellow_Stripe",
+        "rice:Yellowing_Plant",
         "rice:Yellowish_Brown_Leaf_Margin",
         "rice:Yellowish_Green_Leaf",
         "rice:Zonate_Leaf_Lesion"
       ],
       "unit": "symptom",
       "status": "PARTIAL",
-      "ms": 9986.4
+      "ms": 11351.5
     },
     {
       "id": "CQ-19",
@@ -570,7 +586,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 1796.1
+      "ms": 1742.4
     },
     {
       "id": "CQ-20",
@@ -581,7 +597,7 @@
       "rationale": "Declared extension point. Recorded as a measurement, not scored, so the roadmap gap stays visible without inflating or deflating the pass rate.",
       "count": 186,
       "status": "DOCUMENTED",
-      "ms": 3.3
+      "ms": 3.2
     },
     {
       "id": "CQ-21",
@@ -590,13 +606,13 @@
       "mode": "coverage",
       "question": "Which reified domain assertions carry both an authoritative source URI and a bibliographic citation?",
       "rationale": "Provenance completeness - the scientific-defensibility claim of the KG.",
-      "covered": 456,
-      "total": 456,
+      "covered": 494,
+      "total": 494,
       "ratio": 1.0,
       "missing": [],
       "unit": "reified axiom",
       "status": "PASS",
-      "ms": 18.8
+      "ms": 19.0
     },
     {
       "id": "CQ-22",
@@ -608,7 +624,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 325.0
+      "ms": 366.1
     },
     {
       "id": "CQ-23",
@@ -631,7 +647,7 @@
       ],
       "unit": "biological entity",
       "status": "PASS",
-      "ms": 8.1
+      "ms": 8.2
     },
     {
       "id": "CQ-24",
@@ -643,7 +659,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 14.9
+      "ms": 14.7
     },
     {
       "id": "CQ-25",
@@ -655,7 +671,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 1.7
+      "ms": 1.4
     },
     {
       "id": "CQ-26",
@@ -677,7 +693,7 @@
       ],
       "unit": "pest",
       "status": "PARTIAL",
-      "ms": 882.1
+      "ms": 873.8
     },
     {
       "id": "CQ-27",
@@ -707,7 +723,7 @@
       ],
       "unit": "disease",
       "status": "PARTIAL",
-      "ms": 90.6
+      "ms": 86.0
     }
   ],
   "sensitivity": [
