@@ -22,14 +22,15 @@ The core graph stays CC BY 4.0 because it holds facts and pointers, not the IRRI
   - `inDocument`, `startOffset`, `endOffset` and `textSha256` locate the passage.
   - `sectionTitle` gives its section, and `mentions` the domain individuals named in it.
   - The offsets play the role of a W3C Web Annotation `TextPositionSelector`.
-- **Evidence on curated assertions:** `rice:hasEvidencePassage` on the `owl:Axiom` of 306 curated assertions points to the passage that states the assertion. `rice:evidencePassageCheck` says how the link was checked: `human-reviewed` (271) or `LLM-reviewed` (35). Counted 2026-11-07 on 0.9.0-dev. The count includes:
+- **Evidence on curated assertions:** `rice:hasEvidencePassage` on the `owl:Axiom` of 312 curated assertions points to the passage that states the assertion. `rice:evidencePassageCheck` says how the link was checked: `human-reviewed` (277) or `LLM-reviewed` (35). Counted 2026-11-07 on 0.9.0-dev. The count includes:
   - the 49 blast and brown spot assertions of 0.8.0;
   - the 0.8.1 corrections: one wrong link removed and two added (inventory §6.4);
   - the 32 tungro and bacterial leaf blight assertions of 0.9.0-dev;
   - the 38 assertions of the third batch of 0.9.0-dev (six more conditions);
   - the 63 leaf scald, downy mildew and bacterial panicle blight assertions of 0.9.0-dev, linked to `IRRI_RD2018_*` passages;
   - 4 older assertions (`Zonate_Leaf_Lesion` of leaf scald; `Empty_Grain`, `Wilting` and `Grain_Discoloration` of bacterial panicle blight). These got IRRI (2018) as a second source, with its passage;
-  - the 35 assertions of the signs (decision M4, 0.9.0-dev).
+  - the 35 assertions of the signs (decision M4, 0.9.0-dev);
+  - the 6 assertions of decisions M6 and M7 (0.9.0-dev).
 - **These modules:** `rice:passageText` for each passage. Load them together with the core to get the wording.
 
 ## How the offsets are defined

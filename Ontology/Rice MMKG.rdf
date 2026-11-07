@@ -152841,7 +152841,7 @@
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#HealthStatus"/>
     <rice:sourceDatasetLabel>normal</rice:sourceDatasetLabel>
     <rdfs:comment xml:lang="en">Represents the non-disease class in the Paddy Doctor dataset.</rdfs:comment>
-    <rdfs:comment xml:lang="en">Represents a rice plant with no observable disease, pest, or nutritional disorder. By design, no symptom or pathogen is asserted for this entity — its absence of assertions is semantically meaningful, not an omission.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Represents a rice plant with no observable disease, pest, or nutritional disorder. By design, no symptom or pathogen is asserted for this entity — its absence of assertions is semantically meaningful, not an omission. Decision of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §5, option b): no 'normal appearance' is modelled, because no cited source describes a healthy rice plant and a positive description would overlap with nutrient disorders (dark green, erect leaves). A benchmark that needs a text for this class uses one fixed prompt defined outside the knowledge graph and reports it as a design choice.</rdfs:comment>
     <rdfs:label xml:lang="en">Normal / Healthy</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_blast_PDD04261">
@@ -403599,5 +403599,126 @@
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_stem-borer_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
     <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decision M4: every sign the source states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <!-- symptom inventory 2026-11-07, decisions M6 (field patterns) and M7 (ambiguous rows) (Analysis and Alignment/Symptom_Inventory_2026-11.md) -->
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Burnt_Looking_Field">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">field looking burnt</rdfs:label>
+    <rdfs:comment xml:lang="en">A severely infested field looks burnt. Seen at the scale of the stand, so no plant part.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Flag_Leaf_Sheath_Rot">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">mild rot of the flag leaf sheath at the collar</rdfs:label>
+    <rdfs:comment xml:lang="en">Mild rot of the leaf sheath of the flag leaf, near the collar. The source sentence is awkwardly worded; this is the reading the curator accepted.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Oviposition_Mark">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">oviposition marks</rdfs:label>
+    <rdfs:comment xml:lang="en">Marks left where eggs were inserted into the plant. The source does not describe their look or say where they are, so no plant part.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Patchy_Field_Occurrence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">occurrence in patches across the field</rdfs:label>
+    <rdfs:comment xml:lang="en">Affected plants occur in patches in the field, not over the whole field. Seen at the scale of the stand, not on one organ, so no plant part. Stated in the potassium sheet, where it tells this condition apart from potassium deficiency.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Scorched_Looking_Field">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">field looking scorched with many folded leaves</rdfs:label>
+    <rdfs:comment xml:lang="en">A heavily infested field looks scorched and shows many folded leaves. Seen at the scale of the stand, so no plant part.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Flag_Leaf_Sheath_Rot">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107e1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Flag_Leaf_Sheath_Rot"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decisions M6 and M7; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Flag_Leaf_Sheath_Rot"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107e2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Flag_Leaf_Sheath_Rot"/>
+    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decisions M6 and M7; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Brown_Planthopper">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Oviposition_Mark"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107e3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Oviposition_Mark"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Planthopper. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_planthopper_p7"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decisions M6 and M7; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Hispa">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Burnt_Looking_Field"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107e4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Hispa"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Burnt_Looking_Field"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-hispa"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice hispa. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-hispa (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_rice-hispa_p7"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decisions M6 and M7; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Folder">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Scorched_Looking_Field"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107e5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Folder"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Scorched_Looking_Field"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice leaffolder. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_rice-leaffolder_p6"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decisions M6 and M7; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rice_Tungro_Disease">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Patchy_Field_Occurrence"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107e6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Tungro_Disease"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Patchy_Field_Occurrence"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/item/potassium-k"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Potassium (K). Rice Knowledge Bank fact sheet (nutrient management). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/item/potassium-k (accessed 2026-10-13).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_potassium-k_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md), decisions M6 and M7; approved by the curator.</rdfs:comment>
   </rdf:Description>
 </rdf:RDF>

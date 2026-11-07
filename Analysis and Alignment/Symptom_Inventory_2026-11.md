@@ -43,6 +43,11 @@
 - **Retyped:** `Sooty_Mould_Plant_Base` changes from `Symptom` to `Sign`.
 - **Not used:** the second sclerotia passage (`sheath-blight_p4`), because it is about predisposing factors.
 - M6 and M7 are still open.
+
+**Update 2026-11-07 (0.9.0-dev, decisions M6, M7, M11):**
+- **M6:** the three field-scale rows are now symptoms without a plant part: tungro patches, a field that looks burnt (hispa), and a field that looks scorched (leaffolder).
+- **M7:** of the ambiguous rows, the two with a visible feature were added: GR16 (mild rot of the flag leaf sheath) and BPH #7 (oviposition marks). The others stay out, being temporal, an absence or a count.
+- **M11:** Normal_Health takes option (b) of §5. The KG gets no content for normal appearance, and its comment records the decision.
 - **Status:** every condition with an IRRI fact sheet is now covered. Still open:
   - the three diseases without a sheet (§4);
   - Normal_Health (§5);
@@ -676,7 +681,7 @@ Every quote below was checked as an exact substring of its passage.
 | GR17 | Seeds fail to germinate (damping off) in nursery boxes [⚠ ambiguous] | **missing** | — | Grain | `IRRI_RD2018_grain-rot_p4`: "Preemergence “damping off” causes GnR where the seeds fail to germinate"<br>_Note: an absence, nursery boxes_ |
 
 
-## 5. Normal_Health: two modelling options (not decided)
+## 5. Normal_Health: two modelling options (decided 2026-11-07: option b)
 
 **Constraint found in the ontology:**
 - `rice:indicatedBy` has domain `Disease ⊔ Pest` and range `Symptom`.
@@ -866,14 +871,14 @@ Reading:
 - **M1. Granularity:** one composite symptom per lesion description (e.g. "circular to oval lesion with grey centre and reddish-brown margin"), or atomic features (shape, centre, margin, halo, size)? Composite phrases suit CLIP prompts; atomic features suit the information-gain question route.
 - **M2. Label or comment:** the benchmark reads labels only. Should details move from comments into labels or new individuals, or should the benchmark also read comments?
 - **M3. Reuse or new individuals:** reuse `Empty_Grain`, `Grain_Discoloration`, `Discolored_Panicle`, `Delayed_Maturity` and `White_Streak`, or create condition-specific individuals? Reuse spreads plant parts across conditions (§6.4.7) and creates the BPB ⊂ brown spot overlap.
-- **M4. Signs:** model ooze, sclerotia, eggs, insects, frass, silk and sooty mould as `Symptom`, or as a new class (e.g. `rice:Sign`) with its own property? The current definition of `Symptom` covers signs "on the plant", not the organism.
+- **M4. Signs:** model ooze, sclerotia, eggs, insects, frass, silk and sooty mould as `Symptom`, or as a new class (e.g. `rice:Sign`) with its own property? The current definition of `Symptom` covers signs "on the plant", not the organism. **Decided 2026-11-07:** a new class `rice:Sign`, disjoint from `Symptom`, linked by `indicatedBy`.
 - **M5. New plant parts:** coleoptile, leaf collar, node, glume, panicle branch, spikelet, midrib. Check them against the Planteome register (`Analysis and Alignment/Planteome_alignment.md`) before adding.
-- **M6. Field-scale patterns:** "patches", "burnt" and "scorched" are about the stand, not a plant part. Model them, and if so with which part?
-- **M7. Ambiguous rows:** include the 4 ambiguous rows and the §6.3 items (temporal, absence, count), or exclude them?
+- **M6. Field-scale patterns:** "patches", "burnt" and "scorched" are about the stand, not a plant part. Model them, and if so with which part? **Decided 2026-11-07:** symptoms without a plant part.
+- **M7. Ambiguous rows:** include the 4 ambiguous rows and the §6.3 items (temporal, absence, count), or exclude them? **Decided 2026-11-07:** only the rows with a visible feature (GR16, BPH #7).
 - **M8. Scope:** Stem_Borer (yellow stem borer only) and Brown_Planthopper (BPH only) against sheets that cover several species.
 - **M9. KG issues:** fix the four provenance issues in §6.4 (items 1–4) in phase 2, as a PATCH before the MINOR bump or within it?
 - **M10. Sources:** which sources to use for the three diseases without a sheet (§4), and whether to add a fuller nutrient-disorder source (§6.1). Licences have to be checked first.
-- **M11. Normal_Health:** option (a) or (b) (§5).
+- **M11. Normal_Health:** option (a) or (b) (§5). **Decided 2026-11-07:** option (b).
 
 ### 7.4 Open questions for the domain expert
 

@@ -1,6 +1,6 @@
 # Elicited Competency Questions - SPARQL Results
 
-Generated 2026-11-07 20:47 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 327,722 asserted triples, 630,129 after OWL RL materialisation (102.4s).
+Generated 2026-11-07 21:00 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 327,808 asserted triples, 630,297 after OWL RL materialisation (103.7s).
 
 **19 of the 25 elicited Tier A CQs are queried here** - every one for which RiceMMKG v0.9.0-dev has at least the concept the question turns on. Answerability is measured, not predicted: the Stage 3 `v06_status` column is not used. The remaining 6 ask for a concept v0.9.0-dev does not have at all and are the v0.7 work plan; the status table at the end lists each with its reason.
 
@@ -63,7 +63,7 @@ SELECT ?pathogen ?group ?eppo_code ?external_alignment WHERE {
 }
 ```
 
-1 row(s) in 79.7 ms.
+1 row(s) in 83.0 ms.
 
 | pathogen | group | eppo_code | external_alignment |
 |---|---|---|---|
@@ -79,7 +79,7 @@ SELECT ?pathogen ?group WHERE {
 ORDER BY ?group ?pathogen
 ```
 
-10 row(s) in 4.2 ms.
+10 row(s) in 4.3 ms.
 
 | pathogen | group |
 |---|---|
@@ -160,7 +160,7 @@ SELECT ?symptom ?plant_part ?stage_of_disease WHERE {
 ORDER BY ?symptom ?plant_part ?stage_of_disease
 ```
 
-45 row(s) in 5.9 ms.
+45 row(s) in 5.6 ms.
 
 | symptom | plant_part | stage_of_disease |
 |---|---|---|
@@ -193,7 +193,7 @@ GROUP BY ?other
 ORDER BY DESC(?shared_symptoms)
 ```
 
-12 row(s) in 7.6 ms.
+12 row(s) in 8.3 ms.
 
 | other | shared_symptoms |
 |---|---|
@@ -224,7 +224,7 @@ SELECT ?symptom ?present_only_in WHERE {
 ORDER BY ?present_only_in ?symptom
 ```
 
-26 row(s) in 9.5 ms.
+26 row(s) in 9.6 ms.
 
 | symptom | present_only_in |
 |---|---|
@@ -270,7 +270,7 @@ GROUP BY ?condition
 ORDER BY DESC(?entities) ?condition
 ```
 
-9 row(s) in 4.9 ms.
+9 row(s) in 5.2 ms.
 
 | condition | entities |
 |---|---|
@@ -331,7 +331,7 @@ SELECT ?treatment ?category ?source ?citation WHERE {
 ORDER BY ?treatment
 ```
 
-3 row(s) in 5.1 ms.
+3 row(s) in 5.5 ms.
 
 | treatment | category | source | citation |
 |---|---|---|---|
@@ -355,7 +355,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-2151 row(s) in 43.6 ms.
+2151 row(s) in 44.2 ms.
 
 | image | url |
 |---|---|
@@ -394,7 +394,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 828.2 ms.
+1 row(s) in 819.0 ms.
 
 | image | condition | dataset | title | source | confidence |
 |---|---|---|---|---|---|
@@ -413,7 +413,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 1543.4 ms.
+1 row(s) in 1531.9 ms.
 
 | images | with_source_dataset | with_confidence |
 |---|---|---|
@@ -440,7 +440,7 @@ GROUP BY ?condition ?type
 ORDER BY DESC(?images)
 ```
 
-19 row(s) in 9369.8 ms.
+19 row(s) in 8945.2 ms.
 
 | condition | type | images |
 |---|---|---|
@@ -464,7 +464,7 @@ SELECT ?dataset (COUNT(?image) AS ?images) WHERE {
 GROUP BY ?dataset
 ```
 
-6 row(s) in 262.5 ms.
+6 row(s) in 255.5 ms.
 
 | dataset | images |
 |---|---|
@@ -492,7 +492,7 @@ SELECT ?image ?symptom WHERE {
 }
 ```
 
-1 row(s) in 42.8 ms.
+1 row(s) in 42.4 ms.
 
 | image | symptom |
 |---|---|
@@ -508,7 +508,7 @@ GROUP BY ?symptom
 ORDER BY DESC(?images)
 ```
 
-2 row(s) in 23.2 ms.
+2 row(s) in 21.8 ms.
 
 | symptom | images |
 |---|---|
@@ -534,7 +534,7 @@ GROUP BY ?image ?candidate
 ORDER BY DESC(?support) ?candidate
 ```
 
-1 row(s) in 49.0 ms.
+1 row(s) in 48.8 ms.
 
 | image | candidate | support |
 |---|---|---|
@@ -567,7 +567,7 @@ SELECT ?condition ?distinguishing_symptom WHERE {
 ORDER BY ?condition ?distinguishing_symptom
 ```
 
-26 row(s) in 9.7 ms.
+26 row(s) in 10.5 ms.
 
 | condition | distinguishing_symptom |
 |---|---|
@@ -591,7 +591,7 @@ SELECT ?shared_symptom WHERE {
 ORDER BY ?shared_symptom
 ```
 
-5 row(s) in 2.1 ms.
+5 row(s) in 2.6 ms.
 
 | shared_symptom |
 |---|
@@ -620,7 +620,7 @@ SELECT ?image ?severity WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 584.0 ms.
+0 row(s) in 589.3 ms.
 
 **What the severity levels are used for in v0.9.0-dev**
 
@@ -632,7 +632,7 @@ SELECT ?severity ?recommends WHERE {
 ORDER BY ?severity
 ```
 
-4 row(s) in 3.8 ms.
+4 row(s) in 4.0 ms.
 
 | severity | recommends |
 |---|---|
@@ -659,7 +659,7 @@ SELECT ?image ?symptom_a ?symptom_b WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 109.1 ms.
+0 row(s) in 107.5 ms.
 
 **How many symptoms each annotated image captures**
 
@@ -673,7 +673,7 @@ GROUP BY ?symptoms_per_image
 ORDER BY ?symptoms_per_image
 ```
 
-1 row(s) in 96.9 ms.
+1 row(s) in 101.6 ms.
 
 | symptoms_per_image | images |
 |---|---|
@@ -699,11 +699,11 @@ WHERE {
 GROUP BY ?image_evidence
 ```
 
-2 row(s) in 29367.5 ms.
+2 row(s) in 30103.4 ms.
 
 | image_evidence | symptoms |
 |---|---|
-| no image evidence | 120 |
+| no image evidence | 125 |
 | has image evidence | 3 |
 
 **The symptoms with no image evidence at all**
@@ -717,7 +717,7 @@ SELECT ?symptom WHERE {
 ORDER BY ?symptom
 ```
 
-120 row(s) in 14935.4 ms.
+125 row(s) in 15286.0 ms.
 
 | symptom |
 |---|
@@ -727,9 +727,9 @@ ORDER BY ?symptom
 | rice:Brown_Leaf_Tip |
 | rice:Brown_Lesion |
 | rice:Brown_Sheath_Patch |
+| rice:Burnt_Looking_Field |
 | rice:Chewed_Leaf |
-| rice:Chlorotic_Leaf_Patch |
-| *… 112 more rows* |
+| *… 117 more rows* |
 
 ### CQ-A22 - Which disease described in the literature matches the condition annotated in a given image?
 
@@ -750,7 +750,7 @@ SELECT ?image ?condition ?symptom ?pathogen WHERE {
 ORDER BY ?symptom
 ```
 
-17 row(s) in 211.0 ms.
+17 row(s) in 189.2 ms.
 
 | image | condition | symptom | pathogen |
 |---|---|---|---|
@@ -774,7 +774,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 1113.4 ms.
+1 row(s) in 1144.7 ms.
 
 | images_with_literature |
 |---|
@@ -799,7 +799,7 @@ SELECT ?image ?condition ?treatment WHERE {
 ORDER BY ?treatment
 ```
 
-4 row(s) in 1419.7 ms.
+4 row(s) in 1415.9 ms.
 
 | image | condition | treatment |
 |---|---|---|
@@ -817,7 +817,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?images_with_treatment) WHERE {
 }
 ```
 
-1 row(s) in 267.3 ms.
+1 row(s) in 272.3 ms.
 
 | images_with_treatment |
 |---|
@@ -841,7 +841,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-3747 row(s) in 74.6 ms.
+3747 row(s) in 73.8 ms.
 
 | image | url |
 |---|---|
@@ -864,7 +864,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?contradictory_images) WHERE {
 }
 ```
 
-1 row(s) in 21.4 ms.
+1 row(s) in 20.2 ms.
 
 | contradictory_images |
 |---|
