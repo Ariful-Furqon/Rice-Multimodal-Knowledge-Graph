@@ -53,13 +53,13 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **327,185** (asserted) / **628,959** (OWL RL) | 0.9.0-dev after the IRRI (2018) Rice Diseases batch (text layer + symptoms of leaf scald, downy mildew, bacterial panicle blight), measured 2026-11-07; after symptom batch 3: 326,186 / 627,392; after the tungro and bacterial leaf blight batch: 325,703 / 626,656; 0.8.1: 325,291 / 626,024; 0.8.0: 325,302 / 626,037; 0.7.0-dev on 2026-10-28: 324,663 / 625,056. +300,393 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Total triples** | **327,205** (asserted) / **628,983** (OWL RL) | 0.9.0-dev after RD2018 was added as a second source to four axioms, measured 2026-11-07; after the IRRI (2018) Rice Diseases batch (text layer + symptoms of leaf scald, downy mildew, bacterial panicle blight): 327,185 / 628,959; after symptom batch 3: 326,186 / 627,392; after the tungro and bacterial leaf blight batch: 325,703 / 626,656; 0.8.1: 325,291 / 626,024; 0.8.0: 325,302 / 626,037; 0.7.0-dev on 2026-10-28: 324,663 / 625,056. +300,393 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
 | **Named classes** | 31 | 30 in the `rice:` namespace — 29 primitive (incl. `TextDocument` and `TextPassage`, 2026-10-22; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment`, `ResistanceLevel`, `TrapObservation`, `SpectralBand` and `BandImage`, 0.7.0-dev) and 1 defined class (`SymptomaticObservation`) — plus `dcat:Dataset`. Recounted 2026-10-15; the row read 23 although the version table already gave 26 |
 | **Object properties** | 44 | `hasBandImage` and `ofBand` added 2026-10-14; `hasAffectedPart` added 2026-10-21, entailed by property chains, range only; `inDocument` and `mentions` (domain only) added 2026-10-22. All others declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `assessedVariety`/`hasResistanceAssessment`, `assessedAgainst`, `hasResistanceLevel`, `ofVariety`, `hasSpatialLocation` (0.7.0-dev) |
 | **Datatype properties** | 32 | `startOffset`, `endOffset`, `textSha256`, `sectionTitle`, `passageText` (text layer, 2026-10-22; `passageText` asserted only in text modules), `centreWavelengthNm`, `hasCatchCount`, `recordedUntilDate`, `testedPopulation`, `testedLocation`, `reportedYear`, `plantAgeDays`, `sourceLabel`, `environmentCondition`, the sensor / remote-sensing measurements, `recordedAtDate`, `hasLatitude`, `hasLongitude`, `hasElectricalConductivity` and `hasOrganicCarbon` added in 0.7.0-dev |
 | **Annotation properties** | 16 | Includes `rice:evidenceType`, `rice:hasEvidencePassage` and `rice:evidencePassageCheck` (2026-10-22), PROV-O, DCTERMS, SKOS, Schema.org, EPPO |
 | **Named individuals** | **36,722** | 59 symptoms (0.9.0-dev, 2026-11-07: 15 for tungro and bacterial leaf blight, 16 for six more conditions, 28 for leaf scald, downy mildew and bacterial panicle blight) and 3 `TextDocument` + 15 `TextPassage` from IRRI (2018) Rice Diseases; 22 symptoms and 3 plant parts (0.8.0, 2026-11-07); 19 `TextDocument` + 296 `TextPassage` and 2 symptoms (2026-10-22); 21,149 image individuals (Paddy Doctor 16,225, Dhan-Shomadhan 1,106, YUKE-WBC 66, stem borer symptom images 2,096, Kaggle nutrient deficiency 1,156, Netrokona potassium 500) + 11,533 trap observations + 472 remote-sensing observations + 2,360 band images + 186 sensor observations + 418 field locations + 9 dataset metadata + 176 domain entities (5 `SpectralBand`, 10 `PlantPart`, 1 `TransmissionMode`, 4 `ManagementCategory`, 4 `PathogenGroup`, 6 `AbioticFactor`, 12 `Variety`, 15 `ResistanceAssessment`, 3 `ResistanceLevel`) |
-| **`owl:Axiom` (provenance)** | **557** | **557 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.9.0-dev; 424 in 0.8.1, 426 in 0.8.0, 377 in 0.7.0-dev on 2026-10-28); 267 axioms carry an evidence passage (230 human-reviewed, 37 LLM-reviewed); the 15 `ResistanceAssessment` individuals carry their provenance directly. v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
+| **`owl:Axiom` (provenance)** | **557** | **557 domain assertions, all reified with sources & evidenceType — 1:1, no duplicates, no orphans** (0.9.0-dev; 424 in 0.8.1, 426 in 0.8.0, 377 in 0.7.0-dev on 2026-10-28); 271 axioms carry an evidence passage (234 human-reviewed, 37 LLM-reviewed); 6 axioms cite two sources (2 IRAC + CABI; 4 CABI or IRRI Rice Doctor + IRRI 2018 Rice Diseases); the 15 `ResistanceAssessment` individuals carry their provenance directly. v0.6.1/v0.6.2: 256; released v0.6: 253 axioms over 255 assertions |
 | **`owl:Restriction` axioms** | 1 | Inside `SymptomaticObservation` defined class |
 | **`AllDisjointClasses` axioms** | 2 | Disjointness among observation channels & core domain categories (19 classes; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment` and `ResistanceLevel` added in 0.7.0-dev) |
 | **Reasoner Consistency** | **Consistent** | 0.9.0-dev rechecked in HermiT (owlready2) on 2026-11-07 on a space-free copy after each symptom batch, 0 unsatisfiable classes, with `Mottled_Leaf` as Symptom + PlantPart, `Leaf_Mine` as Symptom + Pest and `Leaf_Scald` as Disease + Symptom as the inconsistent controls; 0.8.1 rechecked in HermiT (owlready2) on 2026-11-07 on a space-free copy, 0 unsatisfiable classes, with `Pinhead_Brown_Spot` as Symptom + Disease as the inconsistent control; 0.8.0 rechecked in HermiT (owlready2) on 2026-11-07 on a space-free copy, 0 unsatisfiable classes, with `Leaf_Collar` as PlantPart + Disease as the inconsistent control; 0.7.0-dev rechecked in HermiT (owlready2) on 2026-10-28, with `Deadheart` as Symptom + Disease as the inconsistent control; checked in **HermiT** on 2026-09-17 with `-k` on a space-free copy, with injected-contradiction controls (`Rice` as Plant + Disease; `Leaf_Blade` as PlantPart + Disease; `Semi_Persistent` as TransmissionMode + Disease; `Chemical_Control_Category` as ManagementCategory + Disease; `Zinc_Deficiency` as AbioticFactor + Pathogen; `Salinity` as AbioticFactor + Pathogen; `IR64` as Variety + Disease; a `ResistanceAssessment` also typed Variety; `assessedAgainst` a Treatment) that all report inconsistent; v0.6 verified in HermiT & Pellet |
@@ -179,13 +179,33 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | 0.8.1 (symptom labels without condition names; four provenance links fixed) | 2026-11-07 | 325,291 (626,024 OWL RL) | 31 | 44 | 36,645 | 424 axioms / 424 assertions + 15 assessments; 134 axioms with an evidence passage |
 | 0.9.0-dev (+ tungro and bacterial leaf blight symptoms) | 2026-11-07 | 325,703 (626,656 OWL RL) | 31 | 44 | 36,660 | 456 axioms / 456 assertions + 15 assessments; 166 axioms with an evidence passage |
 | 0.9.0-dev (+ symptoms of six more conditions) | 2026-11-07 | 326,186 (627,392 OWL RL) | 31 | 44 | 36,676 | 494 axioms / 494 assertions + 15 assessments; 204 axioms with an evidence passage |
-| **0.9.0-dev (+ IRRI 2018 text layer; leaf scald, downy mildew, bacterial panicle blight symptoms — in development)** | **2026-11-07** | **327,185** (628,959 OWL RL) | **31** | **44** | **36,722** | **557 axioms / 557 assertions + 15 assessments; 267 axioms with an evidence passage** |
+| 0.9.0-dev (+ IRRI 2018 text layer; leaf scald, downy mildew, bacterial panicle blight symptoms) | 2026-11-07 | 327,185 (628,959 OWL RL) | 31 | 44 | 36,722 | 557 axioms / 557 assertions + 15 assessments; 267 axioms with an evidence passage |
+| **0.9.0-dev (IRRI 2018 as second source on four axioms — in development)** | **2026-11-07** | **327,205** (628,983 OWL RL) | **31** | **44** | **36,722** | **557 axioms / 557 assertions + 15 assessments; 271 axioms with an evidence passage** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-11-07: 0.9.0-dev — IRRI (2018) Rice Diseases as a second source on four existing axioms
+
+Four `indicatedBy` assertions already in the graph are also stated by IRRI (2018) *Rice Diseases* (inventory §4.1 rows LS1, GR3, GR10, GR14). Their axioms keep their first source and gain a second one, as the two `Stem_Borer` axioms with IRAC + CABI already do. Pre-edit file: `Backup/Rice MMKG.backup-0.9.0-dev-pre-rd2018-second-source.rdf`. Script: `Worklog/2026-11-07_symptom_inventory/scripts/add_rd2018_second_source.py`. Version unchanged (0.9.0-dev). Committed as `fc80388`.
+
+- **Axioms changed:**
+  - `Leaf_Scald indicatedBy Zonate_Leaf_Lesion`: first source IRRI Rice Doctor; passage `IRRI_RD2018_leaf-scald_p4`.
+  - `Bacterial_Panicle_Blight indicatedBy Empty_Grain`: first source CABI; passage `IRRI_RD2018_grain-rot_p3`.
+  - `Bacterial_Panicle_Blight indicatedBy Wilting`: first source CABI; passage `IRRI_RD2018_grain-rot_p4`.
+  - `Bacterial_Panicle_Blight indicatedBy Grain_Discoloration`: first source CABI; passage `IRRI_RD2018_grain-rot_p5`.
+- **Added to each axiom:**
+  - a second `dcterms:source` (the chapter PDF) and `bibliographicCitation`;
+  - `hasEvidencePassage` and `evidencePassageCheck` human-reviewed;
+  - an `rdfs:comment` saying that the passage belongs to the second source.
+- **Checks:**
+  - **Triples:** +20 triples (5 per axiom), nothing else changed.
+  - **Reasoner:** HermiT consistent, 0 unsatisfiable classes. Only annotations were added.
+  - **Benchmarks:** verdicts and row counts unchanged (21 / 4 / 1 / 1; elicited 10 / 7 / 2).
+- **Result:** 327,205 asserted / 628,983 OWL RL triples; 271 axioms with an evidence passage (234 human-reviewed, 37 LLM-reviewed).
 
 ### 2026-11-07: 0.9.0-dev — IRRI (2018) Rice Diseases as a second text source; visual symptoms of leaf scald, downy mildew and bacterial panicle blight
 

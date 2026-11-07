@@ -22,12 +22,13 @@ The core graph stays CC BY 4.0 because it holds facts and pointers, not the IRRI
   - `inDocument`, `startOffset`, `endOffset` and `textSha256` locate the passage.
   - `sectionTitle` gives its section, and `mentions` the domain individuals named in it.
   - The offsets play the role of a W3C Web Annotation `TextPositionSelector`.
-- **Evidence on curated assertions:** `rice:hasEvidencePassage` on the `owl:Axiom` of 267 curated assertions points to the passage that states the assertion. `rice:evidencePassageCheck` says how the link was checked: `human-reviewed` (230) or `LLM-reviewed` (37). Counted 2026-11-07 on 0.9.0-dev. The count includes:
+- **Evidence on curated assertions:** `rice:hasEvidencePassage` on the `owl:Axiom` of 271 curated assertions points to the passage that states the assertion. `rice:evidencePassageCheck` says how the link was checked: `human-reviewed` (234) or `LLM-reviewed` (37). Counted 2026-11-07 on 0.9.0-dev. The count includes:
   - the 49 blast and brown spot assertions of 0.8.0;
   - the 0.8.1 corrections: one wrong link removed and two added (inventory §6.4);
   - the 32 tungro and bacterial leaf blight assertions of 0.9.0-dev;
   - the 38 assertions of the third batch of 0.9.0-dev (six more conditions);
-  - the 63 leaf scald, downy mildew and bacterial panicle blight assertions of 0.9.0-dev, linked to `IRRI_RD2018_*` passages.
+  - the 63 leaf scald, downy mildew and bacterial panicle blight assertions of 0.9.0-dev, linked to `IRRI_RD2018_*` passages;
+  - 4 older assertions (`Zonate_Leaf_Lesion` of leaf scald; `Empty_Grain`, `Wilting` and `Grain_Discoloration` of bacterial panicle blight). These got IRRI (2018) as a second source, with its passage.
 - **These modules:** `rice:passageText` for each passage. Load them together with the core to get the wording.
 
 ## How the offsets are defined

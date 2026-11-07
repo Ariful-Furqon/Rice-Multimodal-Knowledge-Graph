@@ -36,6 +36,7 @@
 - **Left out:** signs (DM3, DM4) and ambiguous rows. Rows already linked from CABI keep their CABI source only.
 - **Regional rows:** the leaf scald rows that the source reports only from Japan, Korea or Costa Rica were added, and their comments say so.
 - **X11:** still open. The source gives oospores only in its "Causal organism" section.
+- **Second source:** rows LS1, GR3, GR10 and GR14 were already linked from CABI or IRRI Rice Doctor. Their axioms now also cite IRRI (2018), with its passage as evidence.
 - **Status:** every condition with an IRRI fact sheet is now covered. Still open:
   - the three diseases without a sheet (§4);
   - Normal_Health (§5);
