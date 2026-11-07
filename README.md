@@ -18,8 +18,8 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 
 - **Namespace:** `https://w3id.org/ricemmkg#` — permanent identifier, live since 2026-09-16; version IRIs `https://w3id.org/ricemmkg/<version>` (releases up to v0.6.2 used `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#`)
 - **Format:** OWL/XML (`.rdf`), fully compatible with [Protégé](https://protege.stanford.edu/)
-- **Version:** `0.9.0-dev` on `main` (in development since 2026-11-07). Last release `v0.8.1` (2026-11-07: symptom labels and provenance links corrected). Earlier tags: `v0.8.0` (2026-11-07), `v0.7.0` (the data freeze of 2026-10-16, same commit as `data-freeze-2026-10`; the file there reads `0.7.0-dev`), `v0.6.2` and `v0.6.1` (2026-09-15), and `v0.6.0` (the v0.6 release of 2026-09-03, same commit as `elicited-baseline-v0.6`). Every tag `v<version>` resolves at `https://w3id.org/ricemmkg/<version>`. The data state used by downstream experiments is `v0.7.0` / `data-freeze-2026-10`.
-- **Triples:** **327,853** asserted triples / **630,369** materialised triples under OWL RL (both measured 2026-11-07, 0.9.0-dev); the rise from 68,204 is the Paddy Doctor IEEE release, Dhan-Shomadhan images, the first sensor observations, the YUKE-WBC planthopper images, the stem borer symptom images, the nutrient deficiency images, the light-trap catches, the multispectral captures and 41 alignment links to SOSA, RiceDO and TreatO; v0.6.2: 66,802 / 161,447
+- **Version:** `0.9.0` (released 2026-11-07: the KG as the retrieval benchmark needs it — the full symptom inventory, IRRI (2018) *Rice Diseases* as a second text source, `rice:Sign`, and the inventory's provenance fixes). Earlier tags: `v0.8.1` (2026-11-07: symptom labels and provenance links corrected), `v0.8.0` (2026-11-07), `v0.7.0` (the data freeze of 2026-10-16, same commit as `data-freeze-2026-10`; the file there reads `0.7.0-dev`), `v0.6.2` and `v0.6.1` (2026-09-15), and `v0.6.0` (the v0.6 release of 2026-09-03, same commit as `elicited-baseline-v0.6`). Every tag `v<version>` resolves at `https://w3id.org/ricemmkg/<version>`. The data state used by downstream experiments is `v0.7.0` / `data-freeze-2026-10`.
+- **Triples:** **327,853** asserted triples / **630,369** materialised triples under OWL RL (both measured 2026-11-07, 0.9.0); the rise from 68,204 is the Paddy Doctor IEEE release, Dhan-Shomadhan images, the first sensor observations, the YUKE-WBC planthopper images, the stem borer symptom images, the nutrient deficiency images, the light-trap catches, the multispectral captures and 41 alignment links to SOSA, RiceDO and TreatO; v0.6.2: 66,802 / 161,447
 - **Reasoner Consistency:** **100% Consistent** in HermiT & Pellet (0 unsatisfiable classes, 0 disjointness conflicts)
 
 ---
@@ -75,7 +75,7 @@ All declared with a domain and a range, except the entailed `hasAffectedPart` (r
 
 ### Individuals & Provenance
 
-- **36,748 named individuals** (2026-11-07, 0.9.0-dev): 21,149 `ImageObservation` instances, 11,533 `TrapObservation` instances, 472 `RemoteSensingObservation` instances with 2,360 `BandImage`s, 186 `SensorObservation` instances, 418 `FieldLocation`s, 9 dataset metadata individuals, 22 `TextDocument`s with 311 `TextPassage`s, plus 286 domain entities (176 in 0.7.0-dev; 22 symptoms and 3 plant parts added in 0.8.0; 65 symptoms and 20 signs in 0.9.0-dev).
+- **36,748 named individuals** (2026-11-07, 0.9.0): 21,149 `ImageObservation` instances, 11,533 `TrapObservation` instances, 472 `RemoteSensingObservation` instances with 2,360 `BandImage`s, 186 `SensorObservation` instances, 418 `FieldLocation`s, 9 dataset metadata individuals, 22 `TextDocument`s with 311 `TextPassage`s, plus 286 domain entities (176 in 0.7.0-dev; 22 symptoms and 3 plant parts added in 0.8.0; 65 symptoms and 20 signs in 0.9.0-dev).
 - **377 reified domain axioms** over 377 domain assertions: every assertion backed by an `owl:Axiom` record with `dcterms:source`, `dcterms:bibliographicCitation`, and `rice:evidenceType`. Source URIs: CABI Compendium 237 (as `doi.org/10.1079/cabicompendium.*` DOIs), IRRI Rice Knowledge Bank / Rice Doctor 100, NCBI Taxonomy 10, Paddy Doctor dataset 6, Mackill & Khush (2018) 3, AGROVOC 4, IRAC 4, Plant Ontology 2, Wang et al. (2022) 2, Bagariang et al. (2021) 2, Biswas et al. (2021) 1, FAO 1. The 15 resistance assessments carry the same three annotations on the assessment itself.
 - **Vector transmission mode (0.7.0-dev):** both tungro viruses are recorded as semi-persistently transmitted (`hasTransmissionMode`), citing Wang et al. (2022).
 - **Abiotic causes (0.7.0-dev):** nitrogen, phosphorus, potassium and zinc deficiency, and on the excess side iron toxicity and salinity, are modelled as `AbioticFactor`s that cause disorders, with symptoms from the IRRI Rice Knowledge Bank fact sheets — so abiotic factors, like pathogens, end at a Disease.
@@ -183,13 +183,13 @@ Measured 2026-10-15; rechecked on 0.8.0 on 2026-11-07 with the same verdicts (CQ
 
 **Done in v0.8.0 (tagged 2026-11-07):** the symptom inventory of the 17 benchmark conditions (`Analysis and Alignment/Symptom_Inventory_2026-11.md`), and every visual symptom of blast and brown spot stated by IRRI.
 
-**Toward v0.9: the KG as the benchmark needs it**
+**Done in v0.9.0 (tagged 2026-11-07): the KG as the benchmark needs it**
 1. the inventory rows of the conditions that have an IRRI fact sheet: **done (0.8.0 and 0.9.0-dev)**. Signs were added as `rice:Sign` (decision M4), field patterns as symptoms without a plant part (M6), and the two ambiguous rows with a visible feature (M7), all in 0.9.0-dev;
 2. the provenance issues of the inventory's §6.4: items 1–4 **done (v0.8.1)**, items 5–8 **done (0.9.0-dev)** (item 7 kept as a known limitation);
 3. sources for the three diseases without an IRRI fact sheet (leaf scald, downy mildew, bacterial panicle blight): **done (0.9.0-dev)**, from IRRI (2018) *Rice Diseases*;
 4. the Normal_Health decision: **done (0.9.0-dev)**, option (b): no KG content for normal appearance; one fixed prompt in the benchmark;
 5. Plant Ontology lookup for `Leaf_Collar`, `Coleoptile` and `Glume`: **done (0.9.0-dev)**;
-6. the domain-expert questions of the symptom inventory (§7.4).
+6. the domain-expert questions of the symptom inventory (§7.4): **open**, waiting on the domain expert; carried over to v1.0 with the expert validation below.
 
 **Toward v1.0: FAIR and finalisation**
 1. **Release tooling:** pyLODE or Widoco documentation at the PURL (the browser redirect then points to it), FOOPS! and OOPS! checks, Zenodo DOI, AgroPortal.

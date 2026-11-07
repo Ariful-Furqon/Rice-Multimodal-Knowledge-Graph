@@ -52,7 +52,7 @@ Each version number names exactly one content state: a change is never folded si
   - **v0.7.0:** scaffolding and modalities (image and text the strongest). Tagged on 2026-11-07 at the data-freeze commit of 2026-10-16 (same commit as `data-freeze-2026-10`; the file there reads `0.7.0-dev`). The 0.7.0-dev work after the freeze (text layer, `Deadheart` as a symptom) is in v0.8.0.
   - **v0.6.0:** tagged on 2026-11-07 at the v0.6 release of 2026-09-03 (same commit as `elicited-baseline-v0.6`). The descriptive tags are kept, because tags are never deleted and documents cite them.
   - **v0.8.0** (tagged 2026-11-07): the symptom inventory, and the visual symptoms of blast and brown spot.
-  - **0.8 → v0.9: benchmark.** The changes the retrieval benchmark needs from the KG: the rest of the symptom inventory, its provenance fixes and the missing sources.
+  - **0.8 → v0.9: benchmark.** The changes the retrieval benchmark needs from the KG: the rest of the symptom inventory, its provenance fixes and the missing sources. **v0.9.0** tagged 2026-11-07 (changelog in `Ontology/Ontology_Overview.md`).
   - **0.9 → v1.0: FAIR and finalisation.** Documentation at the PURL, FOOPS!/OOPS!, Zenodo DOI, AgroPortal, a smaller distribution file and expert validation of the elicited CQs.
   - Development between tags carries `-dev` (e.g. `0.9.0-dev`), as 0.7.0-dev did.
 - **Patch releases are made whenever a verified correction is ready**, with no fixed schedule.

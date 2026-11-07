@@ -45,7 +45,7 @@ modality class is named `ImageObservation` (not `LeafImage`) since the
 2026-08-19 cleanup round — the old name was factually wrong for the part
 of the corpus that isn't a leaf (panicle blight, deadheart).
 
-**License:** CC BY 4.0. **Creator:** Muhammad Ariful Furqon (ORCID 0000-0002-1031-3567), Natthawut Kertkeidkachorn (ORCID 0000-0003-4527-776X). **Version:** `0.9.0-dev` (in development since 2026-11-07; last release `v0.8.1`; progression: `v0.1` → `v0.2` → `v0.3` → `v0.4` → `v0.5` → `v0.6` → `v0.6.1` → `v0.6.2` → `v0.7.0` → `v0.8.0` → `v0.8.1`; git tags `v0.6.0` (= `elicited-baseline-v0.6`), `v0.6.1`, `v0.6.2`, `v0.7.0` (= `data-freeze-2026-10`, file reads `0.7.0-dev`), `v0.8.0`, `v0.8.1`).
+**License:** CC BY 4.0. **Creator:** Muhammad Ariful Furqon (ORCID 0000-0002-1031-3567), Natthawut Kertkeidkachorn (ORCID 0000-0003-4527-776X). **Version:** `0.9.0` (released 2026-11-07; progression: `v0.1` → `v0.2` → `v0.3` → `v0.4` → `v0.5` → `v0.6` → `v0.6.1` → `v0.6.2` → `v0.7.0` → `v0.8.0` → `v0.8.1` → `v0.9.0`; git tags `v0.6.0` (= `elicited-baseline-v0.6`), `v0.6.1`, `v0.6.2`, `v0.7.0` (= `data-freeze-2026-10`, file reads `0.7.0-dev`), `v0.8.0`, `v0.8.1`, `v0.9.0`).
 
 ---
 
@@ -53,7 +53,7 @@ of the corpus that isn't a leaf (panicle blight, deadheart).
 
 | Quantity | Value | Notes |
 |---|---|---|
-| **Total triples** | **327,853** (asserted) / **630,369** (OWL RL) | 0.9.0-dev after the closing items (RD2018 licence, potassium row, stable URLs, citation), measured 2026-11-07; after the symptom inventory §6.4 items 5–8: 327,827 / 630,326; after decisions M6, M7 and Normal_Health: 327,808 / 630,297; after the signs (decision M4): 327,722 / 630,129; after the Plant Ontology lookup of the 0.8.0 plant parts: 327,216 / 628,999; after RD2018 was added as a second source to four axioms: 327,205 / 628,983; after the IRRI (2018) Rice Diseases batch (text layer + symptoms of leaf scald, downy mildew, bacterial panicle blight): 327,185 / 628,959; after symptom batch 3: 326,186 / 627,392; after the tungro and bacterial leaf blight batch: 325,703 / 626,656; 0.8.1: 325,291 / 626,024; 0.8.0: 325,302 / 626,037; 0.7.0-dev on 2026-10-28: 324,663 / 625,056. +300,393 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
+| **Total triples** | **327,853** (asserted) / **630,369** (OWL RL) | 0.9.0, measured 2026-11-07 (v0.8.1: 325,291 / 626,024); 0.9.0-dev after the closing items (RD2018 licence, potassium row, stable URLs, citation): the same; after the symptom inventory §6.4 items 5–8: 327,827 / 630,326; after decisions M6, M7 and Normal_Health: 327,808 / 630,297; after the signs (decision M4): 327,722 / 630,129; after the Plant Ontology lookup of the 0.8.0 plant parts: 327,216 / 628,999; after RD2018 was added as a second source to four axioms: 327,205 / 628,983; after the IRRI (2018) Rice Diseases batch (text layer + symptoms of leaf scald, downy mildew, bacterial panicle blight): 327,185 / 628,959; after symptom batch 3: 326,186 / 627,392; after the tungro and bacterial leaf blight batch: 325,703 / 626,656; 0.8.1: 325,291 / 626,024; 0.8.0: 325,302 / 626,037; 0.7.0-dev on 2026-10-28: 324,663 / 625,056. +300,393 triples derived via OWL RL materialisation. v0.6.1/v0.6.2: 66,802 / 161,447; released v0.6: 66,780 / 161,416 |
 | **Named classes** | 32 | 31 in the `rice:` namespace — 30 primitive (incl. `Sign`, 0.9.0-dev, 2026-11-07; `TextDocument` and `TextPassage`, 2026-10-22; `PlantPart`, `TransmissionMode`, `ManagementCategory`, `AbioticFactor`, `Variety`, `ResistanceAssessment`, `ResistanceLevel`, `TrapObservation`, `SpectralBand` and `BandImage`, 0.7.0-dev) and 1 defined class (`SymptomaticObservation`) — plus `dcat:Dataset`. Recounted 2026-10-15; the row read 23 although the version table already gave 26 |
 | **Object properties** | 44 | `hasBandImage` and `ofBand` added 2026-10-14; `hasAffectedPart` added 2026-10-21, entailed by property chains, range only; `inDocument` and `mentions` (domain only) added 2026-10-22. All others declared with explicit domain and range, and every inverse pair checked for matching domain/range; includes `affectsPlantPart`, transitive `partOf`, `hasTransmissionMode`, `hasManagementCategory`, and `varietyOf`/`hasVariety`, `assessedVariety`/`hasResistanceAssessment`, `assessedAgainst`, `hasResistanceLevel`, `ofVariety`, `hasSpatialLocation` (0.7.0-dev) |
 | **Datatype properties** | 32 | `startOffset`, `endOffset`, `textSha256`, `sectionTitle`, `passageText` (text layer, 2026-10-22; `passageText` asserted only in text modules), `centreWavelengthNm`, `hasCatchCount`, `recordedUntilDate`, `testedPopulation`, `testedLocation`, `reportedYear`, `plantAgeDays`, `sourceLabel`, `environmentCondition`, the sensor / remote-sensing measurements, `recordedAtDate`, `hasLatitude`, `hasLongitude`, `hasElectricalConductivity` and `hasOrganicCarbon` added in 0.7.0-dev |
@@ -186,13 +186,68 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 | 0.9.0-dev (+ `Sign` class and 20 signs, decision M4) | 2026-11-07 | 327,722 (630,129 OWL RL) | 32 | 44 | 36,742 | 593 axioms / 593 assertions + 15 assessments; 306 axioms with an evidence passage |
 | 0.9.0-dev (+ field patterns and two ambiguous rows, decisions M6, M7; Normal_Health option b) | 2026-11-07 | 327,808 (630,297 OWL RL) | 32 | 44 | 36,747 | 599 axioms / 599 assertions + 15 assessments; 312 axioms with an evidence passage |
 | 0.9.0-dev (symptom inventory §6.4 items 5–8) | 2026-11-07 | 327,827 (630,326 OWL RL) | 32 | 44 | 36,747 | 600 axioms / 600 assertions + 15 assessments; 313 axioms with an evidence passage |
-| **0.9.0-dev (closing items: RD2018 licence, potassium row, stable URLs, citation — in development)** | **2026-11-07** | **327,853** (630,369 OWL RL) | **32** | **44** | **36,748** | **602 axioms / 602 assertions + 15 assessments; 315 axioms with an evidence passage** |
+| 0.9.0-dev (closing items: RD2018 licence, potassium row, stable URLs, citation) | 2026-11-07 | 327,853 (630,369 OWL RL) | 32 | 44 | 36,748 | 602 axioms / 602 assertions + 15 assessments; 315 axioms with an evidence passage |
+| **v0.9.0 (release: the KG as the benchmark needs it)** | **2026-11-07** | **327,853** (630,369 OWL RL) | **32** | **44** | **36,748** | **602 axioms / 602 assertions + 15 assessments; 315 axioms with an evidence passage** |
 
 ---
 
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-11-07: v0.9.0 — release: the KG as the retrieval benchmark needs it
+
+0.9.0 closes the phase "0.8 → 0.9: benchmark" of `MAINTENANCE.md`. The file is the state of `72e3535` with `owl:versionInfo` 0.9.0. Its `owl:versionIRI` is `https://w3id.org/ricemmkg/0.9.0` and its `owl:priorVersion` is `https://w3id.org/ricemmkg/0.8.1`. The 0.9.0-dev entries below give the details; in summary:
+
+- **Symptom inventory, all conditions:**
+  - **Visual symptoms from the IRRI fact sheets** of tungro and bacterial leaf blight, then of bacterial leaf streak, sheath blight, hispa, leaffolder, stem borer and brown planthopper.
+  - **The three conditions without a sheet** (leaf scald, downy mildew, bacterial panicle blight): their symptoms come from IRRI (2018) *Rice Diseases*. Bacterial panicle blight is no longer near-identical to brown spot.
+  - **The potassium row** "dark green plant".
+  - **Result:** no missing row of the inventory is left except four ambiguous rows that M7 keeps out.
+- **IRRI (2018) *Rice Diseases* as a second text source:**
+  - 3 `TextDocument`s and 15 `TextPassage`s, with the wording in the new module `Text Modality/RiceMMKG_IRRI_RD2018_text.ttl` under CC BY-NC-SA 4.0. The licence was verified on the site.
+  - Its `dcterms:source` is the stable contents page, not the Google Drive links.
+  - The citation follows the book's own, with its six editors.
+  - RD2018 was also added as a second source to four older CABI or Rice Doctor axioms.
+- **Schema:** the new class `rice:Sign` (decision M4), disjoint from `Symptom`. The range of `indicatedBy`, and the domains of `indicates` and `affectsPlantPart`, are now `Symptom ⊔ Sign`. There are 21 signs (bacterial ooze, fungal growth, sclerotia, insects and their eggs, frass, silk); `Sooty_Mould_Plant_Base` was retyped from `Symptom`.
+- **Decisions:**
+  - **M6:** field-scale patterns are symptoms without a plant part.
+  - **M7:** of the ambiguous rows, only those with a visible feature were added.
+  - **M11:** Normal_Health takes option (b): no KG content for normal appearance, and the benchmark uses one fixed prompt.
+- **Provenance fixes:**
+  - The two LLM-reviewed passages of 0.8.1 were confirmed by the curator.
+  - Symptom inventory §6.4, items 5–8: `Deadheart` also affects `Tiller`; seven generic symptoms got a comment; species-scope notes were added to `Stem_Borer` and `Brown_Planthopper`. The plant-part limitation of shared symptoms is documented, not changed.
+- **Alignment:** Plant Ontology matches for `Coleoptile` (exact), `Leaf_Collar` and `Glume` (close), with `Leaf_Collar partOf Leaf`. All 13 plant parts are now aligned.
+- **Numbers, v0.8.1 → v0.9.0:**
+
+| Quantity | v0.8.1 | v0.9.0 |
+|---|---:|---:|
+| Asserted / OWL RL triples | 325,291 / 626,024 | 327,853 / 630,369 |
+| Named classes | 31 | 32 |
+| Named individuals | 36,645 | 36,748 |
+| `Symptom` / `Sign` | 65 / — | 129 / 21 |
+| `indicatedBy` / `affectsPlantPart` / `partOf` | 100 / 66 / 2 | 198 / 145 / 3 |
+| Axioms = domain assertions | 424 | 602 |
+| Axioms with an evidence passage (human / LLM-reviewed) | 134 (97 / 37) | 315 (280 / 35) |
+| `TextDocument` / `TextPassage` | 19 / 296 | 22 / 311 |
+| `exactMatch` / `closeMatch` / `broadMatch` / `relatedMatch` | 70 / 31 / 18 / 4 | 71 / 33 / 18 / 4 |
+
+- **Reasoner:** HermiT (owlready2) on a copy in a path without spaces reports the graph consistent, with 0 unsatisfiable classes. The control copy, with `Dark_Green_Plant` also typed `Disease`, is reported inconsistent.
+- **Benchmark against v0.8.1:** verdicts unchanged at **21 PASS / 4 PARTIAL / 1 FAIL / 1 DOC**. Each count that changed, and why:
+  - **CQ-04** (symptoms linked to at least one disease or pest): 65/65 → 129/129. There are 64 new symptoms; `Sooty_Mould_Plant_Base` left the count when it became a Sign.
+  - **CQ-11** (risk-to-remedy chain): 554 → 970 detail rows, because the chain passes through more symptoms.
+  - **CQ-15** (inverse-direction queries): 204 → 302 entailed inverse triples, from the new `indicatedBy` links.
+  - **CQ-18** (symptoms with image evidence): 3/65 → 3/129 (4.6 % → 2.3 %, still PARTIAL). The new symptoms have no images.
+  - **CQ-21** (assertions with a provenance axiom): 424/424 → 602/602.
+- **Elicited CQs against v0.8.1:** unchanged at 10 answers / 7 partial / 2 no answer. Row counts that changed:
+  - **CQ-A03** (symptoms of bacterial leaf blight with their plant parts): 12 → 45. It gains the new BLB symptoms and the ooze signs.
+  - **CQ-A04** (conditions sharing a symptom with brown spot): 9 → 12. More conditions now share a generic symptom with brown spot, among them leaf scald and tungro through `Grain_Discoloration`.
+  - **CQ-A21** (symptoms with no image evidence): 62 → 126.
+- **Still open, carried to v1.0:**
+  - the expert questions X1–X11;
+  - the 35 `LLM-reviewed` evidence links from the text pilot;
+  - the plant-part limitation of shared symptoms;
+  - the benchmark rerun in RiceMMKG-Benchmark.
 
 ### 2026-11-07: 0.9.0-dev — RD2018 licence verified; potassium "dark green plant"; stable IRRI URLs; RD2018 citation fixed
 
