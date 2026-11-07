@@ -27,6 +27,21 @@ DOMAIN = ["Disease", "Pest", "Pathogen", "Symptom", "PlantPart", "GrowthStage", 
           "Treatment", "ManagementAction", "AbioticFactor", "Plant", "Variety"]
 
 
+LICENCE_NOTE = ("Licence: the footer of every page of the site reads \"Legal notice | © 2018 IRRI | CC\", where \"CC\" "
+                "links to http://creativecommons.org/licenses/by-nc-sa/4.0/ (https://rice-diseases.irri.org and "
+                "https://rice-diseases.irri.org/contents, checked 2026-11-07); IRRI's legal notice "
+                "(https://irri.org/legal-notice) states \"IRRI-owned and -created material is governed by Creative "
+                "Commons\". The chapter PDFs themselves carry no licence statement.")
+
+
+def doc_comment(m):
+    return (f"Section of the chapter PDF \"{m['chapter']}\" ({m['pdf']}) of IRRI (2018) Rice diseases: Biology and selected "
+            f"management practices. The PDF is linked from {m['url']} as {m['pdf_url']} and was downloaded on 2026-11-07. "
+            "The section covers the introduction and the Symptoms subsection. " + LICENCE_NOTE +
+            " Plain text by Text Modality/scripts/rd2018_to_text.py, which the passage offsets refer to. Wording in "
+            "Text Modality/RiceMMKG_IRRI_RD2018_text.ttl.")
+
+
 def lit(s, triple=False):
     s = s.replace("\\", "\\\\").replace('"', '\\"')
     return ('"""' + s + '"""@en') if triple else ('"' + s + '"@en')
@@ -87,7 +102,7 @@ def main(data, onto, module_out, core_out):
     dcterms:title {lit(m["title"])} ;
     dcterms:source <{m["url"]}> ;
     dcterms:license <{LICENCE}> ;
-    rdfs:comment {lit(f"Section of {m['pdf']} from IRRI (2018) Rice Diseases: Biology and Selected Management Practices, {manifest['_contents']} (downloaded 2026-11-07): the introduction and the Symptoms subsection. Plain text by Text Modality/scripts/rd2018_to_text.py, which the passage offsets refer to. Wording in Text Modality/RiceMMKG_IRRI_RD2018_text.ttl.")} .
+    rdfs:comment {lit(doc_comment(m))} .
 """)
     for r in rows:
         n = r["id"].rsplit("_p", 1)[1]

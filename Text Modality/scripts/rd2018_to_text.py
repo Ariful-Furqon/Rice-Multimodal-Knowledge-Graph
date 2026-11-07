@@ -29,8 +29,12 @@ from pathlib import Path
 import pypdf
 
 CONTENTS = "https://rice-diseases.irri.org/contents"
-CH2 = ("chapter2_foliar_fungal_diseases.pdf", "https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view")
-CH4 = ("chapter4_grain_diseases.pdf", "https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view")
+# chapter PDFs as linked from the contents page (the site has no chapter pages). The core graph uses
+# CONTENTS as dcterms:source; the Drive link is kept in the TextDocument comment only.
+CH2 = ("chapter2_foliar_fungal_diseases.pdf", "https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view?usp=sharing",
+       "Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases")
+CH4 = ("chapter4_grain_diseases.pdf", "https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view?usp=sharing",
+       "Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases")
 # doc id: (chapter, heading that starts the section, heading that ends it, document title)
 DOCS = {
     "downy-mildew": (CH2, r"^2\. Downy mildew \(DM\)\s*$", r"^2\.2\. Causal organism", "Downy mildew (DM)"),
@@ -80,12 +84,12 @@ def main(raw, corpus):
     raw, corpus = Path(raw), Path(corpus)
     corpus.mkdir(parents=True, exist_ok=True)
     texts, manifest = {}, {"_contents": CONTENTS, "_pypdf": pypdf.__version__}
-    for doc, ((pdf, url), start, end, title) in DOCS.items():
+    for doc, ((pdf, url, chapter), start, end, title) in DOCS.items():
         if pdf not in texts:
             texts[pdf] = "\n".join(p.extract_text() or "" for p in pypdf.PdfReader(str(raw / pdf)).pages)
         blocks = to_blocks(section_lines(texts[pdf], start, end))
         (corpus / f"IRRI_RD2018_{doc}.txt").write_text(title + "\n\n## Introduction\n\n" + "\n\n".join(blocks) + "\n", encoding="utf-8")
-        manifest[f"IRRI_RD2018_{doc}"] = {"url": url, "pdf": pdf, "title": title}
+        manifest[f"IRRI_RD2018_{doc}"] = {"url": CONTENTS, "pdf_url": url, "pdf": pdf, "chapter": chapter, "title": title}
         print(doc, len(blocks), "blocks")
     (corpus.parent / "manifest.json").write_text(json.dumps(manifest, indent=1), encoding="utf-8")
 

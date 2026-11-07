@@ -54,10 +54,22 @@
 - **Item 6:** the seven symptoms without a comment now have one.
 - **Item 7:** kept as a known limitation and documented in README.
 - **Item 8:** scope notes were added to the comments of `Stem_Borer` and `Brown_Planthopper`; their species identity is unchanged.
-- **Status:** every condition with an IRRI fact sheet is now covered. Still open:
-  - the three diseases without a sheet (§4);
-  - Normal_Health (§5);
-  - decisions M4, M6 and M7.
+- **Status (corrected 2026-11-07):**
+  - **Done:** every condition with an IRRI fact sheet is covered. The three diseases without a sheet (§4) are covered from IRRI (2018). Normal_Health (§5) and decisions M4, M6, M7 and M11 are decided and applied.
+  - **Still open:**
+    - the expert questions X1–X11 (§7.4), which wait on the domain expert;
+    - the 35 evidence links still `LLM-reviewed` (from the text pilot of October 2026);
+    - the plant-part limitation of item 7, kept as is;
+    - the four ambiguous rows that M7 keeps out (tungro delayed flowering, nitrogen fewer panicles, phosphorus no flowering, GR17);
+    - the benchmark rerun in RiceMMKG-Benchmark.
+
+**Update 2026-11-07 (0.9.0-dev, closing items before 0.9.0):**
+- **§3.6 row 2 (potassium "dark green plants"):** now in the KG as `Dark_Green_Plant` (whole plant), with `potassium-k_p3` as evidence. It is not merged with `Dark_Green_Erect_Leaf` (M3).
+- **Remaining missing rows:** a script check (`Worklog/2026-11-07_symptom_inventory/scripts/remaining_missing_rows.py`) finds no missing row without a counterpart, apart from the four ambiguous rows above. 43 rows that matched only through their passage were checked by hand.
+- **IRRI (2018) licence:** CC BY-NC-SA 4.0 is confirmed on the site (footer "Legal notice | © 2018 IRRI | CC", with "CC" linking to `creativecommons.org/licenses/by-nc-sa/4.0/`). The chapter PDFs carry no licence statement. The quote is in `Text Modality/README.md` and in the `TextDocument` comments.
+- **IRRI (2018) URLs and citation:**
+  - `dcterms:source` is now https://rice-diseases.irri.org/contents instead of the Google Drive links.
+  - The citations follow the book's own "Correct citation" (editors Mew, Hibino, Savary, Vera Cruz, Opulencia, Hettel), with the section authors and the section of each chapter.
 
 Phase 2 (editing) follows MAINTENANCE.md: a provenance axiom for each assertion, a MINOR version bump, a HermiT check on a copy in a path without spaces, and the CQ benchmarks.
 

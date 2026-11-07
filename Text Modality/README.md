@@ -7,7 +7,7 @@ Text sources of Rice MMKG and the modules that hold their wording.
 | File | Licence | Why |
 |---|---|---|
 | `RiceMMKG_IRRI_text.ttl` | **CC BY-NC-SA 3.0** | Wording of IRRI Rice Knowledge Bank fact sheets, © International Rice Research Institute. Attribute IRRI; non-commercial use only; share alike. |
-| `RiceMMKG_IRRI_RD2018_text.ttl` | **CC BY-NC-SA 4.0** | Wording of IRRI (2018) *Rice Diseases: Biology and Selected Management Practices*, © International Rice Research Institute. Attribute IRRI; non-commercial use only; share alike. |
+| `RiceMMKG_IRRI_RD2018_text.ttl` | **CC BY-NC-SA 4.0** | Wording of IRRI (2018) *Rice Diseases: Biology and Selected Management Practices*, © International Rice Research Institute. Attribute IRRI; non-commercial use only; share alike. Licence stated on the site, not in the chapter PDFs: the footer of every page of https://rice-diseases.irri.org (home page and `/contents`, checked 2026-11-07) reads "Legal notice | © 2018 IRRI | CC", where "CC" links to http://creativecommons.org/licenses/by-nc-sa/4.0/. IRRI's legal notice (https://irri.org/legal-notice) adds: "IRRI-owned and -created material is governed by Creative Commons". The two chapter PDFs (`Data/irri-rice-diseases-2018/raw_2026-11-07/`) have no copyright page and no licence statement. |
 | `scripts/` | MIT, like the rest of the tooling | — |
 | Pointers in `Ontology/Rice MMKG.rdf` | CC BY 4.0, like the core | Offsets, hashes, titles, section headings and links only; no wording |
 
@@ -17,12 +17,15 @@ The core graph stays CC BY 4.0 because it holds facts and pointers, not the IRRI
 
 - **`rice:TextDocument`:** 22 documents, each with URL (`dcterms:source`), title and licence:
   - 19 IRRI Rice Knowledge Bank fact sheets (`IRRI_RKB_*`);
-  - 3 disease sections of IRRI (2018) *Rice Diseases* (`IRRI_RD2018_*`, added 2026-11-07): downy mildew and leaf scald from chapter 2, grain rot (bacterial panicle blight) from chapter 4. Each covers the introduction and the Symptoms subsection.
+  - 3 disease sections of IRRI (2018) *Rice Diseases* (`IRRI_RD2018_*`, added 2026-11-07). Each covers the introduction and the Symptoms subsection:
+    - downy mildew and leaf scald come from Part II, Section 1 (Fungal Diseases), Chapter 2;
+    - grain rot (bacterial panicle blight) comes from Part II, Section 2 (Bacterial Diseases), Chapter 4.
+  - Their `dcterms:source` is https://rice-diseases.irri.org/contents, because the site has no chapter pages. The contents page links each chapter PDF on Google Drive; that link is kept in the comment of the `TextDocument`, together with the licence quote.
 - **`rice:TextPassage`:** 311 passages (296 + 15), each a paragraph or list item.
   - `inDocument`, `startOffset`, `endOffset` and `textSha256` locate the passage.
   - `sectionTitle` gives its section, and `mentions` the domain individuals named in it.
   - The offsets play the role of a W3C Web Annotation `TextPositionSelector`.
-- **Evidence on curated assertions:** `rice:hasEvidencePassage` on the `owl:Axiom` of 313 curated assertions points to the passage that states the assertion. `rice:evidencePassageCheck` says how the link was checked: `human-reviewed` (278) or `LLM-reviewed` (35). Counted 2026-11-07 on 0.9.0-dev. The count includes:
+- **Evidence on curated assertions:** `rice:hasEvidencePassage` on the `owl:Axiom` of 315 curated assertions points to the passage that states the assertion. `rice:evidencePassageCheck` says how the link was checked: `human-reviewed` (280) or `LLM-reviewed` (35). Counted 2026-11-07 on 0.9.0-dev. The count includes:
   - the 49 blast and brown spot assertions of 0.8.0;
   - the 0.8.1 corrections: one wrong link removed and two added (inventory §6.4);
   - the 32 tungro and bacterial leaf blight assertions of 0.9.0-dev;
@@ -31,7 +34,8 @@ The core graph stays CC BY 4.0 because it holds facts and pointers, not the IRRI
   - 4 older assertions (`Zonate_Leaf_Lesion` of leaf scald; `Empty_Grain`, `Wilting` and `Grain_Discoloration` of bacterial panicle blight). These got IRRI (2018) as a second source, with its passage;
   - the 35 assertions of the signs (decision M4, 0.9.0-dev);
   - the 6 assertions of decisions M6 and M7 (0.9.0-dev);
-  - `Deadheart → Tiller` (§6.4, item 5, 0.9.0-dev).
+  - `Deadheart → Tiller` (§6.4, item 5, 0.9.0-dev);
+  - the 2 assertions of the potassium row "dark green plant" (inventory §3.6 row 2, 0.9.0-dev).
 - **These modules:** `rice:passageText` for each passage. Load them together with the core to get the wording.
 
 ## How the offsets are defined

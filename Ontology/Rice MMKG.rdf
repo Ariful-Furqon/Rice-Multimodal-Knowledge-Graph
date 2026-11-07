@@ -129645,8 +129645,8 @@
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Grain_Discoloration"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p5"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
     <rdfs:comment xml:lang="en">Second source added 2026-11-07: IRRI (2018) Rice Diseases also states this symptom (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1, row GR14). The evidence passage is from that source; the first source has no passage in the text layer.</rdfs:comment>
@@ -149866,8 +149866,8 @@
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Burkholderia glumae (bacterial grain rot). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.44964 / Ham, J. H. et al. (2011). Burkholderia glumae: next major pathogen of rice? Mol. Plant Pathol., 12(4), 329-339.</dcterms:bibliographicCitation>
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.44964"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
     <rdfs:comment xml:lang="en">Second source added 2026-11-07: IRRI (2018) Rice Diseases also states this symptom (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1, row GR10). The evidence passage is from that source; the first source has no passage in the text layer.</rdfs:comment>
@@ -158373,8 +158373,8 @@
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Empty_Grain"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
     <rdfs:comment xml:lang="en">Second source added 2026-11-07: IRRI (2018) Rice Diseases also states this symptom (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1, row GR3). The evidence passage is from that source; the first source has no passage in the text layer.</rdfs:comment>
@@ -184665,8 +184665,8 @@
     <dcterms:source rdf:resource="https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm"/>
     <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Factsheet - Scald. Rice Doctor. International Rice Research Institute, with the Australian Centre for International Agricultural Research and The University of Queensland. https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm (accessed 2026-10-05). "Leaf scald is a fungal disease caused by Microdochium oryzae."</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
     <rdfs:comment xml:lang="en">Second source added 2026-11-07: IRRI (2018) Rice Diseases also states this symptom (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1, row LS1). The evidence passage is from that source; the first source has no passage in the text layer.</rdfs:comment>
@@ -401568,27 +401568,27 @@
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextDocument"/>
     <rdfs:label xml:lang="en">IRRI Rice Diseases online resource (2018): Downy mildew (DM)</rdfs:label>
     <dcterms:title xml:lang="en">Downy mildew (DM)</dcterms:title>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
     <dcterms:license rdf:resource="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
-    <rdfs:comment xml:lang="en">Section of chapter2_foliar_fungal_diseases.pdf from IRRI (2018) Rice Diseases: Biology and Selected Management Practices, https://rice-diseases.irri.org/contents (downloaded 2026-11-07): the introduction and the Symptoms subsection. Plain text by Text Modality/scripts/rd2018_to_text.py, which the passage offsets refer to. Wording in Text Modality/RiceMMKG_IRRI_RD2018_text.ttl.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Section of the chapter PDF "Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases" (chapter2_foliar_fungal_diseases.pdf) of IRRI (2018) Rice diseases: Biology and selected management practices. The PDF is linked from https://rice-diseases.irri.org/contents as https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view?usp=sharing and was downloaded on 2026-11-07. The section covers the introduction and the Symptoms subsection. Licence: the footer of every page of the site reads "Legal notice | © 2018 IRRI | CC", where "CC" links to http://creativecommons.org/licenses/by-nc-sa/4.0/ (https://rice-diseases.irri.org and https://rice-diseases.irri.org/contents, checked 2026-11-07); IRRI's legal notice (https://irri.org/legal-notice) states "IRRI-owned and -created material is governed by Creative Commons". The chapter PDFs themselves carry no licence statement. Plain text by Text Modality/scripts/rd2018_to_text.py, which the passage offsets refer to. Wording in Text Modality/RiceMMKG_IRRI_RD2018_text.ttl.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextDocument"/>
     <rdfs:label xml:lang="en">IRRI Rice Diseases online resource (2018): Grain rot (GnR)</rdfs:label>
     <dcterms:title xml:lang="en">Grain rot (GnR)</dcterms:title>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
     <dcterms:license rdf:resource="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
-    <rdfs:comment xml:lang="en">Section of chapter4_grain_diseases.pdf from IRRI (2018) Rice Diseases: Biology and Selected Management Practices, https://rice-diseases.irri.org/contents (downloaded 2026-11-07): the introduction and the Symptoms subsection. Plain text by Text Modality/scripts/rd2018_to_text.py, which the passage offsets refer to. Wording in Text Modality/RiceMMKG_IRRI_RD2018_text.ttl.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Section of the chapter PDF "Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases" (chapter4_grain_diseases.pdf) of IRRI (2018) Rice diseases: Biology and selected management practices. The PDF is linked from https://rice-diseases.irri.org/contents as https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view?usp=sharing and was downloaded on 2026-11-07. The section covers the introduction and the Symptoms subsection. Licence: the footer of every page of the site reads "Legal notice | © 2018 IRRI | CC", where "CC" links to http://creativecommons.org/licenses/by-nc-sa/4.0/ (https://rice-diseases.irri.org and https://rice-diseases.irri.org/contents, checked 2026-11-07); IRRI's legal notice (https://irri.org/legal-notice) states "IRRI-owned and -created material is governed by Creative Commons". The chapter PDFs themselves carry no licence statement. Plain text by Text Modality/scripts/rd2018_to_text.py, which the passage offsets refer to. Wording in Text Modality/RiceMMKG_IRRI_RD2018_text.ttl.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextDocument"/>
     <rdfs:label xml:lang="en">IRRI Rice Diseases online resource (2018): Leaf scald (LSc)</rdfs:label>
     <dcterms:title xml:lang="en">Leaf scald (LSc)</dcterms:title>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
     <dcterms:license rdf:resource="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
-    <rdfs:comment xml:lang="en">Section of chapter2_foliar_fungal_diseases.pdf from IRRI (2018) Rice Diseases: Biology and Selected Management Practices, https://rice-diseases.irri.org/contents (downloaded 2026-11-07): the introduction and the Symptoms subsection. Plain text by Text Modality/scripts/rd2018_to_text.py, which the passage offsets refer to. Wording in Text Modality/RiceMMKG_IRRI_RD2018_text.ttl.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Section of the chapter PDF "Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases" (chapter2_foliar_fungal_diseases.pdf) of IRRI (2018) Rice diseases: Biology and selected management practices. The PDF is linked from https://rice-diseases.irri.org/contents as https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view?usp=sharing and was downloaded on 2026-11-07. The section covers the introduction and the Symptoms subsection. Licence: the footer of every page of the site reads "Legal notice | © 2018 IRRI | CC", where "CC" links to http://creativecommons.org/licenses/by-nc-sa/4.0/ (https://rice-diseases.irri.org and https://rice-diseases.irri.org/contents, checked 2026-11-07); IRRI's legal notice (https://irri.org/legal-notice) states "IRRI-owned and -created material is governed by Creative Commons". The chapter PDFs themselves carry no licence statement. Plain text by Text Modality/scripts/rd2018_to_text.py, which the passage offsets refer to. Wording in Text Modality/RiceMMKG_IRRI_RD2018_text.ttl.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p1">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -401970,8 +401970,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Brown_Coleoptile_Lesion"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Coleoptile"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -401985,8 +401985,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Brown_Sheath_Patch"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p5"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402000,8 +402000,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Contorted_Panicle"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402015,8 +402015,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Dark_Based_Floret"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402030,8 +402030,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Deformed_Floret"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402045,8 +402045,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Erect_Panicle"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402060,8 +402060,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Grain_Brown_Boundary_Line"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Grain"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p5"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402075,8 +402075,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Green_Rachis"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402090,8 +402090,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Hull_Fading_From_Base"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Grain"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p5"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402105,8 +402105,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Large_Dead_Leaf_Area"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402120,8 +402120,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Late_Green_Panicle"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402135,8 +402135,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Lesion_Size_1_5cm"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402150,8 +402150,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Soft_Rot"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402165,8 +402165,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Light_Brown_Lesion_Halo"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402180,8 +402180,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Neck_Brown_Patch"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Panicle_Neck"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402195,8 +402195,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Oblong_Leaf_Lesion"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402210,8 +402210,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Purplish_Brown_Elliptical_Lesion"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402225,8 +402225,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Red_Brown_Coleoptile_Decay"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Coleoptile"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402240,8 +402240,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Reddish_Brown_Fleck"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p5"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402255,8 +402255,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Reduced_Leaf_Size"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402270,8 +402270,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Root_Rot"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Root"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402285,8 +402285,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Sheath_Soft_Rot"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402300,8 +402300,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Shrunken_Discoloured_Panicle"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p5"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402315,8 +402315,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Small_Tan_Leaf_Lesion"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402330,8 +402330,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Tan_Centre_Sheath_Lesion"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402345,8 +402345,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Tubular_Twisted_Floret"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402360,8 +402360,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Twisted_Leaf"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402375,8 +402375,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Twisted_Leaf_Sheath"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402390,8 +402390,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Brown_Coleoptile_Lesion"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402405,8 +402405,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Dark_Based_Floret"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402420,8 +402420,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Erect_Panicle"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402435,8 +402435,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Grain_Brown_Boundary_Line"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p5"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402450,8 +402450,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Green_Rachis"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402465,8 +402465,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Hull_Fading_From_Base"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p5"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402480,8 +402480,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Soft_Rot"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402495,8 +402495,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Seedling_Death"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402510,8 +402510,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Sheath_Soft_Rot"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402525,8 +402525,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Shrunken_Discoloured_Panicle"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p5"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402540,8 +402540,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Small_Tan_Leaf_Lesion"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402555,8 +402555,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Tan_Centre_Sheath_Lesion"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402570,8 +402570,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Chlorotic_Leaf_Patch"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402585,8 +402585,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Contorted_Panicle"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402600,8 +402600,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Incompletely_Exserted_Panicle"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402615,8 +402615,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Late_Green_Panicle"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402630,8 +402630,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Reduced_Leaf_Size"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402645,8 +402645,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Tubular_Twisted_Floret"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402660,8 +402660,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Twisted_Leaf"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402675,8 +402675,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Twisted_Leaf_Sheath"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402690,8 +402690,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Brown_Sheath_Patch"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p5"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402705,8 +402705,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Coalescing_Leaf_Lesions"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402720,8 +402720,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Deformed_Floret"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402735,8 +402735,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Dry_Leaf_Tip"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402750,8 +402750,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Grain_Discoloration"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402765,8 +402765,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Large_Dead_Leaf_Area"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402780,8 +402780,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Lesion_Size_1_5cm"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402795,8 +402795,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Light_Brown_Lesion_Halo"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402810,8 +402810,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Neck_Brown_Patch"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402825,8 +402825,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Oblong_Leaf_Lesion"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p4"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402840,8 +402840,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Purplish_Brown_Elliptical_Lesion"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402855,8 +402855,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Red_Brown_Coleoptile_Decay"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402870,8 +402870,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Reddish_Brown_Fleck"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p5"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402885,8 +402885,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Root_Rot"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -402900,8 +402900,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Sterile_Panicle"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -403218,8 +403218,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Underside_Fungal_Growth"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -403263,8 +403263,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#White_Fungal_Coating"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Grain"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -403278,8 +403278,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#White_Fungal_Coating"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Tiller"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -403398,8 +403398,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Underside_Fungal_Growth"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -403413,8 +403413,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#White_Fungal_Coating"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W. (2018). Chapter 2. Foliar fungal diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -403639,8 +403639,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Flag_Leaf_Sheath_Rot"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p5"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -403654,8 +403654,8 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Flag_Leaf_Sheath_Rot"/>
-    <dcterms:source rdf:resource="https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view"/>
-    <dcterms:bibliographicCitation xml:lang="en">Mew, T.W., Cottyn, B., Vera Cruz, C.M. (2018). Chapter 4. Grain diseases. In: Rice Diseases: Biology and Selected Management Practices (R. Opulencia and G.P. Hettel, eds.). International Rice Research Institute, 2018. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p5"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -403760,5 +403760,42 @@
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_stem-borer_p2"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
     <rdfs:comment xml:lang="en">Symptom inventory §6.4, item 5 (2026-11-07): IRRI describes deadheart as drying of the central tiller; the Leaf part (IRAC, expert definition of the innermost leaf whorl) stays. Approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <!-- symptom inventory §3.6 row 2 (2026-11-07): dark green plant, potassium deficiency -->
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Dark_Green_Plant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">dark green plant</rdfs:label>
+    <rdfs:comment xml:lang="en">Whole plant of a darker green than normal. Kept apart from Dark_Green_Erect_Leaf: the source does not state erect leaves for this condition.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Dark_Green_Plant">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Whole_Plant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107g1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Dark_Green_Plant"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Whole_Plant"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/item/potassium-k"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Potassium (K). Rice Knowledge Bank fact sheet (nutrient management). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/item/potassium-k (accessed 2026-10-13).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_potassium-k_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Symptom inventory §3.6 row 2 (2026-11-07): "Stunted dark green plants"; the last missing row of a condition with an IRRI fact sheet.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Potassium_Deficiency_Disorder">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Dark_Green_Plant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107g2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Potassium_Deficiency_Disorder"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Dark_Green_Plant"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/item/potassium-k"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Potassium (K). Rice Knowledge Bank fact sheet (nutrient management). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/item/potassium-k (accessed 2026-10-13).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_potassium-k_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Symptom inventory §3.6 row 2 (2026-11-07): "Stunted dark green plants"; the last missing row of a condition with an IRRI fact sheet.</rdfs:comment>
   </rdf:Description>
 </rdf:RDF>
