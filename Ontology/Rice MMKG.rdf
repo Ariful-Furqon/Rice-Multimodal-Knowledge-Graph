@@ -134115,8 +134115,8 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <owl:versionIRI rdf:resource="https://w3id.org/ricemmkg/0.8.1"/>
-    <owl:priorVersion rdf:resource="https://w3id.org/ricemmkg/0.8.0"/>
+    <owl:versionIRI rdf:resource="https://w3id.org/ricemmkg/0.9.0"/>
+    <owl:priorVersion rdf:resource="https://w3id.org/ricemmkg/0.8.1"/>
     <vann:preferredNamespaceUri>https://w3id.org/ricemmkg#</vann:preferredNamespaceUri>
     <dcterms:creator>Muhammad Ariful Furqon (ORCID: https://orcid.org/0000-0002-1031-3567)</dcterms:creator>
     <dcterms:creator>Natthawut Kertkeidkachorn (ORCID: https://orcid.org/0000-0003-4527-776X)</dcterms:creator>
@@ -134126,7 +134126,7 @@
     <dcterms:title>Rice MMKG — Rice Multimodal Knowledge Graph</dcterms:title>
     <vann:preferredNamespacePrefix>riceMMKG</vann:preferredNamespacePrefix>
     <rdfs:comment xml:lang="en">RiceMMKG: A Multimodal Knowledge Graph and Domain Ontology for Rice Pest and Disease Identification. Every domain-level assertion is grounded in peer-reviewed agronomic literature and authoritative databases (IRRI Rice Doctor Knowledge Bank, CABI Crop Protection Compendium, and EPPO Global Database), formally traceable via OWL axiom annotations (owl:Axiom with dcterms:source and dcterms:bibliographicCitation). Namespace https://w3id.org/ricemmkg# since 0.7.0-dev. Releases up to v0.6.2 used http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#; their version IRIs (https://w3id.org/ricemmkg/0.6.0, https://w3id.org/ricemmkg/0.6.1, https://w3id.org/ricemmkg/0.6.2) resolve to those files. Every later git tag v&lt;version&gt; resolves at https://w3id.org/ricemmkg/&lt;version&gt;.</rdfs:comment>
-    <owl:versionInfo>0.8.1</owl:versionInfo>
+    <owl:versionInfo>0.9.0-dev</owl:versionInfo>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_tungro_PDD13952">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -400279,5 +400279,576 @@
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_brown-spot_p10"/>
     <rice:evidencePassageCheck>LLM-reviewed</rice:evidencePassageCheck>
     <rdfs:comment xml:lang="en">Evidence passage added in 0.8.1 (inventory §6.4). The passage was chosen by an LLM and checked as an exact substring of the passage text; it awaits curator review.</rdfs:comment>
+  </rdf:Description>
+  <!-- symptom inventory 2026-11-07: tungro and bacterial leaf blight (Analysis and Alignment/Symptom_Inventory_2026-11.md) -->
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Grey_White_Lesion_Black_Dots">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">greyish-white lesion with black dots</rdfs:label>
+    <rdfs:comment xml:lang="en">Old lesion that turns yellow to greyish white and carries black dots of saprophytic fungi.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Greyish_Green_Seedling_Leaf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">greyish-green seedling leaves</rdfs:label>
+    <rdfs:comment xml:lang="en">Leaves of an infected seedling that turn greyish green, before yellowing.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Incompletely_Exserted_Panicle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">small, incompletely exserted panicle</rdfs:label>
+    <rdfs:comment xml:lang="en">Small panicle that does not fully emerge from the flag leaf sheath.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Interveinal_Necrosis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">interveinal necrosis</rdfs:label>
+    <rdfs:comment xml:lang="en">Dead tissue between the leaf veins.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Drying">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">leaf drying</rdfs:label>
+    <rdfs:comment xml:lang="en">Drying of the leaf blade beyond the tip. Dry_Leaf_Tip covers the tip only.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Mottled_Leaf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">mottled leaf</rdfs:label>
+    <rdfs:comment xml:lang="en">Leaf with an irregular, patchy pattern of lighter and darker areas.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Partially_Filled_Grain">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">partially filled grain</rdfs:label>
+    <rdfs:comment xml:lang="en">Grain that fills only in part. Kept apart from Empty_Grain, which does not fill at all.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rust_Coloured_Leaf_Spot">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">rust-coloured leaf spots</rdfs:label>
+    <rdfs:comment xml:lang="en">Rust-coloured spots on infected leaves.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Sheath_Lesion_Extension">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">lesions extending to leaf sheath</rdfs:label>
+    <rdfs:comment xml:lang="en">Leaf lesions that extend onto the leaf sheath on severely infected leaves.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Straw_Coloured_Leaf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">straw-coloured leaves</rdfs:label>
+    <rdfs:comment xml:lang="en">Leaves that turn yellow to straw-coloured as the disease progresses.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Striped_Leaf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">striped leaf</rdfs:label>
+    <rdfs:comment xml:lang="en">Leaf with a striped appearance. The tungro fact sheet does not give the colour of the stripes, so this is kept apart from Yellow_Stripe.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Tip_Down_Leaf_Discoloration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">discoloration spreading from leaf tip downward</rdfs:label>
+    <rdfs:comment xml:lang="en">Yellow to orange-yellow discoloration that starts at the leaf tip and extends down the blade, as described for tungro.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Tip_To_Base_Lesion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">lesion advancing from leaf tip to base</rdfs:label>
+    <rdfs:comment xml:lang="en">Lesion that progresses from the leaf tip toward the leaf base.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Wavy_Lesion_Margin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">wavy lesion margin</rdfs:label>
+    <rdfs:comment xml:lang="en">Lesion whose edge is wavy rather than straight.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Yellow_Orange_Leaf_Stripe">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
+    <rdfs:label xml:lang="en">water-soaked to yellow-orange stripe</rdfs:label>
+    <rdfs:comment xml:lang="en">Stripe lesion on the leaf blade or tip, water-soaked at first and later yellow-orange; often starts at a wound. Kept apart from Yellow_Stripe, whose comment describes the downy mildew stripe.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Grey_White_Lesion_Black_Dots">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Grey_White_Lesion_Black_Dots"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p9"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Greyish_Green_Seedling_Leaf">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Greyish_Green_Seedling_Leaf"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Incompletely_Exserted_Panicle">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Incompletely_Exserted_Panicle"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p14"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Interveinal_Necrosis">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Interveinal_Necrosis"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p13"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Drying">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Drying"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p1"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Mottled_Leaf">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Mottled_Leaf"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p13"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Partially_Filled_Grain">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Grain"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Partially_Filled_Grain"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Grain"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p14"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rust_Coloured_Leaf_Spot">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b8">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rust_Coloured_Leaf_Spot"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p13"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Sheath_Lesion_Extension">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Sheath_Lesion_Extension"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p9"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Straw_Coloured_Leaf">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b10">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Straw_Coloured_Leaf"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Striped_Leaf">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b11">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Striped_Leaf"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p13"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Tip_Down_Leaf_Discoloration">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b12">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Tip_Down_Leaf_Discoloration"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p13"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Tip_To_Base_Lesion">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b13">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Tip_To_Base_Lesion"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p7"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Wavy_Lesion_Margin">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b14">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Wavy_Lesion_Margin"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p7"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Yellow_Orange_Leaf_Stripe">
+    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b15">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Yellow_Orange_Leaf_Stripe"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p7"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Grey_White_Lesion_Black_Dots"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b16">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Grey_White_Lesion_Black_Dots"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p9"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Greyish_Green_Seedling_Leaf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b17">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Greyish_Green_Seedling_Leaf"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Leaf_Drying"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b18">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Drying"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p1"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Seedling_Death"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b19">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Seedling_Death"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Sheath_Lesion_Extension"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b20">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Sheath_Lesion_Extension"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p9"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Straw_Coloured_Leaf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b21">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Straw_Coloured_Leaf"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Tip_To_Base_Lesion"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b22">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Tip_To_Base_Lesion"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p7"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Wavy_Lesion_Margin"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b23">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Wavy_Lesion_Margin"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p7"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Yellow_Orange_Leaf_Stripe"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b24">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Yellow_Orange_Leaf_Stripe"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p7"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rice_Tungro_Disease">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Grain_Discoloration"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b25">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Tungro_Disease"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Grain_Discoloration"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p14"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rice_Tungro_Disease">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Incompletely_Exserted_Panicle"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b26">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Tungro_Disease"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Incompletely_Exserted_Panicle"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p14"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rice_Tungro_Disease">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Interveinal_Necrosis"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b27">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Tungro_Disease"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Interveinal_Necrosis"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p13"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rice_Tungro_Disease">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Mottled_Leaf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b28">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Tungro_Disease"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Mottled_Leaf"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p13"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rice_Tungro_Disease">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Partially_Filled_Grain"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b29">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Tungro_Disease"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Partially_Filled_Grain"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p14"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rice_Tungro_Disease">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Rust_Coloured_Leaf_Spot"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b30">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Tungro_Disease"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Rust_Coloured_Leaf_Spot"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p13"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rice_Tungro_Disease">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Striped_Leaf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b31">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Tungro_Disease"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Striped_Leaf"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p13"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rice_Tungro_Disease">
+    <rice:indicatedBy rdf:resource="https://w3id.org/ricemmkg#Tip_Down_Leaf_Discoloration"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NsymptomInv20261107b32">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Tungro_Disease"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#indicatedBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Tip_Down_Leaf_Discoloration"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p13"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
   </rdf:Description>
 </rdf:RDF>

@@ -16,6 +16,12 @@
 - **Labels:** three symptom labels that contained a condition's name were also changed (`Pinhead_Brown_Spot`, `Panicle_Blast`, `Dusty_Brown_Spot`).
 - §6.4 items 5–8 are unchanged.
 
+**Update 2026-11-07 (0.9.0-dev):** the tungro and bacterial leaf blight rows (§3.4, §3.9) were added to the KG.
+- **Tungro:** 7 new symptoms, plus `Grain_Discoloration` reused.
+- **Bacterial leaf blight:** 8 new symptoms, plus `Seedling_Death` reused.
+- **Left out, as in 0.8.0:** signs, field patterns and ambiguous rows.
+- **Still open:** the rows of the other conditions.
+
 Phase 2 (editing) follows MAINTENANCE.md: a provenance axiom for each assertion, a MINOR version bump, a HermiT check on a copy in a path without spaces, and the CQ benchmarks.
 
 ## 1. Scope and method
