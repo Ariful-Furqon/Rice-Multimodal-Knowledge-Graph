@@ -399408,19 +399408,19 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#PlantPart"/>
     <rdfs:label xml:lang="en">coleoptile</rdfs:label>
-    <rdfs:comment xml:lang="en">Sheath that covers the first leaf of the seedling. Added for brown spot on seedlings. No Planteome match asserted yet: to be looked up live before alignment.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Sheath that covers the first leaf of the seedling. Added for brown spot on seedlings. Same as PO:0020033 'coleoptile' (looked up in OLS4 on 2026-11-07).</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#Glume">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#PlantPart"/>
     <rdfs:label xml:lang="en">glume</rdfs:label>
-    <rdfs:comment xml:lang="en">Bract of the rice spikelet. Added for brown spot on glumes. No Planteome match asserted yet: to be looked up live before alignment.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Bract of the rice spikelet. Added for brown spot on glumes. closeMatch, not exactMatch, to PO:0009039 'glume': IRRI sources also say glume for the hull (lemma and palea), which PO keeps apart (looked up in OLS4 on 2026-11-07).</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Collar">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#PlantPart"/>
     <rdfs:label xml:lang="en">leaf collar</rdfs:label>
-    <rdfs:comment xml:lang="en">Junction of the leaf blade and the leaf sheath. Added for collar blast. No Planteome match asserted yet: to be looked up live before alignment.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Junction of the leaf blade and the leaf sheath, the site of collar blast. closeMatch, not exactMatch, to PO:0006012 'leaf collar': PO defines it as the band of meristem tissue at that junction, while here it is the region where lesions are seen (looked up in OLS4 on 2026-11-07).</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#Broken_Culm">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -402885,5 +402885,27 @@
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p6"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
     <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md §4.1): every visual symptom that IRRI (2018) Rice Diseases states for the condition; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <!-- Plant Ontology alignment of the 0.8.0 plant parts, looked up in OLS4 on 2026-11-07 -->
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Collar">
+    <skos:closeMatch rdf:resource="http://purl.obolibrary.org/obo/PO_0006012"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Coleoptile">
+    <skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/PO_0020033"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Glume">
+    <skos:closeMatch rdf:resource="http://purl.obolibrary.org/obo/PO_0009039"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Collar">
+    <rice:partOf rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NpoLookup20261107a1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Collar"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#partOf"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <dcterms:source rdf:resource="http://purl.obolibrary.org/obo/PO_0006012"/>
+    <dcterms:bibliographicCitation xml:lang="en">Plant Ontology Consortium. Plant Ontology (PO): PO:0006012 'leaf collar' part_of PO:0009025 'vascular leaf', a PO:0025034 'leaf'. Retrieved via EBI Ontology Lookup Service (OLS4) on 2026-11-07.</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">ontology-derived</rice:evidenceType>
   </rdf:Description>
 </rdf:RDF>

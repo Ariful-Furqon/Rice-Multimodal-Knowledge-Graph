@@ -19,7 +19,7 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 - **Namespace:** `https://w3id.org/ricemmkg#` — permanent identifier, live since 2026-09-16; version IRIs `https://w3id.org/ricemmkg/<version>` (releases up to v0.6.2 used `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#`)
 - **Format:** OWL/XML (`.rdf`), fully compatible with [Protégé](https://protege.stanford.edu/)
 - **Version:** `0.9.0-dev` on `main` (in development since 2026-11-07). Last release `v0.8.1` (2026-11-07: symptom labels and provenance links corrected). Earlier tags: `v0.8.0` (2026-11-07), `v0.7.0` (the data freeze of 2026-10-16, same commit as `data-freeze-2026-10`; the file there reads `0.7.0-dev`), `v0.6.2` and `v0.6.1` (2026-09-15), and `v0.6.0` (the v0.6 release of 2026-09-03, same commit as `elicited-baseline-v0.6`). Every tag `v<version>` resolves at `https://w3id.org/ricemmkg/<version>`. The data state used by downstream experiments is `v0.7.0` / `data-freeze-2026-10`.
-- **Triples:** **327,205** asserted triples / **628,983** materialised triples under OWL RL (both measured 2026-11-07, 0.9.0-dev); the rise from 68,204 is the Paddy Doctor IEEE release, Dhan-Shomadhan images, the first sensor observations, the YUKE-WBC planthopper images, the stem borer symptom images, the nutrient deficiency images, the light-trap catches, the multispectral captures and 41 alignment links to SOSA, RiceDO and TreatO; v0.6.2: 66,802 / 161,447
+- **Triples:** **327,216** asserted triples / **628,999** materialised triples under OWL RL (both measured 2026-11-07, 0.9.0-dev); the rise from 68,204 is the Paddy Doctor IEEE release, Dhan-Shomadhan images, the first sensor observations, the YUKE-WBC planthopper images, the stem borer symptom images, the nutrient deficiency images, the light-trap catches, the multispectral captures and 41 alignment links to SOSA, RiceDO and TreatO; v0.6.2: 66,802 / 161,447
 - **Reasoner Consistency:** **100% Consistent** in HermiT & Pellet (0 unsatisfiable classes, 0 disjointness conflicts)
 
 ---
@@ -80,7 +80,7 @@ All declared with a domain and a range, except the entailed `hasAffectedPart` (r
 - **Abiotic causes (0.7.0-dev):** nitrogen, phosphorus, potassium and zinc deficiency, and on the excess side iron toxicity and salinity, are modelled as `AbioticFactor`s that cause disorders, with symptoms from the IRRI Rice Knowledge Bank fact sheets — so abiotic factors, like pathogens, end at a Disease.
 - **Varieties (0.7.0-dev):** `IR64`, `Angke` and `Conde` (bred from IR64), `Ciherang`, `Inpari_32` and `Inpari_33`. Each reported grade is a `ResistanceAssessment` naming the variety, the disease or pest, the grade (resistant, moderately resistant, susceptible), the tested biotype, race or population, the year and its own source — 15 assessments from Mackill & Khush (2018), Bagariang et al. (2021) and Biswas et al. (2021). Conflicting grades stay side by side, and a resistance that broke down shows as assessments from different years.
 - **Management categories (0.7.0-dev):** treatments are classed as chemical, biological, cultural or host-plant-resistance control (`hasManagementCategory`, categories from AGROVOC) where a source places them unambiguously.
-- **Plant anatomy (0.7.0-dev; extended in 0.8.0):** 13 `PlantPart` individuals, 9 of them aligned to the Plant Ontology (`Panicle_Neck` has no PO term; `Leaf_Collar`, `Coleoptile` and `Glume`, added in 0.8.0, are not yet looked up); 122 of the 124 symptoms linked to the organ they affect (`affectsPlantPart`), with `partOf` where the Plant Ontology records it. `Brown_Leaf_Tip` and `Yellow_Stripe` have no plant part since 0.8.1, because no readable source states it.
+- **Plant anatomy (0.7.0-dev; extended in 0.8.0):** 13 `PlantPart` individuals, 12 of them aligned to the Plant Ontology (`Panicle_Neck` has no PO term; `Leaf_Collar` and `Glume`, added in 0.8.0, are close matches, looked up 2026-11-07); 122 of the 124 symptoms linked to the organ they affect (`affectsPlantPart`), with `partOf` where the Plant Ontology records it. `Brown_Leaf_Tip` and `Yellow_Stripe` have no plant part since 0.8.1, because no readable source states it.
 - **Visual symptoms from IRRI sources:** every visual feature that the IRRI fact sheets state is being added as a symptom of its own. For the three conditions without a fact sheet, the source is IRRI's book *Rice Diseases* (2018). See `Analysis and Alignment/Symptom_Inventory_2026-11.md`.
   - **Blast and brown spot (0.8.0):** lesion shape, centre, margin, halo and size; seedling, collar, neck and glume symptoms. The two no longer share all their leaf symptoms.
   - **Tungro and bacterial leaf blight (0.9.0-dev):** leaf colour patterns, lesion margin and progression, panicle and grain symptoms.
@@ -92,7 +92,7 @@ All declared with a domain and a range, except the entailed `hasAffectedPart` (r
     - panicle and grain symptoms.
 
     Bacterial panicle blight no longer shares nearly all of its symptoms with brown spot.
-- **External Alignment**: 70 `skos:exactMatch`, 31 `skos:closeMatch`, 18 `skos:broadMatch`, 4 `skos:relatedMatch` to AGROVOC, NCBI Taxonomy, Plant Ontology, PECO, BFO, SOSA, WGS84, RiceDO v2 and TreatO v2 (counted 2026-10-19). The observation layer is aligned to SOSA in [`SOSA_alignment.md`](Analysis%20and%20Alignment/SOSA_alignment.md); the measured comparison with RiceDO and TreatO is in [`RiceDO_TreatO_comparison.md`](Analysis%20and%20Alignment/RiceDO_TreatO_comparison.md) (both 2026-10-19).
+- **External Alignment**: 71 `skos:exactMatch`, 33 `skos:closeMatch`, 18 `skos:broadMatch`, 4 `skos:relatedMatch` to AGROVOC, NCBI Taxonomy, Plant Ontology, PECO, BFO, SOSA, WGS84, RiceDO v2 and TreatO v2 (counted 2026-10-19; one exactMatch and two closeMatch to the Plant Ontology added 2026-11-07). The observation layer is aligned to SOSA in [`SOSA_alignment.md`](Analysis%20and%20Alignment/SOSA_alignment.md); the measured comparison with RiceDO and TreatO is in [`RiceDO_TreatO_comparison.md`](Analysis%20and%20Alignment/RiceDO_TreatO_comparison.md) (both 2026-10-19).
 
 ### Paddy Doctor Dataset Alignment
 
@@ -185,9 +185,9 @@ Measured 2026-10-15; rechecked on 0.8.0 on 2026-11-07 with the same verdicts (CQ
 **Toward v0.9: the KG as the benchmark needs it**
 1. the inventory rows of the conditions that have an IRRI fact sheet: **done (0.8.0 and 0.9.0-dev)**. Signs, field patterns and ambiguous rows were left out pending decisions M4, M6 and M7;
 2. the provenance issues of the inventory's §6.4: items 1–4 **done (v0.8.1)**, items 5–8 open;
-3. sources for the three diseases without an IRRI fact sheet (leaf scald, downy mildew, bacterial panicle blight);
+3. sources for the three diseases without an IRRI fact sheet (leaf scald, downy mildew, bacterial panicle blight): **done (0.9.0-dev)**, from IRRI (2018) *Rice Diseases*;
 4. the Normal_Health decision;
-5. Plant Ontology lookup for `Leaf_Collar`, `Coleoptile` and `Glume`;
+5. Plant Ontology lookup for `Leaf_Collar`, `Coleoptile` and `Glume`: **done (0.9.0-dev)**;
 6. the domain-expert questions of the symptom inventory (§7.4).
 
 **Toward v1.0: FAIR and finalisation**

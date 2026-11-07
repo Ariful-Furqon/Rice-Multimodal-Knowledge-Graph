@@ -86,6 +86,22 @@ Checked 2026-09-15 against the **Plant Ontology (PO)** for the new `PlantPart` i
 
 `partOf` (itself `skos:closeMatch` to [BFO:0000050 *part of*](http://purl.obolibrary.org/obo/BFO_0000050)) is asserted only where PO records the relation: `Leaf_Blade partOf Leaf` (PO:0020039 part_of PO:0025034) and `Leaf_Sheath partOf Leaf` (PO:0020104 part_of PO:0009025, which is_a PO:0025034). The graph endpoint returned no part_of edge for panicle inflorescence, caryopsis fruit or basal axillary shoot system, so no `partOf` is asserted for `Panicle`, `Grain` or `Tiller`. Both assertions carry an `owl:Axiom` whose source is the PO term and whose `evidenceType` is `ontology-derived`.
 
+## PlantPart alignment (round 3)
+
+Checked 2026-11-07 against the **Plant Ontology (PO)** for the three `PlantPart` individuals added in Rice MMKG 0.8.0 for blast and brown spot symptoms.
+
+**Query method:** as in round 2, an OLS4 search with `ontology=po` and `queryFields=label,synonym`. Ancestors were read from `GET https://www.ebi.ac.uk/ols4/api/ontologies/po/terms/<double-encoded-iri>/hierarchicalAncestors`, which includes part_of ancestors. All three terms are current (not obsolete).
+
+| Rice MMKG entity | Planteome candidate | Relation | Status | Decision note |
+|---|---|---|---|---|
+| `Coleoptile` | [`coleoptile`](http://purl.obolibrary.org/obo/PO_0020033) (PO:0020033) | `skos:exactMatch` | Implemented | Exact label match. The narrower `seedling coleoptile` (PO:0025287) was not used, because the symptoms are stated for the coleoptile in general. |
+| `Leaf_Collar` | [`leaf collar`](http://purl.obolibrary.org/obo/PO_0006012) (PO:0006012) | `skos:closeMatch` | Implemented | Exact label, but PO classes it as a `portion of meristem tissue`, the band at the blade–sheath junction. Rice MMKG means the junction region where collar blast lesions are seen. Category mismatch, hence close. |
+| `Glume` | [`glume`](http://purl.obolibrary.org/obo/PO_0009039) (PO:0009039) | `skos:closeMatch` | Implemented | PO's glume is the bract that subtends the floret pair. In rice it is rudimentary ("rudimentary glume" is a related synonym). IRRI sources also say glume for the hull (lemma and palea, PO:0009037 and PO:0009038). Scope mismatch, hence close. |
+
+`Leaf_Collar partOf Leaf` is asserted (`ontology-derived`): PO:0006012 is part_of PO:0009025 *vascular leaf*, which is_a PO:0025034 *leaf*.
+- **Glume:** no `partOf`. Its part_of ancestors are *spikelet* (PO:0009051) and *inflorescence*, not *panicle inflorescence* (PO:0030123, the match of `Panicle`).
+- **Coleoptile:** no `partOf`. Its ancestors include no part_of edge.
+
 ## Decision log
 
 | Entity | Relation | Reviewer | Source | Date |
@@ -100,6 +116,9 @@ Checked 2026-09-15 against the **Plant Ontology (PO)** for the new `PlantPart` i
 | `Panicle_Neck` | local only | Muhammad Ariful Furqon | EBI OLS4 search (PO), no candidate | 2026-09-15 |
 | `Leaf_Blade partOf Leaf`, `Leaf_Sheath partOf Leaf` | `rice:partOf` | Muhammad Ariful Furqon | EBI OLS4 term graph (PO part_of edges) | 2026-09-15 |
 | `Root` (PO:0009005 *root*), `Stem` (PO:0009047 *stem*, culm = exact synonym) | `skos:exactMatch` | Muhammad Ariful Furqon | EBI OLS4 search (PO); added for nutrient-deficiency symptoms (black roots, thin spindly stems) | 2026-09-15 |
+| `Coleoptile` | `skos:exactMatch` | pending curator review | EBI OLS4 search (PO) | 2026-11-07 |
+| `Leaf_Collar`, `Glume` | `skos:closeMatch` | pending curator review | EBI OLS4 search (PO) | 2026-11-07 |
+| `Leaf_Collar partOf Leaf` | `rice:partOf` | pending curator review | EBI OLS4 hierarchical ancestors (PO part_of) | 2026-11-07 |
 
 ## Next review actions
 
