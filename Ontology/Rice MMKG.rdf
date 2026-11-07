@@ -18757,15 +18757,6 @@
     <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#DhanShomadhanDataset"/>
     <rice:environmentCondition>White Background</rice:environmentCondition>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N89a6f873b51b40b096eb820174926fa3">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Yellow_Stripe"/>
-    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
-    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
-  </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_hispa_PDD07803">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#ImageObservation"/>
@@ -27374,7 +27365,6 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdfs:label xml:lang="en">yellow stripe</rdfs:label>
     <rdfs:comment xml:lang="en">Yellow to pale-green stripes running parallel to leaf veins; characteristic of downy mildew (crazy top).</rdfs:comment>
-    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_brown_spot_PDD04553">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -81902,7 +81892,7 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
     <rdfs:comment xml:lang="en">Brown to grayish lesion at the base of panicle (neck), causing partial or complete panicle death; a severe form of rice blast.</rdfs:comment>
-    <rdfs:label xml:lang="en">panicle blast</rdfs:label>
+    <rdfs:label xml:lang="en">greyish-brown neck lesion</rdfs:label>
     <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Panicle_Neck"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_downy_mildew_PDD05889">
@@ -101242,15 +101232,6 @@
     <rice:plantAgeDays rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</rice:plantAgeDays>
     <rice:ofVariety rdf:resource="https://w3id.org/ricemmkg#Ponni"/>
     <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#PaddyDoctorDataset"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N92df0246601d44b9b1289443815ee39e">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Brown_Leaf_Tip"/>
-    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#affectsPlantPart"/>
-    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
-    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-hispa"/>
-    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice hispa. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-hispa (accessed 2026-09-15).</dcterms:bibliographicCitation>
-    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_normal_PDD09854">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -134134,8 +134115,8 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <owl:versionIRI rdf:resource="https://w3id.org/ricemmkg/0.8.0"/>
-    <owl:priorVersion rdf:resource="https://w3id.org/ricemmkg/0.6.2"/>
+    <owl:versionIRI rdf:resource="https://w3id.org/ricemmkg/0.8.1"/>
+    <owl:priorVersion rdf:resource="https://w3id.org/ricemmkg/0.8.0"/>
     <vann:preferredNamespaceUri>https://w3id.org/ricemmkg#</vann:preferredNamespaceUri>
     <dcterms:creator>Muhammad Ariful Furqon (ORCID: https://orcid.org/0000-0002-1031-3567)</dcterms:creator>
     <dcterms:creator>Natthawut Kertkeidkachorn (ORCID: https://orcid.org/0000-0003-4527-776X)</dcterms:creator>
@@ -134144,8 +134125,8 @@
     <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
     <dcterms:title>Rice MMKG — Rice Multimodal Knowledge Graph</dcterms:title>
     <vann:preferredNamespacePrefix>riceMMKG</vann:preferredNamespacePrefix>
-    <rdfs:comment xml:lang="en">RiceMMKG: A Multimodal Knowledge Graph and Domain Ontology for Rice Pest and Disease Identification. Every domain-level assertion is grounded in peer-reviewed agronomic literature and authoritative databases (IRRI Rice Doctor Knowledge Bank, CABI Crop Protection Compendium, and EPPO Global Database), formally traceable via OWL axiom annotations (owl:Axiom with dcterms:source and dcterms:bibliographicCitation). Namespace https://w3id.org/ricemmkg# since 0.7.0-dev. Releases up to v0.6.2 used http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#; their version IRIs (https://w3id.org/ricemmkg/0.6.1, https://w3id.org/ricemmkg/0.6.2) resolve to those files.</rdfs:comment>
-    <owl:versionInfo>0.8.0</owl:versionInfo>
+    <rdfs:comment xml:lang="en">RiceMMKG: A Multimodal Knowledge Graph and Domain Ontology for Rice Pest and Disease Identification. Every domain-level assertion is grounded in peer-reviewed agronomic literature and authoritative databases (IRRI Rice Doctor Knowledge Bank, CABI Crop Protection Compendium, and EPPO Global Database), formally traceable via OWL axiom annotations (owl:Axiom with dcterms:source and dcterms:bibliographicCitation). Namespace https://w3id.org/ricemmkg# since 0.7.0-dev. Releases up to v0.6.2 used http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#; their version IRIs (https://w3id.org/ricemmkg/0.6.0, https://w3id.org/ricemmkg/0.6.1, https://w3id.org/ricemmkg/0.6.2) resolve to those files. Every later git tag v&lt;version&gt; resolves at https://w3id.org/ricemmkg/&lt;version&gt;.</rdfs:comment>
+    <owl:versionInfo>0.8.1</owl:versionInfo>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_tungro_PDD13952">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -139640,7 +139621,6 @@
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
     <rdfs:comment xml:lang="en">Browning confined to leaf tips; occurs in hispa damage where larvae mine leaf tissue.</rdfs:comment>
     <rdfs:label xml:lang="en">brown leaf tip</rdfs:label>
-    <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_bacterial_leaf_streak_PDD01085">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -143066,7 +143046,8 @@
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdfs:comment xml:lang="en">Dusty brown spots on the upper leaves; a symptom of zinc deficiency, which IRRI notes resembles sulfur and iron deficiency and iron toxicity.</rdfs:comment>
-    <rdfs:label xml:lang="en">dusty brown spots on upper leaves</rdfs:label>
+    <rdfs:label xml:lang="en">dusty brown flecks on upper leaves</rdfs:label>
+    <skos:altLabel xml:lang="en">dusty brown spots on upper leaves</skos:altLabel>
     <rice:affectsPlantPart rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_bacterial_panicle_blight_PDD01391">
@@ -398951,10 +398932,6 @@
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_armyworms_p8"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N89a6f873b51b40b096eb820174926fa3">
-    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p7"/>
-    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
-  </rdf:Description>
   <rdf:Description rdf:nodeID="N0cb688c1d1824577bd3265ac08c103a8">
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p5"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
@@ -399512,7 +399489,7 @@
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#Pinhead_Brown_Spot">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
-    <rdfs:label xml:lang="en">pinhead-sized brown spot</rdfs:label>
+    <rdfs:label xml:lang="en">pinhead-sized brown lesion</rdfs:label>
     <rdfs:comment xml:lang="en">Lesion form on resistant varieties: brown and pinhead-sized.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#Purple_Brown_Leaf_Spot">
@@ -400291,5 +400268,16 @@
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_blast-leaf-collar_p5"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
     <rdfs:comment xml:lang="en">Added from the symptom inventory of 2026-11-07 (Analysis and Alignment/Symptom_Inventory_2026-11.md): every visual symptom the IRRI fact sheet states; approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <!-- 0.8.1: evidence passages for two provenance axioms (Symptom_Inventory_2026-11.md §6.4, items 2-3) -->
+  <rdf:Description rdf:nodeID="Ne57e17008fde4d93b76a2e90666918b3">
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_blast-leaf-collar_p8"/>
+    <rice:evidencePassageCheck>LLM-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence passage added in 0.8.1 (inventory §6.4). The passage was chosen by an LLM and checked as an exact substring of the passage text; it awaits curator review.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6e27e67799d346a2bcffae3f3e2d1185">
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_brown-spot_p10"/>
+    <rice:evidencePassageCheck>LLM-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence passage added in 0.8.1 (inventory §6.4). The passage was chosen by an LLM and checked as an exact substring of the passage text; it awaits curator review.</rdfs:comment>
   </rdf:Description>
 </rdf:RDF>

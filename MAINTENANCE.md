@@ -78,9 +78,9 @@ Exceptions to the rules above, recorded on 2026-11-07. The tagged files cannot b
 | `v0.7.0` | `3c99091` (= `data-freeze-2026-10`) | The file reads `versionInfo 0.7.0-dev`. The release checklist was not run as a release; the data-freeze baseline of both CQ instruments (changelog, 2026-10-17 to 2026-10-19) is its nearest equivalent | Tagged on 2026-11-07 at the data freeze of 2026-10-16, which closed the modality phase. The 0.7.0-dev work after the freeze (text layer, `Deadheart` as a symptom) is in `v0.8.0` |
 | `v0.8.0` | `d2888bb` | The file names `owl:priorVersion` `https://w3id.org/ricemmkg/0.6.2`, not `…/0.7.0` | `v0.7.0` was tagged after `v0.8.0`. The prior version is `…/0.7.0`, not "0.7.0-dev": `owl:priorVersion` takes a version IRI that resolves to one fixed file, and 0.7.0-dev named many changing states. `…/0.7.0` resolves to the frozen one, whose file reads `0.7.0-dev` |
 
-**Fix in 0.9.0-dev:**
-- set `owl:priorVersion` to `0.8.0`;
-- update the ontology's `rdfs:comment`, which still names only 0.6.1 and 0.6.2 as resolving version IRIs. Every tag from `v0.6.0` to `v0.8.0` now resolves.
+**Fixed in 0.8.1:**
+- `owl:priorVersion` is now `0.8.0`;
+- the ontology's `rdfs:comment` now names 0.6.0, 0.6.1 and 0.6.2, and says that every later tag `v<version>` resolves at `https://w3id.org/ricemmkg/<version>`.
 
 **Descriptive tags:** `elicited-baseline-v0.6` and `data-freeze-2026-10` are kept next to `v0.6.0` and `v0.7.0`, because documents cite them. Their names do not match the version pattern, so they have no w3id IRI.
 

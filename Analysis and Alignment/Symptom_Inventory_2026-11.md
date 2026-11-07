@@ -4,6 +4,18 @@
 
 **Update 2026-11-07:** the blast and brown spot rows (§3.1, §3.3) were added to the KG in **0.8.0**; see the changelog in `Ontology/Ontology_Overview.md`. The rest of this document describes the 0.7.0-dev state it was written on. The other conditions are still open.
 
+**Update 2026-11-07 (0.8.1):** the four provenance issues of §6.4, items 1–4, are fixed.
+- **Fixed by adding a passage:**
+  - item 2, `Brown_Lesion → leaf blade`: now linked to `blast-leaf-collar_p8`;
+  - item 3, `Discolored_Panicle → panicle`: now linked to `brown-spot_p10`.
+  - Both links are `LLM-reviewed` until the curator confirms them.
+- **Fixed by removal:**
+  - item 1, `Brown_Leaf_Tip → leaf blade`;
+  - item 4, `Yellow_Stripe → leaf blade`.
+  - No IRRI passage states either, and the CABI datasheets that could support them returned 403. Both are now questions X10 and X11 in §7.4.
+- **Labels:** three symptom labels that contained a condition's name were also changed (`Pinhead_Brown_Spot`, `Panicle_Blast`, `Dusty_Brown_Spot`).
+- §6.4 items 5–8 are unchanged.
+
 Phase 2 (editing) follows MAINTENANCE.md: a provenance axiom for each assertion, a MINOR version bump, a HermiT check on a copy in a path without spaces, and the CQ benchmarks.
 
 ## 1. Scope and method
@@ -761,3 +773,5 @@ Reading:
 - **X7. Hispa and leaffolder streaks:** the same symptom, or two?
 - **X8. Signs:** which signs are visible in ordinary farmer photos (morning ooze, sclerotia, eggs, sooty mould)?
 - **X9. Healthy plants:** only if option (a) is chosen, how would a normal plant be described by growth stage, and from which source?
+- **X10. Brown leaf tips (added 0.8.1):** do hispa-damaged leaves show brown tips on the leaf blade, and which readable source states it? The plant part was removed in 0.8.1: the IRRI hispa sheet does not mention browning, and the CABI datasheet (27270) could not be read.
+- **X11. Downy mildew stripes (added 0.8.1):** do the yellow to pale-green stripes of downy mildew appear on the leaf blade, and which readable source states it? The plant part was removed in 0.8.1: its only passage described bacterial blight stripes, and the CABI datasheet (49243) could not be read.
