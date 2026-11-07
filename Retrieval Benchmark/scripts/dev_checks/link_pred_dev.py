@@ -42,7 +42,9 @@ import torch.nn as nn
 from rdflib.namespace import PROV
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from ikrl_v2_dev import DIM, SINGLE_SOURCE, Head, fit, metrics  # noqa: E402
+import kg_paths  # noqa: E402
 
 R = "https://w3id.org/ricemmkg#"
 SDO = "http://schema.org/"
@@ -142,7 +144,7 @@ def main(root, out_md):
     split = np.array([r["split"] for r in rows]); ds = np.array([r["dataset"] for r in rows])
     group = np.array([r["group"] for r in rows]); gold = np.array([e_idx[gold_of[r["image"]]] for r in rows])
 
-    g = rdflib.Graph(); g.parse(root / "Ontology/Rice MMKG.rdf", format="xml")
+    g = rdflib.Graph(); g.parse(kg_paths.ontology(root), format="xml")
     blocks, folder = edge_features(g, [r["image"] for r in rows])
 
     rng = np.random.default_rng(0)

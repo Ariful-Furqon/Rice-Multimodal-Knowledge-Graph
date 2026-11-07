@@ -443,3 +443,42 @@ Variant 4 is not run cross-source: the held-out dataset's one-hot column is neve
 - **A calibration-free metric:** the area under the seen–unseen accuracy curve (AUSUC; Chao et al., 2016) over a calibration constant γ, plus the harmonic mean at a γ chosen on held-out *seen* classes only.
 - **Run speed:** save the raw scores so calibration needs no retraining, and run on MPS. This run took about 70 minutes on CPU.
 - **Hybrid:** a trained model for the seen classes and KG-text prototypes for the unseen ones.
+
+### 9.5 Removing the source dataset from the image features (2026-11-07, negative)
+
+`scripts/dev_checks/debias_dev.py` → `results/debias_dev.md`.
+
+**Question:** the source dataset is decodable from the CLIP features (0.993), and a source that is visible in the pixels can confound the label (Zech et al. 2018; [`Related_Work_Leakage_and_Dataset_Bias.md`](../Analysis%20and%20Alignment/Related_Work_Leakage_and_Dataset_Bias.md), section 3). If the stage-1 image systems lean on the source, does removing it raise cross-source R@1, the checkpoint-1 target?
+
+**Setup:**
+- Stage-1 knn_image and linear_probe as in `stage1_baselines.py` (C = 1, k = 5), on transformed and re-normalised CLIP ViT-L/14 features.
+- Dev main subset, in-source and cross-source (leave one dataset out). Deterministic.
+- Δ MRR against no transform, with a 95% bootstrap interval over capture groups.
+- Transforms:
+  - **project:** remove the source subspace, i.e. the weight directions of a linear source classifier on the training images, in 3 rounds of nullspace projection;
+  - **center:** subtract each source's mean feature. A held-out source uses the mean of all its own dev images, without labels. This is transductive: it needs a batch of unlabelled photos from the new source;
+  - **both:** center, then project;
+  - **project_cc:** as project, but the source classifier is fitted on features minus their class mean, so only within-class source directions are removed. It was added after `project` failed (reading 2).
+
+| Transform | Source acc. (cross) | knn R@1 | knn Δ MRR [95% CI] | probe R@1 | probe Δ MRR [95% CI] |
+|---|---:|---:|---|---:|---|
+| none | 0.989 | 0.378 | | 0.394 | |
+| project | 0.737 | 0.365 | −0.054 [−0.090, −0.026] | 0.389 | −0.047 [−0.093, +0.005] |
+| center | 0.734 | 0.313 | −0.082 [−0.125, −0.045] | 0.346 | −0.064 [−0.093, −0.048] |
+| both | 0.733 | 0.317 | −0.080 [−0.121, −0.046] | 0.340 | −0.073 [−0.110, −0.051] |
+| project_cc | 0.872 | 0.368 | −0.027 [−0.060, −0.004] | 0.378 | −0.025 [−0.049, +0.006] |
+
+Cross-source, n = 1,890. In-source, no transform helps either (best: probe with center or both, R@1 0.578–0.579 against 0.566, but MRR −0.005 to −0.007 with intervals that include zero).
+
+**Reading:**
+1. **Removing the source does not help cross-source.** Every transform lowers MRR, and most intervals exclude zero. The source subspace cannot be removed without removing label information.
+2. **Source and label are confounded by construction.**
+   - With `project`, Nutrient Kaggle (potassium) drops from 0.684 to 0.000 R@1 (probe).
+   - In training, potassium comes only from Netrokona, so the direction that marks Netrokona is the direction that marks potassium.
+   - `center` fails for the same reason: a source's mean carries its class mix. Stem Borer BD holds only stem borer and healthy plants, and Kaggle only nutrient disorders.
+3. **Within-class removal is milder but still negative.** `project_cc` keeps most of Kaggle (0.474 probe, 0.509 kNN) and leaves source accuracy at 0.872. So most of the source signal is not separable from the class with linear tools on these datasets.
+4. **One partial exception:** with `project`, the probe raises Dhan-Shomadhan cross-source from 0.099 to 0.242 R@1 (n = 91). This fits the white-background confusion of section 4, but it costs more elsewhere than it gains.
+5. **Consequence for the paper:** the cross-source gap is not a feature-space bias that a projection can remove. Each class is covered by too few sources. Two things follow:
+   - The remedy is data, i.e. a second source per target (the data-gap item of section 4; Mohanty et al. 2016).
+   - The knowledge must come from outside the pixels, as in step 2 and the KG-text prototypes of 9.4.
+   - Report this as a negative control: the obvious debiasing does not close the gap.

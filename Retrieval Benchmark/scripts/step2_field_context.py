@@ -23,6 +23,7 @@ import rdflib
 root, out = Path(sys.argv[1]), Path(sys.argv[2])
 sys.path.insert(0, str(root / "Retrieval Benchmark/scripts"))
 from step2_rerank import R, local, sign_flip
+import kg_paths
 
 TOP = 5
 LAMBDAS = (0, 0.25, 0.5, 1, 2, 4, 8)
@@ -37,7 +38,7 @@ stages = {e: {local(s) for s in g.objects(R[e], R.occursIn)} for e in entities}
 
 wanted = {r["image"] for r in recs}
 ages, current = {}, None
-with (root / "Ontology/Rice MMKG.rdf").open(encoding="utf-8") as f:
+with kg_paths.ontology(root).open(encoding="utf-8") as f:
     for line in f:
         m = re.search(r'rdf:about="https://w3id.org/ricemmkg#([^"]+)"', line)
         if m:

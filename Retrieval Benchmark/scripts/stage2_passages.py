@@ -50,6 +50,9 @@ from pathlib import Path
 import numpy as np
 import rdflib
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import kg_paths  # noqa: E402
+
 R = rdflib.Namespace("https://w3id.org/ricemmkg#")
 DCT = rdflib.Namespace("http://purl.org/dc/terms/")
 OWL = rdflib.OWL
@@ -145,7 +148,7 @@ def main(root, out_dir):
     g = rdflib.Graph()
     g.parse(root / "Data/retrieval/RiceMMKG_query_time.ttl")
     text = rdflib.Graph()
-    text.parse(root / "Text Modality/RiceMMKG_IRRI_text.ttl")
+    text.parse(kg_paths.text_module(root))
 
     passages = sorted(g.subjects(rdflib.RDF.type, R.TextPassage))
     pid = [local(p) for p in passages]

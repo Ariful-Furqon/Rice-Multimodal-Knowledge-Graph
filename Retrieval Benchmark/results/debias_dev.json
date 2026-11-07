@@ -1,0 +1,301 @@
+{
+ "source_acc": {
+  "in-source|none": [
+   0.9882168106834249
+  ],
+  "in-source|project": [
+   0.775464781356376
+  ],
+  "in-source|center": [
+   0.7746792354019377
+  ],
+  "in-source|both": [
+   0.7746792354019377
+  ],
+  "in-source|project_cc": [
+   0.8201099764336214
+  ],
+  "cross-source|none": [
+   0.9962855963681386,
+   0.9882501049097776,
+   0.9794168096054888,
+   0.9916164141785556
+  ],
+  "cross-source|project": [
+   0.8163433759801898,
+   0.8178766261015527,
+   0.45683247570040025,
+   0.8560082365053684
+  ],
+  "cross-source|center": [
+   0.8149676709313524,
+   0.8174569869911876,
+   0.4499714122355632,
+   0.8552728342403294
+  ],
+  "cross-source|both": [
+   0.8149676709313524,
+   0.8175968666946426,
+   0.444253859348199,
+   0.8552728342403294
+  ],
+  "cross-source|project_cc": [
+   0.8644930526895034,
+   0.8413764162819974,
+   0.8719268153230417,
+   0.9110163259302838
+  ]
+ },
+ "metrics": {
+  "in-source": {
+   "none|knn_image": {
+    "R@1": 0.5048577376821651,
+    "MRR": 0.6582439343369253,
+    "macroR@1": 0.48368772899197976,
+    "R@3": 0.7491325468424705
+   },
+   "none|linear_probe": {
+    "R@1": 0.5659264399722415,
+    "MRR": 0.7065644924510296,
+    "macroR@1": 0.44919312668830313,
+    "R@3": 0.8070784177654406
+   },
+   "project|knn_image": {
+    "R@1": 0.49479528105482307,
+    "MRR": 0.6454226237753302,
+    "macroR@1": 0.47098331265979765,
+    "R@3": 0.7297015961138098
+   },
+   "project|linear_probe": {
+    "R@1": 0.5083275503122832,
+    "MRR": 0.6563460684845447,
+    "macroR@1": 0.3301219582552444,
+    "R@3": 0.7508674531575295
+   },
+   "center|knn_image": {
+    "R@1": 0.5055517002081887,
+    "MRR": 0.6554370286587496,
+    "macroR@1": 0.4721187290157823,
+    "R@3": 0.7439278278972935
+   },
+   "center|linear_probe": {
+    "R@1": 0.5784177654406663,
+    "MRR": 0.6997565280849969,
+    "macroR@1": 0.481039304410137,
+    "R@3": 0.7702984038861902
+   },
+   "both|knn_image": {
+    "R@1": 0.5003469812630118,
+    "MRR": 0.6506965911719554,
+    "macroR@1": 0.4779428157640939,
+    "R@3": 0.7342123525329632
+   },
+   "both|linear_probe": {
+    "R@1": 0.5794587092297016,
+    "MRR": 0.7017857352423831,
+    "macroR@1": 0.49037246295533043,
+    "R@3": 0.7775850104094378
+   },
+   "project_cc|knn_image": {
+    "R@1": 0.47814018043025674,
+    "MRR": 0.6364811406882885,
+    "macroR@1": 0.46185395829745646,
+    "R@3": 0.7265787647467037
+   },
+   "project_cc|linear_probe": {
+    "R@1": 0.5426786953504511,
+    "MRR": 0.6927880171721253,
+    "macroR@1": 0.3988760913456071,
+    "R@3": 0.7997918112421929
+   }
+  },
+  "cross-source": {
+   "none|knn_image": {
+    "R@1": 0.3783068783068783,
+    "MRR": 0.5523016827381907,
+    "macroR@1": 0.35518549484863504,
+    "R@3": 0.6312169312169312
+   },
+   "none|linear_probe": {
+    "R@1": 0.3941798941798942,
+    "MRR": 0.5458507102659763,
+    "macroR@1": 0.3559363184382496,
+    "R@3": 0.6248677248677249
+   },
+   "project|knn_image": {
+    "R@1": 0.36455026455026457,
+    "MRR": 0.4981419704633991,
+    "macroR@1": 0.3033539204523344,
+    "R@3": 0.5052910052910053
+   },
+   "project|linear_probe": {
+    "R@1": 0.38941798941798944,
+    "MRR": 0.49891575960436846,
+    "macroR@1": 0.25141472747812127,
+    "R@3": 0.44497354497354497
+   },
+   "center|knn_image": {
+    "R@1": 0.31322751322751324,
+    "MRR": 0.4707289097543533,
+    "macroR@1": 0.21999399805429362,
+    "R@3": 0.4947089947089947
+   },
+   "center|linear_probe": {
+    "R@1": 0.346031746031746,
+    "MRR": 0.4822220145936299,
+    "macroR@1": 0.22906616645221747,
+    "R@3": 0.47513227513227513
+   },
+   "both|knn_image": {
+    "R@1": 0.31693121693121695,
+    "MRR": 0.4724561177315612,
+    "macroR@1": 0.2426186462765658,
+    "R@3": 0.49206349206349204
+   },
+   "both|linear_probe": {
+    "R@1": 0.3402116402116402,
+    "MRR": 0.4728808411476479,
+    "macroR@1": 0.22278475447285326,
+    "R@3": 0.47354497354497355
+   },
+   "project_cc|knn_image": {
+    "R@1": 0.36772486772486773,
+    "MRR": 0.5250158483491817,
+    "macroR@1": 0.317416260852413,
+    "R@3": 0.5740740740740741
+   },
+   "project_cc|linear_probe": {
+    "R@1": 0.37777777777777777,
+    "MRR": 0.5211210614782044,
+    "macroR@1": 0.3145597547265925,
+    "R@3": 0.5343915343915344
+   }
+  }
+ },
+ "per_dataset_R@1": {
+  "in-source": {
+   "none|knn_image": {
+    "DhanShomadhanDataset": 0.6807228915662651,
+    "NutrientDeficiencyKaggleDataset": 0.8786127167630058,
+    "PaddyDoctorDataset": 0.3994614003590664,
+    "StemBorerSymptomDataset": 0.9523809523809523
+   },
+   "none|linear_probe": {
+    "DhanShomadhanDataset": 0.5,
+    "NutrientDeficiencyKaggleDataset": 0.7861271676300579,
+    "PaddyDoctorDataset": 0.5031418312387792,
+    "StemBorerSymptomDataset": 0.9238095238095239
+   },
+   "project|knn_image": {
+    "DhanShomadhanDataset": 0.6445783132530121,
+    "NutrientDeficiencyKaggleDataset": 0.8554913294797688,
+    "PaddyDoctorDataset": 0.3985637342908438,
+    "StemBorerSymptomDataset": 0.8984126984126984
+   },
+   "project|linear_probe": {
+    "DhanShomadhanDataset": 0.39156626506024095,
+    "NutrientDeficiencyKaggleDataset": 0.3699421965317919,
+    "PaddyDoctorDataset": 0.4959605026929982,
+    "StemBorerSymptomDataset": 0.7333333333333333
+   },
+   "center|knn_image": {
+    "DhanShomadhanDataset": 0.6867469879518072,
+    "NutrientDeficiencyKaggleDataset": 0.8497109826589595,
+    "PaddyDoctorDataset": 0.40439856373429084,
+    "StemBorerSymptomDataset": 0.9365079365079365
+   },
+   "center|linear_probe": {
+    "DhanShomadhanDataset": 0.4759036144578313,
+    "NutrientDeficiencyKaggleDataset": 0.7341040462427746,
+    "PaddyDoctorDataset": 0.5305206463195691,
+    "StemBorerSymptomDataset": 0.8857142857142857
+   },
+   "both|knn_image": {
+    "DhanShomadhanDataset": 0.6746987951807228,
+    "NutrientDeficiencyKaggleDataset": 0.8786127167630058,
+    "PaddyDoctorDataset": 0.39542190305206465,
+    "StemBorerSymptomDataset": 0.9428571428571428
+   },
+   "both|linear_probe": {
+    "DhanShomadhanDataset": 0.46987951807228917,
+    "NutrientDeficiencyKaggleDataset": 0.7456647398843931,
+    "PaddyDoctorDataset": 0.5305206463195691,
+    "StemBorerSymptomDataset": 0.8920634920634921
+   },
+   "project_cc|knn_image": {
+    "DhanShomadhanDataset": 0.6506024096385542,
+    "NutrientDeficiencyKaggleDataset": 0.884393063583815,
+    "PaddyDoctorDataset": 0.375673249551167,
+    "StemBorerSymptomDataset": 0.8888888888888888
+   },
+   "project_cc|linear_probe": {
+    "DhanShomadhanDataset": 0.4578313253012048,
+    "NutrientDeficiencyKaggleDataset": 0.7456647398843931,
+    "PaddyDoctorDataset": 0.48114901256732495,
+    "StemBorerSymptomDataset": 0.9111111111111111
+   }
+  },
+  "cross-source": {
+   "none|knn_image": {
+    "DhanShomadhanDataset": 0.10989010989010989,
+    "NutrientDeficiencyKaggleDataset": 0.7368421052631579,
+    "PaddyDoctorDataset": 0.40854940434477927,
+    "StemBorerSymptomDataset": 0.25396825396825395
+   },
+   "none|linear_probe": {
+    "DhanShomadhanDataset": 0.0989010989010989,
+    "NutrientDeficiencyKaggleDataset": 0.6842105263157895,
+    "PaddyDoctorDataset": 0.4064470918009811,
+    "StemBorerSymptomDataset": 0.37142857142857144
+   },
+   "project|knn_image": {
+    "DhanShomadhanDataset": 0.07692307692307693,
+    "NutrientDeficiencyKaggleDataset": 0.45614035087719296,
+    "PaddyDoctorDataset": 0.401541695865452,
+    "StemBorerSymptomDataset": 0.2634920634920635
+   },
+   "project|linear_probe": {
+    "DhanShomadhanDataset": 0.24175824175824176,
+    "NutrientDeficiencyKaggleDataset": 0.0,
+    "PaddyDoctorDataset": 0.41976173791170285,
+    "StemBorerSymptomDataset": 0.36507936507936506
+   },
+   "center|knn_image": {
+    "DhanShomadhanDataset": 0.12087912087912088,
+    "NutrientDeficiencyKaggleDataset": 0.10526315789473684,
+    "PaddyDoctorDataset": 0.34688156972669937,
+    "StemBorerSymptomDataset": 0.25396825396825395
+   },
+   "center|linear_probe": {
+    "DhanShomadhanDataset": 0.17582417582417584,
+    "NutrientDeficiencyKaggleDataset": 0.017543859649122806,
+    "PaddyDoctorDataset": 0.38612473721093205,
+    "StemBorerSymptomDataset": 0.273015873015873
+   },
+   "both|knn_image": {
+    "DhanShomadhanDataset": 0.07692307692307693,
+    "NutrientDeficiencyKaggleDataset": 0.24561403508771928,
+    "PaddyDoctorDataset": 0.35318850735809393,
+    "StemBorerSymptomDataset": 0.23492063492063492
+   },
+   "both|linear_probe": {
+    "DhanShomadhanDataset": 0.1978021978021978,
+    "NutrientDeficiencyKaggleDataset": 0.0,
+    "PaddyDoctorDataset": 0.37631394533987383,
+    "StemBorerSymptomDataset": 0.27936507936507937
+   },
+   "project_cc|knn_image": {
+    "DhanShomadhanDataset": 0.10989010989010989,
+    "NutrientDeficiencyKaggleDataset": 0.5087719298245614,
+    "PaddyDoctorDataset": 0.3987386124737211,
+    "StemBorerSymptomDataset": 0.2761904761904762
+   },
+   "project_cc|linear_probe": {
+    "DhanShomadhanDataset": 0.10989010989010989,
+    "NutrientDeficiencyKaggleDataset": 0.47368421052631576,
+    "PaddyDoctorDataset": 0.39243167484232655,
+    "StemBorerSymptomDataset": 0.37142857142857144
+   }
+  }
+ }
+}

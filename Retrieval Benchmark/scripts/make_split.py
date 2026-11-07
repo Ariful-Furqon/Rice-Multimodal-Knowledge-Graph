@@ -28,6 +28,9 @@ from pathlib import Path
 import rdflib
 from rdflib.namespace import RDF
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import kg_paths  # noqa: E402
+
 R = rdflib.Namespace("https://w3id.org/ricemmkg#")
 CONTENT_URL = rdflib.URIRef("http://schema.org/contentUrl")
 DERIVED = rdflib.URIRef("http://www.w3.org/ns/prov#wasDerivedFrom")
@@ -83,7 +86,7 @@ def main(root, graph_out):
     here.mkdir(exist_ok=True)
 
     g = rdflib.Graph()
-    g.parse(root / "Ontology" / "Rice MMKG.rdf", format="xml")
+    g.parse(kg_paths.ontology(root), format="xml")
     rows = []
     for s in g.subjects(RDF.type, R.ImageObservation):
         labels = sorted(local(o) for o in g.objects(s, R.annotatedAs))
