@@ -559,11 +559,15 @@ ORDER BY DESC(?support) ?candidate"""),
                 "shape, centre, margin, halo and size stated by the IRRI fact "
                 "sheets are symptoms of their own (e.g. spindle-shaped vs "
                 "circular to oval lesion), so the unique symptoms now include "
-                "visual features; they are still symptom individuals, not "
-                "values of shape or colour properties.",
+                "visual features. They are still symptom individuals, not "
+                "values of shape or colour properties, so the query cannot see "
+                "overlaps: IRRI gives both diseases a grey lesion centre and a "
+                "reddish-brown border, yet these appear as unique to each under "
+                "different wording.",
         "partial_kind": "schema",
-        "partial": "visual features are symptom individuals; {V} has no "
-                   "shape or colour descriptor properties to compare them by",
+        "partial": "visual features are symptom individuals; with no shape "
+                   "or colour properties, {V} cannot tell that some of them "
+                   "(grey centre, reddish-brown border) overlap",
         "queries": [
             ("Symptoms unique to each of the two conditions",
              """SELECT ?condition ?distinguishing_symptom WHERE {
