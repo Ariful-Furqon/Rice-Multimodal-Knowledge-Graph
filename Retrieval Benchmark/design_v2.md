@@ -392,6 +392,10 @@ Variant 4 is not run cross-source: the held-out dataset's one-hot column is neve
    - Link prediction on the photo node gains nothing from the graph once `annotatedAs` and its string copies are cut.
    - The domain triples do not reach the photo (9.2), and the photo's own edges are dataset or session markers.
    - Its value for the paper is the leakage analysis: an in-source KG-augmented model that keeps `sourceLabel` or `contentUrl` can report anything up to 1.0.
+7. **Prior work** ([`Related_Work_Leakage_and_Dataset_Bias.md`](../Analysis%20and%20Alignment/Related_Work_Leakage_and_Dataset_Bias.md)):
+   - The closest analogue is test leakage through inverse relations in FB15k and WN18 (Dettmers et al. 2018; Akrami et al. 2020).
+   - The dataset shortcut matches source detection in chest radiographs (Zech et al. 2018) and capture bias in PlantVillage (Noyan 2022).
+   - No reference has been found yet for the early-stopping effect in reading 3.
 
 ### 9.4 KG-based generalized zero-shot: first run (2026-11-06, no calibration)
 
