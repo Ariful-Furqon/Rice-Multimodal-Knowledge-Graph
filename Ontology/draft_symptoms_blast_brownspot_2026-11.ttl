@@ -1,0 +1,709 @@
+# DRAFT, not merged. Phase-2 symptom additions for Rice_Blast_Disease and Brown_Spot.
+# Source: Analysis and Alignment/Symptom_Inventory_2026-11.md (rows BS-n = section 3.1, BL-n = section 3.3).
+# Defaults chosen for review (open questions M1-M5 of the inventory):
+#   M1 atomic features (shape, centre, margin, halo, size) as separate Symptom individuals;
+#   M2 the discriminating wording is in rdfs:label, since the benchmark reads labels only;
+#   M3 new individuals for discriminating features; reuse only Empty_Grain (generic);
+#      Leaf_Death and Seedling_Death are new and shared, as they are not disease-specific;
+#   M4 signs and field patterns are left out of this draft;
+#   M5 three new PlantPart individuals without an external match.
+# Existing assertions (Brown_Lesion, Leaf_Spot, Wilting, ...) are left unchanged: see expert question X2.
+# Comments are in our own words: no IRRI wording enters the CC BY core.
+@prefix rice: <https://w3id.org/ricemmkg#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# ---------- new plant parts
+
+rice:Leaf_Collar a owl:NamedIndividual, rice:PlantPart ;
+    rdfs:label "leaf collar"@en ;
+    rdfs:comment "Junction of the leaf blade and the leaf sheath. Added for collar blast. No Planteome match asserted yet: to be looked up live before alignment."@en .
+
+rice:Coleoptile a owl:NamedIndividual, rice:PlantPart ;
+    rdfs:label "coleoptile"@en ;
+    rdfs:comment "Sheath that covers the first leaf of the seedling. Added for brown spot on seedlings. No Planteome match asserted yet: to be looked up live before alignment."@en .
+
+rice:Glume a owl:NamedIndividual, rice:PlantPart ;
+    rdfs:label "glume"@en ;
+    rdfs:comment "Bract of the rice spikelet. Added for brown spot on glumes. No Planteome match asserted yet: to be looked up live before alignment."@en .
+
+
+# ---------- new symptoms and their plant parts
+
+rice:Purple_Brown_Leaf_Spot a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "small dark brown to purple-brown leaf spot"@en ;
+    rdfs:comment "Early brown spot lesion from tillering onward: small, round and dark brown to purple-brown, before it enlarges."@en ;
+    rice:affectsPlantPart rice:Leaf_Blade .
+
+_:d1 a owl:Axiom ;
+    owl:annotatedSource rice:Purple_Brown_Leaf_Spot ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Leaf_Blade ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p7 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-6). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Circular_Oval_Leaf_Lesion a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "circular to oval leaf lesion"@en ;
+    rdfs:comment "Fully developed lesion that is round to oval in outline. IRRI uses this shape to tell brown spot from blast, whose lesions are elongated and pointed."@en ;
+    rice:affectsPlantPart rice:Leaf_Blade .
+
+_:d2 a owl:Axiom ;
+    owl:annotatedSource rice:Circular_Oval_Leaf_Lesion ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Leaf_Blade ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p8 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-7). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Light_Brown_Grey_Lesion_Centre a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "lesion with light brown to grey centre"@en ;
+    rdfs:comment "Centre of a mature brown spot lesion, light brown to grey. A grey centre is also stated for blast (Whitish_Grey_Lesion_Centre), so this feature alone does not separate the two."@en ;
+    rice:affectsPlantPart rice:Leaf_Blade .
+
+_:d3 a owl:Axiom ;
+    owl:annotatedSource rice:Light_Brown_Grey_Lesion_Centre ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Leaf_Blade ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p8 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-8). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Reddish_Brown_Lesion_Margin a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "reddish-brown lesion margin"@en ;
+    rdfs:comment "Reddish-brown margin around a mature brown spot lesion, attributed by IRRI to a fungal toxin."@en ;
+    rice:affectsPlantPart rice:Leaf_Blade .
+
+_:d4 a owl:Axiom ;
+    owl:annotatedSource rice:Reddish_Brown_Lesion_Margin ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Leaf_Blade ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p8 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-9). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Yellow_Lesion_Halo a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "yellow halo around lesion"@en ;
+    rdfs:comment "Yellow zone surrounding a leaf lesion. IRRI states it for brown spot, in contrast to blast."@en ;
+    rice:affectsPlantPart rice:Leaf_Blade .
+
+_:d5 a owl:Axiom ;
+    owl:annotatedSource rice:Yellow_Lesion_Halo ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Leaf_Blade ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-leaf-collar_p8 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-10). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Large_Brown_Leaf_Lesion a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "brown leaf lesion 5-14 mm long"@en ;
+    rdfs:comment "Lesion size on susceptible varieties."@en ;
+    rice:affectsPlantPart rice:Leaf_Blade .
+
+_:d6 a owl:Axiom ;
+    owl:annotatedSource rice:Large_Brown_Leaf_Lesion ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Leaf_Blade ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p9 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-11). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Pinhead_Brown_Spot a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "pinhead-sized brown spot"@en ;
+    rdfs:comment "Lesion form on resistant varieties: brown and pinhead-sized."@en ;
+    rice:affectsPlantPart rice:Leaf_Blade .
+
+_:d7 a owl:Axiom ;
+    owl:annotatedSource rice:Pinhead_Brown_Spot ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Leaf_Blade ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p9 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-13). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Coleoptile_Lesion a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "circular brown lesion on coleoptile"@en ;
+    rdfs:comment "Small round yellow-brown to brown lesion on the coleoptile of an infected seedling."@en ;
+    rice:affectsPlantPart rice:Coleoptile .
+
+_:d8 a owl:Axiom ;
+    owl:annotatedSource rice:Coleoptile_Lesion ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Coleoptile ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p6 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-3). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Girdled_Coleoptile a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "girdled coleoptile"@en ;
+    rdfs:comment "Coleoptile encircled by a lesion on an infected seedling."@en ;
+    rice:affectsPlantPart rice:Coleoptile .
+
+_:d9 a owl:Axiom ;
+    owl:annotatedSource rice:Girdled_Coleoptile ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Coleoptile ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p6 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-4). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Distorted_Seedling_Leaf a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "distorted seedling leaves"@en ;
+    rdfs:comment "Misshapen primary and secondary leaves of an infected seedling."@en ;
+    rice:affectsPlantPart rice:Leaf .
+
+_:d10 a owl:Axiom ;
+    owl:annotatedSource rice:Distorted_Seedling_Leaf ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Leaf ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p6 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-5). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Dark_Glume_Spot a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "dark brown to black oval spots on glumes"@en ;
+    rdfs:comment "Oval dark brown to black spots, or discoloration of the whole surface, on glumes and panicle branches. Kept apart from Discolored_Panicle, which describes bacterial panicle blight."@en ;
+    rice:affectsPlantPart rice:Glume, rice:Panicle .
+
+_:d11 a owl:Axiom ;
+    owl:annotatedSource rice:Dark_Glume_Spot ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Glume ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p10 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-15). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+_:d12 a owl:Axiom ;
+    owl:annotatedSource rice:Dark_Glume_Spot ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Panicle ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p10 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-15). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Leaf_Death a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "leaf death"@en ;
+    rdfs:comment "Death of a whole leaf as lesions spread or merge; stated for brown spot and for leaf blast. Not specific to one disease."@en ;
+    rice:affectsPlantPart rice:Leaf .
+
+_:d13 a owl:Axiom ;
+    owl:annotatedSource rice:Leaf_Death ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Leaf ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p2 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-2, BL-6). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Grey_Green_Lesion_Dark_Border a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "white to grey-green lesion with dark green border"@en ;
+    rdfs:comment "Initial blast lesion or spot on leaf and collar: white to grey-green with a dark green border."@en ;
+    rice:affectsPlantPart rice:Leaf_Blade, rice:Leaf_Collar .
+
+_:d14 a owl:Axiom ;
+    owl:annotatedSource rice:Grey_Green_Lesion_Dark_Border ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Leaf_Blade ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-leaf-collar_p4 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-1). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+_:d15 a owl:Axiom ;
+    owl:annotatedSource rice:Grey_Green_Lesion_Dark_Border ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Leaf_Collar ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-leaf-collar_p4 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-1). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Spindle_Shaped_Lesion a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "spindle-shaped leaf lesion"@en ;
+    rdfs:comment "Older blast lesion that is elliptical to spindle-shaped, elongated and pointed at both ends."@en ;
+    rice:affectsPlantPart rice:Leaf_Blade .
+
+_:d16 a owl:Axiom ;
+    owl:annotatedSource rice:Spindle_Shaped_Lesion ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Leaf_Blade ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-leaf-collar_p5 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-2). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Diamond_Shaped_Lesion a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "diamond-shaped leaf lesion"@en ;
+    rdfs:comment "Blast lesion widest in the middle and pointed toward both ends."@en ;
+    rice:affectsPlantPart rice:Leaf_Blade .
+
+_:d17 a owl:Axiom ;
+    owl:annotatedSource rice:Diamond_Shaped_Lesion ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Leaf_Blade ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-leaf-collar_p6 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-5). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Whitish_Grey_Lesion_Centre a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "lesion with whitish to grey centre"@en ;
+    rdfs:comment "Centre of an older blast lesion, whitish to grey. A grey centre is also stated for brown spot (Light_Brown_Grey_Lesion_Centre)."@en ;
+    rice:affectsPlantPart rice:Leaf_Blade .
+
+_:d18 a owl:Axiom ;
+    owl:annotatedSource rice:Whitish_Grey_Lesion_Centre ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Leaf_Blade ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-leaf-collar_p5 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-3). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Red_Brown_Necrotic_Lesion_Border a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "red-brown or necrotic lesion border"@en ;
+    rdfs:comment "Border of an older blast lesion, red to brownish or necrotic. Overlaps in colour with Reddish_Brown_Lesion_Margin of brown spot."@en ;
+    rice:affectsPlantPart rice:Leaf_Blade .
+
+_:d19 a owl:Axiom ;
+    owl:annotatedSource rice:Red_Brown_Necrotic_Lesion_Border ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Leaf_Blade ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-leaf-collar_p5 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-4). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Coalescing_Leaf_Lesions a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "coalescing leaf lesions"@en ;
+    rdfs:comment "Lesions that enlarge and grow together on the leaf."@en ;
+    rice:affectsPlantPart rice:Leaf_Blade .
+
+_:d20 a owl:Axiom ;
+    owl:annotatedSource rice:Coalescing_Leaf_Lesions ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Leaf_Blade ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-leaf-collar_p6 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-6). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Collar_Lesion a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "collar lesion"@en ;
+    rdfs:comment "Lesion at the leaf collar (collar blast)."@en ;
+    rice:affectsPlantPart rice:Leaf_Collar .
+
+_:d21 a owl:Axiom ;
+    owl:annotatedSource rice:Collar_Lesion ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Leaf_Collar ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-leaf-collar_p4 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-7). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Seedling_Death a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "seedling death"@en ;
+    rdfs:comment "Death of seedlings or young plants. Not specific to one disease."@en ;
+    rice:affectsPlantPart rice:Whole_Plant .
+
+_:d22 a owl:Axiom ;
+    owl:annotatedSource rice:Seedling_Death ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Whole_Plant ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-leaf-collar_p9 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-8). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Girdled_Panicle_Neck a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "girdled panicle neck with fallen panicle"@en ;
+    rdfs:comment "Neck lesion that encircles the panicle neck so that neck and panicle fall over."@en ;
+    rice:affectsPlantPart rice:Panicle_Neck .
+
+_:d23 a owl:Axiom ;
+    owl:annotatedSource rice:Girdled_Panicle_Neck ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Panicle_Neck ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-node-neck> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (node and neck). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-node-neck (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-node-neck_p6 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-13). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Broken_Culm a owl:NamedIndividual, rice:Symptom ;
+    rdfs:label "broken culm at infected node"@en ;
+    rdfs:comment "Culm broken at an infected node."@en ;
+    rice:affectsPlantPart rice:Stem .
+
+_:d24 a owl:Axiom ;
+    owl:annotatedSource rice:Broken_Culm ;
+    owl:annotatedProperty rice:affectsPlantPart ;
+    owl:annotatedTarget rice:Stem ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-node-neck> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (node and neck). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-node-neck (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-node-neck_p6 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-11). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+
+# ---------- indicatedBy links
+
+rice:Brown_Spot rice:indicatedBy rice:Purple_Brown_Leaf_Spot .
+_:d25 a owl:Axiom ;
+    owl:annotatedSource rice:Brown_Spot ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Purple_Brown_Leaf_Spot ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p7 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-6). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Brown_Spot rice:indicatedBy rice:Circular_Oval_Leaf_Lesion .
+_:d26 a owl:Axiom ;
+    owl:annotatedSource rice:Brown_Spot ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Circular_Oval_Leaf_Lesion ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p8 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-7). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Brown_Spot rice:indicatedBy rice:Light_Brown_Grey_Lesion_Centre .
+_:d27 a owl:Axiom ;
+    owl:annotatedSource rice:Brown_Spot ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Light_Brown_Grey_Lesion_Centre ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p8 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-8). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Brown_Spot rice:indicatedBy rice:Reddish_Brown_Lesion_Margin .
+_:d28 a owl:Axiom ;
+    owl:annotatedSource rice:Brown_Spot ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Reddish_Brown_Lesion_Margin ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p8 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-9). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Brown_Spot rice:indicatedBy rice:Yellow_Lesion_Halo .
+_:d29 a owl:Axiom ;
+    owl:annotatedSource rice:Brown_Spot ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Yellow_Lesion_Halo ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-leaf-collar_p8 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-10). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Brown_Spot rice:indicatedBy rice:Large_Brown_Leaf_Lesion .
+_:d30 a owl:Axiom ;
+    owl:annotatedSource rice:Brown_Spot ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Large_Brown_Leaf_Lesion ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p9 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-11). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Brown_Spot rice:indicatedBy rice:Pinhead_Brown_Spot .
+_:d31 a owl:Axiom ;
+    owl:annotatedSource rice:Brown_Spot ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Pinhead_Brown_Spot ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p9 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-13). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Brown_Spot rice:indicatedBy rice:Coleoptile_Lesion .
+_:d32 a owl:Axiom ;
+    owl:annotatedSource rice:Brown_Spot ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Coleoptile_Lesion ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p6 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-3). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Brown_Spot rice:indicatedBy rice:Girdled_Coleoptile .
+_:d33 a owl:Axiom ;
+    owl:annotatedSource rice:Brown_Spot ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Girdled_Coleoptile ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p6 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-4). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Brown_Spot rice:indicatedBy rice:Distorted_Seedling_Leaf .
+_:d34 a owl:Axiom ;
+    owl:annotatedSource rice:Brown_Spot ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Distorted_Seedling_Leaf ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p6 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-5). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Brown_Spot rice:indicatedBy rice:Dark_Glume_Spot .
+_:d35 a owl:Axiom ;
+    owl:annotatedSource rice:Brown_Spot ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Dark_Glume_Spot ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p10 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-15). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Brown_Spot rice:indicatedBy rice:Leaf_Death .
+_:d36 a owl:Axiom ;
+    owl:annotatedSource rice:Brown_Spot ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Leaf_Death ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p2 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-2). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Brown_Spot rice:indicatedBy rice:Empty_Grain .
+_:d37 a owl:Axiom ;
+    owl:annotatedSource rice:Brown_Spot ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Empty_Grain ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_brown-spot_p11 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BS-16). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Rice_Blast_Disease rice:indicatedBy rice:Grey_Green_Lesion_Dark_Border .
+_:d38 a owl:Axiom ;
+    owl:annotatedSource rice:Rice_Blast_Disease ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Grey_Green_Lesion_Dark_Border ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-leaf-collar_p4 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-1). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Rice_Blast_Disease rice:indicatedBy rice:Spindle_Shaped_Lesion .
+_:d39 a owl:Axiom ;
+    owl:annotatedSource rice:Rice_Blast_Disease ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Spindle_Shaped_Lesion ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-leaf-collar_p5 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-2). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Rice_Blast_Disease rice:indicatedBy rice:Diamond_Shaped_Lesion .
+_:d40 a owl:Axiom ;
+    owl:annotatedSource rice:Rice_Blast_Disease ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Diamond_Shaped_Lesion ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-leaf-collar_p6 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-5). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Rice_Blast_Disease rice:indicatedBy rice:Whitish_Grey_Lesion_Centre .
+_:d41 a owl:Axiom ;
+    owl:annotatedSource rice:Rice_Blast_Disease ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Whitish_Grey_Lesion_Centre ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-leaf-collar_p5 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-3). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Rice_Blast_Disease rice:indicatedBy rice:Red_Brown_Necrotic_Lesion_Border .
+_:d42 a owl:Axiom ;
+    owl:annotatedSource rice:Rice_Blast_Disease ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Red_Brown_Necrotic_Lesion_Border ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-leaf-collar_p5 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-4). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Rice_Blast_Disease rice:indicatedBy rice:Coalescing_Leaf_Lesions .
+_:d43 a owl:Axiom ;
+    owl:annotatedSource rice:Rice_Blast_Disease ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Coalescing_Leaf_Lesions ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-leaf-collar_p6 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-6). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Rice_Blast_Disease rice:indicatedBy rice:Leaf_Death .
+_:d44 a owl:Axiom ;
+    owl:annotatedSource rice:Rice_Blast_Disease ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Leaf_Death ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-leaf-collar_p6 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-6). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Rice_Blast_Disease rice:indicatedBy rice:Collar_Lesion .
+_:d45 a owl:Axiom ;
+    owl:annotatedSource rice:Rice_Blast_Disease ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Collar_Lesion ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-leaf-collar_p4 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-7). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Rice_Blast_Disease rice:indicatedBy rice:Seedling_Death .
+_:d46 a owl:Axiom ;
+    owl:annotatedSource rice:Rice_Blast_Disease ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Seedling_Death ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-leaf-collar_p9 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-8). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Rice_Blast_Disease rice:indicatedBy rice:Girdled_Panicle_Neck .
+_:d47 a owl:Axiom ;
+    owl:annotatedSource rice:Rice_Blast_Disease ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Girdled_Panicle_Neck ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-node-neck> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (node and neck). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-node-neck (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-node-neck_p6 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-13). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Rice_Blast_Disease rice:indicatedBy rice:Broken_Culm .
+_:d48 a owl:Axiom ;
+    owl:annotatedSource rice:Rice_Blast_Disease ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Broken_Culm ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-node-neck> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (node and neck). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-node-neck (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-node-neck_p6 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-11). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
+
+rice:Rice_Blast_Disease rice:indicatedBy rice:Empty_Grain .
+_:d49 a owl:Axiom ;
+    owl:annotatedSource rice:Rice_Blast_Disease ;
+    owl:annotatedProperty rice:indicatedBy ;
+    owl:annotatedTarget rice:Empty_Grain ;
+    dcterms:source <http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-node-neck> ;
+    dcterms:bibliographicCitation "IRRI (n.d.). Blast (node and neck). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-node-neck (accessed 2026-10-20)."@en ;
+    rice:evidenceType "literature-curated"@en ;
+    rice:hasEvidencePassage rice:IRRI_RKB_blast-node-neck_p2 ;
+    rice:evidencePassageCheck "LLM-reviewed" ;
+    rdfs:comment "DRAFT 2026-11-07 from the symptom inventory (Analysis and Alignment/Symptom_Inventory_2026-11.md, row BL-14). Quote checked as an exact substring of the passage; awaiting curator review, after which the check becomes human-reviewed."@en .
