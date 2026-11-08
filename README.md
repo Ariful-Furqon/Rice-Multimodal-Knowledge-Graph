@@ -135,7 +135,7 @@ Every source checked so far, with the outcome and the reason, is recorded in [`C
 | Licence or label to confirm | Kaggle N/P/K images (licence not stated, permission requested; to be removed if refused); Netrokona potassium labels and YUKE-WBC species (expert confirmation) |
 | Candidates not yet imported | Weekly pest surveillance with weather, Midsayap, Philippines (needs `Scotinophara coarctata` as a new pest); brown planthopper resistance of 218 landraces; Sentinel-1 phenology table, Indramayu (licence "Custom"); UAV multispectral time series (no disease labels) |
 | Per-image content beyond the label | Expert image annotation; lesion boxes (RiceLeafDiseaseBD, Mendeley) |
-| Text | IRRI Rice Knowledge Bank, 19 fact sheets, 296 passages (2026-10-22), and IRRI (2018) *Rice Diseases*, 3 disease sections, 15 passages (2026-11-07). 271 curated assertions carry the passage that states them (2026-11-07). The wording is in [`Text Modality/`](Text%20Modality/), under CC BY-NC-SA 3.0 and 4.0 like the sources. Further text from CC BY papers is still open |
+| Text | IRRI Rice Knowledge Bank, 19 fact sheets, 296 passages (2026-10-22), and IRRI (2018) *Rice Diseases*, 3 disease sections, 15 passages (2026-11-07). 315 curated assertions carry the passage that states them (2026-11-07, v0.9.0). The wording is in [`Text Modality/`](Text%20Modality/), under CC BY-NC-SA 3.0 and 4.0 like the sources. Further text from CC BY papers is still open |
 | Comparison with an existing ontology | Done for RiceDO v2 + TreatO v2 (2026-10-19): 23 mappings applied; TreatO's product–disease links not imported (no source per axiom; licence not stated in the files) |
 
 Sources under CC BY-SA would go into a separate module brought in through `owl:imports`, so the core stays CC BY 4.0. The IRRI passage wording is held in two such modules:
@@ -200,7 +200,7 @@ Measured 2026-10-15; rechecked on 0.8.0 on 2026-11-07 with the same verdicts (CQ
 1. **Labels and licences:** the Kaggle licence request, expert checks of the Netrokona and YUKE-WBC labels, and decision 5 on the white and black stem borer images (still `annotatedAs Deadheart`).
 2. **Expert input:** the severity → action mapping (CQ-13) and the image annotation package for abiotic disorders and sheath blight.
 
-The history of each change is in the changelog, [`Ontology_Overview.md`](Ontology/Ontology_Overview.md); the earlier phase plan is in [`riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md).
+The history of each change is in the changelog, [`Ontology_Overview.md`](Ontology/Ontology_Overview.md); the phase plan of September 2026 (ESWC 2027, not pursued) is archived in [`Ontology/Archive/`](Ontology/Archive/riceMMKG_ESWC_plan.md).
 
 Retrieval experiments that use this graph are kept in a separate repository, which includes this one as a git submodule pinned to the version used.
 
@@ -210,7 +210,7 @@ Retrieval experiments that use this graph are kept in a separate repository, whi
 
 | Path | Contents |
 |---|---|
-| [`Ontology/`](Ontology/) | `Rice MMKG.rdf` (the graph), the patch file, [`Ontology_Overview.md`](Ontology/Ontology_Overview.md) (changelog) and the ontology roadmap ([`riceMMKG_ESWC_plan.md`](Ontology/riceMMKG_ESWC_plan.md)) |
+| [`Ontology/`](Ontology/) | `Rice MMKG.rdf` (the graph), the patch file, [`Ontology_Overview.md`](Ontology/Ontology_Overview.md) (changelog), and [`Archive/`](Ontology/Archive/) (the ESWC 2027 phase plan, not pursued) |
 | [`Ontology/CQ SPARQL Benchmark/`](Ontology/CQ%20SPARQL%20Benchmark/) | CQ benchmark, elicited CQs, LLM elicitation prompts and runs, CQ screening data (anonymised) |
 | [`Text Modality/`](Text%20Modality/) | IRRI passage modules (Rice Knowledge Bank, CC BY-NC-SA 3.0; *Rice Diseases* 2018, CC BY-NC-SA 4.0) and the scripts that build them |
 | [`Analysis and Alignment/`](Analysis%20and%20Alignment/) | Dataset analyses and alignments (AGROVOC, NCBI Taxonomy, Planteome, SOSA, RiceDO/TreatO) |

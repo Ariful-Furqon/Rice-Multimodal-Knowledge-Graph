@@ -25,7 +25,7 @@ Useful things to include: the IRI of the term involved, the version (`owl:versio
 
 **Not maintained here:** the Paddy Doctor image dataset, which is third-party and referenced rather than redistributed (Petchiammal et al., 2022, CC BY 4.0).
 
-**Modalities:** which further modalities (sensor, genomic) become part of the released resource is an open decision tracked in `Ontology/riceMMKG_ESWC_plan.md`. A declared class with no individuals is not described as a maintained modality.
+**Modalities:** fixed at the data freeze of 2026-10-16 (v0.7.0): image and text are the strongest modalities; sensor, light-trap and multispectral data are thin; genomic data is not modelled. A new source is admitted only if it closes a gap listed in the README (Modality Coverage & Data Gaps). A declared class with no individuals is not described as a maintained modality.
 
 ## Identifiers
 
@@ -41,14 +41,13 @@ Versions follow `MAJOR.MINOR.PATCH`, recorded in `owl:versionInfo` and appended 
 |---|---|---|
 | Corrections that change no modelling decision: provenance fixes, citations, source URIs, literal hygiene, a missing assertion restored with its source | **PATCH** (`0.6.1` → `0.6.2`) | v0.6.1 provenance gaps; v0.6.2 CABI DOIs |
 | New classes or properties, new populated modalities, new batches of annotations, removal or retyping of entities | **MINOR** (`0.6` → `0.7`) | Deadheart retyped as Disease (v0.6) |
-| The release accompanying the ESWC 2027 submission | **1.0** | — |
+| The release accompanying the paper submission | **1.0** | — |
 
 Each version number names exactly one content state: a change is never folded silently into an already-tagged version.
 
 ## Release cadence
 
-- **Minor releases follow the phases of the ESWC plan** (decided 2026-09-17): **v0.7** closes Phase 2 (namespace and release scaffolding), **v0.8** closes Phase 3 (multimodal: modality checkpoint, grounding, schema), **v0.9** closes Phases 4 and 5 (expert validation and FAIR finalisation), and **v1.0** is the version submitted to ESWC 2027.
-- **Revised 2026-11-07** (replaces the map above):
+- **Release map** (revised 2026-11-07; it replaces the map of 2026-09-17, which tied the minor releases to the phases of the ESWC 2027 plan, archived in `Ontology/Archive/` after that submission was dropped):
   - **v0.7.0:** scaffolding and modalities (image and text the strongest). Tagged on 2026-11-07 at the data-freeze commit of 2026-10-16 (same commit as `data-freeze-2026-10`; the file there reads `0.7.0-dev`). The 0.7.0-dev work after the freeze (text layer, `Deadheart` as a symptom) is in v0.8.0.
   - **v0.6.0:** tagged on 2026-11-07 at the v0.6 release of 2026-09-03 (same commit as `elicited-baseline-v0.6`). The descriptive tags are kept, because tags are never deleted and documents cite them.
   - **v0.8.0** (tagged 2026-11-07): the symptom inventory, and the visual symptoms of blast and brown spot.
