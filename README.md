@@ -19,7 +19,7 @@ Rice MMKG links agronomic, pathological, and entomological knowledge about rice 
 - **Namespace:** `https://w3id.org/ricemmkg#` — permanent identifier, live since 2026-09-16; version IRIs `https://w3id.org/ricemmkg/<version>` (releases up to v0.6.2 used `http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#`)
 - **Format:** OWL/XML (`.rdf`), fully compatible with [Protégé](https://protege.stanford.edu/)
 - **Version:** `0.9.0` (released 2026-11-07: the KG as the retrieval benchmark needs it — the full symptom inventory, IRRI (2018) *Rice Diseases* as a second text source, `rice:Sign`, and the inventory's provenance fixes). The file now reads `0.9.0-dev`: the management layer for CQ-12 (2026-11-09) was added after the tag. Earlier tags: `v0.8.1` (2026-11-07: symptom labels and provenance links corrected), `v0.8.0` (2026-11-07), `v0.7.0` (the data freeze of 2026-10-16, same commit as `data-freeze-2026-10`; the file there reads `0.7.0-dev`), `v0.6.2` and `v0.6.1` (2026-09-15), and `v0.6.0` (the v0.6 release of 2026-09-03, same commit as `elicited-baseline-v0.6`). Every tag `v<version>` resolves at `https://w3id.org/ricemmkg/<version>`. The data state used by downstream experiments is `v0.7.0` / `data-freeze-2026-10`.
-- **Triples:** **327,963** asserted triples / **630,529** materialised triples under OWL RL (both measured 2026-11-09, 0.9.0-dev; v0.9.0: 327,853 / 630,369); the rise from 68,204 is the Paddy Doctor IEEE release, Dhan-Shomadhan images, the first sensor observations, the YUKE-WBC planthopper images, the stem borer symptom images, the nutrient deficiency images, the light-trap catches, the multispectral captures and 41 alignment links to SOSA, RiceDO and TreatO; v0.6.2: 66,802 / 161,447
+- **Triples:** **328,321** asserted triples / **630,959** materialised triples under OWL RL (both measured 2026-11-09, 0.9.0-dev; v0.9.0: 327,853 / 630,369); the rise from 68,204 is the Paddy Doctor IEEE release, Dhan-Shomadhan images, the first sensor observations, the YUKE-WBC planthopper images, the stem borer symptom images, the nutrient deficiency images, the light-trap catches, the multispectral captures and 41 alignment links to SOSA, RiceDO and TreatO; v0.6.2: 66,802 / 161,447
 - **Reasoner Consistency:** **100% Consistent** in HermiT & Pellet (0 unsatisfiable classes, 0 disjointness conflicts)
 
 ---
@@ -135,7 +135,7 @@ Every source checked so far, with the outcome and the reason, is recorded in [`C
 | Licence or label to confirm | Kaggle N/P/K images (licence not stated, permission requested; to be removed if refused); Netrokona potassium labels and YUKE-WBC species (expert confirmation) |
 | Candidates not yet imported | Weekly pest surveillance with weather, Midsayap, Philippines (needs `Scotinophara coarctata` as a new pest); brown planthopper resistance of 218 landraces; Sentinel-1 phenology table, Indramayu (licence "Custom"); UAV multispectral time series (no disease labels) |
 | Per-image content beyond the label | Expert image annotation; lesion boxes (RiceLeafDiseaseBD, Mendeley) |
-| Text | IRRI Rice Knowledge Bank, 19 fact sheets, 296 passages (2026-10-22), and IRRI (2018) *Rice Diseases*, 3 disease sections, 15 passages (2026-11-07). 325 curated assertions carry the passage that states them (2026-11-09, 0.9.0-dev). The wording is in [`Text Modality/`](Text%20Modality/), under CC BY-NC-SA 3.0 and 4.0 like the sources. Further text from CC BY papers is still open |
+| Text | IRRI Rice Knowledge Bank, 19 fact sheets, 296 passages (2026-10-22), and IRRI (2018) *Rice Diseases*, 3 disease sections, 15 passages (2026-11-07). 397 curated assertions carry the passage that states them (2026-11-09, 0.9.0-dev), among them the cause, management and growth-stage facts that IRRI states. The wording is in [`Text Modality/`](Text%20Modality/), under CC BY-NC-SA 3.0 and 4.0 like the sources. Further text from CC BY papers is still open |
 | Comparison with an existing ontology | Done for RiceDO v2 + TreatO v2 (2026-10-19): 23 mappings applied; TreatO's product–disease links not imported (no source per axiom; licence not stated in the files) |
 
 Sources under CC BY-SA would go into a separate module brought in through `owl:imports`, so the core stays CC BY 4.0. The IRRI passage wording is held in two such modules:
@@ -191,7 +191,7 @@ Measured 2026-11-09 on 0.9.0-dev: CQ-12 (management layer) passes since the batc
 5. Plant Ontology lookup for `Leaf_Collar`, `Coleoptile` and `Glume`: **done (0.9.0-dev)**;
 6. the domain-expert questions of the symptom inventory (§7.4): **open**, waiting on the domain expert; carried over to v1.0 with the expert validation below.
 
-**After v0.9.0 (0.9.0-dev):** the management layer for CQ-12 (2026-11-09): 10 `recommends` links to a `ManagementAction`, each stated by an IRRI passage; CQ-12 9/22 → 17/22 (PASS).
+**After v0.9.0 (0.9.0-dev):** the management layer for CQ-12 (2026-11-09): 10 `recommends` links to a `ManagementAction`, each stated by an IRRI passage; CQ-12 9/22 → 17/22 (PASS). Then evidence passages for 72 existing cause, management and growth-stage assertions (2026-11-09), for evidence retrieval.
 
 **Toward v1.0: FAIR and finalisation**
 1. **Release tooling:** pyLODE or Widoco documentation at the PURL (the browser redirect then points to it), FOOPS! and OOPS! checks, Zenodo DOI, AgroPortal.

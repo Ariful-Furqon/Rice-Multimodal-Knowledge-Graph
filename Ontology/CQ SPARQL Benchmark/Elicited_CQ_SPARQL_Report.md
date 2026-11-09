@@ -1,6 +1,6 @@
 # Elicited Competency Questions - SPARQL Results
 
-Generated 2026-11-09 20:06 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 327,963 asserted triples, 630,529 after OWL RL materialisation (108.8s).
+Generated 2026-11-09 20:42 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 328,321 asserted triples, 630,959 after OWL RL materialisation (109.0s).
 
 **19 of the 25 elicited Tier A CQs are queried here** - every one for which RiceMMKG v0.9.0-dev has at least the concept the question turns on. Answerability is measured, not predicted: the Stage 3 `v06_status` column is not used. The remaining 6 ask for a concept v0.9.0-dev does not have at all and are the v0.7 work plan; the status table at the end lists each with its reason.
 
@@ -63,7 +63,7 @@ SELECT ?pathogen ?group ?eppo_code ?external_alignment WHERE {
 }
 ```
 
-1 row(s) in 86.8 ms.
+1 row(s) in 83.9 ms.
 
 | pathogen | group | eppo_code | external_alignment |
 |---|---|---|---|
@@ -79,7 +79,7 @@ SELECT ?pathogen ?group WHERE {
 ORDER BY ?group ?pathogen
 ```
 
-10 row(s) in 4.1 ms.
+10 row(s) in 4.0 ms.
 
 | pathogen | group |
 |---|---|
@@ -103,7 +103,7 @@ SELECT ?disease ?pathogen WHERE {
 ORDER BY ?disease
 ```
 
-10 row(s) in 2.3 ms.
+10 row(s) in 2.7 ms.
 
 | disease | pathogen |
 |---|---|
@@ -134,7 +134,7 @@ SELECT ?vector ?agent ?mode ?disease WHERE {
 ORDER BY ?vector ?agent
 ```
 
-2 row(s) in 4.3 ms.
+2 row(s) in 3.9 ms.
 
 | vector | agent | mode | disease |
 |---|---|---|---|
@@ -193,7 +193,7 @@ GROUP BY ?other
 ORDER BY DESC(?shared_symptoms)
 ```
 
-12 row(s) in 8.7 ms.
+12 row(s) in 9.6 ms.
 
 | other | shared_symptoms |
 |---|---|
@@ -224,7 +224,7 @@ SELECT ?symptom ?present_only_in WHERE {
 ORDER BY ?present_only_in ?symptom
 ```
 
-26 row(s) in 10.7 ms.
+26 row(s) in 9.1 ms.
 
 | symptom | present_only_in |
 |---|---|
@@ -253,7 +253,7 @@ SELECT ?condition WHERE {
 ORDER BY ?condition
 ```
 
-2 row(s) in 2.1 ms.
+2 row(s) in 1.8 ms.
 
 | condition |
 |---|
@@ -301,7 +301,7 @@ SELECT ?stage WHERE {
 ORDER BY ?stage
 ```
 
-2 row(s) in 2.4 ms.
+2 row(s) in 2.3 ms.
 
 | stage |
 |---|
@@ -317,25 +317,28 @@ Actionability - the KG must not diagnose what it cannot advise on. Proposed by f
 **Treatments for Stem Borer with their management category and the source the control assertion cites**
 
 ```sparql
-SELECT ?treatment ?category ?source ?citation WHERE {
+SELECT ?treatment ?category
+       (GROUP_CONCAT(DISTINCT STR(?src); separator=" | ") AS ?sources)
+       (GROUP_CONCAT(DISTINCT ?cit; separator=" | ") AS ?citations) WHERE {
   rice:Stem_Borer rice:controlledBy ?treatment .
   OPTIONAL { ?treatment rice:hasManagementCategory ?category }
   OPTIONAL {
     ?ax owl:annotatedSource rice:Stem_Borer ;
         owl:annotatedProperty rice:controlledBy ;
         owl:annotatedTarget ?treatment ;
-        dcterms:source ?source ;
-        dcterms:bibliographicCitation ?citation .
+        dcterms:source ?src ;
+        dcterms:bibliographicCitation ?cit .
   }
 }
+GROUP BY ?treatment ?category
 ORDER BY ?treatment
 ```
 
-3 row(s) in 5.2 ms.
+3 row(s) in 8.9 ms.
 
-| treatment | category | source | citation |
+| treatment | category | sources | citations |
 |---|---|---|---|
-| rice:Biological_Control | rice:Biological_Control_Category | https://doi.org/10.1079/cabicompendium.49009 | CABI (2021). Scirpophaga incertulas (yellow stem borer). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.49009 / IRRI (2020). Rice Doctor: Stem Borer. |
+| rice:Biological_Control | rice:Biological_Control_Category | https://doi.org/10.1079/cabicompendium.49009 | http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer | CABI (2021). Scirpophaga incertulas (yellow stem borer). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.49009 / IRRI (2020). Rice Doctor: Stem Borer. | IRRI (n.d.). Stem borer. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer (accessed 2026-10-20). |
 | rice:Insecticide_Application | rice:Chemical_Control_Category | https://doi.org/10.1079/cabicompendium.49009 | CABI (2021). Scirpophaga incertulas (yellow stem borer). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.49009 / IRRI (2020). Rice Doctor: Stem Borer. |
 | rice:Neem_Based_Pesticide | None | https://doi.org/10.1079/cabicompendium.49009 | CABI (2021). Scirpophaga incertulas (yellow stem borer). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.49009 / IRRI (2020). Rice Doctor: Stem Borer. |
 
@@ -355,7 +358,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-2151 row(s) in 46.1 ms.
+2151 row(s) in 44.6 ms.
 
 | image | url |
 |---|---|
@@ -394,7 +397,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 899.3 ms.
+1 row(s) in 818.3 ms.
 
 | image | condition | dataset | title | source | confidence |
 |---|---|---|---|---|---|
@@ -413,7 +416,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 1555.3 ms.
+1 row(s) in 1527.8 ms.
 
 | images | with_source_dataset | with_confidence |
 |---|---|---|
@@ -440,7 +443,7 @@ GROUP BY ?condition ?type
 ORDER BY DESC(?images)
 ```
 
-19 row(s) in 9055.9 ms.
+19 row(s) in 9429.9 ms.
 
 | condition | type | images |
 |---|---|---|
@@ -464,7 +467,7 @@ SELECT ?dataset (COUNT(?image) AS ?images) WHERE {
 GROUP BY ?dataset
 ```
 
-6 row(s) in 255.5 ms.
+6 row(s) in 248.5 ms.
 
 | dataset | images |
 |---|---|
@@ -492,7 +495,7 @@ SELECT ?image ?symptom WHERE {
 }
 ```
 
-1 row(s) in 41.1 ms.
+1 row(s) in 44.4 ms.
 
 | image | symptom |
 |---|---|
@@ -508,7 +511,7 @@ GROUP BY ?symptom
 ORDER BY DESC(?images)
 ```
 
-2 row(s) in 21.5 ms.
+2 row(s) in 22.5 ms.
 
 | symptom | images |
 |---|---|
@@ -534,7 +537,7 @@ GROUP BY ?image ?candidate
 ORDER BY DESC(?support) ?candidate
 ```
 
-1 row(s) in 49.1 ms.
+1 row(s) in 54.1 ms.
 
 | image | candidate | support |
 |---|---|---|
@@ -567,7 +570,7 @@ SELECT ?condition ?distinguishing_symptom WHERE {
 ORDER BY ?condition ?distinguishing_symptom
 ```
 
-26 row(s) in 8.6 ms.
+26 row(s) in 10.1 ms.
 
 | condition | distinguishing_symptom |
 |---|---|
@@ -591,7 +594,7 @@ SELECT ?shared_symptom WHERE {
 ORDER BY ?shared_symptom
 ```
 
-5 row(s) in 2.6 ms.
+5 row(s) in 2.8 ms.
 
 | shared_symptom |
 |---|
@@ -620,7 +623,7 @@ SELECT ?image ?severity WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 581.3 ms.
+0 row(s) in 586.2 ms.
 
 **What the severity levels are used for in v0.9.0-dev**
 
@@ -632,7 +635,7 @@ SELECT ?severity ?recommends WHERE {
 ORDER BY ?severity
 ```
 
-4 row(s) in 3.6 ms.
+4 row(s) in 3.0 ms.
 
 | severity | recommends |
 |---|---|
@@ -659,7 +662,7 @@ SELECT ?image ?symptom_a ?symptom_b WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 104.3 ms.
+0 row(s) in 102.4 ms.
 
 **How many symptoms each annotated image captures**
 
@@ -673,7 +676,7 @@ GROUP BY ?symptoms_per_image
 ORDER BY ?symptoms_per_image
 ```
 
-1 row(s) in 96.8 ms.
+1 row(s) in 92.3 ms.
 
 | symptoms_per_image | images |
 |---|---|
@@ -699,7 +702,7 @@ WHERE {
 GROUP BY ?image_evidence
 ```
 
-2 row(s) in 30694.9 ms.
+2 row(s) in 31769.7 ms.
 
 | image_evidence | symptoms |
 |---|---|
@@ -717,7 +720,7 @@ SELECT ?symptom WHERE {
 ORDER BY ?symptom
 ```
 
-126 row(s) in 15416.1 ms.
+126 row(s) in 16039.9 ms.
 
 | symptom |
 |---|
@@ -750,7 +753,7 @@ SELECT ?image ?condition ?symptom ?pathogen WHERE {
 ORDER BY ?symptom
 ```
 
-17 row(s) in 195.4 ms.
+17 row(s) in 203.1 ms.
 
 | image | condition | symptom | pathogen |
 |---|---|---|---|
@@ -774,7 +777,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 1161.8 ms.
+1 row(s) in 1246.2 ms.
 
 | images_with_literature |
 |---|
@@ -799,7 +802,7 @@ SELECT ?image ?condition ?treatment WHERE {
 ORDER BY ?treatment
 ```
 
-4 row(s) in 1396.1 ms.
+4 row(s) in 1461.8 ms.
 
 | image | condition | treatment |
 |---|---|---|
@@ -817,7 +820,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?images_with_treatment) WHERE {
 }
 ```
 
-1 row(s) in 266.7 ms.
+1 row(s) in 297.6 ms.
 
 | images_with_treatment |
 |---|
@@ -841,7 +844,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-3747 row(s) in 70.5 ms.
+3747 row(s) in 79.4 ms.
 
 | image | url |
 |---|---|
@@ -864,7 +867,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?contradictory_images) WHERE {
 }
 ```
 
-1 row(s) in 19.3 ms.
+1 row(s) in 20.1 ms.
 
 | contradictory_images |
 |---|

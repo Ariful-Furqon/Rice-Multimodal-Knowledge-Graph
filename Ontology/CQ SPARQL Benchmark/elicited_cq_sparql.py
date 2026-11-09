@@ -209,17 +209,22 @@ ORDER BY ?stage"""),
         "queries": [
             ("Treatments for Stem Borer with their management category and "
              "the source the control assertion cites",
-             """SELECT ?treatment ?category ?source ?citation WHERE {
+             # Sources and citations are aggregated per assertion (2026-11-09): an axiom with
+             # two sources (e.g. CABI + IRRI) otherwise gives a cross product of source x citation.
+             """SELECT ?treatment ?category
+       (GROUP_CONCAT(DISTINCT STR(?src); separator=" | ") AS ?sources)
+       (GROUP_CONCAT(DISTINCT ?cit; separator=" | ") AS ?citations) WHERE {
   rice:Stem_Borer rice:controlledBy ?treatment .
   OPTIONAL { ?treatment rice:hasManagementCategory ?category }
   OPTIONAL {
     ?ax owl:annotatedSource rice:Stem_Borer ;
         owl:annotatedProperty rice:controlledBy ;
         owl:annotatedTarget ?treatment ;
-        dcterms:source ?source ;
-        dcterms:bibliographicCitation ?citation .
+        dcterms:source ?src ;
+        dcterms:bibliographicCitation ?cit .
   }
 }
+GROUP BY ?treatment ?category
 ORDER BY ?treatment"""),
         ],
     },
