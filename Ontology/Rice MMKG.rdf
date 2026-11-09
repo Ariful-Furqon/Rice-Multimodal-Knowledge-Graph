@@ -134396,8 +134396,8 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <owl:versionIRI rdf:resource="https://w3id.org/ricemmkg/0.9.0"/>
-    <owl:priorVersion rdf:resource="https://w3id.org/ricemmkg/0.8.1"/>
+    <owl:versionIRI rdf:resource="https://w3id.org/ricemmkg/0.10.0"/>
+    <owl:priorVersion rdf:resource="https://w3id.org/ricemmkg/0.9.0"/>
     <vann:preferredNamespaceUri>https://w3id.org/ricemmkg#</vann:preferredNamespaceUri>
     <dcterms:creator>Muhammad Ariful Furqon (ORCID: https://orcid.org/0000-0002-1031-3567)</dcterms:creator>
     <dcterms:creator>Natthawut Kertkeidkachorn (ORCID: https://orcid.org/0000-0003-4527-776X)</dcterms:creator>
@@ -134407,7 +134407,7 @@
     <dcterms:title>Rice MMKG — Rice Multimodal Knowledge Graph</dcterms:title>
     <vann:preferredNamespacePrefix>riceMMKG</vann:preferredNamespacePrefix>
     <rdfs:comment xml:lang="en">RiceMMKG: A Multimodal Knowledge Graph and Domain Ontology for Rice Pest and Disease Identification. Every domain-level assertion is grounded in peer-reviewed agronomic literature and authoritative databases (IRRI Rice Doctor Knowledge Bank, CABI Crop Protection Compendium, and EPPO Global Database), formally traceable via OWL axiom annotations (owl:Axiom with dcterms:source and dcterms:bibliographicCitation). Namespace https://w3id.org/ricemmkg# since 0.7.0-dev. Releases up to v0.6.2 used http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#; their version IRIs (https://w3id.org/ricemmkg/0.6.0, https://w3id.org/ricemmkg/0.6.1, https://w3id.org/ricemmkg/0.6.2) resolve to those files. Every later git tag v&lt;version&gt; resolves at https://w3id.org/ricemmkg/&lt;version&gt;.</rdfs:comment>
-    <owl:versionInfo>0.9.0-dev</owl:versionInfo>
+    <owl:versionInfo>0.10.0-dev</owl:versionInfo>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_tungro_PDD13952">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>

@@ -364,7 +364,7 @@ SELECT DISTINCT ?d WHERE { ?d a rice:Disease }
 
 ---
 
-#### CQ-12 | L3 x D1 | coverage | PASS (17/22 disease/pest, 77%; 0.9.0-dev, 2026-11-09)
+#### CQ-12 | L3 x D1 | coverage | PASS (17/22 disease/pest, 77%; 0.10.0-dev, 2026-11-09)
 **Question:** For which diseases and pests does the KG reach the management layer, i.e. recommend a concrete `ManagementAction`?
 **Rationale:** Verifies that diagnostic entities terminate in operational management actions.
 **Numerator Query:**
@@ -377,7 +377,7 @@ SELECT DISTINCT ?e WHERE {
 ```sparql
 SELECT DISTINCT ?e WHERE { { ?e a rice:Disease } UNION { ?e a rice:Pest } }
 ```
-**Result (0.9.0-dev, 2026-11-09):** 17 covered / 22 total (77.3%) — **PASS**; PARTIAL only from an 80% threshold. The management layer added 10 `recommends` links to a `ManagementAction`, each stated by an IRRI Rice Knowledge Bank passage (changelog 2026-11-09). Still uncovered (5): `Leaf_Scald`, `Nephotettix_Virescens`, `Phosphorus_`, `Potassium_` and `Zinc_Deficiency_Disorder`, for which no source states a ManagementAction. Four pests (`Armyworm`, `Brown_Planthopper`, `Leaf_Folder`, `Rice_Bug`) already had `recommends` to a `Treatment`, which the query rightly does not count.  
+**Result (0.10.0-dev, 2026-11-09):** 17 covered / 22 total (77.3%) — **PASS**; PARTIAL only from an 80% threshold. The management layer added 10 `recommends` links to a `ManagementAction`, each stated by an IRRI Rice Knowledge Bank passage (changelog 2026-11-09). Still uncovered (5): `Leaf_Scald`, `Nephotettix_Virescens`, `Phosphorus_`, `Potassium_` and `Zinc_Deficiency_Disorder`, for which no source states a ManagementAction. Four pests (`Armyworm`, `Brown_Planthopper`, `Leaf_Folder`, `Rice_Bug`) already had `recommends` to a `Treatment`, which the query rightly does not count.  
 **Result (0.7.0-dev):** 9 covered / 22 total (40.9%) — **PARTIAL**  
 **Uncovered entities (13):** `Armyworm`, `Brown_Planthopper`, `Leaf_Folder`, `Nephotettix_Virescens`, `Rice_Bug`, `Sheath_Blight`, `Stem_Borer`, the four nutrient-deficiency disorders (`Nitrogen_`, `Phosphorus_`, `Potassium_`, `Zinc_Deficiency_Disorder`), `Iron_Toxicity_Disorder` and `Salinity_Disorder`.  
 **Why it fell:** the numerator is unchanged; the denominator grew by the six abiotic disorders added from the IRRI nutrient and toxicity fact sheets, which give fertilizer or water guidance but no ManagementAction (monitoring, intervention, …). No `recommends` was added to clear the threshold.  
