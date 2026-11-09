@@ -134152,7 +134152,7 @@
     <dcterms:title>Rice MMKG — Rice Multimodal Knowledge Graph</dcterms:title>
     <vann:preferredNamespacePrefix>riceMMKG</vann:preferredNamespacePrefix>
     <rdfs:comment xml:lang="en">RiceMMKG: A Multimodal Knowledge Graph and Domain Ontology for Rice Pest and Disease Identification. Every domain-level assertion is grounded in peer-reviewed agronomic literature and authoritative databases (IRRI Rice Doctor Knowledge Bank, CABI Crop Protection Compendium, and EPPO Global Database), formally traceable via OWL axiom annotations (owl:Axiom with dcterms:source and dcterms:bibliographicCitation). Namespace https://w3id.org/ricemmkg# since 0.7.0-dev. Releases up to v0.6.2 used http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#; their version IRIs (https://w3id.org/ricemmkg/0.6.0, https://w3id.org/ricemmkg/0.6.1, https://w3id.org/ricemmkg/0.6.2) resolve to those files. Every later git tag v&lt;version&gt; resolves at https://w3id.org/ricemmkg/&lt;version&gt;.</rdfs:comment>
-    <owl:versionInfo>0.9.0</owl:versionInfo>
+    <owl:versionInfo>0.9.0-dev</owl:versionInfo>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_tungro_PDD13952">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -184462,7 +184462,7 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#ManagementAction">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">An operational response taken in reaction to an observation, ranging from no action to immediate intervention, usually recommended by a SeverityLevel.</rdfs:comment>
+    <rdfs:comment xml:lang="en">An operational decision on how to respond to a disease, pest or disorder, from preventive practice and monitoring to immediate intervention or no action; recommended by a Disease, Pest or SeverityLevel. A specific control method is a Treatment.</rdfs:comment>
     <rdfs:label xml:lang="en">Management Action</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:nodeID="Nbbaaa2aaeb414f0f8af808fd59445150">
@@ -403797,5 +403797,156 @@
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_potassium-k_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
     <rdfs:comment xml:lang="en">Symptom inventory §3.6 row 2 (2026-11-07): "Stunted dark green plants"; the last missing row of a condition with an IRRI fact sheet.</rdfs:comment>
+  </rdf:Description>
+  <!-- management layer 2026-11-09: recommends to a ManagementAction from IRRI Rice Knowledge Bank passages (benchmark CQ-12) -->
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Armyworm">
+    <rice:recommends rdf:resource="https://w3id.org/ricemmkg#Preventive_Action"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NmgmtLayer20261109m1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Armyworm"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#recommends"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Preventive_Action"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/armyworms"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Armyworm. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/armyworms (accessed 2026-09-15).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_armyworms_p11"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added 2026-11-09 (row M-05, management layer for benchmark CQ-12): The sheet lists measures to prevent armyworm infestation (seedbed flooding, seedbeds away from weeds). Approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Brown_Planthopper">
+    <rice:recommends rdf:resource="https://w3id.org/ricemmkg#Monitoring"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NmgmtLayer20261109m2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#recommends"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Monitoring"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Planthopper. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper (accessed 2026-09-15).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_planthopper_p15"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added 2026-11-09 (row M-01, management layer for benchmark CQ-12): The sheet gives a scouting routine: daily in the seedbed, weekly in the field. Approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Brown_Planthopper">
+    <rice:recommends rdf:resource="https://w3id.org/ricemmkg#Preventive_Action"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NmgmtLayer20261109m3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#recommends"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Preventive_Action"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Planthopper. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper (accessed 2026-09-15).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_planthopper_p13"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added 2026-11-09 (row M-02, management layer for benchmark CQ-12): The sheet lists measures to prevent planthopper outbreaks (weed removal, no indiscriminate insecticide use). Approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Iron_Toxicity_Disorder">
+    <rice:recommends rdf:resource="https://w3id.org/ricemmkg#Preventive_Action"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NmgmtLayer20261109m4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Iron_Toxicity_Disorder"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#recommends"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Preventive_Action"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/iron-toxicity"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Iron (Fe) toxicity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/iron-toxicity (accessed 2026-09-15).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_iron-toxicity_p9"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added 2026-11-09 (row M-07, management layer for benchmark CQ-12): The sheet lists measures to prevent iron toxicity (tolerant varieties, delayed planting, intermittent irrigation). Approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Folder">
+    <rice:recommends rdf:resource="https://w3id.org/ricemmkg#Preventive_Action"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NmgmtLayer20261109m5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Folder"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#recommends"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Preventive_Action"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice leaffolder. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder (accessed 2026-09-15).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_rice-leaffolder_p13"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added 2026-11-09 (row M-06, management layer for benchmark CQ-12): The sheet lists measures to prevent leaffolder outbreaks (resistant varieties, rotation, weed removal). Approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Nitrogen_Deficiency_Disorder">
+    <rice:recommends rdf:resource="https://w3id.org/ricemmkg#Monitoring"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NmgmtLayer20261109m6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Nitrogen_Deficiency_Disorder"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#recommends"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Monitoring"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/item/nitrogen"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Nitrogen (N). Rice Knowledge Bank fact sheet (nutrient management). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/item/nitrogen (accessed 2026-09-17).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_nitrogen_p6"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added 2026-11-09 (row M-10, management layer for benchmark CQ-12): Crop-status monitoring: leaf colour (Leaf Color Chart) is read to decide whether N fertiliser is needed. Approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rice_Bug">
+    <rice:recommends rdf:resource="https://w3id.org/ricemmkg#Monitoring"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NmgmtLayer20261109m7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Bug"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#recommends"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Monitoring"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-bug"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice bug. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-bug (accessed 2026-09-15).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_rice-bug_p14"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added 2026-11-09 (row M-03, management layer for benchmark CQ-12): The sheet gives a scouting routine from pre-flowering to the hard dough stage, with a count per hill. Approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Rice_Bug">
+    <rice:recommends rdf:resource="https://w3id.org/ricemmkg#Preventive_Action"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NmgmtLayer20261109m8">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Bug"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#recommends"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Preventive_Action"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-bug"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice bug. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-bug (accessed 2026-09-15).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_rice-bug_p10"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added 2026-11-09 (row M-04, management layer for benchmark CQ-12): The sheet lists weed removal and synchronous planting to prevent rice bug build-up. Approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Salinity_Disorder">
+    <rice:recommends rdf:resource="https://w3id.org/ricemmkg#Preventive_Action"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NmgmtLayer20261109m9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Salinity_Disorder"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#recommends"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Preventive_Action"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Salinity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity (accessed 2026-09-15).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_salinity_p13"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added 2026-11-09 (row M-08, management layer for benchmark CQ-12): The sheet lists measures to prevent salinity damage (salt-tolerant varieties, water management). Approved by the curator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Sheath_Blight">
+    <rice:recommends rdf:resource="https://w3id.org/ricemmkg#Preventive_Action"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NmgmtLayer20261109m10">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Sheath_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#recommends"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Preventive_Action"/>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/sheath-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Sheath blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/sheath-blight (accessed 2026-09-15).</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_sheath-blight_p15"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added 2026-11-09 (row M-09, management layer for benchmark CQ-12): The sheet gives cultural measures that reduce sheath blight epidemics (weed control on levees, early drainage); no resistant variety exists. Approved by the curator.</rdfs:comment>
   </rdf:Description>
 </rdf:RDF>
