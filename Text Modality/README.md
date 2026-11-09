@@ -25,7 +25,7 @@ The core graph stays CC BY 4.0 because it holds facts and pointers, not the IRRI
   - `inDocument`, `startOffset`, `endOffset` and `textSha256` locate the passage.
   - `sectionTitle` gives its section, and `mentions` the domain individuals named in it.
   - The offsets play the role of a W3C Web Annotation `TextPositionSelector`.
-- **Evidence on curated assertions:** `rice:hasEvidencePassage` on the `owl:Axiom` of 397 curated assertions points to the passage that states the assertion. `rice:evidencePassageCheck` says how the link was checked: `human-reviewed` (362) or `LLM-reviewed` (35). Counted 2026-11-09 on 0.10.0-dev. The count includes:
+- **Evidence on curated assertions:** `rice:hasEvidencePassage` on the `owl:Axiom` of 397 curated assertions points to the passage that states the assertion. `rice:evidencePassageCheck` says how the link was checked: `human-reviewed` (362) or `LLM-reviewed` (35). Counted 2026-11-09 on 0.9.1-dev. The count includes:
   - the 49 blast and brown spot assertions of 0.8.0;
   - the 0.8.1 corrections: one wrong link removed and two added (inventory §6.4);
   - the 32 tungro and bacterial leaf blight assertions of 0.9.0-dev;
@@ -36,8 +36,8 @@ The core graph stays CC BY 4.0 because it holds facts and pointers, not the IRRI
   - the 6 assertions of decisions M6 and M7 (0.9.0-dev);
   - `Deadheart → Tiller` (§6.4, item 5, 0.9.0-dev);
   - the 2 assertions of the potassium row "dark green plant" (inventory §3.6 row 2, 0.9.0-dev);
-  - the 10 `recommends` links of the management layer (2026-11-09, 0.10.0-dev);
-  - 72 existing cause, management and growth-stage assertions (`causes`, `increaseRiskOf`, `controlledBy`, `preventedBy`, `recommends`, `occursIn`), which got the IRRI sheet as a second source with its passage (2026-11-09, 0.10.0-dev).
+  - the 10 `recommends` links of the management layer (2026-11-09, 0.9.1-dev);
+  - 72 existing cause, management and growth-stage assertions (`causes`, `increaseRiskOf`, `controlledBy`, `preventedBy`, `recommends`, `occursIn`), which got the IRRI sheet as a second source with its passage (2026-11-09, 0.9.1-dev).
 - **These modules:** `rice:passageText` for each passage. Load them together with the core to get the wording.
 
 ## How the offsets are defined

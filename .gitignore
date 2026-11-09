@@ -38,3 +38,8 @@ venv/
 # Expert questionnaire with names and institutions: kept locally, not published.
 # The anonymised responses are in CQ Screening/data/cq_stage5_responses.csv.
 /Ontology/CQ SPARQL Benchmark/CQ Screening/*(Responses).xlsx
+
+# Sync-tool conflict copies (OneDrive, Dropbox): never commit them
+*-Muhammad*MacBook Pro*
+* (conflicted copy)*
+*-DESKTOP-*

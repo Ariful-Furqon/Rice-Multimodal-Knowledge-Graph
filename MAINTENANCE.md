@@ -47,11 +47,12 @@ Each version number names exactly one content state: a change is never folded si
 
 ## Release cadence
 
-- **Release map** (revised 2026-11-07; it replaces the map of 2026-09-17, which tied the minor releases to the phases of the ESWC 2027 plan, archived in `Ontology/Archive/` after that submission was dropped):
+- **Release map** (revised 2026-11-07; it replaces the map of 2026-09-17, which tied the minor releases to the phases of the ESWC 2027 plan, dropped with that submission; the plan was removed on 2026-11-09 and is kept at tag `v0.9.0` (`Ontology/riceMMKG_ESWC_plan.md`)):
   - **v0.7.0:** scaffolding and modalities (image and text the strongest). Tagged on 2026-11-07 at the data-freeze commit of 2026-10-16 (same commit as `data-freeze-2026-10`; the file there reads `0.7.0-dev`). The 0.7.0-dev work after the freeze (text layer, `Deadheart` as a symptom) is in v0.8.0.
   - **v0.6.0:** tagged on 2026-11-07 at the v0.6 release of 2026-09-03 (same commit as `elicited-baseline-v0.6`). The descriptive tags are kept, because tags are never deleted and documents cite them.
   - **v0.8.0** (tagged 2026-11-07): the symptom inventory, and the visual symptoms of blast and brown spot.
   - **0.8 → v0.9: benchmark.** The changes the retrieval benchmark needs from the KG: the rest of the symptom inventory, its provenance fixes and the missing sources. **v0.9.0** tagged 2026-11-07 (changelog in `Ontology/Ontology_Overview.md`).
+  - **0.9.1-dev** (since 2026-11-09): post-release work on the KG (the management layer for CQ-12 and evidence passages for the cause, management and stage facts). v0.9.0 stays the release the retrieval benchmark starts from; results on later states are reported as separate KG versions.
   - **0.9 → v1.0: FAIR and finalisation.** Documentation at the PURL, FOOPS!/OOPS!, Zenodo DOI, AgroPortal, a smaller distribution file and expert validation of the elicited CQs.
   - Development between tags carries `-dev` (e.g. `0.9.0-dev`), as 0.7.0-dev did.
 - **Patch releases are made whenever a verified correction is ready**, with no fixed schedule.
