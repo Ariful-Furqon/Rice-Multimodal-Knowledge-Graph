@@ -346,6 +346,11 @@
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#controlledBy"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Xanthomonas oryzae pv. oryzicola (bacterial leaf streak of rice). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.56977 / IRRI (2020). Rice Doctor: Bacterial Leaf Streak.</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-leaf-streak"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial leaf streak. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-leaf-streak (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-leaf-streak_p13"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row M06, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_downy_mildew_PDD06023">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -1064,6 +1069,11 @@
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.36301"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#controlledBy"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Planthopper. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_planthopper_p20"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row M09, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_hispa_PDD07178">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -4162,6 +4172,11 @@
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#occursIn"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Seedling_Stage"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/armyworms"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Armyworm. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/armyworms (accessed 2026-09-15).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_armyworms_p9"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S01, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#Whole_Plant">
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#PlantPart"/>
@@ -4267,6 +4282,11 @@
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#occursIn"/>
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Stem_Borer"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Stem borer. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_stem-borer_p2"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S25, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_black_stem_borer_PDD01962">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -6444,6 +6464,11 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Presence_of_Leafhopper_Vector"/>
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.47654"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p6"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row R09, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_white_stem_borer_PDD14265">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -7322,6 +7347,11 @@
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.47654"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#occursIn"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S21, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_bacterial_leaf_blight_PDD00418">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -10170,6 +10200,11 @@
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Xanthomonas oryzae pv. oryzae (rice leaf blight). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.56956 / IRRI (2020). Rice Doctor: Bacterial Blight.</dcterms:bibliographicCitation>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#causes"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p1"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row C02, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_leaf_roller_PDD09422">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -13345,6 +13380,11 @@
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#controlledBy"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Fungicide_Application"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_brown-spot_p18"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row M10, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_white_stem_borer_PDD15176">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -16957,6 +16997,11 @@
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.56977"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#increaseRiskOf"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-leaf-streak"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial leaf streak. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-leaf-streak (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-leaf-streak_p2"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row R04, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_blast_PDD04287">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -17180,6 +17225,11 @@
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Flowering_Stage"/>
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Sheath_Blight"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/sheath-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Sheath blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/sheath-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_sheath-blight_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S23, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_bacterial_leaf_blight_PDD00365">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -17220,6 +17270,11 @@
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Dicladispa armigera (rice hispa). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.27270 / IRRI (2020). Rice Doctor: Rice Hispa.</dcterms:bibliographicCitation>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Biological_Control"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-hispa"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice hispa. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-hispa (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_rice-hispa_p12"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row M12, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_yellow_stem_borer_PDD15617">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -18190,6 +18245,11 @@
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.30366"/>
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Bug"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-bug"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice bug. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-bug (accessed 2026-09-15).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_rice-bug_p15"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row A06, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_bacterial_leaf_streak_PDD01064">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -20918,6 +20978,11 @@
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Hispa"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Dicladispa armigera (rice hispa). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.27270 / IRRI (2020). Rice Doctor: Rice Hispa.</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-hispa"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice hispa. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-hispa (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_rice-hispa_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row R07, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_yellow_stem_borer_PDD16058">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -26989,6 +27054,11 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Blast_Disease"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Magnaporthe oryzae (rice blast disease). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.46103 / IRRI (2020). Rice Doctor: Blast (leaf and collar).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_blast-leaf-collar_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S14, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_hispa_PDD07369">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -32043,6 +32113,11 @@
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Nilaparvata lugens (brown planthopper). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.36301 / IRRI (2020). Rice Doctor: Planthoppers.</dcterms:bibliographicCitation>
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.36301"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Planthopper. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_planthopper_p20"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row A02, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_leaf_roller_PDD09609">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -34304,6 +34379,11 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Excessive_Nitrogen"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Nilaparvata lugens (brown planthopper). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.36301 / IRRI (2020). Rice Doctor: Planthoppers.</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Planthopper. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_planthopper_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row R02, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_white_stem_borer_PDD15135">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -35831,6 +35911,11 @@
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Magnaporthe oryzae (rice blast disease). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.46103 / IRRI (2020). Rice Doctor: Blast (leaf and collar).</dcterms:bibliographicCitation>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#recommends"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_blast-leaf-collar_p15"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row A05, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_tungro_PDD12546">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -37685,6 +37770,11 @@
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#preventedBy"/>
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Brown_Spot"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_brown-spot_p18"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row P03, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_hispa_PDD08317">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -48220,6 +48310,11 @@
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Mythimna separata (paddy armyworm). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.45093 / IRRI (2020). Rice Doctor: Armyworm.</dcterms:bibliographicCitation>
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.45093"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/armyworms"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Armyworm. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/armyworms (accessed 2026-09-15).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_armyworms_p9"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S02, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#DhanShomadhan_Rice_Blast_Disease_rb_wb_141">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -49291,6 +49386,11 @@
     <dcterms:bibliographicCitation xml:lang="en">Castell Miller, C. (2025). Bipolaris oryzae (brown leaf spot of rice). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.14691 / IRRI (2020). Rice Doctor: Brown Spot.</dcterms:bibliographicCitation>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Reproductive_Stage"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_brown-spot_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S11, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_tungro_PDD12775">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -50373,6 +50473,11 @@
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#increaseRiskOf"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Streak"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-leaf-streak"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial leaf streak. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-leaf-streak (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-leaf-streak_p2"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row R05, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_blast_PDD04148">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -51927,6 +52032,11 @@
     <dcterms:bibliographicCitation xml:lang="en">CABI (2019). Rice tungro disease (rice tungro virus). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.47654 / Hibino, H. (1996). Biology and epidemiology of rice viruses. Annu. Rev. Phytopathol., 34, 249-274.</dcterms:bibliographicCitation>
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Tungro_Disease"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p20"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row P05, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_white_stem_borer_PDD15085">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -56966,6 +57076,11 @@
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Scirpophaga incertulas (yellow stem borer). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.49009 / IRRI (2020). Rice Doctor: Stem Borer.</dcterms:bibliographicCitation>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Reproductive_Stage"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Stem borer. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_stem-borer_p2"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S26, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#DhanShomadhan_Brown_Spot_bs_wb_76">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -60597,6 +60712,11 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Brown_Spot"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#occursIn"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_brown-spot_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S12, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:nodeID="N45507502009c41dfaeeec47afc3d608f">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
@@ -63115,6 +63235,11 @@
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Mythimna separata (paddy armyworm). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.45093 / IRRI (2020). Rice Doctor: Armyworm.</dcterms:bibliographicCitation>
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.45093"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/armyworms"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Armyworm. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/armyworms (accessed 2026-09-15).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_armyworms_p13"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row M01, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_tungro_PDD13296">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -63754,6 +63879,11 @@
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Magnaporthe oryzae (rice blast disease). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.46103 / IRRI (2020). Rice Doctor: Blast (leaf and collar).</dcterms:bibliographicCitation>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Water_Management"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_blast-leaf-collar_p14"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row M14, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_downy_mildew_PDD06515">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -65455,6 +65585,11 @@
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#occursIn"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Magnaporthe oryzae (rice blast disease). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.46103 / IRRI (2020). Rice Doctor: Blast (leaf and collar).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_blast-leaf-collar_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S16, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_normal_PDD11285">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -66674,6 +66809,11 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Tungro_Disease"/>
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.47654"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p23"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row M17, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_bacterial_panicle_blight_PDD01361">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -73984,6 +74124,11 @@
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Flowering_Stage"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#occursIn"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p2"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S07, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_bacterial_leaf_blight_PDD00189">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -76204,6 +76349,11 @@
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Biological_Control"/>
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Brown_Planthopper"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Planthopper. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/planthopper (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_planthopper_p19"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row M08, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_leaf_roller_PDD09142">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -83952,6 +84102,11 @@
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Brown_Spot"/>
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.14691"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_brown-spot_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row R06, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_brown_spot_PDD04957">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -86071,6 +86226,11 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Brown_Spot"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Resistant_Variety"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_brown-spot_p18"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row M11, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_normal_PDD10292">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -90988,6 +91148,11 @@
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#occursIn"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Scirpophaga incertulas (yellow stem borer). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.49009 / IRRI (2020). Rice Doctor: Stem Borer.</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Stem borer. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_stem-borer_p2"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S24, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_blast_PDD03501">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -91770,6 +91935,11 @@
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#occursIn"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Maturity_Stage"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Stem borer. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_stem-borer_p2"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S27, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_hispa_PDD08437">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -92090,6 +92260,11 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Xanthomonas oryzae pv. oryzae (rice leaf blight). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.56956 / IRRI (2020). Rice Doctor: Bacterial Blight.</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p16"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row M05, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_tungro_PDD12608">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -96263,6 +96438,11 @@
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#occursIn"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Tillering_Stage"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-leaf-streak"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial leaf streak. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-leaf-streak (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-leaf-streak_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S04, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_blast_PDD03015">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -98046,6 +98226,11 @@
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.56956"/>
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p17"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row M03, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_hispa_PDD08492">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -102974,6 +103159,11 @@
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Scirpophaga incertulas (yellow stem borer). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.49009 / IRRI (2020). Rice Doctor: Stem Borer.</dcterms:bibliographicCitation>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Resistant_Variety"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Stem borer. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_stem-borer_p16"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row P07, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#DhanShomadhan_Brown_Spot_bs_wb_55">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -103002,6 +103192,11 @@
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Bacterial_Leaf_Blight"/>
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#High_Humidity"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p2"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row R03, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_downy_mildew_PDD06583">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -104667,6 +104862,11 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Brown_Spot"/>
     <dcterms:bibliographicCitation xml:lang="en">Castell Miller, C. (2025). Bipolaris oryzae (brown leaf spot of rice). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.14691 / IRRI (2020). Rice Doctor: Brown Spot.</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_brown-spot_p18"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row A03, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_brown_spot_PDD04511">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -110106,6 +110306,11 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Brown_Spot"/>
     <dcterms:bibliographicCitation xml:lang="en">Castell Miller, C. (2025). Bipolaris oryzae (brown leaf spot of rice). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.14691 / IRRI (2020). Rice Doctor: Brown Spot.</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_brown-spot_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S08, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_hispa_PDD08135">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -110720,6 +110925,11 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Stem_Borer"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#controlledBy"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Stem borer. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_stem-borer_p18"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row M19, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_normal_PDD10351">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -112694,6 +112904,11 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Armyworm"/>
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.45093"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/armyworms"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Armyworm. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/armyworms (accessed 2026-09-15).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_armyworms_p14"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row A01, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_brown_spot_PDD05179">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -113759,6 +113974,11 @@
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#causes"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Xanthomonas oryzae pv. oryzicola (bacterial leaf streak of rice). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.56977 / IRRI (2020). Rice Doctor: Bacterial Leaf Streak.</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-leaf-streak"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial leaf streak. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-leaf-streak (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-leaf-streak_p1"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row C03, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_black_stem_borer_PDD01920">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -118586,6 +118806,11 @@
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#controlledBy"/>
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.30366"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-bug"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice bug. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-bug (accessed 2026-09-15).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_rice-bug_p15"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row M15, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#DhanShomadhan_Brown_Spot_bsf_45">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -121797,6 +122022,11 @@
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.56977"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#occursIn"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-leaf-streak"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial leaf streak. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-leaf-streak (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-leaf-streak_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S05, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_normal_PDD11065">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -126040,6 +126270,11 @@
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Leptocorisa oratorius (slender rice bug). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.30366 / IRRI (2020). Rice Doctor: Rice Bug.</dcterms:bibliographicCitation>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#occursIn"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-bug"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice bug. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-bug (accessed 2026-09-15).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_rice-bug_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S19, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:nodeID="N82345454c189447a8e47c0cd16564be4">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
@@ -126170,6 +126405,11 @@
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Magnaporthe oryzae (rice blast disease). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.46103 / IRRI (2020). Rice Doctor: Blast (leaf and collar).</dcterms:bibliographicCitation>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#preventedBy"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_blast-leaf-collar_p11"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row P04, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_normal_PDD10166">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -128911,6 +129151,11 @@
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#controlledBy"/>
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.47654"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p20"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row M16, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_downy_mildew_PDD05738">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -133936,6 +134181,11 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Blast_Disease"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Maturity_Stage"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_blast-leaf-collar_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S18, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_white_stem_borer_PDD14807">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -134027,6 +134277,11 @@
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Vegetative_Stage"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#occursIn"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_brown-spot_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S09, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_hispa_PDD07174">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -134667,6 +134922,11 @@
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#preventedBy"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Xanthomonas oryzae pv. oryzae (rice leaf blight). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.56956 / IRRI (2020). Rice Doctor: Bacterial Blight.</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p15"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row P01, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_bacterial_leaf_streak_PDD00675">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -134801,6 +135061,11 @@
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.47203"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#increaseRiskOf"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/sheath-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Sheath blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/sheath-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_sheath-blight_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row R08, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_brown_spot_PDD04621">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -137523,6 +137788,11 @@
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.14493"/>
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Folder"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Rice leaffolder. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/rice-leaffolder (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_rice-leaffolder_p11"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S13, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_blast_PDD02115">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -138927,6 +139197,11 @@
     <dcterms:source rdf:resource="https://www.fao.org/4/y6159t/y6159t02.htm"/>
     <dcterms:bibliographicCitation xml:lang="en">Gallagher, K.D., Ooi, P.A.C., Mew, T.W., Borromeo, E. and Kenmore, P.E. (2002). Integrated pest management in rice. International Rice Commission Newsletter. FAO.</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p20"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row M13, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_tungro_PDD12879">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -144809,6 +145084,11 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Blast_Disease"/>
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.46103"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_blast-leaf-collar_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S15, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_normal_PDD10171">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -147773,6 +148053,11 @@
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#occursIn"/>
     <dcterms:bibliographicCitation xml:lang="en">Castell Miller, C. (2025). Bipolaris oryzae (brown leaf spot of rice). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.14691 / IRRI (2020). Rice Doctor: Brown Spot.</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_brown-spot_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S10, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_yellow_stem_borer_PDD15776">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -148039,6 +148324,11 @@
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.56956"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#increaseRiskOf"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p4"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row R01, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_white_stem_borer_PDD14412">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -148890,6 +149180,11 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Magnaporthe_Oryzae"/>
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.46103"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_blast-leaf-collar_p1"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row C01, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_tungro_PDD13945">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -150174,6 +150469,11 @@
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Reproductive_Stage"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#occursIn"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p14"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S03, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_downy_mildew_PDD05948">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -152804,6 +153104,11 @@
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Monitoring"/>
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Brown_Spot"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Brown spot. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/brown-spot (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_brown-spot_p16"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row A04, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_brown_spot_PDD05506">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -154785,6 +155090,11 @@
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.56977"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Xanthomonas oryzae pv. oryzicola (bacterial leaf streak of rice). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.56977 / IRRI (2020). Rice Doctor: Bacterial Leaf Streak.</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-leaf-streak"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial leaf streak. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-leaf-streak (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-leaf-streak_p13"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row P02, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_blast_PDD02966">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -160428,6 +160738,11 @@
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.47654"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2019). Rice tungro disease (rice tungro virus). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.47654 / Hibino, H. (1996). Biology and epidemiology of rice viruses. Annu. Rev. Phytopathol., 34, 249-274.</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S20, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_hispa_PDD08306">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -165589,6 +165904,11 @@
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Xanthomonas oryzae pv. oryzicola (bacterial leaf streak of rice). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.56977 / IRRI (2020). Rice Doctor: Bacterial Leaf Streak.</dcterms:bibliographicCitation>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Resistant_Variety"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-leaf-streak"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial leaf streak. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-leaf-streak (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-leaf-streak_p13"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row M07, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_blast_PDD02466">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -169074,6 +169394,11 @@
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#occursIn"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Burkholderia glumae (bacterial grain rot). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.44964 / Ham, J. H. et al. (2011). Burkholderia glumae: next major pathogen of rice? Mol. Plant Pathol., 12(4), 329-339.</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p2"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S06, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_black_stem_borer_PDD01680">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -171236,6 +171561,11 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Tungro_Disease"/>
     <dcterms:bibliographicCitation xml:lang="en">CABI (2019). Rice tungro disease (rice tungro virus). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.47654 / Hibino, H. (1996). Biology and epidemiology of rice viruses. Annu. Rev. Phytopathol., 34, 249-274.</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Tungro. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/tungro (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_tungro_p5"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S22, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_normal_PDD10692">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -171276,6 +171606,11 @@
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Mythimna separata (paddy armyworm). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.45093 / IRRI (2020). Rice Doctor: Armyworm.</dcterms:bibliographicCitation>
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.45093"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/armyworms"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Armyworm. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/armyworms (accessed 2026-09-15).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_armyworms_p14"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row M02, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_white_stem_borer_PDD15267">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -171577,6 +171912,11 @@
     <dcterms:bibliographicCitation xml:lang="en">Back, M. (2012). Thanatephorus cucumeris (many names, depending on host). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.47203 / IRRI (2020). Rice Doctor: Sheath Blight.</dcterms:bibliographicCitation>
     <dcterms:source rdf:resource="https://doi.org/10.1079/cabicompendium.47203"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/sheath-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Sheath blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/sheath-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_sheath-blight_p16"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row M18, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:nodeID="N206abb9b06734729b43e1f831e7ee6d0">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
@@ -174617,6 +174957,11 @@
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Flowering_Stage"/>
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Rice_Blast_Disease"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Blast (leaf and collar). Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/blast-leaf-collar (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_blast-leaf-collar_p3"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row S17, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_normal_PDD10910">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -176182,6 +176527,11 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Burkholderia_Glumae"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p1"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row C04, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_downy_mildew_PDD06470">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -178109,6 +178459,9 @@
     <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity"/>
     <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Salinity. Rice Knowledge Bank fact sheet (nutrient management: deficiencies and toxicities). International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/nutrient-management/deficiencies-and-toxicities-fact-sheet/item/salinity (accessed 2026-09-15).</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_salinity_p15"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row P06, Worklog/2026-11-09_evidence_cause_manage): passage of the IRRI sheet that is already the source.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_blast_PDD02848">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -184037,6 +184390,11 @@
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Resistant_Variety"/>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#controlledBy"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight"/>
+    <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Bacterial blight. Rice Knowledge Bank fact sheet. International Rice Research Institute. http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases/item/bacterial-blight (accessed 2026-10-20).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_bacterial-blight_p15"/>
+    <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Evidence added 2026-11-09 (row M04, Worklog/2026-11-09_evidence_cause_manage): IRRI sheet added as a second source, with the passage that states the assertion.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#Resistant_Reaction">
     <rdf:type rdf:resource="https://w3id.org/ricemmkg#ResistanceLevel"/>

@@ -1,9 +1,9 @@
 # Rice MMKG - Competency Question SPARQL Benchmark
 
-**Generated:** 2026-11-09 20:03  
+**Generated:** 2026-11-09 20:36  
 **Ontology:** `Rice MMKG.rdf`  
-**Asserted triples:** 327,963  
-**After OWL RL materialisation:** 630,529 (+302,566, 123.1s)  
+**Asserted triples:** 328,321  
+**After OWL RL materialisation:** 630,959 (+302,638, 108.4s)  
 **Coverage threshold:** 50%
 
 ## 1. Evaluation design
@@ -114,7 +114,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** Aetiological completeness. A disease without a causal agent cannot support any downstream causal query.
 
-**Measurement.** 9 of 9 disease covered - 100.0% (84.0 ms).
+**Measurement.** 9 of 9 disease covered - 100.0% (106.2 ms).
 
 ---
 
@@ -124,7 +124,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** Diagnosability. Without a symptom link an entity is invisible to field-observation-driven inference.
 
-**Measurement.** 21 of 22 disease/pest covered - 95.5% (21.6 ms).
+**Measurement.** 21 of 22 disease/pest covered - 95.5% (21.8 ms).
 
 **Not covered (1).** `rice:Nephotettix_Virescens`
 
@@ -136,7 +136,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** Actionability. The KG must not diagnose what it cannot advise on.
 
-**Measurement.** 20 of 22 disease/pest covered - 90.9% (7.7 ms).
+**Measurement.** 20 of 22 disease/pest covered - 90.9% (9.3 ms).
 
 **Not covered (2).** `rice:Iron_Toxicity_Disorder`, `rice:Salinity_Disorder`
 
@@ -148,7 +148,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** Detects orphan symptoms - vocabulary declared but never used in a diagnostic pattern.
 
-**Measurement.** 129 of 129 symptom covered - 100.0% (6.6 ms).
+**Measurement.** 129 of 129 symptom covered - 100.0% (9.1 ms).
 
 ---
 
@@ -158,7 +158,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** Multi-criteria contextualisation. Both joins are mandatory (no OPTIONAL), so the CQ measures real co-population of occursIn and increaseRiskOf.
 
-**Measurement.** 12 of 22 disease/pest covered - 54.5% (32.5 ms).
+**Measurement.** 12 of 22 disease/pest covered - 54.5% (33.1 ms).
 
 **Not covered (10).** `rice:Iron_Toxicity_Disorder`, `rice:Leaf_Folder`, `rice:Leaf_Scald`, `rice:Nephotettix_Virescens`, `rice:Nitrogen_Deficiency_Disorder`, `rice:Phosphorus_Deficiency_Disorder`, `rice:Potassium_Deficiency_Disorder`, `rice:Rice_Bug`, `rice:Salinity_Disorder`, `rice:Zinc_Deficiency_Disorder`
 
@@ -166,18 +166,18 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 | stage | e | f |
 |---|---|---|
-| rice:Flowering_Stage | rice:Bacterial_Leaf_Streak | rice:High_Humidity |
 | rice:Flowering_Stage | rice:Bacterial_Leaf_Streak | rice:High_Temperature |
+| rice:Flowering_Stage | rice:Bacterial_Leaf_Streak | rice:High_Humidity |
+| rice:Flowering_Stage | rice:Bacterial_Panicle_Blight | rice:High_Temperature |
 | rice:Flowering_Stage | rice:Bacterial_Panicle_Blight | rice:High_Humidity |
 | rice:Flowering_Stage | rice:Bacterial_Panicle_Blight | rice:High_Night_Temperature |
-| rice:Flowering_Stage | rice:Bacterial_Panicle_Blight | rice:High_Temperature |
 | rice:Flowering_Stage | rice:Brown_Planthopper | rice:Excessive_Nitrogen |
 | rice:Flowering_Stage | rice:Brown_Planthopper | rice:High_Temperature |
 | rice:Flowering_Stage | rice:Rice_Blast_Disease | rice:High_Humidity |
 | rice:Flowering_Stage | rice:Rice_Blast_Disease | rice:Low_Rainfall |
-| rice:Flowering_Stage | rice:Sheath_Blight | rice:High_Humidity |
 | rice:Flowering_Stage | rice:Sheath_Blight | rice:Poor_Soil_Drainage |
-| rice:Maturity_Stage | rice:Bacterial_Panicle_Blight | rice:High_Humidity |
+| rice:Flowering_Stage | rice:Sheath_Blight | rice:High_Humidity |
+| rice:Maturity_Stage | rice:Bacterial_Panicle_Blight | rice:High_Temperature |
 
 ---
 
@@ -187,7 +187,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** vulnerableTo is the most frequently asserted domain relation in the KG (59 triples), so it must be exercised directly.
 
-**Measurement.** 6 of 7 growth stage covered - 85.7% (4.9 ms).
+**Measurement.** 6 of 7 growth stage covered - 85.7% (7.1 ms).
 
 **Not covered (1).** `rice:Harvest_Stage`
 
@@ -199,7 +199,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** Integrity constraint. If stage G is vulnerableTo entity E, then E should occursIn G. Any row is an inconsistency.
 
-**Measurement.** 0 violation(s) (5.8 ms). Constraint holds.
+**Measurement.** 0 violation(s) (7.1 ms). Constraint holds.
 
 ---
 
@@ -221,7 +221,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** The canonical multi-hop epidemiological query. The denominator is the set of pests asserted to transmit something (not all pests), so the measure is chain completeness, not vector prevalence.
 
-**Measurement.** 1 of 1 declared vector covered - 100.0% (5.7 ms).
+**Measurement.** 1 of 1 declared vector covered - 100.0% (7.3 ms).
 
 **Instantiations** (2 total, first 2 shown):
 
@@ -238,7 +238,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** A vector chain that cannot be interrupted has no advisory value. Splitting this from CQ-09 separates 'the chain exists' from 'the chain is actionable'.
 
-**Measurement.** 0 violation(s) (2.2 ms). Constraint holds.
+**Measurement.** 0 violation(s) (3.0 ms). Constraint holds.
 
 ---
 
@@ -248,7 +248,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** End-to-end decision-support path. This is the query an advisory application actually needs to answer.
 
-**Measurement.** 11 of 15 disease covered - 73.3% (3463.4 ms).
+**Measurement.** 11 of 15 disease covered - 73.3% (3452.9 ms).
 
 **Not covered (4).** `rice:Iron_Toxicity_Disorder`, `rice:Phosphorus_Deficiency_Disorder`, `rice:Potassium_Deficiency_Disorder`, `rice:Salinity_Disorder`
 
@@ -256,18 +256,18 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 | d | f | s | t |
 |---|---|---|---|
-| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Yellow_Orange_Leaf_Stripe | rice:Water_Management |
-| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Yellow_Orange_Leaf_Stripe | rice:Crop_Rotation |
-| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Yellow_Orange_Leaf_Stripe | rice:Resistant_Variety |
-| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Yellow_Orange_Leaf_Stripe | rice:Crop_Sanitation |
-| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Seedling_Death | rice:Water_Management |
-| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Seedling_Death | rice:Crop_Rotation |
-| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Seedling_Death | rice:Resistant_Variety |
-| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Seedling_Death | rice:Crop_Sanitation |
-| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Tip_To_Base_Lesion | rice:Water_Management |
-| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Tip_To_Base_Lesion | rice:Crop_Rotation |
-| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Tip_To_Base_Lesion | rice:Resistant_Variety |
-| rice:Bacterial_Leaf_Blight | rice:High_Humidity | rice:Tip_To_Base_Lesion | rice:Crop_Sanitation |
+| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Tip_To_Base_Lesion | rice:Resistant_Variety |
+| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Tip_To_Base_Lesion | rice:Crop_Sanitation |
+| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Tip_To_Base_Lesion | rice:Crop_Rotation |
+| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Tip_To_Base_Lesion | rice:Water_Management |
+| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Leaf_Rolling | rice:Resistant_Variety |
+| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Leaf_Rolling | rice:Crop_Sanitation |
+| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Leaf_Rolling | rice:Crop_Rotation |
+| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Leaf_Rolling | rice:Water_Management |
+| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Seedling_Death | rice:Resistant_Variety |
+| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Seedling_Death | rice:Crop_Sanitation |
+| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Seedling_Death | rice:Crop_Rotation |
+| rice:Bacterial_Leaf_Blight | rice:Excessive_Nitrogen | rice:Seedling_Death | rice:Water_Management |
 
 ---
 
@@ -277,7 +277,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** Tests that diagnosis terminates in an operational decision. Note the direction of rice:recommends in this KG is entity -> action, not action -> treatment.
 
-**Measurement.** 17 of 22 disease/pest covered - 77.3% (5.9 ms).
+**Measurement.** 17 of 22 disease/pest covered - 77.3% (7.3 ms).
 
 **Not covered (5).** `rice:Leaf_Scald`, `rice:Nephotettix_Virescens`, `rice:Phosphorus_Deficiency_Disorder`, `rice:Potassium_Deficiency_Disorder`, `rice:Zinc_Deficiency_Disorder`
 
@@ -289,7 +289,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** Severity-driven triage is the decision layer of the KG. A severity level with no action is a hole in the advisory logic.
 
-**Measurement.** 0 of 4 severity level covered - 0.0% (5.0 ms).
+**Measurement.** 0 of 4 severity level covered - 0.0% (5.2 ms).
 
 **Not covered (4).** `rice:Critical_Severity`, `rice:High_Severity`, `rice:Low_Severity`, `rice:Medium_Severity`
 
@@ -301,7 +301,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** The one genuine defined class in the ontology. Asserted membership is zero by construction; a non-zero entailed count proves the OWL axiomatisation does work SPARQL alone cannot.
 
-**Measurement.** 0 answer(s) on the asserted graph, 2544 after OWL RL materialisation (**+2544** contributed by reasoning, 23.4 ms).
+**Measurement.** 0 answer(s) on the asserted graph, 2544 after OWL RL materialisation (**+2544** contributed by reasoning, 23.9 ms).
 
 ---
 
@@ -311,7 +311,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** 14 of 26 object properties are declared as owl:inverseOf but never asserted. Query robustness depends on materialising them.
 
-**Measurement.** 0 answer(s) on the asserted graph, 302 after OWL RL materialisation (**+302** contributed by reasoning, 8.4 ms).
+**Measurement.** 0 answer(s) on the asserted graph, 302 after OWL RL materialisation (**+302** contributed by reasoning, 7.9 ms).
 
 ---
 
@@ -321,7 +321,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** The central multimodal claim of the KG. The denominator is restricted to images annotated with a Disease or Pest: images labelled with a HealthStatus (healthy plants) correctly have no symptom or treatment, and including them would understate grounding by a fixed 17%.
 
-**Measurement.** 14869 of 14869 diagnostic image covered - 100.0% (8217.6 ms).
+**Measurement.** 14869 of 14869 diagnostic image covered - 100.0% (8315.9 ms).
 
 ---
 
@@ -331,7 +331,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** Checks that dataset labels were reconciled with the ontology rather than left as free-floating individuals. Extended on 2026-10-13 to admit Symptom: the range of annotatedAs has always included it, and the first images labelled with a symptom (White_Ear) were otherwise counted as unreconciled.
 
-**Measurement.** 19 of 19 annotated class covered - 100.0% (980.2 ms).
+**Measurement.** 19 of 19 annotated class covered - 100.0% (1022.2 ms).
 
 ---
 
@@ -341,7 +341,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** Symptom-level visual grounding is what distinguishes an MMKG from a text ontology with images bolted on. Expected to expose the sharpest gap in the current release. Extended on 2026-10-13: an image whose dataset label is itself a symptom (annotatedAs) now counts beside the captures relation, which such a label does not produce.
 
-**Measurement.** 3 of 129 symptom covered - 2.3% (16888.8 ms).
+**Measurement.** 3 of 129 symptom covered - 2.3% (16321.7 ms).
 
 **Not covered (126).** `rice:Black_Root`, `rice:Broken_Culm`, `rice:Brown_Coleoptile_Lesion`, `rice:Brown_Leaf_Tip`, `rice:Brown_Lesion`, `rice:Brown_Sheath_Patch`, `rice:Burnt_Looking_Field`, `rice:Chewed_Leaf`, `rice:Chlorotic_Leaf_Patch`, `rice:Circular_Oval_Leaf_Lesion`, `rice:Coalescing_Leaf_Lesions`, `rice:Coleoptile_Lesion`, `rice:Collar_Lesion`, `rice:Contorted_Panicle`, `rice:Dark_Based_Floret`, `rice:Dark_Glume_Spot`, `rice:Dark_Green_Erect_Leaf`, `rice:Dark_Green_Plant`, `rice:Dark_Green_Streak`, `rice:Deformed_Floret`, `rice:Delayed_Maturity`, `rice:Diamond_Shaped_Lesion`, `rice:Discolored_Panicle`, `rice:Distorted_Seedling_Leaf`, `rice:Dry_Leaf_Tip` ...
 
@@ -353,7 +353,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** Integrity constraint on the media layer. Any row means an image cannot be retrieved or attributed.
 
-**Measurement.** 0 violation(s) (1778.1 ms). Constraint holds.
+**Measurement.** 0 violation(s) (1777.6 ms). Constraint holds.
 
 ---
 
@@ -363,7 +363,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** Declared extension point. Recorded as a measurement, not scored, so the roadmap gap stays visible without inflating or deflating the pass rate.
 
-**Measurement.** 186 individual(s) (3.6 ms). Recorded, not scored.
+**Measurement.** 186 individual(s) (3.7 ms). Recorded, not scored.
 
 ---
 
@@ -373,7 +373,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** Provenance completeness - the scientific-defensibility claim of the KG.
 
-**Measurement.** 612 of 612 reified axiom covered - 100.0% (24.3 ms).
+**Measurement.** 612 of 612 reified axiom covered - 100.0% (26.4 ms).
 
 ---
 
@@ -383,7 +383,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** Integrity constraint complementing CQ-21. Extended on 2026-09-14: the original form checked only axioms that exist, so an assertion with no axiom at all was invisible to both CQ-21 and CQ-22, and v0.6 carried two such assertions while both reported full provenance. Runs on the asserted graph, since materialised inverses are never reified and would all count as violations. Extended again on 2026-09-23: rice:hasPathogenGroup joined the list - a property left out of it is invisible to this check, which is the failure mode the 2026-09-14 extension was written for. Extended again on 2026-09-17: ResistanceAssessment individuals carry their provenance on the individual itself rather than on an axiom, so an assessment missing its source, citation or evidence type is reported too.
 
-**Measurement.** 0 violation(s) (609.4 ms). Constraint holds.
+**Measurement.** 0 violation(s) (620.6 ms). Constraint holds.
 
 ---
 
@@ -393,7 +393,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** Interoperability. Written as a coverage measure rather than an OPTIONAL projection, which would report success even when every alignment column is null.
 
-**Measurement.** 25 of 32 biological entity covered - 78.1% (8.2 ms).
+**Measurement.** 25 of 32 biological entity covered - 78.1% (8.1 ms).
 
 **Not covered (7).** `rice:Bacterial_Panicle_Blight`, `rice:Iron_Toxicity_Disorder`, `rice:Nitrogen_Deficiency_Disorder`, `rice:Phosphorus_Deficiency_Disorder`, `rice:Potassium_Deficiency_Disorder`, `rice:Salinity_Disorder`, `rice:Zinc_Deficiency_Disorder`
 
@@ -405,7 +405,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** Literal-hygiene constraint. An untagged duplicate of a tagged value silently splits GROUP BY and breaks lang() filters.
 
-**Measurement.** 0 violation(s) (17.6 ms). Constraint holds.
+**Measurement.** 0 violation(s) (18.2 ms). Constraint holds.
 
 ---
 
@@ -415,7 +415,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** Category discipline. Symptom and Disease are intended to be disjoint; an overlap means either a mistyped individual or a property domain that is declared too narrowly. This constraint is checked on the materialised graph, because the conflict is produced by inference and is invisible in the asserted triples.
 
-**Measurement.** 0 violation(s) (1.9 ms). Constraint holds.
+**Measurement.** 0 violation(s) (1.6 ms). Constraint holds.
 
 ---
 
@@ -425,7 +425,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** Added on 2026-10-13 with the first light-trap data. Trap catches are the only channel that records how many of a pest were present, where and when; the other 25 questions do not touch it. The denominator is every Pest, so the result shows how few pests have monitoring data.
 
-**Measurement.** 1 of 7 pest covered - 14.3% (912.4 ms).
+**Measurement.** 1 of 7 pest covered - 14.3% (929.4 ms).
 
 **Not covered (6).** `rice:Armyworm`, `rice:Hispa`, `rice:Leaf_Folder`, `rice:Nephotettix_Virescens`, `rice:Rice_Bug`, `rice:Stem_Borer`
 
@@ -437,7 +437,7 @@ The 50% coverage threshold is an author-set convention (a majority of the class 
 
 **Why this CQ.** Added on 2026-10-15 for the first remote-sensing observations. Band images are the only evidence beyond visible light; the other 26 questions do not touch them. The denominator is every Disease, so the result shows how few diseases have spectral data.
 
-**Measurement.** 1 of 15 disease covered - 6.7% (92.4 ms).
+**Measurement.** 1 of 15 disease covered - 6.7% (91.6 ms).
 
 **Not covered (14).** `rice:Bacterial_Leaf_Blight`, `rice:Bacterial_Leaf_Streak`, `rice:Bacterial_Panicle_Blight`, `rice:Downy_Mildew`, `rice:Iron_Toxicity_Disorder`, `rice:Leaf_Scald`, `rice:Nitrogen_Deficiency_Disorder`, `rice:Phosphorus_Deficiency_Disorder`, `rice:Potassium_Deficiency_Disorder`, `rice:Rice_Blast_Disease`, `rice:Rice_Tungro_Disease`, `rice:Salinity_Disorder`, `rice:Sheath_Blight`, `rice:Zinc_Deficiency_Disorder`
 
