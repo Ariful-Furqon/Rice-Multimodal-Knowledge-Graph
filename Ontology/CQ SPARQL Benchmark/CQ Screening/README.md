@@ -559,8 +559,11 @@ original pool.
 - **Tier B instrument.** Tier A rates the released resource; a separate
   instrument should prioritise the roadmap. The two must never merge - Tier B
   ratings must not enter the kappa that evaluates the resource.
-- ~~**Five SPARQL implementations.**~~ **Done 2026-09-08, extended to 15, and
-  on 2026-09-14 to 19.** `../elicited_cq_sparql.py` queries 19 of the 25
+- ~~**Five SPARQL implementations.**~~ **Done 2026-09-08, extended to 15,
+  on 2026-09-14 to 19, and on 2026-11-10 to 22** (`CQ-A09`, `A14`, `A20`: their
+  concepts had entered the graph since 0.7.0-dev; on 0.9.1-dev 10 answer in full,
+  9 in part, 3 return nothing; the other 3 are listed with a probe query that
+  confirms the missing concept). The record of the 19 follows. `../elicited_cq_sparql.py` queries 19 of the 25
   elicited CQs and reports them in `../Elicited_CQ_SPARQL_Report.md`. On
   0.7.0-dev (2026-09-15) **9 answer in full, 8 answer in part, 2 return
   nothing** (v0.6.2: 7 / 10 / 2; `CQ-A02` became answerable when

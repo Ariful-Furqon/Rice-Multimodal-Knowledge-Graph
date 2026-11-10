@@ -1,6 +1,6 @@
 # Elicited Competency Questions - SPARQL Results
 
-Generated 2026-11-10 10:10 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 328,321 asserted triples, 630,959 after OWL RL materialisation (150.9s).
+Generated 2026-11-10 10:14 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 328,321 asserted triples, 630,959 after OWL RL materialisation (110.7s).
 
 **22 of the 25 elicited Tier A CQs are queried here** - every one for which RiceMMKG v0.9.1-dev has at least the concept the question turns on. Answerability is measured, not predicted: the Stage 3 `v06_status` column is not used. The remaining 3 ask for a concept v0.9.1-dev does not have at all; the status table at the end lists each with its reason and with a probe query that confirms the concept is still missing.
 
@@ -66,7 +66,7 @@ SELECT ?pathogen ?group ?eppo_code ?external_alignment WHERE {
 }
 ```
 
-1 row(s) in 3.8 ms.
+1 row(s) in 4.3 ms.
 
 | pathogen | group | eppo_code | external_alignment |
 |---|---|---|---|
@@ -82,7 +82,7 @@ SELECT ?pathogen ?group WHERE {
 ORDER BY ?group ?pathogen
 ```
 
-10 row(s) in 4.3 ms.
+10 row(s) in 4.1 ms.
 
 | pathogen | group |
 |---|---|
@@ -106,7 +106,7 @@ SELECT ?disease ?pathogen WHERE {
 ORDER BY ?disease
 ```
 
-10 row(s) in 2.7 ms.
+10 row(s) in 2.9 ms.
 
 | disease | pathogen |
 |---|---|
@@ -137,7 +137,7 @@ SELECT ?vector ?agent ?mode ?disease WHERE {
 ORDER BY ?vector ?agent
 ```
 
-2 row(s) in 5.3 ms.
+2 row(s) in 5.7 ms.
 
 | vector | agent | mode | disease |
 |---|---|---|---|
@@ -163,7 +163,7 @@ SELECT ?symptom ?plant_part ?stage_of_disease WHERE {
 ORDER BY ?symptom ?plant_part ?stage_of_disease
 ```
 
-45 row(s) in 6.1 ms.
+45 row(s) in 6.4 ms.
 
 | symptom | plant_part | stage_of_disease |
 |---|---|---|
@@ -196,7 +196,7 @@ GROUP BY ?other
 ORDER BY DESC(?shared_symptoms)
 ```
 
-12 row(s) in 8.9 ms.
+12 row(s) in 7.6 ms.
 
 | other | shared_symptoms |
 |---|---|
@@ -227,7 +227,7 @@ SELECT ?symptom ?present_only_in WHERE {
 ORDER BY ?present_only_in ?symptom
 ```
 
-26 row(s) in 9.5 ms.
+26 row(s) in 9.2 ms.
 
 | symptom | present_only_in |
 |---|---|
@@ -256,7 +256,7 @@ SELECT ?condition WHERE {
 ORDER BY ?condition
 ```
 
-2 row(s) in 2.4 ms.
+2 row(s) in 2.2 ms.
 
 | condition |
 |---|
@@ -273,7 +273,7 @@ GROUP BY ?condition
 ORDER BY DESC(?entities) ?condition
 ```
 
-9 row(s) in 4.8 ms.
+9 row(s) in 4.5 ms.
 
 | condition | entities |
 |---|---|
@@ -304,7 +304,7 @@ SELECT ?stage WHERE {
 ORDER BY ?stage
 ```
 
-2 row(s) in 2.2 ms.
+2 row(s) in 2.3 ms.
 
 | stage |
 |---|
@@ -397,7 +397,7 @@ SELECT ?shared_feature WHERE {
 ORDER BY ?shared_feature
 ```
 
-1 row(s) in 2.5 ms.
+1 row(s) in 2.2 ms.
 
 | shared_feature |
 |---|
@@ -415,7 +415,7 @@ SELECT ?condition ?cause ?cause_type WHERE {
 ORDER BY ?condition
 ```
 
-2 row(s) in 6.3 ms.
+2 row(s) in 5.8 ms.
 
 | condition | cause | cause_type |
 |---|---|---|
@@ -438,7 +438,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-2151 row(s) in 46.8 ms.
+2151 row(s) in 45.3 ms.
 
 | image | url |
 |---|---|
@@ -477,7 +477,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 820.0 ms.
+1 row(s) in 844.0 ms.
 
 | image | condition | dataset | title | source | confidence |
 |---|---|---|---|---|---|
@@ -496,7 +496,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 1602.2 ms.
+1 row(s) in 1971.7 ms.
 
 | images | with_source_dataset | with_confidence |
 |---|---|---|
@@ -523,7 +523,7 @@ GROUP BY ?condition ?type
 ORDER BY DESC(?images)
 ```
 
-19 row(s) in 10062.1 ms.
+19 row(s) in 9904.1 ms.
 
 | condition | type | images |
 |---|---|---|
@@ -547,7 +547,7 @@ SELECT ?dataset (COUNT(?image) AS ?images) WHERE {
 GROUP BY ?dataset
 ```
 
-6 row(s) in 298.4 ms.
+6 row(s) in 284.6 ms.
 
 | dataset | images |
 |---|---|
@@ -580,7 +580,7 @@ SELECT ?image ?symptom ?plant_part WHERE {
 ORDER BY ?plant_part
 ```
 
-2 row(s) in 203.6 ms.
+2 row(s) in 236.9 ms.
 
 | image | symptom | plant_part |
 |---|---|---|
@@ -597,7 +597,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?images_with_direct_organ) WHERE {
 }
 ```
 
-1 row(s) in 1644.2 ms.
+1 row(s) in 1677.1 ms.
 
 | images_with_direct_organ |
 |---|
@@ -619,7 +619,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 33865.3 ms.
+1 row(s) in 28605.8 ms.
 
 | images | with_inferred_organ |
 |---|---|
@@ -642,7 +642,7 @@ SELECT ?image ?symptom WHERE {
 }
 ```
 
-1 row(s) in 47.6 ms.
+1 row(s) in 40.6 ms.
 
 | image | symptom |
 |---|---|
@@ -658,7 +658,7 @@ GROUP BY ?symptom
 ORDER BY DESC(?images)
 ```
 
-2 row(s) in 22.3 ms.
+2 row(s) in 21.0 ms.
 
 | symptom | images |
 |---|---|
@@ -684,7 +684,7 @@ GROUP BY ?image ?candidate
 ORDER BY DESC(?support) ?candidate
 ```
 
-1 row(s) in 55.6 ms.
+1 row(s) in 47.7 ms.
 
 | image | candidate | support |
 |---|---|---|
@@ -717,7 +717,7 @@ SELECT ?condition ?distinguishing_symptom WHERE {
 ORDER BY ?condition ?distinguishing_symptom
 ```
 
-26 row(s) in 9.2 ms.
+26 row(s) in 8.7 ms.
 
 | condition | distinguishing_symptom |
 |---|---|
@@ -741,7 +741,7 @@ SELECT ?shared_symptom WHERE {
 ORDER BY ?shared_symptom
 ```
 
-5 row(s) in 2.5 ms.
+5 row(s) in 2.3 ms.
 
 | shared_symptom |
 |---|
@@ -770,7 +770,7 @@ SELECT ?image ?severity WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 660.1 ms.
+0 row(s) in 572.4 ms.
 
 **What the severity levels are used for in v0.9.1-dev**
 
@@ -809,7 +809,7 @@ SELECT ?image ?symptom_a ?symptom_b WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 113.0 ms.
+0 row(s) in 106.9 ms.
 
 **How many symptoms each annotated image captures**
 
@@ -823,7 +823,7 @@ GROUP BY ?symptoms_per_image
 ORDER BY ?symptoms_per_image
 ```
 
-1 row(s) in 96.6 ms.
+1 row(s) in 96.2 ms.
 
 | symptoms_per_image | images |
 |---|---|
@@ -848,7 +848,7 @@ SELECT ?image ?stage WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 1127.9 ms.
+0 row(s) in 898.6 ms.
 
 **What the images carry instead: the age of the plant in days**
 
@@ -861,7 +861,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 392.5 ms.
+1 row(s) in 301.4 ms.
 
 | images_with_age | youngest | oldest |
 |---|---|---|
@@ -887,7 +887,7 @@ WHERE {
 GROUP BY ?image_evidence
 ```
 
-2 row(s) in 33345.7 ms.
+2 row(s) in 30531.6 ms.
 
 | image_evidence | symptoms |
 |---|---|
@@ -905,7 +905,7 @@ SELECT ?symptom WHERE {
 ORDER BY ?symptom
 ```
 
-126 row(s) in 16499.4 ms.
+126 row(s) in 15233.1 ms.
 
 | symptom |
 |---|
@@ -938,7 +938,7 @@ SELECT ?image ?condition ?symptom ?pathogen WHERE {
 ORDER BY ?symptom
 ```
 
-17 row(s) in 208.5 ms.
+17 row(s) in 184.4 ms.
 
 | image | condition | symptom | pathogen |
 |---|---|---|---|
@@ -962,7 +962,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 1228.9 ms.
+1 row(s) in 1115.2 ms.
 
 | images_with_literature |
 |---|
@@ -987,7 +987,7 @@ SELECT ?image ?condition ?treatment WHERE {
 ORDER BY ?treatment
 ```
 
-4 row(s) in 1454.8 ms.
+4 row(s) in 1378.5 ms.
 
 | image | condition | treatment |
 |---|---|---|
@@ -1005,7 +1005,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?images_with_treatment) WHERE {
 }
 ```
 
-1 row(s) in 285.9 ms.
+1 row(s) in 268.8 ms.
 
 | images_with_treatment |
 |---|
@@ -1029,7 +1029,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-3747 row(s) in 81.5 ms.
+3747 row(s) in 73.7 ms.
 
 | image | url |
 |---|---|
@@ -1052,7 +1052,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?contradictory_images) WHERE {
 }
 ```
 
-1 row(s) in 19.9 ms.
+1 row(s) in 18.5 ms.
 
 | contradictory_images |
 |---|
@@ -1077,7 +1077,7 @@ So that nothing looks hidden: every CQ, and why it is or is not implemented here
 | `CQ-A09` | L3 | D1 | implemented here | Distinguishing a nutritional disorder from a disease | partial - schema in v0.9.1-dev; no benchmark counterpart |
 | `CQ-A10` | L1 | D2 | implemented here | Images showing a given condition or symptom | answers in v0.9.1-dev; no benchmark counterpart |
 | `CQ-A11` | L1 | D3 | implemented here | Provenance and confidence of an image annotation | partial - schema in v0.9.1-dev; the benchmark probes the same relation in coverage form, this is the answer form |
-| `CQ-A12` | L2 | D3 | open - RE-EXAMINE | Disagreement between model and expert annotations | the probe now returns 21621 row(s), so the recorded reason may be stale: every image carries one annotation, its dataset label; there is no annotator and no model-generated annotation to compare with an expert's |
+| `CQ-A12` | L2 | D3 | open - concept missing | Disagreement between model and expert annotations | v0.9.1-dev: every image carries one annotation, its dataset label; there is no annotator and no model-generated annotation to compare with an expert's (probe: 0 rows) |
 | `CQ-A13` | L2 | D2 | implemented here | Distribution of the image corpus | partial - schema in v0.9.1-dev; no benchmark counterpart |
 | `CQ-A14` | L1 | D2 | implemented here | Plant organ depicted in an image | partial - schema in v0.9.1-dev; no benchmark counterpart |
 | `CQ-A15` | L1 | D2 | implemented here | Symptoms annotated in a given image | partial - data in v0.9.1-dev; the benchmark probes the same relation in coverage form, this is the answer form |
@@ -1095,9 +1095,8 @@ So that nothing looks hidden: every CQ, and why it is or is not implemented here
 | State | CQs |
 |---|---|
 | implemented here | 19 |
+| open - concept missing | 3 |
 | queried - no answer | 3 |
-| open - concept missing | 2 |
-| open - RE-EXAMINE | 1 |
 
 ## What this changes for the roadmap
 

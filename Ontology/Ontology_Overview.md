@@ -197,6 +197,19 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 
 <!-- Newest first. -->
 
+### 2026-11-10: 0.9.1-dev — elicited CQs: three more queried, stale prose replaced by measurements
+
+No change to the graph. The elicited-CQ instrument (`elicited_cq_sparql.py`) still described the graph of September in places.
+
+- **Three more CQs queried (19 → 22 of 25).** Stage 3 had predicted that they need new schema, and they were never re-measured after their concepts entered the graph. The questions are the Stage 5 questionnaire wordings, unchanged.
+  - **CQ-A09** (zinc deficiency vs blast): *partial - schema*. The graph separates the two by their unique features (3 for zinc deficiency, 20 for blast; 1 shared, `Empty_Grain`) and by the type of cause (`AbioticFactor` vs `Pathogen`). It cannot tell that differently worded features look alike, the same limit as CQ-A17.
+  - **CQ-A14** (organ depicted in an image): *partial - schema*. No property links an image to an organ; 0 images have one. An organ can only be inferred from a symptom the image captures or is labelled with: 3,534 of 21,149 images.
+  - **CQ-A20** (growth stage in a canopy image): *NO ANSWER*. No image is linked to a `GrowthStage`; 16,225 images carry `plantAgeDays` (45–80 days), which is not mapped to a stage.
+- **Totals:** 10 answer / 9 partial / 3 no answer over 22 (was 10 / 7 / 2 over 19). No earlier status changed.
+- **Numbers in the prose are measured at run time:** "1,442 of 10,407 images" and "every one points at the same symptom" (CQ-A15, CQ-A22, the closing section) now read 2,544 of 21,149 images and 2 symptoms, from the graph the queries run on.
+- **Unqueried CQs (A08, A12, A25):** the Stage 3 reasons ("not in v0.6", "v0.7 work plan") are replaced by current ones, each with a probe query that returns nothing while the reason holds. A probe that returns rows marks the CQ "RE-EXAMINE" in the status table. The first probe for A12 used `annotationOf`, the inverse of `annotatedAs`, and so flagged every dataset label; it now looks for a second annotation or a confidence score on an image.
+- **Also corrected:** CQ-A13 and CQ-A24 said plant part "is not modelled"; `PlantPart` exists, but no property links an image to it.
+
 ### 2026-11-09: commit notes (no content change)
 
 Some commit messages of 2026-11-08 and 2026-11-09 do not describe their content. They are on `origin`, so history is not rewritten; this entry is the record.
