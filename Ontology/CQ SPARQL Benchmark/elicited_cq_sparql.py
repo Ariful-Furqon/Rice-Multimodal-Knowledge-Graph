@@ -763,7 +763,14 @@ OPEN = {
         "every image carries one annotation, its dataset label; there is no "
         "annotator and no model-generated annotation to compare with an "
         "expert's",
-        """SELECT ?annotation WHERE { ?annotation rice:annotationOf ?observation }"""),
+        # Not annotationOf: it is the inverse of annotatedAs, so after OWL RL
+        # it holds every dataset label. A second annotation would show up as
+        # two different annotatedAs values on one image, or as a confidence.
+        """SELECT ?image WHERE {
+  { ?image a rice:ImageObservation ; rice:annotatedAs ?a , ?b .
+    FILTER (STR(?a) < STR(?b)) }
+  UNION { ?image rice:confidenceScore ?confidence }
+}"""),
     "CQ-A25": (
         "no written and no image-derived assessment of the same observation, "
         "and no scale they would share: severityScore is declared and unused",
