@@ -12,14 +12,16 @@ and reported separately.
 
 WHAT IS IMPLEMENTED
 Every elicited Tier A CQ for which the ontology has at least the concept the
-question turns on: 19 of the 25. The first pass implemented 15, chosen by the
+question turns on: 22 of the 25. The first pass implemented 15, chosen by the
 Stage 3 v06_status prediction; A11, A18, A19 and A24 were added once it was clear
-that column had never been checked against a query. A CQ whose query returns
-nothing is kept and reported as NO ANSWER - the empty result is the measurement.
-The other 6 ask for a concept the ontology does not have at all and are the v0.7
-work plan;
-they are listed in the status table with the reason, so nothing is quietly
-omitted.
+that column had never been checked against a query. A09, A14 and A20 were added
+on 2026-11-10: their concepts (nutrient disorders, PlantPart, GrowthStage) had
+entered the graph since the prediction was made, and nobody had re-measured.
+A CQ whose query returns nothing is kept and reported as NO ANSWER - the empty
+result is the measurement.
+The other 3 ask for a concept the ontology does not have at all. They are listed
+in the status table with the reason and with a probe query that must return
+nothing; a probe that starts returning rows says the reason has gone stale.
 
 Five of the fifteen have no benchmark counterpart at all -- they close the gap
 Stage 4 exposed. The other ten do have one, but only in coverage form: the
@@ -65,14 +67,22 @@ assert ONTOLOGY.exists(), f"Ontology not found: {ONTOLOGY}"
 
 RICE_NS = "https://w3id.org/ricemmkg#"
 
-# Release label substituted for {V} in CQ notes, query labels and report text.
-# Set in main() from owl:versionInfo, so a run against a later release never
-# describes itself as an earlier one.
+# Values substituted into CQ notes, query labels and report text. {V} is the
+# release label, set in main() from owl:versionInfo, so a run against a later
+# release never describes itself as an earlier one. The other placeholders are
+# counts measured on the graph in main() (see measure()), so the prose never
+# quotes a number from an earlier state of the graph.
 V = "v?"
+FACTS = {}
 
 
 def versioned(text):
-    return text.replace("{V}", V) if text else text
+    if not text:
+        return text
+    text = text.replace("{V}", V)
+    for key, value in FACTS.items():
+        text = text.replace("{%s}" % key, value)
+    return text
 
 PREFIX = f"""
 PREFIX rice: <{RICE_NS}>
@@ -234,8 +244,9 @@ ORDER BY ?treatment"""),
         "note": "Reads the visual layer from the image side rather than the "
                 "symptom side - which is what exposes how thin it is.",
         "partial_kind": "data",
-        "partial": "only 1,442 of 10,407 images (14%) carry a captures link, "
-                   "and every one of them points at the same symptom",
+        "partial": "only {CAPTURING} of {IMAGES} images ({CAP_PCT}%) carry a "
+                   "captures link, and together they reach only "
+                   "{CAP_SYMPTOMS} symptom(s)",
         "queries": [
             ("Symptoms annotated in one image that has them",
              """SELECT ?image ?symptom WHERE {
@@ -286,8 +297,9 @@ ORDER BY ?symptom"""),
         "question": "Which disease described in the literature matches the "
                     "condition annotated in a given image?",
         "note": "Joins through the annotated class rather than through "
-                "captures, so it reaches all 10,407 images instead of the "
-                "1,442 that CQ-A16 can reach. Same cross-modal claim, "
+                "captures, so it reaches every image annotated with a "
+                "described condition instead of the {CAPTURING} of {IMAGES} "
+                "that CQ-A16 can reach. Same cross-modal claim, "
                 "different and much better populated join.",
         "queries": [
             ("Literature evidence for the condition annotated in one image",
@@ -484,13 +496,14 @@ ORDER BY ?symptoms_per_image"""),
                     "represent?",
         "note": "Stage 3 predicted this needs new schema and left it out. "
                 "Queried here so that the prediction becomes a measurement. "
-                "The Paddy Doctor 'normal' class is imported as an explicit "
-                "Normal_Health annotation, which is the symptom-free assertion "
-                "the question asks for; only the organ and view half is "
-                "missing.",
+                "The healthy-plant classes of the source datasets are "
+                "imported as explicit Normal_Health annotations, which is the "
+                "symptom-free assertion the question asks for; only the organ "
+                "and view half is missing. PlantPart exists, but only "
+                "symptoms point to it.",
         "partial_kind": "schema",
-        "partial": "organ and plant view are not modelled in {V}, so the "
-                   "images are returned without them",
+        "partial": "{V} has no property from an image to a plant part or a "
+                   "plant view, so the images are returned without them",
         "queries": [
             ("Images annotated as healthy, with their retrievable URL",
              """SELECT ?image ?url WHERE {
@@ -511,11 +524,12 @@ ORDER BY ?image"""),
         "question": "How is the image corpus distributed across conditions and "
                     "entity types?",
         "note": "PARTIAL. The elicited question also asks for plant part and "
-                "capture type. {V} models neither, so this implements the "
-                "answerable half and the rest stays on the v0.7 plan. Reported "
-                "as partial rather than passed.",
+                "capture type. {V} has no property from an image to a plant "
+                "part and no capture type, so this implements the answerable "
+                "half. Reported as partial rather than passed.",
         "partial_kind": "schema",
-        "partial": "plant part and capture type are not modelled in {V}",
+        "partial": "{V} records neither the plant part nor the capture type "
+                   "of an image",
         "queries": [
             ("Images per annotated condition and entity type",
              """SELECT ?condition ?type (COUNT(?image) AS ?images) WHERE {
@@ -532,6 +546,137 @@ ORDER BY DESC(?images)"""),
          prov:wasDerivedFrom ?dataset .
 }
 GROUP BY ?dataset"""),
+        ],
+    },
+    {
+        "id": "CQ-A09", "level": "L3", "dim": "D1", "mode": "retrieval",
+        "question": "Which features distinguish a nutritional disorder such as "
+                    "zinc deficiency from Rice Blast, when the visible "
+                    "symptoms are similar?",
+        "note": "Stage 3 predicted this needs new schema (no nutritional "
+                "disorder in v0.6) and it stayed unqueried until 2026-11-10, "
+                "although the nutrient and toxicity disorders have been in "
+                "the graph since 0.7.0-dev. Queried so that the prediction "
+                "becomes a measurement. The graph separates the two "
+                "conditions by the features only one of them has and by the "
+                "type of their cause, an abiotic factor against a pathogen.",
+        "partial_kind": "schema",
+        "partial": "'similar visible symptoms' can only be read as shared "
+                   "symptom individuals; with no shape or colour properties, "
+                   "{V} cannot tell that differently worded symptoms resemble "
+                   "each other (the same limit as CQ-A17)",
+        "queries": [
+            ("Features unique to each of the two conditions, with the plant "
+             "part they affect",
+             """SELECT ?condition ?distinguishing_feature ?plant_part WHERE {
+  {
+    rice:Zinc_Deficiency_Disorder rice:indicatedBy ?distinguishing_feature .
+    FILTER NOT EXISTS {
+      rice:Rice_Blast_Disease rice:indicatedBy ?distinguishing_feature }
+    BIND ("Zinc deficiency" AS ?condition)
+  } UNION {
+    rice:Rice_Blast_Disease rice:indicatedBy ?distinguishing_feature .
+    FILTER NOT EXISTS {
+      rice:Zinc_Deficiency_Disorder rice:indicatedBy ?distinguishing_feature }
+    BIND ("Rice Blast" AS ?condition)
+  }
+  OPTIONAL { ?distinguishing_feature rice:affectsPlantPart ?plant_part }
+}
+ORDER BY DESC(?condition) ?distinguishing_feature"""),
+            ("Features the two share - the similarity the question starts from",
+             """SELECT ?shared_feature WHERE {
+  rice:Zinc_Deficiency_Disorder rice:indicatedBy ?shared_feature .
+  rice:Rice_Blast_Disease rice:indicatedBy ?shared_feature .
+}
+ORDER BY ?shared_feature"""),
+            ("The cause of each condition and its type",
+             """SELECT ?condition ?cause ?cause_type WHERE {
+  VALUES ?condition { rice:Zinc_Deficiency_Disorder rice:Rice_Blast_Disease }
+  ?cause rice:causes ?condition ;
+         a ?cause_type .
+  FILTER (?cause_type IN (rice:AbioticFactor, rice:Pathogen, rice:Pest))
+}
+ORDER BY ?condition"""),
+        ],
+    },
+    {
+        "id": "CQ-A14", "level": "L1", "dim": "D2", "mode": "retrieval",
+        "question": "Which plant organ (leaf, sheath, stem, panicle) is "
+                    "depicted in a given image?",
+        "note": "Stage 3 predicted this needs new schema (no PlantPart in "
+                "v0.6) and it stayed unqueried until 2026-11-10. PlantPart "
+                "has existed since 0.7.0-dev, but only symptoms point to it: "
+                "no property says which organ an image depicts. Queried so "
+                "that the prediction becomes a measurement. What the graph "
+                "can give is the organ of a symptom the image captures or is "
+                "labelled with. That is an inference from the label, not an "
+                "observation of the picture.",
+        "partial_kind": "schema",
+        "partial": "no property links an image to the organ it depicts; the "
+                   "organ is only inferred from a symptom the image captures "
+                   "or is labelled with, which most images do not have (the "
+                   "counts are in the third query)",
+        "queries": [
+            ("Organ inferred for one image, through the symptom it captures",
+             """SELECT ?image ?symptom ?plant_part WHERE {
+  { SELECT ?image WHERE {
+      ?image a rice:ImageObservation ; rice:captures ?s .
+      ?s rice:affectsPlantPart ?p }
+    ORDER BY ?image LIMIT 1 }
+  ?image rice:captures ?symptom .
+  ?symptom rice:affectsPlantPart ?plant_part .
+}
+ORDER BY ?plant_part"""),
+            ("Images with a plant part recorded on the image itself - should "
+             "be zero, since no such property exists",
+             """SELECT (COUNT(DISTINCT ?image) AS ?images_with_direct_organ) WHERE {
+  ?part a rice:PlantPart .
+  ?image ?link ?part ;
+         a rice:ImageObservation .
+}"""),
+            ("How many images reach an organ through a symptom, of all images",
+             """SELECT (COUNT(DISTINCT ?image) AS ?images)
+       (COUNT(DISTINCT ?reached) AS ?with_inferred_organ)
+WHERE {
+  ?image a rice:ImageObservation .
+  OPTIONAL {
+    { ?image rice:captures ?s }
+    UNION { ?image rice:annotatedAs ?s . ?s a rice:Symptom }
+    ?s rice:affectsPlantPart ?p .
+    BIND (?image AS ?reached)
+  }
+}"""),
+        ],
+    },
+    {
+        "id": "CQ-A20", "level": "L1", "dim": "D2", "mode": "retrieval",
+        "question": "Which growth stage is visually manifest in a "
+                    "whole-canopy image?",
+        "note": "Stage 3 predicted this needs growth-stage annotation on "
+                "images and left it out. Queried on 2026-11-10 so that the "
+                "prediction becomes a measurement, as for CQ-A18: GrowthStage "
+                "exists and is populated, so the concept is not missing; what "
+                "is missing is any link from an image to a stage, and any "
+                "mark of a whole-canopy view.",
+        "gap": "no image is linked to a GrowthStage and none is marked as a "
+               "whole-canopy view; {AGED} of {IMAGES} images carry "
+               "plantAgeDays from their dataset's metadata, an age in days "
+               "that {V} does not map to a stage",
+        "queries": [
+            ("Growth stage recorded on any image",
+             """SELECT ?image ?stage WHERE {
+  ?stage a rice:GrowthStage .
+  ?image ?link ?stage ;
+         a rice:ImageObservation .
+}
+ORDER BY ?image"""),
+            ("What the images carry instead: the age of the plant in days",
+             """SELECT (COUNT(DISTINCT ?image) AS ?images_with_age)
+       (MIN(?days) AS ?youngest) (MAX(?days) AS ?oldest)
+WHERE {
+  ?image a rice:ImageObservation ;
+         rice:plantAgeDays ?days .
+}"""),
         ],
     },
     {
@@ -599,6 +744,32 @@ ORDER BY ?shared_symptom"""),
     },
 ]
 
+# The Tier A CQs that are not queried, because the graph has no concept the
+# question turns on. Each has the reason and a probe: a query that returns
+# nothing while the reason holds. The Stage 3 `extensions_required` text is not
+# used here; it describes v0.6 and went stale ("needs PlantPart class - not in
+# v0.6").
+OPEN = {
+    "CQ-A08": (
+        "no natural-enemy class or property: natural enemies occur only in "
+        "the wording of IRRI passages and behind the treatment "
+        "Biological_Control",
+        """SELECT ?term WHERE {
+  { ?term a owl:Class } UNION { ?term a owl:ObjectProperty }
+  FILTER (STRSTARTS(STR(?term), STR(rice:)))
+  FILTER (REGEX(STR(?term), "enem|predat|parasit", "i"))
+}"""),
+    "CQ-A12": (
+        "every image carries one annotation, its dataset label; there is no "
+        "annotator and no model-generated annotation to compare with an "
+        "expert's",
+        """SELECT ?annotation WHERE { ?annotation rice:annotationOf ?observation }"""),
+    "CQ-A25": (
+        "no written and no image-derived assessment of the same observation, "
+        "and no scale they would share: severityScore is declared and unused",
+        """SELECT ?observation WHERE { ?observation rice:severityScore ?score }"""),
+}
+
 MAX_SAMPLE = 8
 
 
@@ -635,12 +806,13 @@ def run(graph, cq):
     return out
 
 
-def status_table(results):
+def status_table(results, graph):
     """Every Tier A CQ and why it is or is not implemented here.
 
     The state of an implemented CQ comes from its query result, never from
     v06_status in the Stage 3 CSV: that column is a prediction made before any
-    SPARQL existed, and it was wrong on 8 of the first 15 CQs.
+    SPARQL existed, and it was wrong on 8 of the first 15 CQs. A CQ that is not
+    queried gets its reason from OPEN and a probe run on the graph.
     """
     import csv
     final = list(csv.DictReader(FINAL_CQS.open(encoding="utf-8-sig")))
@@ -660,21 +832,43 @@ def status_table(results):
                        if cid in gap_ids else
                        f"{r['status']} in {V}; the benchmark probes the same "
                        "relation in coverage form, this is the answer form")
-        elif c["v06_status"] != "answerable":
-            # extensions_required joins several gap notes with " | ", which
-            # would break the markdown table it is rendered into.
-            needs = c["extensions_required"].replace(" | ", "; ")
-            if len(needs) > 110:
-                needs = needs[:107].rsplit(" ", 1)[0] + " ..."
-            state, why = "v0.7 work plan", needs or "needs schema or data {V} lacks"
-        elif cid not in gap_ids:
-            state, why = "covered by the benchmark", "the benchmark probes the same relation in coverage form"
         else:
-            state, why = "not yet implemented", "answerable, but not selected for this pass"
+            assert cid in OPEN, f"{cid} is neither queried nor listed in OPEN"
+            reason, probe = OPEN[cid]
+            n = len(list(graph.query(PREFIX + probe)))
+            if n == 0:
+                state = "open - concept missing"
+                why = "{V}: " + reason + " (probe: 0 rows)"
+            else:
+                state = "open - RE-EXAMINE"
+                why = (f"the probe now returns {n} row(s), so the recorded "
+                       "reason may be stale: " + reason)
         rows.append({"cq_id": cid, "level": c["level"], "dim": c["dim"],
                      "short_label": c["short_label"], "state": state,
                      "why": versioned(why)})
     return rows
+
+
+def measure(graph):
+    """Counts quoted in the prose, measured on the graph the queries run on."""
+    def count(body):
+        return int(next(iter(graph.query(PREFIX + body)))[0])
+    images = count("SELECT (COUNT(DISTINCT ?i) AS ?n) WHERE "
+                   "{ ?i a rice:ImageObservation }")
+    capturing = count("SELECT (COUNT(DISTINCT ?i) AS ?n) WHERE "
+                      "{ ?i a rice:ImageObservation ; rice:captures ?s }")
+    FACTS.update({
+        "IMAGES": f"{images:,}",
+        "CAPTURING": f"{capturing:,}",
+        "CAP_PCT": f"{100 * capturing / images:.0f}",
+        "CAPTURES": "{:,}".format(count(
+            "SELECT (COUNT(*) AS ?n) WHERE { ?i rice:captures ?s }")),
+        "CAP_SYMPTOMS": str(count(
+            "SELECT (COUNT(DISTINCT ?s) AS ?n) WHERE { ?i rice:captures ?s }")),
+        "AGED": "{:,}".format(count(
+            "SELECT (COUNT(DISTINCT ?i) AS ?n) WHERE "
+            "{ ?i a rice:ImageObservation ; rice:plantAgeDays ?d }")),
+    })
 
 
 def main():
@@ -703,8 +897,9 @@ def main():
     reason_s = time.perf_counter() - t0
     print(f"{len(g):,} triples (+{len(g) - n_asserted:,}) in {reason_s:.1f}s")
 
+    measure(g)
     results = [run(g, cq) for cq in sorted(CQS, key=lambda c: c["id"])]
-    rows = status_table(results)
+    rows = status_table(results, g)
 
     for r in results:
         total = sum(q["rows"] for q in r["queries"])
@@ -743,9 +938,9 @@ def write_report(p):
          "here** - every one for which RiceMMKG {V} has at least the concept "
          "the question turns on. Answerability is measured, not predicted: "
          "the Stage 3 `v06_status` column is not used. The remaining "
-         f"{len(rows) - len(res)} ask for a concept {V} does not have at all "
-         "and are the v0.7 work plan; the status table at the end lists each "
-         "with its reason.", "",
+         f"{len(rows) - len(res)} ask for a concept {V} does not have at all; "
+         "the status table at the end lists each with its reason and with a "
+         "probe query that confirms the concept is still missing.", "",
          f"**{n_full} answer in full, {n_part} answer in part, and {n_none} "
          "return nothing.** A partial is not a pass: the query returns what "
          "{V} supports, and the shortfall is named on the CQ. A CQ that "
@@ -826,11 +1021,12 @@ def write_report(p):
           "The queries above are small, and that is the point: the cross-modal "
           "questions the benchmark never asked turn out to be answerable with "
           "the graph as it stands. What they also expose is how thin the "
-          "visual layer is - `captures` carries 1,442 assertions, all of them "
-          "to a single symptom, so image-to-symptom grounding exists for one "
-          "condition and no other. That is a v0.7 priority the coverage "
-          "benchmark did not surface, because it counted symptoms with any "
-          "visual grounding rather than images with any symptom.", ""]
+          "visual layer is - `captures` carries {CAPTURES} assertions, on "
+          "{CAPTURING} of {IMAGES} images, and they reach only {CAP_SYMPTOMS} "
+          "symptom(s). Image-to-symptom grounding is the open priority. The "
+          "coverage benchmark shows it from the symptom side (CQ-18 counts "
+          "symptoms with any visual grounding); these queries show it from "
+          "the image side, as images with any symptom.", ""]
     REPORT_OUT.write_text(versioned("\n".join(L)), encoding="utf-8")
 
 
