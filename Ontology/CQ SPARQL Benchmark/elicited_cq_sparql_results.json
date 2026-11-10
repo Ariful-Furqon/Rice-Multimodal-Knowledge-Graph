@@ -1,9 +1,9 @@
 {
-  "generated": "2026-11-09T20:58:43",
+  "generated": "2026-11-09T21:07:27",
   "ontology": "Rice MMKG.rdf",
   "asserted_triples": 328321,
   "entailed_triples": 630959,
-  "reasoning_s": 107.6,
+  "reasoning_s": 102.0,
   "results": [
     {
       "id": "CQ-A01",
@@ -19,7 +19,7 @@
           "label": "Causal pathogen of Rice Blast, its taxonomic group and its external identity",
           "sparql": "SELECT ?pathogen ?group ?eppo_code ?external_alignment WHERE {\n  rice:Rice_Blast_Disease rice:causedBy ?pathogen .\n  OPTIONAL { ?pathogen rice:hasPathogenGroup ?group }\n  OPTIONAL { ?pathogen rice:eppoCode ?eppo_code }\n  OPTIONAL { ?pathogen skos:exactMatch ?external_alignment }\n}",
           "rows": 1,
-          "ms": 86.1,
+          "ms": 82.6,
           "columns": [
             "pathogen",
             "group",
@@ -36,7 +36,7 @@
           ]
         },
         {
-          "label": "Every pathogen with its taxonomic group - the group half of the question, which v0.10.0-dev answers from the NCBI Taxonomy lineage",
+          "label": "Every pathogen with its taxonomic group - the group half of the question, which v0.9.1-dev answers from the NCBI Taxonomy lineage",
           "sparql": "SELECT ?pathogen ?group WHERE {\n  ?pathogen a rice:Pathogen .\n  OPTIONAL { ?pathogen rice:hasPathogenGroup ?group }\n}\nORDER BY ?group ?pathogen",
           "rows": 10,
           "ms": 3.8,
@@ -83,7 +83,7 @@
           "label": "Every disease with its causal pathogen - the answer form of benchmark CQ-01",
           "sparql": "SELECT ?disease ?pathogen WHERE {\n  ?disease rice:causedBy ?pathogen .\n  ?pathogen a rice:Pathogen .\n}\nORDER BY ?disease",
           "rows": 10,
-          "ms": 2.3,
+          "ms": 2.2,
           "columns": [
             "disease",
             "pathogen"
@@ -142,7 +142,7 @@
           "label": "Vector, the agent it transmits, the agent's transmission mode, and the disease that agent causes",
           "sparql": "SELECT ?vector ?agent ?mode ?disease WHERE {\n  ?vector rice:transmits ?agent .\n  OPTIONAL { ?agent rice:hasTransmissionMode ?mode }\n  OPTIONAL { ?disease rice:causedBy ?agent }\n}\nORDER BY ?vector ?agent",
           "rows": 2,
-          "ms": 3.7,
+          "ms": 3.8,
           "columns": [
             "vector",
             "agent",
@@ -183,7 +183,7 @@
           "label": "Symptoms of Bacterial Leaf Blight with the plant part each affects, and the stages at which the disease occurs",
           "sparql": "SELECT ?symptom ?plant_part ?stage_of_disease WHERE {\n  rice:Bacterial_Leaf_Blight rice:indicatedBy ?symptom .\n  OPTIONAL { ?symptom rice:affectsPlantPart ?plant_part }\n  OPTIONAL { rice:Bacterial_Leaf_Blight rice:occursIn ?stage_of_disease }\n}\nORDER BY ?symptom ?plant_part ?stage_of_disease",
           "rows": 45,
-          "ms": 5.7,
+          "ms": 6.2,
           "columns": [
             "symptom",
             "plant_part",
@@ -251,7 +251,7 @@
           "label": "Conditions sharing at least one symptom with Brown Spot",
           "sparql": "SELECT ?other (COUNT(DISTINCT ?shared) AS ?shared_symptoms)\nWHERE {\n  rice:Brown_Spot rice:indicatedBy ?shared .\n  ?other rice:indicatedBy ?shared .\n  FILTER (?other != rice:Brown_Spot)\n}\nGROUP BY ?other\nORDER BY DESC(?shared_symptoms)",
           "rows": 12,
-          "ms": 9.0,
+          "ms": 9.2,
           "columns": [
             "other",
             "shared_symptoms"
@@ -295,7 +295,7 @@
           "label": "Symptoms that discriminate Brown Spot from Rice Blast",
           "sparql": "SELECT ?symptom ?present_only_in WHERE {\n  {\n    rice:Brown_Spot rice:indicatedBy ?symptom .\n    FILTER NOT EXISTS { rice:Rice_Blast_Disease rice:indicatedBy ?symptom }\n    BIND (\"Brown Spot\" AS ?present_only_in)\n  } UNION {\n    rice:Rice_Blast_Disease rice:indicatedBy ?symptom .\n    FILTER NOT EXISTS { rice:Brown_Spot rice:indicatedBy ?symptom }\n    BIND (\"Rice Blast\" AS ?present_only_in)\n  }\n}\nORDER BY ?present_only_in ?symptom",
           "rows": 26,
-          "ms": 8.3,
+          "ms": 8.5,
           "columns": [
             "symptom",
             "present_only_in"
@@ -371,7 +371,7 @@
           "label": "Every condition-to-entity risk link in the graph",
           "sparql": "SELECT ?condition (COUNT(DISTINCT ?entity) AS ?entities) WHERE {\n  ?condition rice:increaseRiskOf ?entity .\n}\nGROUP BY ?condition\nORDER BY DESC(?entities) ?condition",
           "rows": 9,
-          "ms": 4.3,
+          "ms": 4.8,
           "columns": [
             "condition",
             "entities"
@@ -423,14 +423,14 @@
       "mode": "retrieval",
       "question": "At which growth stages is Brown Planthopper reported as most damaging?",
       "note": "Also single-model, also answerable.",
-      "partial": "v0.10.0-dev records that a pest occurs at a stage, not how damaging it is there, so the question's ranking cannot be answered - occurrence is returned instead",
+      "partial": "v0.9.1-dev records that a pest occurs at a stage, not how damaging it is there, so the question's ranking cannot be answered - occurrence is returned instead",
       "gap": null,
       "queries": [
         {
           "label": "Growth stages at which Brown Planthopper occurs",
           "sparql": "SELECT ?stage WHERE {\n  rice:Brown_Planthopper rice:occursIn ?stage .\n}\nORDER BY ?stage",
           "rows": 2,
-          "ms": 1.8,
+          "ms": 2.2,
           "columns": [
             "stage"
           ],
@@ -462,7 +462,7 @@
           "label": "Treatments for Stem Borer with their management category and the source the control assertion cites",
           "sparql": "SELECT ?treatment ?category\n       (GROUP_CONCAT(DISTINCT STR(?src); separator=\" | \") AS ?sources)\n       (GROUP_CONCAT(DISTINCT ?cit; separator=\" | \") AS ?citations) WHERE {\n  rice:Stem_Borer rice:controlledBy ?treatment .\n  OPTIONAL { ?treatment rice:hasManagementCategory ?category }\n  OPTIONAL {\n    ?ax owl:annotatedSource rice:Stem_Borer ;\n        owl:annotatedProperty rice:controlledBy ;\n        owl:annotatedTarget ?treatment ;\n        dcterms:source ?src ;\n        dcterms:bibliographicCitation ?cit .\n  }\n}\nGROUP BY ?treatment ?category\nORDER BY ?treatment",
           "rows": 3,
-          "ms": 8.7,
+          "ms": 8.5,
           "columns": [
             "treatment",
             "category",
@@ -509,7 +509,7 @@
           "label": "Images annotated as Hispa, with their retrievable URL",
           "sparql": "SELECT ?image ?url WHERE {\n  ?image rice:annotatedAs rice:Hispa ;\n         schema:contentUrl ?url .\n}\nORDER BY ?image",
           "rows": 2151,
-          "ms": 46.1,
+          "ms": 45.7,
           "columns": [
             "image",
             "url"
@@ -568,7 +568,7 @@
           "label": "Source and confidence of the annotation on one image",
           "sparql": "SELECT ?image ?condition ?dataset ?title ?source ?confidence\nWHERE {\n  { SELECT ?image WHERE { ?image a rice:ImageObservation }\n    ORDER BY ?image LIMIT 1 }\n  ?image rice:annotatedAs ?condition .\n  OPTIONAL {\n    ?image prov:wasDerivedFrom ?dataset .\n    OPTIONAL { ?dataset dcterms:title ?title }\n    OPTIONAL { ?dataset dcterms:source ?source }\n  }\n  OPTIONAL { ?image rice:confidenceScore ?confidence }\n}",
           "rows": 1,
-          "ms": 821.6,
+          "ms": 770.6,
           "columns": [
             "image",
             "condition",
@@ -592,7 +592,7 @@
           "label": "How many image annotations carry a source dataset, and how many a confidence score",
           "sparql": "SELECT (COUNT(DISTINCT ?image) AS ?images)\n       (COUNT(DISTINCT ?sourced) AS ?with_source_dataset)\n       (COUNT(DISTINCT ?scored) AS ?with_confidence)\nWHERE {\n  ?image a rice:ImageObservation .\n  OPTIONAL { ?image prov:wasDerivedFrom ?d . BIND (?image AS ?sourced) }\n  OPTIONAL { ?image rice:confidenceScore ?c . BIND (?image AS ?scored) }\n}",
           "rows": 1,
-          "ms": 1441.4,
+          "ms": 1559.2,
           "columns": [
             "images",
             "with_source_dataset",
@@ -617,15 +617,15 @@
       "dim": "D2",
       "mode": "retrieval",
       "question": "How is the image corpus distributed across conditions and entity types?",
-      "note": "PARTIAL. The elicited question also asks for plant part and capture type. v0.10.0-dev models neither, so this implements the answerable half and the rest stays on the v0.7 plan. Reported as partial rather than passed.",
-      "partial": "plant part and capture type are not modelled in v0.10.0-dev",
+      "note": "PARTIAL. The elicited question also asks for plant part and capture type. v0.9.1-dev models neither, so this implements the answerable half and the rest stays on the v0.7 plan. Reported as partial rather than passed.",
+      "partial": "plant part and capture type are not modelled in v0.9.1-dev",
       "gap": null,
       "queries": [
         {
           "label": "Images per annotated condition and entity type",
           "sparql": "SELECT ?condition ?type (COUNT(?image) AS ?images) WHERE {\n  ?image a rice:ImageObservation ;\n         rice:annotatedAs ?condition .\n  ?condition a ?type .\n  FILTER (STRSTARTS(STR(?type), STR(rice:)))\n}\nGROUP BY ?condition ?type\nORDER BY DESC(?images)",
           "rows": 19,
-          "ms": 8696.9,
+          "ms": 9369.4,
           "columns": [
             "condition",
             "type",
@@ -678,7 +678,7 @@
           "label": "Images per source dataset",
           "sparql": "SELECT ?dataset (COUNT(?image) AS ?images) WHERE {\n  ?image a rice:ImageObservation ;\n         prov:wasDerivedFrom ?dataset .\n}\nGROUP BY ?dataset",
           "rows": 6,
-          "ms": 251.9,
+          "ms": 257.9,
           "columns": [
             "dataset",
             "images"
@@ -780,7 +780,7 @@
           "label": "Candidate conditions for one annotated image, ranked by supporting symptoms",
           "sparql": "SELECT ?image ?candidate (COUNT(DISTINCT ?symptom) AS ?support)\nWHERE {\n  { SELECT ?image WHERE { ?image rice:captures ?s } ORDER BY ?image LIMIT 1 }\n  ?image rice:captures ?symptom .\n  ?candidate rice:indicatedBy ?symptom .\n}\nGROUP BY ?image ?candidate\nORDER BY DESC(?support) ?candidate",
           "rows": 1,
-          "ms": 50.4,
+          "ms": 49.2,
           "columns": [
             "image",
             "candidate",
@@ -806,14 +806,14 @@
       "mode": "retrieval",
       "question": "Which visual features separate Brown Spot from Rice Blast?",
       "note": "The pair the models named most often as visually confusable. Answered from the symptom layer. Since 0.8.0 the lesion shape, centre, margin, halo and size stated by the IRRI fact sheets are symptoms of their own (e.g. spindle-shaped vs circular to oval lesion), so the unique symptoms now include visual features. They are still symptom individuals, not values of shape or colour properties, so the query cannot see overlaps: IRRI gives both diseases a grey lesion centre and a reddish-brown border, yet these appear as unique to each under different wording.",
-      "partial": "visual features are symptom individuals; with no shape or colour properties, v0.10.0-dev cannot tell that some of them (grey centre, reddish-brown border) overlap",
+      "partial": "visual features are symptom individuals; with no shape or colour properties, v0.9.1-dev cannot tell that some of them (grey centre, reddish-brown border) overlap",
       "gap": null,
       "queries": [
         {
           "label": "Symptoms unique to each of the two conditions",
           "sparql": "SELECT ?condition ?distinguishing_symptom WHERE {\n  {\n    rice:Brown_Spot rice:indicatedBy ?distinguishing_symptom .\n    FILTER NOT EXISTS {\n      rice:Rice_Blast_Disease rice:indicatedBy ?distinguishing_symptom }\n    BIND (\"Brown Spot\" AS ?condition)\n  } UNION {\n    rice:Rice_Blast_Disease rice:indicatedBy ?distinguishing_symptom .\n    FILTER NOT EXISTS {\n      rice:Brown_Spot rice:indicatedBy ?distinguishing_symptom }\n    BIND (\"Rice Blast\" AS ?condition)\n  }\n}\nORDER BY ?condition ?distinguishing_symptom",
           "rows": 26,
-          "ms": 8.9,
+          "ms": 9.3,
           "columns": [
             "condition",
             "distinguishing_symptom"
@@ -857,7 +857,7 @@
           "label": "Symptoms the two share, which therefore cannot separate them",
           "sparql": "SELECT ?shared_symptom WHERE {\n  rice:Brown_Spot rice:indicatedBy ?shared_symptom .\n  rice:Rice_Blast_Disease rice:indicatedBy ?shared_symptom .\n}\nORDER BY ?shared_symptom",
           "rows": 5,
-          "ms": 2.7,
+          "ms": 2.2,
           "columns": [
             "shared_symptom"
           ],
@@ -898,15 +898,15 @@
           "label": "Severity level recorded on any image",
           "sparql": "SELECT ?image ?severity WHERE {\n  ?severity a rice:SeverityLevel .\n  ?image a rice:ImageObservation ;\n         ?link ?severity .\n}\nORDER BY ?image",
           "rows": 0,
-          "ms": 579.2,
+          "ms": 587.2,
           "columns": [],
           "sample": []
         },
         {
-          "label": "What the severity levels are used for in v0.10.0-dev",
+          "label": "What the severity levels are used for in v0.9.1-dev",
           "sparql": "SELECT ?severity ?recommends WHERE {\n  ?severity a rice:SeverityLevel .\n  OPTIONAL { ?severity rice:recommends ?recommends }\n}\nORDER BY ?severity",
           "rows": 4,
-          "ms": 3.4,
+          "ms": 4.3,
           "columns": [
             "severity",
             "recommends"
@@ -943,13 +943,13 @@
       "question": "Which symptoms co-occur on the same plant within a single image?",
       "note": "Stage 3 predicted this needs new schema and left it out. Queried here so that the prediction becomes a measurement. captures is not single-valued, so the query is expressible today. An empty result is not evidence that symptoms never co-occur: under the open-world assumption it only says that no image has been annotated with two.",
       "partial": null,
-      "gap": "every image that captures a symptom captures exactly one, so no pair can co-occur; the same-plant part of the question has no model at all, since v0.10.0-dev images are independent",
+      "gap": "every image that captures a symptom captures exactly one, so no pair can co-occur; the same-plant part of the question has no model at all, since v0.9.1-dev images are independent",
       "queries": [
         {
           "label": "Pairs of symptoms captured in the same image",
           "sparql": "SELECT ?image ?symptom_a ?symptom_b WHERE {\n  ?image rice:captures ?symptom_a , ?symptom_b .\n  FILTER (STR(?symptom_a) < STR(?symptom_b))\n}\nORDER BY ?image",
           "rows": 0,
-          "ms": 104.5,
+          "ms": 107.3,
           "columns": [],
           "sample": []
         },
@@ -957,7 +957,7 @@
           "label": "How many symptoms each annotated image captures",
           "sparql": "SELECT ?symptoms_per_image (COUNT(?image) AS ?images) WHERE {\n  { SELECT ?image (COUNT(DISTINCT ?s) AS ?symptoms_per_image)\n    WHERE { ?image rice:captures ?s }\n    GROUP BY ?image }\n}\nGROUP BY ?symptoms_per_image\nORDER BY ?symptoms_per_image",
           "rows": 1,
-          "ms": 93.9,
+          "ms": 99.8,
           "columns": [
             "symptoms_per_image",
             "images"
@@ -988,7 +988,7 @@
           "label": "Symptoms partitioned by whether any image captures them or is annotated with them",
           "sparql": "SELECT ?image_evidence (COUNT(DISTINCT ?symptom) AS ?symptoms)\nWHERE {\n  ?symptom a rice:Symptom .\n  OPTIONAL { { ?image rice:captures ?symptom }\n             UNION { ?image a rice:ImageObservation ; rice:annotatedAs ?symptom } }\n  BIND (IF(BOUND(?image), \"has image evidence\", \"no image evidence\")\n        AS ?image_evidence)\n}\nGROUP BY ?image_evidence",
           "rows": 2,
-          "ms": 30436.1,
+          "ms": 30800.3,
           "columns": [
             "image_evidence",
             "symptoms"
@@ -1008,7 +1008,7 @@
           "label": "The symptoms with no image evidence at all",
           "sparql": "SELECT ?symptom WHERE {\n  ?symptom a rice:Symptom .\n  FILTER NOT EXISTS { ?image rice:captures ?symptom }\n  FILTER NOT EXISTS { ?image a rice:ImageObservation ; rice:annotatedAs ?symptom }\n}\nORDER BY ?symptom",
           "rows": 126,
-          "ms": 15385.6,
+          "ms": 15663.2,
           "columns": [
             "symptom"
           ],
@@ -1058,7 +1058,7 @@
           "label": "Literature evidence for the condition annotated in one image",
           "sparql": "SELECT ?image ?condition ?symptom ?pathogen WHERE {\n  { SELECT ?image WHERE { ?image rice:annotatedAs rice:Brown_Spot }\n    ORDER BY ?image LIMIT 1 }\n  ?image rice:annotatedAs ?condition .\n  OPTIONAL { ?condition rice:indicatedBy ?symptom }\n  OPTIONAL { ?condition rice:causedBy ?pathogen }\n}\nORDER BY ?symptom",
           "rows": 17,
-          "ms": 190.4,
+          "ms": 186.9,
           "columns": [
             "image",
             "condition",
@@ -1120,7 +1120,7 @@
           "label": "How many images reach a literature-described condition",
           "sparql": "SELECT (COUNT(DISTINCT ?image) AS ?images_with_literature)\nWHERE {\n  ?image rice:annotatedAs ?condition .\n  ?condition rice:indicatedBy ?symptom .\n}",
           "rows": 1,
-          "ms": 1137.7,
+          "ms": 1128.7,
           "columns": [
             "images_with_literature"
           ],
@@ -1149,7 +1149,7 @@
           "label": "Image -> annotated condition -> recommended treatment",
           "sparql": "SELECT ?image ?condition ?treatment WHERE {\n  { SELECT ?image WHERE {\n      ?image rice:annotatedAs ?c . ?c rice:controlledBy ?t }\n    ORDER BY ?image LIMIT 1 }\n  ?image rice:annotatedAs ?condition .\n  ?condition rice:controlledBy ?treatment .\n}\nORDER BY ?treatment",
           "rows": 4,
-          "ms": 1416.0,
+          "ms": 1347.3,
           "columns": [
             "image",
             "condition",
@@ -1182,7 +1182,7 @@
           "label": "How many images reach at least one treatment",
           "sparql": "SELECT (COUNT(DISTINCT ?image) AS ?images_with_treatment) WHERE {\n  ?image rice:annotatedAs ?condition .\n  ?condition rice:controlledBy ?treatment .\n}",
           "rows": 1,
-          "ms": 272.9,
+          "ms": 278.2,
           "columns": [
             "images_with_treatment"
           ],
@@ -1204,7 +1204,7 @@
       "mode": "retrieval",
       "question": "Which images are explicitly annotated as showing no visible symptoms, and which organ or plant view does each represent?",
       "note": "Stage 3 predicted this needs new schema and left it out. Queried here so that the prediction becomes a measurement. The Paddy Doctor 'normal' class is imported as an explicit Normal_Health annotation, which is the symptom-free assertion the question asks for; only the organ and view half is missing.",
-      "partial": "organ and plant view are not modelled in v0.10.0-dev, so the images are returned without them",
+      "partial": "organ and plant view are not modelled in v0.9.1-dev, so the images are returned without them",
       "gap": null,
       "queries": [
         {
@@ -1255,7 +1255,7 @@
           "label": "Healthy-annotated images that nonetheless capture a symptom - should be zero",
           "sparql": "SELECT (COUNT(DISTINCT ?image) AS ?contradictory_images) WHERE {\n  ?image rice:annotatedAs rice:Normal_Health ;\n         rice:captures ?symptom .\n}",
           "rows": 1,
-          "ms": 20.0,
+          "ms": 18.4,
           "columns": [
             "contradictory_images"
           ],
@@ -1278,7 +1278,7 @@
       "dim": "D1",
       "short_label": "Pathogen causing a disease, and its taxonomy",
       "state": "implemented here",
-      "why": "answers in v0.10.0-dev; the benchmark probes the same relation in coverage form, this is the answer form"
+      "why": "answers in v0.9.1-dev; the benchmark probes the same relation in coverage form, this is the answer form"
     },
     {
       "cq_id": "CQ-A02",
@@ -1286,7 +1286,7 @@
       "dim": "D1",
       "short_label": "Vector transmitting a pathogen or viral disease",
       "state": "implemented here",
-      "why": "answers in v0.10.0-dev; the benchmark probes the same relation in coverage form, this is the answer form"
+      "why": "answers in v0.9.1-dev; the benchmark probes the same relation in coverage form, this is the answer form"
     },
     {
       "cq_id": "CQ-A03",
@@ -1294,7 +1294,7 @@
       "dim": "D1",
       "short_label": "Symptoms of a disease, by organ and growth stage",
       "state": "implemented here",
-      "why": "partial - schema in v0.10.0-dev; the benchmark probes the same relation in coverage form, this is the answer form"
+      "why": "partial - schema in v0.9.1-dev; the benchmark probes the same relation in coverage form, this is the answer form"
     },
     {
       "cq_id": "CQ-A04",
@@ -1302,7 +1302,7 @@
       "dim": "D1",
       "short_label": "Diseases sharing symptoms, and what discriminates them",
       "state": "implemented here",
-      "why": "answers in v0.10.0-dev; no benchmark counterpart"
+      "why": "answers in v0.9.1-dev; no benchmark counterpart"
     },
     {
       "cq_id": "CQ-A05",
@@ -1310,7 +1310,7 @@
       "dim": "D1",
       "short_label": "Environmental conditions favouring a disease or pest",
       "state": "implemented here",
-      "why": "answers in v0.10.0-dev; the benchmark probes the same relation in coverage form, this is the answer form"
+      "why": "answers in v0.9.1-dev; the benchmark probes the same relation in coverage form, this is the answer form"
     },
     {
       "cq_id": "CQ-A06",
@@ -1318,7 +1318,7 @@
       "dim": "D1",
       "short_label": "Growth stage at which a pest or disease is most damaging",
       "state": "implemented here",
-      "why": "partial - schema in v0.10.0-dev; the benchmark probes the same relation in coverage form, this is the answer form"
+      "why": "partial - schema in v0.9.1-dev; the benchmark probes the same relation in coverage form, this is the answer form"
     },
     {
       "cq_id": "CQ-A07",
@@ -1326,7 +1326,7 @@
       "dim": "D1",
       "short_label": "Recommended control measures, by category and source",
       "state": "implemented here",
-      "why": "answers in v0.10.0-dev; the benchmark probes the same relation in coverage form, this is the answer form"
+      "why": "answers in v0.9.1-dev; the benchmark probes the same relation in coverage form, this is the answer form"
     },
     {
       "cq_id": "CQ-A08",
@@ -1350,7 +1350,7 @@
       "dim": "D2",
       "short_label": "Images showing a given condition or symptom",
       "state": "implemented here",
-      "why": "answers in v0.10.0-dev; no benchmark counterpart"
+      "why": "answers in v0.9.1-dev; no benchmark counterpart"
     },
     {
       "cq_id": "CQ-A11",
@@ -1358,7 +1358,7 @@
       "dim": "D3",
       "short_label": "Provenance and confidence of an image annotation",
       "state": "implemented here",
-      "why": "partial - schema in v0.10.0-dev; the benchmark probes the same relation in coverage form, this is the answer form"
+      "why": "partial - schema in v0.9.1-dev; the benchmark probes the same relation in coverage form, this is the answer form"
     },
     {
       "cq_id": "CQ-A12",
@@ -1374,7 +1374,7 @@
       "dim": "D2",
       "short_label": "Distribution of the image corpus",
       "state": "implemented here",
-      "why": "partial - schema in v0.10.0-dev; no benchmark counterpart"
+      "why": "partial - schema in v0.9.1-dev; no benchmark counterpart"
     },
     {
       "cq_id": "CQ-A14",
@@ -1390,7 +1390,7 @@
       "dim": "D2",
       "short_label": "Symptoms annotated in a given image",
       "state": "implemented here",
-      "why": "partial - data in v0.10.0-dev; the benchmark probes the same relation in coverage form, this is the answer form"
+      "why": "partial - data in v0.9.1-dev; the benchmark probes the same relation in coverage form, this is the answer form"
     },
     {
       "cq_id": "CQ-A16",
@@ -1398,7 +1398,7 @@
       "dim": "D2",
       "short_label": "Disease or pest supported by visual evidence",
       "state": "implemented here",
-      "why": "answers in v0.10.0-dev; no benchmark counterpart"
+      "why": "answers in v0.9.1-dev; no benchmark counterpart"
     },
     {
       "cq_id": "CQ-A17",
@@ -1406,7 +1406,7 @@
       "dim": "D2",
       "short_label": "Visual features separating confusable conditions",
       "state": "implemented here",
-      "why": "partial - schema in v0.10.0-dev; no benchmark counterpart"
+      "why": "partial - schema in v0.9.1-dev; no benchmark counterpart"
     },
     {
       "cq_id": "CQ-A18",
@@ -1414,7 +1414,7 @@
       "dim": "D2",
       "short_label": "Severity of the damage in an image",
       "state": "queried - no answer",
-      "why": "v0.10.0-dev returns nothing: no image carries a severity level. The four SeverityLevel individuals carry only the juknis attack-intensity category as a comment (their recommends links were removed in 0.7.0-dev as unsourced), and no property has SeverityLevel as its range"
+      "why": "v0.9.1-dev returns nothing: no image carries a severity level. The four SeverityLevel individuals carry only the juknis attack-intensity category as a comment (their recommends links were removed in 0.7.0-dev as unsourced), and no property has SeverityLevel as its range"
     },
     {
       "cq_id": "CQ-A19",
@@ -1422,7 +1422,7 @@
       "dim": "D2",
       "short_label": "Symptoms co-occurring in one image",
       "state": "queried - no answer",
-      "why": "v0.10.0-dev returns nothing: every image that captures a symptom captures exactly one, so no pair can co-occur; the same-plant part of the question has no model at all, since v0.10.0-dev images are independent"
+      "why": "v0.9.1-dev returns nothing: every image that captures a symptom captures exactly one, so no pair can co-occur; the same-plant part of the question has no model at all, since v0.9.1-dev images are independent"
     },
     {
       "cq_id": "CQ-A20",
@@ -1438,7 +1438,7 @@
       "dim": "D2",
       "short_label": "Literature symptoms with and without image support",
       "state": "implemented here",
-      "why": "answers in v0.10.0-dev; the benchmark probes the same relation in coverage form, this is the answer form"
+      "why": "answers in v0.9.1-dev; the benchmark probes the same relation in coverage form, this is the answer form"
     },
     {
       "cq_id": "CQ-A22",
@@ -1446,7 +1446,7 @@
       "dim": "D2",
       "short_label": "Literature disease matching an image",
       "state": "implemented here",
-      "why": "answers in v0.10.0-dev; the benchmark probes the same relation in coverage form, this is the answer form"
+      "why": "answers in v0.9.1-dev; the benchmark probes the same relation in coverage form, this is the answer form"
     },
     {
       "cq_id": "CQ-A23",
@@ -1454,7 +1454,7 @@
       "dim": "D2",
       "short_label": "Treatment prescribed for an imaged condition",
       "state": "implemented here",
-      "why": "answers in v0.10.0-dev; the benchmark probes the same relation in coverage form, this is the answer form"
+      "why": "answers in v0.9.1-dev; the benchmark probes the same relation in coverage form, this is the answer form"
     },
     {
       "cq_id": "CQ-A24",
@@ -1462,7 +1462,7 @@
       "dim": "D2",
       "short_label": "Symptom-free baseline images, by organ and view",
       "state": "implemented here",
-      "why": "partial - schema in v0.10.0-dev; no benchmark counterpart"
+      "why": "partial - schema in v0.9.1-dev; no benchmark counterpart"
     },
     {
       "cq_id": "CQ-A25",
