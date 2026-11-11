@@ -17,15 +17,15 @@ The core graph stays CC BY 4.0 because it holds facts and pointers, not the IRRI
 
 - **`rice:TextDocument`:** 22 documents, each with URL (`dcterms:source`), title and licence:
   - 19 IRRI Rice Knowledge Bank fact sheets (`IRRI_RKB_*`);
-  - 3 disease sections of IRRI (2018) *Rice Diseases* (`IRRI_RD2018_*`, added 2026-11-07). Each covers the introduction and the Symptoms subsection:
+  - 3 disease sections of IRRI (2018) *Rice Diseases* (`IRRI_RD2018_*`, added 2026-11-07). Each covers the whole disease section except its reference list: the introduction, Symptoms, Causal organism, Disease cycle and Control measures, and Host range and Host resistance where the book has them. Until 2026-11-11 they stopped before Causal organism; the extension appended text only, so the earlier passages keep their offsets:
     - downy mildew and leaf scald come from Part II, Section 1 (Fungal Diseases), Chapter 2;
     - grain rot (bacterial panicle blight) comes from Part II, Section 2 (Bacterial Diseases), Chapter 4.
   - Their `dcterms:source` is https://rice-diseases.irri.org/contents, because the site has no chapter pages. The contents page links each chapter PDF on Google Drive; that link is kept in the comment of the `TextDocument`, together with the licence quote.
-- **`rice:TextPassage`:** 311 passages (296 + 15), each a paragraph or list item.
+- **`rice:TextPassage`:** 349 passages (296 + 53; the IRRI (2018) count was 15 until 2026-11-11), each a paragraph or list item.
   - `inDocument`, `startOffset`, `endOffset` and `textSha256` locate the passage.
   - `sectionTitle` gives its section, and `mentions` the domain individuals named in it.
   - The offsets play the role of a W3C Web Annotation `TextPositionSelector`.
-- **Evidence on curated assertions:** `rice:hasEvidencePassage` on the `owl:Axiom` of 315 curated assertions points to the passage that states the assertion. `rice:evidencePassageCheck` says how the link was checked: `human-reviewed` (280) or `LLM-reviewed` (35). Counted 2026-11-07 on 0.9.0-dev. The count includes:
+- **Evidence on curated assertions:** `rice:hasEvidencePassage` on the `owl:Axiom` of 320 curated assertions points to the passage that states the assertion. `rice:evidencePassageCheck` says how the link was checked: `human-reviewed` (280) or `LLM-reviewed` (40). Counted 2026-11-11. The count includes:
   - the 49 blast and brown spot assertions of 0.8.0;
   - the 0.8.1 corrections: one wrong link removed and two added (inventory §6.4);
   - the 32 tungro and bacterial leaf blight assertions of 0.9.0-dev;
@@ -35,7 +35,8 @@ The core graph stays CC BY 4.0 because it holds facts and pointers, not the IRRI
   - the 35 assertions of the signs (decision M4, 0.9.0-dev);
   - the 6 assertions of decisions M6 and M7 (0.9.0-dev);
   - `Deadheart → Tiller` (§6.4, item 5, 0.9.0-dev);
-  - the 2 assertions of the potassium row "dark green plant" (inventory §3.6 row 2, 0.9.0-dev).
+  - the 2 assertions of the potassium row "dark green plant" (inventory §3.6 row 2, 0.9.0-dev);
+  - 5 cause and control assertions of bacterial panicle blight, downy mildew and leaf scald (2026-11-11). They got IRRI (2018) as a second source, with its passage from the new Causal organism and Control measures text. These are `LLM-reviewed`, with the quote in the comment, until the curator confirms them.
 - **These modules:** `rice:passageText` for each passage. Load them together with the core to get the wording.
 
 ## How the offsets are defined
@@ -49,6 +50,7 @@ Pages were saved on 2026-10-20.
 
 **Rice Diseases (2018).** Offsets count characters in the plain text that `scripts/rd2018_to_text.py` builds from the chapter PDFs. The PDFs are linked from https://rice-diseases.irri.org/contents and were downloaded on 2026-11-07.
 - Text is extracted with pypdf 6.19.0.
+- Figure and table captions are dropped, from the caption line (`DM|LSc|GnR Fig. N.` or `Table N.`) to the next page-number line; this also removes the table bodies and chart labels pypdf prints there.
 - Page-number lines are dropped, and words broken across lines are joined.
 - A line that starts with a space starts a new paragraph.
 - `N.N. <name>` subsections become `## <name>` headings.
