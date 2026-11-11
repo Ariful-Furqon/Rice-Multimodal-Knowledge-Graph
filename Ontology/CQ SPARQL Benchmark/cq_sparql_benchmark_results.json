@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated": "2026-11-07 21:40",
+    "generated": "2026-11-11 15:21",
     "ontology": "Rice MMKG.rdf",
-    "asserted_triples": 327853,
-    "entailed_triples": 630369,
-    "reasoning_seconds": 112.6,
+    "asserted_triples": 328293,
+    "entailed_triples": 631260,
+    "reasoning_seconds": 116.6,
     "coverage_threshold": 0.5
   },
   "results": [
@@ -21,7 +21,7 @@
       "missing": [],
       "unit": "disease",
       "status": "PASS",
-      "ms": 91.8
+      "ms": 134.9
     },
     {
       "id": "CQ-02",
@@ -38,7 +38,7 @@
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 25.2
+      "ms": 19.8
     },
     {
       "id": "CQ-03",
@@ -56,7 +56,7 @@
       ],
       "unit": "disease/pest",
       "status": "PASS",
-      "ms": 7.6
+      "ms": 8.3
     },
     {
       "id": "CQ-04",
@@ -71,7 +71,7 @@
       "missing": [],
       "unit": "symptom",
       "status": "PASS",
-      "ms": 6.2
+      "ms": 6.1
     },
     {
       "id": "CQ-05",
@@ -111,17 +111,17 @@
         [
           "rice:Flowering_Stage",
           "rice:Bacterial_Panicle_Blight",
-          "rice:High_Night_Temperature"
-        ],
-        [
-          "rice:Flowering_Stage",
-          "rice:Bacterial_Panicle_Blight",
           "rice:High_Humidity"
         ],
         [
           "rice:Flowering_Stage",
           "rice:Bacterial_Panicle_Blight",
           "rice:High_Temperature"
+        ],
+        [
+          "rice:Flowering_Stage",
+          "rice:Bacterial_Panicle_Blight",
+          "rice:High_Night_Temperature"
         ],
         [
           "rice:Flowering_Stage",
@@ -136,12 +136,12 @@
         [
           "rice:Flowering_Stage",
           "rice:Rice_Blast_Disease",
-          "rice:High_Humidity"
+          "rice:Low_Rainfall"
         ],
         [
           "rice:Flowering_Stage",
           "rice:Rice_Blast_Disease",
-          "rice:Low_Rainfall"
+          "rice:High_Humidity"
         ],
         [
           "rice:Flowering_Stage",
@@ -156,7 +156,7 @@
         [
           "rice:Maturity_Stage",
           "rice:Bacterial_Panicle_Blight",
-          "rice:High_Night_Temperature"
+          "rice:High_Humidity"
         ]
       ],
       "detail_vars": [
@@ -165,7 +165,7 @@
         "f"
       ],
       "detail_total": 89,
-      "ms": 49.2
+      "ms": 30.5
     },
     {
       "id": "CQ-06",
@@ -182,7 +182,7 @@
       ],
       "unit": "growth stage",
       "status": "PASS",
-      "ms": 10.1
+      "ms": 5.0
     },
     {
       "id": "CQ-07",
@@ -194,7 +194,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 6.4
+      "ms": 5.5
     },
     {
       "id": "CQ-08",
@@ -211,7 +211,7 @@
       ],
       "unit": "preventive treatment",
       "status": "PASS",
-      "ms": 5.4
+      "ms": 3.1
     },
     {
       "id": "CQ-09",
@@ -229,12 +229,12 @@
       "detail_rows": [
         [
           "rice:Nephotettix_Virescens",
-          "rice:Rice_Tungro_Spherical_Virus",
+          "rice:Rice_Tungro_Bacilliform_Virus",
           "rice:Rice_Tungro_Disease"
         ],
         [
           "rice:Nephotettix_Virescens",
-          "rice:Rice_Tungro_Bacilliform_Virus",
+          "rice:Rice_Tungro_Spherical_Virus",
           "rice:Rice_Tungro_Disease"
         ]
       ],
@@ -244,7 +244,7 @@
         "d"
       ],
       "detail_total": 2,
-      "ms": 6.0
+      "ms": 5.7
     },
     {
       "id": "CQ-10",
@@ -256,7 +256,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 2.1
+      "ms": 2.9
     },
     {
       "id": "CQ-11",
@@ -280,74 +280,74 @@
         [
           "rice:Bacterial_Leaf_Blight",
           "rice:Poor_Soil_Drainage",
-          "rice:Greyish_Green_Seedling_Leaf",
-          "rice:Crop_Rotation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Greyish_Green_Seedling_Leaf",
-          "rice:Water_Management"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Greyish_Green_Seedling_Leaf",
+          "rice:Dry_Leaf_Tip",
           "rice:Resistant_Variety"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
           "rice:Poor_Soil_Drainage",
-          "rice:Greyish_Green_Seedling_Leaf",
+          "rice:Dry_Leaf_Tip",
           "rice:Crop_Sanitation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
           "rice:Poor_Soil_Drainage",
-          "rice:Wavy_Lesion_Margin",
-          "rice:Crop_Rotation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Wavy_Lesion_Margin",
+          "rice:Dry_Leaf_Tip",
           "rice:Water_Management"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
           "rice:Poor_Soil_Drainage",
-          "rice:Wavy_Lesion_Margin",
-          "rice:Resistant_Variety"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Wavy_Lesion_Margin",
-          "rice:Crop_Sanitation"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Leaf_Drying",
+          "rice:Dry_Leaf_Tip",
           "rice:Crop_Rotation"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
           "rice:Poor_Soil_Drainage",
-          "rice:Leaf_Drying",
-          "rice:Water_Management"
-        ],
-        [
-          "rice:Bacterial_Leaf_Blight",
-          "rice:Poor_Soil_Drainage",
-          "rice:Leaf_Drying",
+          "rice:Sheath_Lesion_Extension",
           "rice:Resistant_Variety"
         ],
         [
           "rice:Bacterial_Leaf_Blight",
           "rice:Poor_Soil_Drainage",
-          "rice:Leaf_Drying",
+          "rice:Sheath_Lesion_Extension",
           "rice:Crop_Sanitation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Sheath_Lesion_Extension",
+          "rice:Water_Management"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Sheath_Lesion_Extension",
+          "rice:Crop_Rotation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Yellow_Leaf",
+          "rice:Resistant_Variety"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Yellow_Leaf",
+          "rice:Crop_Sanitation"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Yellow_Leaf",
+          "rice:Water_Management"
+        ],
+        [
+          "rice:Bacterial_Leaf_Blight",
+          "rice:Poor_Soil_Drainage",
+          "rice:Yellow_Leaf",
+          "rice:Crop_Rotation"
         ]
       ],
       "detail_vars": [
@@ -356,8 +356,8 @@
         "s",
         "t"
       ],
-      "detail_total": 970,
-      "ms": 3663.1
+      "detail_total": 1088,
+      "ms": 3697.5
     },
     {
       "id": "CQ-12",
@@ -386,7 +386,7 @@
       ],
       "unit": "disease/pest",
       "status": "PARTIAL",
-      "ms": 5.9
+      "ms": 5.8
     },
     {
       "id": "CQ-13",
@@ -409,7 +409,7 @@
       "detail_rows": [],
       "detail_vars": [],
       "detail_total": 0,
-      "ms": 7.8
+      "ms": 5.0
     },
     {
       "id": "CQ-14",
@@ -422,7 +422,7 @@
       "entailed": 2544,
       "gain": 2544,
       "status": "PASS",
-      "ms": 28.5
+      "ms": 21.2
     },
     {
       "id": "CQ-15",
@@ -432,10 +432,10 @@
       "question": "Can the KG be queried in the inverse direction, e.g. disease -> causedBy -> pathogen and symptom -> indicates -> disease?",
       "rationale": "14 of 26 object properties are declared as owl:inverseOf but never asserted. Query robustness depends on materialising them.",
       "asserted": 0,
-      "entailed": 302,
-      "gain": 302,
+      "entailed": 305,
+      "gain": 305,
       "status": "PASS",
-      "ms": 9.7
+      "ms": 7.3
     },
     {
       "id": "CQ-16",
@@ -450,7 +450,7 @@
       "missing": [],
       "unit": "diagnostic image",
       "status": "PASS",
-      "ms": 8377.8
+      "ms": 8427.4
     },
     {
       "id": "CQ-17",
@@ -465,7 +465,7 @@
       "missing": [],
       "unit": "annotated class",
       "status": "PASS",
-      "ms": 1052.5
+      "ms": 989.5
     },
     {
       "id": "CQ-18",
@@ -607,7 +607,7 @@
       ],
       "unit": "symptom",
       "status": "PARTIAL",
-      "ms": 17183.3
+      "ms": 17431.7
     },
     {
       "id": "CQ-19",
@@ -619,7 +619,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 1835.3
+      "ms": 2377.9
     },
     {
       "id": "CQ-20",
@@ -630,7 +630,7 @@
       "rationale": "Declared extension point. Recorded as a measurement, not scored, so the roadmap gap stays visible without inflating or deflating the pass rate.",
       "count": 186,
       "status": "DOCUMENTED",
-      "ms": 5.0
+      "ms": 3.6
     },
     {
       "id": "CQ-21",
@@ -639,13 +639,13 @@
       "mode": "coverage",
       "question": "Which reified domain assertions carry both an authoritative source URI and a bibliographic citation?",
       "rationale": "Provenance completeness - the scientific-defensibility claim of the KG.",
-      "covered": 602,
-      "total": 602,
+      "covered": 605,
+      "total": 605,
       "ratio": 1.0,
       "missing": [],
       "unit": "reified axiom",
       "status": "PASS",
-      "ms": 27.9
+      "ms": 24.8
     },
     {
       "id": "CQ-22",
@@ -654,10 +654,15 @@
       "mode": "negative",
       "question": "Are there domain assertions with missing or incomplete provenance - either no reified axiom at all, or an axiom missing its source, citation or evidence type?",
       "rationale": "Integrity constraint complementing CQ-21. Extended on 2026-09-14: the original form checked only axioms that exist, so an assertion with no axiom at all was invisible to both CQ-21 and CQ-22, and v0.6 carried two such assertions while both reported full provenance. Runs on the asserted graph, since materialised inverses are never reified and would all count as violations. Extended again on 2026-09-23: rice:hasPathogenGroup joined the list - a property left out of it is invisible to this check, which is the failure mode the 2026-09-14 extension was written for. Extended again on 2026-09-17: ResistanceAssessment individuals carry their provenance on the individual itself rather than on an axiom, so an assessment missing its source, citation or evidence type is reported too.",
-      "violations": 0,
-      "examples": [],
-      "status": "PASS",
-      "ms": 620.6
+      "violations": 1,
+      "examples": [
+        [
+          "Clean_Seed hasManagementCategory Cultural_Control_Category",
+          "assertion without provenance"
+        ]
+      ],
+      "status": "FAIL",
+      "ms": 634.2
     },
     {
       "id": "CQ-23",
@@ -680,7 +685,7 @@
       ],
       "unit": "biological entity",
       "status": "PASS",
-      "ms": 9.5
+      "ms": 8.4
     },
     {
       "id": "CQ-24",
@@ -692,7 +697,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 18.7
+      "ms": 21.8
     },
     {
       "id": "CQ-25",
@@ -704,7 +709,7 @@
       "violations": 0,
       "examples": [],
       "status": "PASS",
-      "ms": 2.1
+      "ms": 2.0
     },
     {
       "id": "CQ-26",
@@ -726,7 +731,7 @@
       ],
       "unit": "pest",
       "status": "PARTIAL",
-      "ms": 1015.5
+      "ms": 1243.6
     },
     {
       "id": "CQ-27",
@@ -756,19 +761,19 @@
       ],
       "unit": "disease",
       "status": "PARTIAL",
-      "ms": 96.1
+      "ms": 88.7
     }
   ],
   "sensitivity": [
     {
       "threshold": 0.4,
       "tally": {
-        "PASS": 22,
+        "PASS": 21,
         "PARTIAL": 3,
-        "FAIL": 1,
+        "FAIL": 2,
         "ERROR": 0
       },
-      "pass_rate": 0.8461538461538461,
+      "pass_rate": 0.8076923076923077,
       "coverage_status": {
         "CQ-01": "PASS",
         "CQ-02": "PASS",
@@ -793,12 +798,12 @@
     {
       "threshold": 0.5,
       "tally": {
-        "PASS": 21,
+        "PASS": 20,
         "PARTIAL": 4,
-        "FAIL": 1,
+        "FAIL": 2,
         "ERROR": 0
       },
-      "pass_rate": 0.8076923076923077,
+      "pass_rate": 0.7692307692307693,
       "coverage_status": {
         "CQ-01": "PASS",
         "CQ-02": "PASS",
@@ -823,12 +828,12 @@
     {
       "threshold": 0.6,
       "tally": {
-        "PASS": 20,
+        "PASS": 19,
         "PARTIAL": 5,
-        "FAIL": 1,
+        "FAIL": 2,
         "ERROR": 0
       },
-      "pass_rate": 0.7692307692307693,
+      "pass_rate": 0.7307692307692307,
       "coverage_status": {
         "CQ-01": "PASS",
         "CQ-02": "PASS",
@@ -853,12 +858,12 @@
     {
       "threshold": 0.7,
       "tally": {
-        "PASS": 19,
+        "PASS": 18,
         "PARTIAL": 6,
-        "FAIL": 1,
+        "FAIL": 2,
         "ERROR": 0
       },
-      "pass_rate": 0.7307692307692307,
+      "pass_rate": 0.6923076923076923,
       "coverage_status": {
         "CQ-01": "PASS",
         "CQ-02": "PASS",
@@ -883,12 +888,12 @@
     {
       "threshold": 0.8,
       "tally": {
-        "PASS": 17,
+        "PASS": 16,
         "PARTIAL": 8,
-        "FAIL": 1,
+        "FAIL": 2,
         "ERROR": 0
       },
-      "pass_rate": 0.6538461538461539,
+      "pass_rate": 0.6153846153846154,
       "coverage_status": {
         "CQ-01": "PASS",
         "CQ-02": "PASS",
