@@ -184667,6 +184667,11 @@
     <dcterms:source rdf:resource="https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm"/>
     <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Factsheet - Scald. Rice Doctor. International Rice Research Institute, with the Australian Centre for International Agricultural Research and The University of Queensland. https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm (accessed 2026-10-05). "Leaf scald is a fungal disease caused by Microdochium oryzae."</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p9"/>
+    <rice:evidencePassageCheck>LLM-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Second source added 2026-11-11: IRRI (2018) Rice Diseases describes the leaf scald fungus under its earlier names, in the passage quoted here: "Parkinson et al (1981) transferred it to Monographella albescens". Monographella albescens (sexual stage), Gerlachia oryzae and Microdochium albescens name the same pathogen; the names differ through taxonomic revision and the former rule that gave the asexual and sexual stages separate names (synonymy confirmed by the curator, 2026-11-11). The first source has no passage in the text layer. The link was drafted by a language model, which checked that the quote occurs in the passage.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:nodeID="ax_20261005_02">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
@@ -404268,5 +404273,61 @@
     <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
     <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
     <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice_Blast_Disease"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Microdochium_Albescens">
+    <skos:altLabel xml:lang="en">Monographella albescens</skos:altLabel>
+    <skos:altLabel xml:lang="en">Gerlachia oryzae</skos:altLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Clean_Seed">
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#Treatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">clean seed</rdfs:label>
+    <rdfs:comment xml:lang="en">Use of healthy seed free of the pathogen, e.g. seed from fields without the disease or sorted by weight in salt water, to avoid seedborne inoculum. Differs from seed treatment, which applies a chemical to the seed. Added 2026-11-11 from IRRI (2018) Rice Diseases.</rdfs:comment>
+    <rice:hasManagementCategory rdf:resource="https://w3id.org/ricemmkg#Cultural_Control_Category"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight">
+    <rice:controlledBy rdf:resource="https://w3id.org/ricemmkg#Clean_Seed"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N15f297dc92c34c78b537cb6ff9439a02">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#controlledBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Clean_Seed"/>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p12"/>
+    <rice:evidencePassageCheck>LLM-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added 2026-11-11 from IRRI (2018) Rice Diseases, Control measures, in the passage quoted here: "Options to control GnR are limited to using clean seed and resistant varieties". Added at the curator's request; the link was drafted by a language model, which checked that the quote occurs in the passage.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight">
+    <rice:controlledBy rdf:resource="https://w3id.org/ricemmkg#Biological_Control"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N119daf064ff04da6a7528faebf01e881">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#controlledBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Biological_Control"/>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p15"/>
+    <rice:evidencePassageCheck>LLM-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added 2026-11-11 from IRRI (2018) Rice Diseases, Control measures, in the passage quoted here: "Several biological control agents (BCAs) have been discovered that are effective against the bacterial pathogen". Added at the curator's request; the link was drafted by a language model, which checked that the quote occurs in the passage.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Leaf_Scald">
+    <rice:controlledBy rdf:resource="https://w3id.org/ricemmkg#Clean_Seed"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8543960bf12644a2bfbd95f11b934c14">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Leaf_Scald"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#controlledBy"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Clean_Seed"/>
+    <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p24"/>
+    <rice:evidencePassageCheck>LLM-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Added 2026-11-11 from IRRI (2018) Rice Diseases, Control measures, in the passage quoted here: "the disease can be minimized by using clean seeds and by field sanitation". Added at the curator's request; the link was drafted by a language model, which checked that the quote occurs in the passage.</rdfs:comment>
   </rdf:Description>
 </rdf:RDF>
