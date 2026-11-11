@@ -40,7 +40,8 @@ Versions follow `MAJOR.MINOR.PATCH`, recorded in `owl:versionInfo` and appended 
 | Change | Bump | Examples |
 |---|---|---|
 | Corrections that change no modelling decision: provenance fixes, citations, source URIs, literal hygiene, a missing assertion restored with its source | **PATCH** (`0.6.1` → `0.6.2`) | v0.6.1 provenance gaps; v0.6.2 CABI DOIs |
-| New classes or properties, new populated modalities, new batches of annotations, removal or retyping of entities | **MINOR** (`0.6` → `0.7`) | Deadheart retyped as Disease (v0.6) |
+| Completing a source already in the graph, with no new class or property and no changed modelling decision: more passages of a document already cited, the assertions that source states, the individuals and alternative labels they need (added 2026-11-11) | **PATCH** (`0.9.0` → `0.9.1`) | v0.9.1 cause and control text of IRRI (2018) *Rice Diseases* |
+| New classes or properties, new populated modalities, new batches of annotations from a new source, removal or retyping of entities | **MINOR** (`0.6` → `0.7`) | Deadheart retyped as Disease (v0.6) |
 | The release accompanying the paper submission | **1.0** | — |
 
 Each version number names exactly one content state: a change is never folded silently into an already-tagged version.
@@ -52,7 +53,7 @@ Each version number names exactly one content state: a change is never folded si
   - **v0.6.0:** tagged on 2026-11-07 at the v0.6 release of 2026-09-03 (same commit as `elicited-baseline-v0.6`). The descriptive tags are kept, because tags are never deleted and documents cite them.
   - **v0.8.0** (tagged 2026-11-07): the symptom inventory, and the visual symptoms of blast and brown spot.
   - **0.8 → v0.9: benchmark.** The changes the retrieval benchmark needs from the KG: the rest of the symptom inventory, its provenance fixes and the missing sources. **v0.9.0** tagged 2026-11-07 (changelog in `Ontology/Ontology_Overview.md`).
-  - **0.9.1-dev** (since 2026-11-09): post-release work on the KG (the management layer for CQ-12 and evidence passages for the cause, management and stage facts). v0.9.0 stays the release the retrieval benchmark starts from; results on later states are reported as separate KG versions.
+  - **v0.9.1** (2026-11-11, PATCH by the rule above; it was `0.9.1-dev` from 2026-11-09): post-release work on the KG (the management layer for CQ-12 and evidence passages for the cause, management and stage facts) and the cause and control text of IRRI (2018) for leaf scald, downy mildew and bacterial panicle blight, which the benchmark's pooling needs. v0.9.0 stays the release the retrieval benchmark starts from; results on later states are reported as separate KG versions.
   - **0.9 → v1.0: FAIR and finalisation.** Documentation at the PURL, FOOPS!/OOPS!, Zenodo DOI, AgroPortal, a smaller distribution file and expert validation of the elicited CQs.
   - Development between tags carries `-dev` (e.g. `0.9.0-dev`), as 0.7.0-dev did.
 - **Patch releases are made whenever a verified correction is ready**, with no fixed schedule.
