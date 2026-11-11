@@ -404330,4 +404330,14 @@
     <rice:evidencePassageCheck>LLM-reviewed</rice:evidencePassageCheck>
     <rdfs:comment xml:lang="en">Added 2026-11-11 from IRRI (2018) Rice Diseases, Control measures, in the passage quoted here: "the disease can be minimized by using clean seeds and by field sanitation". Added at the curator's request; the link was drafted by a language model, which checked that the quote occurs in the passage.</rdfs:comment>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="N4054baab4ffa4382ba7d657818a94cfd">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Clean_Seed"/>
+    <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#hasManagementCategory"/>
+    <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Cultural_Control_Category"/>
+    <dcterms:source rdf:resource="http://aims.fao.org/aos/agrovoc/c_2020"/>
+    <dcterms:bibliographicCitation xml:lang="en">FAO. AGROVOC Multilingual Thesaurus, concept c_2020 'cultural control', definition adapted from Gabryś, B. &amp; Kordan, B. (2022), Cultural control and other non-chemical methods, in Insect Pests of Potato (2nd ed.), Academic Press, 297-314. Retrieved via the AGROVOC REST API on 2026-09-15.</dcterms:bibliographicCitation>
+    <rice:evidenceType xml:lang="en">ontology-derived</rice:evidenceType>
+    <rdfs:comment xml:lang="en">Added 2026-11-11 with Clean_Seed, on the same basis as Crop_Sanitation: using healthy seed is a cultural, non-chemical practice.</rdfs:comment>
+  </rdf:Description>
 </rdf:RDF>
