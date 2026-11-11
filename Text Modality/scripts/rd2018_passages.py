@@ -37,7 +37,10 @@ LICENCE_NOTE = ("Licence: the footer of every page of the site reads \"Legal not
 def doc_comment(m):
     return (f"Section of the chapter PDF \"{m['chapter']}\" ({m['pdf']}) of IRRI (2018) Rice diseases: Biology and selected "
             f"management practices. The PDF is linked from {m['url']} as {m['pdf_url']} and was downloaded on 2026-11-07. "
-            "The section covers the introduction and the Symptoms subsection. " + LICENCE_NOTE +
+            "The section covers the whole disease section except its reference list: the introduction, Symptoms, Causal "
+            "organism, Disease cycle and Control measures, and Host range and Host resistance where the book has them "
+            "(extended 2026-11-11; until then it ended before Causal organism, and the earlier passages keep their "
+            "offsets). " + LICENCE_NOTE +
             " Plain text by Text Modality/scripts/rd2018_to_text.py, which the passage offsets refer to. Wording in "
             "Text Modality/RiceMMKG_IRRI_RD2018_text.ttl.")
 

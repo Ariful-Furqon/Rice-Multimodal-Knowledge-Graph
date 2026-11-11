@@ -4,9 +4,15 @@ documents in the same format as irri_to_text.py: title line, "## " headings, and
 separated by blank lines. Passage offsets in the core graph refer to this text.
 
 Each document is one disease section of a chapter PDF, from the disease heading up to (not
-including) its "Causal organism" subsection: the introduction and the Symptoms subsection.
+including) its reference list: the introduction and every subsection (Symptoms, Causal organism,
+Host range, Disease cycle, Host resistance, Control measures, as the section has them). Until
+2026-11-11 the documents stopped before "Causal organism"; the extension only appends text, so the
+offsets of the earlier passages are unchanged.
 
 Text is extracted with pypdf (version recorded in the manifest). Clean-up rules:
+- figure and table captions are dropped: from a line that starts "DM|LSc|GnR Fig. N." or "... Table N."
+  up to and including the next page-number line. This also drops the table body and the chart labels
+  that pypdf prints after a caption (added 2026-11-11; the earlier range had no caption);
 - lines that hold only a page number are dropped;
 - a line that ends in "-" after a letter, followed by a line that starts with a lower-case
   letter, is joined without the hyphen (a word broken across lines); other lines are joined
@@ -35,11 +41,12 @@ CH2 = ("chapter2_foliar_fungal_diseases.pdf", "https://drive.google.com/file/d/1
        "Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases")
 CH4 = ("chapter4_grain_diseases.pdf", "https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view?usp=sharing",
        "Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases")
-# doc id: (chapter, heading that starts the section, heading that ends it, document title)
+# doc id: (chapter, heading that starts the section, line that ends it, document title)
+END = r"^\s*References\s*$"  # the reference list that closes each disease section
 DOCS = {
-    "downy-mildew": (CH2, r"^2\. Downy mildew \(DM\)\s*$", r"^2\.2\. Causal organism", "Downy mildew (DM)"),
-    "leaf-scald": (CH2, r"^6\. Leaf Scald \(LSc\)\s*$", r"^6\.2\. Causal organism", "Leaf scald (LSc)"),
-    "grain-rot": (CH4, r"^1\. Grain rot \(GnR\)\s*$", r"^1\.2\. Causal organism", "Grain rot (GnR)"),
+    "downy-mildew": (CH2, r"^2\. Downy mildew \(DM\)\s*$", END, "Downy mildew (DM)"),
+    "leaf-scald": (CH2, r"^6\. Leaf Scald \(LSc\)\s*$", END, "Leaf scald (LSc)"),
+    "grain-rot": (CH4, r"^1\. Grain rot \(GnR\)\s*$", END, "Grain rot (GnR)"),
 }
 
 
@@ -50,9 +57,25 @@ def section_lines(text, start, end):
     return lines[a + 1:b]
 
 
+CAPTION = re.compile(r"^\s*(DM|LSc|GnR) (Fig\.|Table) \d+\.")
+
+
+def drop_captions(lines):
+    out, skip = [], False
+    for line in lines:
+        if CAPTION.match(line):
+            skip = True
+        if skip:
+            if re.fullmatch(r"\s*\d+\s*", line):
+                skip = False
+            continue
+        out.append(line)
+    return out
+
+
 def to_blocks(lines):
     blocks, cur = [], ""
-    for raw in lines:
+    for raw in drop_captions(lines):
         if re.fullmatch(r"\s*\d+\s*", raw):
             continue
         line = raw.rstrip()

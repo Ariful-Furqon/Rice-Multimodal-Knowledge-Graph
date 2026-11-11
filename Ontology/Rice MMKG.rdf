@@ -16834,6 +16834,11 @@
     <dcterms:bibliographicCitation xml:lang="en">CABI (2021). Burkholderia glumae (bacterial grain rot). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.44964 / Ham, J. H. et al. (2011). Burkholderia glumae: next major pathogen of rice? Mol. Plant Pathol., 12(4), 329-339.</dcterms:bibliographicCitation>
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#preventedBy"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p13"/>
+    <rice:evidencePassageCheck>LLM-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Second source added 2026-11-11: IRRI (2018) Rice Diseases also states this fact, in the passage quoted here: "deployment of resistant varieties is another option in managing grain rot". The first source has no passage in the text layer. The link was drafted by a language model, which checked that the quote occurs in the passage; it is to be confirmed by the curator.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_blast_PDD02529">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -23842,6 +23847,11 @@
     <dcterms:bibliographicCitation xml:lang="en">CABI (2019). Sclerophthora macrospora (downy mildew). CABI Compendium. CABI Publishing. https://doi.org/10.1079/cabicompendium.49243 / Ou, S. H. (1985). Rice Diseases (2nd ed.). CAB International.</dcterms:bibliographicCitation>
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p13"/>
+    <rice:evidencePassageCheck>LLM-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Second source added 2026-11-11: IRRI (2018) Rice Diseases also states this fact, in the passage quoted here: "it is still necessary to monitor its occurrence". The first source has no passage in the text layer. The link was drafted by a language model, which checked that the quote occurs in the passage; it is to be confirmed by the curator.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_downy_mildew_PDD06009">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -77110,6 +77120,11 @@
     <owl:annotatedProperty rdf:resource="https://w3id.org/ricemmkg#causes"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Downy_Mildew"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p5"/>
+    <rice:evidencePassageCheck>LLM-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Second source added 2026-11-11: IRRI (2018) Rice Diseases also states this fact, in the passage quoted here: "the fungus that causes DM of rice is accepted by most scientists as Sclerophthora macrospore". The first source has no passage in the text layer. The link was drafted by a language model, which checked that the quote occurs in the passage; it is to be confirmed by the curator.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_blast_PDD02218">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -176182,6 +176197,11 @@
     <owl:annotatedSource rdf:resource="https://w3id.org/ricemmkg#Burkholderia_Glumae"/>
     <owl:annotatedTarget rdf:resource="https://w3id.org/ricemmkg#Bacterial_Panicle_Blight"/>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW, Cottyn B, Vera Cruz CM. 2018. Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p6"/>
+    <rice:evidencePassageCheck>LLM-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Second source added 2026-11-11: IRRI (2018) Rice Diseases also states this fact, in the passage quoted here: "GnR is caused by Burkholderia glumae". The first source has no passage in the text layer. The link was drafted by a language model, which checked that the quote occurs in the passage; it is to be confirmed by the curator.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_downy_mildew_PDD06470">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -184715,6 +184735,11 @@
     <dcterms:source rdf:resource="https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm"/>
     <dcterms:bibliographicCitation xml:lang="en">IRRI (n.d.). Factsheet - Scald. Rice Doctor. International Rice Research Institute, with the Australian Centre for International Agricultural Research and The University of Queensland. https://keyserver.lucidcentral.org/key-server/data/0e090d01-0209-460e-810c-0d060708030c/media/Html/Scald.htm (accessed 2026-10-05). "Leaf scald is a fungal disease caused by Microdochium oryzae."</dcterms:bibliographicCitation>
     <rice:evidenceType xml:lang="en">literature-curated</rice:evidenceType>
+    <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
+    <dcterms:bibliographicCitation xml:lang="en">Mew TW. 2018. Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases. In: Mew TW, Hibino H, Savary S, Vera Cruz CM, Opulencia R, Hettel GP, eds. Rice diseases: Biology and selected management practices. Los Baños (Philippines): International Rice Research Institute. PDF e-book. https://rice-diseases.irri.org (accessed 2026-11-07).</dcterms:bibliographicCitation>
+    <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p24"/>
+    <rice:evidencePassageCheck>LLM-reviewed</rice:evidencePassageCheck>
+    <rdfs:comment xml:lang="en">Second source added 2026-11-11: IRRI (2018) Rice Diseases also states this fact, in the passage quoted here: "the disease can be minimized by using clean seeds and by field sanitation". The first source has no passage in the text layer. The link was drafted by a language model, which checked that the quote occurs in the passage; it is to be confirmed by the curator.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:nodeID="ax_20261005_09">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
@@ -401570,7 +401595,7 @@
     <dcterms:title xml:lang="en">Downy mildew (DM)</dcterms:title>
     <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
     <dcterms:license rdf:resource="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
-    <rdfs:comment xml:lang="en">Section of the chapter PDF "Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases" (chapter2_foliar_fungal_diseases.pdf) of IRRI (2018) Rice diseases: Biology and selected management practices. The PDF is linked from https://rice-diseases.irri.org/contents as https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view?usp=sharing and was downloaded on 2026-11-07. The section covers the introduction and the Symptoms subsection. Licence: the footer of every page of the site reads "Legal notice | © 2018 IRRI | CC", where "CC" links to http://creativecommons.org/licenses/by-nc-sa/4.0/ (https://rice-diseases.irri.org and https://rice-diseases.irri.org/contents, checked 2026-11-07); IRRI's legal notice (https://irri.org/legal-notice) states "IRRI-owned and -created material is governed by Creative Commons". The chapter PDFs themselves carry no licence statement. Plain text by Text Modality/scripts/rd2018_to_text.py, which the passage offsets refer to. Wording in Text Modality/RiceMMKG_IRRI_RD2018_text.ttl.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Section of the chapter PDF "Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases" (chapter2_foliar_fungal_diseases.pdf) of IRRI (2018) Rice diseases: Biology and selected management practices. The PDF is linked from https://rice-diseases.irri.org/contents as https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view?usp=sharing and was downloaded on 2026-11-07. The section covers the whole disease section except its reference list: the introduction, Symptoms, Causal organism, Disease cycle and Control measures, and Host range and Host resistance where the book has them (extended 2026-11-11; until then it ended before Causal organism, and the earlier passages keep their offsets). Licence: the footer of every page of the site reads "Legal notice | © 2018 IRRI | CC", where "CC" links to http://creativecommons.org/licenses/by-nc-sa/4.0/ (https://rice-diseases.irri.org and https://rice-diseases.irri.org/contents, checked 2026-11-07); IRRI's legal notice (https://irri.org/legal-notice) states "IRRI-owned and -created material is governed by Creative Commons". The chapter PDFs themselves carry no licence statement. Plain text by Text Modality/scripts/rd2018_to_text.py, which the passage offsets refer to. Wording in Text Modality/RiceMMKG_IRRI_RD2018_text.ttl.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -401579,7 +401604,7 @@
     <dcterms:title xml:lang="en">Grain rot (GnR)</dcterms:title>
     <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
     <dcterms:license rdf:resource="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
-    <rdfs:comment xml:lang="en">Section of the chapter PDF "Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases" (chapter4_grain_diseases.pdf) of IRRI (2018) Rice diseases: Biology and selected management practices. The PDF is linked from https://rice-diseases.irri.org/contents as https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view?usp=sharing and was downloaded on 2026-11-07. The section covers the introduction and the Symptoms subsection. Licence: the footer of every page of the site reads "Legal notice | © 2018 IRRI | CC", where "CC" links to http://creativecommons.org/licenses/by-nc-sa/4.0/ (https://rice-diseases.irri.org and https://rice-diseases.irri.org/contents, checked 2026-11-07); IRRI's legal notice (https://irri.org/legal-notice) states "IRRI-owned and -created material is governed by Creative Commons". The chapter PDFs themselves carry no licence statement. Plain text by Text Modality/scripts/rd2018_to_text.py, which the passage offsets refer to. Wording in Text Modality/RiceMMKG_IRRI_RD2018_text.ttl.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Section of the chapter PDF "Part II, Section 2: Bacterial Diseases. Chapter 4. Grain diseases" (chapter4_grain_diseases.pdf) of IRRI (2018) Rice diseases: Biology and selected management practices. The PDF is linked from https://rice-diseases.irri.org/contents as https://drive.google.com/file/d/1T0FEK70qH64wQUT0uIvEH6uuv6tqHVcw/view?usp=sharing and was downloaded on 2026-11-07. The section covers the whole disease section except its reference list: the introduction, Symptoms, Causal organism, Disease cycle and Control measures, and Host range and Host resistance where the book has them (extended 2026-11-11; until then it ended before Causal organism, and the earlier passages keep their offsets). Licence: the footer of every page of the site reads "Legal notice | © 2018 IRRI | CC", where "CC" links to http://creativecommons.org/licenses/by-nc-sa/4.0/ (https://rice-diseases.irri.org and https://rice-diseases.irri.org/contents, checked 2026-11-07); IRRI's legal notice (https://irri.org/legal-notice) states "IRRI-owned and -created material is governed by Creative Commons". The chapter PDFs themselves carry no licence statement. Plain text by Text Modality/scripts/rd2018_to_text.py, which the passage offsets refer to. Wording in Text Modality/RiceMMKG_IRRI_RD2018_text.ttl.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -401588,7 +401613,7 @@
     <dcterms:title xml:lang="en">Leaf scald (LSc)</dcterms:title>
     <dcterms:source rdf:resource="https://rice-diseases.irri.org/contents"/>
     <dcterms:license rdf:resource="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
-    <rdfs:comment xml:lang="en">Section of the chapter PDF "Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases" (chapter2_foliar_fungal_diseases.pdf) of IRRI (2018) Rice diseases: Biology and selected management practices. The PDF is linked from https://rice-diseases.irri.org/contents as https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view?usp=sharing and was downloaded on 2026-11-07. The section covers the introduction and the Symptoms subsection. Licence: the footer of every page of the site reads "Legal notice | © 2018 IRRI | CC", where "CC" links to http://creativecommons.org/licenses/by-nc-sa/4.0/ (https://rice-diseases.irri.org and https://rice-diseases.irri.org/contents, checked 2026-11-07); IRRI's legal notice (https://irri.org/legal-notice) states "IRRI-owned and -created material is governed by Creative Commons". The chapter PDFs themselves carry no licence statement. Plain text by Text Modality/scripts/rd2018_to_text.py, which the passage offsets refer to. Wording in Text Modality/RiceMMKG_IRRI_RD2018_text.ttl.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Section of the chapter PDF "Part II, Section 1: Fungal Diseases. Chapter 2. Foliar fungal diseases" (chapter2_foliar_fungal_diseases.pdf) of IRRI (2018) Rice diseases: Biology and selected management practices. The PDF is linked from https://rice-diseases.irri.org/contents as https://drive.google.com/file/d/1FecmYWgUMk_-UIjNA6_TyPKBjUn_oQ81/view?usp=sharing and was downloaded on 2026-11-07. The section covers the whole disease section except its reference list: the introduction, Symptoms, Causal organism, Disease cycle and Control measures, and Host range and Host resistance where the book has them (extended 2026-11-11; until then it ended before Causal organism, and the earlier passages keep their offsets). Licence: the footer of every page of the site reads "Legal notice | © 2018 IRRI | CC", where "CC" links to http://creativecommons.org/licenses/by-nc-sa/4.0/ (https://rice-diseases.irri.org and https://rice-diseases.irri.org/contents, checked 2026-11-07); IRRI's legal notice (https://irri.org/legal-notice) states "IRRI-owned and -created material is governed by Creative Commons". The chapter PDFs themselves carry no licence statement. Plain text by Text Modality/scripts/rd2018_to_text.py, which the passage offsets refer to. Wording in Text Modality/RiceMMKG_IRRI_RD2018_text.ttl.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p1">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -403797,5 +403822,451 @@
     <rice:hasEvidencePassage rdf:resource="https://w3id.org/ricemmkg#IRRI_RKB_potassium-k_p3"/>
     <rice:evidencePassageCheck>human-reviewed</rice:evidencePassageCheck>
     <rdfs:comment xml:lang="en">Symptom inventory §3.6 row 2 (2026-11-07): "Stunted dark green plants"; the last missing row of a condition with an IRRI fact sheet.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Downy mildew (DM), passage 5</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1888</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2652</rice:endOffset>
+    <rice:textSha256>ce6cb9035e1f406391d07805fbb108f4f9da3a524e86d53b12420005b3cb548b</rice:textSha256>
+    <rice:sectionTitle>Causal organism</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Downy mildew (DM), passage 6</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2654</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3616</rice:endOffset>
+    <rice:textSha256>25557d47049b56c9223e17c5fd271b066e43d98bca106de404decef1483ed057</rice:textSha256>
+    <rice:sectionTitle>Causal organism</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#High_Humidity"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Tillering_Stage"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Downy mildew (DM), passage 7</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3618</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4074</rice:endOffset>
+    <rice:textSha256>aab480d5ebbc5faa3ec0746d77fe023040de583082a70e09fc336e6297d1eb50</rice:textSha256>
+    <rice:sectionTitle>Causal organism</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p8">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Downy mildew (DM), passage 8</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4094</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4912</rice:endOffset>
+    <rice:textSha256>ab060415ad8b2034c463849f97b1e96955e4b7ece4bacd763454c03e549ef4ff</rice:textSha256>
+    <rice:sectionTitle>Disease cycle</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Downy mildew (DM), passage 9</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4914</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5217</rice:endOffset>
+    <rice:textSha256>e87fe9646207e091da9c786627acddbbc26eae8f11c444b93424e9e8be017d10</rice:textSha256>
+    <rice:sectionTitle>Disease cycle</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p10">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Downy mildew (DM), passage 10</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5219</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5601</rice:endOffset>
+    <rice:textSha256>257f9cbfdbf31d6b6ac347d386ea94650779a2e42cfad9e98eef269de8b72094</rice:textSha256>
+    <rice:sectionTitle>Disease cycle</rice:sectionTitle>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p11">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Downy mildew (DM), passage 11</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5603</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6099</rice:endOffset>
+    <rice:textSha256>a5450cc8f02f3eb335d80af166cb690ec589018a6e13a67d578408d9157245a5</rice:textSha256>
+    <rice:sectionTitle>Disease cycle</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Excessive_Tillering"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Vegetative_Stage"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p12">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Downy mildew (DM), passage 12</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6101</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6742</rice:endOffset>
+    <rice:textSha256>9c506cb155f9b05b6d0d24b31f65664790158bb2b9919876a69a3768486f62d2</rice:textSha256>
+    <rice:sectionTitle>Disease cycle</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf_Blade"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew_p13">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Downy mildew (DM), passage 13</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_downy-mildew"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6765</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7199</rice:endOffset>
+    <rice:textSha256>c0be7c457a9e17a6fe776887bf65ce986d536d28937e47a976549c1b34acdc96</rice:textSha256>
+    <rice:sectionTitle>Control measures</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Grain rot (GnR), passage 6</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4407</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5291</rice:endOffset>
+    <rice:textSha256>6a884d1bc44dbf61739ed5d74f788f72c71c6f4d422d41258d6ac600917025df</rice:textSha256>
+    <rice:sectionTitle>Causal organism</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Burkholderia_Glumae"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Grain rot (GnR), passage 7</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5308</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5542</rice:endOffset>
+    <rice:textSha256>f72bb4d3a29dcb643c94bbc63c4b9e6fbf48de0d014c180e8f3f7043fc37df90</rice:textSha256>
+    <rice:sectionTitle>Host range</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p8">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Grain rot (GnR), passage 8</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5562</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6143</rice:endOffset>
+    <rice:textSha256>6e1e2c977d34ba828553e8623cf5819ae910d8cdce5d3b61e02c2648e0ecee46</rice:textSha256>
+    <rice:sectionTitle>Disease cycle</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Glume"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Grain"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#High_Humidity"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#High_Night_Temperature"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Grain rot (GnR), passage 9</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6145</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7138</rice:endOffset>
+    <rice:textSha256>c5507d84c8c75813af9da8858e5ec9359007af3e89388f2624f7b1529689c2fc</rice:textSha256>
+    <rice:sectionTitle>Disease cycle</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Root"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p10">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Grain rot (GnR), passage 10</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7140</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7575</rice:endOffset>
+    <rice:textSha256>e0a30df567cb7edec2d71f447ba221e8d410592077bb0485e8d405db213bc1a7</rice:textSha256>
+    <rice:sectionTitle>Disease cycle</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p11">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Grain rot (GnR), passage 11</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7577</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8271</rice:endOffset>
+    <rice:textSha256>e1074e2039d66200bbd219a80c1b8239e4bdf539d79b1e8348310dbda5cd2331</rice:textSha256>
+    <rice:sectionTitle>Disease cycle</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p12">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Grain rot (GnR), passage 12</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8294</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9135</rice:endOffset>
+    <rice:textSha256>6301df16aea62549459b80ab8139871915830fed870f83121d238615fb6f9582</rice:textSha256>
+    <rice:sectionTitle>Control measures</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Grain"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p13">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Grain rot (GnR), passage 13</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9137</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10258</rice:endOffset>
+    <rice:textSha256>8860bf0820359b32d5c61479a47407ff9185985f58fd305a2894049c2206f4a8</rice:textSha256>
+    <rice:sectionTitle>Control measures</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Grain"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf_Sheath"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Panicle"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p14">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Grain rot (GnR), passage 14</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10260</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10457</rice:endOffset>
+    <rice:textSha256>d5026b259db4947540854910dba7afbeb28af5154de91488f7765b603990b165</rice:textSha256>
+    <rice:sectionTitle>Control measures</rice:sectionTitle>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot_p15">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Grain rot (GnR), passage 15</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_grain-rot"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10459</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11096</rice:endOffset>
+    <rice:textSha256>c54bdbcc86ffb96d36c784a05648d4fd6d07f64c8713ce673e19b8a5cbe51398</rice:textSha256>
+    <rice:sectionTitle>Control measures</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Biological_Control"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 7</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2664</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3548</rice:endOffset>
+    <rice:textSha256>e68aceee51a82a2cb664877f00a6f67b12e21089155ea3807217a4e34871f3b6</rice:textSha256>
+    <rice:sectionTitle>Causal organism</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p8">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 8</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3550</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4047</rice:endOffset>
+    <rice:textSha256>554cf976102067faec4af9b098bb4061e2fbb32cfe83cfa18fa320da7fd78a89</rice:textSha256>
+    <rice:sectionTitle>Causal organism</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 9</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4049</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5104</rice:endOffset>
+    <rice:textSha256>e437414d49067a334a37876f9578df316b418d03361690f553d3846a2c8f6b0b</rice:textSha256>
+    <rice:sectionTitle>Causal organism</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p10">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 10</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5106</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5615</rice:endOffset>
+    <rice:textSha256>94cf61a7e030bcf110610b5171a2ebd0e99fce72bfe88e2300907c601ea5c948</rice:textSha256>
+    <rice:sectionTitle>Causal organism</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p11">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 11</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5617</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5944</rice:endOffset>
+    <rice:textSha256>92531e91ce36a877eaa3c3fee61326c220571312918d22a4ab921e88765aae31</rice:textSha256>
+    <rice:sectionTitle>Causal organism</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p12">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 12</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5961</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6073</rice:endOffset>
+    <rice:textSha256>c039e8c498a3f8f7940191cce593acef28e5fc9e2f359b3f9bcaf2a15b7fedf9</rice:textSha256>
+    <rice:sectionTitle>Host range</rice:sectionTitle>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p13">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 13</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6093</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6279</rice:endOffset>
+    <rice:textSha256>2ae65917555c1ba434cc8457116db186d09fd0cb33e68de0fffa40bf36bdea1c</rice:textSha256>
+    <rice:sectionTitle>Disease cycle</rice:sectionTitle>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p14">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 14</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6281</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7349</rice:endOffset>
+    <rice:textSha256>194efe50e808626af5656825c84c74a56b3f109a27ea1b405c3493c0462c6639</rice:textSha256>
+    <rice:sectionTitle>Disease cycle</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p15">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 15</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7351</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8577</rice:endOffset>
+    <rice:textSha256>534f1710fb27df942332620903cbc6f72cf2f8a326db034b1568dc4720d0cb73</rice:textSha256>
+    <rice:sectionTitle>Disease cycle</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p16">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 16</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8579</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9711</rice:endOffset>
+    <rice:textSha256>c8bae8230bc84d50c15f648ccf56fd6fe18b1af37b91d201412647d19266a0e9</rice:textSha256>
+    <rice:sectionTitle>Disease cycle</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p17">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 17</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9713</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10133</rice:endOffset>
+    <rice:textSha256>52fe70b7eef96263ba94bde11979bb641a582932a96cf01f7787f507039809b3</rice:textSha256>
+    <rice:sectionTitle>Disease cycle</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p18">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 18</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10155</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10503</rice:endOffset>
+    <rice:textSha256>224ad20108b0f25745fb8f04b3673a849e942ec353615324da470809f8ad5d2d</rice:textSha256>
+    <rice:sectionTitle>Host resistance</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice_Blast_Disease"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p19">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 19</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10505</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10828</rice:endOffset>
+    <rice:textSha256>4464cb1ccf7267576df31231a17326d38a2887c46a2ecfc8a5babefb47130d6c</rice:textSha256>
+    <rice:sectionTitle>Host resistance</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p20">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 20</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10830</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11348</rice:endOffset>
+    <rice:textSha256>8460e34fb1472ac205537c9aa4f8d1c3d8bca82dc4f34bc500f02946ce8bfb3b</rice:textSha256>
+    <rice:sectionTitle>Host resistance</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p21">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 21</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11350</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12139</rice:endOffset>
+    <rice:textSha256>7d08fa71f851c39e1627482fd58a69a34e9ee8759d17d6c9c29613efb0d6f9e7</rice:textSha256>
+    <rice:sectionTitle>Host resistance</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Whole_Plant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p22">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 22</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12141</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12946</rice:endOffset>
+    <rice:textSha256>f2176be20822cd2be5ab2140d75f369d2cba580a3716964757154340cc4c4059</rice:textSha256>
+    <rice:sectionTitle>Host resistance</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p23">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 23</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12948</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14158</rice:endOffset>
+    <rice:textSha256>1eb06c7cfd24fa0ab3a73742e2dc2add795dc2796388d42db32e96f1bc996474</rice:textSha256>
+    <rice:sectionTitle>Host resistance</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p24">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 24</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14181</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14492</rice:endOffset>
+    <rice:textSha256>373fd060377fc7d39dddea8872dc5bd1c73b0aab318e417c9ddaa34186a02977</rice:textSha256>
+    <rice:sectionTitle>Control measures</rice:sectionTitle>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald_p25">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#TextPassage"/>
+    <rdfs:label xml:lang="en">Leaf scald (LSc), passage 25</rdfs:label>
+    <rice:inDocument rdf:resource="https://w3id.org/ricemmkg#IRRI_RD2018_leaf-scald"/>
+    <rice:startOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14494</rice:startOffset>
+    <rice:endOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15278</rice:endOffset>
+    <rice:textSha256>de190c1ce1e8480aeb19da90e32516e8ba9896650ff63c95c8772a2e3032d183</rice:textSha256>
+    <rice:sectionTitle>Control measures</rice:sectionTitle>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Brown_Spot"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Leaf"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice"/>
+    <rice:mentions rdf:resource="https://w3id.org/ricemmkg#Rice_Blast_Disease"/>
   </rdf:Description>
 </rdf:RDF>
