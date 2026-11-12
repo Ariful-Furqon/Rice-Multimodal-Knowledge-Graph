@@ -74,7 +74,7 @@ def main(data, onto, module_out, core_out):
                          "section": section, "start": a, "end": b,
                          "sha256": hashlib.sha256(body.encode("utf-8")).hexdigest(), "text": body,
                          "mentions": sorted({n for lab, ns in labels.items() if f" {lab} " in nb for n in ns})})
-    (data / "passages.jsonl").write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows), encoding="utf-8")
+    (data / "passages.jsonl").write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows), encoding="utf-8", newline="\n")
 
     module = ["""@prefix rice: <https://w3id.org/ricemmkg#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -88,7 +88,7 @@ def main(data, onto, module_out, core_out):
     dcterms:description "Wording of the rice:TextPassage individuals IRRI_RD2018_* declared in Rice MMKG.rdf, taken from IRRI (2018) Rice Diseases: Biology and Selected Management Practices (chapter PDFs downloaded 2026-11-07). Licensed CC BY-NC-SA 4.0 like the source: attribute IRRI, non-commercial use only, share alike. Offsets and sha256 in the core graph refer to the plain text produced by Text Modality/scripts/rd2018_to_text.py (pypdf %s)."@en .
 """ % (LICENCE, manifest["_contents"], manifest["_pypdf"])]
     module += [f"rice:IRRI_RD2018_{r['id'][len('IRRI_RD2018_'):]} rice:passageText {lit(r['text'], True)} ." for r in rows]
-    Path(module_out).write_text("\n".join(module) + "\n", encoding="utf-8")
+    Path(module_out).write_text("\n".join(module) + "\n", encoding="utf-8", newline="\n")
 
     core = ["""# DRAFT, not merged. Core pointers for the IRRI Rice Diseases (2018) text layer: TextDocument and
 # TextPassage individuals with offsets, sha256, section and mentions. No wording: that is in
@@ -117,7 +117,7 @@ def main(data, onto, module_out, core_out):
         if r["mentions"]:
             props.append("rice:mentions " + ", ".join(f"rice:{x}" for x in r["mentions"]))
         core.append(f"rice:{r['id']} a owl:NamedIndividual, rice:TextPassage ;\n    " + " ;\n    ".join(props) + " .\n")
-    Path(core_out).write_text("\n".join(core), encoding="utf-8")
+    Path(core_out).write_text("\n".join(core), encoding="utf-8", newline="\n")
     print(len(rows), "passages;", sum(1 for r in rows if r["mentions"]), "with mentions")
     for r in rows:
         print(f"  {r['id']:28} [{r['section'] or '-'}] {r['end'] - r['start']:5} chars  {r['text'][:70]!r}")

@@ -69,7 +69,7 @@ def main(data):
                          "section": section, "start": a, "end": b,
                          "sha256": hashlib.sha256(body.encode("utf-8")).hexdigest(),
                          "text": body, "mentions": mentions})
-    (data / "passages.jsonl").write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows), encoding="utf-8")
+    (data / "passages.jsonl").write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows), encoding="utf-8", newline="\n")
     n_m = collections.Counter(len(r["mentions"]) > 0 for r in rows)
     lens = sorted(r["end"] - r["start"] for r in rows)
     print(f"{len(rows)} passages over {len(set(r['doc'] for r in rows))} documents; "

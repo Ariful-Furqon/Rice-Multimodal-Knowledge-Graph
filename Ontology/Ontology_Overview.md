@@ -45,7 +45,7 @@ modality class is named `ImageObservation` (not `LeafImage`) since the
 2026-08-19 cleanup round — the old name was factually wrong for the part
 of the corpus that isn't a leaf (panicle blight, deadheart).
 
-**License:** CC BY 4.0. **Creator:** Muhammad Ariful Furqon (ORCID 0000-0002-1031-3567), Natthawut Kertkeidkachorn (ORCID 0000-0003-4527-776X). **Version:** `0.9.1` (released 2026-11-11; progression: `v0.1` → `v0.2` → `v0.3` → `v0.4` → `v0.5` → `v0.6` → `v0.6.1` → `v0.6.2` → `v0.7.0` → `v0.8.0` → `v0.8.1` → `v0.9.0` → `v0.9.1`; git tags `v0.6.0` (= `elicited-baseline-v0.6`), `v0.6.1`, `v0.6.2`, `v0.7.0` (= `data-freeze-2026-10`, file reads `0.7.0-dev`), `v0.8.0`, `v0.8.1`, `v0.9.0`, `v0.9.1`).
+**License:** CC BY 4.0. **Creator:** Muhammad Ariful Furqon (ORCID 0000-0002-1031-3567), Natthawut Kertkeidkachorn (ORCID 0000-0003-4527-776X). **Version:** `0.9.1` (released 2026-11-11; the file reads `0.9.2-dev` since 2026-11-12, see the changelog; progression: `v0.1` → `v0.2` → `v0.3` → `v0.4` → `v0.5` → `v0.6` → `v0.6.1` → `v0.6.2` → `v0.7.0` → `v0.8.0` → `v0.8.1` → `v0.9.0` → `v0.9.1`; git tags `v0.6.0` (= `elicited-baseline-v0.6`), `v0.6.1`, `v0.6.2`, `v0.7.0` (= `data-freeze-2026-10`, file reads `0.7.0-dev`), `v0.8.0`, `v0.8.1`, `v0.9.0`, `v0.9.1`).
 
 ---
 
@@ -197,6 +197,16 @@ All domain assertions are formally backed by `owl:Axiom` provenance records (`dc
 ## 3. Changelog
 
 <!-- Newest first. -->
+
+### 2026-11-12: 0.9.2-dev — Rice Knowledge Bank text module stored with LF line breaks
+
+The core graph is unchanged apart from the version. `owl:versionInfo` is `0.9.2-dev`, `owl:versionIRI` is `https://w3id.org/ricemmkg/0.9.2`, and `owl:priorVersion` is `https://w3id.org/ricemmkg/0.9.1`.
+
+- **Problem:** `Text Modality/RiceMMKG_IRRI_text.ttl` had been committed with CRLF line breaks since it was built on 2026-10-22, and it is CRLF in every tag that contains it, `v0.8.0` to `v0.9.1` (685 line breaks each). The multi-paragraph literals therefore held `\r\n`, so the `rice:passageText` of 130 of the 296 Rice Knowledge Bank passages did not match the `rice:textSha256` in the core graph. The 0.9.1 entry reported this as a Windows working-copy effect; in fact it is in the committed file.
+- **Fix:** the file is stored with LF, as `.gitattributes` asks. No character other than the line breaks changed.
+- **Check:** all 296 Rice Knowledge Bank passages and all 53 IRRI (2018) passages now match their `textSha256`. Before the fix, every one of the 130 mismatches matched once its CRLF was replaced by LF.
+- **Cause:** `Path.write_text()` translates `\n` to the platform line break, which is `\r\n` on Windows. All nine `write_text` calls in `Text Modality/scripts/` now pass `newline="\n"`: in `build_text_module.py`, `rd2018_passages.py` (module, core draft and `passages.jsonl`), `irri_to_text.py`, `rd2018_to_text.py` (corpus and manifest) and `passages.py`. The IRRI (2018) module was not affected, because it was built on macOS.
+- **For users of v0.9.1 and earlier:** replace CRLF by LF in `passageText` before checking a passage's hash.
 
 ### 2026-11-11: v0.9.1 — release: the 0.9.1-dev work of 2026-11-09 and 2026-11-10, and the cause and control text of IRRI (2018) for the three conditions without a fact sheet
 

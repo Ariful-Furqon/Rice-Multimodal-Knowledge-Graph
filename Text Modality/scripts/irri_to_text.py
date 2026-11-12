@@ -98,10 +98,10 @@ def main(raw, corpus):
         text = re.sub(r"\n{3,}", "\n\n", text)
         title = " ".join(p.title.split()) or stem
         name = f"IRRI_{stem}"
-        (corpus / f"{name}.txt").write_text(f"{title}\n\n{text}\n", encoding="utf-8")
+        (corpus / f"{name}.txt").write_text(f"{title}\n\n{text}\n", encoding="utf-8", newline="\n")
         manifest[name] = BASE + path
         print(f"{name}: {len(text):,} chars")
-    (corpus.parent / "manifest.json").write_text(json.dumps(manifest, indent=1), encoding="utf-8")
+    (corpus.parent / "manifest.json").write_text(json.dumps(manifest, indent=1), encoding="utf-8", newline="\n")
 
 
 if __name__ == "__main__":

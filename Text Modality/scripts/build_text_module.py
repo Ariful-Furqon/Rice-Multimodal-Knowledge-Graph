@@ -32,7 +32,7 @@ def lit(s):
 def main(passages, out):
     rows = [json.loads(l) for l in Path(passages).read_text(encoding="utf-8").splitlines()]
     body = [f"rice:{pid(r)} rice:passageText {lit(r['text'])} ." for r in rows]
-    Path(out).write_text(HEADER + "\n".join(body) + "\n", encoding="utf-8")
+    Path(out).write_text(HEADER + "\n".join(body) + "\n", encoding="utf-8", newline="\n")
     print(f"{len(rows)} passages written to {out}")
 
 

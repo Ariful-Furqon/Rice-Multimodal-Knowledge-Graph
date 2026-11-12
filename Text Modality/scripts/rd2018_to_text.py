@@ -111,10 +111,10 @@ def main(raw, corpus):
         if pdf not in texts:
             texts[pdf] = "\n".join(p.extract_text() or "" for p in pypdf.PdfReader(str(raw / pdf)).pages)
         blocks = to_blocks(section_lines(texts[pdf], start, end))
-        (corpus / f"IRRI_RD2018_{doc}.txt").write_text(title + "\n\n## Introduction\n\n" + "\n\n".join(blocks) + "\n", encoding="utf-8")
+        (corpus / f"IRRI_RD2018_{doc}.txt").write_text(title + "\n\n## Introduction\n\n" + "\n\n".join(blocks) + "\n", encoding="utf-8", newline="\n")
         manifest[f"IRRI_RD2018_{doc}"] = {"url": CONTENTS, "pdf_url": url, "pdf": pdf, "chapter": chapter, "title": title}
         print(doc, len(blocks), "blocks")
-    (corpus.parent / "manifest.json").write_text(json.dumps(manifest, indent=1), encoding="utf-8")
+    (corpus.parent / "manifest.json").write_text(json.dumps(manifest, indent=1), encoding="utf-8", newline="\n")
 
 
 if __name__ == "__main__":
