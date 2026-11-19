@@ -437,20 +437,31 @@ WHERE {
                 "Queried here so that the prediction becomes a measurement. "
                 "SeverityLevel exists and has four individuals, so the concept "
                 "is not missing; what is missing is any link from an image to "
-                "one of them.",
-        "gap": "no image carries a severity level. The four SeverityLevel "
-               "individuals carry only the juknis attack-intensity category "
-               "as a comment (their recommends links were removed in "
-               "0.7.0-dev as unsourced), and no property has SeverityLevel "
-               "as its range",
+                "one of them. Since 2026-11-19 (0.10.0-dev) the sheath blight "
+                "severity images carry rice:severityScore, the stage on their "
+                "source's six-stage scale, so the first query reads that score; "
+                "up to v0.9.1 it looked for a link to a SeverityLevel and "
+                "returned nothing.",
+        "partial": "only {SCORED} of {IMAGES} images carry a severity score, all "
+                   "of them sheath blight, on their source's own six-stage "
+                   "scale (lesion height relative to plant height), graded by "
+                   "one person and not expert-validated; no image is linked "
+                   "to one of the four SeverityLevel individuals",
+        "partial_kind": "data",
+        "gap": "no image carries a severity score or a severity level. The "
+               "four SeverityLevel individuals carry only the juknis "
+               "attack-intensity category as a comment (their recommends "
+               "links were removed in 0.7.0-dev as unsourced), and no "
+               "property has SeverityLevel as its range",
         "queries": [
-            ("Severity level recorded on any image",
-             """SELECT ?image ?severity WHERE {
-  ?severity a rice:SeverityLevel .
+            ("Severity score recorded on an image, with the condition it is "
+             "annotated as",
+             """SELECT ?image ?condition ?score WHERE {
   ?image a rice:ImageObservation ;
-         ?link ?severity .
+         rice:severityScore ?score ;
+         rice:annotatedAs ?condition .
 }
-ORDER BY ?image"""),
+ORDER BY DESC(?score) ?image"""),
             ("What the severity levels are used for in {V}",
              """SELECT ?severity ?recommends WHERE {
   ?severity a rice:SeverityLevel .
@@ -772,9 +783,20 @@ OPEN = {
   UNION { ?image rice:confidenceScore ?confidence }
 }"""),
     "CQ-A25": (
-        "no written and no image-derived assessment of the same observation, "
-        "and no scale they would share: severityScore is declared and unused",
-        """SELECT ?observation WHERE { ?observation rice:severityScore ?score }"""),
+        # Until 0.9.1 the probe was any severityScore, and the reason ended
+        # "severityScore is declared and unused". Since 0.10.0-dev the
+        # sheath blight images carry one, so the probe now asks for the part
+        # that is still missing: a written statement about a scored
+        # observation.
+        "image-derived assessments exist ({SCORED} images carry a "
+        "severityScore), but there is no written assessment of the same "
+        "observation to compare them with: no text passage or document "
+        "refers to a scored image",
+        """SELECT ?observation WHERE {
+  ?observation rice:severityScore ?score .
+  { ?text a rice:TextPassage } UNION { ?text a rice:TextDocument }
+  ?text ?link ?observation .
+}"""),
 }
 
 MAX_SAMPLE = 8
@@ -872,6 +894,9 @@ def measure(graph):
             "SELECT (COUNT(*) AS ?n) WHERE { ?i rice:captures ?s }")),
         "CAP_SYMPTOMS": str(count(
             "SELECT (COUNT(DISTINCT ?s) AS ?n) WHERE { ?i rice:captures ?s }")),
+        "SCORED": "{:,}".format(count(
+            "SELECT (COUNT(DISTINCT ?i) AS ?n) WHERE "
+            "{ ?i a rice:ImageObservation ; rice:severityScore ?s }")),
         "AGED": "{:,}".format(count(
             "SELECT (COUNT(DISTINCT ?i) AS ?n) WHERE "
             "{ ?i a rice:ImageObservation ; rice:plantAgeDays ?d }")),
