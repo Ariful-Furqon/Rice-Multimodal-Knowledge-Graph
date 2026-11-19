@@ -1,12 +1,12 @@
 # Elicited Competency Questions - SPARQL Results
 
-Generated 2026-11-19 21:23 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 344,753 asserted triples, 667,048 after OWL RL materialisation (258.7s).
+Generated 2026-11-19 21:43 by `elicited_cq_sparql.py` against `Rice MMKG.rdf`: 344,753 asserted triples, 667,048 after OWL RL materialisation (109.8s).
 
 **22 of the 25 elicited Tier A CQs are queried here** - every one for which RiceMMKG v0.10.0-dev has at least the concept the question turns on. Answerability is measured, not predicted: the Stage 3 `v06_status` column is not used. The remaining 3 ask for a concept v0.10.0-dev does not have at all; the status table at the end lists each with its reason and with a probe query that confirms the concept is still missing.
 
-**10 answer in full, 9 answer in part, and 3 return nothing.** A partial is not a pass: the query returns what v0.10.0-dev supports, and the shortfall is named on the CQ. A CQ that returns nothing is reported, not dropped - the empty result is the measurement.
+**10 answer in full, 10 answer in part, and 2 return nothing.** A partial is not a pass: the query returns what v0.10.0-dev supports, and the shortfall is named on the CQ. A CQ that returns nothing is reported, not dropped - the empty result is the measurement.
 
-**A partial comes in two kinds, and they are different pieces of work.** 8 are *partial - schema*: the ontology has no concept for part of what the question asks, so no amount of data would answer it and the remedy is modelling. 1 is *partial - data*: the concept exists and the query is correct, but few individuals carry it, so the remedy is annotation. Only the second kind is a coverage question at all - a relation that does not exist has no ratio to report, and calling that 0% would misdescribe it.
+**A partial comes in two kinds, and they are different pieces of work.** 8 are *partial - schema*: the ontology has no concept for part of what the question asks, so no amount of data would answer it and the remedy is modelling. 2 are *partial - data*: the concept exists and the query is correct, but few individuals carry it, so the remedy is annotation. Only the second kind is a coverage question at all - a relation that does not exist has no ratio to report, and calling that 0% would misdescribe it.
 
 > **These results may not be used to edit the CQ set.** A question the graph answers poorly is a finding about the graph. Rewording CQs to fit what the ontology already does is the circularity this elicitation exists to avoid, and the expert ratings - the only legitimate ground for revising the set - are not in yet.
 
@@ -35,7 +35,7 @@ A retrieval CQ answers if it returns at least one row. **A large row count is no
 | `CQ-A15` | L1 | D2 | partial - data | Which visible symptoms are annotated in a given image? |
 | `CQ-A16` | L3 | D2 | answers | Which disease or pest is best supported by the visual evidence in a given image? |
 | `CQ-A17` | L3 | D2 | partial - schema | Which visual features separate Brown Spot from Rice Blast? |
-| `CQ-A18` | L1 | D2 | NO ANSWER | How severe is the damage recorded in a given image? |
+| `CQ-A18` | L1 | D2 | partial - data | How severe is the damage recorded in a given image? |
 | `CQ-A19` | L2 | D2 | NO ANSWER | Which symptoms co-occur on the same plant within a single image? |
 | `CQ-A20` | L1 | D2 | NO ANSWER | Which growth stage is visually manifest in a whole-canopy image? |
 | `CQ-A21` | L2 | D2 | answers | Which symptoms described in the literature have supporting image evidence, and which do not? |
@@ -66,7 +66,7 @@ SELECT ?pathogen ?group ?eppo_code ?external_alignment WHERE {
 }
 ```
 
-1 row(s) in 4.1 ms.
+1 row(s) in 3.7 ms.
 
 | pathogen | group | eppo_code | external_alignment |
 |---|---|---|---|
@@ -82,7 +82,7 @@ SELECT ?pathogen ?group WHERE {
 ORDER BY ?group ?pathogen
 ```
 
-10 row(s) in 4.5 ms.
+10 row(s) in 3.9 ms.
 
 | pathogen | group |
 |---|---|
@@ -106,7 +106,7 @@ SELECT ?disease ?pathogen WHERE {
 ORDER BY ?disease
 ```
 
-10 row(s) in 2.7 ms.
+10 row(s) in 4.1 ms.
 
 | disease | pathogen |
 |---|---|
@@ -137,7 +137,7 @@ SELECT ?vector ?agent ?mode ?disease WHERE {
 ORDER BY ?vector ?agent
 ```
 
-2 row(s) in 5.1 ms.
+2 row(s) in 3.5 ms.
 
 | vector | agent | mode | disease |
 |---|---|---|---|
@@ -163,7 +163,7 @@ SELECT ?symptom ?plant_part ?stage_of_disease WHERE {
 ORDER BY ?symptom ?plant_part ?stage_of_disease
 ```
 
-45 row(s) in 5.7 ms.
+45 row(s) in 5.6 ms.
 
 | symptom | plant_part | stage_of_disease |
 |---|---|---|
@@ -196,7 +196,7 @@ GROUP BY ?other
 ORDER BY DESC(?shared_symptoms)
 ```
 
-12 row(s) in 7.1 ms.
+12 row(s) in 7.4 ms.
 
 | other | shared_symptoms |
 |---|---|
@@ -227,7 +227,7 @@ SELECT ?symptom ?present_only_in WHERE {
 ORDER BY ?present_only_in ?symptom
 ```
 
-26 row(s) in 8.5 ms.
+26 row(s) in 8.6 ms.
 
 | symptom | present_only_in |
 |---|---|
@@ -256,7 +256,7 @@ SELECT ?condition WHERE {
 ORDER BY ?condition
 ```
 
-2 row(s) in 2.0 ms.
+2 row(s) in 2.1 ms.
 
 | condition |
 |---|
@@ -273,7 +273,7 @@ GROUP BY ?condition
 ORDER BY DESC(?entities) ?condition
 ```
 
-9 row(s) in 4.2 ms.
+9 row(s) in 4.8 ms.
 
 | condition | entities |
 |---|---|
@@ -337,7 +337,7 @@ GROUP BY ?treatment ?category
 ORDER BY ?treatment
 ```
 
-3 row(s) in 8.6 ms.
+3 row(s) in 9.1 ms.
 
 | treatment | category | sources | citations |
 |---|---|---|---|
@@ -373,7 +373,7 @@ SELECT ?condition ?distinguishing_feature ?plant_part WHERE {
 ORDER BY DESC(?condition) ?distinguishing_feature
 ```
 
-23 row(s) in 9.9 ms.
+23 row(s) in 10.3 ms.
 
 | condition | distinguishing_feature | plant_part |
 |---|---|---|
@@ -397,7 +397,7 @@ SELECT ?shared_feature WHERE {
 ORDER BY ?shared_feature
 ```
 
-1 row(s) in 2.3 ms.
+1 row(s) in 2.6 ms.
 
 | shared_feature |
 |---|
@@ -415,7 +415,7 @@ SELECT ?condition ?cause ?cause_type WHERE {
 ORDER BY ?condition
 ```
 
-2 row(s) in 5.9 ms.
+2 row(s) in 6.3 ms.
 
 | condition | cause | cause_type |
 |---|---|---|
@@ -438,7 +438,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-2151 row(s) in 45.7 ms.
+2151 row(s) in 44.9 ms.
 
 | image | url |
 |---|---|
@@ -477,7 +477,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 395.4 ms.
+1 row(s) in 378.3 ms.
 
 | image | condition | dataset | title | source | confidence |
 |---|---|---|---|---|---|
@@ -496,7 +496,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 1758.2 ms.
+1 row(s) in 1709.5 ms.
 
 | images | with_source_dataset | with_confidence |
 |---|---|---|
@@ -523,7 +523,7 @@ GROUP BY ?condition ?type
 ORDER BY DESC(?images)
 ```
 
-19 row(s) in 10406.4 ms.
+19 row(s) in 10170.4 ms.
 
 | condition | type | images |
 |---|---|---|
@@ -547,7 +547,7 @@ SELECT ?dataset (COUNT(?image) AS ?images) WHERE {
 GROUP BY ?dataset
 ```
 
-7 row(s) in 279.0 ms.
+7 row(s) in 274.3 ms.
 
 | dataset | images |
 |---|---|
@@ -581,7 +581,7 @@ SELECT ?image ?symptom ?plant_part WHERE {
 ORDER BY ?plant_part
 ```
 
-2 row(s) in 212.2 ms.
+2 row(s) in 214.5 ms.
 
 | image | symptom | plant_part |
 |---|---|---|
@@ -598,7 +598,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?images_with_direct_organ) WHERE {
 }
 ```
 
-1 row(s) in 1789.9 ms.
+1 row(s) in 1765.9 ms.
 
 | images_with_direct_organ |
 |---|
@@ -620,7 +620,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 29945.9 ms.
+1 row(s) in 29274.6 ms.
 
 | images | with_inferred_organ |
 |---|---|
@@ -643,7 +643,7 @@ SELECT ?image ?symptom WHERE {
 }
 ```
 
-1 row(s) in 42.7 ms.
+1 row(s) in 38.9 ms.
 
 | image | symptom |
 |---|---|
@@ -659,7 +659,7 @@ GROUP BY ?symptom
 ORDER BY DESC(?images)
 ```
 
-2 row(s) in 21.7 ms.
+2 row(s) in 20.7 ms.
 
 | symptom | images |
 |---|---|
@@ -718,7 +718,7 @@ SELECT ?condition ?distinguishing_symptom WHERE {
 ORDER BY ?condition ?distinguishing_symptom
 ```
 
-26 row(s) in 9.1 ms.
+26 row(s) in 10.6 ms.
 
 | condition | distinguishing_symptom |
 |---|---|
@@ -742,7 +742,7 @@ SELECT ?shared_symptom WHERE {
 ORDER BY ?shared_symptom
 ```
 
-5 row(s) in 2.3 ms.
+5 row(s) in 2.1 ms.
 
 | shared_symptom |
 |---|
@@ -754,24 +754,36 @@ ORDER BY ?shared_symptom
 
 ### CQ-A18 - How severe is the damage recorded in a given image?
 
-**Level L1 · Dimension D2 · NO ANSWER**
+**Level L1 · Dimension D2 · partial - data**
 
-Stage 3 predicted this needs new schema and left it out. Queried here so that the prediction becomes a measurement. SeverityLevel exists and has four individuals, so the concept is not missing; what is missing is any link from an image to one of them.
+Stage 3 predicted this needs new schema and left it out. Queried here so that the prediction becomes a measurement. SeverityLevel exists and has four individuals, so the concept is not missing; what is missing is any link from an image to one of them. Since 2026-11-19 (0.10.0-dev) the sheath blight severity images carry rice:severityScore, the stage on their source's six-stage scale, so the first query reads that score; up to v0.9.1 it looked for a link to a SeverityLevel and returned nothing.
 
-> **No answer:** no image carries a severity level. The four SeverityLevel individuals carry only the juknis attack-intensity category as a comment (their recommends links were removed in 0.7.0-dev as unsourced), and no property has SeverityLevel as its range
+> **Partial:** only 1,598 of 22,747 images carry a severity score, all of them sheath blight, on their source's own six-stage scale (lesion height relative to plant height), graded by one person and not expert-validated; no image is linked to one of the four SeverityLevel individuals
 
-**Severity level recorded on any image**
+**Severity score recorded on an image, with the condition it is annotated as**
 
 ```sparql
-SELECT ?image ?severity WHERE {
-  ?severity a rice:SeverityLevel .
+SELECT ?image ?condition ?score WHERE {
   ?image a rice:ImageObservation ;
-         ?link ?severity .
+         rice:severityScore ?score ;
+         rice:annotatedAs ?condition .
 }
-ORDER BY ?image
+ORDER BY DESC(?score) ?image
 ```
 
-0 row(s) in 684.4 ms.
+1598 row(s) in 255.7 ms.
+
+| image | condition | score |
+|---|---|---|
+| rice:SBSeverity_Stage_6_IMG_107_10JAN_KTK | rice:Sheath_Blight | 6.0 |
+| rice:SBSeverity_Stage_6_IMG_108_10JAN_KTK | rice:Sheath_Blight | 6.0 |
+| rice:SBSeverity_Stage_6_IMG_109_10JAN_KTK | rice:Sheath_Blight | 6.0 |
+| rice:SBSeverity_Stage_6_IMG_10_10JAN_KTK | rice:Sheath_Blight | 6.0 |
+| rice:SBSeverity_Stage_6_IMG_10_18MAR25_KTK | rice:Sheath_Blight | 6.0 |
+| rice:SBSeverity_Stage_6_IMG_10_26FEB25_KTK | rice:Sheath_Blight | 6.0 |
+| rice:SBSeverity_Stage_6_IMG_110_10JAN_KTK | rice:Sheath_Blight | 6.0 |
+| rice:SBSeverity_Stage_6_IMG_112_18MAR25_KTK | rice:Sheath_Blight | 6.0 |
+| *… 1,590 more rows* | | |
 
 **What the severity levels are used for in v0.10.0-dev**
 
@@ -783,7 +795,7 @@ SELECT ?severity ?recommends WHERE {
 ORDER BY ?severity
 ```
 
-4 row(s) in 3.8 ms.
+4 row(s) in 3.0 ms.
 
 | severity | recommends |
 |---|---|
@@ -810,7 +822,7 @@ SELECT ?image ?symptom_a ?symptom_b WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 109.4 ms.
+0 row(s) in 109.2 ms.
 
 **How many symptoms each annotated image captures**
 
@@ -824,7 +836,7 @@ GROUP BY ?symptoms_per_image
 ORDER BY ?symptoms_per_image
 ```
 
-1 row(s) in 102.7 ms.
+1 row(s) in 93.0 ms.
 
 | symptoms_per_image | images |
 |---|---|
@@ -849,7 +861,7 @@ SELECT ?image ?stage WHERE {
 ORDER BY ?image
 ```
 
-0 row(s) in 982.9 ms.
+0 row(s) in 990.5 ms.
 
 **What the images carry instead: the age of the plant in days**
 
@@ -862,7 +874,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 343.3 ms.
+1 row(s) in 334.7 ms.
 
 | images_with_age | youngest | oldest |
 |---|---|---|
@@ -888,7 +900,7 @@ WHERE {
 GROUP BY ?image_evidence
 ```
 
-2 row(s) in 33545.5 ms.
+2 row(s) in 32856.2 ms.
 
 | image_evidence | symptoms |
 |---|---|
@@ -906,7 +918,7 @@ SELECT ?symptom WHERE {
 ORDER BY ?symptom
 ```
 
-126 row(s) in 16749.6 ms.
+126 row(s) in 16439.2 ms.
 
 | symptom |
 |---|
@@ -939,7 +951,7 @@ SELECT ?image ?condition ?symptom ?pathogen WHERE {
 ORDER BY ?symptom
 ```
 
-17 row(s) in 198.4 ms.
+17 row(s) in 199.1 ms.
 
 | image | condition | symptom | pathogen |
 |---|---|---|---|
@@ -963,7 +975,7 @@ WHERE {
 }
 ```
 
-1 row(s) in 1194.4 ms.
+1 row(s) in 1241.9 ms.
 
 | images_with_literature |
 |---|
@@ -988,7 +1000,7 @@ SELECT ?image ?condition ?treatment WHERE {
 ORDER BY ?treatment
 ```
 
-4 row(s) in 1446.2 ms.
+4 row(s) in 1380.7 ms.
 
 | image | condition | treatment |
 |---|---|---|
@@ -1006,7 +1018,7 @@ SELECT (COUNT(DISTINCT ?image) AS ?images_with_treatment) WHERE {
 }
 ```
 
-1 row(s) in 302.2 ms.
+1 row(s) in 294.5 ms.
 
 | images_with_treatment |
 |---|
@@ -1030,7 +1042,7 @@ SELECT ?image ?url WHERE {
 ORDER BY ?image
 ```
 
-3747 row(s) in 74.6 ms.
+3747 row(s) in 76.3 ms.
 
 | image | url |
 |---|---|
@@ -1084,21 +1096,20 @@ So that nothing looks hidden: every CQ, and why it is or is not implemented here
 | `CQ-A15` | L1 | D2 | implemented here | Symptoms annotated in a given image | partial - data in v0.10.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
 | `CQ-A16` | L3 | D2 | implemented here | Disease or pest supported by visual evidence | answers in v0.10.0-dev; no benchmark counterpart |
 | `CQ-A17` | L3 | D2 | implemented here | Visual features separating confusable conditions | partial - schema in v0.10.0-dev; no benchmark counterpart |
-| `CQ-A18` | L1 | D2 | queried - no answer | Severity of the damage in an image | v0.10.0-dev returns nothing: no image carries a severity level. The four SeverityLevel individuals carry only the juknis attack-intensity category as a comment (their recommends links were removed in 0.7.0-dev as unsourced), and no property has SeverityLevel as its range |
+| `CQ-A18` | L1 | D2 | implemented here | Severity of the damage in an image | partial - data in v0.10.0-dev; no benchmark counterpart |
 | `CQ-A19` | L2 | D2 | queried - no answer | Symptoms co-occurring in one image | v0.10.0-dev returns nothing: every image that captures a symptom captures exactly one, so no pair can co-occur; the same-plant part of the question has no model at all, since v0.10.0-dev images are independent |
 | `CQ-A20` | L1 | D2 | queried - no answer | Growth stage visible in a canopy image | v0.10.0-dev returns nothing: no image is linked to a GrowthStage and none is marked as a whole-canopy view; 16,225 of 22,747 images carry plantAgeDays from their dataset's metadata, an age in days that v0.10.0-dev does not map to a stage |
 | `CQ-A21` | L2 | D2 | implemented here | Literature symptoms with and without image support | answers in v0.10.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
 | `CQ-A22` | L3 | D2 | implemented here | Literature disease matching an image | answers in v0.10.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
 | `CQ-A23` | L3 | D2 | implemented here | Treatment prescribed for an imaged condition | answers in v0.10.0-dev; the benchmark probes the same relation in coverage form, this is the answer form |
 | `CQ-A24` | L1 | D2 | implemented here | Symptom-free baseline images, by organ and view | partial - schema in v0.10.0-dev; no benchmark counterpart |
-| `CQ-A25` | L3 | D3 | open - RE-EXAMINE | Written and image-derived assessments in disagreement | the probe now returns 1598 row(s), so the recorded reason may be stale: no written and no image-derived assessment of the same observation, and no scale they would share: severityScore is declared and unused |
+| `CQ-A25` | L3 | D3 | open - concept missing | Written and image-derived assessments in disagreement | v0.10.0-dev: image-derived assessments exist (1,598 images carry a severityScore), but there is no written assessment of the same observation to compare them with: no text passage or document refers to a scored image (probe: 0 rows) |
 
 | State | CQs |
 |---|---|
-| implemented here | 19 |
-| queried - no answer | 3 |
-| open - concept missing | 2 |
-| open - RE-EXAMINE | 1 |
+| implemented here | 20 |
+| open - concept missing | 3 |
+| queried - no answer | 2 |
 
 ## What this changes for the roadmap
 

@@ -792,10 +792,12 @@ OPEN = {
         "severityScore), but there is no written assessment of the same "
         "observation to compare them with: no text passage or document "
         "refers to a scored image",
+        # Starts from the few hundred text individuals, not the scored images,
+        # so rdflib does not join every image with every passage first.
         """SELECT ?observation WHERE {
-  ?observation rice:severityScore ?score .
   { ?text a rice:TextPassage } UNION { ?text a rice:TextDocument }
   ?text ?link ?observation .
+  ?observation rice:severityScore ?score .
 }"""),
 }
 
