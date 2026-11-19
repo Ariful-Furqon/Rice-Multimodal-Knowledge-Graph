@@ -361,7 +361,7 @@ Three archives were downloaded and inspected; the others were judged from the re
 |---|---|---|---|---|
 | Proximal multispectral dataset for brown spot (Colombia) | `nz8bhz7j9t` | 6.2 GB | 2,772 captures of five bands plus RGB (DJI P4 Multispectral, 30–45 cm above the canopy), labelled healthy or brown spot by agronomists. A new modality tied to a disease already in the graph. | **Best candidate.** Download and check; needs band-level properties. The README describes the authors' code, not the files. |
 | Symptom-labelled stem borer images (Bangladesh) | `hnfjs42d5g` | 1.7 GB | 2,096 original field photos labelled Healthy, Dead Heart or White Head, confirmed by an agricultural expert, with two named locations and a collection period. Labels are symptoms, and `Deadheart` exists as a `Symptom`. | **Candidate.** Would be the first images annotated with a symptom rather than a disease or pest. |
-| RiceLeafDiseaseBD | `86s4jzj2m4` | 5.6 GB | 9,769 photos, six classes, 21,460 lesion boxes, varieties BRRI dhan28 and dhan29. The record promises variety, severity and growth stage per image, but the metadata table published beside the archive has only file names and sizes. | Later. Classes are already covered; boxes have no place in the schema yet. |
+| RiceLeafDiseaseBD | `86s4jzj2m4` | 5.6 GB | 9,769 photos, six classes, 21,460 lesion boxes, varieties BRRI dhan28 and dhan29. The record promises variety, severity and growth stage per image, but the metadata table published beside the archive has only file names and sizes. | Later. Classes are already covered; boxes have no place in the schema yet. Checked 2026-11-19: the metadata has no variety, severity or growth stage; see the section at the end. |
 | Sheath blight severity | `489spnkhp5` | 4.4 GB | Field photos in six severity levels. | Later. `SeverityLevel` exists; the grading scale is not named in the record. |
 | Rice leaf disease, nine classes | `n8jpkpfz5p` | 2.1 GB | 6,758 images incl. Leaf Scald, Narrow Brown Spot, Neck Blast, Sheath Blight. | Later. More images for covered classes only. |
 | MINCERnet temperature and humidity in paddies | `9wjgpxbns8` | 3 MB | Canopy micro-meteorology from several countries. | Not suitable. No disease or pest observation attached. |
@@ -466,3 +466,43 @@ No image set was found for zinc deficiency or iron toxicity.
 ### Result
 
 An openly licensed image set for the abiotic disorders does not exist in these repositories. The realistic routes are: the licence of the Kaggle N/P/K set (three disorders at once), expert confirmation of the Netrokona potassium class, or symptom figures taken from CC BY papers during the text pilot.
+
+## iNaturalist photos for the three pests without images (2026-11-19)
+
+Target: photos of `Rice_Bug`, `Nephotettix_Virescens` and `Armyworm`, the three `Pest` individuals with no image. Counted through the iNaturalist API (`https://api.inaturalist.org/v1/observations`): research-grade observations with photos, filtered by photo licence and by place (Asia `97395`, Indonesia `6966`). The ontology does not name a species for `Rice_Bug` or `Armyworm`, so the common rice species and their genera were queried. Nothing was downloaded apart from six sample photos, which were viewed.
+
+| Taxon | iNaturalist id | Research grade | CC0 or CC BY | Asia, CC0 or CC BY | Indonesia, CC0 or CC BY |
+|---|---|---:|---:|---:|---:|
+| *Leptocorisa oratoria* | 145555 | 115 | 11 | 10 | 8 |
+| *Leptocorisa acuta* | 145554 | 1,233 | 144 | 15 | 0 |
+| *Leptocorisa* (genus) | 145558 | 1,783 | 205 | 72 | 10 |
+| *Nephotettix virescens* | 855422 | 105 | 20 | 20 | 0 |
+| *Nephotettix nigropictus* | 482020 | 183 | 20 | 18 | 0 |
+| *Nephotettix* (genus) | 330760 | 390 | 44 | 40 | 0 |
+| *Mythimna separata* | 544098 | 902 | 192 | 11 | 0 |
+| *Spodoptera mauritia* | 211020 | 2,608 | 236 | 9 | 0 |
+| *Spodoptera frugiperda* | 132468 | 9,885 | 1,050 | 2 | 0 |
+
+Counts are observations; one observation can hold several photos (the 72 Asian *Leptocorisa* observations hold 111 CC0 or CC BY photos from 41 observers, the 40 *Nephotettix* ones 65 photos from 17). Most open-licence *L. acuta*, *M. separata* and *S. mauritia* records are from Australia, New Zealand or Hawaii. With CC BY-NC included, Asia has 619 *Leptocorisa*, 235 *Nephotettix*, 179 *M. separata* and 50 *S. mauritia* observations.
+
+- **Host:** none of the Asian open-licence observations mentions rice, paddy or *Oryza* in its description or observation fields. Of the six sample photos, the two *Nephotettix* show the insect on a light-trap sheet, and the *Leptocorisa* ones show it on broad leaves of other plants.
+- **Content:** these are photos to identify the insect, not field observations of a rice crop. They show neither symptom nor damage, and the host is unknown.
+- **Recommendation:** **do not import as `ImageObservation` of the rice crop.** At most, a small set (about 110 *Leptocorisa* and 65 *Nephotettix* photos, CC0 or CC BY, Asia) could illustrate the pest as an organism, which would need a separate observation type or a clear statement that the host is unknown. Armyworm has too few Asian records (about 20) even for that. The gap stays open; the remaining route is field photos taken for the project, labelled by an expert.
+
+## RiceLeafDiseaseBD, check of the record and its small files (2026-11-19)
+
+Mendeley `86s4jzj2m4`, version 3 (published 2026-09-01), DOI 10.17632/86s4jzj2m4.3, CC BY 4.0. Checked through the Mendeley public API: the record, `README.md`, `Annotation_Protocol.pdf` and `Dataset metadata.xlsx` were downloaded to the scratchpad; the 5.6 GB archive `RiceLeafDiseaseBD.zip` was not.
+
+- **Images:** 9,769 field photos taken with two smartphones in Gazipur, Bangladesh (about 23.918 N, 90.423 E), resized to 1024 × 1024. Six classes: Rice Tungro 2,244, Brown Spot 2,178, Sheath Blight 1,722, Healthy 1,575, Blast 1,326, Leaf Smut 724.
+- **Boxes:** one YOLO file per image, a box per lesion region, drawn by hand in red on the photos by trained annotators and validated by plant pathologists and farmers (κ = 0.82 on 200 images). Coordinates were extracted automatically from the red strokes; close rectangles can merge, and half of the boxes are smaller than 20 × 20 px. Healthy images have empty files. The total is not consistent: 21,460 in the record and the protocol table, 22,123 in the README text and the class table (Sheath Blight 2,605 or 2,607). To be counted from the archive.
+- **Metadata (verified):** the spreadsheet has nine columns: class, original and new file name, original and resized size. **It has no variety, severity, growth stage or device per image**, although the record lists them. The varieties (BRRI dhan28 and dhan29) are stated for the dataset only.
+- **Dates (derived):** 9,761 original file names carry the capture date (`YYYYMMDD_HHMMSS` or `IMGYYYYMMDD…`): 1 April to 3 May 2025, 8 to 12 distinct days per class, in the boro season. The README calls it "Summer 2025".
+- **Possible duplicates:** 9 original file names appear in two classes (e.g. `20250409_133553.jpg` under Rice Tungro and Sheath Blight), and 67 names end in "- Copy" or "(n)". To be checked by hash once the archive is downloaded.
+- **Labels:** visual diagnosis, not laboratory-confirmed (stated in the README). Tungro is labelled from leaf photos, where its yellowing can resemble nitrogen deficiency.
+
+**What it would add:**
+1. Lesion regions per image, the first content below the level of the whole image. They can be modelled as regions of the photo with a W3C Media Fragments `#xywh=` selector, which gives a lesion count per image and image–region–symptom links for the benchmark.
+2. A capture date for every photo and one location for the set, as for the Kaggle N/P/K set.
+3. `Leaf_Smut` as a new `Disease` (*Entyloma oryzae*), with its pathogen and symptoms taken from a source first.
+
+**Recommendation: candidate, but only for the lesion regions.** Variety, severity and growth stage, the reason it was put first, are not in the files. The other five classes add photos to classes already covered. Before an import: download the archive, count the boxes, check the 9 cross-class names and the copies, and decide how image regions enter the schema.
