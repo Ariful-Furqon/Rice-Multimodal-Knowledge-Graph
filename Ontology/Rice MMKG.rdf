@@ -57549,7 +57549,7 @@
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#evidenceType">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
     <rdfs:label xml:lang="en">evidence type</rdfs:label>
-    <rdfs:comment xml:lang="en">Categorization of the evidence backing a domain assertion (e.g. literature-curated, dataset-derived).</rdfs:comment>
+    <rdfs:comment xml:lang="en">Categorization of the evidence backing an assertion, as a lowercase hyphenated @en literal: 'literature-curated' (stated by a cited source), 'ontology-derived' (read off an external ontology or taxonomy record), 'dataset-derived' (taken from a dataset's own labels or metadata), 'human-observed' (a person's report about an observation, a HumanReport) or 'estimated-from-observations' (a statistic learned from HumanReports, e.g. estimatedLikelihood).</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_normal_PDD10467">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -134411,8 +134411,8 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <owl:versionIRI rdf:resource="https://w3id.org/ricemmkg/0.10.0"/>
-    <owl:priorVersion rdf:resource="https://w3id.org/ricemmkg/0.9.1"/>
+    <owl:versionIRI rdf:resource="https://w3id.org/ricemmkg/0.11.0"/>
+    <owl:priorVersion rdf:resource="https://w3id.org/ricemmkg/0.10.0"/>
     <vann:preferredNamespaceUri>https://w3id.org/ricemmkg#</vann:preferredNamespaceUri>
     <dcterms:creator>Muhammad Ariful Furqon (ORCID: https://orcid.org/0000-0002-1031-3567)</dcterms:creator>
     <dcterms:creator>Natthawut Kertkeidkachorn (ORCID: https://orcid.org/0000-0003-4527-776X)</dcterms:creator>
@@ -134422,7 +134422,7 @@
     <dcterms:title>Rice MMKG — Rice Multimodal Knowledge Graph</dcterms:title>
     <vann:preferredNamespacePrefix>riceMMKG</vann:preferredNamespacePrefix>
     <rdfs:comment xml:lang="en">RiceMMKG: A Multimodal Knowledge Graph and Domain Ontology for Rice Pest and Disease Identification. Every domain-level assertion is grounded in peer-reviewed agronomic literature and authoritative databases (IRRI Rice Doctor Knowledge Bank, CABI Crop Protection Compendium, and EPPO Global Database), formally traceable via OWL axiom annotations (owl:Axiom with dcterms:source and dcterms:bibliographicCitation). Namespace https://w3id.org/ricemmkg# since 0.7.0-dev. Releases up to v0.6.2 used http://www.semanticweb.org/arifu/ontologies/2026/3/riceMMKG#; their version IRIs (https://w3id.org/ricemmkg/0.6.0, https://w3id.org/ricemmkg/0.6.1, https://w3id.org/ricemmkg/0.6.2) resolve to those files. Every later git tag v&lt;version&gt; resolves at https://w3id.org/ricemmkg/&lt;version&gt;.</rdfs:comment>
-    <owl:versionInfo>0.10.0-dev</owl:versionInfo>
+    <owl:versionInfo>0.11.0-dev</owl:versionInfo>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_tungro_PDD13952">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -166171,6 +166171,7 @@
     <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#Observation"/>
     <rdfs:range rdf:nodeID="N54217c2af35b41c2ae09aedc3fee33a7"/>
     <rdfs:label xml:lang="en">captures</rdfs:label>
+    <rdfs:comment xml:lang="en">Relates an Observation to an EnvironmentalFactor, Symptom or Sign it records as present. For a dataset image this is the domain evidence the image shows; for a HumanReport, each feature the person answered present. Sign was added to the range in 0.11.0-dev, matching indicatedBy.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_yellow_stem_borer_PDD16149">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -182951,7 +182952,7 @@
   </rdf:Description>
   <rdf:Description rdf:nodeID="N45d4836b7ad64637a82c92f83766e65e">
     <rdf:first rdf:resource="https://w3id.org/ricemmkg#SensorObservation"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:rest rdf:nodeID="NhumanReport20261123c2"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_bacterial_panicle_blight_PDD01463">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -183859,7 +183860,7 @@
   </rdf:Description>
   <rdf:Description rdf:nodeID="N5e5d8d73516545cfad9d2a9f282a9a09">
     <rdf:first rdf:resource="https://w3id.org/ricemmkg#Symptom"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:rest rdf:nodeID="NhumanReport20261123c1"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#PaddyDoctor_normal_PDD10256">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -184807,7 +184808,7 @@
   </rdf:Description>
   <rdf:Description rdf:nodeID="N23db1111f8e14f5a9f052b46880ad49c">
     <rdf:first rdf:resource="https://w3id.org/ricemmkg#PathogenGroup"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:rest rdf:nodeID="NhumanReport20261123c3"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/ricemmkg#hasManagementCategory">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -424030,5 +424031,150 @@
     <rice:sourceLabel>Stage-6</rice:sourceLabel>
     <rice:recordedAtDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-03-18T16:51:40</rice:recordedAtDate>
     <prov:wasDerivedFrom rdf:resource="https://w3id.org/ricemmkg#SheathBlightSeverityDataset"/>
+  </rdf:Description>
+  <!-- human report schema 2026-11-23 (0.11.0-dev): benchmark design_v2 9.26 and 9.27, level 1 and level 2 -->
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#HumanReport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/ricemmkg#Observation"/>
+    <rdfs:label xml:lang="en">Human Report</rdfs:label>
+    <rdfs:comment xml:lang="en">An Observation made by a person about another Observation, such as a photo (aboutObservation): a free description in the person's own words (reportText) or a checklist of features answered present (captures), absent (notObserved) or cannot tell (cannotAssess). Who reported it is given by prov:wasAttributedTo (a pseudonymous prov:Agent) and reporterRole; how, by reportMethod. A report is evidence about one observation; it never changes a domain assertion.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/prov#Agent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">agent</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/prov#wasAttributedTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="en">was attributed to</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Checklist_Report">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ReportMethod"/>
+    <rdfs:label xml:lang="en">checklist report</rdfs:label>
+    <rdfs:comment xml:lang="en">The person answered a fixed list of features, each as present, absent or cannot tell (benchmark design 9.27).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Domain_Expert">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ReporterRole"/>
+    <rdfs:label xml:lang="en">domain expert</rdfs:label>
+    <rdfs:comment xml:lang="en">A person trained in rice pathology, entomology or agronomy. An expert usually recognises the condition, so their reports are informed, not blind.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Free_Text_Report">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ReportMethod"/>
+    <rdfs:label xml:lang="en">free-text report</rdfs:label>
+    <rdfs:comment xml:lang="en">The person described in their own words what looks wrong, without a list of features (benchmark design 9.26).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Lay_Observer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ricemmkg#ReporterRole"/>
+    <rdfs:label xml:lang="en">lay observer</rdfs:label>
+    <rdfs:comment xml:lang="en">A person without training in rice pathology or entomology, who reports only what the observation shows.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#ReportMethod">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Report Method</rdfs:label>
+    <rdfs:comment xml:lang="en">How a HumanReport was made. Two values are populated: Free_Text_Report and Checklist_Report.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#ReporterRole">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Reporter Role</rdfs:label>
+    <rdfs:comment xml:lang="en">The role of the person who made a HumanReport. Two values are populated: Lay_Observer and Domain_Expert.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#Sign">
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#ReportMethod"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/ricemmkg#ReporterRole"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#aboutObservation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#HumanReport"/>
+    <rdfs:range rdf:resource="https://w3id.org/ricemmkg#Observation"/>
+    <rdfs:label xml:lang="en">about observation</rdfs:label>
+    <rdfs:comment xml:lang="en">Relates a HumanReport to the Observation it reports on, e.g. the ImageObservation the person looked at.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#cannotAssess">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#HumanReport"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="https://w3id.org/ricemmkg#Symptom"/>
+          <rdf:Description rdf:about="https://w3id.org/ricemmkg#Sign"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:label xml:lang="en">cannot assess</rdfs:label>
+    <rdfs:comment xml:lang="en">Relates a HumanReport to a Symptom or Sign the person could not judge from the observation, e.g. a feature on a plant part the photo does not show. Neither present nor absent.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#estimatedLikelihood">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">estimated likelihood</rdfs:label>
+    <rdfs:comment xml:lang="en">On an owl:Axiom of indicatedBy: the estimated probability, in [0, 1], that a person reports the feature present on an observation of the condition, among answers that are not cannot tell. Learned from HumanReports (benchmark design 9.27, level 2) and given with sampleSize. A statistic about reports, not a change to the axiom it annotates.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#notObserved">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#HumanReport"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="https://w3id.org/ricemmkg#Symptom"/>
+          <rdf:Description rdf:about="https://w3id.org/ricemmkg#Sign"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:label xml:lang="en">not observed</rdfs:label>
+    <rdfs:comment xml:lang="en">Relates a HumanReport to a Symptom or Sign the person looked for and judged absent from the observation. The counterpart of captures for an absent feature.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#photoVisibilityRate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">photo visibility rate</rdfs:label>
+    <rdfs:comment xml:lang="en">On a Symptom or Sign: the share, in [0, 1], of HumanReports about a photo in which the feature could be judged (answered present or absent rather than cannot tell). Learned from reports (benchmark design 9.27, level 2) and given with sampleSize.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#reportMethod">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#HumanReport"/>
+    <rdfs:range rdf:resource="https://w3id.org/ricemmkg#ReportMethod"/>
+    <rdfs:label xml:lang="en">report method</rdfs:label>
+    <rdfs:comment xml:lang="en">How the HumanReport was made: a free description or a checklist.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#reportText">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#HumanReport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+    <rdfs:label xml:lang="en">report text</rdfs:label>
+    <rdfs:comment xml:lang="en">The reporter's own words, as written, with a language tag (e.g. @id or @en). Not translated and not edited. Links from this text to Symptom or Sign nodes are model output, recomputable from the text, and are not stored.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#reporterRole">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/ricemmkg#HumanReport"/>
+    <rdfs:range rdf:resource="https://w3id.org/ricemmkg#ReporterRole"/>
+    <rdfs:label xml:lang="en">reporter role</rdfs:label>
+    <rdfs:comment xml:lang="en">The role of the person who made the HumanReport: a lay observer or a domain expert.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ricemmkg#sampleSize">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:label xml:lang="en">sample size</rdfs:label>
+    <rdfs:comment xml:lang="en">On a subject that carries estimatedLikelihood or photoVisibilityRate: the number of HumanReport answers the estimate is based on.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NhumanReport20261123c1">
+    <rdf:first rdf:resource="https://w3id.org/ricemmkg#Sign"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NhumanReport20261123c2">
+    <rdf:first rdf:resource="https://w3id.org/ricemmkg#HumanReport"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NhumanReport20261123c3">
+    <rdf:first rdf:resource="https://w3id.org/ricemmkg#ReportMethod"/>
+    <rdf:rest rdf:nodeID="NhumanReport20261123c4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="NhumanReport20261123c4">
+    <rdf:first rdf:resource="https://w3id.org/ricemmkg#ReporterRole"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
 </rdf:RDF>
